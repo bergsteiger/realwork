@@ -1,0 +1,1194 @@
+Shared Delphi For F1 : Project - 
+version: 381
+Everest Engine : Library - Библиотека для доступа к компонентам редактора.
+ eeConst : Interfaces - 
+  eeInterfaces Const : Constants - 
+   ee_SubAutoID - 
+ eeInterfaces : Interfaces - 
+  TeeDirection : Enum - 
+   ee_dUp - 
+   ee_dUpMax - 
+   ee_dDown - 
+   ee_dDownMax - 
+   ee_dLeft - 
+   ee_dRight - 
+  IeeBase : Facet - Базовый интерфейс слоя EE
+  TeeNodeAction : Function - 
+   DoIt - 
+  IeePara : Facet - 
+   IsKindOf : facetmethod - 
+   IsSame : facetmethod - 
+   Delete : facetmethod - 
+   IsUserComment : facetmethod - 
+   AsObject : facetmethod - 
+   Document : readonly - 
+   Parent : readonly - 
+   Block : readonly - 
+   Subs : readonly - 
+   Markers : readonly - 
+   Bookmarks : readonly - 
+   Marks : readonly - 
+   ID : readonly - 
+   IndexInParent : readonly - 
+   Prev : readonly - 
+   Next : readonly - 
+  IeeLeafPara : Facet - 
+  IeeSub : Facet - 
+   Delete : facetmethod - 
+   Exists : facetmethod - 
+   Select : facetmethod - 
+   IsSame : facetmethod - 
+   SubPlace : readonly - 
+   ID : readonly - 
+   LayerID : readonly - 
+   Flag : readonly - 
+   Flags : readonly - 
+   Name : property - 
+   Next : readonly - следующая метка параграфа в том же слое
+   LeafPara : readonly - абзац, на который указывает метка, является абзацем нижнего уровня
+   Para : readonly - абзац, на который указывает метка
+  IeeSubList : Facet - 
+   Add : facetmethod - 
+   Count : readonly - 
+   Subs : readonly - 
+   SubsByID : readonly - 
+  IeeBlock : Facet - 
+   IsKindOf : facetmethod - 
+   Document : readonly - 
+   ParentBlock : readonly - 
+  TeeSetBitType : Enum - 
+   ee_sbSelect - 
+   ee_sbDeselect - 
+   ee_sbInvert - 
+  TeeMouseButton : Enum - 
+   ee_mbLeft - 
+   ee_mbMiddle - 
+   ee_mbRight - 
+  TeeMouseAction : Enum - 
+   ee_maDown - 
+   ee_maUp - 
+   ee_maDouble - 
+   ee_maMove - 
+  TeeSS : Enum - 
+   ee_ssShift - 
+   ee_ssAlt - 
+   ee_ssCtrl - 
+   ee_ssLeft - 
+   ee_ssRight - 
+   ee_ssMiddle - 
+   ee_ssDouble - 
+  IeeNode : Facet - 
+   Iterate : facetmethod - перебрать все дочерние узлы. IterMode см. imExpandOnly etc.
+   InsertChildBefore : facetmethod - 
+   Changing : facetmethod - 
+   Changed : facetmethod - 
+   Remove : facetmethod - 
+   Delete : facetmethod - 
+   RemoveChildren : facetmethod - 
+   Move : facetmethod - 
+   RelocateChild : facetmethod - перемещает указанного ребенка, руководствуясь критериями сортировки относительно других детей (в пределах одного уровня)
+   SortChilds : facetmethod - 
+   GetLevelForParent : facetmethod - Рассчитывает уровень текущей ноды относительно заданного Paretnt'а
+   InsertChild : facetmethod - 
+   IterateF : facetmethod - перебрать все дочерние узлы и освободить заглушку для Action
+   IsSameNode : facetmethod - 
+   Text : property - 
+   ID : property - 
+   HasChild : readonly - 
+   IsFirst : readonly - 
+   IsLast : readonly - 
+   ChildNode : readonly - 
+   ParentNode : readonly - 
+   NextNode : readonly - 
+   PrevNode : readonly - 
+   AllChildrenCount : readonly - 
+   ThisChildrenCount : readonly - 
+  IeeDocument : Facet - 
+   Block : readonly - 
+   BlockEx : readonly - 
+   Subs : readonly - список меток в документе (Sub'ы)
+   Markers : readonly - список пользовательскиx меток в документе
+   Bookmarks : readonly - список пользовательскиx закладок в документе
+   Marks : readonly - 
+   ExternalHandle : readonly - внешний идентификатор документа
+  IeeTree : Facet - 
+   TestFlagMask : facetmethod - 
+   SetFlagMask : facetmethod - 
+   SetFlagMask$1 : facetmethod - 
+   ExpandSubDir : facetmethod - развернуть/свернуть узлы
+   ChangeExpand : facetmethod - 
+   IsChanging : facetmethod - дерево находится в фазе обновления
+   Changing : facetmethod - 
+   Changed : facetmethod - 
+   GetAbsIndex : facetmethod - 
+   GetAbsIndex$1 : facetmethod - 
+   Iterate : facetmethod - перебрать все узлы. IterMode см. imExpandOnly etc.
+   IterateF : facetmethod - перебрать все узлы и освободить заглушку для Action
+   GetNextSelected : facetmethod - 
+   ClearSelected : facetmethod - 
+   SetAllFlags : facetmethod - 
+   GetNode : facetmethod - 
+   GetNodeByAbsIndex : facetmethod - 
+   Wake : facetmethod - 
+   IsExpanded : facetmethod - 
+   Root : property - 
+   SelectedCount : readonly - 
+   NodeFlags : property - 
+   FlagsByAbsIndex : property - 
+  IeeHotSpot : Facet - 
+   Para : readonly - 
+   Hyperlink : readonly - 
+   InSelection : readonly - 
+   Sub : readonly - 
+  IeeTreeView : Facet - Корневой интерфейс, представляющий доступ к контейнеру дерева
+   GetNode : facetmethod - 
+   GetNodeIndex : facetmethod - 
+   GetNodeAbsIndex : facetmethod - 
+   ExpandAll : facetmethod - 
+   CollapseAll : facetmethod - 
+   GoToNode : facetmethod - 
+   Tree : readonly - 
+   Current : property - 
+   AbsCurrent : readonly - 
+   NodeFlags : property - 
+   CurrentNode : readonly - 
+  TeeScrollStyle : Enum - Тип определяющий какие ScrollBar'ы нужны.
+   ee_ssNone - 
+   ee_ssHorizontal - 
+   ee_ssVertical - 
+   ee_ssBoth - 
+  TeeScrollCode : Enum - Код события от скроллера
+   scLineUp - 
+   scLineDown - 
+   scPageUp - 
+   scPageDown - 
+   scPosition - 
+   scTrack - 
+   scTop - 
+   scBottom - 
+   scEndScroll - 
+  TeeShiftState : SetOf - 
+  TeeCommentType : Enum - 
+   ee_ctUsual - 
+   ee_ctUser - 
+   ee_ctVersion - 
+  IeeData : Facet - Данные редактора
+   Document : readonly - 
+  IeePicture : Facet - 
+   SaveToStream : facetmethod - 
+   Name : readonly - 
+  IeeCommands : Facet - 
+   Cut : facetmethod - 
+   Copy : facetmethod - 
+   Delete : facetmethod - 
+   Paste : facetmethod - 
+   SelectAll : facetmethod - 
+   HideSelection : facetmethod - 
+  IeeEditor : Facet - Корневой интерфейс, представляющий доступ к функциям редактора
+   GetHotspotOnPoint : facetmethod - 
+   CanSplitPara : facetmethod - 
+   Commands : readonly - 
+   Data : readonly - 
+  IeeStyledLeafPara : Facet - 
+   IsComment : facetmethod - 
+   IsComment$1 : facetmethod - 
+  IeeTextPara : Facet - 
+   Text : readonly - 
+  TeeScrollInfo : Struct - 
+   rScrollInfo - 
+   rSmallChange - 
+   rLargeChange - 
+  IeeSubViewDescriptor : Facet - Описатель вида отображения слоя меток
+   Visible : property - 
+  IeeSubViewDescriptors : Facet - 
+   Subs : readonly - 
+   Markers : readonly - 
+   Bookmarks : readonly - 
+  IeeSubPanel : Facet - 
+   SubViewDescriptors : readonly - 
+ eeTextSource : Unit - 
+  TeeTextSourceExport : SimpleClass - 
+   TeeMakeDocumentContainerEvent : Function - 
+  TeeTextSource : SimpleClass - 
+ eeSubExport : Unit - 
+  TeeSubExport : SimpleClass - 
+  eeSubDescriptorsExport : UtilityPack - 
+   TeeSubDescriptors : SimpleClass - 
+   TeeSubDescriptor : SimpleClass - 
+ eeInterfacesEx : Interfaces - 
+  IeeDocumentEx : Facet - 
+   DocumentPart : readonly - 
+   DocumentPartEx : readonly - 
+   Sub : readonly - 
+   SubEx : readonly - 
+   Selection : readonly - 
+   EntryPoint : readonly - 
+   Processor : readonly - 
+   NewSub : readonly - 
+   NewSubEx : readonly - 
+  IeeTool : Typedef - 
+  IeeToolOwner : Typedef - 
+ Nodes : Unit - 
+  TeeVirtualNode : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TeeNode : SimpleClass - 
+   Create : Constructor - 
+   Make : method - 
+   f_Node - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  eeNodeUtils : UtilityPack - 
+   eeDirection2l3Direction : method - 
+ Engine Core : Unit - 
+  eeTreeMisc : UtilityPack - 
+   eeL2NA : method - 
+   eeL2NA - 
+  eeParaTools : UtilityPack - 
+   eeFindNumberedPara : method - 
+   eeFindNumberedPara - 
+  TeeTagEditorTool : SimpleClass - 
+   Create : Constructor - 
+   f_Document - 
+   Document : readonly - 
+  TeeDocumentTool : SimpleClass - 
+   Create : Constructor - 
+   Document : readonly - 
+  TeeHotSpot : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   f_Hyperlink - 
+   f_InSelection - 
+   f_Sub - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TeeSub : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   f_ID - 
+   f_LayerID - 
+   f_Flag - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TeeSubList : SimpleClass - 
+  eePara : UtilityPack - 
+   TeePara : SimpleClass - 
+   TeeLeafPara : SimpleClass - 
+   TeeStyledLeafPara : SimpleClass - 
+   TeeTextPara : SimpleClass - 
+   TeeParaList : SimpleClass - 
+   TeeSBS : SimpleClass - 
+  TeePicture : SimpleClass - 
+ eeExceptions : Interfaces - 
+  EeeUserCommentsHidden : Exception - 
+ EVD : EVD - Схема документа для F1
+  F1 : TagTable - 
+   TextStyle : TagOverride - 
+   TextPara : TagOverride - 
+   Document : TagOverride - 
+   DecorTextPara : TagOverride - 
+   BitmapPara : TagOverride - 
+    : uses - 
+    : uses - undefined
+  TeeTextPara : InterfaceFactory - 
+  TeeDocument : InterfaceFactory - 
+  eeDocument : TagTable - 
+  F1_AttrValues : UtilityPack - Локализуемые значения атрибутов значений тегов таблицы тегов F1
+   AttrValues : LocalConst - Локализуемые значения атрибутов значений тегов
+    : uses - undefined
+    : uses - undefined
+   LCImplAttrValues : Constants - Локализуемые строки AttrValues
+   Init_TextStyle_ANSIDOS_Name_Value : ini - Инициализация str_TextStyle_ANSIDOS_Name_Value
+   Init_TextStyle_CompareEditionsText_Name_Value : ini - Инициализация str_TextStyle_CompareEditionsText_Name_Value
+   Init_TextStyle_DeletedText_Name_Value : ini - Инициализация str_TextStyle_DeletedText_Name_Value
+   Init_TextStyle_ChatHeaderSender_Name_Value : ini - Инициализация str_TextStyle_ChatHeaderSender_Name_Value
+   Init_TextStyle_ChatHeaderRecipient_Name_Value : ini - Инициализация str_TextStyle_ChatHeaderRecipient_Name_Value
+   Init_TextStyle_AddedText_Name_Value : ini - Инициализация str_TextStyle_AddedText_Name_Value
+   Init_TextStyle_NewSchoolMainMenu_Name_Value : ini - Инициализация str_TextStyle_NewSchoolMainMenu_Name_Value
+   Init_TextStyle_MainMenu_Font_Name_Value : ini - Инициализация str_TextStyle_MainMenu_Font_Name_Value
+   Init_TextStyle_MainMenu_Name_Value : ini - Инициализация str_TextStyle_MainMenu_Name_Value
+   Init_TextStyle_MainMenuHeader_Name_Value : ini - Инициализация str_TextStyle_MainMenuHeader_Name_Value
+   Init_TextStyle_MainMenuConstPath_Name_Value : ini - Инициализация str_TextStyle_MainMenuConstPath_Name_Value
+   Init_TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value : ini - Инициализация str_TextStyle_NewSchoolMainMenuConstPath_Font_Name_Value
+   Init_TextStyle_NewSchoolMainMenuConstPath_Name_Value : ini - Инициализация str_TextStyle_NewSchoolMainMenuConstPath_Name_Value
+   Init_TextStyle_NewSchoolMainMenuHeader_Font_Name_Value : ini - Инициализация str_TextStyle_NewSchoolMainMenuHeader_Font_Name_Value
+   Init_TextStyle_NewSchoolMainMenuHeader_Name_Value : ini - Инициализация str_TextStyle_NewSchoolMainMenuHeader_Name_Value
+   Init_TextStyle_MainMenuChangePath_Name_Value : ini - Инициализация str_TextStyle_MainMenuChangePath_Name_Value
+   Init_TextStyle_MainMenuInteractiveHeader_Name_Value : ini - Инициализация str_TextStyle_MainMenuInteractiveHeader_Name_Value
+   Init_TextStyle_Changes1_Name_Value : ini - Инициализация str_TextStyle_Changes1_Name_Value
+   Init_TextStyle_Changes2_Name_Value : ini - Инициализация str_TextStyle_Changes2_Name_Value
+   Init_TextStyle_EnclosureHeader_Name_Value : ini - Инициализация str_TextStyle_EnclosureHeader_Name_Value
+   Init_TextStyle_EditionInterval_Name_Value : ini - Инициализация str_TextStyle_EditionInterval_Name_Value
+   Init_TextStyle_Edition_Name_Value : ini - Инициализация str_TextStyle_Edition_Name_Value
+   Init_TextStyle_EditionNumber_Name_Value : ini - Инициализация str_TextStyle_EditionNumber_Name_Value
+   Init_TextStyle_Snippet_Name_Value : ini - Инициализация str_TextStyle_Snippet_Name_Value
+   Init_TextStyle_VisitedDocumentInList_Name_Value : ini - Инициализация str_TextStyle_VisitedDocumentInList_Name_Value
+   Init_TextStyle_VisitedSnippetInList_Name_Value : ini - Инициализация str_TextStyle_VisitedSnippetInList_Name_Value
+   Init_TextStyle_TechComment_Name_Value : ini - Инициализация str_TextStyle_TechComment_Name_Value
+ CheckBox : Views - 
+ Tree : Views - 
+  TeeTreeViewExport : GuiControl - Компонент для экспорта отображения дерева
+   TeeRootChangedEvent : Function - 
+   TeeFormatStatusInfo : Function - 
+   TeeCurrentIndexChangedEvent : Function - Событие смены индекса текущего в дереве
+   TeeBT2L3BTMap : Vector - 
+   eeTreeViewExport Private Const : Constants - 
+   TeeTreeViewExportPrim : GuiControl - 
+   TeeTreeViewShadow : SimpleClass - 
+   TeeTreeState : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TeeTreeViewExport
+  TeeTreeView : GuiControl - Компонент для импорта отображения дерева. Для конечного использования.
+   TeeCurrentChanged : Function - событие для обработки изменения текущего элемента
+   TeeNewCharPressed : Function - событие для внешней обработки WMChar
+   TeeMakeTreeSource : Function - 
+   TeeGetItemImage : Function - событие для определения иконки элемента
+   TeeActionElement : Function - событие для обработки "двойного клика" на элементе
+   TeeBeforeExpandNode : Function - 
+   TeeExpandNodeEvent : Function - 
+   TeeCustomTreeView : GuiControl - Компонент для импорта отображения дерева
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TeeTreeView
+  eeCustomTreeView : UtilityPack - 
+   TeeCustomTreeView : Typedef - 
+ Buttons : Views - 
+ eeSubPanel : Views - 
+  TeeSubPanelExport : GuiControl - 
+   GetHotSpot : method - 
+   CheckSubOnPoint : method - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TeeSubPanelExport
+  TeeSubPanel : GuiControl - 
+   TeeCustomSubPanel : GuiControl - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TeeSubPanel
+ eeDocumentContainer : Unit - Контейнер документа.
+  TeeDocumentContainerPrim : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TeeProcessor : SimpleClass - 
+  TeeDocumentContainer : SimpleClass - Контейнер документа.
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TeeDocumentPartGenerator : SimpleClass - 
+    : uses - 
+    : uses - 
+    : uses - 
+ ShortcutEdit : Views - 
+  TeeShortCutEdit : GuiControl - 
+ Cursors : Unit - 
+  TeeTextParaCursor : SimpleClass - 
+   Editor : method - 
+   IsReadOnly : method - 
+   ShowComments : method - 
+    : uses - 
+    : injects - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  eeCursorTools : UtilityPack - 
+   eeEditorByPara : method - 
+   eeIsReadOnlyPara : method - 
+  TeeTextCursorPair : SimpleClass - 
+    : injects - 
+    : uses - 
+    : uses - 
+  TeeDocumentCursor : SimpleClass - 
+    : injects - 
+  TeeDocumentCursorPair : SimpleClass - 
+    : injects - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+ Editor : Views - 
+  TeeEditorExportModelPart : GuiControl - Часть TeeEditorExport перенесённная на модель
+   TeeBlock : SimpleClass - 
+   MakeHotSpot : method - 
+   AsIeeDocumentEx : method - 
+   TeeCanSplitParaEvent : Function - 
+   TeeBlockChangeEvent : Typedef - 
+   TeeBlockScrollEvent : Function - 
+   OnCanSplitPara : property - 
+   OnBlockChange : property - 
+   OnBlockScroll : property - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_OnCanSplitPara - Поле для свойства OnCanSplitPara
+   f_OnBlockChange - Поле для свойства OnBlockChange
+   f_OnBlockScroll - Поле для свойства OnBlockScroll
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TeeEditorExportModelPart
+  TeeEditorExport : GuiControl - 
+   TeeMouseActionEvent : Function - 
+   DontBreakInAACMode : method - 
+   SaveTo : method - 
+   InUserComment : method - 
+   CanInsertParaOnMove : method - Можно ли вставлять параграфы при движении курсора
+   IsInReadOnlyPara : method - Находимся ли в параграфе, в котором запрещено редактирование
+   GetBlockByCursor : method - 
+   InsertUserComment : method - 
+   GetNearestSubByCursor : method - 
+   GetNearestBlockByCursor : method - 
+   RaiseUserCommentsHidden : method - 
+   MB2eeMB : method - 
+   VScrollBar : property - 
+   f_PrevScrollPos - 
+   f_PrevScrollPart - 
+   f_PrevPart - 
+   NeedDrawDocumentEdge : property - 
+   OnMouseAction : property - 
+   OnVScroll : property - 
+   OnUserCommentsHidden : property - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_VScrollBar - Поле для свойства VScrollBar
+   f_NeedDrawDocumentEdge - Поле для свойства NeedDrawDocumentEdge
+   f_OnMouseAction - Поле для свойства OnMouseAction
+   f_OnVScroll - Поле для свойства OnVScroll
+   f_OnUserCommentsHidden - Поле для свойства OnUserCommentsHidden
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TeeEditorExport
+  TeeMemo : GuiControl - 
+   TeeCustomMemo : GuiControl - 
+   TBevelKind : Typedef - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TeeMemo
+  eeCustomMemo : UtilityPack - 
+   TeeCustomMemo : Typedef - 
+  TeeMemoWithEditOperations : GuiControl - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TeeMemoWithEditOperations
+  TeeEditor : GuiControl - 
+   TeeCustomEditor : GuiControl - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TeeEditor
+  TeePreviewPanel : GuiControl - 
+   TeeCustomPreviewPanel : SimpleClass - 
+  eeCustomEditor : UtilityPack - 
+   TeeCustomEditor : Typedef - 
+  TeeEditorWithoutOperations : GuiControl - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TeeEditorWithoutOperations
+Nemesis : Library - Компоненты для проекта F1
+ nscNewInterfaces : Interfaces - Интерфейсы компонентов проекта "Немезис"
+  InscContextFilterState : Facet - Состояние контекстного фильтра
+   Active : readonly - 
+   Context : readonly - 
+   ActiveContext : readonly - 
+   CaretPos : readonly - 
+   NeedRefilterTree - 
+  InscContextFilterListener : Facet - Слушатель событий контекстного фильтра
+   ContextCanBeChanged - событие возможной смены контекста. Генерируется при уходе фокуса из
+             поля ввода и уничтожении компонента
+   FilterRemoving - 
+  InscPageControlNotification : Facet - Для уведомления о событиях компонента с вкладками
+   TabActivate - Cобытие активации вкладки
+  TnscToolTipKind : Enum - 
+   nsc_ttkNone - 
+   nsc_ttkInformation - 
+   nsc_ttkWarning - 
+   nsc_ttkError - 
+  InscStatusBarItemDef : Facet - 
+   SubscribeOnNotification : facetmethod - 
+   Caption : readonly - 
+   UseToolTip : readonly - 
+   RequireAutoPopup : readonly - 
+   AutoPopupTimeout : readonly - 
+   TootTipKind : readonly - 
+   ShowCaption : readonly - 
+   Enabled : property - 
+   SubscribedList : readonly - 
+  InscStatusBarItemDefsList : Facet - 
+   Count : readonly - 
+   Items : readonly - 
+   Add - 
+  InscStatusBarItemsProvider : Facet - 
+   Items : readonly - 
+  InscStatusBarItemsVisualizer : Facet - 
+   RegisterProvider - 
+   UnregisterProvider - 
+  InscStatusBarOperationDef : Facet - 
+   Operation : readonly - 
+  InscStatusBarDelimiterDef : Facet - 
+   TsbdSeparatorPos : Enum - 
+   SeparatorPos : readonly - 
+   IsSeparatorVisible : readonly - 
+   Width : readonly - 
+  InscBaseSearchPromptNode : Facet - 
+   OpenDocument : facetmethod - 
+   IsLinkOnDocument : facetmethod - 
+ CoreObjects : Unit - Базовые объекты
+  TInscContextFilterStateList : SimpleClass - 
+   ItemType : impurity value - 
+  TnscContextFilterState : SimpleClass - 
+   f_Active - 
+   f_CaretPos - 
+   f_NeedRefilterTree - 
+   f_Context - 
+   f_NotificationSource - 
+   Create : ctor - 
+   Make : factory - 
+    : uses - 
+  nscConst : UtilityPack - 
+   nscConst : Constants - 
+ Filters : Unit - 
+  Tf1ExternalHyperlinkEliminator : SimpleClass - 
+   SetTo : method - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+ StatusBarUtils : Views - 
+  nscStatusBarItemNotification : GUIControlMixIn - 
+   StatusBarConsts : Constants - 
+   f_NotificationClients - 
+   ItemDef : property - 
+   CMVisibleChanged : message - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_ItemDef - Поле для свойства ItemDef
+  StatusBarUtils : UtilityPack - 
+   InscStatusBarItem : Facet - 
+   TnscStatusBarItemsList : SimpleClass - 
+ Navigator : Views - 
+  TnscNavigator : GuiControl - 
+   TnscNavigatorPageControl : SimpleClass - 
+ nscTaskPanelInterfaces : Interfaces - Интерфейсы для Панели Задач
+  InscOperationNode : Facet - Узел операции панели задач
+   Op : readonly - 
+   CaptionChanged - изменилось название операции
+ Reminders : Views - 
+  nscReminder : UtilityPack - 
+   TnscReminder : Typedef - 
+  nscRemindersLine : UtilityPack - 
+   TnscRemindersLine : Typedef - 
+ ContextFilter : Views - Контекстный фильтр
+  TnscContextFilter : GuiControl - 
+   OnChange : property - 
+   OnWrongContext : property - 
+    : uses - 
+   f_OnChange - Поле для свойства OnChange
+   f_OnWrongContext - Поле для свойства OnWrongContext
+  nscContextFilterRes : UtilityPack - Ресурсы для TnscContextFilter
+   ContextFilterMessages : LocalConst - 
+    : uses - undefined
+    : uses - undefined
+   LCImplContextFilterMessages : Constants - Локализуемые строки ContextFilterMessages
+   Init_LabelCaption : ini - Инициализация str_nsc_LabelCaption
+   Init_ContextEmptyMessage : ini - Инициализация str_nsc_ContextEmptyMessage
+   Init_ButtonActiveHint : ini - Инициализация str_nsc_ButtonActiveHint
+   Init_ButtonInActiveHint : ini - Инициализация str_nsc_ButtonInActiveHint
+ Internet : Unit - Утилиты для работы с Интернетом
+  nsInternetUtils : UtilityPack - Вспомогательные функции для Интернет-агента
+   IsGarantURL : method - Определяет, что адрес в домене Гаранта
+   IsLocalDocumentURL : method - Определяет, что ссылка на внутренний документ
+   ParseLocalDocumentURL : method - Разобрать локальную ссылку на документ
+   IsContractConstructorURL : method - 
+   IsMobileGarantOnlineURL : method - 
+   NeedOpenLinkInExternalBrowser : method - 
+   IsObtainRequisitesForMobileAccessURL : method - 
+   IsMunicipalDecisionsArchiveURL : method - 
+   NeedOpenLinkInInternalBrowser : method - 
+   InternalBrowserURLArr : ConstantArray - URL адреса, открываемые во встроенном браузере
+ Memos : Views - Memo-поля
+  TnscCustomChatMemo : GuiControl - Мемо-поле для чата F1
+   ValidateInsertionPoint : method - Проверить точку вставки на возможность оной, и если невозможно, то сместить курсор
+   IsParaInF1Doc : method - Находится параграф ли в документе, скопированном из F1
+   IsInF1Doc : method - Находимся ли в документе, скопированном из F1
+    : uses - 
+    : uses - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TnscCustomChatMemo
+  TnscChatMemo : GuiControl - Мемо-поле для чата F1
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TnscChatMemo
+  TnscCustomChatMemoTextSource : SimpleClass - 
+    : uses - 
+  TnscCustomChatMemoContainer : SimpleClass - 
+    : uses - 
+    : uses - 
+  TnscCustomChatMemoDocumentPartGenerator : SimpleClass - 
+   Local : LocalConst - 
+   f_WasHandle - 
+   f_WasInheritedParaAdd - Было унаследованное добавление параграфа
+   f_Doc - 
+   f_ExternalHandle - 
+   f_NumberedPara - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+    : uses - undefined
+   LCImplLocal : Constants - Локализуемые строки Local
+   Init_ChatPastePrefix : ini - Инициализация str_ChatPastePrefix
+  TnscCustomChatMemoProcessor : SimpleClass - 
+ PageControl : Views - 
+  TnscPageControl : GuiControl - 
+  TnscFormsPageControl : GuiControl - 
+ nscInterfaces : Interfaces - 
+  InscArrangeGrid : Facet - 
+  InscTabTable : Facet - 
+ Grid : Views - 
+  nscArrangeGrid : UtilityPack - 
+   agArrangeGrid : method - 
+   TnscArrangeGrid : SimpleClass - 
+  TnscHideField : GuiControl - 
+   TnscCustomHideField : GuiControl - 
+   InscHideFieldState : Facet - 
+   TnscHideFieldState : SimpleClass - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TnscHideField
+  TnscTabTable : SimpleClass - 
+  nscArrangeGridCell : UtilityPack - Ячейки сетки контролов
+   TnscHideFieldCell : SimpleClass - 
+   TagControlCell : SimpleClass - 
+  TnscFixedHeightControlCell : SimpleClass - Ячейка содержащая контрол и высота которой ВСЕГДА равна высоте контрола
+  TnscFixedWidthControlCell : SimpleClass - Ячейка содержащая контрол и ширина которой ВСЕГДА равна ширине контрола
+  nscTabTableCell : UtilityPack - 
+   TnscTreeViewTabCell : SimpleClass - 
+  nscFormWithArrangeGrid : Impurity - 
+   BuildGrid : method - 
+   ArrangeGrid : method - 
+   RecalcGrid : method - 
+   GridParentControl : method - 
+   DoBuildGrid : method - 
+   DoRecalcGrid : method - 
+   GridSizeChanged : method - 
+   THackControl : SimpleClass - 
+   GridParentControlResize : method - 
+   f_Grid - 
+   f_ArrangeCount - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+ Labels : Views - 
+  TnscFocusLabel : GuiControl - 
+   HotTruck : readonly - 
+   AllowTrucking : property - 
+   SetHotTruck - 
+   UpdateTruckFromCursor - 
+   CMMouseEnter : message - 
+   CMMouseLeave : message - 
+   WMWindowPosChanged : message - 
+    : uses - 
+   f_HotTruck - Поле для свойства HotTruck
+   f_AllowTrucking - Поле для свойства AllowTrucking
+ Tree : Views - Деревья
+  TnscTreeView : GuiControl - 
+   InscTreeState : Facet - 
+   TnscTreeViewState : SimpleClass - 
+   TnscTreeViewPrim : GuiControl - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TnscTreeView
+  TnscTreeViewHotTruck : GuiControl - 
+   TOnAllowHotTruck : Function - 
+   SetHotTruckIndex : method - 
+   UpdateTruckFromCursor : method - 
+   OnAllowHotTruck : property - 
+   AllowTrucking : property - 
+   HotTruckIndex : readonly - 
+   CMMouseLeave : message - 
+    : uses - 
+   f_OnAllowHotTruck - Поле для свойства OnAllowHotTruck
+   f_AllowTrucking - Поле для свойства AllowTrucking
+   f_HotTruckIndex - Поле для свойства HotTruckIndex
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TnscTreeViewHotTruck
+  nscTreeViewRes : UtilityPack - Ресурсы для TnscTreeView
+   nscMultiStroke : LocalConst - 
+    : uses - undefined
+    : uses - undefined
+   LCImplnscMultiStroke : Constants - Локализуемые строки nscMultiStroke
+   Init_WrapHint : ini - Инициализация str_nsc_WrapHint
+   Init_UnwrapHint : ini - Инициализация str_nsc_UnwrapHint
+   nscMultiStrokeMap : ConstantArray - Карта преобразования локализованных строк nscMultiStroke
+ TasksPanel : Views - [$13866]
+  TnscTasksPanelView : GuiControl - 
+   TnscCustomTasksPanelView : GuiControl - 
+   TnscTasksPanelHideField : GuiControl - 
+   TnscTasksPanelTreeView : GuiControl - 
+   RegisterControls : ini - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TnscTasksPanelView
+  TnscTasksPanelGroupDescList : SimpleClass - 
+   TnscTasksPanelGroupDesc : StaticObject - 
+   ItemType : impurity value - 
+  TnscTasksPanelGroupsIterator : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   f_Groups - 
+   f_Current - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TnscTasksPanelGroup : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   f_Desc - 
+   f_ID - 
+  TnscTasksPanel : SimpleClass - Наполнение Панели Задач
+   TnscTasksPanelGroupDescArray$open : Vector - 
+   Create : Constructor - 
+   Make : Factory - 
+   f_Groups - 
+   f_BaseSettingId - 
+    : uses - 
+    : uses - 
+    : uses - 
+  TnscTasksPanelActionLink : SimpleClass - 
+   Create : Constructor - 
+   ValidateCaption : method - 
+   c_ComboOperations : SetConst - 
+   Tree : readonly - 
+   Op : readonly - 
+   f_Op - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_Tree - Поле для свойства Tree
+  TnscTasksPanelOperationNode : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   Op : property - 
+   Link : property - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_Op - Поле для свойства Op
+   f_Link - Поле для свойства Link
+  TnscTasksPanelRootNode : SimpleClass - 
+   Make : method - 
+    : uses - 
+    : uses - 
+    : uses - 
+  Константы настройки компонента дерева. : Constants - 
+   c_ItemIndent - 
+   c_RowIndent - 
+   c_ComboOperations - 
+ GroupBox : Views - 
+  TeeGroupBox : SimpleClass - 
+ StatusBar : Views - Работа со строкой состояния
+  TnscStatusBarOperationDefsList : SimpleClass - 
+  TnscStatusBar : GuiControl - 
+   SetLink : method - 
+   ReleaseLink : method - 
+   DoUpdateStrings : method - 
+   TimerProc : method - 
+   TOperationInternalDef : SimpleClass - 
+   FireUpUpdateStringsTimer : method - 
+   UpdateStringsTimerProc : method - 
+   AllVisiblePanelsText : method - 
+   TnscStatusBarDock : GuiControl - 
+   f_Dock - 
+   f_Strings - 
+   f_Visible - 
+   f_Timer - 
+   f_OperationsList - 
+   f_Form - IafwMainForm
+   f_InAdjustSizeForPanels - 
+   f_UpdateStringsTimer - 
+   f_GroupIndex - 
+   WMGetText : message - 
+   WMGetTextLength : message - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TnscStatusBar
+  TnscStatusBarItemDef : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   f_ShowCaption - 
+   f_Caption - 
+   f_UseTooltip - 
+   f_RequireAutoPopup - 
+   f_AutoPopupTimeout - 
+   f_ToolTipKind - 
+   f_Enabled - 
+   f_SubscribedList - 
+    : uses - 
+  TnscStatusBarDelimiterDef : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   f_SeparatorPos - 
+   f_SeparatorVisible - 
+   f_Width - 
+  TnscStatusBarOperationDef : SimpleClass - 
+   Create : Constructor - 
+   Make : Factory - 
+   MakeS : method - 
+   MakeSDefaultCaption : method - 
+   MakeSNoCaption : method - 
+   f_Operation - 
+    : uses - 
+  TnscSizeGripPanel : GuiControl - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TnscSizeGripPanel
+  TnscStatusBarButton : GuiControl - 
+    : uses - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TnscStatusBarButton
+  TnscStatusBarPanel : GuiControl - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TnscStatusBarPanel
+  TnscStatusBarSep : GuiControl - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TnscStatusBarSep
+ Outliner : Views - 
+  TnscLister : GuiControl - 
+ Editor : Views - Редактор
+  TnscEditor : GuiControl - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TnscEditor
+  TnscTextSource : SimpleClass - 
+  TnscPreviewPanel : GuiControl - 
+   TnscCustomPreviewPanel : SimpleClass - 
+  TnscCustomTreeComboWithHistory : GuiControl - 
+   TnscSubTree : GuiControl - 
+   TnscOnPastingString : Function - 
+   MakeNodesFromItems : method - 
+   FilterNewTree : method - 
+   ChangeDropTree : method - 
+   TreeCurrentChanged : method - 
+   DoSetContextText : method - 
+   CloseFont : method - 
+   ChangeTimerTick : method - 
+   SetRoot : method - 
+   GetFullPath : method - 
+   CurrentIsLink : method - 
+   GetNodeText : method - 
+   CloseDropDownByHyperlink : method - 
+   ResetPropmtTreeUsage : method - 
+   DoSelect : method - 
+   TreeCombo Private Const : Constants - 
+   OnPastingString : property - 
+   HistoryItems : property - 
+   f_ShowHistory - 
+   f_HistoryRoot - 
+   PromptTree : property - 
+   RootNode : property - 
+   DropDownCount : property - 
+   f_LockShowPrompts - 
+   PromptColor : property - 
+   PromptStyle : property - 
+   PromptBackColor : property - 
+   f_ListIsHistory - 
+   PromptViewOptions : property - 
+   f_SavedText - 
+   f_LockSaveText - 
+   OnSelect : property - 
+   f_Pasting - 
+   f_Filtering - 
+   PropmtTreeUsed : readonly - 
+   f_CloseFont - 
+   CloseHyperLinkColor : property - 
+   f_ChangeTimer - 
+   f_ChangeTime - 
+   CNKeyDown : message - 
+   CMFontChanged : message - 
+   WMSysKeyDown : message - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_OnPastingString - Поле для свойства OnPastingString
+   f_HistoryItems - Поле для свойства HistoryItems
+   f_PromptTree - Поле для свойства PromptTree
+   f_RootNode - Поле для свойства RootNode
+   f_DropDownCount - Поле для свойства DropDownCount
+   f_PromptColor - Поле для свойства PromptColor
+   f_PromptStyle - Поле для свойства PromptStyle
+   f_PromptBackColor - Поле для свойства PromptBackColor
+   f_PromptViewOptions - Поле для свойства PromptViewOptions
+   f_OnSelect - Поле для свойства OnSelect
+   f_PropmtTreeUsed - Поле для свойства PropmtTreeUsed
+   f_CloseHyperLinkColor - Поле для свойства CloseHyperLinkColor
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TnscCustomTreeComboWithHistory
+  TnscComboBox : GuiControl - 
+   TnscEdit : GuiControl - 
+   TnscEditWithoutPlusMinusShortcut : GuiControl - 
+   TnscComboBoxWithPwdChar : GuiControl - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TnscComboBox
+  TnscTreeComboWithHistory : GuiControl - 
+   TnscTreeComboWithHistory Default Values : Constants - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TnscTreeComboWithHistory
+  TnscTreeComboWithHistoryAndOperations : GuiControl - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TnscTreeComboWithHistoryAndOperations
+  nscCustomTreeComboWithHistoryRes : UtilityPack - Ресурсы для TnscCustomTreeComboWithHistory
+   MiscMessages : LocalConst - 
+    : uses - undefined
+    : uses - undefined
+   LCImplMiscMessages : Constants - Локализуемые строки MiscMessages
+   Init_CloseHyperlinkText : ini - Инициализация str_nsc_CloseHyperlinkText
+  TnscComboBoxWithReadOnly : GuiControl - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TnscComboBoxWithReadOnly
+NemesisTest : TestLibrary - 
+ Navigator : TestUnit - Тесты Навигатора
+  TnscNavigatorPageControl : TestClass - 
+   TabIndex : property - 
+   TabPosition : readonly - 
+   ActivePage : readonly - 
+ Tree : TestUnit - Тесты деревьев
+  TeeTreeViewExport : TestClass - 
+   CurrentNodeLevel : readonly - 
+   CurrentNodeIndex : readonly - 
+   CurrentNodeExpanded : readonly - 
+   IsCurrentOperationEnabled : readonly - Эта функция регистрируется на TeeTreeViewExport, хотя по хорошему надо бы на
+TnscTasksPanelTreeView, но этот класс объявлен в implementation секции модуля
+nscTasksPanelView и недоступен. Поэтому, свойство будет существовать практически для всех деревьев, но будет иметь смысл только если его получать в дереве Панели задач, на других деревьях будет пустое (Empty) значение
+    : uses - 
+    : uses - 
+ Editor : TestUnit - 
+  TnscSimpleEditor$ForTests : TestClass - 
+   Buffer : readonly - 
+ScriptEngine$F1 : Library - 
+ StatusBarWords : ScriptKeywords - 
+  StatusBarWords : ScriptKeywordsPack - 
+   OrderedControl : keyword - 
+   OrderedControlsCount : keyword - 
+   OrderIndex : keyword - 
+   TStatusBarWordsResNameGetter : SimpleClass - Регистрация скриптованой аксиоматики
+    : uses - undefined
+    : injects - undefined
+   StatusBar_OrderedControl : ScriptKeyword - Слово скрипта StatusBar:OrderedControl
+*Тип результата:* TControl
+*Пример:*
+{code}
+OBJECT VAR l_TControl
+ anIndex aStatusBar StatusBar:OrderedControl >>> l_TControl
+{code} 
+   StatusBar_OrderedControlsCount : ScriptKeyword - Слово скрипта StatusBar:OrderedControlsCount
+*Тип результата:* Integer
+*Пример:*
+{code}
+INTEGER VAR l_Integer
+ aStatusBar StatusBar:OrderedControlsCount >>> l_Integer
+{code} 
+   StatusBar_OrderIndex : ScriptKeyword - Слово скрипта StatusBar:OrderIndex
+*Тип результата:* Integer
+*Пример:*
+{code}
+INTEGER VAR l_Integer
+ aControl aStatusBar StatusBar:OrderIndex >>> l_Integer
+{code} 
+    : uses - undefined
+   Reg_TtfwContext : ini - Регистрация типа TtfwContext
+   Reg_TnscStatusBar : ini - Регистрация типа TnscStatusBar
+   Reg_Integer : ini - Регистрация типа Integer
+   Reg_TControl : ini - Регистрация типа TControl
+  StatusBarButtonWords : ScriptKeywordsPack - 
+   IsDown : keyword - 
+    : uses - undefined
+    : injects - undefined
+   pop_StatusBarButton_IsDown : ScriptKeyword - Слово скрипта pop:StatusBarButton:IsDown
+*Тип результата:* Boolean
+*Пример:*
+{code}
+BOOLEAN VAR l_Boolean
+ aStatusBarButton pop:StatusBarButton:IsDown >>> l_Boolean
+{code} 
+    : uses - undefined
+   Reg_TtfwContext : ini - Регистрация типа TtfwContext
+   Reg_TnscStatusBarButton : ini - Регистрация типа TnscStatusBarButton
+   Reg_Boolean : ini - Регистрация типа Boolean
+ TaskPanelWords : ScriptKeywords - 
+  TaskPanelWords : ScriptKeywordsPack - 
+   Count : readonly - 
+   GetHideField : keyword - 
+    : uses - undefined
+   Count : keyword - 
+    : injects - undefined
+   pop_TaskPanel_GetHideField : ScriptKeyword - Слово скрипта pop:TaskPanel:GetHideField
+*Тип результата:* TnscTasksPanelHideField
+*Пример:*
+{code}
+OBJECT VAR l_TnscTasksPanelHideField
+ anIndex aTaskPanel pop:TaskPanel:GetHideField >>> l_TnscTasksPanelHideField
+{code} 
+   pop_TaskPanel_Count : ScriptKeyword - Слово скрипта pop:TaskPanel:Count
+*Тип результата:* Integer
+*Пример:*
+{code}
+INTEGER VAR l_Integer
+ aTaskPanel pop:TaskPanel:Count >>> l_Integer
+{code} 
+    : uses - undefined
+   Reg_TtfwContext : ini - Регистрация типа TtfwContext
+   Reg_TnscTasksPanelView : ini - Регистрация типа TnscTasksPanelView
+   Reg_Integer : ini - Регистрация типа Integer
+   Reg_TnscTasksPanelHideField : ini - Регистрация типа TnscTasksPanelHideField

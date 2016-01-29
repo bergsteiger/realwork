@@ -1,0 +1,121 @@
+// Memory 51DAE6B102EB TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51DAE6B102EB
+
+FORWARD ME_51DAE6E20300
+
+: ME_51DAE7030012
+ CONST UID '51DAE7030012'
+ CONST Name 'DoIt'
+ CONST Class class_Class
+ : Stereotype st_Test ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_51DAE6E20300 // MemorySizeTest
+ ;
+
+ref; // ME_51DAE7030012 DoIt
+
+: ME_51DAE6ED0180
+ CONST UID '51DAE6ED0180'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_51DAE6E20300 // MemorySizeTest
+ ;
+ : Target WL 'ME_51DAD8180236' '51DAD7EA02D0.pas.ms.script' // l3MemorySizeUtils
+ ;
+
+ref; // ME_51DAE6ED0180 
+
+: ME_51DAEAC80178
+ CONST UID '51DAEAC80178'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_51DAE6E20300 // MemorySizeTest
+ ;
+ : Target WL 'ME_4DE89E560091' '4AB0C3C60310.pas.ms.script' // Format
+ ;
+
+ref; // ME_51DAEAC80178 
+
+: ME_DB0783CC8110
+ CONST UID 'DB0783CC8110'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_51DAE6E20300 // MemorySizeTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_DB0783CC8110 
+
+: ME_51DAE6E20300
+ CONST UID '51DAE6E20300'
+ CONST Name 'MemorySizeTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_51DAE6B102EB // Memory
+ ;
+ : Inherits
+   @ ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.pas.ms.script' // TTestCase
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_51DAE7030012 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_51DAE6ED0180 // 
+ ME_51DAEAC80178 // 
+ ME_DB0783CC8110 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\SandBox\MemorySizeTest.pas'
+ CONST extprop:pas:TypeName 'TMemorySizeTest'
+
+ref; // ME_51DAE6E20300 MemorySizeTest
+
+: ME_51DAE6B102EB
+ CONST UID '51DAE6B102EB'
+ CONST Name 'Memory'
+ CONST Class class_Category
+ : Stereotype st_TestUnit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_5155865B01B6' '5155865B01B6.pas.ms.script' // SandBoxTest
+ ;
+ : Children
+   @ ( ME_51DAE6E20300 // MemorySizeTest
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
+ WL 'ME_51DAD7EA02D0' '51DAD7EA02D0.pas.ms.script' // MemoryUtils
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\51DAE6B102EB.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\51DAE6B102EB.pas.ms.script.runner'
+
+ref; // ME_51DAE6B102EB Memory

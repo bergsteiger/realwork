@@ -1,0 +1,1339 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "PermissionSupport"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"name"
+	    value      	"Garant Permission Event Support")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"vendor name"
+	    value      	"ÎÎÎ ÍÏÏ 'Ãàðàíò-Ñåðâèñ'")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"vendor url"
+	    value      	"www.garant.ru")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/PermissionSupport|497EF0B60227
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19011416718"))
+    quid       	"497EF0B60227"
+    documentation 	"ïàêåò, ñîäåðæàùèé ýëåìåíòû, îòâåòñòâåííûå çà ïðåîáðàçîâàíèå ïðàâ Ê â íàøè"
+    stereotype 	"KPlugins"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"497EF11202B0"
+	    supplier   	"Logical View::MDProcess::ConfluencePlugins::ConfluencePluginsDAO"
+	    quidu      	"47BC007801F0")
+	(object Visibility_Relationship
+	    quid       	"4980153600DE"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.coreImpl"
+	    quidu      	"4649E1A40231")
+	(object Visibility_Relationship
+	    quid       	"49801E900285"
+	    supplier   	"Logical View::MDProcess::ConfluencePlugins::WebConvertedSystemObjectsTypes"
+	    quidu      	"47A828A4010D")
+	(object Visibility_Relationship
+	    quid       	"49815C3D033B"
+	    supplier   	"Logical View::shared::ConfluenceCore::EventSupport"
+	    quidu      	"498150B70155")
+	(object Visibility_Relationship
+	    quid       	"4A1BDDDA03BF"
+	    supplier   	"Logical View::external::JavaTypes::Lang"
+	    quidu      	"474D4C0101B0")
+	(object Visibility_Relationship
+	    quid       	"4A83B040028E"
+	    supplier   	"Logical View::shared::ConfluenceCore::TaskSupport"
+	    quidu      	"4A83AEB70217"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "PermissionListener"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Factory auto reg"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Factory default impl"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Servant Pool"
+		    value      	"none")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"debug log"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"local supervisor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"singleton"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ImplementSelectType"
+		    value      	"all")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OverloadSelectType"
+		    value      	"include")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ApplyedGens"
+		    value      	"All")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/PermissionSupport/PermissionListener.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*497EF11D00DB_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *497EF11D00DB_CUSTOM_IMPORT*¤¤import java.util.concurrent.*;¤¤import com.atlassian.confluence.event.events.content.blogpost.BlogPostCreateEvent;¤import com.atlassian.confluence.event.events.content.blogpost.BlogPostRestoreEvent;¤import com.atlassian.confluence.event.events.content.blogpost.BlogPostTrashedEvent;¤import com.atlassian.confluence.event.events.content.page.*;¤¤import ru.garant.shared.Core.Concurrent.ThreadPool;¤¤import ru.garant.shared.ConfluenceCore.ActionSupport.PostProcessor;¤import ru.garant.shared.ConfluenceCore.EventSupport.*;¤¤//#UC END# *497EF11D00DB_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*497EF11D00DB_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *497EF11D00DB_CUSTOM_CLASS_DEFINITION*¤//#UC END# *497EF11D00DB_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*497EF11D00DB_CONTENT*"
+		    value      	(value Text 
+|//#UC START# *497EF11D00DB_CONTENT*¤		ContentPermissionsEvent.class,¤		PageCreateEvent.class, ¤		PageRestoreEvent.class,¤		PageTrashingEvent.class,¤		BlogPostCreateEvent.class, ¤		BlogPostRestoreEvent.class,¤		BlogPostTrashedEvent.class,¤		UserAddMembershipEvent.class, ¤		UserRemoveMembershipEvent.class,¤		SpaceRemoveAllPermissionsEvent.class,¤		UserRemoveAllPermissionEvent.class,¤		GroupRemoveAllPermissionEvent.class,¤		SpacePermissionEvent.class,¤		PageMoveEvent.class¤		¤		//#UC END# *497EF11D00DB_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*497EF11D00DB_GETHANDLEDEVENTCLASSES_IMPLEMETATION*"
+		    value      	(value Text 
+|//#UC START# *497EF11D00DB_GETHANDLEDEVENTCLASSES_IMPLEMETATION*¤		return handledClasses;¤		//#UC END# *497EF11D00DB_GETHANDLEDEVENTCLASSES_IMPLEMETATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*497EF11D00DB_HANDLEEVENT_IMPLEMETATION*"
+		    value      	(value Text 
+|//#UC START# *497EF11D00DB_HANDLEEVENT_IMPLEMETATION*¤		Logs.LOG_D("PermissionListener::handleEvent::start - Queuing an UpdatePermissionTask for - " + event.getClass().getSimpleName());¤		//UpdatePermissionExecuterHolder.executor.execute(new UpdatePermissionTask(event));¤		PostProcessor.Factory.get().addTask(new UpdatePermissionTask(event));¤		Logs.LOG_D("PermissionListener::handleEvent::end - Queuing an UpdatePermissionTask for - " + event.getClass().getSimpleName());¤		//#UC END# *497EF11D00DB_HANDLEEVENT_IMPLEMETATION*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*497EF11D00DB_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *497EF11D00DB_CUSTOM_METHODS_AND_DATA*¤	¤	/**¤	 * Thread safe lazy initializer¤	 */¤//	private static class UpdatePermissionExecuterHolder {¤//		private static final BlockingQueue<Runnable> queue = new LinkedBlockingQueue<Runnable>(1);¤//¤//		public static final ThreadPoolExecutor executor = new ThreadPoolExecutor(0, 3, 10L, TimeUnit.SECONDS,¤//				queue);¤//¤//		static {¤//			executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());¤//		}¤//	}¤	¤	//#UC END# *497EF11D00DB_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/PermissionSupport/PermissionListener|497EF11D00DB
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039149440"))
+	    quid       	"497EF11D00DB"
+	    documentation 	"îòñëåæèâàåò èçìåíåíèÿ ïðàâ Ê è ïðåîáðàçîâûâàåò èõ â íàøè"
+	    stereotype 	"KListenerPlugin"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011434517"))
+		    quid       	"49801ECA0049"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::WebConvertedSystemObjectsTypes::EntityObjectToIdTransformer"
+		    quidu      	"49801E17004E")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011434891"))
+		    quid       	"4982D9FD019A"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::WebConvertedSystemObjectsTypes::EntityToNameTransformer"
+		    quidu      	"4982D9A20283")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011435256"))
+		    quid       	"49A7D2B10016"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::ConfluencePluginsDAO::RestrictedPageDAO"
+		    quidu      	"497DD72002C5")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011435640"))
+		    quid       	"4A1BDDC60128"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::PermissionSupport::UpdatePermissionTask"
+		    quidu      	"4A1BDD130195"))
+	    language   	"MDA Generator")
+	(object Class "ImportPermissionAction"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/PermissionSupport/ImportPermissionAction.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49800E2B0259_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *49800E2B0259_CUSTOM_IMPORT*¤import ru.garant.MDProcess.ConfluenceMDChange.RequestSupport.RequestHelper;¤¤import java.util.ArrayList;¤import java.util.Arrays;¤import java.util.Collection;¤import java.util.HashSet;¤import java.util.LinkedList;¤import java.util.List;¤import java.util.Set;¤¤import net.sf.hibernate.HibernateException;¤import net.sf.hibernate.Session;¤import net.sf.hibernate.Transaction;¤¤import org.springframework.orm.hibernate.SessionFactoryUtils;¤¤import com.atlassian.confluence.pages.AbstractPage;¤import com.atlassian.confluence.pages.Page;¤import ru.garant.shared.ConfluenceCore.PageSupport.GarPageManager;¤import com.atlassian.confluence.security.ContentPermission;¤import com.atlassian.confluence.security.Permission;¤import com.atlassian.confluence.security.PermissionManager;¤import com.atlassian.confluence.security.SpacePermission;¤import com.atlassian.confluence.setup.bandana.ConfluenceBandanaContext;¤import com.atlassian.confluence.spaces.Space;¤import com.atlassian.confluence.spaces.SpaceType;¤import com.atlassian.confluence.util.GeneralUtil;¤import com.atlassian.user.User;¤¤//#UC END# *49800E2B0259_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49800E2B0259_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *49800E2B0259_CUSTOM_CLASS_DEFINITION*¤//#UC END# *49800E2B0259_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49800E2B0259_ACTION_NAME*"
+		    value      	(value Text 
+|//#UC START# *49800E2B0259_ACTION_NAME*¤		return getClass().getName();¤		//#UC END# *49800E2B0259_ACTION_NAME*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49800E2B0259_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *49800E2B0259_CUSTOM_METHODS_AND_DATA*¤	¤	private List<Space> spaces_;¤	¤	private boolean spacesSet_;¤	¤	public void setSpaceIds(Collection<String> spaceIds) {¤		final ContainerManager cm = ContainerManager.Factory.get();¤		final GarSpaceManager sm = cm.getSpaceManager();¤		if(spaceIds != null && !spaceIds.isEmpty()) {¤			spacesSet_ = true;¤			spaces_ = new LinkedList<Space>();¤			for(String id : spaceIds) {¤				spaces_.add(sm.getSpace(Long.parseLong(id)));¤			}¤		} ¤	}¤	¤	private List<Space> getSpaces () {¤		if (spaces_ != null) {¤			return spaces_;¤		}¤		final ContainerManager cm = ContainerManager.Factory.get();¤		final GarSpaceManager sm = cm.getSpaceManager();¤		spaces_ = sm.getSpacesWithRestrictedPages(SpaceType.GLOBAL);¤		return spaces_;¤	}¤	¤	@Override¤	public boolean isPermitted () {¤		String usersInBandana = (String) ContainerManager.Factory.get ().getBandanaManager ().getValue (ConfluenceBandanaContext.GLOBAL_CONTEXT, "MDP_programmers_for_debugging");¤		if(usersInBandana != null){¤			List<String> users = RequestHelper.stringToList(usersInBandana);¤			return users.contains(getRemoteUser().getName());¤		}¤		return false;¤	}¤	¤	@Override¤	public String execute () throws Exception {¤		doImport();¤		return SUCCESS;¤	}¤	¤	public void doImport () {¤		final ContainerManager cm = ContainerManager.Factory.get();¤		final GarPageManager pm = cm.getPageManager();¤		final GarSpacePermissionManager spm = cm.getSpacePermissionManager();¤		final PermissionManager prm = cm.getPermissionManager();¤		¤		deleteOldRestrcitedPages();¤		¤		final List<RestrictedPageDAO> result = new ArrayList<RestrictedPageDAO>();¤		final Collection<Space> spaces = getSpaces();¤		for (final Space space : spaces) {¤			String spaceName = space.getName();¤			¤			final Collection<User> spaceAllowedUsers = ¤				spm.getUsersForPermissions(Arrays.asList(SpacePermission.VIEWSPACE_PERMISSION), space);¤¤			Collection<AbstractPage> currentPages = ¤				pm.getPermissionPages(Arrays.asList(space.getId()), ContentPermission.VIEW_PERMISSION);¤			int size = currentPages.size();¤			int percent = 0;¤			int i = 0;¤			for (AbstractPage page : currentPages) {¤				Set<String> restrictedUserNames = getRestrictedViewUsers(prm, spaceAllowedUsers, page);¤				if (restrictedUserNames.size() > 0) {¤					RestrictedPageDAO restrictedPage = new RestrictedPageDAO(page.getId(), space.getId(), restrictedUserNames);¤					result.add(restrictedPage);¤				}¤				int currentPercent = (i * 100) / size;¤				if(currentPercent > percent) {¤					percent = currentPercent;¤					Logs.LOG_D("ImportPermissionAction::doImport - space '" + spaceName + "', " + percent + "% completed");¤				}¤				i++;¤			}¤		}¤		saveResults(result);¤	}¤¤	private Set<String> getRestrictedViewUsers (final PermissionManager prm, Collection<User> allowedUsers,¤			final AbstractPage page) {¤		Set<String> restrictedViewUsers = new HashSet<String>();¤		for (User user : allowedUsers) {¤			if (!GeneralUtil.isSuperUser(user) && !prm.hasPermission(user, Permission.VIEW, page)) {¤				restrictedViewUsers.add(user.getName());¤			}¤		}¤		return restrictedViewUsers;¤	}¤¤	private void deleteOldRestrcitedPages () {¤		try {¤			Logs.LOG_D("ImportPermissionAction::deleteOldRestrcitedPages - removing old restrictions");¤			String query = "from RestrictedPageDAO rp";¤			if (spacesSet_) {¤				query += " where rp.spaceId in (";¤				for (Space space : getSpaces()) {¤					query += space.getId() + ",";¤				}¤				query = query.substring(0, query.length() - 1);¤				query += ")";¤			}¤			getHibernateSession().delete(query);¤			getHibernateSession().flush();¤			getHibernateSession().clear();¤			Logs.LOG_D("ImportPermissionAction::deleteOldRestrcitedPages - old restrictions removed");¤		} catch (HibernateException e) {¤			Logs.LOG_E("ImportPermissionAction::deleteOldRestrcitedPages - " + e);¤		}¤	}¤	¤	private Session getHibernateSession() {¤		return SessionFactoryUtils.getSession(ContainerManager.Factory.get().getSessionFactory(), false);¤	}¤	¤	private void saveResults (final List<RestrictedPageDAO> result) {¤		Session session = getHibernateSession(); ¤		try {¤			Transaction tx = session.beginTransaction();¤			¤			final int size = result.size();¤			int percent = 0;¤			for (int i = 0; i < size; i++) {¤				session.save(result.get(i));¤				if (i % 20 == 0) { // 20, same as the JDBC batch size¤					// flush a batch of inserts and release memory:¤					session.flush();¤					session.clear();¤				}¤				¤				int currentPercent = (i * 100) / size;¤				if(currentPercent > percent) {¤					percent = currentPercent;¤					Logs.LOG_D("ImportPermissionAction::saveResults - " + percent + "% completed");¤				}¤			}¤			tx.commit();¤		} catch (Exception e) {¤			Logs.LOG_E("ImportPermissionAction::saveResults - " + e);¤		}¤	}¤	¤	//#UC END# *49800E2B0259_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/PermissionSupport/ImportPermissionAction|49800E2B0259
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039152680"))
+	    quid       	"49800E2B0259"
+	    documentation 	"ïðîèçâîäèò èìïîðò ïðàâ íà îãðàíè÷åííûå ñòðàíèöû"
+	    stereotype 	"KActionPlugin"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"498016450086"
+		    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.coreImpl::ConfluenceActionSupport"
+		    quidu      	"468C9C950186"))
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011436793"))
+		    quid       	"49A7D2B500D6"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::ConfluencePluginsDAO::RestrictedPageDAO"
+		    quidu      	"497DD72002C5"))
+	    language   	"MDA Generator")
+	(object Class "PermissionSupportXPlugin"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/PermissionSupport/PermissionSupportXPlugin|49800E61015C
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19011437333"))
+	    quid       	"49800E61015C"
+	    documentation 	"äîêóìåíòàöèÿ îòñóòñòâóåò"
+	    stereotype 	"KXWorkPlugin"
+	    language   	"MDA Generator"
+	    nestedClasses 	(list nestedClasses
+		(object Class "PermissionSupportXPackage"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/PermissionSupport/PermissionSupportXPlugin/PermissionSupportXPackage|49800EAC01F2
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011437602"))
+		    quid       	"49800EAC01F2"
+		    documentation 	"äîêóìåíòàöèÿ îòñóòñòâóåò"
+		    stereotype 	"XPackage"
+		    nestedClasses 	(list nestedClasses
+			(object Class "ImportPermissions"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"WikiPageID (wiki)"
+				    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/PermissionSupport/PermissionSupportXPlugin/PermissionSupportXPackage/ImportPermissions|49800F16017A
+				    ))
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"SourceType (wiki)"
+				    value      	"wiki")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19039151079"))
+			    quid       	"49800F16017A"
+			    documentation 	"ýêøí, êîòîðûé íóæíî âûçâàòü äëÿ èìïîðòà ïðàâ íà îãðàíè÷åííûå ñòðàíèöû"
+			    stereotype 	"XAction"
+			    used_nodes 	(list uses_relationship_list
+				(object Uses_Relationship
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"MDA Generator"
+					    name       	"AbstarctOperation"
+					    value      	"regular")
+					(object Attribute
+					    tool       	"MDA Generator"
+					    name       	"IsNative"
+					    value      	"false")
+					(object Attribute
+					    tool       	"MDA Generator"
+					    name       	"ElementCreationOrder"
+					    value      	"19011438689"))
+				    quid       	"49800F330156"
+				    stereotype 	"call"
+				    supplier   	"Logical View::MDProcess::ConfluencePlugins::PermissionSupport::ImportPermissionAction"
+				    quidu      	"49800E2B0259"))
+			    class_attributes 	(list class_attribute_list
+				(object ClassAttribute "success"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"MDA Generator"
+					    name       	"AbstarctOperation"
+					    value      	"regular")
+					(object Attribute
+					    tool       	"MDA Generator"
+					    name       	"ValueInitialized"
+					    value      	"true")
+					(object Attribute
+					    tool       	"MDA Generator"
+					    name       	"IsNative"
+					    value      	"false")
+					(object Attribute
+					    tool       	"MDA Generator"
+					    name       	"ElementCreationOrder"
+					    value      	"19011438225"))
+				    quid       	"49800F600276"
+				    stereotype 	"rawText"
+				    exportControl 	"Public"
+				    Containment 	"By Value")))))))
+	(object Class "UpdatePermissionTask"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/PermissionSupport/UpdatePermissionTask|4A1BDD130195
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/PermissionSupport/UpdatePermissionTask.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A1BDD130195_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4A1BDD130195_CUSTOM_IMPORT*¤¤import java.util.*;¤¤import net.sf.hibernate.HibernateException;¤import net.sf.hibernate.Session;¤¤import org.apache.commons.collections.CollectionUtils;¤import org.apache.commons.collections.Predicate;¤import org.apache.commons.collections.PredicateUtils;¤import org.springframework.transaction.PlatformTransactionManager;¤¤import com.atlassian.confluence.core.ContentEntityObject;¤import com.atlassian.confluence.core.ContentPermissionManager;¤import com.atlassian.confluence.event.events.content.ContentEvent;¤import com.atlassian.confluence.event.events.content.blogpost.*;¤import com.atlassian.confluence.event.events.content.page.*;¤import com.atlassian.confluence.pages.AbstractPage;¤import com.atlassian.confluence.pages.Page;¤import com.atlassian.confluence.security.ContentPermission;¤import com.atlassian.confluence.security.ContentPermissionSet;¤import com.atlassian.confluence.security.Permission;¤import com.atlassian.confluence.security.PermissionManager;¤import com.atlassian.confluence.security.SpacePermission;¤import com.atlassian.confluence.spaces.Space;¤import com.atlassian.confluence.spaces.SpaceType;¤import com.atlassian.confluence.util.GeneralUtil;¤import com.atlassian.event.Event;¤import com.atlassian.user.User;¤¤import ru.garant.shared.ConfluenceCore.EventSupport.*;¤¤import ru.garant.MDProcess.ConfluencePlugins.EntityObjectToIdTransformer;¤import ru.garant.MDProcess.ConfluencePlugins.EntityToNameTransformer;¤import ru.garant.MDProcess.ConfluencePlugins.RestrictedPageDAO;¤import ru.garant.MDProcess.ConfluencePlugins.UserSupport.UserHelper;¤¤import ru.garant.shared.ConfluenceCore.PageSupport.GarPageManager;¤¤//#UC END# *4A1BDD130195_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A1BDD130195_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4A1BDD130195_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4A1BDD130195_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A1BDD130195_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4A1BDD130195_CUSTOM_METHODS_AND_DATA*¤	¤	private Event event_;¤¤	public UpdatePermissionTask(Event event) {¤		event_ = event;¤	}¤	¤	@Override¤	protected boolean runInTransaction () {¤		return true;¤	}¤	¤	public void doRun() {¤		long time = System.currentTimeMillis();¤		final String eventName = event_.getClass().getSimpleName();¤		Logs.LOG_D("UpdatePermissionTask::doRun - update started for - " + eventName);¤		¤		try {¤		// insure we have an open session¤		getSession();¤		¤		if(event_ instanceof ContentPermissionsEvent) {¤			final ContentPermissionsEvent cpEvent = (ContentPermissionsEvent) event_;¤			final ContentEntityObject ceo = cpEvent.getContent();¤			if(isViewPagePermissionEvent(ceo, cpEvent.getContentPermissionType())) {¤				final AbstractPage sourcePage = getEventPage(cpEvent);¤				final Space space = sourcePage.getSpace();¤				updateRestrictedPages(getDescendantsAndSelf(sourcePage), space);¤			}¤		} else if (event_ instanceof PageTrashingEvent || event_ instanceof BlogPostTrashedEvent) {¤			final AbstractPage sourcePage = getEventPage((ContentEvent) event_);¤			deleteRestrictedPages(getDescendantsAndSelf(sourcePage));¤		} else if(event_ instanceof PageCreateEvent || event_ instanceof PageRestoreEvent || ¤				  event_ instanceof BlogPostCreateEvent || event_ instanceof BlogPostRestoreEvent¤				) {¤			final AbstractPage sourcePage = getEventPage((ContentEvent) event_);¤			if (!hasSelfOrInheritedPermissions(sourcePage)) {¤				return;¤			}¤			final Space space = sourcePage.getSpace();¤			saveRestrictedPages(createRestrictedPages(Arrays.asList(sourcePage), space));¤		} else if (event_ instanceof UserRemoveMembershipEvent) {¤			final UserMembershipEvent evt = (UserMembershipEvent) event_;¤			final Collection<Space> permittedSpaces = getPermittedSpaces(evt.getUser());¤			updateRestrictedPages(evt.getUser(), permittedSpaces);¤			¤			final Collection<Space> notPermittedSpaces = getNotPermittedSpaces(permittedSpaces);¤			removeUsersFromRestrictedPages(getRestrictedPagesBySpaces(notPermittedSpaces), Arrays.asList(evt.getUser()));¤			UserHelper.createCachedViewPermittedUsers();¤		} else if(event_ instanceof UserAddMembershipEvent) {¤			final UserMembershipEvent evt = (UserMembershipEvent) event_;¤			final GarSpaceManager sm = GarSpaceManager.Factory.get();¤			final Collection<Space> permittedSpaces = sm.getPermittedSpaces(evt.getGroup());¤			updateRestrictedPages(evt.getUser(), permittedSpaces);¤			UserHelper.createCachedViewPermittedUsers();¤		} else if (event_ instanceof SpaceRemoveAllPermissionsEvent) {¤			final Space space = ((SpaceRemoveAllPermissionsEvent) event_).getSpace();¤			Collection<RestrictedPageDAO> restrictedPages = getRestrictedPages(space.getId());¤			deleteRestrictedPages(new ArrayList<RestrictedPageDAO>(restrictedPages));¤			UserHelper.createCachedViewPermittedUsers();¤		} else if (event_ instanceof UserRemoveAllPermissionEvent¤				|| event_ instanceof GroupRemoveAllPermissionEvent) {¤			List<User> users = null;¤			if (event_ instanceof GroupRemoveAllPermissionEvent) {¤				GarUserAccessor ua = ContainerManager.Factory.get().getUserAccessor();¤				final GroupRemoveAllPermissionEvent groupRemovedEvent = (GroupRemoveAllPermissionEvent) event_;¤				users = ua.getUsersByGroup(groupRemovedEvent.getGroup());¤			} else {¤				final UserRemoveAllPermissionEvent userRemovedEvent = (UserRemoveAllPermissionEvent) event_;¤				users = Arrays.asList(userRemovedEvent.getUser());¤			}¤¤			Collection<RestrictedPageDAO> userRestrictedPages = getRestrictedPagesByUsers(users);¤			removeUsersFromRestrictedPages(userRestrictedPages, users);¤			UserHelper.createCachedViewPermittedUsers();¤		} else if (event_ instanceof PageMoveEvent) {¤			final PageMoveEvent pageMovedEvent = (PageMoveEvent) event_;¤			final AbstractPage movedPage = getEventPage(pageMovedEvent);¤			final Space movedPageSpace = movedPage.getSpace();¤			final Space oldPageSpace = pageMovedEvent.getOldSpace();¤			¤			if (pageMovedEvent.hasMovedChildren()) {¤				updateRestrictedPages(getDescendantsAndSelf((Page)movedPage), movedPageSpace);¤			} else {¤				updateRestrictedPages(Arrays.asList(movedPage), movedPageSpace);¤				¤				GarPageManager pm = ContainerManager.Factory.get().getPageManager();¤				updateRestrictedPages(pm.getRootSpacePages(oldPageSpace.getKey()), oldPageSpace);¤			}¤		}else if(event_ instanceof SpacePermissionEvent){¤			UserHelper.createCachedViewPermittedUsers();¤		}¤		¤		time = System.currentTimeMillis() - time;¤		Logs.LOG_D("UpdatePermissionTask::doRun - update completed for - " + eventName + " (" + time + "ms)");¤		¤		} catch (Exception e) {¤			Logs.LOG_SEX(e);¤		}¤	}¤	¤	private void updateRestrictedPages (Collection<AbstractPage> pages, Space space) {¤		final Session session = getSession();¤		try {¤			final Collection<User> spacePermittedUsers = getSpacePermittedUsers(space);¤			final Collection<RestrictedPageDAO> restrictedPages = getRestrictedPages(pages);¤			final long spaceId = space.getId();¤		¤			for (AbstractPage page : pages) {¤				RestrictedPageDAO restrictedPage = findRestrictedPage(page.getId(), restrictedPages);¤				Set<String> restrictedUserNames = getRestrictedViewUsers(spacePermittedUsers, page);¤¤				if (!restrictedUserNames.isEmpty()) {¤					if (restrictedPage != null) {¤						restrictedPage.setViewRestrictedUsers(restrictedUserNames);¤						if (restrictedPage.getSpaceId() != spaceId) {¤							restrictedPage.setSpaceId(spaceId);¤						}¤					} else {¤						session.save(new RestrictedPageDAO(page.getId(), spaceId, restrictedUserNames));¤					}¤				} else {¤					if (restrictedPage != null) {¤						session.delete(restrictedPage);¤					}¤				}¤			}¤		} catch (HibernateException e) {¤			Logs.LOG_E("UpdatePermissionTask::updateRestrictedPages - HibernateException caught updating restricted pages: " + e);¤			throw new RuntimeException(e);¤		}¤	}¤	¤	private void updateRestrictedPages (User user, Collection<Space> permittedSpaces) {¤		final Session session = getSession();¤		try {¤			final Collection<AbstractPage> notPermittedPagesInSpaces = getNotPermittedPagesInSpaces(permittedSpaces);¤			final Collection<RestrictedPageDAO> restrictedPagesInSpace = getRestrictedPages(notPermittedPagesInSpaces);¤			for (AbstractPage page : notPermittedPagesInSpaces) {¤				RestrictedPageDAO restrictedPage = findRestrictedPage(page.getId(), restrictedPagesInSpace);¤				if (hasPermission(user, page)) {¤					if (restrictedPage != null) {¤						if (restrictedPage.getViewRestrictedUsers().size() == 1) {¤							session.delete(restrictedPage);¤						} else {¤							restrictedPage.getViewRestrictedUsers().remove(user.getName());¤						}¤					}¤				} else {¤					if (restrictedPage != null) {¤						restrictedPage.getViewRestrictedUsers().add(user.getName());¤					} else {¤						Set<String> userList = new HashSet<String>(Arrays.asList(user.getName()));¤						restrictedPage = new RestrictedPageDAO(page.getId(), page.getSpace().getId(),¤								userList);¤						session.save(restrictedPage);¤					}¤				}¤			}¤		} catch (HibernateException e) {¤			Logs.LOG_E("UpdatePermissionTask::handleEvent - HibernateException caught updating restricted pages: "¤							+ e);¤			throw new RuntimeException(e);¤		}¤	}¤	¤	private void removeUsersFromRestrictedPages(Collection<RestrictedPageDAO> restrictedPages, Collection<User> users) {¤		final Collection<String> userNames = CollectionUtils.collect(users, new EntityToNameTransformer());¤		try {¤			for (RestrictedPageDAO restrictedPage : restrictedPages) {¤				restrictedPage.getViewRestrictedUsers().removeAll(userNames);¤				if (restrictedPage.getViewRestrictedUsers().isEmpty()) {¤					RestrictedPageDAO.delete(restrictedPage);¤				}¤			}¤		} catch (HibernateException e) {¤			Logs.LOG_E("UpdatePermissionTask::removeUsersFromRestrictedPages - HibernateException caught updating restricted pages: "¤							+ e);¤			throw new RuntimeException(e);¤		}¤	}¤	¤	private List<RestrictedPageDAO> createRestrictedPages(Collection<AbstractPage> pages, Space space) {¤		final Collection<User> spacePermittedUsers = getSpacePermittedUsers(space);¤		¤		List<RestrictedPageDAO> newRestrictedPages = new ArrayList<RestrictedPageDAO>();¤		for(AbstractPage page : pages) {¤			Set<String> restrictedUserNames = getRestrictedViewUsers(spacePermittedUsers, page);¤			if (restrictedUserNames.size() > 0) {¤				RestrictedPageDAO restrictedPage = new RestrictedPageDAO(page.getId(), space.getId(),¤							restrictedUserNames);¤				newRestrictedPages.add(restrictedPage);¤			}¤		}¤		return newRestrictedPages;¤	}¤	¤	@SuppressWarnings("unchecked")¤	private Collection<Space> getPermittedSpaces (User user) {¤		final GarSpaceManager sm = ContainerManager.Factory.get().getSpaceManager();¤		return CollectionUtils.select(sm.getPermittedSpaces(user), new Predicate() {¤			public boolean evaluate (Object spaceObj) {¤				return ((Space) spaceObj).isGlobal();¤			}¤		});¤	}¤	¤	private Collection<Space> getNotPermittedSpaces (Collection<Space> permittedSpaces) {¤		final GarSpaceManager sm = ContainerManager.Factory.get().getSpaceManager();¤		return CollectionUtils.subtract(sm.getSpacesByType(SpaceType.GLOBAL), permittedSpaces);¤	}¤	¤	private Collection<User> getSpacePermittedUsers (Space space) {¤		GarSpacePermissionManager spm = ContainerManager.Factory.get().getSpacePermissionManager();¤		return spm.getUsersForPermissions(Arrays.asList(SpacePermission.VIEWSPACE_PERMISSION), space);¤	}¤	¤	private Collection<AbstractPage> getNotPermittedPagesInSpaces(Collection<Space> permittedSpaces) {¤		GarPageManager pm = ContainerManager.Factory.get().getPageManager();¤		List<Long> permittedSpaceIds = ¤			new ArrayList<Long>(CollectionUtils.collect(permittedSpaces, new EntityObjectToIdTransformer()));¤		¤		return pm.getPermissionPages(permittedSpaceIds, ContentPermission.VIEW_PERMISSION);¤	}¤	¤	private Set<String> getRestrictedViewUsers (Collection<User> spacePermittedUsers, final AbstractPage page) {¤		Set<String> result = new HashSet<String>();¤¤		for (ContentPermissionSet cps : getSelfAndInheritedRestrictions(page)) {¤			for (User user : spacePermittedUsers) {¤				if (!result.contains(user.getName())) {¤					if (!cps.isPermitted(user)) {¤						result.add(user.getName());¤					}¤				}¤			}¤		}¤		return result;¤	}¤	¤	private Collection<ContentPermissionSet> getSelfAndInheritedRestrictions (ContentEntityObject ceo) {¤		Collection<ContentPermissionSet> result = new LinkedList<ContentPermissionSet>();¤		ContentPermissionSet currentRestriction = ceo¤				.getContentPermissionSet(ContentPermission.VIEW_PERMISSION);¤		if (currentRestriction != null) {¤			result.add(currentRestriction);¤		}¤		final ContentPermissionManager cpm = ContainerManager.Factory.get().getContentPermissionManager();¤		result.addAll(cpm.getInheritedContentPermissionSets(ceo));¤		return result;¤	}¤	¤	private boolean hasPermission (User user, AbstractPage page) {¤		if (GeneralUtil.isSuperUser(user)) {¤			return true;¤		}¤		PermissionManager prm = ContainerManager.Factory.get().getPermissionManager();¤		return prm.hasPermission(user, Permission.VIEW, page);¤	}¤	¤	private RestrictedPageDAO findRestrictedPage (long pageId, Collection<RestrictedPageDAO> restrictedPages) {¤		for (RestrictedPageDAO rpd : restrictedPages) {¤			if (pageId == rpd.getPageId()) {¤				return rpd;¤			}¤		}¤		return null;¤	}¤	¤	private Collection<RestrictedPageDAO> getRestrictedPages (Collection<AbstractPage> pages) {¤		List<Long> pageIds = new LinkedList<Long>(CollectionUtils.collect(pages, new EntityObjectToIdTransformer()));¤		try {¤			return RestrictedPageDAO.getByPageIds(pageIds);¤		} catch (HibernateException e) {¤			Logs.LOG_W("UpdatePermissionTask::getRestrictedPage - HibernateException caught getting single restricted page: " + e);¤		}¤		return null;¤	}¤	¤	private Collection<RestrictedPageDAO> getRestrictedPagesBySpaces (Collection<Space> spaces) {¤		List<Long> spaceIds = new LinkedList<Long>(CollectionUtils.collect(spaces, new EntityObjectToIdTransformer()));¤		try {¤			return RestrictedPageDAO.getBySpaceIds(spaceIds);¤		} catch (HibernateException e) {¤			Logs.LOG_E("UpdatePermissionTask::getRestrictedPages - HibernateException caught getting restricted pages by spaces: " + e);¤			throw new RuntimeException(e);¤		}¤	}¤	¤	private Collection<RestrictedPageDAO> getRestrictedPages (long spaceId) {¤		try {¤			return RestrictedPageDAO.getBySpace(spaceId);¤		} catch (HibernateException e) {¤			Logs.LOG_E("UpdatePermissionTask::getRestrictedPages - HibernateException caught getting restricted pages by space: " + e);¤			throw new RuntimeException(e);¤		}¤	}¤	¤	private Collection<RestrictedPageDAO> getRestrictedPagesByUsers (List<User> users) {¤		try {¤			return RestrictedPageDAO.getByUsers(users);¤		} catch (HibernateException e) {¤			Logs.LOG_E("UpdatePermissionTask::getRestrictedPagesByUsers - HibernateException caught getting restricted pages: "¤							+ e);¤			throw new RuntimeException(e);¤		}¤	}¤	¤	private void deleteRestrictedPages (Collection<AbstractPage> pages) {¤		Collection<Long> pageIds = CollectionUtils.collect(pages, new EntityObjectToIdTransformer());¤¤		try {¤			RestrictedPageDAO.deleteByPageIds(new ArrayList<Long>(pageIds));¤		} catch (HibernateException e) {¤			Logs.LOG_E("UpdatePermissionTask::deleteOldRestrictedPages - HibernateException caught removing a restricted page: "¤							+ e);¤			throw new RuntimeException(e);¤		}¤	}¤	¤	private void deleteRestrictedPages (final List<RestrictedPageDAO> result) {¤		try {¤			RestrictedPageDAO.delete(result);¤		} catch (HibernateException e) {¤			Logs.LOG_E("UpdatePermissionTask::deleteRestrictedPages - exception caught deleting restricted pages: " + e);¤			throw new RuntimeException(e);¤		}¤	}¤	¤	private void saveRestrictedPages (final List<RestrictedPageDAO> result) {¤		try {¤			RestrictedPageDAO.save(result);¤		} catch (HibernateException e) {¤			Logs.LOG_E("UpdatePermissionTask::saveRestrictedPages - exception caught saving restricted pages: " + e);¤			throw new RuntimeException(e);¤		}¤	}¤	¤	private boolean hasSelfOrInheritedPermissions (ContentEntityObject ceo) {¤		if (ceo == null) {¤			return false;¤		}¤		if (ceo.getContentPermissionSet(ContentPermission.VIEW_PERMISSION) != null) {¤			return true;¤		}¤¤		final ContentPermissionManager cpm = ContainerManager.Factory.get().getContentPermissionManager();¤		return !cpm.getInheritedContentPermissionSets(ceo).isEmpty();¤	}¤	¤	private Collection<AbstractPage> getDescendants (Page page) {¤		Predicate pageOnly = PredicateUtils.instanceofPredicate(Page.class);¤		Collection<AbstractPage> pageDescendants = CollectionUtils.select(page.getDescendents(), pageOnly);¤		return pageDescendants;¤	}¤	¤	private Collection<AbstractPage> getDescendantsAndSelf (AbstractPage page) {¤		if(page instanceof Page){¤			Collection<AbstractPage> result = getDescendants((Page)page);¤			result.add(page);¤			return result;¤		}else{¤			return Arrays.asList(page);¤		}¤	}¤¤	private boolean isViewPagePermissionEvent (ContentEntityObject ceo, final String contentPermissionType) {¤		return ceo instanceof AbstractPage && contentPermissionType != null¤				&& contentPermissionType.equals(ContentPermission.VIEW_PERMISSION);¤	}¤	¤	private AbstractPage getEventPage (ContentEvent event) {¤		return ContainerManager.Factory.get().getPageManager().getAbstractPage(event.getContent().getId());¤	}¤¤	@Override¤	public boolean isInSingleThread() {¤		// TODO Auto-generated method stub¤		return false;¤	}¤	¤	¤	//#UC END# *4A1BDD130195_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19027516786"))
+	    quid       	"4A1BDD130195"
+	    documentation 	"Èíêàïñóëèðóåò ëîãèêó îáíîâëåíèÿ ïðàâ, çàïóñêàåòñÿ â îòäåëüíîì ïîòîêå"
+	    stereotype 	"SimpleClass"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4A83B04F006E"
+		    supplier   	"Logical View::shared::ConfluenceCore::TaskSupport::PostProcessorTask"
+		    quidu      	"4A83AEE0035D"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"497EF116010F"
+	    title      	"Main"
+	    zoom       	80
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::PermissionSupport::PermissionListener" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(435, 324)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(181, 288)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	508
+			justify    	0
+			label      	"PermissionListener")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(181, 238)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	506
+			justify    	0
+			label      	"<<KListenerPlugin>>")
+		    icon_style 	"Label"
+		    fill_color 	15448575
+		    quidu      	"497EF11D00DB"
+		    width      	526
+		    height     	196
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::PermissionSupport::ImportPermissionAction" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2397, 822)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(2105, 786)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	584
+			justify    	0
+			label      	"ImportPermissionAction")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(2105, 736)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	584
+			justify    	0
+			label      	"<<KActionPlugin>>")
+		    icon_style 	"Label"
+		    fill_color 	15448575
+		    quidu      	"49800E2B0259"
+		    width      	602
+		    height     	196
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::PermissionSupport::PermissionSupportXPlugin" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(3066, 324)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(2739, 303)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	654
+			justify    	0
+			label      	"PermissionSupportXPlugin")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(2739, 253)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	654
+			justify    	0
+			label      	"<<KXWorkPlugin>>")
+		    icon_style 	"Label"
+		    fill_color 	16111871
+		    quidu      	"49800E61015C"
+		    width      	672
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::ConfluenceSupport::com.atlassian.confluence.coreImpl::ConfluenceActionSupport" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2403, 372)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(1927, 340)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	952
+			justify    	0
+			label      	"ConfluenceActionSupport")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(1927, 290)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	952
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"468C9C950186"
+		    width      	970
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @5
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"498016450086"
+		    client     	@2
+		    supplier   	@4
+		    vertices   	(list Points
+			(2397, 723)
+			(2401, 466))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::WebConvertedSystemObjectsTypes::EntityObjectToIdTransformer" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(480, 1116)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705320
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(173, 1089)
+			nlines     	1
+			max_width  	614
+			justify    	0
+			label      	"EntityObjectToIdTransformer")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(173, 1039)
+			anchor     	10
+			nlines     	1
+			max_width  	614
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	705320
+		    fill_color 	16777215
+		    quidu      	"49801E17004E"
+		    width      	632
+		    height     	178
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::WebConvertedSystemObjectsTypes::EntityToNameTransformer" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(459, 1329)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705320
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(152, 1301)
+			nlines     	1
+			max_width  	614
+			justify    	0
+			label      	"EntityToNameTransformer")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(152, 1251)
+			anchor     	10
+			nlines     	1
+			max_width  	614
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	705320
+		    fill_color 	16777215
+		    quidu      	"4982D9A20283"
+		    width      	632
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::ConfluencePluginsDAO::RestrictedPageDAO" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1047, 753)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705320
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(825, 725)
+			nlines     	1
+			max_width  	444
+			justify    	0
+			label      	"RestrictedPageDAO")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(825, 675)
+			anchor     	10
+			nlines     	1
+			max_width  	444
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	705320
+		    fill_color 	16777215
+		    quidu      	"497DD72002C5"
+		    width      	462
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @9
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @10
+			Parent_View 	@9
+			location   	(1682, 905)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49A7D2B500D6"
+		    client     	@2
+		    supplier   	@8
+		    vertices   	(list Points
+			(2095, 805)
+			(1278, 764))
+		    line_style 	0)
+		(object UsesView "" @11
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @12
+			Parent_View 	@11
+			location   	(201, 765)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.524719
+			height     	114
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49801ECA0049"
+		    client     	@1
+		    supplier   	@6
+		    vertices   	(list Points
+			(172, 412)
+			(87, 412)
+			(87, 1084)
+			(164, 1084))
+		    line_style 	3
+		    origin_attachment 	(172, 412)
+		    terminal_attachment 	(164, 1084))
+		(object UsesView "" @13
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @14
+			Parent_View 	@13
+			location   	(192, 886)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.592593
+			height     	148
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4982D9FD019A"
+		    client     	@1
+		    supplier   	@7
+		    vertices   	(list Points
+			(172, 363)
+			(44, 363)
+			(44, 1235)
+			(143, 1235))
+		    line_style 	3
+		    origin_attachment 	(172, 363)
+		    terminal_attachment 	(143, 1235))
+		(object UsesView "" @15
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @16
+			Parent_View 	@15
+			location   	(816, 445)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49A7D2B10016"
+		    client     	@1
+		    supplier   	@8
+		    vertices   	(list Points
+			(575, 422)
+			(918, 662))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::PermissionSupport::UpdatePermissionTask" @17
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1545, 465)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@17
+			location   	(1258, 429)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	574
+			justify    	0
+			label      	"UpdatePermissionTask")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@17
+			location   	(1258, 379)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	574
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4A1BDD130195"
+		    width      	592
+		    height     	196
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @18
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @19
+			Parent_View 	@18
+			location   	(969, 321)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.475823
+			height     	70
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4A1BDDC60128"
+		    client     	@1
+		    supplier   	@17
+		    vertices   	(list Points
+			(698, 356)
+			(1248, 425))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::TaskSupport::PostProcessorTask" @20
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1521, 135)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705320
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@20
+			location   	(1322, 106)
+			nlines     	1
+			max_width  	398
+			justify    	0
+			label      	"PostProcessorTask")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@20
+			location   	(1322, 56)
+			anchor     	10
+			nlines     	1
+			max_width  	398
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	705320
+		    fill_color 	16777215
+		    quidu      	"4A83AEE0035D"
+		    width      	416
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @21
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4A83B04F006E"
+		    client     	@17
+		    supplier   	@20
+		    vertices   	(list Points
+			(1537, 366)
+			(1527, 226))
+		    line_style 	0)))
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ClassUID"
+		    value      	"49800E61015C"))
+	    quid       	"49800EBE022B"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::PermissionSupport::PermissionSupportXPlugin::PermissionSupportXPackage" @22
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(729, 504)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@22
+			location   	(445, 476)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	568
+			justify    	0
+			label      	"PermissionSupportXPackage")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@22
+			location   	(445, 426)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	568
+			justify    	0
+			label      	"<<XPackage>>")
+		    icon_style 	"Label"
+		    fill_color 	13357823
+		    quidu      	"49800EAC01F2"
+		    width      	586
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)))
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ClassUID"
+		    value      	"49800EAC01F2"))
+	    quid       	"49800F7E02B1"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::PermissionSupport::PermissionSupportXPlugin::PermissionSupportXPackage::ImportPermissions" @23
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(690, 462)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@23
+			location   	(431, 405)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	518
+			justify    	0
+			label      	"ImportPermissions")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@23
+			location   	(431, 355)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	518
+			justify    	0
+			label      	"<<XAction>>")
+		    icon_style 	"Label"
+		    fill_color 	13357823
+		    quidu      	"49800F16017A"
+		    compartment 	(object Compartment
+			Parent_View 	@23
+			location   	(431, 520)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	1
+			max_width  	462
+			justify    	1)
+		    width      	536
+		    height     	238
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::PermissionSupport::ImportPermissionAction" @24
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2025, 456)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	13110000
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@24
+			location   	(1795, 433)
+			nlines     	1
+			max_width  	460
+			justify    	0
+			label      	"ImportPermissionAction")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@24
+			location   	(1795, 383)
+			anchor     	10
+			nlines     	1
+			max_width  	460
+			justify    	0
+			label      	"<<KActionPlugin>>")
+		    icon_style 	"Label"
+		    line_color 	13110000
+		    fill_color 	16777215
+		    quidu      	"49800E2B0259"
+		    width      	478
+		    height     	171
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @25
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @26
+			Parent_View 	@25
+			location   	(1371, 339)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<call>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49800F330156"
+		    client     	@23
+		    supplier   	@24
+		    vertices   	(list Points
+			(958, 460)
+			(1785, 456))
+		    line_style 	0)))))

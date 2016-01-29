@@ -1,0 +1,39 @@
+// JEDI 4B4DCCBF034F Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4B4DCCBF034F
+ CONST UID '4B4DCCBF034F'
+ CONST Name 'JEDI'
+ CONST Class class_Category
+ : Stereotype st_Library ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4ABCC25A0322' '4ABCC25A0322.pas.ms.script' // Shared Delphi Low Level
+ ;
+ : Children
+   @ ( WL 'ME_4B4DCD0B0295' '4B4DCD0B0295.pas.ms.script' // Common
+ WL 'ME_4B72BEC80036' '4B72BEC80036.pas.ms.script' // Windows
+ WL 'ME_4C98A77001C2' '4C98A77001C2.pas.ms.script' // Win32API
+ WL 'ME_5369F98501F2' '5369F98501F2.pas.ms.script' // VCL
+ WL 'ME_5507E07A0136' '5507E07A0136.pas.ms.script' // GDIPLUS
+ ) .SequenceCode.It
+ ; // Children
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'rtl'
+ CONST "is namespace" true
+ CONST "vendor" '/external'
+ : Generators
+ @ (
+ gen_forth_structure
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Low Level\JEDI\JEDI.model.script'
+ CONST intf.pas:Path 'common\components\rtl\external\JEDI\JEDI_lib.info'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4B4DCCBF034F.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4B4DCCBF034F.pas.ms.script.runner'
+
+ref; // ME_4B4DCCBF034F JEDI

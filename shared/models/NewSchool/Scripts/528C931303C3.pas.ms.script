@@ -1,0 +1,821 @@
+// vcmFormSetSupport 528C931303C3 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_528C931303C3
+
+FORWARD ME_5289C78503E2
+
+FORWARD ME_5289C7D4012A
+
+: ME_528CB40B0036
+ CONST UID '528CB40B0036'
+ CONST Name 'rZoneType'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+ : Target WL 'ME_528C93FD01EA' '528C93040132.pas.ms.script' // TvcmZoneType
+ ;
+
+ref; // ME_528CB40B0036 rZoneType
+
+: ME_528CB41E025E
+ CONST UID '528CB41E025E'
+ CONST Name 'rFormID'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+ : Target WL 'ME_528C9354017B' '528C93040132.pas.ms.script' // TvcmFormID
+ ;
+
+ref; // ME_528CB41E025E rFormID
+
+: ME_5289CA200214
+ CONST UID '5289CA200214'
+ CONST Name 'rUserType'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+ : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+
+ref; // ME_5289CA200214 rUserType
+
+: ME_528B562C00D2
+ CONST UID '528B562C00D2'
+ CONST Name 'rSubUserType'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+ : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+
+ref; // ME_528B562C00D2 rSubUserType
+
+FORWARD ME_5289CC6003B0
+
+: ME_5289CC97019B
+ CONST UID '5289CC97019B'
+ CONST Name 'anOther'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+
+ref; // ME_5289CC97019B anOther
+
+: ME_5289CC860143
+ CONST UID '5289CC860143'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5289CC6003B0 // EQ
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_5289CC97019B // anOther
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5289CC860143 DoIt
+
+: ME_5289CC6003B0
+ CONST UID '5289CC6003B0'
+ CONST Name 'EQ'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+ : Operations
+   @ ( ME_5289CC860143 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5289CC6003B0 EQ
+
+FORWARD ME_5289CC9F0130
+
+: ME_5289CD060033
+ CONST UID '5289CD060033'
+ CONST Name 'anOther'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+
+ref; // ME_5289CD060033 anOther
+
+: ME_5289CCFC01B9
+ CONST UID '5289CCFC01B9'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5289CC9F0130 // Compare
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_5289CD060033 // anOther
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5289CCFC01B9 DoIt
+
+: ME_5289CC9F0130
+ CONST UID '5289CC9F0130'
+ CONST Name 'Compare'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+ : Operations
+   @ ( ME_5289CCFC01B9 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5289CC9F0130 Compare
+
+FORWARD ME_528B525300DE
+
+: ME_52A5681F0316
+ CONST UID '52A5681F0316'
+ CONST Name 'aFormID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_528C9354017B' '528C93040132.pas.ms.script' // TvcmFormID
+ ;
+
+ref; // ME_52A5681F0316 aFormID
+
+: ME_52A5681F0325
+ CONST UID '52A5681F0325'
+ CONST Name 'aZoneType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_528C93FD01EA' '528C93040132.pas.ms.script' // TvcmZoneType
+ ;
+
+ref; // ME_52A5681F0325 aZoneType
+
+: ME_52A5681F033F
+ CONST UID '52A5681F033F'
+ CONST Name 'aUserType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+
+ref; // ME_52A5681F033F aUserType
+
+: ME_52A5681F0376
+ CONST UID '52A5681F0376'
+ CONST Name 'aSubUserType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST Value 'vcm_utAny'
+ : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+
+ref; // ME_52A5681F0376 aSubUserType
+
+: ME_528B52A001F8
+ CONST UID '528B52A001F8'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_528B525300DE // C
+ ;
+ : Parameters
+   @ ( ME_52A5681F0316 // aFormID
+ ME_52A5681F0325 // aZoneType
+ ME_52A5681F033F // aUserType
+ ME_52A5681F0376 // aSubUserType
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_528B52A001F8 DoIt
+
+: ME_528CBA8D0376
+ CONST UID '528CBA8D0376'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_528B525300DE // C
+ ;
+ : Target WL 'ME_528C93FD01EA' '528C93040132.pas.ms.script' // TvcmZoneType
+ ;
+
+ref; // ME_528CBA8D0376 
+
+: ME_528B525300DE
+ CONST UID '528B525300DE'
+ CONST Name 'C'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+ : Operations
+   @ ( ME_528B52A001F8 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_528CBA8D0376 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_528B525300DE C
+
+: ME_528CBBE9032E
+ CONST UID '528CBBE9032E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+ : Target WL 'ME_528C93FD01EA' '528C93040132.pas.ms.script' // TvcmZoneType
+ ;
+
+ref; // ME_528CBBE9032E 
+
+: ME_5289C7D4012A
+ CONST UID '5289C7D4012A'
+ CONST Name 'TvcmFormSetFormItemDescr'
+ CONST Class class_Class
+ : Stereotype st_StaticObject ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5289C78503E2 // vcmFormSetFormItemList
+ ;
+ : Attributes
+   @ ( ME_528CB40B0036 // rZoneType
+ ME_528CB41E025E // rFormID
+ ME_5289CA200214 // rUserType
+ ME_528B562C00D2 // rSubUserType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_5289CC6003B0 // EQ
+ ME_5289CC9F0130 // Compare
+ ME_528B525300DE // C
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_528CBBE9032E // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "not treat as record for XE4" 'undefined'
+
+ref; // ME_5289C7D4012A TvcmFormSetFormItemDescr
+
+FORWARD ME_5289CA7803D8
+
+: ME_528DA3E502AA
+ CONST UID '528DA3E502AA'
+ CONST Name 'rNeedMake'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_5289CA7803D8 // TvcmFormSetFormItem
+ ;
+ : Target WL 'ME_528D9F530036' '528C93040132.pas.ms.script' // TvcmNeedMakeDS
+ ;
+
+ref; // ME_528DA3E502AA rNeedMake
+
+: ME_5289CB2900CC
+ CONST UID '5289CB2900CC'
+ CONST Name 'rKey'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_5289CA7803D8 // TvcmFormSetFormItem
+ ;
+ : Target ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+
+ref; // ME_5289CB2900CC rKey
+
+FORWARD ME_5289CD300046
+
+: ME_5289CD5E010B
+ CONST UID '5289CD5E010B'
+ CONST Name 'anOther'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_5289CA7803D8 // TvcmFormSetFormItem
+ ;
+
+ref; // ME_5289CD5E010B anOther
+
+: ME_5289CD4602CC
+ CONST UID '5289CD4602CC'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5289CD300046 // EQ
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_5289CD5E010B // anOther
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5289CD4602CC DoIt
+
+: ME_5289CD300046
+ CONST UID '5289CD300046'
+ CONST Name 'EQ'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5289CA7803D8 // TvcmFormSetFormItem
+ ;
+ : Operations
+   @ ( ME_5289CD4602CC // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5289CD300046 EQ
+
+FORWARD ME_5289CD3602F8
+
+: ME_5289CD7D0243
+ CONST UID '5289CD7D0243'
+ CONST Name 'anOther'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_5289CA7803D8 // TvcmFormSetFormItem
+ ;
+
+ref; // ME_5289CD7D0243 anOther
+
+: ME_5289CD6201A0
+ CONST UID '5289CD6201A0'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5289CD3602F8 // Compare
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_5289CD7D0243 // anOther
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5289CD6201A0 DoIt
+
+: ME_5289CD3602F8
+ CONST UID '5289CD3602F8'
+ CONST Name 'Compare'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5289CA7803D8 // TvcmFormSetFormItem
+ ;
+ : Operations
+   @ ( ME_5289CD6201A0 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5289CD3602F8 Compare
+
+FORWARD ME_528B51C0030E
+
+: ME_528DA429007C
+ CONST UID '528DA429007C'
+ CONST Name 'aKey'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+
+ref; // ME_528DA429007C aKey
+
+: ME_528DA4290089
+ CONST UID '528DA4290089'
+ CONST Name 'aNeedMake'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_528D9F530036' '528C93040132.pas.ms.script' // TvcmNeedMakeDS
+ ;
+ CONST Value 'vcm_nmNo'
+ : ValueType WL 'ME_528D9F530036' '528C93040132.pas.ms.script' // TvcmNeedMakeDS
+ ;
+
+ref; // ME_528DA4290089 aNeedMake
+
+: ME_528B522E017D
+ CONST UID '528B522E017D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_528B51C0030E // C
+ ;
+ : Parameters
+   @ ( ME_528DA429007C // aKey
+ ME_528DA4290089 // aNeedMake
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_528B522E017D DoIt
+
+: ME_528B51C0030E
+ CONST UID '528B51C0030E'
+ CONST Name 'C'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5289CA7803D8 // TvcmFormSetFormItem
+ ;
+ : Operations
+   @ ( ME_528B522E017D // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_528B51C0030E C
+
+: ME_5289CE3F01AB
+ CONST UID '5289CE3F01AB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5289CA7803D8 // TvcmFormSetFormItem
+ ;
+ : Target ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+
+ref; // ME_5289CE3F01AB 
+
+: ME_5289CA7803D8
+ CONST UID '5289CA7803D8'
+ CONST Name 'TvcmFormSetFormItem'
+ CONST Class class_Class
+ : Stereotype st_StaticObject ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5289C78503E2 // vcmFormSetFormItemList
+ ;
+ : Attributes
+   @ ( ME_528DA3E502AA // rNeedMake
+ ME_5289CB2900CC // rKey
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_5289CD300046 // EQ
+ ME_5289CD3602F8 // Compare
+ ME_528B51C0030E // C
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_5289CE3F01AB // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "not treat as record for XE4" 'undefined'
+
+ref; // ME_5289CA7803D8 TvcmFormSetFormItem
+
+FORWARD ME_5289CD8F0001
+
+FORWARD ME_528DB25B023B
+
+: ME_528DB28103AA
+ CONST UID '528DB28103AA'
+ CONST Name 'Index'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_528DB25B023B // NeedMakeDS
+ ;
+ : Target ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+
+ref; // ME_528DB28103AA Index
+
+: ME_528DB25B023B
+ CONST UID '528DB25B023B'
+ CONST Name 'NeedMakeDS'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_lnk
+ : Parent ME_5289CD8F0001 // TvcmFormSetFormList
+ ;
+ : Target WL 'ME_528D9F530036' '528C93040132.pas.ms.script' // TvcmNeedMakeDS
+ ;
+ : Attributes
+   @ ( ME_528DB28103AA // Index
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_528DB25B023B NeedMakeDS
+
+: ME_5289CE2D00F4
+ CONST UID '5289CE2D00F4'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_5289CD8F0001 // TvcmFormSetFormList
+ ;
+ : Target ME_5289CA7803D8 // TvcmFormSetFormItem
+ ;
+
+ref; // ME_5289CE2D00F4 ItemType
+
+FORWARD ME_528DB44C02D7
+
+: ME_528DB46B003A
+ CONST UID '528DB46B003A'
+ CONST Name 'aFormDescr'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+
+ref; // ME_528DB46B003A aFormDescr
+
+: ME_528DB45B01FD
+ CONST UID '528DB45B01FD'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_528DB44C02D7 // GetFormIndex
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_528DB46B003A // aFormDescr
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_528DB45B01FD DoIt
+
+: ME_528DB44C02D7
+ CONST UID '528DB44C02D7'
+ CONST Name 'GetFormIndex'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5289CD8F0001 // TvcmFormSetFormList
+ ;
+ : Operations
+   @ ( ME_528DB45B01FD // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_528DB44C02D7 GetFormIndex
+
+FORWARD ME_529845780295
+
+: ME_529845B1010D
+ CONST UID '529845B1010D'
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+
+ref; // ME_529845B1010D aForm
+
+: ME_529845B1011E
+ CONST UID '529845B1011E'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_528D9F530036' '528C93040132.pas.ms.script' // TvcmNeedMakeDS
+ ;
+
+ref; // ME_529845B1011E aValue
+
+: ME_52984594013A
+ CONST UID '52984594013A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_529845780295 // SetIfNeedMakeNo
+ ;
+ : Parameters
+   @ ( ME_529845B1010D // aForm
+ ME_529845B1011E // aValue
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_52984594013A DoIt
+
+: ME_529845780295
+ CONST UID '529845780295'
+ CONST Name 'SetIfNeedMakeNo'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5289CD8F0001 // TvcmFormSetFormList
+ ;
+ : Operations
+   @ ( ME_52984594013A // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_529845780295 SetIfNeedMakeNo
+
+: ME_47B2C42A0163_ME_5289CD8F0001
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_5289CD8F0001 // TvcmFormSetFormList
+ ;
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_5289CD8F0001 AssignItem
+
+: ME_47B99D4503A2_ME_5289CD8F0001
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_5289CD8F0001 // TvcmFormSetFormList
+ ;
+ref; // ME_47B99D4503A2_ME_5289CD8F0001 CompareExistingItems
+
+: ME_47A750E70096_ME_5289CD8F0001
+ CONST UID '47A750E70096'
+ CONST Name 'Add'
+ : Original WL 'ME_47A750E70096' '47913B47006E.pas.ms.script' // Add
+ ;
+ : Implementor ME_5289CD8F0001 // TvcmFormSetFormList
+ ;
+ref; // ME_47A750E70096_ME_5289CD8F0001 Add
+
+: ME_47B9866E034D_ME_5289CD8F0001
+ CONST UID '47B9866E034D'
+ CONST Name 'Create'
+ : Original WL 'ME_47B9866E034D' '47913B47006E.pas.ms.script' // Create
+ ;
+ : Implementor ME_5289CD8F0001 // TvcmFormSetFormList
+ ;
+ref; // ME_47B9866E034D_ME_5289CD8F0001 Create
+
+: ME_5289CD8F0001
+ CONST UID '5289CD8F0001'
+ CONST Name 'TvcmFormSetFormList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5289C78503E2 // vcmFormSetFormItemList
+ ;
+ : Inherits
+   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_4B223DB5024B' '47913B47006E.pas.ms.script' // l3RecordWithEQList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_528DB25B023B // NeedMakeDS
+ ME_5289CE2D00F4 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_528DB44C02D7 // GetFormIndex
+ ME_529845780295 // SetIfNeedMakeNo
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_47B2C42A0163_ME_5289CD8F0001 // AssignItem
+ ME_47B99D4503A2_ME_5289CD8F0001 // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_47A750E70096_ME_5289CD8F0001 // Add
+ ME_47B9866E034D_ME_5289CD8F0001 // Create
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_5289CD8F0001 TvcmFormSetFormList
+
+: ME_5289D1040214
+ CONST UID '5289D1040214'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5289C78503E2 // vcmFormSetFormItemList
+ ;
+ : Target WL 'ME_4995624100A6' '499EAAE502A8.pas.ms.script' // IvcmOperationDef
+ ;
+
+ref; // ME_5289D1040214 
+
+: ME_5289C78503E2
+ CONST UID '5289C78503E2'
+ CONST Name 'vcmFormSetFormItemList'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_528C931303C3 // vcmFormSetSupport
+ ;
+ : Children
+   @ ( ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ME_5289CA7803D8 // TvcmFormSetFormItem
+ ME_5289CD8F0001 // TvcmFormSetFormList
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_5289D1040214 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmFormSetFormItemList.pas'
+
+ref; // ME_5289C78503E2 vcmFormSetFormItemList
+
+: ME_528C931303C3
+ CONST UID '528C931303C3'
+ CONST Name 'vcmFormSetSupport'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ ;
+ : Children
+   @ ( ME_5289C78503E2 // vcmFormSetFormItemList
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_528C93040132' '528C93040132.pas.ms.script' // vcmBaseTypes
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\528C931303C3.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\528C931303C3.pas.ms.script.runner'
+
+ref; // ME_528C931303C3 vcmFormSetSupport

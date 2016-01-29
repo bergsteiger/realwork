@@ -1,0 +1,1 @@
+start "" "%SystemRoot%\System32\mstsc.exe"

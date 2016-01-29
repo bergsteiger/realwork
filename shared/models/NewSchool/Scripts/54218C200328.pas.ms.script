@@ -1,0 +1,115 @@
+// Tm3CommonStorageStream 54218C200328 SimpleClass Class
+
+INCLUDE '4FA276800294.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_54218C200328
+
+FORWARD ME_54218C6B02B1
+
+INCLUDE '4720862F0238.pas.ms.script'
+
+: ME_54218C7402CC
+ CONST UID '54218C7402CC'
+ CONST Name 'anAccess'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47208653003B // Tm3StoreAccess
+ ;
+
+ @SELF
+; // ME_54218C7402CC anAccess
+
+INCLUDE '543F7EF202C6.pas.ms.script'
+
+: ME_54218C9100BE
+ CONST UID '54218C9100BE'
+ CONST Name 'aRootStreamManager'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_543F7EF202C6 // Tm3RootStreamManagerPrimPrim
+ ;
+
+ @SELF
+; // ME_54218C9100BE aRootStreamManager
+
+INCLUDE '4773DED9004C.pas.ms.script'
+
+: ME_54218CF50115
+ CONST UID '54218CF50115'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4773DED9004C // Tl3_String
+ ;
+
+ @SELF
+; // ME_54218CF50115 aName
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_54218C7201DC
+ CONST UID '54218C7201DC'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_54218C7402CC // anAccess
+ ME_54218C9100BE // aRootStreamManager
+ ME_54218CF50115 // aName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54218C7201DC DoIt
+
+: ME_54218C6B02B1
+ CONST UID '54218C6B02B1'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54218C7201DC // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54218C6B02B1 Create
+
+: ME_54218C200328
+ CONST UID '54218C200328'
+ CONST Name 'Tm3CommonStorageStream'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_4FA276800294 // Tm3BaseStream
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_54218C6B02B1 // Create
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_47A6FEE600FC // IsCacheable
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_54218C200328 Tm3CommonStorageStream

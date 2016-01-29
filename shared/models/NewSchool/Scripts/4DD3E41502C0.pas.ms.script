@@ -1,0 +1,73 @@
+// Tl3ProtoPersistentRefList 4DD3E41502C0 SimpleClass Class
+
+FORWARD ME_4DD3E41502C0
+
+: ME_5301F2F5011C
+ CONST UID '5301F2F5011C'
+ CONST Name 'l3Items_NoSort'
+ CONST Class 'Class'
+ CONST Stereotype 'Define'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_5301F2F5011C l3Items_NoSort
+
+INCLUDE '47B99E920196.pas.ms.script'
+
+INCLUDE '4A54DD4E036F.pas.ms.script'
+
+INCLUDE '47A74A5F0123.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+INCLUDE '49E7725102DA.pas.ms.script'
+
+: ME_4DD3E46A0306
+ CONST UID '4DD3E46A0306'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_49E7725102DA // Tl3ProtoPersistent
+ ;
+
+ @SELF
+; // ME_4DD3E46A0306 ItemType
+
+: ME_4DD3E41502C0
+ CONST UID '4DD3E41502C0'
+ CONST Name 'Tl3ProtoPersistentRefList'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47B99E920196 // l3UncomparabeObjectRefList
+ ME_4A54DD4E036F // Tl3ProtoDataContainer
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4DD3E46A0306 // ItemType
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_47B2C42A0163 // AssignItem
+ ME_47B99D4503A2 // CompareExistingItems
+ ]
+ ; // Implemented
+ : Children
+   [ ME_5301F2F5011C // l3Items_NoSort
+ ]
+ ; // Children
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '18.05.2011 19:22'
+
+ @SELF
+; // ME_4DD3E41502C0 Tl3ProtoPersistentRefList

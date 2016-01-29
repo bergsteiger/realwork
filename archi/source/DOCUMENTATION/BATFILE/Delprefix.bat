@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\EC Software\HelpAndManual6\HELPMAN.EXE" D:\MANUAL(CVS)\archi\source\DOCUMENTATION\Delprefix.AdminGuide.hmxz /tsk=DelPrefixBuild:Delprefix.AdminGuide /tsk=DelPrefixBuild:Delprefix.AdminGuide_!DAILY /tsk=DelPrefixBuild:Delprefix.AdminGuide(web)_!DAILY

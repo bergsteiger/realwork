@@ -1,0 +1,49 @@
+// Поиск ошибки при прокрутке с помощью PageDown
+USES 
+    axiom:push
+	QuickTestsUtils.script
+;
+
+INTEGER VAR l_NewHeight
+
+OBJECT VAR l_Editor
+
+PROCEDURE "Задать размеры окна редактора"
+ push:MainForm pop:Control:Top := 0
+ push:MainForm pop:Control:Left := 0
+ push:MainForm pop:Control:Width := 1200
+ push:MainForm pop:Control:Height := l_NewHeight
+ focused:control:push >>> l_Editor
+ l_Editor pop:Editor:DrawSpecial  := true
+;
+
+PROCEDURE "Включить режим отображения блоков"
+ OBJECT VAR l_Editor
+ focused:control:push >>> l_Editor
+ l_Editor pop:Editor:DrawSpecial := true
+ l_Editor pop:Editor:ShowDocumentParts := true
+ ProcessMessages
+;
+
+Тест FindError 
+	800 >>> l_NewHeight 
+	
+	WHILE ( l_NewHeight 1024 LESS ) 
+	(
+		Создать
+		TRY
+			"Задать размеры окна редактора"
+			"Развернуть редактор"  
+			"Включить режим отображения блоков"
+			"Обработать сообщения"			
+			"Прокрутить документ вниз до конца"
+			//"Прокрутить стрелкой вниз до конца"
+			l_NewHeight 20 + >>> l_NewHeight			
+		FINALLY
+			l_NewHeight .
+			"Закрыть без сохранения"
+		END
+	)
+;
+
+FindError

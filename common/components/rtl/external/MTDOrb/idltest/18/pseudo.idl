@@ -1,0 +1,39 @@
+
+struct S1 {
+  long x;
+  char c;
+};
+
+struct S2 {
+  string str;
+};
+
+struct S3 {
+  char c;
+  any  a;
+  TypeCode tc;
+};
+
+enum E {
+  e1,e2,e3,e4,e5
+};
+
+typedef sequence<S2> seq;
+
+valuetype v {
+  factory init(in E ve);
+  public E ve;
+  public S1 vs;
+};
+
+enum result_type {
+  t_enum,t_seq,t_val
+};
+
+
+interface foo {
+  any bar( in any a1, out any a2, inout any a3 );
+  CORBA::TypeCode bar1( in TypeCode tc1, out TypeCode tc2, inout TypeCode tc3 );
+  any bar2(in any rtype);
+};
+

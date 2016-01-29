@@ -1,0 +1,246 @@
+// Tl3ModalService 553F71BE03E0 Service Class
+
+FORWARD ME_553F71BE03E0
+
+FORWARD ME_5526316402F9
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5526316E011A
+ CONST UID '5526316E011A'
+ CONST Name 'se_meUsual'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_5526316E011A se_meUsual
+
+: ME_552631760238
+ CONST UID '552631760238'
+ CONST Name 'se_meInLoop'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_552631760238 se_meInLoop
+
+: ME_5526317E03E0
+ CONST UID '5526317E03E0'
+ CONST Name 'se_meAfterLoop'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_5526317E03E0 se_meAfterLoop
+
+: ME_5526316402F9
+ CONST UID '5526316402F9'
+ CONST Name 'TseModalExecute'
+ CONST Class 'Class'
+ CONST Stereotype 'Enum'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_5526316E011A // se_meUsual
+ ME_552631760238 // se_meInLoop
+ ME_5526317E03E0 // se_meAfterLoop
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_5526316402F9 TseModalExecute
+
+FORWARD ME_553F84500218
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_553F7345032E
+ CONST UID '553F7345032E'
+ CONST Name 'HasModalWorker'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_553F7345032E HasModalWorker
+
+: ME_553F8EB603A2
+ CONST UID '553F8EB603A2'
+ CONST Name 'aModalExecute'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_5526316402F9 // TseModalExecute
+ ;
+ CONST Value 'se_meUsual'
+ : ValueType ME_5526316402F9 // TseModalExecute
+ ;
+
+ @SELF
+; // ME_553F8EB603A2 aModalExecute
+
+: ME_553F8EA30300
+ CONST UID '553F8EA30300'
+ CONST Name 'ExecuteCurrentModalWorker'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_553F8EB603A2 // aModalExecute
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_553F8EA30300 ExecuteCurrentModalWorker
+
+: ME_553F84500218
+ CONST UID '553F84500218'
+ CONST Name 'Ml3ModalService'
+ CONST Class 'Class'
+ CONST Stereotype 'PureMixIn'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_553F7345032E // HasModalWorker
+ ME_553F8EA30300 // ExecuteCurrentModalWorker
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_553F84500218 Ml3ModalService
+
+: ME_09072C2825F1
+ CONST UID '09072C2825F1'
+ CONST GUID '138EC31E-59DE-4996-A7C2-234E73119E5C'
+ CONST Name 'Il3ModalService'
+ CONST Class 'Class'
+ CONST Stereotype 'Facet'
+ %SUMMARY 'Интерфейс сервиса Tl3ModalService' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Implements
+   [ ME_553F84500218 // Ml3ModalService
+ ]
+ ; // Implements
+ : Implemented
+   [ ME_553F7345032E // HasModalWorker
+ ME_553F8EA30300 // ExecuteCurrentModalWorker
+ ]
+ ; // Implemented
+
+ @SELF
+; // ME_09072C2825F1 Il3ModalService
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+: ME_4EF13673BB19
+ CONST UID '4EF13673BB19'
+ CONST Name 'Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype 'writeonly'
+ %SUMMARY 'Внешняя реализация сервиса Il3ModalService' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'ref'
+ : Target ME_09072C2825F1 // Il3ModalService
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ @SELF
+; // ME_4EF13673BB19 Alien
+
+: ME_A8BA2530AC4B
+ CONST UID 'A8BA2530AC4B'
+ CONST Name 'f_Alien'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Alien' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_09072C2825F1 // Il3ModalService
+ ;
+
+ @SELF
+; // ME_A8BA2530AC4B f_Alien
+
+: ME_248B0BA5284A
+ CONST UID '248B0BA5284A'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_248B0BA5284A Exists
+
+: ME_553F71BE03E0
+ CONST UID '553F71BE03E0'
+ CONST Name 'Tl3ModalService'
+ CONST Class 'Class'
+ CONST Stereotype 'Service'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_553F84500218 // Ml3ModalService
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_4EF13673BB19 // Alien
+ ME_A8BA2530AC4B // f_Alien
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_248B0BA5284A // Exists
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_553F7345032E // HasModalWorker
+ ME_553F8EA30300 // ExecuteCurrentModalWorker
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_5000565C019C // ClearFields
+ ]
+ ; // Overridden
+ : Children
+   [ ME_5526316402F9 // TseModalExecute
+ ME_553F84500218 // Ml3ModalService
+ ME_09072C2825F1 // Il3ModalService
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_553F71BE03E0 Tl3ModalService

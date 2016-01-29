@@ -1,0 +1,1087 @@
+<project name="MTDORB" default="all" basedir=".">
+
+  <property file="build.properties"/>
+
+  <property name="dir.build" value="build"/>
+  <property name="dir.dcu" value="dcu"/>
+  <property name="dir.dcu.debug" value="${dir.dcu}/debug"/>
+  <property name="dir.orb.lib" location="lib"/>
+  <property name="dir.orb" location="${basedir}"/>
+  <property name="dir.idl.src" value="idl"/>
+  <property name="dir.idl.target" value="src/idl"/>
+
+  <path id="path.orb.source">
+	<pathelement location="${dir.orb}/src/orbint"/>
+	<pathelement location="${dir.orb}/src/unicode"/>
+	<pathelement location="${dir.orb}/src/orb"/>
+        <pathelement location="${dir.idl.target}"/>
+	<pathelement location="${dir.orb}/idltopas"/>
+  </path>
+
+  <path id="path.search">
+	<pathelement location="${dir.delphi}/lib/debug.system.path"/>
+	<pathelement location="${dir.delphi}/bin"/>
+	<pathelement location="${dir.delphi}/imports"/>
+	<pathelement location="${dir.lib.dunit}"/>
+  </path>
+
+  <path id="path.inc">
+    <pathelement location="${dir.orb}/src"/>
+  </path>
+
+  <property name="compiler.windows" value="${dir.delphi}/bin/dcc32.exe"/>
+  <property name="compiler.unix" value="${dir.kylix}/bin/dcc"/>
+  <property name="idl.compiler" value="${basedir}/build/idltopas"/>
+
+  <property name="dir.idltest" value="${basedir}/idltest"/>
+
+  <property name="dir.demo" value="${basedir}/demo"/>
+
+  <property name="test.number" value="foo"/>
+
+  <!--<property name="options" value="-B -Q"/>-->
+
+  <property environment="env"/>
+
+  <property name="lib.j2ee" value="${env.JBOSS_HOME}/client/jboss-j2ee.jar"/>
+
+
+ <!-- Prepare -->
+  <target name="prepare">
+    <echo message="MTDORB open source ORB for Delphi and Kylix"/>
+    <echo message="Working under ${os.name}"/>
+
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${dir.build}"/>
+    <mkdir dir="${dir.dcu}"/>
+    <mkdir dir="${dir.dcu.debug}"/>
+    <mkdir dir="${dir.idl.target}"/>
+
+    <!-- Create the time stamp -->
+    <tstamp/>
+
+    <condition property="compiler" value="${compiler.windows}">
+      <os family="windows"/>
+    </condition>
+    <condition property="compiler" value="${compiler.unix}">
+      <os family="unix"/>
+    </condition>
+
+    <condition property="idl.compiler.name" value="idltopas.exe">
+      <os family="windows"/>
+    </condition>
+
+    <condition property="idl.compiler.name" value="idltopas">
+      <os family="unix"/>
+    </condition>
+
+    <condition property="directives" value="-$O- -$W+ -$Q+ -$R+">
+      <istrue value="${build.debug}"/>
+    </condition>
+    <condition property="directives" value="-$O+ -$W-">
+      <isfalse value="${build.debug}"/>
+    </condition>
+
+    <condition property="mtdorbutils" value="MTDORB_UCUtils.dll">
+      <os family="windows"/>
+    </condition>
+    <condition property="mtdorbutils" value="MTDORB_UCUtils.so">
+      <os family="unix"/>
+    </condition>
+
+    <condition property="options" value="-B -Q -DBUILDIN_CONV">
+      <isfalse value="build.utillibrary"/>
+    </condition>
+
+    <condition property="options" value="-B -Q">
+      <istrue value="build.utillibrary"/>
+    </condition>
+
+    <condition property="skiplib" value="1">
+      <isfalse value="build.utillibrary"/>
+    </condition>
+
+    <antcall target="copyutil"/>
+
+    <pathconvert targetos="windows" property="path.inc.windows" refid="path.inc"/>
+    <pathconvert targetos="windows" property="path.search.windows" refid="path.search">
+      <map from="/debug.system.path" to=""/>
+    </pathconvert>
+    <pathconvert targetos="windows" property="path.search.windows.debug" refid="path.search">
+      <map from="/debug.system.path" to="/debug"/>
+    </pathconvert>
+    <pathconvert targetos="windows" property="path.orb.source.windows" refid="path.orb.source"/>
+  </target>
+
+  <target name="copyutil" unless="skiplib">
+    <copy file="exe/${mtdorbutils}" todir="${dir.build}" failonerror="true" />
+  </target>
+
+  <!-- Target for antcall compilation -->
+  <target name="compile" >
+    <!-- parameters -->
+    <property name="module" value="nomodule"/>
+    <property name="location" value="nolocation"/>
+    <property name="sourcepath" value="'${path.search.windows}'"/>
+    <property name="rootdir" value="../"/>
+    <property name="targetdir" value="${rootdir}${dir.build}"/>
+    <property name="dcudir" value="${dir.dcu}"/>
+    <property name="dcudir.debug" value="${dir.dcu.debug}"/>
+    <property name="out.dcudir" value="${dir.dcu}"/>
+    <property name="out.dcudir.debug" value="${dir.dcu.debug}"/>
+    <property name="debug" value="false"/>
+    <property name="dpk" value="false"/>
+    <property name="define" value=""/>
+    <property name="include" value="${path.inc.windows}"/>
+
+    <property name="mod" location="${location}/${module}"/>
+    <condition property="deb" value="-$D-">
+      <isfalse value="${debug}"/>
+    </condition>
+    <condition property="deb" value="-$D+">
+      <istrue value="${debug}"/>
+    </condition>
+    <condition property="def" value="-D@{define}">
+      <istrue value="${define}"/>
+    </condition>
+    <condition property="def" value="">
+      <isfalse value="${define}"/>
+    </condition>
+    <condition property="dcudirectory" value="${dcudir}">
+      <isfalse value="${debug}"/>
+    </condition>
+    <condition property="dcudirectory" value="${dcudir.debug}">
+      <istrue value="${debug}"/>
+    </condition>
+    <condition property="out.dcudirectory" value="${out.dcudir}">
+      <isfalse value="${debug}"/>
+    </condition>
+    <condition property="out.dcudirectory" value="${out.dcudir.debug}">
+      <istrue value="${debug}"/>
+    </condition>
+
+    <condition property="ext" value=".dpk">
+      <istrue value="${dpk}"/>
+    </condition>
+    <condition property="ext" value=".dpr">
+      <isfalse value="${dpk}"/>
+    </condition>
+    <echo message="Building ${mod}"/>
+      <move file="${mod}.cfg" tofile="${mod}.cfg.bak" failonerror="false"/>
+      <exec executable="${compiler}" dir="${location}" failonerror="true">
+        <arg value="${mod}${ext}"/>
+        <arg value="-$A8"/>
+        <arg value="-Q"/>
+        <arg value="${directives}"/>
+        <arg line="${options}"/>
+        <arg value="-K$60000000"/>
+        <arg value="-E${targetdir}"/>
+        <arg value="${deb}"/>
+        <arg value="-I${include}"/>
+        <arg value="-N${rootdir}${out.dcudirectory}"/>
+        <arg value="-U${sourcepath}"/>
+        <arg value="-U${rootdir}${dcudirectory}"/>
+        <arg value="-DSTANDART_MEMORY_MANAGER"/>
+      </exec>
+      <move file="${mod}.cfg.bak" tofile="${mod}.cfg" failonerror="false"/>
+  </target>
+
+  <!-- MTDORB package -->
+  <target name="mtdorb_bpl" depends="prepare">
+
+    <condition property="version_suffix" value="_70">
+      <istrue value="${delphi.version7}"/>
+    </condition>
+    <condition property="version_suffix" value="">
+      <isfalse value="${delphi.version7}"/>
+    </condition>
+
+    <antcall target="compile">
+      <param name="module" value="mtdorb_lib${version_suffix}"/>
+      <param name="location" value="${dir.orb.lib}"/>
+      <param name="debug" value="true"/>
+      <param name="dpk" value="true"/>
+      <param name="define" value="LIBRARY"/>
+      <param name="sourcepath" value="'${path.search.windows}';${path.orb.source.windows}"/>
+    </antcall>
+
+    <antcall target="compile">
+      <param name="module" value="CCS"/>
+      <param name="ext" value=".pas"/>
+      <param name="location" value="${dir.idl.target}"/>
+      <param name="debug" value="true"/>
+      <param name="define" value="LIBRARY"/>
+      <param name="out.dcudir.debug" value="../dcu/debug"/>
+      <param name="sourcepath" value="'${path.search.windows}';${path.orb.source.windows}"/>
+    </antcall>
+
+     <antcall target="compile">
+      <param name="module" value="CosTime"/>
+      <param name="ext" value=".pas"/>
+      <param name="location" value="${dir.idl.target}"/>
+      <param name="debug" value="true"/>
+      <param name="define" value="LIBRARY"/>
+      <param name="out.dcudir.debug" value="../dcu/debug"/>
+      <param name="sourcepath" value="'${path.search.windows}';${path.orb.source.windows}"/>
+    </antcall>
+
+     <antcall target="compile">
+      <param name="module" value="CosTimerEvent"/>
+      <param name="ext" value=".pas"/>
+      <param name="location" value="${dir.idl.target}"/>
+      <param name="debug" value="true"/>
+      <param name="define" value="LIBRARY"/>
+      <param name="out.dcudir.debug" value="../dcu/debug"/>
+      <param name="sourcepath" value="'${path.search.windows}';${path.orb.source.windows}"/>
+    </antcall>
+
+     <antcall target="compile">
+      <param name="module" value="MTDORBCCS"/>
+      <param name="ext" value=".pas"/>
+      <param name="location" value="${dir.idl.target}"/>
+      <param name="debug" value="true"/>
+      <param name="define" value="LIBRARY"/>
+      <param name="out.dcudir.debug" value="../dcu/debug"/>
+      <param name="sourcepath" value="'${path.search.windows}';${path.orb.source.windows}"/>
+    </antcall>
+
+     <antcall target="compile">
+      <param name="module" value="EJB"/>
+      <param name="ext" value=".pas"/>
+      <param name="location" value="${dir.orb}/src/orb"/>
+      <param name="debug" value="true"/>
+      <param name="define" value="LIBRARY"/>
+      <param name="out.dcudir.debug" value="../dcu/debug"/>
+      <param name="sourcepath" value="'${path.search.windows}';${path.orb.source.windows}"/>
+    </antcall>
+
+    <antcall target="compile">
+      <param name="module" value="mtdorb_lib${version_suffix}"/>
+      <param name="location" value="${dir.orb.lib}"/>
+      <param name="debug" value="false"/>
+      <param name="dpk" value="true"/>
+      <param name="define" value="LIBRARY"/>
+      <param name="sourcepath" value="'${path.search.windows}';${path.orb.source.windows}"/>
+    </antcall>
+
+    <antcall target="compile">
+      <param name="module" value="CCS"/>
+      <param name="ext" value=".pas"/>
+      <param name="location" value="${dir.idl.target}"/>
+      <param name="debug" value="false"/>
+      <param name="define" value="LIBRARY"/>
+      <param name="out.dcudir" value="../dcu"/>
+      <param name="sourcepath" value="'${path.search.windows}';${path.orb.source.windows}"/>
+    </antcall>
+
+     <antcall target="compile">
+      <param name="module" value="CosTime"/>
+      <param name="ext" value=".pas"/>
+      <param name="location" value="${dir.idl.target}"/>
+      <param name="debug" value="false"/>
+      <param name="define" value="LIBRARY"/>
+      <param name="out.dcudir" value="../dcu"/>
+      <param name="sourcepath" value="'${path.search.windows}';${path.orb.source.windows}"/>
+    </antcall>
+
+     <antcall target="compile">
+      <param name="module" value="CosTimerEvent"/>
+      <param name="ext" value=".pas"/>
+      <param name="location" value="${dir.idl.target}"/>
+      <param name="debug" value="false"/>
+      <param name="define" value="LIBRARY"/>
+      <param name="out.dcudir" value="../dcu"/>
+      <param name="sourcepath" value="'${path.search.windows}';${path.orb.source.windows}"/>
+    </antcall>
+
+     <antcall target="compile">
+      <param name="module" value="MTDORBCCS"/>
+      <param name="ext" value=".pas"/>
+      <param name="location" value="${dir.idl.target}"/>
+      <param name="debug" value="false"/>
+      <param name="define" value="LIBRARY"/>
+      <param name="out.dcudir" value="../dcu"/>
+      <param name="sourcepath" value="'${path.search.windows}';${path.orb.source.windows}"/>
+    </antcall>
+
+     <antcall target="compile">
+      <param name="module" value="EJB"/>
+      <param name="ext" value=".pas"/>
+      <param name="location" value="${dir.orb}/src/orb"/>
+      <param name="debug" value="false"/>
+      <param name="define" value="LIBRARY"/>
+      <param name="out.dcudir" value="../dcu"/>
+      <param name="sourcepath" value="'${path.search.windows}';${path.orb.source.windows}"/>
+    </antcall>
+
+    <copy file="${dir.orb.lib}/mtdorb_lib${version_suffix}.bpl" todir="${dir.bpl}" overwrite="true"/>
+    <copy file="${dir.orb.lib}/mtdorb_lib${version_suffix}.dcp" todir="${dir.bpl}" overwrite="true"/>
+
+  </target>
+
+  <!-- MTDORB library -->
+  <target name="mtdorb" depends="prepare">
+    <antcall target="compile">
+      <param name="module" value="mtdorb"/>
+      <param name="location" value="${dir.orb.lib}"/>
+      <param name="debug" value="true"/>
+      <param name="define" value="LIBRARY"/>
+      <param name="sourcepath" value="'${path.search.windows}';${path.orb.source.windows}"/>
+    </antcall>
+
+    <antcall target="compile">
+      <param name="module" value="mtdorb"/>
+      <param name="location" value="${dir.orb.lib}"/>
+      <param name="debug" value="false"/>
+      <param name="define" value="LIBRARY"/>
+      <param name="sourcepath" value="'${path.search.windows}';${path.orb.source.windows}"/>
+    </antcall>
+  </target>
+
+
+  <!-- MTDORB idl to pascal compiler -->
+  <target name="idltopas" depends="prepare">
+    <antcall target="compile">
+      <param name="module" value="idltopas"/>
+      <param name="location" value="idltopas"/>
+      <param name="debug" value="true"/>
+    </antcall>
+    <antcall target="compile">
+      <param name="module" value="idltopas"/>
+      <param name="location" value="idltopas"/>
+      <param name="debug" value="false"/>
+    </antcall>
+    <copy file="${dir.build}/${idl.compiler.name}" todir="exe"/>
+  </target>
+
+  <!-- idls recompilation -->
+  <!-- Chicken-egg problem: idltopas needs compiled idls, so idl compiler runs from exe directory -->
+  <macrodef name="idlcompile">
+    <attribute name="idl"/>
+    <attribute name="param" default=" "/>
+    <attribute name="targetdir" default="${dir.idl.target}"/>
+    <attribute name="srcdir" default="..\..\${dir.idl.src}"/>
+    <sequential>
+      <echo message="Compiling @{idl} to @{targetdir}"/>
+      <exec executable="exe\idltopas" dir="@{targetdir}" failonerror="true">
+        <arg line="@{param}"/>
+        <arg value="-i@{srcdir}"/>
+        <arg value="@{srcdir}\@{idl}.idl"/>
+      </exec>
+    </sequential>
+  </macrodef>
+
+  <target name="idlgenerate" depends="prepare">
+    <idlcompile idl="BootManager" param="-without-prefix"/>
+    <idlcompile idl="CCS" param="-without-prefix" />
+    <idlcompile idl="CosEventChannelAdmin" param="-without-prefix"/>
+    <idlcompile idl="CosEventComm" param="-without-prefix"/>
+    <idlcompile idl="CosNaming" param="-without-prefix"/>
+    <idlcompile idl="CosTransactions" param="-any -wpCosTransactions"/>
+    <idlcompile idl="TimeBase" param="-any" />
+    <idlcompile idl="CosTime"/>
+    <idlcompile idl="CosTimerEvent" param="-any -wpCosEventComm"/>
+    <!-- error in idlcompiler: EJB_int.pas(173) Error: E2003 Undeclared identifier: 'T_Object' -->
+    <!--<idlcompile idl="EJB" param="-any -without-prefix"/>-->
+    <!-- implementation mess in imr_impl!! -->
+    <!--<idlcompile idl="imr" param="-without-prefix"/>-->
+    <idlcompile idl="intercept" param="-without-prefix"/>
+    <idlcompile idl="ir_base" param="-nuorb_int -without-prefix"/>
+    <idlcompile idl="ir" param="-nuorb_int -without-prefix"/>
+    <idlcompile idl="MTDORBCCS" param="-wpMTDORBCCS;CosConcurrencyControl" />
+    <idlcompile idl="pi"/>
+    <!-- error in idlcompiler: not implemented (idltopas\codebase.pas, line 683) -->
+    <!--<idlcompile idl="poa" param="-without-prefix"/>-->
+  </target>
+
+  <!-- MTDORB implementation repository -->
+  <target name="imr" depends="prepare">
+    <antcall target="compile">
+      <param name="module" value="orbimr"/>
+      <param name="location" value="imr"/>
+      <param name="out.dcudir" value="../dcu"/>
+    </antcall>
+
+    <antcall target="compile">
+      <param name="module" value="imradmin"/>
+      <param name="location" value="imr"/>
+      <param name="out.dcudir" value="../dcu"/>
+    </antcall>
+
+    <antcall target="compile">
+      <param name="module" value="imrconsole"/>
+      <param name="location" value="imr"/>
+      <param name="out.dcudir" value="dcu"/>
+    </antcall>
+  </target>
+
+  <target name="utils" depends="prepare">
+    <antcall target="compile">
+      <param name="module" value="VisualIORDumper"/>
+      <param name="location" value="utils/visualior"/>
+      <param name="out.dcudir" value="utils"/>
+      <param name="rootdir" value="../../"/>
+    </antcall>
+  </target>
+
+  <!-- MTDORB COSS -->
+  <target name="COSS" depends="ccservice, eservice, nameservice, timeservice"/>
+
+  <!-- MTDORB Concurrency Control Service -->
+  <target name="ccservice" depends="prepare">
+    <echo message="Building Concurrency Control Service"/>
+ <!--
+    <idlcompile idl="MTDORBCCS" param="-wpMTDORBCCS;CosConcurrencyControl" targetdir="COSS/ConcurrencyControl"/>
+    <idlcompile idl="CCS" param="-without-prefix" targetdir="COSS/ConcurrencyControl"/>
+-->
+    <antcall target="compile">
+      <param name="module" value="CCService"/>
+      <param name="location" value="COSS/ConcurrencyControl"/>
+      <param name="out.dcudir" value="dcu"/>
+<!--      <param name="sourcepath" value="'${path.search.windows}';../../${dir.idl.target}"/>-->
+      <param name="rootdir" value="../../"/>
+    </antcall>
+  </target>
+
+  <!-- MTDORB Event Service -->
+  <target name="eservice" depends="prepare">
+    <echo message="Building Event Service"/>
+
+    <antcall target="compile">
+      <param name="module" value="eserver"/>
+      <param name="location" value="COSS/Event"/>
+      <param name="out.dcudir" value="dcu"/>
+      <param name="rootdir" value="../../"/>
+    </antcall>
+
+  </target>
+
+  <!-- MTDORB Name Service -->
+  <target name="nameservice" depends="prepare">
+    <echo message="Building Name Service"/>
+    <antcall target="compile">
+      <param name="module" value="nserver"/>
+      <param name="location" value="COSS/Naming"/>
+      <param name="out.dcudir" value="dcu"/>
+      <param name="rootdir" value="../../"/>
+    </antcall>
+
+    <antcall target="compile">
+      <param name="module" value="nviewer"/>
+      <param name="location" value="COSS/Naming"/>
+      <param name="out.dcudir" value="dcu"/>
+      <param name="rootdir" value="../../"/>
+    </antcall>
+  </target>
+
+  <!-- MTDORB Time Service -->
+  <target name="timeservice" depends="prepare">
+    <echo message="Building Time Service"/>
+<!--
+    <idlcompile targetdir="COSS/Time" param="-any" idl="TimeBase"/>
+    <idlcompile targetdir="COSS/Time" idl="CosTime"/>
+    <idlcompile targetdir="COSS/Time" idl="CosTimerEvent" param="-any -wpCosEventComm"/>
+-->
+     <antcall target="compile">
+      <param name="module" value="CosTime_impl"/>
+      <param name="ext" value=".pas"/>
+      <param name="location" value="${dir.orb}/src/orb"/>
+      <param name="debug" value="true"/>
+      <param name="out.dcudir.debug" value="../dcu/debug"/>
+      <param name="sourcepath" value="'${path.search.windows}';${path.orb.source.windows}"/>
+    </antcall>
+
+     <antcall target="compile">
+      <param name="module" value="CosTimerEvent_impl"/>
+      <param name="ext" value=".pas"/>
+      <param name="location" value="${dir.orb}/src/orb"/>
+      <param name="debug" value="true"/>
+      <param name="out.dcudir.debug" value="../dcu/debug"/>
+      <param name="sourcepath" value="'${path.search.windows}';${path.orb.source.windows}"/>
+    </antcall>
+
+    <antcall target="compile">
+      <param name="module" value="TimeService"/>
+      <param name="location" value="COSS/Time"/>
+      <param name="out.dcudir" value="dcu"/>
+      <param name="rootdir" value="../../"/>
+    </antcall>
+  </target>
+
+
+  <target name="idltester" >
+    <property name="number" value="nonumber"/>
+    <property name="idlfile" value="nofile"/>
+    <property name="param" value=" "/>
+    <property name="name" value="test"/>
+
+    <echo message="Compiling idltest nr ${number}"/>
+
+    <idlcompile idl="${idlfile}" srcdir="./" param="${param}" targetdir="${dir.idltest}/${number}"/>
+
+    <antcall target="compile">
+      <param name="module" value="${name}"/>
+      <param name="location" value="${dir.idltest}/${number}"/>
+      <param name="debug" value="true"/>
+      <param name="rootdir" value="../../"/>
+      <param name="out.dcudir.debug" value="idltest"/>
+      <param name="targetdir" value="${dir.idltest}/${number}"/>
+    </antcall>
+  </target>
+
+  <!-- MTDORB idl to pascal compiler test -->
+  <target name="idltest" depends="prepare">
+    <antcall target="idltester">
+      <param name="number" value="1"/>
+      <param name="idlfile" value="struct"/>
+    </antcall>
+    <antcall target="idltester">
+      <param name="number" value="2"/>
+      <param name="param" value="-notabs"/>
+      <param name="idlfile" value="struct"/>
+    </antcall>
+    <antcall target="idltester">
+      <param name="number" value="3"/>
+      <param name="param" value="-notabs"/>
+      <param name="idlfile" value="typedef"/>
+    </antcall>
+    <antcall target="idltester">
+      <param name="number" value="4"/>
+      <param name="idlfile" value="enum"/>
+    </antcall>
+    <antcall target="idltester">
+      <param name="number" value="5"/>
+      <param name="idlfile" value="module"/>
+    </antcall>
+    <antcall target="idltester">
+      <param name="number" value="6"/>
+      <param name="idlfile" value="sequence"/>
+    </antcall>
+    <antcall target="idltester">
+      <param name="number" value="7"/>
+      <param name="idlfile" value="objref"/>
+    </antcall>
+    <antcall target="idltester">
+      <param name="number" value="8"/>
+      <param name="idlfile" value="attribute"/>
+    </antcall>
+    <antcall target="idltester">
+      <param name="number" value="9"/>
+      <param name="idlfile" value="inheritance"/>
+    </antcall>
+    <antcall target="idltester">
+      <param name="number" value="10"/>
+      <param name="idlfile" value="forward"/>
+    </antcall>
+    <antcall target="idltester">
+      <param name="number" value="11"/>
+      <param name="idlfile" value="_const"/>
+    </antcall>
+    <antcall target="idltester">
+      <param name="number" value="12"/>
+      <param name="idlfile" value="union"/>
+    </antcall>
+    <antcall target="idltester">
+      <param name="name" value="server"/>
+      <param name="number" value="13"/>
+      <param name="idlfile" value="ex"/>
+    </antcall>
+    <antcall target="idltester">
+      <param name="name" value="client"/>
+      <param name="number" value="13"/>
+      <param name="idlfile" value="ex"/>
+    </antcall>
+    <!-- error in idlcompiler:
+      _array.pas(94) Error: E2003 Undeclared identifier: 'A1_A2_short_array_array'
+      _array.pas(297) Error: E2003 Undeclared identifier: 'A3_A4_S1_array_array'
+      _array.pas(705) Error: E2004 Identifier redeclared: 'A1_A2_short_array_array'
+      _array.pas(1083) Error: E2004 Identifier redeclared: 'A3_A4_S1_array_array'
+      _array.pas(313) Error: E2065 Unsatisfied forward or external declaration: 'Tfoo.bar'
+      _array.pas(314) Error: E2065 Unsatisfied forward or external declaration: 'Tfoo.baz'
+      _array.pas(339) Error: E2065 Unsatisfied forward or external declaration: 'Tfoo_serv.bar'
+      _array.pas(340) Error: E2065 Unsatisfied forward or external declaration: 'Tfoo_serv.baz'
+     -->
+     <!--
+    <antcall target="idltester">
+      <param name="number" value="14"/>
+      <param name="idlfile" value="_array"/>
+    </antcall>
+    -->
+
+    <idlcompile idl="b" srcdir="./" targetdir="${dir.idltest}/15"/>
+    
+    <antcall target="idltester">
+      <param name="number" value="15"/>
+      <param name="idlfile" value="a"/>
+    </antcall>
+
+    <!-- error in idlcompiler: include1.pas(24) Error: E2029 Identifier expected but 'IMPLEMENTATION' found -->
+    <!--
+    <idlcompile idl="include1" srcdir="./" targetdir="${dir.idltest}/16"/>
+    <idlcompile idl="include2" srcdir="./" targetdir="${dir.idltest}/16"/>
+
+    <antcall target="idltester">
+      <param name="name" value="pragma"/>
+      <param name="ext" value=".pas"/>
+      <param name="number" value="16"/>
+      <param name="idlfile" value="pragma"/>
+    </antcall>
+    -->
+
+    <antcall target="idltester">
+      <param name="number" value="17"/>
+      <param name="idlfile" value="container"/>
+    </antcall>
+    <antcall target="idltester">
+      <param name="number" value="18"/>
+      <param name="param" value="-any"/>
+      <param name="idlfile" value="pseudo"/>
+    </antcall>
+    <antcall target="idltester">
+      <param name="number" value="19"/>
+      <param name="idlfile" value="attr"/>
+    </antcall>
+  </target>
+
+  <!-- MTDORB Demo -->
+  <!--<target name="demo" depends="jboss.bankiiop,jboss.txiiop,jboss.exiiop,demo.bidir"/>-->
+
+  <target name="jboss.bankiiop" depends="prepare">
+    <!--
+    <property name="jboss.bankiiop.classpath" value="c:\Develop\jboss-4.0.0DR3\server\all\lib\jboss-j2ee.jar;c:\Proj\mtdorb_beta_6\demo\jboss\bankiiop\bankiiop.jar"/>
+
+    <rmic idl="yes" idlopts="-noValueMethods" classpath="${jboss.bankiiop.classpath}" classname="org.jboss.test.bankiiop.interfaces.TellerHome" base="${basedir}/demo/jboss/bankiiop" />
+    <rmic idl="yes" idlopts="-noValueMethods" classpath="${jboss.bankiiop.classpath}" classname="org.jboss.test.bankiiop.interfaces.CustomerHome" base="${basedir}/demo/jboss/bankiiop" />
+    <rmic idl="yes" idlopts="-noValueMethods" classpath="${jboss.bankiiop.classpath}" classname="org.jboss.test.bankiiop.interfaces.AccountHome" base="${basedir}/demo/jboss/bankiiop" />
+    <rmic idl="yes" idlopts="-noValueMethods" classpath="${jboss.bankiiop.classpath}" classname="org.jboss.test.bankiiop.interfaces.BankException" base="${basedir}/demo/jboss/bankiiop" />
+
+    <exec executable="${idl.compiler}" dir="${dir.demo}/jboss/bankiiop">
+      <arg line="-ns -guid -i${basedir}/idl;."/>
+      <arg value="org\jboss\test\bankiiop\interfaces\TellerHome.idl"/>
+    </exec>
+    <exec executable="${idl.compiler}" dir="${dir.demo}/jboss/bankiiop">
+      <arg line="-ns -guid -i${basedir}/idl;."/>
+      <arg value="org\jboss\test\bankiiop\interfaces\Account.idl"/>
+    </exec>
+    <exec executable="${idl.compiler}" dir="${dir.demo}/jboss/bankiiop">
+      <arg line="-ns -guid -i${basedir}/idl;."/>
+      <arg value="org\jboss\test\bankiiop\interfaces\AccountData.idl"/>
+    </exec>
+    <exec executable="${idl.compiler}" dir="${dir.demo}/jboss/bankiiop">
+      <arg line="-ns -guid -i${basedir}/idl;."/>
+      <arg value="org\jboss\test\bankiiop\interfaces\Customer.idl"/>
+    </exec>
+    <exec executable="${idl.compiler}" dir="${dir.demo}/jboss/bankiiop">
+      <arg line="-ns -guid -i${basedir}/idl;."/>
+      <arg value="java\util\Collection.idl"/>
+    </exec>
+    -->
+  </target>
+
+  <target name="jboss.txiiop" depends="prepare">
+    <property name="module.jboss.txiiop" location="${dir.demo}/jboss/txiiop/txiiop"/>
+    <property name="jboss.txiiop.classpath" value="${lib.j2ee};${dir.demo}/jboss/txiiop/txiiop.jar"/>
+
+    <rmic idl="yes" idlopts="-noValueMethods" classpath="${jboss.txiiop.classpath}" classname="org.jboss.test.txiiop.interfaces.StatefulSessionHome" base="${basedir}/demo/jboss/txiiop" />
+
+    <exec executable="${idl.compiler}" dir="${dir.demo}/jboss/txiiop">
+      <arg line="-ns -guid -i${basedir}/idl;."/>
+      <arg value="org/jboss/test/txiiop/interfaces/StatefulSessionHome.idl"/>
+    </exec>
+    <exec executable="${idl.compiler}" dir="${dir.demo}/jboss/txiiop">
+      <arg line="-ns -guid -i${basedir}/idl;."/>
+      <arg value="org/jboss/test/txiiop/interfaces/StatefulSession.idl"/>
+    </exec>
+
+    <move file="${module.jboss.txiiop}.cfg" tofile="${module.jboss.txiiop}.cfg.bak" failonerror="false"/>
+    <exec executable="${compiler}" dir="${dir.demo}/jboss/txiiop" failonerror="true">
+      <arg value="${module.jboss.txiiop}.dpr"/>
+      <arg line="-$A8 ${directives} ${options} -U'${path.search.windows}' -I${path.inc.windows} -N../../../${dir.dcu}"/>
+    </exec>
+    <move file="${module.jboss.txiiop}.cfg.bak" tofile="${module.jboss.txiiop}.cfg" failonerror="false"/>
+  </target>
+
+  <target name="jboss.exiiop" depends="prepare">
+    <property name="module.jboss.exiiop" location="${dir.demo}/jboss/exiiop/exiiop"/>
+    <property name="jboss.exiiop.classpath" value="${lib.j2ee};${dir.demo}/jboss/exiiop/excepiiop.jar"/>
+
+    <rmic idl="yes" idlopts="-noValueMethods" classpath="${jboss.exiiop.classpath}" classname="org.jboss.test.excepiiop.interfaces.ExceptionThrowerHome" base="${basedir}/demo/jboss/exiiop" />
+
+    <exec executable="${idl.compiler}" dir="${dir.demo}/jboss/exiiop">
+      <arg line="-ns -guid -i${basedir}/idl;."/>
+      <arg value="org/jboss/test/excepiiop/interfaces/ExceptionThrowerHome.idl"/>
+    </exec>
+    <exec executable="${idl.compiler}" dir="${dir.demo}/jboss/exiiop">
+      <arg line="-ns -guid -i${basedir}/idl;."/>
+      <arg value="org/jboss/test/excepiiop/interfaces/ExceptionThrower.idl"/>
+    </exec>
+    <exec executable="${idl.compiler}" dir="${dir.demo}/jboss/exiiop">
+      <arg line="-ns -guid -i${basedir}/idl;."/>
+      <arg value="org/jboss/test/excepiiop/interfaces/JavaException.idl"/>
+    </exec>
+    <exec executable="${idl.compiler}" dir="${dir.demo}/jboss/exiiop">
+      <arg line="-ns -guid -i${basedir}/idl;."/>
+      <arg value="org/jboss/test/excepiiop/interfaces/IdlException.idl"/>
+    </exec>
+    <exec executable="${idl.compiler}" dir="${dir.demo}/jboss/exiiop">
+      <arg line="-ns -guid -i${basedir}/idl;."/>
+      <arg value="org/jboss/test/excepiiop/interfaces/JavaEx.idl"/>
+    </exec>
+
+    <move file="${module.jboss.exiiop}.cfg" tofile="${module.jboss.exiiop}.cfg.bak" failonerror="false"/>
+    <exec executable="${compiler}" dir="${dir.demo}/jboss/exiiop" failonerror="true">
+      <arg value="${module.jboss.exiiop}.dpr"/>
+      <arg line="-$A8 ${directives} ${options} -U'${path.search.windows}' -I${path.inc.windows} -N../../../${dir.dcu}"/>
+    </exec>
+    <move file="${module.jboss.exiiop}.cfg.bak" tofile="${module.jboss.exiiop}.cfg" failonerror="false"/>
+  </target>
+
+  <!--
+  <target name="demo.bidir" depends="prepare">
+    <property name="module.bidir.client" location="${dir.demo}/bidir/client"/>
+    <property name="module.bidir.server" location="${dir.demo}/bidir/server"/>
+
+    <exec executable="${idl.compiler}" dir="${dir.demo}/bidir">
+      <arg value="bidir.idl"/>
+    </exec>
+
+    <exec executable="${idl.compiler}" dir="${dir.demo}/bidir">
+      <arg value="bidir.idl"/>
+    </exec>
+
+    <move file="${module.bidir.client}.cfg" tofile="${module.bidir.client}.cfg.bak" failonerror="false"/>
+    <exec executable="${compiler}" dir="${dir.demo}/bidir" failonerror="true">
+      <arg value="${module.bidir.client}.dpr"/>
+      <arg line="-$A8 ${directives} ${options} -U'${path.search.windows}' -U../../${dir.dcu} -I${path.inc.windows} -N../../${dir.dcu}"/>
+    </exec>
+    <move file="${module.bidir.client}.cfg.bak" tofile="${module.bidir.client}.cfg" failonerror="false"/>
+    <move file="${module.bidir.server}.cfg" tofile="${module.bidir.server}.cfg.bak" failonerror="false"/>
+    <exec executable="${compiler}" dir="${dir.demo}/bidir" failonerror="true">
+      <arg value="${module.bidir.server}.dpr"/>
+    <arg line="-$A8 ${directives} ${options} -U'${path.search.windows}' -U../../${dir.dcu} -I${path.inc.windows} -N../../${dir.dcu}"/>
+    </exec>
+    <move file="${module.bidir.server}.cfg.bak" tofile="${module.bidir.server}.cfg" failonerror="false"/>
+  </target>
+  -->
+
+  <target name="demobuilder" >
+    <property name="catalog" value="nocatalog"/>
+    <property name="idlfile" value="nofile"/>
+    <property name="param" value=" "/>
+    <property name="clientname" value="noclient"/>
+    <property name="servername" value="noserver"/>
+    <property name="rootdir" value="../../"/>
+
+    <echo message="Compiling demo ${catalog}"/>
+
+    <idlcompile idl="${idlfile}" srcdir="./" param="${param} -i${rootdir}/idl" targetdir="${dir.demo}/${catalog}"/>
+
+    <antcall target="compile">
+      <param name="module" value="${servername}"/>
+      <param name="location" value="${dir.demo}/${catalog}"/>
+      <param name="debug" value="true"/>
+      <param name="rootdir" value="${rootdir}"/>
+      <param name="out.dcudir.debug" value="demo"/>
+      <param name="targetdir" value="${dir.demo}/${catalog}"/>
+    </antcall>
+
+    <antcall target="compile">
+      <param name="module" value="${clientname}"/>
+      <param name="location" value="${dir.demo}/${catalog}"/>
+      <param name="debug" value="true"/>
+      <param name="rootdir" value="${rootdir}"/>
+      <param name="out.dcudir.debug" value="demo"/>
+      <param name="targetdir" value="${dir.demo}/${catalog}"/>
+    </antcall>
+  </target>
+
+  <target name="demo" depends="prepare">
+    <antcall target="demobuilder">
+      <param name="catalog" value="bench"/>
+      <param name="idlfile" value="bench"/>
+      <param name="param" value="-notabs -impl"/>
+      <param name="clientname" value="bench_client"/>
+      <param name="servername" value="bench_serv"/>
+    </antcall>
+    <antcall target="demobuilder">
+      <param name="catalog" value="bidir"/>
+      <param name="idlfile" value="bidir"/>
+      <param name="clientname" value="client"/>
+      <param name="servername" value="server"/>
+    </antcall>
+    <antcall target="demobuilder">
+      <param name="catalog" value="calendar"/>
+      <param name="idlfile" value="calendar"/>
+      <param name="clientname" value="calendarcl"/>
+      <param name="servername" value="calendar_serv"/>
+    </antcall>
+    <antcall target="demobuilder">
+      <param name="catalog" value="callback"/>
+      <param name="idlfile" value="Test"/>
+      <param name="clientname" value="Client"/>
+      <param name="servername" value="Server"/>
+    </antcall>
+    <antcall target="demobuilder">
+      <param name="catalog" value="codesets"/>
+      <param name="idlfile" value="hello"/>
+      <param name="clientname" value="Client"/>
+      <param name="servername" value="Server"/>
+    </antcall>
+    <antcall target="demobuilder">
+      <param name="catalog" value="corbaloc"/>
+      <param name="idlfile" value="hello"/>
+      <param name="clientname" value="Client"/>
+      <param name="servername" value="Server"/>
+    </antcall>
+    <!-- event -->
+    <antcall target="compile">
+      <param name="module" value="event_supplier"/>
+      <param name="location" value="${dir.demo}/events"/>
+      <param name="debug" value="true"/>
+      <param name="rootdir" value="../../"/>
+      <param name="out.dcudir.debug" value="demo"/>
+      <param name="targetdir" value="${dir.demo}/events"/>
+    </antcall>
+    <antcall target="compile">
+      <param name="module" value="pull_consumer"/>
+      <param name="location" value="${dir.demo}/events"/>
+      <param name="debug" value="true"/>
+      <param name="rootdir" value="../../"/>
+      <param name="out.dcudir.debug" value="demo"/>
+      <param name="targetdir" value="${dir.demo}/events"/>
+    </antcall>
+    <antcall target="compile">
+      <param name="module" value="push_consumer"/>
+      <param name="location" value="${dir.demo}/events"/>
+      <param name="debug" value="true"/>
+      <param name="rootdir" value="../../"/>
+      <param name="out.dcudir.debug" value="demo"/>
+      <param name="targetdir" value="${dir.demo}/events"/>
+    </antcall>
+    <antcall target="demobuilder">
+      <param name="catalog" value="hello"/>
+      <param name="idlfile" value="helloworld"/>
+      <param name="clientname" value="Hello"/>
+      <param name="servername" value="Hello"/>
+    </antcall>
+    <antcall target="demobuilder">
+      <param name="catalog" value="hello_world"/>
+      <param name="idlfile" value="hello"/>
+      <param name="clientname" value="Client"/>
+      <param name="servername" value="Server"/>
+    </antcall>
+    <antcall target="demobuilder">
+      <param name="catalog" value="imr"/>
+      <param name="idlfile" value="hello"/>
+      <param name="clientname" value="Client"/>
+      <param name="servername" value="Server"/>
+    </antcall>
+    <antcall target="demobuilder">
+      <param name="catalog" value="inherit"/>
+      <param name="idlfile" value="inherit"/>
+      <param name="clientname" value="inherit_cl"/>
+      <param name="servername" value="inherit_cl"/>
+    </antcall>
+    <antcall target="demobuilder">
+      <param name="catalog" value="intercept"/>
+      <param name="idlfile" value="test"/>
+      <param name="clientname" value="Client"/>
+      <param name="servername" value="Server"/>
+    </antcall>
+    <antcall target="demobuilder">
+      <param name="catalog" value="library"/>
+      <param name="idlfile" value="hello"/>
+      <param name="clientname" value="client"/>
+      <param name="servername" value="server"/>
+    </antcall>
+    <antcall target="demobuilder">
+      <param name="catalog" value="mt"/>
+      <param name="idlfile" value="simple"/>
+      <param name="clientname" value="Client"/>
+      <param name="servername" value="Server"/>
+    </antcall>
+    <antcall target="demobuilder">
+      <param name="catalog" value="notabstract"/>
+      <param name="idlfile" value="account"/>
+      <param name="param" value="-poa -notabs"/>
+      <param name="clientname" value="Client"/>
+      <param name="servername" value="Server"/>
+    </antcall>
+    <antcall target="demobuilder">
+      <param name="catalog" value="obv/abstract"/>
+      <param name="idlfile" value="abstract"/>
+      <param name="rootdir" value="../../../"/>
+      <param name="clientname" value="client"/>
+      <param name="servername" value="server"/>
+    </antcall>
+    <antcall target="demobuilder">
+      <param name="catalog" value="omni"/>
+      <param name="idlfile" value="helloworld"/>
+      <param name="clientname" value="Client"/>
+      <param name="servername" value="Client"/>
+    </antcall>
+    <idlcompile idl="LoggerPolicy" srcdir="./" targetdir="${dir.demo}/pi" param="-i../../idl"/>
+    <idlcompile idl="CallStack" srcdir="./" targetdir="${dir.demo}/pi"/>
+    <antcall target="demobuilder">
+      <param name="catalog" value="pi"/>
+      <param name="idlfile" value="PIDemo"/>
+      <param name="clientname" value="Client"/>
+      <param name="servername" value="Server"/>
+    </antcall>
+    <antcall target="demobuilder">
+      <param name="catalog" value="poa/servant_activator"/>
+      <param name="idlfile" value="Bank"/>
+      <param name="rootdir" value="../../../"/>
+      <param name="clientname" value="Client"/>
+      <param name="servername" value="Server"/>
+    </antcall>
+    <antcall target="demobuilder">
+      <param name="catalog" value="retry"/>
+      <param name="idlfile" value="Test"/>
+      <param name="clientname" value="Client"/>
+      <param name="servername" value="Client"/>
+    </antcall>
+    <antcall target="demobuilder">
+      <param name="catalog" value="ssl"/>
+      <param name="idlfile" value="hello"/>
+      <param name="clientname" value="Client"/>
+      <param name="servername" value="Server"/>
+    </antcall>
+    <!-- This demo is incomplete!! -->
+    <!--
+    <antcall target="demobuilder">
+      <param name="catalog" value="test"/>
+      <param name="idlfile" value="test"/>
+      <param name="clientname" value="Client"/>
+      <param name="servername" value="Server"/>
+    </antcall>
+    -->
+    <antcall target="demobuilder">
+      <param name="catalog" value="testbroker"/>
+      <param name="idlfile" value="Test"/>
+      <param name="clientname" value="Client"/>
+      <param name="servername" value="Server"/>
+    </antcall>
+    <antcall target="compile">
+      <param name="module" value="TimeEvents"/>
+      <param name="location" value="demo/timeevents"/>
+      <param name="debug" value="true"/>
+      <param name="rootdir" value="../../"/>
+      <param name="out.dcudir.debug" value="demo"/>
+      <param name="targetdir" value="${dir.demo}/timeevents"/>
+    </antcall>
+    <antcall target="compile">
+      <param name="module" value="StopWatch"/>
+      <param name="location" value="demo/timeservice"/>
+      <param name="debug" value="true"/>
+      <param name="rootdir" value="../../"/>
+      <param name="out.dcudir.debug" value="demo"/>
+      <param name="targetdir" value="${dir.demo}/timeservice"/>
+    </antcall>
+    <antcall target="demobuilder">
+      <param name="catalog" value="transervice"/>
+      <param name="idlfile" value="Counter"/>
+      <param name="param" value="-without-prefix"/>
+      <param name="clientname" value="Client"/>
+      <param name="servername" value="Server"/>
+    </antcall>
+  </target>
+  <!-- build -->
+  <target name="build" depends="idlgenerate,mtdorb_bpl,mtdorb,idltopas,imr,COSS,utils,idltest,demo"/>
+
+  <!-- all -->
+  <target name="all" depends="clean,build"/>
+
+  <!-- clean -->
+  <!-- Macro for cleaning files generated from idls -->
+  <macrodef name="delidl">
+    <attribute name="idl"/>
+    <attribute name="dir"/>
+    <sequential>
+      <delete file="@{dir}/@{idl}.pas" failonerror="false"/>
+      <delete file="@{dir}/@{idl}_int.pas" failonerror="false"/>
+    </sequential>
+  </macrodef>
+
+  <target name="clean">
+    <delete dir="${dir.build}" failonerror="false"/>
+    <delete dir="${dir.dcu}" failonerror="false"/>
+    <delete dir="${dir.idl.target}" failonerror="false"/>
+    <delete failonerror="false">
+      <fileset dir="${basedir}" includes="**/*.dcu"/>
+      <fileset dir="${basedir}" includes="**/*.dll" excludes="exe/**"/>
+      <fileset dir="${basedir}" includes="**/*.exe" excludes="exe/**"/>
+      <fileset dir="${basedir}" includes="**/*.dcp"/>
+      <fileset dir="${basedir}" includes="**/*.bpl"/>
+
+      <fileset dir="${dir.idltest}/1" includes="struct*.pas" />
+      <fileset dir="${dir.idltest}/2" includes="struct*.pas" />
+      <fileset dir="${dir.idltest}/3" includes="typedef*.pas" />
+      <fileset dir="${dir.idltest}/4" includes="enum*.pas" />
+      <fileset dir="${dir.idltest}/5" includes="module*.pas" />
+      <fileset dir="${dir.idltest}/6" includes="sequence*.pas" />
+      <fileset dir="${dir.idltest}/7" includes="objref*.pas" />
+      <fileset dir="${dir.idltest}/8" includes="attribute*.pas" />
+      <fileset dir="${dir.idltest}/9" includes="inheritance*.pas" />
+      <fileset dir="${dir.idltest}/10" includes="forward*.pas" />
+      <fileset dir="${dir.idltest}/11" includes="_const*.pas" />
+      <fileset dir="${dir.idltest}/12" includes="union*.pas" />
+      <fileset dir="${dir.idltest}/13" includes="ex*.pas" />
+      <fileset dir="${dir.idltest}/14" includes="_array*.pas" />
+      <fileset dir="${dir.idltest}/15" includes="a*.pas" />
+      <fileset dir="${dir.idltest}/15" includes="b*.pas" />
+      <fileset dir="${dir.idltest}/16" includes="include1*.pas" />
+      <fileset dir="${dir.idltest}/16" includes="include2*.pas" />
+      <fileset dir="${dir.idltest}/16" includes="pragma*.pas" />
+      <fileset dir="${dir.idltest}/17" includes="container*.pas" />
+      <fileset dir="${dir.idltest}/18" includes="pseudo*.pas" />
+      <fileset dir="${dir.idltest}/19" includes="attr*.pas" />
+      <fileset dir="${dir.idltest}/19" includes="attr*.pas" />
+
+      <fileset dir="${dir.demo}/bench" includes="bench*.pas" />
+      <fileset dir="${dir.demo}/bidir" includes="server.ior" />
+      <fileset dir="${dir.demo}/bidir" includes="bidir*.pas" />
+      <fileset dir="${dir.demo}/calendar" includes="calendar*.pas" />
+      <fileset dir="${dir.demo}/callback" includes="Test*.pas" />
+      <fileset dir="${dir.demo}/codesets" includes="hello*.pas" />
+      <fileset dir="${dir.demo}/corbaloc" includes="hello*.pas" />
+      <fileset dir="${dir.demo}/hello" includes="helloworld*.pas" />
+      <fileset dir="${dir.demo}/hello_world" includes="hello*.pas" />
+      <fileset dir="${dir.demo}/imr" includes="hello*.pas" />
+      <fileset dir="${dir.demo}/inherit" includes="inherit.pas" />
+      <fileset dir="${dir.demo}/inherit" includes="inherit_int.pas" />
+      <fileset dir="${dir.demo}/intercept" includes="test*.pas" />
+      <fileset dir="${dir.demo}/intercept" includes="server.objid" />
+      <fileset dir="${dir.demo}/library" includes="hello*.pas" />
+      <fileset dir="${dir.demo}/mt" includes="simple*.pas" />
+      <fileset dir="${dir.demo}/notabstract" includes="account*.pas" />
+      <fileset dir="${dir.demo}/obv/abstract" includes="abstract.pas" />
+      <fileset dir="${dir.demo}/obv/abstract" includes="abstract_int.pas" />
+      <fileset dir="${dir.demo}/omni" includes="helloworld*.pas" />
+      <fileset dir="${dir.demo}/pi" includes="LoggerPolicy*.pas" />
+      <fileset dir="${dir.demo}/pi" includes="CallStack*.pas" />
+      <fileset dir="${dir.demo}/pi" includes="PIDemo*.pas" />
+      <fileset dir="${dir.demo}/poa/servant_activator" includes="Bank*.pas" />
+      <fileset dir="${dir.demo}/retry" includes="Test*.pas" />
+      <fileset dir="${dir.demo}/ssl" includes="hello*.pas" />
+      <fileset dir="${dir.demo}/test" includes="test*.pas" />
+      <fileset dir="${dir.demo}/test" includes="server.objid" />
+      <fileset dir="${dir.demo}/testbroker" includes="Test.pas" />
+      <fileset dir="${dir.demo}/testbroker" includes="Test_int.pas" />
+      <fileset dir="${dir.demo}/testbroker" includes="*_log" />
+      <fileset dir="${dir.demo}/testbroker" includes="server.objid" />
+      <fileset dir="${dir.demo}/transervice" includes="Counter.pas" />
+      <fileset dir="${dir.demo}/transervice" includes="Counter_int.pas" />
+      <fileset dir="${dir.demo}/transervice" includes="server.objid" />
+      <fileset dir="${dir.demo}/transervice" includes="ots.ior" />
+    </delete>
+<!--
+    <delidl idl="CCS" dir="COSS/ConcurrencyControl"/>
+    <delidl idl="MTDORBCCS" dir="COSS/ConcurrencyControl"/>
+    <delidl idl="TimeBase" dir="COSS/Time"/>
+    <delidl idl="CosTime" dir="COSS/Time"/>
+    <delidl idl="CosTimerEvent" dir="COSS/Time"/>
+-->
+  </target>
+
+</project>

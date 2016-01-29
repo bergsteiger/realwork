@@ -1,0 +1,181 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/ServerGate/Contents/Contents.idl"
+// генератор idl спецификаций (.idl)
+// Generated from UML model, root element: <<ServerInterfaces::Category>> MDProcess::ServerGate::Contents
+//
+// базовые ответственности связанные с работой с контентом в К
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+#ifndef ___CONTENTS_IDL__
+#define ___CONTENTS_IDL__
+#define CORBA3
+
+#include "shared/CoreSrv/RootSrv/RootSrv.idl"
+
+#pragma prefix "garant.ru"
+
+module ServerGate {
+
+module Contents {
+	// Генерируется, при отсутствии страницы с заддным ID в К.
+	exception PageNotFound {
+	};
+
+	// Генерируется в случае невозможности создать страницу в К
+	exception CantCreatePage {
+	};
+
+	// исключение в случае отсутствия у логина, из-под которого ведется работа с К, прав на конкретную
+	// операцию
+	exception PermissionException {
+	};
+
+	// Внутренний идентификатор страницы в К
+	typedef long long PageId;
+
+	// пара - ключ и значение, для передачи за один серверный вызов множества значений
+	struct MetadataEntity {
+		// ключ
+		string key;
+		// значение
+		string value;
+	};
+
+	// список
+	typedef sequence<MetadataEntity> MetadataEntityList;
+
+	// байтовый буфер для передачи картинок-диаграмм
+	typedef sequence<octet> ByteBuffer;
+
+	// Интерфейс обычного доступа функциям страницы в К. Позволяет читать/писать текст страницы,
+	// обеспечиавает доступ к лэйблам страницы, позволяет создавать дочерние страницы. Клиент может
+	// получить экземпляр интерфейса по ID существующей страницы в К. Данный интерфейс должен
+	// использоваться во всех приложениях, которым необходима работа со страницами К.
+	interface KPage {
+		// Заголовок страницы в К
+		string get_name ();
+
+		// id страницы в К
+		PageId get_id ();
+
+		// ЗАТОЧКА (!)
+		// Сейчас нужен просто для освобождения ресурсов. Птотом (когда разберемся с серверными
+		// ремуверами)  нудно будет переделать
+		void free ()
+			raises (CoreSrv::ForeignObject);
+		// Получает метаданные по ключу
+		string get_metadata (in string name)
+			raises (PermissionException);
+		// Устанавливает метаданные по ключу
+		void set_metadata (in string name, in string value)
+			raises (PermissionException);
+		// добавить текст к существующей странице
+		void append_wiki_text (in string text)
+			raises (PermissionException);
+		// полный текст страницы в wiki-разметке
+		string get_wiki_text ()
+			raises (PermissionException);
+		// перечисление лэйблов через запятую
+		string get_labels ()
+			raises (PermissionException);
+		// устанавливает лейблы страницы
+		void set_labels (in string labels)
+			raises (PermissionException);
+		// устанавливает wiki текст страницы
+		void set_wiki_text (in string wiki)
+			raises (PermissionException);
+		// устанавливает имя страницы
+		void set_name (in string name)
+			raises (PermissionException);
+		// добавляет несколько значений метаданных за один раз
+		void add_metadata (in MetadataEntityList metas)
+			raises (PermissionException);
+		// Добавляет (заменяет существующий с таким же именем) аттачмент к странице. Возможные значения
+		// для content_type: application/pdf, image/gif, image/jpeg, text/xml, text/html, text/plain,
+		// application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint.
+		void add_attachment (in string name, in ByteBuffer byte_stream, in string content_type)
+			raises (PermissionException);
+		// Имитирует работу как будто в браузере перешли по ссылке на странице. Нужно, например, что бы
+		// выполнились все макросы на странице. Необходим пароль пользователя, в сессии которого пришел
+		// вызов.
+		void simulate_viewpage_action (in string current_user_password);
+	};
+
+	// factory manager server interface for KPage
+	interface KPageFactoryManagerSrv {
+		// Создает новую страницу с указанным именем в указаном родителе, если страница с таким именем в
+		// *этом* родителе уже есть - генерируется исключение
+		KPage create (in string name, in KPage parent)
+			raises (CoreSrv::NoActiveFactory, CantCreatePage, PermissionException);
+
+		// Возвращает интерфейс существующей страницы
+		// ВРЕМЕННО(!) Потом (когда доделаем локальные интерфейс для серверных объектов) нужно будет
+		// перенести на локальный интерфейс
+		KPage get (in PageId page_id)
+			raises (CoreSrv::NoActiveFactory, PageNotFound);
+
+		KPage get_by_name_and_space (in string name, in string spacekey)
+			raises (CoreSrv::NoActiveFactory, PageNotFound);
+
+		// пытается получить по гуиду элемента, есди не нашла - выкидывает исключение
+		KPage get_by_model_element_guid (in string guid)
+			raises (CoreSrv::NoActiveFactory, PageNotFound);
+
+	};
+
+	// важность задачи
+	enum RequestImportance {
+		CRITICAL
+		, MAJOR
+		, NORMAL
+		, MINIOR
+	};
+
+	// типы
+	enum RequestType {
+		InternalError // внутренняя ошибка
+	};
+
+	// запрашиваенмая страница есть, но она не запрос
+	exception PageIsNotRequest {
+	};
+
+	exception CantChangeState {
+	};
+
+	// Интерфейс для удаленной работы с реквестами
+	interface Request: KPage {
+		// текущее состояние запроса, возвращает название состояния из перечисленных в [$77758733]
+		string get_state ();
+
+		// переход из состояния в состояние происходит посредством генерации событий, post_event
+		// позволяет сгенерировать событие, переданное в event (значения смотреть в [$77758733])
+		void post_event (in string event)
+			raises (CantChangeState);
+	};
+
+	// factory manager server interface for Request
+	interface RequestFactoryManagerSrv {
+		Request get_by_name_and_space (in string name, in string spacekey)
+			raises (CoreSrv::NoActiveFactory, PageNotFound, PermissionException, PageIsNotRequest);
+
+		Request get (in PageId page_id)
+			raises (CoreSrv::NoActiveFactory, PageNotFound, PermissionException, PageIsNotRequest);
+
+		Request create (in RequestType type, in RequestImportance importance, in string name, in KPage parent)
+			raises (CoreSrv::NoActiveFactory, CantCreatePage, PermissionException);
+
+	};
+};
+}; // module ServerGate
+
+
+
+#endif
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

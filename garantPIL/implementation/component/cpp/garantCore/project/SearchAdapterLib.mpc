@@ -1,0 +1,122 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/garantPIL/implementation/component/cpp/garantCore/project/SearchAdapterLib.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<Library::Category>> garantCore::SearchAdapterLib
+//
+// SearchAdapterLib
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (SearchAdapterLib) : project_generic_core {
+	sharedname = SearchAdapterLib
+	staticname = SearchAdapterLib
+
+	includes += ../../
+
+	//#UC START# *4EBA86850297_CUSTOM_DEPENDENCES*
+	macros += USE_CPP_ZIP
+	//#UC END# *4EBA86850297_CUSTOM_DEPENDENCES*
+	after += GCL
+	libs  += GCL
+
+	after += ContextSearch
+	libs  += ContextSearch
+
+	after += DB
+	libs  += DB
+
+	after += Morpho
+	libs  += Morpho
+
+	after += DBExt
+	libs  += DBExt
+
+	Header_Files {
+		Std_Headers {
+			./../SearchAdapterLib/LibHome.h
+		}
+	
+		Adapter {
+			./../SearchAdapterLib/Adapter/Adapter.h
+			./../SearchAdapterLib/Adapter/AdapterFactories.h
+		}
+	
+		Adapter_i {
+			./../SearchAdapterLib/impl/Adapter_i/Adapter_i.h
+			./../SearchAdapterLib/impl/Adapter_i/Adapter_i_factory.h
+			./../SearchAdapterLib/impl/Adapter_i/Helper_i.h
+			./../SearchAdapterLib/impl/Adapter_i/Helper_i_factory.h
+			./../SearchAdapterLib/impl/Adapter_i/SearchCore.h
+			./../SearchAdapterLib/impl/Adapter_i/Searcher_i.h
+			./../SearchAdapterLib/impl/Adapter_i/Searcher_i_factory.h
+		}
+	
+		Cache {
+			./../SearchAdapterLib/Cache/Cache.h
+		}
+	
+		DBComm_i {
+			./../SearchAdapterLib/impl/DBComm_i/DBCommunicator_i.h
+			./../SearchAdapterLib/impl/DBComm_i/Dumper.h
+			./../SearchAdapterLib/impl/DBComm_i/StreamsManager.h
+			./../SearchAdapterLib/impl/DBComm_i/WildCard_i.h
+			./../SearchAdapterLib/impl/DBComm_i/WildIterator.h
+			./../SearchAdapterLib/impl/DBComm_i/WildManager.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		Adapter {
+		}
+	
+		Adapter_i {
+		}
+	
+		Cache {
+		}
+	
+		DBComm_i {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../SearchAdapterLib/LibHome.cpp
+		}
+	
+		Adapter {
+			./../SearchAdapterLib/Adapter/Adapter.cpp
+			./../SearchAdapterLib/Adapter/AdapterFactories.cpp
+		}
+	
+		Adapter_i {
+			./../SearchAdapterLib/impl/Adapter_i/Adapter_i.cpp
+			./../SearchAdapterLib/impl/Adapter_i/Adapter_i_factory.cpp
+			./../SearchAdapterLib/impl/Adapter_i/Helper_i.cpp
+			./../SearchAdapterLib/impl/Adapter_i/Helper_i_factory.cpp
+			./../SearchAdapterLib/impl/Adapter_i/SearchCore.cpp
+			./../SearchAdapterLib/impl/Adapter_i/Searcher_i.cpp
+			./../SearchAdapterLib/impl/Adapter_i/Searcher_i_factory.cpp
+		}
+	
+		Cache {
+			./../SearchAdapterLib/Cache/Cache.cpp
+		}
+	
+		DBComm_i {
+			./../SearchAdapterLib/impl/DBComm_i/DBCommunicator_i.cpp
+			./../SearchAdapterLib/impl/DBComm_i/Dumper.cpp
+			./../SearchAdapterLib/impl/DBComm_i/StreamsManager.cpp
+			./../SearchAdapterLib/impl/DBComm_i/WildCard_i.cpp
+			./../SearchAdapterLib/impl/DBComm_i/WildIterator.cpp
+			./../SearchAdapterLib/impl/DBComm_i/WildManager.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

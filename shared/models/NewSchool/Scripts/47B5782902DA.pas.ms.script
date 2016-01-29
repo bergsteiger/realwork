@@ -1,0 +1,29 @@
+// l3PtrList 47B5782902DA Impurity Class
+
+INCLUDE '47B941FB0284.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+: ME_47B5782902DA
+ CONST UID '47B5782902DA'
+ CONST Name 'l3PtrList'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ %SUMMARY 'Примесь для списков указателей. Список НЕ УПРАВЛЯЕТ временем жизни элементов.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47B941FB0284 // l3PtrListPrim
+ ]
+ ; // Inherits
+ : Implemented
+   [ ME_47B935AF0066 // FillItem
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_47B5782902DA l3PtrList

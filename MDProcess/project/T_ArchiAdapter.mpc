@@ -1,0 +1,59 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/T_ArchiAdapter.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<AdapterTarget::Category>> MDProcess::ArchiAdapter
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (T_ArchiAdapter) : project_generic_core_corba, project_subsystem_windows {
+	sharedname = ArchiAdapter
+	after += Core
+	libs  += Core
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+	after += CoreSrv
+	libs  += CoreSrv
+
+	after += ArchiAdapterLib
+	after += ArchiAdapterLib_tie
+	libs  += ArchiAdapterLib
+	libs  += ArchiAdapterLib_tie
+	after += ArchiGate_cs
+	libs  += ArchiGate_cs
+	after += GCI
+	after += GCI_tie
+	libs  += GCI
+	libs  += GCI_tie
+	after += GCL
+	libs  += GCL
+
+	//#UC START# *4E143FED01A2_CUSTOM_DEPENDENSES*
+	//#UC END# *4E143FED01A2_CUSTOM_DEPENDENSES*
+	includes += ../../
+
+	Header_Files {
+		Std_Headers {
+			./../ArchiAdapter/ArchiAdapter.h
+			./../ArchiAdapter/ArchiAdapter_tie.h
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../ArchiAdapter/ArchiAdapter.cpp
+			./../ArchiAdapter/ArchiAdapter_tie.cpp
+		}
+	}
+	
+	Resource_Files {
+		./../ArchiAdapter/ArchiAdapter_vi.rc
+		./../ArchiAdapter/ArchiAdapter_vi.rch
+		
+		//#UC START# *4E143FED01A2_RESOURCE_FILES*
+		//#UC END# *4E143FED01A2_RESOURCE_FILES*
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

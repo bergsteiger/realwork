@@ -1,0 +1,1 @@
+cmd.exe /V:ON /C _start_adaptertest.bat %*

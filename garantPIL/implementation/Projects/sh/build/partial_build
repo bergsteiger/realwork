@@ -1,0 +1,55 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: partial_build <root_workspace_dir> [<mwc_sh>]"
+exit
+fi
+
+if test "$MPCXC_SH" = ""; then
+echo "You must export MPCXC_SH env to point to the shell scripts of your Multi Platform Common eXtra Code."
+exit
+fi
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT env to point to the root of your Multi Platform Common eXtra Code."
+exit
+fi
+
+if test "$MPCXC_TARGET" = ""; then
+echo "You must export MPCXC_TARGET env: currently supported: i686-pc-linux-gnu i686-pc-freebsd."
+exit
+fi
+
+target=$MPCXC_TARGET
+
+root_workspace_dir=$1
+mwc_sh=$2
+if test "$mwc_sh" = "" ; then
+mwc_sh="mwc.sh"
+fi
+
+#export PILOT_ROOT=$MPCXC_ROOT/src
+#export MPCXC_TAOACE=/mnt/windows/work/taoace-2005-08-23-gcc344
+##export XERCES_ROOT=/home/grigorio/tuning/xerces-c-src_2_6_0
+
+export ACE_ROOT=$MPCXC_ROOT/src
+export TAO_ROOT=$ACE_ROOT/TAO
+
+#export PATH=$MPCXC_TAOACE/out/$target/bin:$MPCXC_ROOT/out/$target/bin:/usr/local/gcc344/bin:/usr/local/bin:/bin:/usr/bin:/usr/lib/qt3/bin
+#export LD_LIBRARY_PATH=$MPCXC_TAOACE/out/$target/lib:$MPCXC_ROOT/out/$target/lib:/usr/local/gcc344/lib:/usr/local/lib:/usr/lib/qt3/lib:$XERCES_ROOT/lib
+
+export PATH=/usr/local/gcc402/bin:/usr/local/gcc344/bin:/usr/local/bin:$MPCXC_ROOT/out/$MPCXC_TARGET/bin:$TAOACE_MPCXC_ROOT/out/$TAOACE_MPCXC_TARGET/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/gcc402/lib:/usr/local/gcc344/lib:/usr/local/lib:$MPCXC_ROOT/out/$MPCXC_TARGET/lib:$TAOACE_MPCXC_ROOT/out/$TAOACE_MPCXC_TARGET/lib:$LD_LIBRARY_PATH
+
+echo "partial_build: MPCXC_ROOT = $MPCXC_ROOT"
+echo "partial_build: $root_workspace_dir ..."
+
+$MPCXC_SH/clean_thilde_only
+
+$MPCXC_SH/sh.make.permissive $root_workspace_dir $mwc_sh
+
+make_log_name="make_partial.log"
+cp -f $MPCXC_ROOT/$root_workspace_dir/make.log $MPCXC_ROOT/$make_log_name
+
+echo "end."
+

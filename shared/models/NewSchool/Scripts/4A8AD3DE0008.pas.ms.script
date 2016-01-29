@@ -1,0 +1,268 @@
+// ResultEx 4A8AD3DE0008 VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8AD3DE0008
+
+FORWARD ME_4A8AD4260126
+
+FORWARD ME_4C762D9B0224
+
+: ME_4C7BB92503A9
+ CONST UID '4C7BB92503A9'
+ CONST Name 'Search'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Искать' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C762D9B0224 // OkExt
+ ;
+ CONST "Checked" 'undefined'
+ CONST "Enabled" 'undefined'
+ CONST "Hint" 'Провести поиск по выбранным параметрам'
+ CONST "Visible" 'undefined'
+
+ref; // ME_4C7BB92503A9 Search
+
+: ME_4C7BB944001B
+ CONST UID '4C7BB944001B'
+ CONST Name 'Save'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Сохранить' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C762D9B0224 // OkExt
+ ;
+ CONST "Checked" 'undefined'
+ CONST "Enabled" 'undefined'
+ CONST "Hint" 'Сохранить'
+ CONST "Visible" 'undefined'
+
+ref; // ME_4C7BB944001B Save
+
+: ME_4C7BB95D0276
+ CONST UID '4C7BB95D0276'
+ CONST Name 'AttributesSelect'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C762D9B0224 // OkExt
+ ;
+ CONST "Checked" 'undefined'
+ CONST "Enabled" 'undefined'
+ CONST "Visible" 'undefined'
+
+ref; // ME_4C7BB95D0276 AttributesSelect
+
+: ME_4C7BB9690030
+ CONST UID '4C7BB9690030'
+ CONST Name 'Consult'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Отправить запрос' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C762D9B0224 // OkExt
+ ;
+ CONST "Checked" 'undefined'
+ CONST "Enabled" 'undefined'
+ CONST "ImageIndex" 154
+ CONST "Visible" 'undefined'
+
+ref; // ME_4C7BB9690030 Consult
+
+: ME_4C7BB98001BC
+ CONST UID '4C7BB98001BC'
+ CONST Name 'Chat'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Отправить (Ctrl+Enter)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C762D9B0224 // OkExt
+ ;
+ CONST "Checked" 'undefined'
+ CONST "Enabled" 'undefined'
+ CONST "Visible" 'undefined'
+
+ref; // ME_4C7BB98001BC Chat
+
+: ME_54255CEB0383
+ CONST UID '54255CEB0383'
+ CONST Name 'SaveAndSend'
+ CONST Class class_Class
+ : Stereotype st_VCMOperationState ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Сохранить и отправить' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C762D9B0224 // OkExt
+ ;
+ CONST "Checked" 'undefined'
+ CONST "Enabled" 'undefined'
+ CONST "Hint" 'Сохранить и отправить'
+ CONST "Visible" 'undefined'
+ CONST "ifndef" 'Monitorings'
+
+ref; // ME_54255CEB0383 SaveAndSend
+
+: ME_4C762D9B0224
+ CONST UID '4C762D9B0224'
+ CONST Name 'OkExt'
+ CONST Class class_Class
+ : Stereotype st_VCMOperation ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'OK' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A8AD4260126 // Result
+ ;
+ : Children
+   @ ( ME_4C7BB92503A9 // Search
+ ME_4C7BB944001B // Save
+ ME_4C7BB95D0276 // AttributesSelect
+ ME_4C7BB9690030 // Consult
+ ME_4C7BB98001BC // Chat
+ ME_54255CEB0383 // SaveAndSend
+ ) .SequenceCode.It
+ ; // Children
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_4C762D9B0224 OkExt
+
+: ME_4A8AD47D0357
+ CONST UID '4A8AD47D0357'
+ CONST Name 'OkExt'
+ CONST Class class_Operation
+ %SUMMARY 'OK' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A8AD4260126 // Result
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+
+ref; // ME_4A8AD47D0357 OkExt
+
+: ME_4AC5D61E0284_ME_4A8AD4260126
+ CONST UID '4AC5D61E0284'
+ CONST Name 'Cancel'
+ : Original WL 'ME_4AC5D61E0284' '4A8AD3C70195.pas.ms.script' // Cancel
+ ;
+ : Implementor ME_4A8AD4260126 // Result
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4AC5D61E0284_ME_4A8AD4260126 Cancel
+
+: ME_4C762C910358_ME_4A8AD4260126
+ CONST UID '4C762C910358'
+ CONST Name 'Cancel'
+ : Original WL 'ME_4C762C910358' '4A8AD3C70195.pas.ms.script' // Cancel
+ ;
+ : Implementor ME_4A8AD4260126 // Result
+ ;
+ CONST "AutoFocus" false
+ CONST "AutoLock" false
+ CONST "LongProcess" false
+ CONST "ShowInContextMenu" 'undefined'
+ CONST "ShowInToolbar" 'undefined'
+ CONST "has states" true
+ CONST "is FormActivate" false
+ CONST "is query" false
+ CONST "no prefix" false
+ref; // ME_4C762C910358_ME_4A8AD4260126 Cancel
+
+: ME_4A8AD4260126
+ CONST UID '4A8AD4260126'
+ CONST Name 'Result'
+ CONST Class class_Class
+ : Stereotype st_VCMOperations ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Результат диалога' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A8AD3DE0008 // ResultEx
+ ;
+ : Inherits
+   @ ( WL 'ME_4AC5D5FB0293' '4A8AD3C70195.pas.ms.script' // Result$CancelWithState
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4A8AD47D0357 // OkExt
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4AC5D61E0284_ME_4A8AD4260126 // Cancel
+ ME_4C762C910358_ME_4A8AD4260126 // Cancel
+ ) .SequenceCode.It
+ ; // Implemented
+ : Children
+   @ ( ME_4C762D9B0224 // OkExt
+ ) .SequenceCode.It
+ ; // Children
+
+ref; // ME_4A8AD4260126 Result
+
+: ME_4A8AD3DE0008
+ CONST UID '4A8AD3DE0008'
+ CONST Name 'ResultEx'
+ CONST Class class_Category
+ : Stereotype st_VCMControls ;
+ %SUMMARY 'Результат диалога' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4954C0500033' '4954C0500033.pas.ms.script' // UserInteraction
+ ;
+ : Children
+   @ ( ME_4A8AD4260126 // Result
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4A8AD3C70195' '4A8AD3C70195.pas.ms.script' // Result
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\OfficeLike_ResultEx_Controls.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4A8AD3DE0008.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4A8AD3DE0008.pas.ms.script.runner'
+
+ref; // ME_4A8AD3DE0008 ResultEx

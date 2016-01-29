@@ -1,0 +1,1715 @@
+// ToolbarMenu 4C8E33F40186 VCMModule Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C8E33F40186
+
+FORWARD ME_4C8E42AC03B8
+
+: ME_FDFF3B9191D1
+ CONST UID 'FDFF3B9191D1'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация PrimCustomizeTools' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8E42AC03B8 // PrimCustomizeTools
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_FDFF3B9191D1 Ini_Reg_Class
+
+: ME_4C99ECBE9F49
+ CONST UID '4C99ECBE9F49'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8E42AC03B8 // PrimCustomizeTools
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_4C99ECBE9F49 
+
+: ME_4C8E42AC03B8
+ CONST UID '4C8E42AC03B8'
+ CONST Name 'PrimCustomizeTools'
+ CONST Class class_Class
+ : Stereotype st_VCMForm ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C8E33F40186 // ToolbarMenu
+ ;
+ : Operations
+   @ ( ME_FDFF3B9191D1 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4C99ECBE9F49 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "base wnd class" 'CWnd'
+ CONST "finished dfm" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '13.09.2010 19:26'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ToolbarMenu\Forms\PrimCustomizeTools_Form.pas'
+ CONST extprop:pas:TypeName 'TPrimCustomizeToolsForm'
+
+ref; // ME_4C8E42AC03B8 PrimCustomizeTools
+
+FORWARD ME_4C8E340C0148
+
+FORWARD ME_4C8E42D40131
+
+FORWARD ME_5787C08EFD86
+
+FORWARD ME_81ED809B65DF
+
+: ME_956F16D11447
+ CONST UID '956F16D11447'
+ CONST Name 'ut_CustomizeToolsName'
+ CONST Class class_Attribute
+ %SUMMARY 'Строковый идентификатор пользовательского типа "CustomizeTools"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_81ED809B65DF // ut_CustomizeToolsConstants
+ ;
+ CONST Value '''ut_CustomizeTools'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_956F16D11447 ut_CustomizeToolsName
+
+: ME_C958FE9A8F1E
+ CONST UID 'C958FE9A8F1E'
+ CONST Name 'ut_CustomizeTools'
+ CONST Class class_Attribute
+ %SUMMARY 'CustomizeTools' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_81ED809B65DF // ut_CustomizeToolsConstants
+ ;
+ : Target WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST Value 0
+ : ValueType WL 'ME_47F2534B010F' '499EAAE502A8.pas.ms.script' // TvcmUserType
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" true
+
+ref; // ME_C958FE9A8F1E ut_CustomizeTools
+
+: ME_81ED809B65DF
+ CONST UID '81ED809B65DF'
+ CONST Name 'ut_CustomizeToolsConstants'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Константы для типа формы ut_CustomizeTools' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5787C08EFD86 // ut_CustomizeTools
+ ;
+ : Attributes
+   @ ( ME_956F16D11447 // ut_CustomizeToolsName
+ ME_C958FE9A8F1E // ut_CustomizeTools
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_81ED809B65DF ut_CustomizeToolsConstants
+
+FORWARD ME_8436863EEE7B
+
+: ME_386DC4FEBBBD
+ CONST UID '386DC4FEBBBD'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_FormUserType_ut_CustomizeTools' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_8436863EEE7B // Tkw_FormUserType_ut_CustomizeTools
+ ;
+
+ref; // ME_386DC4FEBBBD Ini_Reg
+
+: ME_4DB0614603C8_ME_8436863EEE7B
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_8436863EEE7B // Tkw_FormUserType_ut_CustomizeTools
+ ;
+ref; // ME_4DB0614603C8_ME_8436863EEE7B GetWordNameForRegister
+
+: ME_4EE1DC8903BB_ME_8436863EEE7B
+ CONST UID '4EE1DC8903BB'
+ CONST Name 'GetInteger'
+ : Original WL 'ME_4EE1DC8903BB' '4F3E3F5F0160.pas.ms.script' // GetInteger
+ ;
+ : Implementor ME_8436863EEE7B // Tkw_FormUserType_ut_CustomizeTools
+ ;
+ref; // ME_4EE1DC8903BB_ME_8436863EEE7B GetInteger
+
+: ME_8436863EEE7B
+ CONST UID '8436863EEE7B'
+ CONST Name 'Tkw_FormUserType_ut_CustomizeTools'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для типа формы ut_CustomizeTools' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5787C08EFD86 // ut_CustomizeTools
+ ;
+ : Inherits
+   @ ( WL 'ME_4EE1DBBB013C' '4F3E3F5F0160.pas.ms.script' // TtfwInteger
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_386DC4FEBBBD // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_8436863EEE7B // GetWordNameForRegister
+ ME_4EE1DC8903BB_ME_8436863EEE7B // GetInteger
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "NameForScript" 'тип_формы::ut_CustomizeTools'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_8436863EEE7B Tkw_FormUserType_ut_CustomizeTools
+
+: ME_5787C08EFD86
+ CONST UID '5787C08EFD86'
+ CONST Name 'ut_CustomizeTools'
+ CONST Class class_Class
+ : Stereotype st_UserType ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'CustomizeTools' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8E42D40131 // CustomizeTools
+ ;
+ : Children
+   @ ( ME_8436863EEE7B // Tkw_FormUserType_ut_CustomizeTools
+ ) .SequenceCode.It
+ ; // Children
+ : Constants
+   @ ( ME_81ED809B65DF // ut_CustomizeToolsConstants
+ ) .SequenceCode.It
+ ; // Constants
+ CONST "CanClose" 'undefined'
+ CONST "CanHaveToolbars" 'undefined'
+ CONST "ImageIndex" '-1'
+ CONST "NeedOnQueryClose" false
+ CONST "NeedOnQueryMaximized" false
+ CONST "NeedOnQueryOpen" false
+ CONST "VisibleToUser" false
+ CONST "Weight" '-1'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ToolbarMenu\Forms\CustomizeTools_ut_CustomizeTools_UserType.pas'
+
+ref; // ME_5787C08EFD86 ut_CustomizeTools
+
+FORWARD ME_39DFFA94AC71
+
+: ME_7612B5C31FE7
+ CONST UID '7612B5C31FE7'
+ CONST Name 'ut_CustomizeToolsCaption'
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок пользовательского типа "CustomizeTools"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_39DFFA94AC71 // ut_CustomizeToolsLocalConstants
+ ;
+ CONST Value '''CustomizeTools'''
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_7612B5C31FE7 ut_CustomizeToolsCaption
+
+: ME_39DFFA94AC71
+ CONST UID '39DFFA94AC71'
+ CONST Name 'ut_CustomizeToolsLocalConstants'
+ CONST Class class_Class
+ : Stereotype st_LocalConst ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые константы для типа формы ut_CustomizeTools' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8E42D40131 // CustomizeTools
+ ;
+ : Attributes
+   @ ( ME_7612B5C31FE7 // ut_CustomizeToolsCaption
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "Need map interface" false
+ CONST "Need mapping support" false
+ CONST "spell names" false
+
+ref; // ME_39DFFA94AC71 ut_CustomizeToolsLocalConstants
+
+FORWARD ME_6CD2ACC4402B
+
+: ME_1335C2122DAF
+ CONST UID '1335C2122DAF'
+ CONST Name 'ut_CustomizeToolsCaption'
+ CONST Class class_Attribute
+ %SUMMARY 'Заголовок пользовательского типа "CustomizeTools"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_6CD2ACC4402B // LCImplut_CustomizeToolsLocalConstants
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST Value '(rS : -1; rLocalized : false; rKey : ''ut_CustomizeToolsCaption''; rValue : ''CustomizeTools'')'
+ : ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_1335C2122DAF ut_CustomizeToolsCaption
+
+: ME_6CD2ACC4402B
+ CONST UID '6CD2ACC4402B'
+ CONST Name 'LCImplut_CustomizeToolsLocalConstants'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки ut_CustomizeToolsLocalConstants' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C8E42D40131 // CustomizeTools
+ ;
+ : Attributes
+   @ ( ME_1335C2122DAF // ut_CustomizeToolsCaption
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "elements prefix" 'str'
+ CONST "spell names" false
+ CONST extprop:pas:ElementPrefixBase 'str'
+ CONST extprop:pas:ElementPrefix 'str_'
+
+ref; // ME_6CD2ACC4402B LCImplut_CustomizeToolsLocalConstants
+
+: ME_E70E60B20C76
+ CONST UID 'E70E60B20C76'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация CustomizeTools' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8E42D40131 // CustomizeTools
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_E70E60B20C76 Ini_Reg_Class
+
+: ME_11E353D0E4C9
+ CONST UID '11E353D0E4C9'
+ CONST Name 'Init_ut_CustomizeToolsCaption'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Инициализация str_ut_CustomizeToolsCaption' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8E42D40131 // CustomizeTools
+ ;
+
+ref; // ME_11E353D0E4C9 Init_ut_CustomizeToolsCaption
+
+: ME_549067B800D7
+ CONST UID '549067B800D7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8E42D40131 // CustomizeTools
+ ;
+ : Target WL 'ME_549067A702BE' '54817D330211.pas.ms.script' // TeeShortCutEdit
+ ;
+
+ref; // ME_549067B800D7 
+
+: ME_345BD227D12A
+ CONST UID '345BD227D12A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8E42D40131 // CustomizeTools
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_345BD227D12A 
+
+: ME_08900F1462DE
+ CONST UID '08900F1462DE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8E42D40131 // CustomizeTools
+ ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+
+ref; // ME_08900F1462DE 
+
+: ME_80BD527BC501
+ CONST UID '80BD527BC501'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8E42D40131 // CustomizeTools
+ ;
+ : Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.pas.ms.script' // Tl3MessageID
+ ;
+
+ref; // ME_80BD527BC501 
+
+FORWARD ME_8372929CC16D
+
+: ME_4C8E42D40131
+ CONST UID '4C8E42D40131'
+ CONST Name 'CustomizeTools'
+ CONST Class class_Class
+ : Stereotype st_VCMFinalForm ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Inherits
+   @ ( ME_4C8E42AC03B8 // PrimCustomizeTools
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_E70E60B20C76 // Ini_Reg_Class
+ ME_11E353D0E4C9 // Init_ut_CustomizeToolsCaption
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_5787C08EFD86 // ut_CustomizeTools
+ ) .SequenceCode.It
+ ; // Children
+ : Constants
+   @ ( ME_39DFFA94AC71 // ut_CustomizeToolsLocalConstants
+ ME_6CD2ACC4402B // LCImplut_CustomizeToolsLocalConstants
+ ) .SequenceCode.It
+ ; // Constants
+ : Dependencies
+   @ ( ME_549067B800D7 // 
+ ME_345BD227D12A // 
+ ME_08900F1462DE // 
+ ME_80BD527BC501 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ : Injected
+   @ ( ME_8372929CC16D // 
+ ) .SequenceCode.It
+ ; // Injected
+ CONST "NeedsHackRef" true
+ CONST "ZoneType" 'Any'
+ CONST "author" 'Люлин А.В.'
+ CONST "base wnd class" 'CWnd'
+ CONST "finished" false
+ CONST "finished dfm" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "resizeable" false
+ CONST "restrict form def" 'undefined'
+ CONST "started" '13.09.2010 19:27'
+ : Generators
+ @ (
+ gen_dfm
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST dfm:Path 'common\components\gui\Garant\VCM\View\ToolbarMenu\Forms\NOT_FINISHED_CustomizeTools_Form.dfm'
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ToolbarMenu\Forms\NOT_FINISHED_CustomizeTools_Form.pas'
+ CONST extprop:pas:TypeName 'TCustomizeToolsForm'
+
+ref; // ME_4C8E42D40131 CustomizeTools
+
+FORWARD ME_4C90B27C032C
+
+: ME_4C90B2B20022
+ CONST UID '4C90B2B20022'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4C90B27C032C // TIvcmToolbarsCustomizeListenerPtrList
+ ;
+ : Target WL 'ME_49525BCE0355' '499465EE030A.pas.ms.script' // IvcmToolbarsCustomizeListener
+ ;
+
+ref; // ME_4C90B2B20022 ItemType
+
+: ME_4C90B27C032C
+ CONST UID '4C90B27C032C'
+ CONST Name 'TIvcmToolbarsCustomizeListenerPtrList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Список указателей на IvcmToolbarsCustomizeListener' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Inherits
+   @ ( WL 'ME_47B57D630029' '47913B47006E.pas.ms.script' // l3InterfacePtrList
+ WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4C90B2B20022 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '15.09.2010 15:48'
+
+ref; // ME_4C90B27C032C TIvcmToolbarsCustomizeListenerPtrList
+
+FORWARD ME_E027F36407CE
+
+FORWARD ME_9A898DB9E71E
+
+: ME_60B9780AC48D
+ CONST UID '60B9780AC48D'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_Form_CustomizeTools' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_9A898DB9E71E // Tkw_Form_CustomizeTools
+ ;
+
+ref; // ME_60B9780AC48D Ini_Reg
+
+: ME_CE225F93F4CB
+ CONST UID 'CE225F93F4CB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_9A898DB9E71E // Tkw_Form_CustomizeTools
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_CE225F93F4CB 
+
+: ME_FF2F474670C2
+ CONST UID 'FF2F474670C2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_9A898DB9E71E // Tkw_Form_CustomizeTools
+ ;
+ : Target ME_4C8E42D40131 // CustomizeTools
+ ;
+
+ref; // ME_FF2F474670C2 
+
+: ME_4DB0614603C8_ME_9A898DB9E71E
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_9A898DB9E71E // Tkw_Form_CustomizeTools
+ ;
+ref; // ME_4DB0614603C8_ME_9A898DB9E71E GetWordNameForRegister
+
+: ME_4DDFD2EA0116_ME_9A898DB9E71E
+ CONST UID '4DDFD2EA0116'
+ CONST Name 'GetString'
+ : Original WL 'ME_4DDFD2EA0116' '4F3E3F5F0160.pas.ms.script' // GetString
+ ;
+ : Implementor ME_9A898DB9E71E // Tkw_Form_CustomizeTools
+ ;
+ref; // ME_4DDFD2EA0116_ME_9A898DB9E71E GetString
+
+: ME_52A086150180_ME_9A898DB9E71E
+ CONST UID '52A086150180'
+ CONST Name 'RegisterInEngine'
+ : Original WL 'ME_52A086150180' '4F3E3F5F0160.pas.ms.script' // RegisterInEngine
+ ;
+ : Implementor ME_9A898DB9E71E // Tkw_Form_CustomizeTools
+ ;
+ CONST "is static" true
+ref; // ME_52A086150180_ME_9A898DB9E71E RegisterInEngine
+
+: ME_9A898DB9E71E
+ CONST UID '9A898DB9E71E'
+ CONST Name 'Tkw_Form_CustomizeTools'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для идентификатора формы CustomizeTools'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::CustomizeTools TryFocus ASSERT'#13#10'{code}' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_E027F36407CE // CustomizeToolsKeywordsPack
+ ;
+ : Inherits
+   @ ( WL 'ME_508527F30183' '54DB92D203C9.pas.ms.script' // TtfwControlString
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_60B9780AC48D // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_9A898DB9E71E // GetWordNameForRegister
+ ME_4DDFD2EA0116_ME_9A898DB9E71E // GetString
+ ME_52A086150180_ME_9A898DB9E71E // RegisterInEngine
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_CE225F93F4CB // 
+ ME_FF2F474670C2 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'форма::CustomizeTools'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_9A898DB9E71E Tkw_Form_CustomizeTools
+
+: ME_8BD7225A8507
+ CONST UID '8BD7225A8507'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_E027F36407CE // CustomizeToolsKeywordsPack
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+
+ref; // ME_8BD7225A8507 
+
+: ME_8372929CC16D
+ CONST UID '8372929CC16D'
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_E027F36407CE // CustomizeToolsKeywordsPack
+ ;
+ : Target ME_4C8E42D40131 // CustomizeTools
+ ;
+
+ref; // ME_8372929CC16D 
+
+: ME_E027F36407CE
+ CONST UID 'E027F36407CE'
+ CONST Name 'CustomizeToolsKeywordsPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Набор слов словаря для доступа к экземплярам контролов формы CustomizeTools' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Inherits
+   @ ( ME_4C8E42D40131 // CustomizeTools
+ ) .SequenceCode.It
+ ; // Inherits
+ : Children
+   @ ( ME_9A898DB9E71E // Tkw_Form_CustomizeTools
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_8BD7225A8507 // 
+ ME_8372929CC16D // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ToolbarMenu\CustomizeToolsKeywordsPack.pas'
+
+ref; // ME_E027F36407CE CustomizeToolsKeywordsPack
+
+: ME_4C8E3C930236
+ CONST UID '4C8E3C930236'
+ CONST Name 'f_CustomizeVisible'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4C8E3C930236 f_CustomizeVisible
+
+: ME_4C8E3D110055
+ CONST UID '4C8E3D110055'
+ CONST Name 'f_LargeIconsVisible'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4C8E3D110055 f_LargeIconsVisible
+
+: ME_4C8E46EA0263
+ CONST UID '4C8E46EA0263'
+ CONST Name 'MenuManager'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_52A1F4A201F9' '4AADF9450143.pas.ms.script' // TvcmBaseMenuManager
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4C8E46EA0263 MenuManager
+
+: ME_4C90B2CB0258
+ CONST UID '4C90B2CB0258'
+ CONST Name 'f_Listeners'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target ME_4C90B27C032C // TIvcmToolbarsCustomizeListenerPtrList
+ ;
+
+ref; // ME_4C90B2CB0258 f_Listeners
+
+: ME_17D85DE2DD41
+ CONST UID '17D85DE2DD41'
+ CONST Name 'f_MenuManager'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства MenuManager' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_52A1F4A201F9' '4AADF9450143.pas.ms.script' // TvcmBaseMenuManager
+ ;
+
+ref; // ME_17D85DE2DD41 f_MenuManager
+
+FORWARD ME_4C8E3A170399
+
+: ME_4C8E3A1D031E
+ CONST UID '4C8E3A1D031E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8E3A170399 // Customize
+ ;
+
+ref; // ME_4C8E3A1D031E DoIt
+
+: ME_4C8E3A170399
+ CONST UID '4C8E3A170399'
+ CONST Name 'Customize'
+ CONST Class class_Class
+ : Stereotype st_ModuleMethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Настройка...' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Operations
+   @ ( ME_4C8E3A1D031E // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "ShowInToolbar" false
+ CONST "no prefix" false
+ CONST "no test" false
+
+ref; // ME_4C8E3A170399 Customize
+
+FORWARD ME_4C8E3A290341
+
+: ME_4C8E3A3100E6
+ CONST UID '4C8E3A3100E6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8E3A290341 // AvailableOperations
+ ;
+
+ref; // ME_4C8E3A3100E6 DoIt
+
+: ME_4C8E3A290341
+ CONST UID '4C8E3A290341'
+ CONST Name 'AvailableOperations'
+ CONST Class class_Class
+ : Stereotype st_ModuleMethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Доступные операции...' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Operations
+   @ ( ME_4C8E3A3100E6 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "ShowInToolbar" false
+ CONST "ifndef" 'Admin,Monitorings'
+ CONST "is static" false
+ CONST "no prefix" false
+ CONST "no test" false
+
+ref; // ME_4C8E3A290341 AvailableOperations
+
+FORWARD ME_4C8E3A3E011D
+
+: ME_4C8E3A4500AB
+ CONST UID '4C8E3A4500AB'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8E3A3E011D // IconsSize
+ ;
+
+ref; // ME_4C8E3A4500AB DoIt
+
+: ME_4C8E3A3E011D
+ CONST UID '4C8E3A3E011D'
+ CONST Name 'IconsSize'
+ CONST Class class_Class
+ : Stereotype st_ModuleMethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Размер кнопок' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Operations
+   @ ( ME_4C8E3A4500AB // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "ShowInToolbar" false
+ CONST "no prefix" false
+ CONST "no test" false
+
+ref; // ME_4C8E3A3E011D IconsSize
+
+FORWARD ME_4C8E3A5002FF
+
+: ME_4C8E3A560382
+ CONST UID '4C8E3A560382'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8E3A5002FF // Fasten
+ ;
+
+ref; // ME_4C8E3A560382 DoIt
+
+: ME_4C8E3A5002FF
+ CONST UID '4C8E3A5002FF'
+ CONST Name 'Fasten'
+ CONST Class class_Class
+ : Stereotype st_ModuleMethod ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Закрепить панели инструментов' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Operations
+   @ ( ME_4C8E3A560382 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "ShowInToolbar" false
+ CONST "no prefix" false
+ CONST "no test" false
+
+ref; // ME_4C8E3A5002FF Fasten
+
+FORWARD ME_4C90B2F500F9
+
+: ME_4C90B2FB0204
+ CONST UID '4C90B2FB0204'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C90B2F500F9 // DoNotify
+ ;
+
+ref; // ME_4C90B2FB0204 DoIt
+
+: ME_4C90B2F500F9
+ CONST UID '4C90B2F500F9'
+ CONST Name 'DoNotify'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Operations
+   @ ( ME_4C90B2FB0204 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" false
+
+ref; // ME_4C90B2F500F9 DoNotify
+
+FORWARD ME_4C90C066016F
+
+: ME_4C90C07A03AA
+ CONST UID '4C90C07A03AA'
+ CONST Name 'Sender'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_4C90C07A03AA Sender
+
+: ME_4C90C0770192
+ CONST UID '4C90C0770192'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C90C066016F // pmToolbarPopup
+ ;
+ : Parameters
+   @ ( ME_4C90C07A03AA // Sender
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4C90C0770192 DoIt
+
+: ME_4C90C066016F
+ CONST UID '4C90C066016F'
+ CONST Name 'pmToolbarPopup'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Operations
+   @ ( ME_4C90C0770192 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" false
+
+ref; // ME_4C90C066016F pmToolbarPopup
+
+: ME_4C8E3C850196
+ CONST UID '4C8E3C850196'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_4C8E3C850196 
+
+: ME_4C8E411900BE
+ CONST UID '4C8E411900BE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_4B9777000394' '4B8E967100D5.pas.ms.script' // vcmToolbarMenuRes
+ ;
+
+ref; // ME_4C8E411900BE 
+
+: ME_4C8E412B02E7
+ CONST UID '4C8E412B02E7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_467BABAA00D5' '467BAB7F021E.pas.ms.script' // IvcmOperationsProvider
+ ;
+
+ref; // ME_4C8E412B02E7 
+
+: ME_4C8E42040253
+ CONST UID '4C8E42040253'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_4B30EC81021A' '4AADF9450143.pas.ms.script' // TvcmCustomMenuManager
+ ;
+
+ref; // ME_4C8E42040253 
+
+: ME_4C90B1CB0235
+ CONST UID '4C90B1CB0235'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_479878FA0103' '4AB0997B00A2.pas.ms.script' // TComponent
+ ;
+
+ref; // ME_4C90B1CB0235 
+
+: ME_4C90B1ED00C4
+ CONST UID '4C90B1ED00C4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_4C90B1ED00C4 
+
+: ME_4C90B9420050
+ CONST UID '4C90B9420050'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ;
+
+ref; // ME_4C90B9420050 
+
+: ME_4C90B9A102F1
+ CONST UID '4C90B9A102F1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_4C90B98901EB' '4AADF9450143.pas.ms.script' // TvcmCustAvailableToolbarOps
+ ;
+
+ref; // ME_4C90B9A102F1 
+
+: ME_4C90BF160135
+ CONST UID '4C90BF160135'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_4C90BF160135 
+
+: ME_4C90C1D70358
+ CONST UID '4C90C1D70358'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_4992F80B015F' '499EAAE502A8.pas.ms.script' // TvcmToolBarPos
+ ;
+
+ref; // ME_4C90C1D70358 
+
+: ME_4C90DAF603CC
+ CONST UID '4C90DAF603CC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_4C8F78FC0067' '4AADF9450143.pas.ms.script' // vcmMakeModuleMenu
+ ;
+
+ref; // ME_4C90DAF603CC 
+
+: ME_52AEC687026D
+ CONST UID '52AEC687026D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_5028A4C0019B' '4AADF9450143.pas.ms.script' // TvcmToolbar
+ ;
+
+ref; // ME_52AEC687026D 
+
+: ME_552BAE5401BF
+ CONST UID '552BAE5401BF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target WL 'ME_552BADA90096' '4AADF9450143.pas.ms.script' // TvcmToolbarGlyphService
+ ;
+
+ref; // ME_552BAE5401BF 
+
+FORWARD ME_DD15B59C2A3E
+
+: ME_A497B2E315EC
+ CONST UID 'A497B2E315EC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target ME_DD15B59C2A3E // Tkw_ToolbarMenu_opCustomize
+ ;
+
+ref; // ME_A497B2E315EC 
+
+FORWARD ME_5A7A91B439EB
+
+: ME_8ED1E0C3654F
+ CONST UID '8ED1E0C3654F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target ME_5A7A91B439EB // Tkw_ToolbarMenu_opAvailableOperations
+ ;
+
+ref; // ME_8ED1E0C3654F 
+
+FORWARD ME_B38E374B69AD
+
+: ME_A53238B59159
+ CONST UID 'A53238B59159'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target ME_B38E374B69AD // Tkw_ToolbarMenu_opIconsSize
+ ;
+
+ref; // ME_A53238B59159 
+
+FORWARD ME_9E97CDBDD43D
+
+: ME_49DC03554266
+ CONST UID '49DC03554266'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ : Target ME_9E97CDBDD43D // Tkw_ToolbarMenu_opFasten
+ ;
+
+ref; // ME_49DC03554266 
+
+: ME_4992FC7A0212_ME_4C8E340C0148
+ CONST UID '4992FC7A0212'
+ CONST Name 'AddListener'
+ : Original WL 'ME_4992FC7A0212' '499465EE030A.pas.ms.script' // AddListener
+ ;
+ : Implementor ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ref; // ME_4992FC7A0212_ME_4C8E340C0148 AddListener
+
+: ME_4992FC8900E1_ME_4C8E340C0148
+ CONST UID '4992FC8900E1'
+ CONST Name 'RemoveListener'
+ : Original WL 'ME_4992FC8900E1' '499465EE030A.pas.ms.script' // RemoveListener
+ ;
+ : Implementor ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ref; // ME_4992FC8900E1_ME_4C8E340C0148 RemoveListener
+
+: ME_4992FCAD02D1_ME_4C8E340C0148
+ CONST UID '4992FCAD02D1'
+ CONST Name 'Notify'
+ : Original WL 'ME_4992FCAD02D1' '499465EE030A.pas.ms.script' // Notify
+ ;
+ : Implementor ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ CONST "pm" true
+ref; // ME_4992FCAD02D1_ME_4C8E340C0148 Notify
+
+: ME_479731C50290_ME_4C8E340C0148
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ref; // ME_479731C50290_ME_4C8E340C0148 Cleanup
+
+: ME_47D1602000C6_ME_4C8E340C0148
+ CONST UID '47D1602000C6'
+ CONST Name 'Create'
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ : Implementor ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ref; // ME_47D1602000C6_ME_4C8E340C0148 Create
+
+: ME_4C8E340C0148
+ CONST UID '4C8E340C0148'
+ CONST Name 'PrimToolbarMenu'
+ CONST Class class_Class
+ : Stereotype st_VCMFormsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4C8E33F40186 // ToolbarMenu
+ ;
+ : Implements
+   @ ( WL 'ME_4992FC6D03E1' '499465EE030A.pas.ms.script' // IvcmToolbarsCustomizeNotify
+ WL 'ME_4992FC9F029B' '499465EE030A.pas.ms.script' // IvcmToolbarsCustomize
+ WL 'ME_4C8F785C005B' '47D0E1500033.pas.ms.script' // MvcmModule
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_4C8E3C930236 // f_CustomizeVisible
+ ME_4C8E3D110055 // f_LargeIconsVisible
+ ME_4C8E46EA0263 // MenuManager
+ ME_4C90B2CB0258 // f_Listeners
+ ME_17D85DE2DD41 // f_MenuManager
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4C8E3A170399 // Customize
+ ME_4C8E3A290341 // AvailableOperations
+ ME_4C8E3A3E011D // IconsSize
+ ME_4C8E3A5002FF // Fasten
+ ME_4C90B2F500F9 // DoNotify
+ ME_4C90C066016F // pmToolbarPopup
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4992FC7A0212_ME_4C8E340C0148 // AddListener
+ ME_4992FC8900E1_ME_4C8E340C0148 // RemoveListener
+ ME_4992FCAD02D1_ME_4C8E340C0148 // Notify
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_479731C50290_ME_4C8E340C0148 // Cleanup
+ ME_47D1602000C6_ME_4C8E340C0148 // Create
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_4C8E42D40131 // CustomizeTools
+ ME_4C90B27C032C // TIvcmToolbarsCustomizeListenerPtrList
+ ME_E027F36407CE // CustomizeToolsKeywordsPack
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_4C8E3C850196 // 
+ ME_4C8E411900BE // 
+ ME_4C8E412B02E7 // 
+ ME_4C8E42040253 // 
+ ME_4C90B1CB0235 // 
+ ME_4C90B1ED00C4 // 
+ ME_4C90B9420050 // 
+ ME_4C90B9A102F1 // 
+ ME_4C90BF160135 // 
+ ME_4C90C1D70358 // 
+ ME_4C90DAF603CC // 
+ ME_52AEC687026D // 
+ ME_552BAE5401BF // 
+ ME_A497B2E315EC // 
+ ME_8ED1E0C3654F // 
+ ME_A53238B59159 // 
+ ME_49DC03554266 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '13.09.2010 18:24'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ToolbarMenu\PrimToolbarMenu_Module.pas'
+ CONST extprop:pas:TypeName 'TPrimToolbarMenuModule'
+
+ref; // ME_4C8E340C0148 PrimToolbarMenu
+
+: ME_4C8E34280227
+ CONST UID '4C8E34280227'
+ CONST Name 'ToolbarMenu'
+ CONST Class class_Class
+ : Stereotype st_VCMFormsPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Настройка системы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8E33F40186 // ToolbarMenu
+ ;
+ : Inherits
+   @ ( ME_4C8E340C0148 // PrimToolbarMenu
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "author" 'Морозов М.А.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2006/12/27 14:44:57'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ToolbarMenu\moToolbarMenu.pas'
+ CONST extprop:pas:TypeName 'Tmo_ToolbarMenu'
+
+ref; // ME_4C8E34280227 ToolbarMenu
+
+: ME_A373109274CC
+ CONST UID 'A373109274CC'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_ToolbarMenu_opCustomize' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_DD15B59C2A3E // Tkw_ToolbarMenu_opCustomize
+ ;
+
+ref; // ME_A373109274CC Ini_Reg
+
+: ME_5FE2EAA8AD9A
+ CONST UID '5FE2EAA8AD9A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_DD15B59C2A3E // Tkw_ToolbarMenu_opCustomize
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+
+ref; // ME_5FE2EAA8AD9A 
+
+: ME_4DB0614603C8_ME_DD15B59C2A3E
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_DD15B59C2A3E // Tkw_ToolbarMenu_opCustomize
+ ;
+ref; // ME_4DB0614603C8_ME_DD15B59C2A3E GetWordNameForRegister
+
+: ME_4DB079E00084_ME_DD15B59C2A3E
+ CONST UID '4DB079E00084'
+ CONST Name 'GetModuleOperationCode'
+ : Original WL 'ME_4DB079E00084' '4E200FED0213.pas.ms.script' // GetModuleOperationCode
+ ;
+ : Implementor ME_DD15B59C2A3E // Tkw_ToolbarMenu_opCustomize
+ ;
+ref; // ME_4DB079E00084_ME_DD15B59C2A3E GetModuleOperationCode
+
+: ME_DD15B59C2A3E
+ CONST UID 'DD15B59C2A3E'
+ CONST Name 'Tkw_ToolbarMenu_opCustomize'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для вызова операции модуля ToolbarMenu.Customize (Настройка системы Настройка...)' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8E33F40186 // ToolbarMenu
+ ;
+ : Inherits
+   @ ( WL 'ME_4DB060930263' '4E200FED0213.pas.ms.script' // TtfwModuleOperationWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_A373109274CC // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_DD15B59C2A3E // GetWordNameForRegister
+ ME_4DB079E00084_ME_DD15B59C2A3E // GetModuleOperationCode
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_5FE2EAA8AD9A // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'моп::Настройка_системы_Настройка...'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ToolbarMenu\kw_ToolbarMenu_opCustomize.pas'
+
+ref; // ME_DD15B59C2A3E Tkw_ToolbarMenu_opCustomize
+
+: ME_FEC27A77B470
+ CONST UID 'FEC27A77B470'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_ToolbarMenu_opAvailableOperations' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5A7A91B439EB // Tkw_ToolbarMenu_opAvailableOperations
+ ;
+
+ref; // ME_FEC27A77B470 Ini_Reg
+
+: ME_0FA97D3AB446
+ CONST UID '0FA97D3AB446'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5A7A91B439EB // Tkw_ToolbarMenu_opAvailableOperations
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+
+ref; // ME_0FA97D3AB446 
+
+: ME_4DB0614603C8_ME_5A7A91B439EB
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_5A7A91B439EB // Tkw_ToolbarMenu_opAvailableOperations
+ ;
+ref; // ME_4DB0614603C8_ME_5A7A91B439EB GetWordNameForRegister
+
+: ME_4DB079E00084_ME_5A7A91B439EB
+ CONST UID '4DB079E00084'
+ CONST Name 'GetModuleOperationCode'
+ : Original WL 'ME_4DB079E00084' '4E200FED0213.pas.ms.script' // GetModuleOperationCode
+ ;
+ : Implementor ME_5A7A91B439EB // Tkw_ToolbarMenu_opAvailableOperations
+ ;
+ref; // ME_4DB079E00084_ME_5A7A91B439EB GetModuleOperationCode
+
+: ME_5A7A91B439EB
+ CONST UID '5A7A91B439EB'
+ CONST Name 'Tkw_ToolbarMenu_opAvailableOperations'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для вызова операции модуля ToolbarMenu.AvailableOperations (Настройка системы Доступные операции...)' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8E33F40186 // ToolbarMenu
+ ;
+ : Inherits
+   @ ( WL 'ME_4DB060930263' '4E200FED0213.pas.ms.script' // TtfwModuleOperationWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_FEC27A77B470 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_5A7A91B439EB // GetWordNameForRegister
+ ME_4DB079E00084_ME_5A7A91B439EB // GetModuleOperationCode
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_0FA97D3AB446 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'моп::Настройка_системы_Доступные_операции...'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ToolbarMenu\kw_ToolbarMenu_opAvailableOperations.pas'
+
+ref; // ME_5A7A91B439EB Tkw_ToolbarMenu_opAvailableOperations
+
+: ME_ED66B8E9C63F
+ CONST UID 'ED66B8E9C63F'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_ToolbarMenu_opIconsSize' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_B38E374B69AD // Tkw_ToolbarMenu_opIconsSize
+ ;
+
+ref; // ME_ED66B8E9C63F Ini_Reg
+
+: ME_8816C6283BA0
+ CONST UID '8816C6283BA0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_B38E374B69AD // Tkw_ToolbarMenu_opIconsSize
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+
+ref; // ME_8816C6283BA0 
+
+: ME_4DB0614603C8_ME_B38E374B69AD
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_B38E374B69AD // Tkw_ToolbarMenu_opIconsSize
+ ;
+ref; // ME_4DB0614603C8_ME_B38E374B69AD GetWordNameForRegister
+
+: ME_4DB079E00084_ME_B38E374B69AD
+ CONST UID '4DB079E00084'
+ CONST Name 'GetModuleOperationCode'
+ : Original WL 'ME_4DB079E00084' '4E200FED0213.pas.ms.script' // GetModuleOperationCode
+ ;
+ : Implementor ME_B38E374B69AD // Tkw_ToolbarMenu_opIconsSize
+ ;
+ref; // ME_4DB079E00084_ME_B38E374B69AD GetModuleOperationCode
+
+: ME_B38E374B69AD
+ CONST UID 'B38E374B69AD'
+ CONST Name 'Tkw_ToolbarMenu_opIconsSize'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для вызова операции модуля ToolbarMenu.IconsSize (Настройка системы Размер кнопок)' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8E33F40186 // ToolbarMenu
+ ;
+ : Inherits
+   @ ( WL 'ME_4DB060930263' '4E200FED0213.pas.ms.script' // TtfwModuleOperationWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_ED66B8E9C63F // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_B38E374B69AD // GetWordNameForRegister
+ ME_4DB079E00084_ME_B38E374B69AD // GetModuleOperationCode
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_8816C6283BA0 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'моп::Настройка_системы_Размер_кнопок'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ToolbarMenu\kw_ToolbarMenu_opIconsSize.pas'
+
+ref; // ME_B38E374B69AD Tkw_ToolbarMenu_opIconsSize
+
+: ME_A715EC7C58FA
+ CONST UID 'A715EC7C58FA'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация Tkw_ToolbarMenu_opFasten' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_9E97CDBDD43D // Tkw_ToolbarMenu_opFasten
+ ;
+
+ref; // ME_A715EC7C58FA Ini_Reg
+
+: ME_F4C1DD18F179
+ CONST UID 'F4C1DD18F179'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_9E97CDBDD43D // Tkw_ToolbarMenu_opFasten
+ ;
+ : Target WL 'ME_47F260EC02C7' '521C9DA50125.pas.ms.script' // StdRes
+ ;
+
+ref; // ME_F4C1DD18F179 
+
+: ME_4DB0614603C8_ME_9E97CDBDD43D
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_9E97CDBDD43D // Tkw_ToolbarMenu_opFasten
+ ;
+ref; // ME_4DB0614603C8_ME_9E97CDBDD43D GetWordNameForRegister
+
+: ME_4DB079E00084_ME_9E97CDBDD43D
+ CONST UID '4DB079E00084'
+ CONST Name 'GetModuleOperationCode'
+ : Original WL 'ME_4DB079E00084' '4E200FED0213.pas.ms.script' // GetModuleOperationCode
+ ;
+ : Implementor ME_9E97CDBDD43D // Tkw_ToolbarMenu_opFasten
+ ;
+ref; // ME_4DB079E00084_ME_9E97CDBDD43D GetModuleOperationCode
+
+: ME_9E97CDBDD43D
+ CONST UID '9E97CDBDD43D'
+ CONST Name 'Tkw_ToolbarMenu_opFasten'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Слово словаря для вызова операции модуля ToolbarMenu.Fasten (Настройка системы Закрепить панели инструментов)' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C8E33F40186 // ToolbarMenu
+ ;
+ : Inherits
+   @ ( WL 'ME_4DB060930263' '4E200FED0213.pas.ms.script' // TtfwModuleOperationWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_A715EC7C58FA // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_9E97CDBDD43D // GetWordNameForRegister
+ ME_4DB079E00084_ME_9E97CDBDD43D // GetModuleOperationCode
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_F4C1DD18F179 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'моп::Настройка_системы_Закрепить_панели_инструментов'
+ CONST "ifndef" 'NoScripts'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\View\ToolbarMenu\kw_ToolbarMenu_opFasten.pas'
+
+ref; // ME_9E97CDBDD43D Tkw_ToolbarMenu_opFasten
+
+: ME_4C8E33F40186
+ CONST UID '4C8E33F40186'
+ CONST Name 'ToolbarMenu'
+ CONST Class class_Category
+ : Stereotype st_VCMModule ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4C8DD8970344' '4C8DD8970344.pas.ms.script' // View
+ ;
+ : Children
+   @ ( ME_4C8E42AC03B8 // PrimCustomizeTools
+ ME_4C8E340C0148 // PrimToolbarMenu
+ ME_4C8E34280227 // ToolbarMenu
+ ME_DD15B59C2A3E // Tkw_ToolbarMenu_opCustomize
+ ME_5A7A91B439EB // Tkw_ToolbarMenu_opAvailableOperations
+ ME_B38E374B69AD // Tkw_ToolbarMenu_opIconsSize
+ ME_9E97CDBDD43D // Tkw_ToolbarMenu_opFasten
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+ WL 'ME_4683F37902CF' '4683F37902CF.pas.ms.script' // vcmInterfaces
+ WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_499465EE030A' '499465EE030A.pas.ms.script' // vcmToolbarsInterfaces
+ WL 'ME_499EAAE502A8' '499EAAE502A8.pas.ms.script' // vcmUserControls
+ WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4AB34028023E' '4AB34028023E.pas.ms.script' // Components
+ WL 'ME_4B8E967100D5' '4B8E967100D5.pas.ms.script' // vcmL10nImpl
+ WL 'ME_4E200FED0213' '4E200FED0213.pas.ms.script' // Operations
+ WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
+ WL 'ME_521C9DA50125' '521C9DA50125.pas.ms.script' // Application Resources
+ WL 'ME_54817D330211' '54817D330211.pas.ms.script' // ShortcutEdit
+ WL 'ME_54DB92D203C9' '54DB92D203C9.pas.ms.script' // VCL bindings
+ WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
+ WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4C8E33F40186.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4C8E33F40186.pas.ms.script.runner'
+
+ref; // ME_4C8E33F40186 ToolbarMenu

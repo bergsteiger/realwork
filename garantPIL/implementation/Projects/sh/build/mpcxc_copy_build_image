@@ -1,0 +1,61 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: mpcxc_copy_build_image <confirm> <other_mpcxc_root>"
+echo "Current directory must be your MPCXC_ROOT."
+exit
+fi
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT env to point to the root of your Multi Platform Common eXtra Code."
+exit
+fi
+
+echo "mpcxc_copy_build_image ..."
+
+target=`$MPCXC_ROOT/src/garant6x/implementation/Projects/sh/build/uname2target.rb`; taoace_target=$target
+
+if test "$target" = "" ; then
+echo "mpcxc_copy_build_image: FATAL: target platform = $taoace_target not supported."
+exit
+fi	  
+
+if test "$1" = "O3" ; then
+echo "Optimize using -O3"
+target=$target"_O3"
+else
+echo "Optimize using -O0"
+fi
+
+future_scripts_path=$MPCXC_ROOT/src/garant6x/implementation/Projects/sh/build
+export MPCXC_SH=$future_scripts_path
+ace_config_path=$MPCXC_ROOT/src/common/templates/mpc/make/TAOACE
+export MPCXC_CONFIG="" # ensure no config
+export MPCXC_TARGET=$target
+
+export TAOACE_MPCXC_ROOT=$MPCXC_ROOT
+export TAOACE_MPCXC_TARGET=$MPCXC_TARGET
+
+other_mpcxc_root=$2
+tmp_curdir=$PWD
+cd $other_mpcxc_root
+
+echo "Copy ./src/..."
+find ./src/ -type f -name "*.*l" -exec cp -fp {} $MPCXC_ROOT/{} \;
+find ./src/ -type f -name "*.h*" -exec cp -fp {} $MPCXC_ROOT/{} \;
+find ./src/ -type f -name "*.c*" -exec cp -fp {} $MPCXC_ROOT/{} \;
+find ./src/ -type f -name "*.m*" -exec cp -fp {} $MPCXC_ROOT/{} \;
+find ./src/ -type f -name "Makefile*" -exec cp -fp {} $MPCXC_ROOT/{} \;
+find ./src/ -type f -name "*.d*" -exec cp -fp {} $MPCXC_ROOT/{} \;
+find ./src/ -type f -name "*.log" -exec cp -fp {} $MPCXC_ROOT/{} \;
+
+echo "Copy ./bld/..."
+find ./bld/ -type f -name "*.o" -exec cp -fp {} $MPCXC_ROOT/{} \;
+find ./bld/ -type f -name "*.d" -exec cp -fp {} $MPCXC_ROOT/{} \;
+
+echo "Copy ./out/..."
+find ./out/ -type f -exec cp -fp {} $MPCXC_ROOT/{} \;
+
+cd $tmp_curdir
+
+echo "end."

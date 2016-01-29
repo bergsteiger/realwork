@@ -1,0 +1,48 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{CA31D5B4-5D6F-457E-96F7-6FF60F5AC516}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="gtAdvGridExpD14.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="DCLgtAdvGridExpD14.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="gtAdvGridExpD14">
+			<MSBuild Projects="gtAdvGridExpD14.dproj"/>
+		</Target>
+		<Target Name="gtAdvGridExpD14:Clean">
+			<MSBuild Targets="Clean" Projects="gtAdvGridExpD14.dproj"/>
+		</Target>
+		<Target Name="gtAdvGridExpD14:Make">
+			<MSBuild Targets="Make" Projects="gtAdvGridExpD14.dproj"/>
+		</Target>
+		<Target Name="DCLgtAdvGridExpD14">
+			<MSBuild Projects="DCLgtAdvGridExpD14.dproj"/>
+		</Target>
+		<Target Name="DCLgtAdvGridExpD14:Clean">
+			<MSBuild Targets="Clean" Projects="DCLgtAdvGridExpD14.dproj"/>
+		</Target>
+		<Target Name="DCLgtAdvGridExpD14:Make">
+			<MSBuild Targets="Make" Projects="DCLgtAdvGridExpD14.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="gtAdvGridExpD14;DCLgtAdvGridExpD14"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="gtAdvGridExpD14:Clean;DCLgtAdvGridExpD14:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="gtAdvGridExpD14:Make;DCLgtAdvGridExpD14:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

@@ -1,0 +1,487 @@
+// TkwCompiledWordWorkerWord 4F21976E01C2 SimpleClass Class
+
+FORWARD ME_4F21976E01C2
+
+: ME_4F3FA93900AE
+ CONST UID '4F3FA93900AE'
+ CONST Name 'RkwCompiledWordWorkerWord'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4F21976E01C2 // TkwCompiledWordWorkerWord
+ ]
+ ; // Inherits
+ CONST "isClassRef" true
+
+ @SELF
+; // ME_4F3FA93900AE RkwCompiledWordWorkerWord
+
+INCLUDE '52DFE4E403E7.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+FORWARD ME_557562DF00B8
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_E24C3D679C62
+ CONST UID 'E24C3D679C62'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TkwImmediateTemporaryCompiledCode' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_E24C3D679C62 Ini_Reg_Class
+
+: ME_557562DF00B8
+ CONST UID '557562DF00B8'
+ CONST Name 'TkwImmediateTemporaryCompiledCode'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_52DFE4E403E7 // TkwTemporaryCompiledCode
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_E24C3D679C62 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_52EA6A2C0111 // SetResultTypeInfo
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_557562DF00B8 TkwImmediateTemporaryCompiledCode
+
+INCLUDE '4DCBD489023A.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '4DB6C8F30161.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+: ME_4F219EDB0102
+ CONST UID '4F219EDB0102'
+ CONST Name 'Compiled'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_4F219EDB0102 Compiled
+
+: ME_AE82EBA0792B
+ CONST UID 'AE82EBA0792B'
+ CONST Name 'f_Compiled'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Compiled' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_AE82EBA0792B f_Compiled
+
+FORWARD ME_4F219F0F0176
+
+: ME_4F219F3502ED
+ CONST UID '4F219F3502ED'
+ CONST Name 'aCompiled'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_4F219F3502ED aCompiled
+
+: ME_4F219F1E0082
+ CONST UID '4F219F1E0082'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4F219F3502ED // aCompiled
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4F219F1E0082 DoIt
+
+: ME_4F219F0F0176
+ CONST UID '4F219F0F0176'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4F219F1E0082 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4F219F0F0176 Create
+
+FORWARD ME_4F3FAC0C0170
+
+: ME_551AA3F303BF
+ CONST UID '551AA3F303BF'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_551AA3F303BF aCtx
+
+INCLUDE '4F2198430108.pas.ms.script'
+
+: ME_4F3FAC1E01B2
+ CONST UID '4F3FAC1E01B2'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4F3FABF00000 // RkwCompiledWordWorkerWordRunner
+ ;
+ : Parameters
+   [ ME_551AA3F303BF // aCtx
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4F3FAC1E01B2 DoIt
+
+: ME_4F3FAC0C0170
+ CONST UID '4F3FAC0C0170'
+ CONST Name 'RunnerClass'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4F3FAC1E01B2 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4F3FAC0C0170 RunnerClass
+
+FORWARD ME_55893819034D
+
+: ME_5589387F0375
+ CONST UID '5589387F0375'
+ CONST Name 'aContext'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_5589387F0375 aContext
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_5589387F03A4
+ CONST UID '5589387F03A4'
+ CONST Name 'aParamNumber'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_5589387F03A4 aParamNumber
+
+: ME_558938690278
+ CONST UID '558938690278'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_5589387F0375 // aContext
+ ME_5589387F03A4 // aParamNumber
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_558938690278 DoIt
+
+: ME_55893819034D
+ CONST UID '55893819034D'
+ CONST Name 'TreatUnknownAsStringInParam'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_558938690278 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55893819034D TreatUnknownAsStringInParam
+
+FORWARD ME_5589721B0279
+
+: ME_5589726A024F
+ CONST UID '5589726A024F'
+ CONST Name 'aContext'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_5589726A024F aContext
+
+: ME_5589726A0276
+ CONST UID '5589726A0276'
+ CONST Name 'aParamNumber'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_5589726A0276 aParamNumber
+
+INCLUDE '55BA28CE0290.pas.ms.script'
+
+: ME_5589726A02A0
+ CONST UID '5589726A02A0'
+ CONST Name 'aModifier'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DCACBEA006D // TtfwWordModifier
+ ;
+
+ @SELF
+; // ME_5589726A02A0 aModifier
+
+: ME_5589723F0286
+ CONST UID '5589723F0286'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_5589726A024F // aContext
+ ME_5589726A0276 // aParamNumber
+ ME_5589726A02A0 // aModifier
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5589723F0286 DoIt
+
+: ME_5589721B0279
+ CONST UID '5589721B0279'
+ CONST Name 'ParamHasModifer'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5589723F0286 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5589721B0279 ParamHasModifer
+
+FORWARD ME_55C23E4D0305
+
+: ME_55C23E6902D4
+ CONST UID '55C23E6902D4'
+ CONST Name 'aContext'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_55C23E6902D4 aContext
+
+: ME_55C23E6902FC
+ CONST UID '55C23E6902FC'
+ CONST Name 'aParamNumber'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_55C23E6902FC aParamNumber
+
+: ME_55C23E69031A
+ CONST UID '55C23E69031A'
+ CONST Name 'aModifier'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_55C23DF0029B // TtfwLinkType
+ ;
+
+ @SELF
+; // ME_55C23E69031A aModifier
+
+: ME_55C23E5C0379
+ CONST UID '55C23E5C0379'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_55C23E6902D4 // aContext
+ ME_55C23E6902FC // aParamNumber
+ ME_55C23E69031A // aModifier
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_55C23E5C0379 DoIt
+
+: ME_55C23E4D0305
+ CONST UID '55C23E4D0305'
+ CONST Name 'ParamHasModifer$1'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_55C23E5C0379 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55C23E4D0305 ParamHasModifer$1
+
+: ME_9A10BF97FB0D
+ CONST UID '9A10BF97FB0D'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TkwCompiledWordWorkerWord' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_9A10BF97FB0D Ini_Reg
+
+: ME_4F21976E01C2
+ CONST UID '4F21976E01C2'
+ CONST Name 'TkwCompiledWordWorkerWord'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4DCBD489023A // TtfwWordWorker
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4F219EDB0102 // Compiled
+ ME_AE82EBA0792B // f_Compiled
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4F219F0F0176 // Create
+ ME_4F3FAC0C0170 // RunnerClass
+ ME_55893819034D // TreatUnknownAsStringInParam
+ ME_5589721B0279 // ParamHasModifer
+ ME_55C23E4D0305 // ParamHasModifer$1
+ ME_9A10BF97FB0D // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DCBD67C0362 // CompiledWorkerClass
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_4DAEEDE10285 // DoDoIt
+ ME_4DB6F2760023 // UnknownWord
+ ME_4DB9B446039A // AfterWordMaxCount
+ ME_4DBAEE0D028D // CompiledWordClass
+ ME_4DC2E05B03DD // ReallyNeedRegister
+ ME_4F219FA10268 // FillCompiledWorker
+ ME_4F3AB3600008 // IsAnonimous
+ ME_4F3AB3B101FC // SuppressNextImmediate
+ ME_4F43C9A10139 // WordProducer
+ ME_52B43311021D // InnerDictionary
+ ME_52CFC11603C8 // ResultTypeInfo
+ ME_52CFCF4B02C6 // ParentWord
+ ME_52EA6A2C0111 // SetResultTypeInfo
+ ME_53E21481021D // DoKeyword
+ ]
+ ; // Overridden
+ : Children
+   [ ME_4F3FA93900AE // RkwCompiledWordWorkerWord
+ ME_557562DF00B8 // TkwImmediateTemporaryCompiledCode
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4F21976E01C2 TkwCompiledWordWorkerWord

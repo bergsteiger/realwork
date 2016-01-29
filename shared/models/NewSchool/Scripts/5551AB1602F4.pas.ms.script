@@ -1,0 +1,321 @@
+// ThtTabledQuery 5551AB1602F4 SimpleClass Class
+
+INCLUDE '5600FA2301B9.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+FORWARD ME_5551AB1602F4
+
+INCLUDE '550981B402B9.pas.ms.script'
+
+: ME_555F06CA00CC
+ CONST UID '555F06CA00CC'
+ CONST Name 'f_Helper'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_555EF7B1002F // IhtDataSchemeHelper
+ ;
+
+ @SELF
+; // ME_555F06CA00CC f_Helper
+
+FORWARD ME_5551AB780328
+
+: ME_563B409602C2
+ CONST UID '563B409602C2'
+ CONST Name 'aDataConverter'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_55C0B2A30315 // IhtDataConverter
+ ;
+
+ @SELF
+; // ME_563B409602C2 aDataConverter
+
+: ME_563B409602C3
+ CONST UID '563B409602C3'
+ CONST Name 'aHelper'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_555EF7B1002F // IhtDataSchemeHelper
+ ;
+
+ @SELF
+; // ME_563B409602C3 aHelper
+
+INCLUDE '5432518A0316.pas.ms.script'
+
+: ME_563B409602D2
+ CONST UID '563B409602D2'
+ CONST Name 'aTable'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_552FADE50173 // IdaTableDescription
+ ;
+
+ @SELF
+; // ME_563B409602D2 aTable
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_563B409602E1
+ CONST UID '563B409602E1'
+ CONST Name 'anAlias'
+ CONST Class 'Parameter'
+ CONST Stereotype 'const'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+ CONST Value ''''''
+ : ValueType ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_563B409602E1 anAlias
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5551AFC8018F
+ CONST UID '5551AFC8018F'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_563B409602C2 // aDataConverter
+ ME_563B409602C3 // aHelper
+ ME_563B409602D2 // aTable
+ ME_563B409602E1 // anAlias
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5551AFC8018F DoIt
+
+: ME_5551AB780328
+ CONST UID '5551AB780328'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5551AFC8018F // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5551AB780328 Create
+
+FORWARD ME_5551AB82025D
+
+: ME_198585B224D7
+ CONST UID '198585B224D7'
+ CONST Name 'aDataConverter'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_55C0B2A30315 // IhtDataConverter
+ ;
+
+ @SELF
+; // ME_198585B224D7 aDataConverter
+
+: ME_1AB2DBC22F11
+ CONST UID '1AB2DBC22F11'
+ CONST Name 'aHelper'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_555EF7B1002F // IhtDataSchemeHelper
+ ;
+
+ @SELF
+; // ME_1AB2DBC22F11 aHelper
+
+: ME_2E56A55B775C
+ CONST UID '2E56A55B775C'
+ CONST Name 'aTable'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_552FADE50173 // IdaTableDescription
+ ;
+
+ @SELF
+; // ME_2E56A55B775C aTable
+
+: ME_8BFB65CCC1F3
+ CONST UID '8BFB65CCC1F3'
+ CONST Name 'anAlias'
+ CONST Class 'Parameter'
+ CONST Stereotype 'const'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+ CONST Value ''''''
+ : ValueType ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_8BFB65CCC1F3 anAlias
+
+: ME_C55AC0DAF977
+ CONST UID 'C55AC0DAF977'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура фабрики ThtTabledQuery.Make' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_5549C4060117 // IdaQuery
+ ;
+ : Parameters
+   [ ME_198585B224D7 // aDataConverter
+ ME_1AB2DBC22F11 // aHelper
+ ME_2E56A55B775C // aTable
+ ME_8BFB65CCC1F3 // anAlias
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_C55AC0DAF977 DoIt
+
+: ME_5551AB82025D
+ CONST UID '5551AB82025D'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'Factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_5551AB780328 // Create
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_5549C4060117 // IdaQuery
+ ]
+ ; // Implements
+ : Operations
+   [ ME_C55AC0DAF977 // DoIt
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_5549C42400DA // OpenResultSet
+ ME_5551BB340256 // Prepare
+ ME_5551BEA500AE // Param
+ ME_5551DC42038C // AddSelectField
+ ME_5553039D016A // AddFromTable
+ ME_555334DD023B // UnPrepare
+ ME_563B18FB0212 // WhereCondition
+ ]
+ ; // Implemented
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_5551AB82025D Make
+
+FORWARD ME_555CA4CC00D6
+
+: ME_555CA4EB03B2
+ CONST UID '555CA4EB03B2'
+ CONST Name 'anAlias'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_555CA4EB03B2 anAlias
+
+: ME_555CA4D5023E
+ CONST UID '555CA4D5023E'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_555C848200DA // IhtFromTable
+ ;
+ : Parameters
+   [ ME_555CA4EB03B2 // anAlias
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_555CA4D5023E DoIt
+
+: ME_555CA4CC00D6
+ CONST UID '555CA4CC00D6'
+ CONST Name 'FindTable'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_555CA4D5023E // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_555CA4CC00D6 FindTable
+
+: ME_5551AB1602F4
+ CONST UID '5551AB1602F4'
+ CONST Name 'ThtTabledQuery'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_5600FA2301B9 // TdaTabledQuery
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_555F06CA00CC // f_Helper
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_5551AB780328 // Create
+ ME_5551AB82025D // Make
+ ME_555CA4CC00D6 // FindTable
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_5600FFF80332 // MakeFromTable
+ ME_56010A7801F2 // MakeResultSet
+ ME_56010AB70258 // PrepareTables
+ ME_56010ACB00F0 // UnprepareTables
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5551AB1602F4 ThtTabledQuery

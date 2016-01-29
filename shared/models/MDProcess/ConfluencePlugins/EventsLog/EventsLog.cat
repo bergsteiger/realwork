@@ -1,0 +1,795 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "EventsLog"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (java)"
+	    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/EventsLog/EventType.java::47C4328C0115,w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/EventsLog/EventsLogManager.java::47C432080163")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (fctr.java)"
+	    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/EventsLog/EventsLogManagerFactoryManager.java::47C432080163")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/EventsLog|47C430D9027D
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/EventsLog/EventsLogManager|47C432080163::47C432080163
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19032137671"))
+    quid       	"47C430D9027D"
+    documentation 	"пакет для подержки функциональности, связанной с логированием активности пользователя"
+    stereotype 	"Interfaces"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "EventsLogManager"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/EventsLog/EventsLogManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/EventsLog/EventsLogManagerFactoryManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47C432080163_47C4341B0093_47C4345002BE_BODY*"
+		    value      	(value Text 
+|//#UC START# *47C432080163_47C4341B0093_47C4345002BE_BODY*¤		//#UC END# *47C432080163_47C4341B0093_47C4345002BE_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/EventsLog/EventsLogManager|47C432080163
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039219526"))
+	    quid       	"47C432080163"
+	    documentation 	"предназначен для хранения событий в базе, поиска событий по различным критериям (тип последнего события), вычисления времени, проведенного в различных состояниях, которые характерезуются событием-входом в состояние и событием-выходом"
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "add_event"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47C4332E0384_47C4345002BE*"
+			    value      	(value Text 
+|//#UC START# *47C4332E0384_47C4345002BE*¤		try {¤			Session session = org.springframework.orm.hibernate.SessionFactoryUtils.getSession (ContainerManager.Factory.get().getSessionFactory(), false);¤			UserActivityLogDAO rec = new UserActivityLogDAO();¤			rec.setDate(new java.util.Date().getTime());¤			rec.setUserName(userId);¤			rec.setType((byte)(type.ordinal()+1));¤			session.save(rec);¤			queryCache.remove(userId);¤		} catch (net.sf.hibernate.HibernateException he) {¤			Logs.LOG_E("ReleaseS::getStartImplDateAsString: catch HibernateException - " + he.getMessage());¤			throw new IllegalStateException (he.getMessage());¤		} catch (Exception e) {¤			Logs.LOG_E("ReleaseS::getStartImplDateAsString: catch HibernateException - " + e.getMessage());¤			throw new IllegalStateException (e.getMessage());¤		}		¤		//#UC END# *47C4332E0384_47C4345002BE*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010945103"))
+		    quid       	"47C4332E0384"
+		    documentation 	"добавляет событие и сохраняет его данные в базе"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "user_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010945478"))
+			    quid       	"47C56F590375"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "type"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"47C4328C0115")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010945857"))
+			    quid       	"47C4336A01CD"
+			    type       	"EventsLog::EventType"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "what_is_last_user_event"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47C433B3012A_47C4345002BE*"
+			    value      	(value Text 
+|//#UC START# *47C433B3012A_47C4345002BE*¤		try {¤			Session session = org.springframework.orm.hibernate.SessionFactoryUtils.getSession (ContainerManager.Factory.get().getSessionFactory(), false);¤			Query q = session.createQuery(¤				"from UserActivityLogDAO as ual" +¤				" where ual.id=(" +¤				"select max(ual1.id) from UserActivityLogDAO as ual1" +¤				" where ual1.userName=\"" + userId + "\"" +¤				((filtrateEvents == null) ? "": " and ual1.type in (" + toTypeIdsString(filtrateEvents) + ")") +¤				")"¤			);¤			¤			EventType ret = getCachedQueryResult(userId, q.getQueryString());¤			if(ret != null) {¤				return ret;¤			}¤			¤			List<UserActivityLogDAO> res = q.list();¤			if (res != null && res.size() > 0) {¤				UserActivityLogDAO ual = res.get(0);¤				ret = toEventType(ual.getType());¤				getCacheMap(userId).put(q.getQueryString(), ret);¤				return ret;¤			}¤		} catch (net.sf.hibernate.HibernateException he) {¤			Logs.LOG_E("EventsLogManagerImpl::whatIsLastUserEvent: catch HibernateException - " + he.getMessage());¤			throw new IllegalStateException (he.getMessage());¤		}¤		return null;¤		//#UC END# *47C433B3012A_47C4345002BE*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"47C4328C0115")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010946292"))
+		    quid       	"47C433B3012A"
+		    documentation 	"получить тип последнего события для юзера, filtrate_events - позволяет указать тип событий результата, если null - то любого типа."
+		    parameters 	(list Parameters
+			(object Parameter "user_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010946601"))
+			    quid       	"47C56F5E01E0"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "filtrate_events"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"47C50E4E013C")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010946982"))
+			    quid       	"47C50F010322"
+			    type       	"EventTypes"
+			    quidu      	"47C50E4E013C"))
+		    result     	"EventsLog::EventType"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "get"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"cached")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47C4341B0093_47C4341B0093_47C4345002BE_BODY*"
+			    value      	(value Text 
+|//#UC START# *47C4341B0093_47C4341B0093_47C4345002BE_BODY*¤		//#UC END# *47C4341B0093_47C4341B0093_47C4345002BE_BODY*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010947435"))
+		    quid       	"47C4341B0093"
+		    documentation 	"получить кэшированный экземпляр"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "get_full_state_times"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47C50F3203E6_47C4345002BE*"
+			    value      	(value Text 
+|//#UC START# *47C50F3203E6_47C4345002BE*¤		List<UserActivityLogDAO> res = getActivityLog(userId, startTime, 0);¤		long ret = 0;¤		long timeToEnterState = 0;¤		for (UserActivityLogDAO ual : res) {¤			if (toEventType(ual.getType()).equals(stateEnterEvent)) {¤				if (timeToEnterState == 0) {¤					timeToEnterState = ual.getDate();¤				}¤			}¤			if (toEventType(ual.getType()).equals(stateExitEvent)) {¤				if (timeToEnterState != 0) {¤					ret += ual.getDate() - timeToEnterState;¤					timeToEnterState = 0;¤				} else {¤					// так определяем что в начале промежутка мы находились в¤					// нужном состоянии¤					if (ret == 0) {¤						ret += ual.getDate() - startTime;¤					}¤				}¤			}¤		}¤		// так определяем что в конце промежутка мы находимся в нужном состоянии¤		if (timeToEnterState != 0) {¤			ret += new Date().getTime() - timeToEnterState;¤		}¤		return ret;¤		//#UC END# *47C50F3203E6_47C4345002BE*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010947801"))
+		    quid       	"47C50F3203E6"
+		    documentation 	"возвращает время (в миллисекундах) проведенное прользователем в состоянии, заданым событием-входом (state_enter_event ) и событием-выходом (state_exit_event ), и в промежутке времени от start_time до текущей даты (нужно до текущей потому-что появляется возможность кэшировать результат)"
+		    parameters 	(list Parameters
+			(object Parameter "user_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010948125"))
+			    quid       	"47C56F6203C6"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "start_time"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010948632"))
+			    quid       	"47C5106E0112"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205")
+			(object Parameter "state_enter_event"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"47C4328C0115")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010949005"))
+			    quid       	"47C5106E0160"
+			    type       	"EventsLog::EventType")
+			(object Parameter "state_exit_event"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"47C4328C0115")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010949398"))
+			    quid       	"47C5106E018E"
+			    type       	"EventsLog::EventType"))
+		    result     	"long long"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFD860205")
+		(object Operation "get_active_days"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*47F1DD3101BC_47C4345002BE*"
+			    value      	(value Text 
+|//#UC START# *47F1DD3101BC_47C4345002BE*¤		¤		final List<UserActivityLogDAO> res = getActivityLog(userId, startTime, 0);¤		int result = 0;¤		long lastDay = 0;¤		boolean inActiveState = false;¤		for (UserActivityLogDAO ual : res) {¤			int monthDay = getDayInMonth(ual.getDate());¤			EventType type = toEventType(ual.getType());¤			if (type == EventType.START_WORK) {¤				if (lastDay != monthDay) {¤					result++;¤					lastDay = monthDay;¤					inActiveState = true;¤				}¤			} else if (type == EventType.STOP_WORK) {¤				if (lastDay != monthDay) {¤					result += monthDay - lastDay;¤					lastDay = monthDay;¤					inActiveState = false;¤				}¤			}¤		}¤		¤		if (inActiveState) {¤			int currentMonthDay = getDayInMonth(new Date().getTime());¤			if (lastDay != currentMonthDay) {¤				result += currentMonthDay - lastDay;¤			}¤		}¤		¤		return result;¤		¤		//#UC END# *47F1DD3101BC_47C4345002BE*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"450A61050251")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010949820"))
+		    quid       	"47F1DD3101BC"
+		    documentation 	"возвращает количество дней от заданной даты до текущего момента для текущего пользователя, в котором был хотя бы один период активности"
+		    parameters 	(list Parameters
+			(object Parameter "user_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010950149"))
+			    quid       	"47F1FDCC03DA"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "start_time"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010950508"))
+			    quid       	"47F219470344"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205"))
+		    result     	"integer"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"450A61050251")
+		(object Operation "get_full_state_times"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4BFD02480013_47C4345002BE*"
+			    value      	(value Text 
+|//#UC START# *4BFD02480013_47C4345002BE*¤		List<UserActivityLogDAO> res = getActivityLog(userId, startTime, endTime);¤		long ret = 0;¤		long timeToEnterState = 0;¤		for (UserActivityLogDAO ual : res) {¤			if (toEventType(ual.getType()).equals(stateEnterEvent)) {¤				if (timeToEnterState == 0) {¤					timeToEnterState = ual.getDate();¤				}¤			}¤			if (toEventType(ual.getType()).equals(stateExitEvent)) {¤				if (timeToEnterState != 0) {¤					ret += ual.getDate() - timeToEnterState;¤					timeToEnterState = 0;¤				} else {¤					// так определяем что в начале промежутка мы находились в¤					// нужном состоянии¤					if (ret == 0) {¤						ret += ual.getDate() - startTime;¤					}¤				}¤			}¤		}¤		// так определяем что в конце промежутка мы находимся в нужном состоянии¤		if (timeToEnterState != 0) {¤			ret += endTime - timeToEnterState;¤		}¤		¤		return ret;¤		//#UC END# *4BFD02480013_47C4345002BE*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010950930"))
+		    quid       	"4BFD02480013"
+		    documentation 	"возвращает время (в миллисекундах) проведенное прользователем в состоянии, заданым событием- входом (state_enter_event ) и событием-выходом (state_exit_event ), и в промежутке времени от start_time до текущей даты (нужно до текущей потому-что появляется возможность кэшировать  результат)"
+		    parameters 	(list Parameters
+			(object Parameter "user_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010951281"))
+			    quid       	"4BFD02730272"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "start_time"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010951644"))
+			    quid       	"4BFD027302C3"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205")
+			(object Parameter "end_time"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010952015"))
+			    quid       	"4BFD02730315"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205")
+			(object Parameter "state_enter_event"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"47C4328C0115")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010952370"))
+			    quid       	"4BFD02730367"
+			    type       	"EventsLog::EventType")
+			(object Parameter "state_exit_event"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"47C4328C0115")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19010952744"))
+			    quid       	"4BFD027303B9"
+			    type       	"EventsLog::EventType"))
+		    result     	"long long"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFD860205"))
+	    language   	"MDA Generator")
+	(object Class "EventType"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/EventsLog/EventType.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19032158082"))
+	    quid       	"47C4328C0115"
+	    documentation 	"типы событий"
+	    stereotype 	"Enum"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "START_WORK"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010953959"))
+		    quid       	"47C432CB0053"
+		    documentation 	"событие начала работы"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "STOP_WORK"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010954328"))
+		    quid       	"47C432E4017B"
+		    documentation 	"конец работы"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "EventTypes"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19010954948"))
+	    quid       	"47C50E4E013C"
+	    documentation 	"список типов событий"
+	    stereotype 	"List"
+	    language   	"MDA Generator")
+	(object Association "$UNNAMED$0"
+	    quid       	"47C50E650358"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$1"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010955329"))
+		    quid       	"47C50E660182"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::EventsLog::EventType"
+		    quidu      	"47C4328C0115"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$2"
+		    quid       	"47C50E660184"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::EventsLog::EventTypes"
+		    quidu      	"47C50E4E013C"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"47C431E30018"
+	    title      	"Main"
+	    zoom       	95
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::EventsLog::EventsLogManager" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1746, 615)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(179, 438)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	3134
+			justify    	0
+			label      	"• EventsLogManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(179, 388)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	3134
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"47C432080163"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(179, 498)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	7
+			max_width  	3196
+			justify    	1)
+		    width      	3152
+		    height     	478
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::EventsLog::EventType" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(528, 231)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(368, 183)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	320
+			justify    	0
+			label      	"EventType")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(368, 133)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	320
+			justify    	0
+			label      	"<<Enum>>")
+		    icon_style 	"Label"
+		    fill_color 	13821680
+		    quidu      	"47C4328C0115"
+		    compartment 	(object Compartment
+			Parent_View 	@2
+			location   	(368, 243)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	334
+			justify    	1)
+		    width      	338
+		    height     	220
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::EventsLog::EventTypes" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(957, 234)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(837, 206)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	240
+			justify    	0
+			label      	"EventTypes")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(837, 156)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	240
+			justify    	0
+			label      	"<<List>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"47C50E4E013C"
+		    width      	258
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$0" @4
+		    location   	(762, 231)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"47C50E650358"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$1" @5
+			    Parent_View 	@4
+			    location   	(-777, -405)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"47C50E660182"
+			    client     	@4
+			    supplier   	@2
+			    vertices   	(list Points
+				(762, 231)
+				(697, 231))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$2" @6
+			    Parent_View 	@4
+			    location   	(-777, -405)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"47C50E660184"
+			    client     	@4
+			    supplier   	@3
+			    vertices   	(list Points
+				(762, 231)
+				(827, 231))
+			    line_style 	0)))))))

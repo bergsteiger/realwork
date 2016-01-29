@@ -1,0 +1,763 @@
+// Generators 4C407B410029 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C407B410029
+
+FORWARD ME_4C3FED3103B2
+
+: ME_4C3FF5F40163
+ CONST UID '4C3FF5F40163'
+ CONST Name 'f_NeedChange'
+ CONST Class class_Attribute
+ %SUMMARY 'Признак нужно ли менять флаг.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4C3FED3103B2 // TevOEMTableFlagFilter
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4C3FF5F40163 f_NeedChange
+
+: ME_4C3FF8130092
+ CONST UID '4C3FF8130092'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C3FED3103B2 // TevOEMTableFlagFilter
+ ;
+ : Target WL 'ME_4857D48E00F4' '48492FC0029D.pas.ms.script' // Table
+ ;
+
+ref; // ME_4C3FF8130092 
+
+: ME_4C3FF8350398
+ CONST UID '4C3FF8350398'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C3FED3103B2 // TevOEMTableFlagFilter
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+
+ref; // ME_4C3FF8350398 
+
+: ME_4836D4C20059_ME_4C3FED3103B2
+ CONST UID '4836D4C20059'
+ CONST Name 'CloseStructure'
+ : Original WL 'ME_4836D4C20059' '47ECA80B000D.pas.ms.script' // CloseStructure
+ ;
+ : Implementor ME_4C3FED3103B2 // TevOEMTableFlagFilter
+ ;
+ref; // ME_4836D4C20059_ME_4C3FED3103B2 CloseStructure
+
+: ME_4A2D1217037A_ME_4C3FED3103B2
+ CONST UID '4A2D1217037A'
+ CONST Name 'DoStartChild'
+ : Original WL 'ME_4A2D1217037A' '47ECA80B000D.pas.ms.script' // DoStartChild
+ ;
+ : Implementor ME_4C3FED3103B2 // TevOEMTableFlagFilter
+ ;
+ref; // ME_4A2D1217037A_ME_4C3FED3103B2 DoStartChild
+
+: ME_4A2D1634025B_ME_4C3FED3103B2
+ CONST UID '4A2D1634025B'
+ CONST Name 'DoAddAtomEx'
+ : Original WL 'ME_4A2D1634025B' '47ECA80B000D.pas.ms.script' // DoAddAtomEx
+ ;
+ : Implementor ME_4C3FED3103B2 // TevOEMTableFlagFilter
+ ;
+ref; // ME_4A2D1634025B_ME_4C3FED3103B2 DoAddAtomEx
+
+: ME_4C3FED3103B2
+ CONST UID '4C3FED3103B2'
+ CONST Name 'TevOEMTableFlagFilter'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Фильтр выставления флага выливать в псевдографику таблицам.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C407B410029 // Generators
+ ;
+ : Inherits
+   @ ( WL 'ME_49E487A70144' '47ECA80B000D.pas.ms.script' // Tk2TagFilter
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4C3FF5F40163 // f_NeedChange
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_4836D4C20059_ME_4C3FED3103B2 // CloseStructure
+ ME_4A2D1217037A_ME_4C3FED3103B2 // DoStartChild
+ ME_4A2D1634025B_ME_4C3FED3103B2 // DoAddAtomEx
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4C3FF8130092 // 
+ ME_4C3FF8350398 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Инишев Д.А.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\EverestCommon\evOEMTableFlagFilter.pas'
+
+ref; // ME_4C3FED3103B2 TevOEMTableFlagFilter
+
+FORWARD ME_4C56D4E002D2
+
+: ME_4C5AB08D0294
+ CONST UID '4C5AB08D0294'
+ CONST Name 'f_NeedToReport'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4C56D4E002D2 // TevUnblockEmptyParaFilter
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4C5AB08D0294 f_NeedToReport
+
+: ME_4C56D6610144
+ CONST UID '4C56D6610144'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C56D4E002D2 // TevUnblockEmptyParaFilter
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_4C56D6610144 
+
+: ME_4C56D68D026F
+ CONST UID '4C56D68D026F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C56D4E002D2 // TevUnblockEmptyParaFilter
+ ;
+ : Target WL 'ME_533C138F0003' '4678137501EA.pas.ms.script' // Ik2Tag
+ ;
+
+ref; // ME_4C56D68D026F 
+
+: ME_4C56D69B0032
+ CONST UID '4C56D69B0032'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C56D4E002D2 // TevUnblockEmptyParaFilter
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+
+ref; // ME_4C56D69B0032 
+
+: ME_4C56D6C602D8
+ CONST UID '4C56D6C602D8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C56D4E002D2 // TevUnblockEmptyParaFilter
+ ;
+ : Target WL 'ME_4857A87D0337' '48492FC0029D.pas.ms.script' // Block
+ ;
+
+ref; // ME_4C56D6C602D8 
+
+: ME_4C56D6E7010C
+ CONST UID '4C56D6E7010C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C56D4E002D2 // TevUnblockEmptyParaFilter
+ ;
+ : Target WL 'ME_485669C9009D' '484A470100DD.pas.ms.script' // LeafPara
+ ;
+
+ref; // ME_4C56D6E7010C 
+
+: ME_4C5AAB3600DB
+ CONST UID '4C5AAB3600DB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4C56D4E002D2 // TevUnblockEmptyParaFilter
+ ;
+ : Target WL 'ME_47AAB5EC03C2' '47913B47006E.pas.ms.script' // Tl3System
+ ;
+
+ref; // ME_4C5AAB3600DB 
+
+: ME_4836D4650177_ME_4C56D4E002D2
+ CONST UID '4836D4650177'
+ CONST Name 'StartChild'
+ : Original WL 'ME_4836D4650177' '47ECA80B000D.pas.ms.script' // StartChild
+ ;
+ : Implementor ME_4C56D4E002D2 // TevUnblockEmptyParaFilter
+ ;
+ref; // ME_4836D4650177_ME_4C56D4E002D2 StartChild
+
+: ME_4836D4C20059_ME_4C56D4E002D2
+ CONST UID '4836D4C20059'
+ CONST Name 'CloseStructure'
+ : Original WL 'ME_4836D4C20059' '47ECA80B000D.pas.ms.script' // CloseStructure
+ ;
+ : Implementor ME_4C56D4E002D2 // TevUnblockEmptyParaFilter
+ ;
+ref; // ME_4836D4C20059_ME_4C56D4E002D2 CloseStructure
+
+: ME_4C56D54B002A_ME_4C56D4E002D2
+ CONST UID '4C56D54B002A'
+ CONST Name 'NeedStartBuffering'
+ : Original WL 'ME_4C56D54B002A' '47ECB8BD00A8.pas.ms.script' // NeedStartBuffering
+ ;
+ : Implementor ME_4C56D4E002D2 // TevUnblockEmptyParaFilter
+ ;
+ref; // ME_4C56D54B002A_ME_4C56D4E002D2 NeedStartBuffering
+
+: ME_4C56D4E002D2
+ CONST UID '4C56D4E002D2'
+ CONST Name 'TevUnblockEmptyParaFilter'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Фильтр ищет блоки с пустыми параграфами в самом начале и "вытаскивает" эти пустые параграфы наверх. См. [$228692043]' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C407B410029 // Generators
+ ;
+ : Inherits
+   @ ( WL 'ME_49E4965202A1' '47ECB8BD00A8.pas.ms.script' // TevdBufferedFilter
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4C5AB08D0294 // f_NeedToReport
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_4836D4650177_ME_4C56D4E002D2 // StartChild
+ ME_4836D4C20059_ME_4C56D4E002D2 // CloseStructure
+ ME_4C56D54B002A_ME_4C56D4E002D2 // NeedStartBuffering
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4C56D6610144 // 
+ ME_4C56D68D026F // 
+ ME_4C56D69B0032 // 
+ ME_4C56D6C602D8 // 
+ ME_4C56D6E7010C // 
+ ME_4C5AAB3600DB // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\EverestCommon\evUnblockEmptyParaFilter.pas'
+
+ref; // ME_4C56D4E002D2 TevUnblockEmptyParaFilter
+
+FORWARD ME_4CA2FFC10275
+
+: ME_4CA300B701DC
+ CONST UID '4CA300B701DC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CA2FFC10275 // TevStrictContentsElementEliminator
+ ;
+ : Target WL 'ME_4A2E44B70095' '48492FC0029D.pas.ms.script' // ContentsElement
+ ;
+
+ref; // ME_4CA300B701DC 
+
+: ME_4CA3006302BC_ME_4CA2FFC10275
+ CONST UID '4CA3006302BC'
+ CONST Name 'NeedTranslateChildToNext'
+ : Original WL 'ME_4CA3006302BC' '47ECA80B000D.pas.ms.script' // NeedTranslateChildToNext
+ ;
+ : Implementor ME_4CA2FFC10275 // TevStrictContentsElementEliminator
+ ;
+ref; // ME_4CA3006302BC_ME_4CA2FFC10275 NeedTranslateChildToNext
+
+: ME_4CA2FFC10275
+ CONST UID '4CA2FFC10275'
+ CONST Name 'TevStrictContentsElementEliminator'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Фильтр, удаляющий "элементы оглавления" (k2_idContentsElement). Но не блоки, и никаких других наследников' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C407B410029 // Generators
+ ;
+ : Inherits
+   @ ( WL 'ME_49E487A70144' '47ECA80B000D.pas.ms.script' // Tk2TagFilter
+ ) .SequenceCode.It
+ ; // Inherits
+ : Overridden
+   @ ( ME_4CA3006302BC_ME_4CA2FFC10275 // NeedTranslateChildToNext
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4CA300B701DC // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '29.09.2010 13:00'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\EverestCommon\evStrictContentsElementEliminator.pas'
+
+ref; // ME_4CA2FFC10275 TevStrictContentsElementEliminator
+
+FORWARD ME_4CA311770238
+
+: ME_4CA311AA02B5
+ CONST UID '4CA311AA02B5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CA311770238 // TevBlocksEliminator
+ ;
+ : Target WL 'ME_4857A87D0337' '48492FC0029D.pas.ms.script' // Block
+ ;
+
+ref; // ME_4CA311AA02B5 
+
+: ME_4CA311AE010B
+ CONST UID '4CA311AE010B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CA311770238 // TevBlocksEliminator
+ ;
+ : Target WL 'ME_4857B5260267' '48492FC0029D.pas.ms.script' // Document
+ ;
+
+ref; // ME_4CA311AE010B 
+
+: ME_4CA3006302BC_ME_4CA311770238
+ CONST UID '4CA3006302BC'
+ CONST Name 'NeedTranslateChildToNext'
+ : Original WL 'ME_4CA3006302BC' '47ECA80B000D.pas.ms.script' // NeedTranslateChildToNext
+ ;
+ : Implementor ME_4CA311770238 // TevBlocksEliminator
+ ;
+ref; // ME_4CA3006302BC_ME_4CA311770238 NeedTranslateChildToNext
+
+: ME_4CA311770238
+ CONST UID '4CA311770238'
+ CONST Name 'TevBlocksEliminator'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C407B410029 // Generators
+ ;
+ : Inherits
+   @ ( WL 'ME_49E487A70144' '47ECA80B000D.pas.ms.script' // Tk2TagFilter
+ ) .SequenceCode.It
+ ; // Inherits
+ : Overridden
+   @ ( ME_4CA3006302BC_ME_4CA311770238 // NeedTranslateChildToNext
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4CA311AA02B5 // 
+ ME_4CA311AE010B // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2004/10/12 15:30:24'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\EverestCommon\evBlocksEliminator.pas'
+
+ref; // ME_4CA311770238 TevBlocksEliminator
+
+FORWARD ME_4CF7B733015E
+
+: ME_4CF7BDBA0056
+ CONST UID '4CF7BDBA0056'
+ CONST Name 'f_WasSomeLeaf'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4CF7B733015E // TevEmptyTableEliminator
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4CF7BDBA0056 f_WasSomeLeaf
+
+: ME_4CF7BB60011C
+ CONST UID '4CF7BB60011C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CF7B733015E // TevEmptyTableEliminator
+ ;
+ : Target WL 'ME_485669C9009D' '484A470100DD.pas.ms.script' // LeafPara
+ ;
+
+ref; // ME_4CF7BB60011C 
+
+: ME_4CF7BB6E0323
+ CONST UID '4CF7BB6E0323'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CF7B733015E // TevEmptyTableEliminator
+ ;
+ : Target WL 'ME_4857D48E00F4' '48492FC0029D.pas.ms.script' // Table
+ ;
+
+ref; // ME_4CF7BB6E0323 
+
+: ME_4CF7BEF8029F
+ CONST UID '4CF7BEF8029F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CF7B733015E // TevEmptyTableEliminator
+ ;
+ : Target WL 'ME_4857E2A70175' '48492FC0029D.pas.ms.script' // SBS
+ ;
+
+ref; // ME_4CF7BEF8029F 
+
+: ME_4CF8D9FA01B1
+ CONST UID '4CF8D9FA01B1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CF7B733015E // TevEmptyTableEliminator
+ ;
+ : Target WL 'ME_480DBA760390' '480DBA6900E6.pas.ms.script' // k2Facade
+ ;
+
+ref; // ME_4CF8D9FA01B1 
+
+: ME_4D11FE9E0380
+ CONST UID '4D11FE9E0380'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CF7B733015E // TevEmptyTableEliminator
+ ;
+ : Target WL 'ME_48579E4A003C' '48492FC0029D.pas.ms.script' // ParaList
+ ;
+
+ref; // ME_4D11FE9E0380 
+
+: ME_4D1207AD003D
+ CONST UID '4D1207AD003D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CF7B733015E // TevEmptyTableEliminator
+ ;
+ : Target WL 'ME_4857CD8D0093' '48492FC0029D.pas.ms.script' // TableCell
+ ;
+
+ref; // ME_4D1207AD003D 
+
+: ME_4836D4650177_ME_4CF7B733015E
+ CONST UID '4836D4650177'
+ CONST Name 'StartChild'
+ : Original WL 'ME_4836D4650177' '47ECA80B000D.pas.ms.script' // StartChild
+ ;
+ : Implementor ME_4CF7B733015E // TevEmptyTableEliminator
+ ;
+ref; // ME_4836D4650177_ME_4CF7B733015E StartChild
+
+: ME_4836D49800CA_ME_4CF7B733015E
+ CONST UID '4836D49800CA'
+ CONST Name 'OpenStream'
+ : Original WL 'ME_4836D49800CA' '47ECA80B000D.pas.ms.script' // OpenStream
+ ;
+ : Implementor ME_4CF7B733015E // TevEmptyTableEliminator
+ ;
+ref; // ME_4836D49800CA_ME_4CF7B733015E OpenStream
+
+: ME_4A2D1217037A_ME_4CF7B733015E
+ CONST UID '4A2D1217037A'
+ CONST Name 'DoStartChild'
+ : Original WL 'ME_4A2D1217037A' '47ECA80B000D.pas.ms.script' // DoStartChild
+ ;
+ : Implementor ME_4CF7B733015E // TevEmptyTableEliminator
+ ;
+ref; // ME_4A2D1217037A_ME_4CF7B733015E DoStartChild
+
+: ME_4C56D54B002A_ME_4CF7B733015E
+ CONST UID '4C56D54B002A'
+ CONST Name 'NeedStartBuffering'
+ : Original WL 'ME_4C56D54B002A' '47ECB8BD00A8.pas.ms.script' // NeedStartBuffering
+ ;
+ : Implementor ME_4CF7B733015E // TevEmptyTableEliminator
+ ;
+ref; // ME_4C56D54B002A_ME_4CF7B733015E NeedStartBuffering
+
+: ME_4CF7BC520161_ME_4CF7B733015E
+ CONST UID '4CF7BC520161'
+ CONST Name 'NeedFlushBuffer'
+ : Original WL 'ME_4CF7BC520161' '47ECB8BD00A8.pas.ms.script' // NeedFlushBuffer
+ ;
+ : Implementor ME_4CF7B733015E // TevEmptyTableEliminator
+ ;
+ref; // ME_4CF7BC520161_ME_4CF7B733015E NeedFlushBuffer
+
+: ME_4CF7BEC40130_ME_4CF7B733015E
+ CONST UID '4CF7BEC40130'
+ CONST Name 'DoFlushBuffer'
+ : Original WL 'ME_4CF7BEC40130' '47ECB8BD00A8.pas.ms.script' // DoFlushBuffer
+ ;
+ : Implementor ME_4CF7B733015E // TevEmptyTableEliminator
+ ;
+ref; // ME_4CF7BEC40130_ME_4CF7B733015E DoFlushBuffer
+
+: ME_4CF7B733015E
+ CONST UID '4CF7B733015E'
+ CONST Name 'TevEmptyTableEliminator'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Фильтр, выкидывающий пустые таблицы' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C407B410029 // Generators
+ ;
+ : Inherits
+   @ ( WL 'ME_49E4965202A1' '47ECB8BD00A8.pas.ms.script' // TevdBufferedFilter
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4CF7BDBA0056 // f_WasSomeLeaf
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_4836D4650177_ME_4CF7B733015E // StartChild
+ ME_4836D49800CA_ME_4CF7B733015E // OpenStream
+ ME_4A2D1217037A_ME_4CF7B733015E // DoStartChild
+ ME_4C56D54B002A_ME_4CF7B733015E // NeedStartBuffering
+ ME_4CF7BC520161_ME_4CF7B733015E // NeedFlushBuffer
+ ME_4CF7BEC40130_ME_4CF7B733015E // DoFlushBuffer
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4CF7BB60011C // 
+ ME_4CF7BB6E0323 // 
+ ME_4CF7BEF8029F // 
+ ME_4CF8D9FA01B1 // 
+ ME_4D11FE9E0380 // 
+ ME_4D1207AD003D // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '02.12.2010 18:12'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\EverestCommon\evEmptyTableEliminator.pas'
+
+ref; // ME_4CF7B733015E TevEmptyTableEliminator
+
+FORWARD ME_4D9343CE038C
+
+: ME_4D93442C0399
+ CONST UID '4D93442C0399'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4D9343CE038C // TevLeafParaDecorationsHolderEliminator
+ ;
+ : Target WL 'ME_4CEBC4B702DD' '48492FC0029D.pas.ms.script' // LeafParaDecorationsHolder
+ ;
+
+ref; // ME_4D93442C0399 
+
+: ME_4CA3006302BC_ME_4D9343CE038C
+ CONST UID '4CA3006302BC'
+ CONST Name 'NeedTranslateChildToNext'
+ : Original WL 'ME_4CA3006302BC' '47ECA80B000D.pas.ms.script' // NeedTranslateChildToNext
+ ;
+ : Implementor ME_4D9343CE038C // TevLeafParaDecorationsHolderEliminator
+ ;
+ref; // ME_4CA3006302BC_ME_4D9343CE038C NeedTranslateChildToNext
+
+: ME_4D9343CE038C
+ CONST UID '4D9343CE038C'
+ CONST Name 'TevLeafParaDecorationsHolderEliminator'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C407B410029 // Generators
+ ;
+ : Inherits
+   @ ( WL 'ME_49E487A70144' '47ECA80B000D.pas.ms.script' // Tk2TagFilter
+ ) .SequenceCode.It
+ ; // Inherits
+ : Overridden
+   @ ( ME_4CA3006302BC_ME_4D9343CE038C // NeedTranslateChildToNext
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4D93442C0399 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '30.03.2011 18:53'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\EverestCommon\evLeafParaDecorationsHolderEliminator.pas'
+
+ref; // ME_4D9343CE038C TevLeafParaDecorationsHolderEliminator
+
+FORWARD ME_4E7754BD01BA
+
+: ME_4E775509038B
+ CONST UID '4E775509038B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E7754BD01BA // TevDocumentSubsChildrenCountEliminator
+ ;
+ : Target WL 'ME_4857B5260267' '48492FC0029D.pas.ms.script' // Document
+ ;
+
+ref; // ME_4E775509038B 
+
+: ME_4E77551E023A
+ CONST UID '4E77551E023A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E7754BD01BA // TevDocumentSubsChildrenCountEliminator
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+
+ref; // ME_4E77551E023A 
+
+: ME_4A2D1634025B_ME_4E7754BD01BA
+ CONST UID '4A2D1634025B'
+ CONST Name 'DoAddAtomEx'
+ : Original WL 'ME_4A2D1634025B' '47ECA80B000D.pas.ms.script' // DoAddAtomEx
+ ;
+ : Implementor ME_4E7754BD01BA // TevDocumentSubsChildrenCountEliminator
+ ;
+ref; // ME_4A2D1634025B_ME_4E7754BD01BA DoAddAtomEx
+
+: ME_4E7754BD01BA
+ CONST UID '4E7754BD01BA'
+ CONST Name 'TevDocumentSubsChildrenCountEliminator'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C407B410029 // Generators
+ ;
+ : Inherits
+   @ ( WL 'ME_49E487A70144' '47ECA80B000D.pas.ms.script' // Tk2TagFilter
+ ) .SequenceCode.It
+ ; // Inherits
+ : Overridden
+   @ ( ME_4A2D1634025B_ME_4E7754BD01BA // DoAddAtomEx
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4E775509038B // 
+ ME_4E77551E023A // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '19.09.2011 18:42'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\EverestCommon\evDocumentSubsChildrenCountEliminator.pas'
+
+ref; // ME_4E7754BD01BA TevDocumentSubsChildrenCountEliminator
+
+: ME_4C407B410029
+ CONST UID '4C407B410029'
+ CONST Name 'Generators'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_48EEE54C0072' '48EEE54C0072.pas.ms.script' // EverestCommon
+ ;
+ : Children
+   @ ( ME_4C3FED3103B2 // TevOEMTableFlagFilter
+ ME_4C56D4E002D2 // TevUnblockEmptyParaFilter
+ ME_4CA2FFC10275 // TevStrictContentsElementEliminator
+ ME_4CA311770238 // TevBlocksEliminator
+ ME_4CF7B733015E // TevEmptyTableEliminator
+ ME_4D9343CE038C // TevLeafParaDecorationsHolderEliminator
+ ME_4E7754BD01BA // TevDocumentSubsChildrenCountEliminator
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
+ WL 'ME_47ECA80B000D' '47ECA80B000D.pas.ms.script' // Generators
+ WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.pas.ms.script' // Generators
+ WL 'ME_480DBA6900E6' '480DBA6900E6.pas.ms.script' // k2Facade
+ WL 'ME_48492FC0029D' '48492FC0029D.pas.ms.script' // Standard
+ WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4C407B410029.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4C407B410029.pas.ms.script.runner'
+
+ref; // ME_4C407B410029 Generators

@@ -1,0 +1,53 @@
+// TabStops 5159968C00D8 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5159968C00D8
+
+: ME_515996B301E2
+ CONST UID '515996B301E2'
+ CONST Name 'Tl3TabStops'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5159968C00D8 // TabStops
+ ;
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3TabStops.pas'
+
+ref; // ME_515996B301E2 Tl3TabStops
+
+: ME_5159968C00D8
+ CONST UID '5159968C00D8'
+ CONST Name 'TabStops'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ ;
+ : Children
+   @ ( ME_515996B301E2 // Tl3TabStops
+ ) .SequenceCode.It
+ ; // Children
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5159968C00D8.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5159968C00D8.pas.ms.script.runner'
+
+ref; // ME_5159968C00D8 TabStops

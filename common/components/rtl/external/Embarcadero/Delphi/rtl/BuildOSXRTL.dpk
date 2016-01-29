@@ -1,0 +1,167 @@
+{*******************************************************}
+{                                                       }
+{           CodeGear Delphi Runtime Library             }
+{ Copyright(c) 2012-2013 Embarcadero Technologies, Inc. }
+{                                                       }
+{*******************************************************}
+
+package BuildOSXRTL;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$E .dylib}
+{$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION 'Windows RTL Builder'}
+{$RUNONLY}
+{$IMPLICITBUILD OFF}
+
+contains
+  System.Types in 'sys\System.Types.pas',
+  System.UITypes in 'common\System.UITypes.pas',
+  System.UIConsts in 'common\System.UIConsts.pas',
+  System.SysConst in 'sys\System.SysConst.pas',
+  System.RTLConsts in 'common\System.RTLConsts.pas',
+  System.Actions in 'common\System.Actions.pas',
+  System.Variants in 'sys\System.Variants.pas',
+  Posix.ArpaInet in 'posix\Posix.ArpaInet.pas',
+  Posix.Base in 'posix\Posix.Base.pas',
+  Posix.Dirent in 'posix\Posix.Dirent.pas',
+  Posix.Dlfcn in 'posix\Posix.Dlfcn.pas',
+  Posix.Errno in 'posix\Posix.Errno.pas',
+  Posix.Fcntl in 'posix\Posix.Fcntl.pas',
+  Posix.Fnmatch in 'posix\Posix.Fnmatch.pas',
+  Posix.Grp in 'posix\Posix.Grp.pas',
+  Posix.Iconv in 'posix\Posix.Iconv.pas',
+  Posix.Langinfo in 'posix\Posix.Langinfo.pas',
+  Posix.Limits in 'posix\Posix.Limits.pas',
+  Posix.Locale in 'posix\Posix.Locale.pas',
+  Posix.NetDB in 'posix\Posix.NetDB.pas',
+  Posix.NetIf in 'posix\Posix.NetIf.pas',
+  Posix.NetinetIcmp6 in 'posix\Posix.NetinetIcmp6.pas',
+  Posix.NetinetIn in 'posix\Posix.NetinetIn.pas',
+  Posix.NetinetIp6 in 'posix\Posix.NetinetIp6.pas',
+  Posix.NetinetTCP in 'posix\Posix.NetinetTCP.pas',
+  Posix.Pthread in 'posix\Posix.Pthread.pas',
+  Posix.Pwd in 'posix\Posix.Pwd.pas',
+  Posix.Sched in 'posix\Posix.Sched.pas',
+  Posix.Semaphore in 'posix\Posix.Semaphore.pas',
+  Posix.Signal in 'posix\Posix.Signal.pas',
+  Posix.StdDef in 'posix\Posix.StdDef.pas',
+  Posix.Stdio in 'posix\Posix.Stdio.pas',
+  Posix.Stdlib in 'posix\Posix.Stdlib.pas',
+  Posix.String_ in 'posix\Posix.String_.pas',
+  Posix.StrOpts in 'posix\Posix.StrOpts.pas',
+  Posix.SysMman in 'posix\Posix.SysMman.pas',
+  Posix.SysSelect in 'posix\Posix.SysSelect.pas',
+  Posix.SysSocket in 'posix\Posix.SysSocket.pas',
+  Posix.SysStat in 'posix\Posix.SysStat.pas',
+  Posix.SysStatvfs in 'posix\Posix.SysStatvfs.pas',
+  Posix.SysSysctl in 'posix\Posix.SysSysctl.pas',
+  Posix.SysTime in 'posix\Posix.SysTime.pas',
+  Posix.SysTimes in 'posix\Posix.SysTimes.pas',
+  Posix.SysTypes in 'posix\Posix.SysTypes.pas',
+  Posix.SysUio in 'posix\Posix.SysUio.pas',
+  Posix.SysUn in 'posix\Posix.SysUn.pas',
+  Posix.SysWait in 'posix\Posix.SysWait.pas',
+  Posix.Termios in 'posix\Posix.Termios.pas',
+  Posix.Time in 'posix\Posix.Time.pas',
+  Posix.Unistd in 'posix\Posix.Unistd.pas',
+  Posix.Utime in 'posix\Posix.Utime.pas',
+  Posix.Wchar in 'posix\Posix.Wchar.pas',
+  Posix.Wctype in 'posix\Posix.Wctype.pas',
+  Posix.Wordexp in 'posix\Posix.Wordexp.pas',
+  System.Mac.CFUtils in 'osx\System.Mac.CFUtils.pas',
+  Macapi.CoreFoundation in 'osx\Macapi.CoreFoundation.pas',
+  Macapi.CoreServices in 'osx\Macapi.CoreServices.pas',
+  Macapi.ObjCRuntime in 'osx\Macapi.ObjCRuntime.pas',
+  Macapi.Mach in 'osx\Macapi.Mach.pas',
+  System.Internal.MachExceptions in 'sys\System.Internal.MachExceptions.pas',
+  System.Internal.Unwinder in 'sys\System.Internal.Unwinder.pas',
+  System.Internal.ExcUtils in 'sys\System.Internal.ExcUtils.pas',
+  System.Internal.StrHlpr in 'sys\System.Internal.StrHlpr.pas',
+  System.SysUtils in 'sys\System.SysUtils.pas',
+  System.Internal.VarHlpr in 'sys\System.Internal.VarHlpr.pas',
+  System.VarUtils in 'sys\System.VarUtils.pas',
+  System.AnsiStrings in 'common\System.AnsiStrings.pas',
+  System.Character in 'common\System.Character.pas',
+  System.Classes in 'common\System.Classes.pas',
+  System.Contnrs in 'common\System.Contnrs.pas',
+  System.ConvUtils in 'common\System.ConvUtils.pas',
+  System.DateUtils in 'common\System.DateUtils.pas',
+  System.Diagnostics in 'common\System.Diagnostics.pas',
+  System.Generics.Collections in 'common\System.Generics.Collections.pas',
+  System.Generics.Defaults in 'common\System.Generics.Defaults.pas',
+  System.HelpIntfs in 'common\System.HelpIntfs.pas',
+  System.IniFiles in 'common\System.IniFiles.pas',
+  System.IOUtils in 'common\System.IOUtils.pas',
+  System.Masks in 'common\System.Masks.pas',
+  System.MaskUtils in 'common\System.MaskUtils.pas',
+  System.Math in 'common\System.Math.pas',
+  System.ObjAuto in 'common\System.ObjAuto.pas',
+  System.Rtti in 'common\System.Rtti.pas',
+  System.RegularExpressionsAPI in 'common\System.RegularExpressionsAPI.pas',
+  System.RegularExpressionsConsts in 'common\System.RegularExpressionsConsts.pas',
+  System.RegularExpressionsCore in 'common\System.RegularExpressionsCore.pas',
+  System.RegularExpressions in 'common\System.RegularExpressions.pas',
+  System.StdConvs in 'common\System.StdConvs.pas',
+  System.StrUtils in 'common\System.StrUtils.pas',
+  System.SyncObjs in 'common\System.SyncObjs.pas',
+  System.TimeSpan in 'common\System.TimeSpan.pas',
+  System.TypInfo in 'common\System.TypInfo.pas',
+  System.VarCmplx in 'common\System.VarCmplx.pas',
+  System.VarConv in 'common\System.VarConv.pas',
+  System.WideStrings in 'common\System.WideStrings.pas',
+  System.WideStrUtils in 'common\System.WideStrUtils.pas',
+  System.ZLib in 'common\System.ZLib.pas',
+  System.ZLibConst in 'common\System.ZLibConst.pas',
+  System.Zip in 'common\System.Zip.pas',
+  System.Internal.DebugUtils in 'common\System.Internal.DebugUtils.pas',
+  Macapi.ObjectiveC in 'osx\Macapi.ObjectiveC.pas',
+  Macapi.OCBlocks in 'osx\Macapi.OCBlocks.pas',  
+  Macapi.OCMarshal in 'osx\Macapi.OCMarshal.pas',
+  Macapi.CocoaTypes in 'osx\Macapi.CocoaTypes.pas',
+  Macapi.Security in 'osx\Macapi.Security.pas',
+  Macapi.SystemConfiguration in 'osx\Macapi.SystemConfiguration.pas',
+  Macapi.OpenGL in 'osx\Macapi.OpenGL.pas',
+  Macapi.QuartzCore in 'osx\Macapi.QuartzCore.pas',  
+  Macapi.Foundation in 'osx\Macapi.Foundation.pas',
+  Macapi.AppKit in 'osx\Macapi.AppKit.pas',
+  Macapi.CoreGraphics in 'osx\Macapi.CoreGraphics.pas',
+  Macapi.ImageIO in 'osx\Macapi.ImageIO.pas',
+  Macapi.CoreText in 'osx\Macapi.CoreText.pas',
+  Macapi.Consts in 'osx\Macapi.Consts.pas',
+  Macapi.PrintCore in 'osx\Macapi.PrintCore.pas',
+  System.Odbc in 'common\System.Odbc.pas',
+  System.Sqlite in 'common\System.Sqlite.pas',
+  System.Internal.Unwind in 'sys\System.Internal.Unwind.pas',
+  System.Sensors in 'common\System.Sensors.pas',
+  System.Mac.Sensors in 'common\System.Mac.Sensors.pas',
+  Macapi.AVFoundation in 'osx\Macapi.AVFoundation.pas',
+  Macapi.CoreVideo in 'osx\Macapi.CoreVideo.pas',
+  Macapi.CoreMedia in 'osx\Macapi.CoreMedia.pas',
+  Macapi.Dispatch in 'osx\Macapi.Dispatch.pas',
+  Macapi.Quicktime in 'osx\Macapi.Quicktime.pas',
+  Macapi.QTKit in 'osx\Macapi.QTKit.pas',
+  Macapi.CoreLocation in 'osx\Macapi.CoreLocation.pas';
+end.

@@ -1,0 +1,505 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DelphiSpecific/DelphiLang/Implementation/Service.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::DelphiSpecific::DelphiLang::Implementation::Service
+//
+// Сервис
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Service::Class
+implementation @ <<Service>>
+//? Сервис
+//> serviceiterator::Class
+
+//= ServicePrim::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//a f
+// - тип абстракции
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _CheckMixin
+; // st_space_key
+
+: CheckMixin OBJECT IN %S
+//#UC START# *5502CBF50065for5502BABC0193*
+//	[{"%S%{Mixin}N"=""}\
+ if ( ( %S ( get_object_var ( 'Mixin' ) |N )  ) %== '' ) then
+ begin
+//	<{}{%C#f_IsPureMixIn()=true&"%CN"="M%f_cut_prefix(%f_pas_TypeName(%S),T)"}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C %?f IsPureMixIn %( )% ) %==  true AND 
+    ( ( %C |N ) %== 'M( '
+   [%f] cut_prefix %( [%f] pas_TypeName %( %S )% %, 'T' )% )  ) ) then
+   begin
+//	%S%f_set_var(Mixin,C)\
+    %S %f set_var %( 'Mixin' %, 'C' )% 
+//	%f_cycle_break(%S)\
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	]
+ end // if
+//#UC END# *5502CBF50065for5502BABC0193*
+; // CheckMixin
+
+
+//%f _CheckFacet
+: CheckFacet OBJECT IN %S
+//#UC START# *5502CC07027Efor5502BABC0193*
+//	[{"%S%{Facet}N"=""}\
+ if ( ( %S ( get_object_var ( 'Facet' ) |N )  ) %== '' ) then
+ begin
+//	<{}{%t_interface(%C)=true&"%CN"="I%f_cut_prefix(%f_pas_TypeName(%S),T)"}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( [%t] interface %( %C )% ) %==  true AND 
+    ( ( %C |N ) %== 'I( '
+   [%f] cut_prefix %( [%f] pas_TypeName %( %S )% %, 'T' )% )  ) ) then
+   begin
+//	%S%f_set_var(Facet,C)\
+    %S %f set_var %( 'Facet' %, 'C' )% 
+//	%f_cycle_break(%S)\
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	]
+ end // if
+
+//%f _CheckOrMakeFacet
+; // CheckFacet
+
+: CheckOrMakeFacet OBJECT IN %S
+//	%S%f_CheckMixin()\
+ %S %f CheckMixin %( )% 
+//	%S%f_CheckFacet()\
+ %S %f CheckFacet %( )% 
+//	%f_warning(Mixin: %S%{Mixin}N)\
+//	%f_warning(Facet: %S%{Facet}N)\
+
+//	[{"%S%{Mixin}N"=""}\
+ if ( ( %S ( get_object_var ( 'Mixin' ) |N )  ) %== '' ) then
+ begin
+//	%S%f_add_class(%SU_Mixin,PureMixIn,M%f_cut_prefix(%f_pas_TypeName(%S),T),Mixin_Inst)\
+  %S %f add_class %( %S |U '_Mixin' %, 'PureMixIn' %, 'M'
+  [%f] cut_prefix %( [%f] pas_TypeName %( %S )% %, 'T' )% %, 'Mixin_Inst' )% 
+//	%{Mixin_Inst}%f_set_documentation(Контракт сервиса %SN)\
+  ( get_global_var ( 'Mixin_Inst' ) %f set_documentation %( 'Контракт сервиса '
+  %S |N )% ) 
+//	%S%f_set_var(Mixin,{Mixin_Inst})\
+  %S %f set_var %( 'Mixin' %, '{Mixin_Inst}' )% 
+//	]\
+ end // if
+
+//	[{"%S%{Facet}N"=""}\
+ if ( ( %S ( get_object_var ( 'Facet' ) |N )  ) %== '' ) then
+ begin
+//	%S%f_add_class(%SU_Facet,Facet,I%f_cut_prefix(%f_pas_TypeName(%S),T),Facet_Inst)\
+  %S %f add_class %( %S |U '_Facet' %, 'Facet' %, 'I'
+  [%f] cut_prefix %( [%f] pas_TypeName %( %S )% %, 'T' )% %, 'Facet_Inst' )% 
+//	%{Facet_Inst}%f_set_documentation(Интерфейс сервиса %SN)\
+  ( get_global_var ( 'Facet_Inst' ) %f set_documentation %( 'Интерфейс сервиса '
+  %S |N )% ) 
+//	%S%f_set_var(Facet,{Facet_Inst})\
+  %S %f set_var %( 'Facet' %, '{Facet_Inst}' )% 
+//	]
+ end // if
+//#UC END# *5502CC07027Efor5502BABC0193*
+; // CheckOrMakeFacet
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor5502BABC0193*
+//	%S%[inherited]
+ inherited
+//#UC END# *4B2A19E3038Bfor5502BABC0193*
+; // DoSpell
+
+
+// перекрытие базового стереотипа ServicePrim::Class
+//%f _AfterClassSpell
+: AfterClassSpell OBJECT IN %S
+//#UC START# *5502CBD4031Efor5502BABC0193*
+//	%S%[inherited]
+ inherited
+//#UC END# *5502CBD4031Efor5502BABC0193*
+; // AfterClassSpell
+
+
+// перекрытие базового стереотипа ServicePrim::Class
+//%f _BeforeClassSpell
+: BeforeClassSpell OBJECT IN %S
+//#UC START# *5502C6A200F5for5502BABC0193*
+//	%S%f_CheckOrMakeFacet()\
+ %S %f CheckOrMakeFacet %( )% 
+
+//	%f_clear_list(RESPS)\
+ [%f] clear_list %( 'RESPS' )% 
+
+//	<{}{%CS=responsibility&%CC=Operation}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |S ) %== 'responsibility' AND 
+   ( ( %C |C ) %== 'Operation'  ) ) then
+  begin
+//	%f_add_to_list(RESPS,C)\
+   [%f] add_to_list %( 'RESPS' %, 'C' )% 
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for C
+
+//	%{RESPS}<{}{}{%C}\
+ ( get_global_var ( 'RESPS' ) ) 
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+//	%f_set_var(OP_NAME,"%CN")\
+    [%f] set_var %( 'OP_NAME' %, %C |N )% 
+//	[{"%1%{Mixin}<{}{%CN=%{OP_NAME}N}{C}>"="0"}\
+    if ( ( %1 ( get_object_var ( 'Mixin' ) ) 
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if ( ( %C |N ) %== ( ( get_global_var ( 'OP_NAME' ) |N ) ) ) then
+       begin
+
+        ++! l_Counter
+       end // if
+      end // for C
+      l_Counter
+
+     ) // bind
+ )      %== 0 ) then
+    begin
+//	%1%{Mixin}%f_add_operation(%1%{Mixin}U_%CU_Resp,,%CN (%C<{, }%CS %CN : %C%TU>): %C%TU,Op_Instance)\
+     %1 ( get_object_var ( 'Mixin' ) %f add_operation %( %1 ( get_object_var ( 'Mixin' ) |U )  '_'
+     %C |U '_Resp' %, '' %, %C |N ' ('
+     %C
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if true then
+       begin
+        if ( l_Counter >0 ) then ( ', ' )
+        %C |S ' '
+        %C |N ' : '
+        %C ->T |U  
+        ++! l_Counter
+       end // if
+      end // for C
+
+     ) // bind
+      '): '
+     %C ->T |U  %, 'Op_Instance' )% )  
+//	%{Op_Instance}%f_set_documentation(%CD)\
+     ( get_global_var ( 'Op_Instance' ) %f set_documentation %( %C |D )% ) 
+//	%{Op_Instance}%f_set_visibility_type(PublicAccess)\
+     ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+//	%{Op_Instance}%f_set_abstraction_type(abstract)\
+     ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'abstract' )% ) 
+//	%{Op_Instance}%f_set_up(ifdef,%C{ifdef})\
+     ( get_global_var ( 'Op_Instance' ) %f set_up %( 'ifdef' %, %C get_up ( 'ifdef' ) )% ) 
+//	%{Op_Instance}%f_set_up(ifndef,%C{ifndef})\
+     ( get_global_var ( 'Op_Instance' ) %f set_up %( 'ifndef' %, %C get_up ( 'ifndef' ) )% ) 
+//	]\
+    end // if
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for C
+
+ ) // bind
+
+//	%f_clear_list(RESPS)\
+ [%f] clear_list %( 'RESPS' )% 
+
+//	<{}{%C#f_IsServiceIterator()=true}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C %?f IsServiceIterator %( )% ) %==  true ) then
+  begin
+//	%f_add_to_list(RESPS,C)\
+   [%f] add_to_list %( 'RESPS' %, 'C' )% 
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for C
+
+//	%{RESPS}<{}{}{%C}\
+ ( get_global_var ( 'RESPS' ) ) 
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+//	%f_set_var(OP_NAME,"%CN")\
+    [%f] set_var %( 'OP_NAME' %, %C |N )% 
+//	[{"%1%{Mixin}<{}{%CNF=%{OP_NAME}N}{C}>"="0"}\
+    if ( ( %1 ( get_object_var ( 'Mixin' ) ) 
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if ( ( %C |N ) 'F' %== ( ( get_global_var ( 'OP_NAME' ) |N ) ) ) then
+       begin
+
+        ++! l_Counter
+       end // if
+      end // for C
+      l_Counter
+
+     ) // bind
+ )      %== 0 ) then
+    begin
+//	%C%f_copy_element(%1%{Mixin}U_%CU_Resp,%1%{Mixin}U,facetiterator,%CNF,true,Op_Instance)\
+     %C %f copy_element %( %1 ( get_object_var ( 'Mixin' ) |U )  '_'
+     %C |U '_Resp' %, %1 ( get_object_var ( 'Mixin' ) |U )  %, 'facetiterator' %, %C |N 'F' %, true %, 'Op_Instance' )% 
+//	%1%{Mixin}%f_add_operation(%1%{Mixin}U_%CU_Resp,,%CN (%C<{, }%CS %CN : %C%TU>): %C%TU,Op_Instance)\
+//	%{Op_Instance}%f_set_documentation(%CD)\
+     ( get_global_var ( 'Op_Instance' ) %f set_documentation %( %C |D )% ) 
+//	%{Op_Instance}%f_set_visibility_type(PublicAccess)\
+     ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+//	%{Op_Instance}%f_set_abstraction_type(abstract)\
+     ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'abstract' )% ) 
+//	%{Op_Instance}%f_set_up(ifdef,%C{ifdef})\
+     ( get_global_var ( 'Op_Instance' ) %f set_up %( 'ifdef' %, %C get_up ( 'ifdef' ) )% ) 
+//	%{Op_Instance}%f_set_up(ifndef,%C{ifndef})\
+     ( get_global_var ( 'Op_Instance' ) %f set_up %( 'ifndef' %, %C get_up ( 'ifndef' ) )% ) 
+//	%{Op_Instance}%f_set_up(needs index,%C{needs index})\
+     ( get_global_var ( 'Op_Instance' ) %f set_up %( 'needs index' %, %C get_up ( 'needs index' ) )% ) 
+//	%{Op_Instance}%f_set_up(needs result,%C{needs result})\
+     ( get_global_var ( 'Op_Instance' ) %f set_up %( 'needs result' %, %C get_up ( 'needs result' ) )% ) 
+//	%{Op_Instance}%f_set_var(SPELLER,C)\
+     ( get_global_var ( 'Op_Instance' ) %f set_var %( 'SPELLER' %, 'C' )% ) 
+//	]\
+    end // if
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for C
+
+ ) // bind
+
+//	%f_clear_list(RESPS)\
+ [%f] clear_list %( 'RESPS' )% 
+
+//	%f_addR(%S,%S%{Mixin})\
+ [%f] addR %( %S %, %S ( get_object_var ( 'Mixin' ) )  )% 
+//	%f_addR(%S%{Facet},%S%{Mixin})\
+ [%f] addR %( %S ( get_object_var ( 'Facet' ) )  %, %S ( get_object_var ( 'Mixin' ) )  )% 
+
+//	%S%f_add_attribute(%SU_%S%{Facet}U_Alien,writeonly,Alien : %S%{Facet}U,Attr_Inst)\
+ %S %f add_attribute %( %S |U '_'
+ %S ( get_object_var ( 'Facet' ) |U )  '_Alien' %, 'writeonly' %, 'Alien : '
+ %S ( get_object_var ( 'Facet' ) |U )  %, 'Attr_Inst' )% 
+
+//	%{Attr_Inst}%f_set_link_type(ref)\
+ ( get_global_var ( 'Attr_Inst' ) %f set_link_type %( 'ref' )% ) 
+//	%{Attr_Inst}%f_set_up(pm,true)\
+ ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'pm' %, true )% ) 
+//	%{Attr_Inst}%f_set_up(needs field,true)\
+ ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'needs field' %, true )% ) 
+//	%{Attr_Inst}%f_set_visibility_type(PublicAccess)\
+ ( get_global_var ( 'Attr_Inst' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+//	%{Attr_Inst}%f_set_abstraction_type(final)\
+ ( get_global_var ( 'Attr_Inst' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Attr_Inst}%f_set_documentation(Внешняя реализация сервиса %S%{Facet}N)\
+ ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Внешняя реализация сервиса '
+ %S ( get_object_var ( 'Facet' ) |N )  )% ) 
+
+//	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%S)set_var,\
+ ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+ [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %S )% 'set_var' %, 
+//	 {-}\
+ ' {-}'
+//	)\
+)% ) 
+//	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%S)set_impl,\
+ ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+ [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %S )% 'set_impl' %, 
+//	 Assert((f_Alien = nil) OR (aValue = nil));
+ ' Assert((f_Alien = nil) OR (aValue = nil));'
+//	 f_Alien := aValue;\
+ ' f_Alien := aValue;'
+//	)\
+)% ) 
+//	%f_DoSpellField(%{Attr_Inst})\
+ [%f] DoSpellField %( ( get_global_var ( 'Attr_Inst' ) ) )% 
+
+//	%f_warning(%SN need cleanup: %S%f_NeedCleanupFields())\
+
+//	%S%[inherited]
+ inherited
+//#UC END# *5502C6A200F5for5502BABC0193*
+; // BeforeClassSpell
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: Service::Class::responsibility::Operation
+end. // <<Service>>
+
+implementation @ :: <<Service>> <<responsibility>> ;
+//? Ответственность
+//= ClassBase::Class::Operation
+
+// Параметры стереотипа
+//v +
+// - типы видимости
+//a f
+// - тип абстракции
+//T 
+// - может не иметь "цели" (типа/результата)
+//m f
+// - не может быть реализован/иметь перекрытую реализацию
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for5502BBDB02C9*
+//#UC END# *46E6D4BB0339for5502BBDB02C9*
+; // wiki
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor5502BBDB02C9*
+//#UC END# *470321C1038Afor5502BBDB02C9*
+; // fctr.java
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for5502BBDB02C9*
+//#UC END# *477398E501C0for5502BBDB02C9*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for5502BBDB02C9*
+//#UC END# *55B8D28B0157for5502BBDB02C9*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for5502BBDB02C9*
+//#UC END# *55B8D2F80145for5502BBDB02C9*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for5502BBDB02C9*
+//#UC END# *55B8DD9C0301for5502BBDB02C9*
+; // res.cmd.pas
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor5502BBDB02C9*
+//#UC END# *470F1571031Cfor5502BBDB02C9*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor5502BBDB02C9*
+//#UC END# *470F15B800CBfor5502BBDB02C9*
+; // impl.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+; // st_space_key
+
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for5502BBDB02C9*
+//#UC END# *470484D50138for5502BBDB02C9*
+; // wiki_up_add_gen
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<Service>> <<responsibility>> ;
+

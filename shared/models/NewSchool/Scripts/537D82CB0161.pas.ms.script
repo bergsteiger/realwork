@@ -1,0 +1,111 @@
+// vcmChromeLikeSupport 537D82CB0161 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_537D82CB0161
+
+FORWARD ME_537D82F10098
+
+FORWARD ME_537D83140148
+
+: ME_537D832600C0
+ CONST UID '537D832600C0'
+ CONST Name 'MainMenu'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_537D83140148 // IvcmMenuHolder
+ ;
+ : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
+ ;
+ CONST "pm" false
+
+ref; // ME_537D832600C0 MainMenu
+
+: ME_537D83140148
+ CONST UID '537D83140148'
+ CONST GUID '06E8AA85-09B4-4185-839F-66D5F1138AA0'
+ CONST Name 'IvcmMenuHolder'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_537D82F10098 // vcmChromeLikeTypes
+ ;
+ : Attributes
+   @ ( ME_537D832600C0 // MainMenu
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_537D83140148 IvcmMenuHolder
+
+: ME_537D83C80169
+ CONST UID '537D83C80169'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_537D82F10098 // vcmChromeLikeTypes
+ ;
+ : Target WL 'ME_47E7ABAE0110' '4799D29F033F.pas.ms.script' // Menus
+ ;
+
+ref; // ME_537D83C80169 
+
+: ME_537D82F10098
+ CONST UID '537D82F10098'
+ CONST Name 'vcmChromeLikeTypes'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_537D82CB0161 // vcmChromeLikeSupport
+ ;
+ : Children
+   @ ( ME_537D83140148 // IvcmMenuHolder
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_537D83C80169 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmChromeLikeTypes.pas'
+
+ref; // ME_537D82F10098 vcmChromeLikeTypes
+
+: ME_537D82CB0161
+ CONST UID '537D82CB0161'
+ CONST Name 'vcmChromeLikeSupport'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ ;
+ : Children
+   @ ( ME_537D82F10098 // vcmChromeLikeTypes
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\537D82CB0161.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\537D82CB0161.pas.ms.script.runner'
+
+ref; // ME_537D82CB0161 vcmChromeLikeSupport

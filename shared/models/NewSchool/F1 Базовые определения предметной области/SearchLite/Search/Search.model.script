@@ -1,0 +1,603 @@
+<<VCMControllers>> Search
+ %UID '4AA0050F0360'
+ %DEPENDS
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FBA70343' /* l3Interfaces */
+  U$ '4677FF4B0036' /* Data */
+  U$ '4682595B0268' /* l3TreeInterfaces */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47E9EEC60260' /* Model */
+  U$ '493FAECB025F' /* Tree */
+  U$ '4954FAA00232' /* Search */
+  U$ '4AB0C3C60310' /* Sys */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '521C9DA50125' /* "Application Resources" */
+  U$ '54B90AC6014B' /* StringUtils */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FF4B0036' /* Data */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47E9EEC60260' /* Model */
+  U$ '493FAECB025F' /* Tree */
+  U$ '4954FAA00232' /* Search */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<ControllerUnit>> Search
+   %UID '4AA005310028'
+   %DEPENDS
+    U$ '457450470167' /* DynamicTree */
+    U$ '45EEAA8E034E' /* Search */
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4682595B0268' /* l3TreeInterfaces */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '47ECAAF901F8' /* bsInterfaces */
+    U$ '47F282AE0082' /* Tree */
+    U$ '48F747EC0073' /* Common */
+    U$ '49006FAB024A' /* Search */
+    U$ '491DAF4202EE' /* SearchInterfaces */
+    U$ '4990510C0026' /* SearchDomainInterfaces */
+    U$ '499192F203B4' /* L10nInterfaces */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '521C9DA50125' /* "Application Resources" */
+    U$ '54B90AC6014B' /* StringUtils */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677FF4B0036' /* Data */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '47E9EEC60260' /* Model */
+    U$ '493FAECB025F' /* Tree */
+    U$ '4954FAA00232' /* Search */
+    U$ '4AA0050F0360' /* Search */
+    U$ '4E13416D0227' /* VCM$Visual */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     ABSTRACT <<ViewAreaControllerImp>> dsTagSimpleTree
+      %UID '4924015202CD'
+      %SUMMARY 'Бизнес объекта для словарных атрибутов' ;
+      %META
+       %upv "author" 'Морозов М.А.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '02.08.2005 11.17'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '47E9EEC60260' /* Model */
+       U$ '493FAECB025F' /* Tree */
+       U$ '4954FAA00232' /* Search */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4923FD8100B7' /* IdsTagSimpleTree */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47F0C1410011' /* dsSimpleTree */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4923FDA60287' /* Search */
+       U$ '4923FDDB026F' /* Operations */
+       U$ '4923FDFA00F7' /* IsOneOperation */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '492ACF630072' /* GotData */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "49240432018F"
+         %UID '49240432018F'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 49240432018F
+        <<uses>> "49240465035A"
+         %UID '49240465035A'
+         %TARGET U$ '47F21FE90379' /* bsUtils */
+        ; // 49240465035A
+      ; // %LINKS
+      %ATTRIBUTES
+        PROTECTED FINAL <<readonly>> Operations
+         %UID '492401E00134'
+         %TARGET U$ '49006BE702D7' /* TLogicOperationSet */
+         %META
+          %upv "needs field" true
+          %upv "pm" true
+          %upv "reads field" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+        ; // Operations
+        SUMMONED PRIVATE <<Attribute>> f_Operations
+         %UID '5C92EC710915'
+         %SUMMARY 'Поле для свойства Operations' ;
+         %TARGET U$ '49006BE702D7' /* TLogicOperationSet */
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+        ; // f_Operations
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PRIVATE FINAL <<Operation>> UpdateOperations
+         %UID '492404C20046'
+        ; // UpdateOperations
+        PROTECTED <<Operation>> GetOperations
+         %UID '492406340209'
+         %TARGET U$ '49006BE702D7' /* TLogicOperationSet */
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+        ; // GetOperations
+      ; // %OPERATIONS
+     ; // dsTagSimpleTree
+     <<Impurity>> CurrentChangedListener
+      %UID '492428D203A1'
+      %SUMMARY 'Шаблон необходим для реализация поведения получения слушателем'#13#10'уведомления об изменении текущего в дереве и рассылки такого же'#13#10'уведомления своим слушателям.' ;
+      %META
+       %upv "author" 'Морозов М.А.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '2008/01/30 08:25:26'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4954FAA00232' /* Search */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '49590CE80397' /* CurrentChangedListener */
+      ; // %IMPLEMENTS
+      %REALIZES
+       U$ '49590D4802EE' /* Process */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "49302FF8014A"
+         %UID '49302FF8014A'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 49302FF8014A
+      ; // %LINKS
+      %OPERATIONS
+        PROTECTED <<Operation>> CurrentChangedNotification
+         %UID '49242A4E0252'
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '49242A530248'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // CurrentChangedNotification
+      ; // %OPERATIONS
+     ; // CurrentChangedListener
+     ABSTRACT <<ViewAreaControllerImp>> dsSituation
+      %UID '49242CB201D0'
+      %SUMMARY 'отложенное обновление представлений при перемещении по деревьям ППС 6.х (CQ: OIT5-28303)' ;
+      %META
+       %upv "author" 'Морозов М.А.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '2008/01/30 08:25:26 '
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4954FAA00232' /* Search */
+       U$ '4AA0050F0360' /* Search */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '492428D203A1' /* CurrentChangedListener */
+       U$ '49590A5E0315' /* IdsSituation */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4924015202CD' /* dsTagSimpleTree */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '47A042E100E2' /* InitFields */
+       U$ '47F0C1BF0314' /* DoCurrentChanged */
+       U$ '49242A4E0252' /* CurrentChangedNotification */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+        PRIVATE FINAL <<property>> BlockNotification
+         %UID '49242D5F00D1'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %META
+          %upv "needs field" true
+          %upv "pm" true
+          %upv "reads field" true
+          %upv "writes field" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // BlockNotification
+        PRIVATE FINAL LINK <<UseCase>> CurrentChangedListener
+         %UID '4979BA550139'
+         %TARGET U$ '492425D101B0' /* IbsCurrentChangedListener */
+         %TOBEINCLUDED
+          U$ '4954FAA00232' /* Search */
+         ; // %TOBEINCLUDED
+        ; // CurrentChangedListener
+        PRIVATE ABSTRACT <<impurity_value>> InitDataType
+         %UID '492D62CC0364'
+         %TARGET U$ '4922CE700041' /* IdeSearch */
+         %TOBEINCLUDED
+          U$ '4954FAA00232' /* Search */
+         ; // %TOBEINCLUDED
+        ; // InitDataType
+        SUMMONED PRIVATE <<Attribute>> f_BlockNotification
+         %UID 'F65710D69AFC'
+         %SUMMARY 'Поле для свойства BlockNotification' ;
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_BlockNotification
+      ; // %ATTRIBUTES
+     ; // dsSituation
+     <<ViewAreaControllerImp>> TdsTreeAttributeSelect
+      %UID '492437620004'
+      %SUMMARY 'бизнес объект формы выбранные атрибуты дерева' ;
+      %META
+       %upv "author" 'Морозов М.А.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '2005/07/29 15:27:38'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '47E9EEC60260' /* Model */
+       U$ '4954FAA00232' /* Search */
+       U$ '4AA0050F0360' /* Search */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4924352E01C3' /* IdsTreeAttributeSelect */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '49242CB201D0' /* dsSituation */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47F4C2B9014A' /* MakeSimpleTree */
+       U$ '4924354D01CC' /* RefreshValues */
+       U$ '4959149300F9' /* UpdateSelectedAttributes */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '491476B001D3' /* MakeDisplayName */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "49243B80039D"
+         %UID '49243B80039D'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 49243B80039D
+        <<uses>> "49243BAF0066"
+         %UID '49243BAF0066'
+         %TARGET U$ '47878E0E0191' /* l3String */
+        ; // 49243BAF0066
+        <<uses>> "49243CEB0221"
+         %UID '49243CEB0221'
+         %TARGET U$ '47F260EC02C7' /* StdRes */
+        ; // 49243CEB0221
+        <<uses>> "49243D1F01CD"
+         %UID '49243D1F01CD'
+         %TARGET U$ '4909E0980010' /* InsRootInfo */
+        ; // 49243D1F01CD
+        <<uses>> "49243D4600B9"
+         %UID '49243D4600B9'
+         %TARGET U$ '45EEB95901C5' /* NodeBase */
+        ; // 49243D4600B9
+        <<uses>> "49243D5E01AE"
+         %UID '49243D5E01AE'
+         %TARGET U$ '47F25BC801DB' /* vcmBase */
+        ; // 49243D5E01AE
+        <<uses>> "49243E660177"
+         %UID '49243E660177'
+         %TARGET U$ '49243E5C035C' /* nsLogicOperationToFlags */
+        ; // 49243E660177
+        <<uses>> "49243F0A0230"
+         %UID '49243F0A0230'
+         %TARGET U$ '47FB50E4008E' /* nsConst */
+        ; // 49243F0A0230
+        <<uses>> "49243F78026D"
+         %UID '49243F78026D'
+         %TARGET U$ '49006BB201CB' /* TLogicOperation */
+        ; // 49243F78026D
+        <<uses>> "492440A200EC"
+         %UID '492440A200EC'
+         %TARGET U$ '468364C70131' /* TnsAttributeTreeStruct */
+        ; // 492440A200EC
+        <<uses>> "492440ED036B"
+         %UID '492440ED036B'
+         %TARGET U$ '492440D20009' /* nsValueMaps */
+        ; // 492440ED036B
+        <<uses>> "4924428D0009"
+         %UID '4924428D0009'
+         %TARGET U$ '4924426901F6' /* StringConstants */
+        ; // 4924428D0009
+        <<uses>> "4AE5902403A8"
+         %UID '4AE5902403A8'
+         %TARGET U$ '4AE58E7C00A4' /* TnsSelectedAttributesIterators */
+        ; // 4AE5902403A8
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE FINAL LINK <<UseCase>> SelectedAttributes
+         %UID '4979BBE202E3'
+         %TARGET U$ '4959145702D3' /* IbsSelectedAttributes */
+         %TOBEINCLUDED
+          U$ '4954FAA00232' /* Search */
+         ; // %TOBEINCLUDED
+        ; // SelectedAttributes
+        PRIVATE ABSTRACT <<impurity_value>> FormDataSourceType
+         %UID '492D86270275'
+         %TARGET U$ '4924352E01C3' /* IdsTreeAttributeSelect */
+         %TOBEINCLUDED
+          U$ '4954FAA00232' /* Search */
+         ; // %TOBEINCLUDED
+        ; // FormDataSourceType
+        PRIVATE <<Attribute>> f_CaptionMap
+         %UID '492439270130'
+         %TARGET U$ '492438C90376' /* InsStringValueMap */
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+        ; // f_CaptionMap
+      ; // %ATTRIBUTES
+     ; // TdsTreeAttributeSelect
+     <<SimpleClass>> TnsSelectedAttributesIterators
+      %UID '4AE58E7C00A4'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4954FAA00232' /* Search */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4AE589BA0016' /* InsSelectedAttributesIterators */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47BC391D0259' /* Tl3SimpleObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4AE589E702F9' /* OrIterator */
+       U$ '4AE58A0603A2' /* AndIterator */
+       U$ '4AE58A1203BE' /* NotIterator */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_OrIterator
+         %UID '4AE58ECD0070'
+         %TARGET U$ '45EEC8A6033C' /* NodeIterator */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // f_OrIterator
+        PRIVATE <<Attribute>> f_AndIterator
+         %UID '4AE58EE202AF'
+         %TARGET U$ '45EEC8A6033C' /* NodeIterator */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // f_AndIterator
+        PRIVATE <<Attribute>> f_NotIterator
+         %UID '4AE58EEC00AC'
+         %TARGET U$ '45EEC8A6033C' /* NodeIterator */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // f_NotIterator
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<ctor>> Create
+         %UID '4AE58EF903D2'
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anOrIterator
+            %UID '4AE58F1C03A9'
+            %TARGET U$ '45EEC8A6033C' /* NodeIterator */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // anOrIterator
+           <<in>> anAndIterator
+            %UID '4AE58F1C03D8'
+            %TARGET U$ '45EEC8A6033C' /* NodeIterator */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // anAndIterator
+           <<in>> aNotIterator
+            %UID '4AE58F1D000F'
+            %TARGET U$ '45EEC8A6033C' /* NodeIterator */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aNotIterator
+         ; // %PARAMETERS
+        ; // Create
+        FINAL <<factory>> Make
+         %UID '4AE58F21020C'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anOrIterator
+            %UID '4AE58F27030B'
+            %TARGET U$ '45EEC8A6033C' /* NodeIterator */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // anOrIterator
+           <<in>> anAndIterator
+            %UID '4AE58F27032A'
+            %TARGET U$ '45EEC8A6033C' /* NodeIterator */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // anAndIterator
+           <<in>> aNotIterator
+            %UID '4AE58F270359'
+            %TARGET U$ '45EEC8A6033C' /* NodeIterator */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aNotIterator
+         ; // %PARAMETERS
+        ; // Make
+      ; // %OPERATIONS
+     ; // TnsSelectedAttributesIterators
+     <<SimpleClass>> TdeSearch
+      %UID '4AE593970016'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4954FAA00232' /* Search */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4922CE700041' /* IdeSearch */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47BC391D0259' /* Tl3SimpleObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4AE58AA10134' /* Tag */
+       U$ '4AE58ABC034A' /* Query */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Tag
+         %UID '4AE593F40146'
+         %TARGET U$ '46780DA40383' /* Il3CString */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // f_Tag
+        PRIVATE <<Attribute>> f_Query
+         %UID '4AE593FE009A'
+         %TARGET U$ '45EEE145027B' /* Query */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // f_Query
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<ctor>> Create
+         %UID '4AE5940C03BE'
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTag
+            %UID '4AE5942B0207'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aTag
+           <<in>> aQuery
+            %UID '4AE5942B0236'
+            %TARGET U$ '45EEE145027B' /* Query */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aQuery
+         ; // %PARAMETERS
+        ; // Create
+        FINAL <<factory>> Make
+         %UID '4AE5943002F8'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTag
+            %UID '4AE59436030E'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aTag
+           <<in>> aQuery
+            %UID '4AE59436033D'
+            %TARGET U$ '45EEE145027B' /* Query */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aQuery
+         ; // %PARAMETERS
+        ; // Make
+        FINAL <<static>> Clone
+         %UID '4AE5AA5F0073'
+         %TARGET U$ '4922CE700041' /* IdeSearch */
+         %TOBEINCLUDED
+          U$ '4954FAA00232' /* Search */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aSource
+            %UID '4AE5AA7703C5'
+            %TARGET U$ '4922CE700041' /* IdeSearch */
+            %TOBEINCLUDED
+             U$ '4954FAA00232' /* Search */
+            ; // %TOBEINCLUDED
+           ; // aSource
+         ; // %PARAMETERS
+        ; // Clone
+      ; // %OPERATIONS
+     ; // TdeSearch
+   ; // %CHILDREN
+  ; // Search
+ ; // %CHILDREN
+; // Search

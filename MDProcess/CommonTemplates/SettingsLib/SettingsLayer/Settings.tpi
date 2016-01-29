@@ -1,0 +1,267 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/SettingsLib/SettingsLayer/Settings.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::SettingsLib::SettingsLayer::Settings
+//
+// Настройки
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: Settings::Class
+? Настройки
+< *::Class,*::Category
+
+= WikiImplClass::Class
+= C++ интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+Y code_settings.gif
+L code_settings
+// Параметры визуализации
+$ C 175,223,32
+$ L 0,0,0
+$ l 0,147,0
+$ F 0,0,0
+$ f 0,0,0
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Трансформаторы стереотипа
+
+// возвращает true если тип на прямую поддерживается ParamManager-ом
+%t _direct_access
+//#UC START# *4929B2E70086for48A27E2101E1*
+c                                                 {}
+r "%1S"="Enum":                                   {false}
+r "%1S"="UMLPrimitive"&"%1N"="boolean":           {false}
+r ""="":                                          {true}
+//#UC END# *4929B2E70086for48A27E2101E1*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+// Проверяем, что во всем множетсве настроек нет дублирующихся имен параметров
+%f _check_duplicate_attr
+//#UC START# *48B692B502E0for48A27E2101E1*
+	%f_set_var(IS_EXIST_DUPLICATE,"false")\
+	<{}{}{%C}%f_add_to_list(CONTROL_LIST,"%f_to_upper("%CN")")>\
+	<{}{"%f_is_empty(CONTROL_LIST)"="false"&"%{IS_EXIST_DUPLICATE}N"="false"}{W}[%f_pop_first_to_var(CONTROL_LIST,EL)[{"%f_exists_in_list(CONTROL_LIST,"%{EL}N")"="true"}%{EL}N%f_set_var(IS_EXIST_DUPLICATE,"true")]]>\
+	%f_clear_list(CONTROL_LIST)
+//#UC END# *48B692B502E0for48A27E2101E1*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for48A27E2101E1*
+c                                           {}
+r {"%S%f_check_duplicate_attr(%S)"!=""}:    {Duplicate Attribute in Setting container %SN: %S%f_check_duplicate_attr(%S)}
+r {<{}{%CC=Attribute}{C}>=0}:               {%SS не может быть пустым}
+//#UC END# *4704C0E30186for48A27E2101E1*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor48A27E2101E1*
+O [{<{}{%t_target(%P)=true}{C}>=0}<{}{%t_nested_scope_def(%P)=true}{r}%PN_>%SN.cpp]
+	[{<{}{%t_target(%P)=true}{C}>=0}\
+	%f_header(%S)
+	%f_std_inc(%S)
+	\#include "shared/Core/Params/Params.h"
+	[\#include %f_dump_include_path(%f_with_gen_id(h,%SW),%S)
+	][
+	%S%f_open_ifdef()]\
+	
+	[%SP[{%t_nested_scope_def(%P)=true}\n]\
+	]<{}{%CC=Attribute}{%C}
+	[{"%C%TN"!="string"}{const std::string}%t_ret(%C%T,"const")] %f_function_scope(%S)get_%f_to_omg(%CN) () {
+	[{"%CI"=""}	if (false == Core::ParamManagerFactory::get ().is_exist ("-%CN")) {
+			throw Core::ParameterIsMissing ("-%CN");
+		}
+	]\
+	[{%S%t_direct_access(%C%T)=true}{%C%f_complex_return()}	%C%f_dump_get_impl()
+	]}
+	
+	void %f_function_scope(%S)set_%f_to_omg(%CN) ([{"%C%TN"!="string"}{const std::string&}%t_arg(%C%T,"in")] value) {
+	[{%S%t_direct_access(%C%T)=true}{%C%f_complex_set()}	%C%f_dump_set_impl()
+	]}
+	
+	const char* %f_function_scope(%S)%f_to_omg(%CN)_param_name () {
+		return "-%CN";
+	}
+	>
+	]\
+	%Sp
+	%f_footer(%S)]
+//#UC END# *47022CB8034Bfor48A27E2101E1*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor48A27E2101E1*
+O [{<{}{%t_target(%P)=true}{C}>=0&%t_nested_scope_def(%P)=false}%SN.h]
+	[{<{}{%t_target(%P)=true}{C}>=0}[{%t_nested_scope_def(%P)=false}\
+	%f_output_constraint(%S)\
+	%f_h_header(%S)
+	%f_std_inc(%S)
+	%f_includes_by_contents(%S)<\#include %f_dump_include_path(%wL,%w)
+	>[
+	%S%f_open_ifdef()]
+	%SP
+	]%f_docs(%S)\
+	#class %SN {
+	[<{}{"%aC"="Dependency"&"%aS"="friend"}{Sp}#friend class %f_type(%a%P); // defined friend
+	>]
+	#// static member methods and data
+	[#public:<{}{"%CC"="Attribute"&"%CV"="PublicAccess"}{Sn}
+	%CX
+	>
+	]\
+	[#protected:<{}{"%CC"="Attribute"&"%CV"="ProtectedAccess"}{Sn}
+	%CX
+	>
+	]\
+	[#private:<{}{"%CC"="Attribute"&"%CV"="PrivateAccess"}{Sn}
+	%CX
+	>
+	]\
+	#}; // class %SN[{%t_nested_scope_def(%P)=false}
+	
+	%Sp[
+	\#include %f_dump_include_path(%f_with_gen_id(i.h,%SL),%S)]
+	%f_h_footer(%S)
+	]]
+//#UC END# *47022C88029Ffor48A27E2101E1*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor48A27E2101E1*
+//#UC END# *47022CCF00EAfor48A27E2101E1*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: Settings::Class::Attribute
+? конкретный параметр доступный через настройки
+// Параметры стереотипа
+v +
+/ - типы видимости
+Y code_settings_param.gif
+L code_settings_param
+
+// Пользовательские свойства
+p in config:b=true ? Свойство определяет должен ли параметр попадать в файл настроек
+p is_required:b=false ? Признак обязательного параметра
+
+// Генераторы
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor48A27E7F0092*
+	%f_docs(%S)\
+	#static [{"%S%TN"!="string"}{const std::string}%t_ret(%S%T,"const")] get_%f_to_omg(%SN) () /* throw (Core::ParameterIsMissing) */;
+	#static void set_%f_to_omg(%SN) ([{"%S%TN"!="string"}{const std::string&}%t_arg(%T,"in")] value);
+	#static const char* %f_to_omg(%SN)_param_name ();
+//#UC END# *47022C88029Ffor48A27E7F0092*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor48A27E7F0092*
+//#UC END# *47022CB8034Bfor48A27E7F0092*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor48A27E7F0092*
+//#UC END# *47022CCF00EAfor48A27E7F0092*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	[{"%S{is_required}"!="%S{!is_required}"}%f_up_prefix(%S) *is_required* = *%S{is_required}* - Признак обязательного параметра
+	][{"%S{in config}"!="%S{!in config}"}%f_up_prefix(%S) *in config* = *%S{in config}* - Свойство определяет должен ли параметр попадать в файл настроек
+	]
+
+// генерирует код возврата для типов на прямую не поддержиыаемых ParamМanаger-ом
+%f _complex_return
+//#UC START# *492B824000C5for48A27E7F0092*
+	[{%TS=Enum}	std::string enum_val = Core::ParamManagerFactory::get ().get_string ("-%SN"[{"%SI"!=""}, "%SI"]);
+		%T<if (enum_val == "%CN") return [%C%P<%NN::>]%CN;
+		>
+		throw Core::ParameterIsMissing ("-%SN");
+	][{%TS=UMLPrimitive&%TN=boolean}[{"%SI"=""}	if (false == Core::ParamManagerFactory::get ().is_exist ("-%SN")) {
+			throw Core::ParameterIsMissing ("-%SN");
+		}
+	]	return Core::ParamManagerFactory::get ().get_ulong ("-%SN"[{"%SI"!=""}, %f_str_replace(%t_init_cpp(%S),\\,\\\\)]) \> 0 ? true : false;
+	]
+//#UC END# *492B824000C5for48A27E7F0092*
+
+// генерирует код установки значения для типов на прямую не поддержиыаемых ParamМanаger-ом
+%f _complex_set
+//#UC START# *492B82430369for48A27E7F0092*
+	[{%TS=Enum}	std::string enum_val;
+		switch (value) {
+	%T<{\n}		case [%C%P<%NN::>]%CN: enum_val = "%CN";
+				break;>
+			default: break;
+		}
+		Core::ParamManagerFactory::get ().set_string("-%SN", enum_val.c_str());
+	][{%TS=UMLPrimitive&%TN=boolean}	Core::ParamManagerFactory::get ().set_ulong("-%SN", value);
+	]
+//#UC END# *492B82430369for48A27E7F0092*
+
+// генерит приведение типа, если оно необходимо
+%f _dump_cast
+//#UC START# *492B81C90201for48A27E7F0092*
+	[{%TN!=long&%TN!=unsigned long&%f_is_string(%T)=false}static_cast\<%t_ret(%T,"const")\>]
+//#UC END# *492B81C90201for48A27E7F0092*
+
+// генерит реализацию метода get для получения значения параметра
+%f _dump_get_impl
+//#UC START# *492B9F400206for48A27E7F0092*
+	%f_set_var(CAST_STR,"%S%f_dump_cast()")\
+	return [{"%{CAST_STR}N"!=""}%{CAST_STR}N (]Core::ParamManagerFactory::get ().get_%t_type_to_param_method(%S,%T) ("-%SN"[{"%SI"!=""}, %f_str_replace(%t_init_cpp(%S),\\,\\\\)])[{"%{CAST_STR}N"!=""})];
+//#UC END# *492B9F400206for48A27E7F0092*
+
+// генерит реализациб метода set ля установки значения параметра
+%f _dump_set_impl
+//#UC START# *492B9F7001FAfor48A27E7F0092*
+	Core::ParamManagerFactory::get ().set_%t_type_to_param_method(%S,%T) ("-%SN",[{"%TN"!="string"&"%TN"!="a-string"}{ value.c_str()} value]);
+//#UC END# *492B9F7001FAfor48A27E7F0092*
+
+// Функция возвращает true, если параметр может попадать в файл настроек, иначе - false
+%f _in_config
+//#UC START# *493F5C8F02AFfor48A27E7F0092*
+	[{"%SI"!="EMPTY_STR"&%S{in config}=true}{false}true]
+//#UC END# *493F5C8F02AFfor48A27E7F0092*
+
+// генерит код для вывода описания параметра в стандартный поток
+%f _print_usage
+//#UC START# *492A93F303C8for48A27E7F0092*
+	%f_set_var(PARAM_NAME,"-%SN: ([{%TS=Enum}{%TN}%TN: %T<{, }%CN>])")\
+	%f_set_var(LEN,"%f_string_length(%{PARAM_NAME}N)")\
+	%f_set_var(ADDITION_LEN,"%f_evaluate(25 - %{LEN}N)")\
+	[{%f_number_cmp("%{ADDITION_LEN}N","0","\>")=0}%f_set_var(CUT_LEN,"%f_evaluate(%{LEN}N - 25)")]\
+	%f_split_to_list(SPLITED,%f_str_split([{%f_number_cmp("%{ADDITION_LEN}N","0","\>")=0}%f_substr_from_end(%{PARAM_NAME}N,%{CUT_LEN}N)][{"%SD"!=""} - %f_str_replace(%f_str_replace(%SD,\\,\\\\),%f_dump_q(%S),%f_dump_escq(%S))],,\\n%f_repeat_str(" ","25"),50),\\n)\
+		std::cout \<\< "[{%f_number_cmp("%{ADDITION_LEN}N","0","\>")=1}{%f_delsubstr_from_end(%{PARAM_NAME}N,%{CUT_LEN}N)}%{PARAM_NAME}N[{"%SD"!=""}%f_repeat_str(" ","%{ADDITION_LEN}N")]][{%f_is_empty(SPLITED)=true&"%SI"=""}\\n";]\
+	%f_set_var(FIRST_FLAG,"false")%f_set_var(SPLIT_SIZE,"%f_size_list(SPLITED)")\
+	<{}{%f_is_empty(SPLITED)=false}{W}[%f_pop_first_to_var(SPLITED,_SPLTD_)[{"%{FIRST_FLAG}N"="false"}{	std::cout \<\< "%{_SPLTD_}N\\n";
+	}%{_SPLTD_}N[{%f_number_cmp("%{SPLIT_SIZE}N","1","\>")=1|"%SD"!=""}\\n";
+	]%f_set_var(FIRST_FLAG,"true")]]>\
+	[{"%SI"!=""}[{%f_number_cmp("%{SPLIT_SIZE}N","1","\>")=1|"%SD"!=""}{= %f_str_replace(%f_str_replace(%SI,\\,\\\\),%f_dump_q(%S),%f_dump_escq(%S))\\n";}\
+	%f_str_split( = %f_str_replace(%f_str_replace(%SI,\\,\\\\),%f_dump_q(%S),%f_dump_escq(%S))\\n%f_dump_q(%S);,	std::cout \<\< %f_dump_q(%S)%f_repeat_str(" ","25"),\\n%f_dump_q(%S);\n,90)]]
+//#UC END# *492A93F303C8for48A27E7F0092*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

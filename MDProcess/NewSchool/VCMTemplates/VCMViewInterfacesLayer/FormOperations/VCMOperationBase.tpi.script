@@ -1,0 +1,70 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewInterfacesLayer/FormOperations/VCMOperationBase.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewInterfacesLayer::FormOperations::VCMOperationBase
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: VCMOperationBase::Class
+implementation @ <<VCMOperationBase>>
+//= VCMOperationPrim::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p ShowInContextMenu:tribool=undefined ? 
+//p ShowInToolbar:tribool=undefined ? 
+//p ImageIndex:s ? 
+//p ContextMenuWeight:s ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{ShowInContextMenu}"!="%S{!ShowInContextMenu}"}%f_up_prefix(%S) *ShowInContextMenu* = *%S{ShowInContextMenu}*
+ ?inherited
+ if ( ( %S get_up ( 'ShowInContextMenu' ) ) %!= ( %S get_up_def ( 'ShowInContextMenu' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *ShowInContextMenu* = *'
+  %S get_up ( 'ShowInContextMenu' ) '*'
+//	][{"%S{ShowInToolbar}"!="%S{!ShowInToolbar}"}%f_up_prefix(%S) *ShowInToolbar* = *%S{ShowInToolbar}*
+ end // if
+ if ( ( %S get_up ( 'ShowInToolbar' ) ) %!= ( %S get_up_def ( 'ShowInToolbar' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *ShowInToolbar* = *'
+  %S get_up ( 'ShowInToolbar' ) '*'
+//	][{"%S{ImageIndex}"!="%S{!ImageIndex}"}%f_up_prefix(%S) *ImageIndex* = *%S{ImageIndex}*
+ end // if
+ if ( ( %S get_up ( 'ImageIndex' ) ) %!= ( %S get_up_def ( 'ImageIndex' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *ImageIndex* = *'
+  %S get_up ( 'ImageIndex' ) '*'
+//	][{"%S{ContextMenuWeight}"!="%S{!ContextMenuWeight}"}%f_up_prefix(%S) *ContextMenuWeight* = *%S{ContextMenuWeight}*
+ end // if
+ if ( ( %S get_up ( 'ContextMenuWeight' ) ) %!= ( %S get_up_def ( 'ContextMenuWeight' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *ContextMenuWeight* = *'
+  %S get_up ( 'ContextMenuWeight' ) '*'
+//	]
+ end // if
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // wiki_up_print
+
+end. // <<VCMOperationBase>>
+

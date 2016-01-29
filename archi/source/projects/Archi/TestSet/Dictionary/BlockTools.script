@@ -1,0 +1,206 @@
+// BlockTools.script
+// Работа с блоками
+USES
+ axiom:Wait
+ axiom:Waited
+ axiom:окно_редактора
+ axiom:cc
+ axiom:Control
+ axiom:Editor
+ axiom:редактор
+ axiom:ComboBox
+ axiom:Mouse
+ axiom:evd
+ Mouse.script	
+ CommonWords.script
+ ArchiSystem.script
+ EVDSchema.script
+;
+
+PROCEDURE "Создать блок из выделенного с меткой"
+	 wait:Yes
+	 TRY
+	  "Обработать сообщения" 
+	  окно_редактора:установить_блок
+	 FINALLY
+	  waited:? ASSERT
+	 END 
+	 "Обработать сообщения" 
+;
+
+PROCEDURE "Выделить и создать блок" INTEGER IN MoveBefore INTEGER IN MoveIn
+ "Выделить блок{(MoveBefore)} {(MoveIn)}"
+ "Создать блок из выделенного"
+;
+
+PROCEDURE "Выделить блок с таблицей" INTEGER IN MoveBefore INTEGER IN MoveIn
+ MoveBefore LOOP cc:Down
+ cc:Home
+ cc:StartSelBlock 
+ MoveIn LOOP cc:Down  
+ cc:End
+ cc:Right
+ cc:End
+ cc:Right
+ cc:End
+ cc:Down 
+ cc:EndSelBlock  
+; 
+
+PROCEDURE "Выделить и создать блок с таблицей" INTEGER IN MoveBefore INTEGER IN MoveIn
+ "Выделить блок с таблицей{(MoveBefore)} {(MoveIn)}"
+ "Создать блок из выделенного"
+;
+
+PROCEDURE "Включить режим отображения блоков"
+ OBJECT VAR l_Editor
+ focused:control:push >>> l_Editor
+ l_Editor pop:Editor:DrawSpecial := true
+ l_Editor pop:Editor:ShowDocumentParts := true
+ "Обработать сообщения"
+;
+
+PROCEDURE "Подвинуть нижнюю границу блока" INTEGER IN aDelta
+ aDelta false focused:control:push pop:editor:BlockResize 
+;
+
+PROCEDURE "Подвинуть нижнюю границу блока с уровнем" INTEGER IN aDelta INTEGER IN aLevel
+	 aDelta false aLevel focused:control:push pop:editor:BlockResizeEX 
+;
+
+PROCEDURE "Установить оглавление быстро" INTEGER IN aNodeID
+  @ ( aNodeID редактор:установить_оглавление ) MODAL NOP
+;
+
+PROCEDURE "Создать блок из одной строки" 
+  cc:Home
+  cc:StartSelBlock 
+  cc:End
+  cc:EndSelBlock  
+  "Создать блок из выделенного"
+;
+
+PROCEDURE "Тип 'Обычный'"	
+	Если ( "Контрол по имени {('cbPosition')}" pop:Control:SetFocus ! ) то
+	 ( 0 focused:control:push pop:ComboBox:SetItemIndex
+	 "Контрол по имени {('OKBtn')}" pop:Control:Click )
+;
+
+PROCEDURE "Тип слева"	
+	Если ( "Контрол по имени {('cbPosition')}" pop:Control:SetFocus ! ) то
+	 ( 1 focused:control:push pop:ComboBox:SetItemIndex
+	 "Контрол по имени {('OKBtn')}" pop:Control:Click )
+;
+
+PROCEDURE "Тип справа"	
+	Если ( "Контрол по имени {('cbPosition')}" pop:Control:SetFocus ! ) то
+	 ( 2 focused:control:push pop:ComboBox:SetItemIndex
+	 "Контрол по имени {('OKBtn')}" pop:Control:Click )
+;
+
+PROCEDURE "Тип слева с ошибкой"	
+	 wait:Ok
+	 TRY
+		Если ( "Контрол по имени {('cbPosition')}" pop:Control:SetFocus ! ) то
+		 ( "Нажать Down" )
+	 FINALLY 
+	  waited:? ASSERT
+	 END
+	"Контрол по имени {('OKBtn')}" pop:Control:Click 
+;
+
+PROCEDURE "Нажать 'ОК' без изменения типа"	
+	"Контрол по имени {('OKBtn')}" pop:Control:Click 
+;
+
+PROCEDURE "Тип с правого на левый с ошибкой"
+	 wait:Ok
+	 TRY
+		Если ( "Контрол по имени {('cbPosition')}" pop:Control:SetFocus ! ) то
+		 ( "Нажать Up" )
+	 FINALLY 
+	  waited:? ASSERT
+	 END
+	"Контрол по имени {('OKBtn')}" pop:Control:Click 
+;
+
+PROCEDURE "Подвинуть верхнюю границу блока с уровнем" INTEGER IN aDelta INTEGER IN aLevel
+	aDelta true aLevel focused:control:push pop:editor:BlockResizeEX 
+;
+
+PROCEDURE "Выделить текущий блок мышью в редакторе" OBJECT IN anEditor
+  INTEGER VAR x
+  INTEGER VAR y
+  anEditor pop:editor:ParaCoordsToScreen >>> y >>> x
+  x 10 - >>> x
+  y 30 + >>> y
+  x y mouse:SetCursorPosition
+  100 SLEEP
+  "Обработать сообщения"
+;
+
+PROCEDURE "Выделить блок, где находится курсор, мышью"
+ "Убедиться, что фокус в редакторе"
+ "Выделить текущий блок мышью в редакторе {( focused:control:push )}"
+ "Двойной клик"
+;
+
+CONST cnPlusDelta 20
+CONST cnYDelta 20
+
+PROCEDURE "Мышь на заголовок" OBJECT IN anEditor
+  INTEGER VAR x
+  INTEGER VAR y
+  anEditor pop:editor:ParaCoordsToScreen >>> y >>> x
+  x cnPlusDelta + >>> x
+  y cnYDelta + >>> y
+  x y mouse:SetCursorPosition
+  100 SLEEP
+  "Обработать сообщения"
+;
+
+PROCEDURE "Двойной щелчок по заголовку"
+	"Убедиться, что фокус в редакторе"
+	"Мышь на заголовок {( focused:control:push )}"
+	"Двойной клик"
+;
+
+PROCEDURE "Мышь на плюс" OBJECT IN anEditor
+  INTEGER VAR x
+  INTEGER VAR y
+  anEditor pop:editor:ParaCoordsToScreen >>> y >>> x
+  y cnYDelta + >>> y
+  x y mouse:SetCursorPosition
+  100 SLEEP
+  "Обработать сообщения"
+;
+
+PROCEDURE "Двойной щелчок по плюсу"		
+	"Убедиться, что фокус в редакторе"
+	"Мышь на плюс {( focused:control:push )}"
+	"Двойной клик"
+;
+
+CONST cnBlockPusDelta 50
+
+PROCEDURE "Мышь на плюс блока" OBJECT IN anEditor
+  INTEGER VAR x
+  INTEGER VAR y
+  anEditor pop:editor:ParaCoordsToScreen >>> y >>> x
+  y cnBlockPusDelta - >>> y
+  x y mouse:SetCursorPosition
+  100 SLEEP
+  "Обработать сообщения"
+;
+
+PROCEDURE "Двойной щелчок по плюсу блока"
+	"Убедиться, что фокус в редакторе"
+	"Мышь на плюс {( focused:control:push )}"
+	"Двойной клик"
+;
+
+PROCEDURE "Установить стиль 'Разворачиваемый текст' на блок"
+		OBJECT VAR l_Editor
+		focused:control:push >>> l_Editor 
+		"Установить стиль на блок {( evd::sa_ExpandedText )} {(l_Editor)}" 		
+;

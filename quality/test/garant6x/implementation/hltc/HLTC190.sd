@@ -1,0 +1,477 @@
+uses common, States, RunPrograms, SettingsWork, Clicks, MenuWork,
+		 DocumentWork, SearchWork, FoldersWork, ListWork, FileWork;
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+//                       HLTC190: Экспорт в файл
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+{
+HLTC190: Экспорт в файл
+HLTC190.1: Проверить, что экспорт доступен, и корректно выполняется для следующих объектов системы:
+HLTC190.1.1: Документ
+
+HLTC190.4.1: Для документа – короткое название документа
+
+HLTC190.2: Проверить, что можно менять формат экспортируемого файла.
+
+HLTC190.3.2: Текстовый документ (Plain text) – должен корректно отображаться в «Блокноте»
+HLTC190.3.3: HTML-страница (HTML) – должен корректно открываться в Internet Explorer, 
+  должны сохраняться ссылки перехода внутри документа, например по оглавлению (сохранение 
+  гиперссылок только для документа)
+HLTC190.3.3.1:  Проверить, что в этом формате сохраняются и работают внутренние ссылки, 
+  т.е можно по ним переходить внутри документа (например переход по ссылке из оглавления),
+  а внешние ссылки отсутствуют и потеряли свое цветовое оформление
+HLTC190.3.4: XML
+}
+function  HLTC190_1_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  editor;
+begin
+try
+  Result := true;
+  if not OpenDocByNumber(8901001) then
+    Raise('Не получилось открыть документ 8901001');
+  editor := GetEditor;
+  Result := CheckSavedFileName(editor, 'Документ с нормальной цепочкой редакций. ACTIVE 21_04_2003*');
+  Result := SaveAndCompareFiles(editor, SAVE_PLAIN_TEXT, 'document.txt') and Result;
+  Result := SaveAndCompareFiles(editor, SAVE_HTML, 'document.htm') and Result;
+  Result := SaveAndCompareFiles(editor, SAVE_RTF, 'document.rtf') and Result;
+  Result := SaveAndCompareFiles(editor, SAVE_XML, 'document.xml') and Result;
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC190.1.1.1: Справка к документу
+}
+function  HLTC190_1_1_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  editor;
+begin
+try
+  Result := true;
+  if not OpenDocByNumber(8901001) then
+    Raise('Не получилось открыть документ 8901001');
+  editor := OpenInDocument('СПРАВКА');
+  if not IsExists(editor) then
+    Raise('Не получилось открыть СПРАВКУ к документу 8901001');
+  Result := SaveAndCompareFiles(editor, SAVE_PLAIN_TEXT, 'document_help.txt') and Result;
+  Result := SaveAndCompareFiles(editor, SAVE_HTML, 'document_help.htm') and Result;
+  Result := SaveAndCompareFiles(editor, SAVE_RTF, 'document_help.rtf') and Result;
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC190.1.2: Список
+}
+function  HLTC190_1_2_Execute(var  current_state: OleVariant): OleVariant;
+var
+  editor;                                      
+  LISTNAME;
+begin
+  LISTNAME := PNAV + '\Ценные бумаги, рынок ценных бумаг\Общие вопросы';
+try
+  Result := true;
+  if not OpenObjectFromFolder(LISTNAME, OpenMenuTab) then
+    Raise('Не получилось открыть список ' + LISTNAME);
+  editor := GetList;
+  Result := CheckSavedFileName(editor, 'Тематика - ' + StringReplace(LISTNAME, '\', '_', 1) + '*');
+  Result := SaveAndCompareFiles(editor, SAVE_PLAIN_TEXT, 'list.txt') and Result;
+  Result := SaveAndCompareFiles(editor, SAVE_HTML, 'list.htm') and Result;
+  Result := SaveAndCompareFiles(editor, SAVE_RTF, 'list.rtf') and Result;
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC190.1.2.1: СПИСОК ССЫЛОК НА ДОКУМЕНТ
+HLTC190.4.2.5: как список корреспондентов
+}
+function  HLTC190_1_2_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOCNAME = 'документ 2002*';
+var
+  editor;
+begin
+try
+  Result := true;
+  if not OpenDocByNumber(8901001) then
+    Raise('Не получилось открыть документ 8901001');
+  editor := OpenInDocument('ССЫЛКИ НА ДОКУМЕНТ');
+  if not IsExists(editor) then
+    Raise('Не получилось открыть ССЫЛКИ НА ДОКУМЕНТ к документу 8901001');
+  Result := CheckSavedFileName(editor, 'Ссылки на документ - Документ с нормальной цепочкой редакций. ACTIVE 21_04_2003*');
+  Result := SaveAndCompareFiles(editor, SAVE_PLAIN_TEXT, 'list_corr.txt') and Result;
+  Result := SaveAndCompareFiles(editor, SAVE_HTML, 'list_corr.htm') and Result;
+  Result := SaveAndCompareFiles(editor, SAVE_RTF, 'list_corr.rtf') and Result;
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC190.1.2.2: СПИСОК ССЫЛОК ИЗ ДОКУМЕНТА
+HLTC190.4.2.6: как список респондентов
+}
+function  HLTC190_1_2_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOCNAME = 'документ 2002*';
+var
+  editor;
+begin
+try
+  Result := true;
+  if not OpenDocByNumber(8901001) then
+    Raise('Не получилось открыть документ 8901001');
+  editor := OpenInDocument('ССЫЛКИ ИЗ ДОКУМЕНТА');
+  if not IsExists(editor) then
+    Raise('Не получилось открыть СПИСОК ССЫЛОК ИЗ ДОКУМЕНТА к документу 8901001');
+  Result := CheckSavedFileName(editor, 'Ссылки из документа - Документ с нормальной цепочкой редакций. ACTIVE 21_04_2003*');
+  Result := SaveAndCompareFiles(editor, SAVE_PLAIN_TEXT, 'list_resp.txt') and Result;
+  Result := SaveAndCompareFiles(editor, SAVE_HTML, 'list_resp.htm') and Result;
+  Result := SaveAndCompareFiles(editor, SAVE_RTF, 'list_resp.rtf') and Result;
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC190.4.2.1: в результате поиска
+}
+function  HLTC190_4_2_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  LIST_ALL = 'Список всех документов';
+  LIST_QUERY = 'По запросу*ТИП - КРОМЕ Акт; Искать в недействующих редакциях - Да*СЛОВА В ТЕКСТЕ - 1234*';
+var
+  editor, cardData;
+begin
+try
+  Result := true;
+  editor := GetListOfAllDocuments;
+  if not IsExists(editor) then
+    Raise('Не получилось открыть ' + LIST_ALL);
+  Result := CheckSavedFileName(editor, LIST_ALL + '*') and Result;
+  //
+  cardData :=
+    [
+    	CARD_PPR, ([([
+    	FD_WORDS_IN_TEXT, ([
+    		'1234']) ]),([
+    	FD_TYPE, ([
+    		'[КРОМЕ]Акт']) ]),([
+    	FD_INOPERATIVE_EDITION, ([
+    		'Да']) ]) ]) 
+    ];
+  if not SearchInPPR(cardData) then
+    Raise('Не получилось произвести поиск ППР');
+  editor := GetList;
+  if not IsExists(editor) then
+    Raise('Не получилось построить список' + LIST_QUERY);
+  Result := CheckSavedFileName(editor, LIST_QUERY + '*') and Result;
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC190.4.2.2: переходом по рубрикатору
+}
+function  HLTC190_4_2_2_Execute(var  current_state: OleVariant): OleVariant;
+const
+  SAVENAME = 'Тематика*Правовой навигатор_Основы государственно-правового устройства_Основы конституционного строя';
+begin
+try
+  if not OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then
+    Raise('Не получилось открыть список ' + LIST_MAIN);
+  Result := CheckSavedFileName(GetList, SAVENAME + '*');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC190.4.2.3: после логических операций (имя после лог. операций не меняется относительно того, какое было до совершения логической операции)
+}
+function  HLTC190_4_2_3_Execute(var  current_state: OleVariant): OleVariant;
+const
+  SAVENAME = 'МойСписок_HLTC190_423';
+begin
+try
+  Result := true;
+  if not OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then
+    Raise('Не получилось открыть список ' + LIST_MAIN);
+  if not SimpleSaveToFolders(SAVENAME) then
+    Raise('Не получилось сохранить список "' + LIST_MAIN + '" в Мои документы под именем "' + SAVENAME + '"');
+  if not ListLogicalOperation('ПЕРЕСЕЧЬ', MY_DOCS_PATH + SAVENAME, nil) then
+    Result := ErrorResult('Не получилось выполнить лог. операцию "ПЕРЕСЕЧЬ"');
+  Result := CheckSavedFileName(GetList, SAVENAME + '*');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  DeleteAllInMyDoc;
+  GoToMainMenu;
+end;
+
+{
+  HLTC190.4.2.4: загружен из папки
+}
+function  HLTC190_4_2_4_Execute(var  current_state: OleVariant): OleVariant;
+const
+  SAVENAME = 'МойСписок_HLTC190_424';
+var
+  editor;
+begin
+try
+  Result := true;
+  if not OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then
+    Raise('Не получилось открыть список ' + LIST_MAIN);
+  if not SimpleSaveToFolders(SAVENAME) then
+    Raise('Не получилось сохранить список "' + LIST_MAIN + '" в Мои документы под именем "' + SAVENAME + '"');
+  if not OpenObjectFromFolder(MY_DOCS_PATH + SAVENAME) then
+    Raise('Не получилось открыть список "' + SAVENAME + '"');
+  editor := GetList;
+  Result := CheckSavedFileName(editor, SAVENAME + '*');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  DeleteAllInMyDoc;
+  GoToMainMenu;
+end;
+
+{
+HLTC190.6: Проверить, что система запоминает путь последнего сохранения:
+  HLTC190.6.1: Провести сохранение в папку, при следующем сохранении система должна предложить
+    сохранить в эту папку.
+  HLTC190.6.2: Проверить, что запоминает вне зависимости от типа сохраняемого объекта.
+    Т.е., если сначала сохранили документ в папку «А», а список в папку «B», то  при
+    следующем сохранении и документ и список предложат сохранить в папку «B».
+}
+function  HLTC190_6_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOCNAME = 'path_chk';
+var
+  editor, pathTofile;
+begin
+try
+  if not OpenDocByNumber(8901001) then
+    Raise('Не получилось открыть документ 8901001');
+  editor := GetEditor;
+  pathTofile := 'C:\PROGRA~1\' + DOCNAME + SAVE_PLAIN_TEXT;
+
+  if not SaveDocToFile(editor, pathTofile, SAVE_PLAIN_TEXT) then
+    Raise('Не получилось сохранить файл ' + pathTofile);
+  if not Utilities.DeleteFile(pathTofile) then
+    Raise('Не получилось удалить файл ' + pathTofile);
+  if not SaveDocToFile(editor, DOCNAME, SAVE_PLAIN_TEXT) then
+    Raise('Не получилось сохранить файл ' + pathTofile);
+  Result := Utilities.FileExists(pathTofile);
+  if not Result then
+    Raise('Не найден файл ' + pathTofile + ' , возможно не сохраняется последний использовавшийся путь');
+
+  if not Utilities.DeleteFile(pathTofile) then
+    Raise('Не получилось удалить файл ' + pathTofile);
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC190.5: Проверить, сохранение в файл при наличии выделенного фрагмента:
+HLTC190.5.1: В диалоге должна быть доступна соответствующая опция:
+  HLTC190.5.1.1: Если она выбрана, то в файл экспортируется только выделенный фрагмент
+  HLTC190.5.1.2: Если нет, то экспортится весь объект
+  HLTC190.5.1.3: Эта опция должна быть выставлена автоматически.
+HLTC190.5.3: В документе  
+  HLTC190.5.3.1: Проверить, когда выделен один фрагмент
+  HLTC190.5.3.3: Выделен весь документ
+HLTC190.5.2: Проверить, что если нет выделенных элементов, то опция недоступна.
+}
+function  HLTC190_5_1_Execute(var  current_state: OleVariant): OleVariant;
+begin
+try
+  Result := true;
+  if not OpenDocByNumber(8901001) then
+    Raise('Не получилось открыть документ 8901001');
+  if CopyToClipboard(GetEditor,'ALL') = '' then    
+    Result := ErrorResult('Не получилось выделить весь текст в документе 8901001');
+  Result := SaveAndCompareFiles(GetEditor, SAVE_PLAIN_TEXT, 'document.txt', false, false);
+
+  if CopyToClipboard(GetEditor,'ALL') = '' then
+    Result := ErrorResult('Не получилось выделить весь текст в документе 8901001');
+  Result := SaveAndCompareFiles(GetEditor, SAVE_PLAIN_TEXT, 'document.txt') and Result;
+  if CopyToClipboard(GetEditor,'ПЕРВАЯ СТРОКА В ДОКУМЕНТЕ') = '' then
+    Result := ErrorResult('Не получилось выделить ПЕРВУЮ строку в документе 8901001');
+  Result := SaveAndCompareFiles(GetEditor, SAVE_PLAIN_TEXT, 'document_1_string.txt') and Result;
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC190.7: Проверить, что в момент выбора каталога и имени доступны все операции,
+  стандартные для диалога сохранения Windows:
+  HLTC190.7.1: Создание католога
+  HLTC190.7.3: Удаление каталога
+}
+function  HLTC190_7_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DRV_NAME = 'c:\';
+  FOLDER_NAME = 'X_TestFolder_X';
+  FULL_NAME = DRV_NAME + FOLDER_NAME;
+var
+  p, w;
+begin
+try
+  Result := true;
+  if not OpenDocByNumber(8901001) then
+    Raise('Не получилось открыть документ 8901001');
+  if not ClickByMainMenuItem('Файл\Сохранить в файл*') then
+    Raise('Не получилось открыть окно сохранения документа 8901001');
+  p := GetF1ShellProcess;
+  w := GetFromShell('ДИАЛОГ "СОХРАНИТЬ КАК"');
+  if not IsExists(GetFromShell('ДИАЛОГ "СОХРАНИТЬ КАК"')) then
+    Raise('Не найден ДИАЛОГ "СОХРАНИТЬ КАК"');
+  GetFromStdSaveDialog('КОМБОБОКС "ИМЯ ФАЙЛА"').SetFocus;
+  Sys.Keys(DRV_NAME + '[Enter]');
+  GetFromStdSaveDialog('КНОПКА НА ТУЛБАРЕ "СОЗДАТЬ НОВУЮ ПАПКУ"').ClickItem(40962, false);
+  Sys.Keys(FOLDER_NAME + '[Enter]');
+
+  if not Utilities.DirectoryExists(FULL_NAME) then
+    Result := ErrorResult('Созданная папка ' + FULL_NAME + ' не найдена');
+  Delay(10000);
+  Sys.Keys('[Del]');
+  Delay(10000);  
+  Sys.Keys('[Enter]');  
+  Delay(5000);
+  if Utilities.DirectoryExists(FULL_NAME) then
+  begin
+    Result := ErrorResult('Папка ' + FULL_NAME + ' не удалилась');
+    Utilities.RemoveDir(FULL_NAME);
+  end;
+  w.Close;
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+HLTC190.8: Проверить сохранение картинки в файл. В тестовой базе открыть документ с 
+  внутренним номером 3822606. Перейти к любой картинке (по оглавлению), перейти в режим
+  просмотра картинки (кликнуть на рисунок). То же сделать с картинкой, открываемой по
+  ссылке «ссылка на картинку» из документа с внутренним номером 9001 (это тоже в тестовой базе).
+  HLTC190.8.1: Проверить сохранение картинки в файл в формате bmp. В контекстном меню выбрать пункт «Сохранить в файл», сохранить картинку в формате bmp
+  HLTC190.8.2: Проверить сохранение картинки в файл в формате JPEG . В контекстном меню выбрать пункт «Сохранить в файл», сохранить картинку в формате JPEG
+  HLTC190.8.3: Проверить сохранение картинки в файл в формате GIF . В контекстном меню выбрать пункт «Сохранить в файл», сохранить картинку в формате GIF
+}
+function  HLTC190_8_Execute(var  current_state: OleVariant): OleVariant;
+const
+  PICNAME = 'Чертеж 1*';
+var
+  editor;
+begin
+try
+  if not OpenDocByNumber(2001) then
+    Raise('Не получилось открыть документ 2001');
+  if not OpenObjectFromFolder(PICNAME, GetFromNavigator('ДЕРЕВО "ВСТРОЕННЫЕ ОБЪЕКТЫ" СО ВКЛАДКИ НАВИГАТОРА "СТРУКТУРА ДОКУМЕНТА"')) then
+    Raise('Не получилось перейти к рисунку ' + PICNAME);
+  if not OpenAndClickByPopUpMenuItem(GetEditor, 'Открыть в текущ*', true, 'ClickByMouse:=true') then
+    Raise('Не получилось открыть рисунок в окне просмотра "' + PICNAME + '" из 2001 документа');
+  editor := GetFromMainWindow('ГРАФИЧЕСКИЙ ОБЪЕКТ');
+  Result := SaveAndCompareFiles(editor, SAVE_BMP, 'image2001.bmp', true);
+  Result := SaveAndCompareFiles(editor, SAVE_GIF, 'image2001.gif', true) and Result;
+  Result := SaveAndCompareFiles(editor, SAVE_JPG, 'image2001.jpg', true) and Result;
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC190.9.1: Открыть документ 3822606 и экспортировать его в Word. Проверить, что картинки проэкспортировались.
+  HLTC190.9.2: Открыть документ 3822606 и сохранить его в HTML. Проверить, что картинки сохранились.
+}
+function  HLTC190_9_1_Execute(var  current_state: OleVariant): OleVariant;
+const
+  PIC_NAME = 'pict17-3922606.png';
+var
+  editor;
+begin
+try
+  Result := true;
+  if not OpenDocByNumber(3822606) then
+    Raise('Не получилось открыть документ 3822606');
+  editor := GetEditor;
+  Result := CheckSavedFileName(editor, 'Межгосударственный стандарт ГОСТ 30674-99*');
+  Result := SaveAndCompareFiles(editor, SAVE_HTML, 'document3822606.htm') and Result;
+  Result := SaveAndCompareFiles(editor, SAVE_RTF,  'document3822606.rtf') and Result;
+  if not FileExists(IncludeTrailingBackslash(GetTempDirectory) + PIC_NAME) then
+    Result := ErrorResult('Файл с картинкой "' + PIC_NAME + '" не найден при экспорте документа в html');
+except
+  Result := False;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+procedure RunTests190;
+var
+  p, w;
+  s;
+
+begin
+//  s := '<pre>&nbsp;</pre><p>ссылка на блок 2001.10</p><pre>&nbsp;</pre><p class="TxtComment" id="40871280">версионный комментарий. style V. см текст блока 110 <a href="#110">в предыдущей редакции</a> и <a href="#110">в самой старой редакции</a></p><pre>&nbsp;</pre><p id="110">Начало блока 110. </p><pre>&nbsp;</pre><p>Текущий Текст блока 110</p><pre>&nbsp;</pre>';
+//  Log.Message(ReplaceAllSubStr(s, 'id="', '">'));
+
+//  HLTC190_1_1_Execute(p);
+//  HLTC190_1_1_1_Execute(p);
+//  HLTC190_1_1_3_Execute(p);
+//  HLTC190_1_2_Execute(p);
+//  HLTC190_1_2_1_Execute(p);
+//  HLTC190_1_2_2_Execute(p);
+//  HLTC190_4_2_1_Execute(p);
+//  HLTC190_4_2_2_Execute(p);
+//  HLTC190_4_2_3_Execute(p);
+//  HLTC190_4_2_4_Execute(p);
+//  HLTC190_6_Execute(p);
+//  HLTC190_5_1_Execute(p);
+//  HLTC190_7_1_Execute(p);
+//  HLTC190_8_Execute(p);
+//  HLTC190_9_1_Execute(p);
+///////////////////////////////////////////////////
+  HLTC190_8_Execute(p);
+
+
+
+
+  
+
+
+end;

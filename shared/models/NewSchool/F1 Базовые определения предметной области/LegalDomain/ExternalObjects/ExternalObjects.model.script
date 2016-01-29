@@ -1,0 +1,314 @@
+<<Library>> ExternalObjects
+ %UID '4F4B8F830023'
+ %DEPENDS
+  U$ '4677E18600C2' /* dd */
+  U$ '4677FBA70343' /* l3Interfaces */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '47E9EEC60260' /* Model */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4677E18600C2' /* dd */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '47E9EEC60260' /* Model */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Unit>> Implementation
+   %UID '4F4B8FA60272'
+   %DEPENDS
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '46A0E6C5023A' /* ActiveX */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47EA968D0155' /* Printing */
+    U$ '47ECAAF901F8' /* bsInterfaces */
+    U$ '48F4BA770180' /* Writers */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4677E18600C2' /* dd */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4797632D0273' /* Everest */
+    U$ '47E9EEC60260' /* Model */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+    U$ '4F4B8F830023' /* ExternalObjects */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> nsExternalObjectPrim
+      %UID '47F9C7C9010E'
+      %SUMMARY 'Утилитный функции для сохранения в файлы.' ;
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %LINKS
+        <<uses>> "4B9E54C80120"
+         %UID '4B9E54C80120'
+         %TARGET U$ '4B9E545B0118' /* ddHTMLWriter */
+        ; // 4B9E54C80120
+        <<uses>> "512CD722038F"
+         %UID '512CD722038F'
+         %TARGET U$ '512CD70F03C7' /* nsExternalObjectModelPart */
+        ; // 512CD722038F
+        <<uses>> "52D66A08006D"
+         %UID '52D66A08006D'
+         %TARGET U$ '52D669BA02CC' /* TnsExternalObject */
+        ; // 52D66A08006D
+        <<uses>> "53F6EC17036C"
+         %UID '53F6EC17036C'
+         %TARGET U$ '53F6EC0200BF' /* nsBrowserInfo */
+        ; // 53F6EC17036C
+        <<uses>> "5405BBE00098"
+         %UID '5405BBE00098'
+         %TARGET U$ '53FEE940022B' /* TevPDFWriter */
+        ; // 5405BBE00098
+        <<uses>> "55A38810021F"
+         %UID '55A38810021F'
+         %TARGET U$ '55A387E502D7' /* TnsDocumentStreamList */
+        ; // 55A38810021F
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<method>> nsDoShellExecute
+         %UID '4ABC7EA00088'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID '854D8E03AE8D'
+            %SUMMARY 'Сигнатура метода nsDoShellExecute' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // nsDoShellExecute
+        FINAL <<method>> nsExecuteExternalLink
+         %UID '4ACF0EAE02C3'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID '123483E41495'
+            %SUMMARY 'Сигнатура метода nsExecuteExternalLink' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // nsExecuteExternalLink
+        FINAL <<method>> nsGetFileFormatExt
+         %UID '4AE1B32601AE'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID '4152F3F38114'
+            %SUMMARY 'Сигнатура метода nsGetFileFormatExt' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // nsGetFileFormatExt
+        FINAL <<method>> nsMakeTemporaryFileName
+         %UID '4C46CB7201BB'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID '00A395337CE3'
+            %SUMMARY 'Сигнатура метода nsMakeTemporaryFileName' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // nsMakeTemporaryFileName
+        FINAL <<method>> nsSendAttachedFile
+         %UID '4C46CCDC01F6'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID '9CD3E7B29B88'
+            %SUMMARY 'Сигнатура метода nsSendAttachedFile' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // nsSendAttachedFile
+        FINAL <<method>> nsPrepareFileName
+         %UID '4C5305BB0005'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID 'E8C4D67A09E7'
+            %SUMMARY 'Сигнатура метода nsPrepareFileName' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // nsPrepareFileName
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<SimpleClass>> TnsExternalObjectStream
+         %UID '4988521002C3'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TnsExternalObjectStream
+        <<Exception>> EDefaultMailCLientAbsent
+         %UID '4C46CD0C0178'
+        ; // EDefaultMailCLientAbsent
+        <<SimpleClass>> TnsExternalObjectPrim
+         %UID '52D669E7006C'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TnsExternalObjectPrim
+      ; // %CHILDREN
+     ; // nsExternalObjectPrim
+     FINAL <<UtilityPack>> nsExternalObjectModelPart
+      %UID '512CD70F03C7'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<Struct>> TnsGetGenOutputStruct
+         %UID '512CD73E01E6'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           FINAL <<Attribute>> rStream
+            %UID '512CD7B603E0'
+            %TARGET U$ '46A5AFF103CA' /* IStream */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // rStream
+           FINAL <<Attribute>> rName
+            %UID '512CD7BE00D3'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // rName
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           FINAL <<Constructor>> Create$1$512CD7E60330
+            %UID '512CD7E60330'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt$512CD7F10134
+               %UID '512CD7F10134'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aStream
+                  %UID '512CD7F9010C'
+                  %TARGET U$ '46A5AFF103CA' /* IStream */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aStream
+               ; // %PARAMETERS
+              ; // DoIt$512CD7F10134
+            ; // %OPERATIONS
+           ; // Create$1$512CD7E60330
+           FINAL <<Constructor>> Create$2$512CD80201BC
+            %UID '512CD80201BC'
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt$512CD80D0216
+               %UID '512CD80D0216'
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aName
+                  %UID '512CD81803D7'
+                  %TARGET U$ '46780DA40383' /* Il3CString */
+                  %TOBEINCLUDED
+                   U$ '4E2F0E1B03BB' /* L3$Domain */
+                  ; // %TOBEINCLUDED
+                 ; // aName
+               ; // %PARAMETERS
+              ; // DoIt$512CD80D0216
+            ; // %OPERATIONS
+           ; // Create$2$512CD80201BC
+         ; // %OPERATIONS
+        ; // TnsGetGenOutputStruct
+      ; // %CHILDREN
+     ; // nsExternalObjectModelPart
+     <<SimpleClass>> TnsExternalObject
+      %UID '52D669BA02CC'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+       %upv "singleton" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4F4B8F830023' /* ExternalObjects */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '52D669E7006C' /* TnsExternalObjectPrim */
+      ; // %INHERITS
+      %OPERATIONS
+        SUMMONED FINAL <<static>> Exists
+         %UID '075140AD19DD'
+         %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Exists
+      ; // %OPERATIONS
+     ; // TnsExternalObject
+     FINAL <<UtilityPack>> nsBrowserInfo
+      %UID '53F6EC0200BF'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+     ; // nsBrowserInfo
+     <<SimpleClass>> TnsDocumentStreamList
+      %UID '55A387E502D7'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '47E9EEC60260' /* Model */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '47B57D830369' /* l3InterfaceRefList */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4A54DD4E036F' /* Tl3ProtoDataContainer */
+      ; // %INHERITS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> ItemType
+         %UID '55A388000158'
+         %TARGET U$ '495275E40046' /* IbsDocumentStreamWrapper */
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+        ; // ItemType
+      ; // %ATTRIBUTES
+     ; // TnsDocumentStreamList
+   ; // %CHILDREN
+  ; // Implementation
+ ; // %CHILDREN
+; // ExternalObjects

@@ -1,0 +1,354 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "Config"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"GlobalLocally"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"finished"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"is namespace"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"16659593803")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/ConfluenceCore/Config|4B8F7AF00328
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki"))
+    quid       	"4B8F7AF00328"
+    documentation 	"äîïîëíèòåëüíûå êëàññû ïî êîíôèãóðèðîâàíèÿ èíñòàíñà Ê"
+    stereotype 	"Unit"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4B8F7B0B0052"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.config"
+	    quidu      	"4B8F77EB0180"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "GarFlushingSpringSessionInViewFilterForHibernate"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/Config/GarFlushingSpringSessionInViewFilterForHibernate.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need assign op"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need copy ctor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Refcount"
+		    value      	"none")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"debug log"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"finished"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"local supervisor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need dctor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need objcounter"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"no hands"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"non virtual base"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"singleton"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B8F7B16001D_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4B8F7B16001D_CUSTOM_IMPORT*¤¤import java.io.IOException;¤¤import javax.servlet.FilterChain;¤import javax.servlet.ServletException;¤import javax.servlet.http.HttpServletRequest;¤import javax.servlet.http.HttpServletResponse;¤¤import ru.garant.shared.ConfluenceCore.ActionSupport.ActionContextThreadLocalFactory;¤//#UC END# *4B8F7B16001D_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B8F7B16001D_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4B8F7B16001D_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4B8F7B16001D_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4B8F7B16001D_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4B8F7B16001D_CUSTOM_METHODS_AND_DATA*¤	¤	@Override¤	protected void doFilterInternal (HttpServletRequest request, HttpServletResponse response,¤			FilterChain filterChain) throws ServletException, IOException {¤		// clear thread local variable to remove previous request's optimizations¤		try {¤			ActionContextThreadLocalFactory.Factory.get().getContext().put("ACTION_TO_OPTIMIZE", null);¤		} catch (ru.garant.shared.Core.Root.NoActiveFactory e) {¤			Logs.LOG_W("GarFlushingSpringSessionInViewFilterForHibernate::doFilterInternal: " + e.getMessage());¤		}¤		super.doFilterInternal(request, response, filterChain);¤	}¤	¤	//#UC END# *4B8F7B16001D_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16659635911"))
+	    quid       	"4B8F7B16001D"
+	    documentation 	"íàø servlet filter äëÿ îòêðûòèÿ hibernate ñåññèè, íóæåí äëÿ âíåäðåíèÿ äîïîëíèòåëüíûõ îïòèìèçàöèé"
+	    stereotype 	"SimpleClass"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4B8F7B4603D0"
+		    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.config::FlushingSpringSessionInViewFilterForHibernate"
+		    quidu      	"4B8F781E0237"))
+	    language   	"MDA Generator")
+	(object Class "GarPostProcessorFilter"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"1331453174718765")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/Config/GarPostProcessorFilter.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4F5C5CF602CD_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4F5C5CF602CD_CUSTOM_IMPORT*¤import java.io.IOException;¤¤import javax.servlet.FilterChain;¤import javax.servlet.ServletException;¤import javax.servlet.http.HttpServletRequest;¤import javax.servlet.http.HttpServletResponse;¤¤import ru.garant.shared.ConfluenceCore.ActionSupport.ActionContextThreadLocalFactory;¤import ru.garant.shared.ConfluenceCore.ActionSupportImpl.DefaultPostProcessor;¤import ru.garant.shared.ConfluenceCore.ActionSupportImpl.GarPostProcessorInterceptor;¤//#UC END# *4F5C5CF602CD_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4F5C5CF602CD_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4F5C5CF602CD_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4F5C5CF602CD_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4F5C5CF602CD_CUSTOM_METHODS_AND_DATA*"
+		    value      	
+|//#UC START# *4F5C5CF602CD_CUSTOM_METHODS_AND_DATA*¤	public static String getKeyToAvoidClearWhenDoubleViewpageActionInCreateNews () {¤		return String.format("viewpage.%d", Thread.currentThread().getId());¤	}¤¤	@Override¤	protected void doFilterInternal(HttpServletRequest request,¤			HttpServletResponse response, FilterChain filterChain)¤			throws ServletException, IOException {¤		super.doFilterInternal(request, response, filterChain);¤		try {¤			String keyToAvoidClearWhenDoubleViewpageActionInCreeteNews = getKeyToAvoidClearWhenDoubleViewpageActionInCreateNews ();¤			Integer stackCount = (Integer)ActionContextThreadLocalFactory.Factory.get().getContext().get(keyToAvoidClearWhenDoubleViewpageActionInCreeteNews);¤			if (stackCount != null && stackCount > 1) {¤				//do nothing¤			} else {¤				Logs.LOG_W("GarPostProcessorFilter.doFilterInternal - DefaultPostProcessor.Factory.get().onPostCommitEvent()");¤				DefaultPostProcessor.Factory.get().onPostCommitEvent();¤			}¤		} catch (Throwable e) {¤			Logs.LOG_E("GarPostProcessorFilter::doFilterInternal - " + e);¤		}¤		// TODO Auto-generated method stub¤	}¤	//#UC END# *4F5C5CF602CD_CUSTOM_METHODS_AND_DATA*
+		    ))
+	    quid       	"4F5C5CF602CD"
+	    documentation 	"GarPostProcessorInterceptor äëÿ DWR"
+	    stereotype 	"SimpleClass"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"1331453479528200"))
+		    quid       	"4F5C5E270210"
+		    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.config::FlushingSpringSessionInViewFilterForHibernate"
+		    quidu      	"4B8F781E0237"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	"true"))
+	    quid       	"4B8F7B0E0062"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::external::ConfluenceSupport::com.atlassian.config::FlushingSpringSessionInViewFilterForHibernate" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(951, 249)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(455, 221)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	992
+			justify    	0
+			label      	"• FlushingSpringSessionInViewFilterForHibernate")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(455, 171)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	992
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"4B8F781E0237"
+		    width      	1010
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::Config::GarFlushingSpringSessionInViewFilterForHibernate" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1032, 729)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(377, 699)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1310
+			justify    	0
+			label      	"• GarFlushingSpringSessionInViewFilterForHibernate")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(377, 649)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1310
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4B8F7B16001D"
+		    width      	1328
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @3
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4B8F7B4603D0"
+		    client     	@2
+		    supplier   	@1
+		    vertices   	(list Points
+			(1015, 636)
+			(966, 339))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::Config::GarPostProcessorFilter" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2178, 732)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(1949, 702)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	458
+			justify    	0
+			label      	"GarPostProcessorFilter")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(1949, 652)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	458
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4F5C5CF602CD"
+		    width      	476
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @5
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4F5C5E270210"
+		    client     	@4
+		    supplier   	@1
+		    vertices   	(list Points
+			(1943, 639)
+			(1180, 339))
+		    line_style 	0)))))

@@ -1,0 +1,1672 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Виды данных"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных|49A53EB300F1
+	    )
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki"))
+    quid       	"49A53EB300F1"
+    documentation 	"Классификация видов даных, с точкти зрения алгоритмов размещения объектов. Используется для того, что бы формально убедиться, что все они оптимальным образом поддержаны возможностями Ядра."
+    stereotype 	"Problems"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "Тип последовательности ключей"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных/Тип последовательности ключей|49A53B930191
+		    )
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"49A53B930191"
+	    documentation 	"Класифицирует данные по типам последоватеольности значений их ключей. Т.е. образовыват ли все множество ключей какую либо форму или нет (например последовательные ключи, или ключи сгруппированные по блокам и т.д.)"
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator"
+	    nestedClasses 	(list nestedClasses
+		(object Class "Случайные ключи"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных/Тип последовательности ключей/Случайные ключи|49A532F601E0
+			    )
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"49A532F601E0"
+		    documentation 	"Множество ключей является случайным (или, что в данном случае тоже самое, не поддайтся ни какой определенной нами классификации)"
+		    stereotype 	"UserNeeds")
+		(object Class "Последовательные ключи"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных/Тип последовательности ключей/Последовательные ключи|49A53303035B
+			    )
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"49A53303035B"
+		    documentation 	
+|Все множество объектов имеет строго последовательные ключи (в любом дапазоне), например 1,2,3...n.
+|В некоторых случаях допускается появление пропусков (например при удалении ранее созданных объектов), однако таких пропусков должно быть заведомо о-малое от общего кол-ва объектов, так что бы ими можно было пренебречь.
+		    
+		    stereotype 	"UserNeeds")
+		(object Class "Частично последовательные ключи"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных/Тип последовательности ключей/Частично последовательные ключи|49A534520111
+			    )
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"49A534520111"
+		    documentation 	"Все множество ключе созданнеых объектов может быть разбито на n групп, так что в каждой группе глючи можно считать последовательными. Например: oit1,oit2...oitN...uo1,uo2...uoM..."
+		    stereotype 	"UserNeeds")))
+	(object Class "Размер ключей"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных/Размер ключей|49A53BD603AE
+		    )
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"49A53BD603AE"
+	    documentation 	"Классифицирует данные по размеру ключей"
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator"
+	    nestedClasses 	(list nestedClasses
+		(object Class "Ключи произвольной длинны"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных/Размер ключей/Ключи произвольной длинны|49A53328031B
+			    )
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"49A53328031B"
+		    documentation 	"Ключи с не фиксированным размером или размером более 64 бит."
+		    stereotype 	"UserNeeds")
+		(object Class "Короткие ключи"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных/Размер ключей/Короткие ключи|49A5342500CC
+			    )
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"49A5342500CC"
+		    documentation 	"Ключи размером не более 32 бит"
+		    stereotype 	"UserNeeds")
+		(object Class "Длинные ключи"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных/Размер ключей/Длинные ключи|49A534C303AB
+			    )
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"49A534C303AB"
+		    documentation 	"Ключи размером от 32 до 64 бит."
+		    stereotype 	"UserNeeds")))
+	(object Class "Размер объектов"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных/Размер объектов|49A53D4801BC
+		    )
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"49A53D4801BC"
+	    documentation 	"Классифицирует данные по ожидаемому размеру самих объектов"
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator"
+	    nestedClasses 	(list nestedClasses
+		(object Class "Маленькие объекты"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных/Размер объектов/Маленькие объекты|49A533AD018D
+			    )
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"49A533AD018D"
+		    documentation 	"Максимальный размер объекта не превышает 32 байт"
+		    stereotype 	"UserNeeds")
+		(object Class "Большие объекты"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных/Размер объектов/Большие объекты|49A533B703DE
+			    )
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"49A533B703DE"
+		    documentation 	"Максимальный размер объекта более 32 байт"
+		    stereotype 	"UserNeeds")))
+	(object Class "Колличество объектов"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных/Колличество объектов|49A53D550292
+		    )
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"49A53D550292"
+	    documentation 	"Классифицирует данные по ожидаемому размеру множества объектов (т.е. кол-ва экземпляров одного класса или рода в базе)"
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator"
+	    nestedClasses 	(list nestedClasses
+		(object Class "Сверх большие коллекции объектов"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных/Колличество объектов/Сверх большие коллекции объектов|49A534690175
+			    )
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"49A534690175"
+		    documentation 	"общее колво обектов класса\\рода порядка 2 в 32 или более"
+		    stereotype 	"UserNeeds")
+		(object Class "Маленькие коллекции объектов"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных/Колличество объектов/Маленькие коллекции объектов|49A5347E02B8
+			    )
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"49A5347E02B8"
+		    documentation 	"общее колво обектов класса\\рода порядка 2 в 16"
+		    stereotype 	"UserNeeds")
+		(object Class "Большие коллекции объектов"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных/Колличество объектов/Большие коллекции объектов|49A955A2038F
+			    )
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"49A955A2038F"
+		    documentation 	"общее колво обектов класса\\рода более порядка 2 в 16 (но до 2 в 32)"
+		    stereotype 	"UserNeeds")))
+	(object Class "Изменяемость множества объектов"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных/Изменяемость множества объектов|49A53D6E00B3
+		    )
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"49A53D6E00B3"
+	    documentation 	"Классифицирует дапнные по сценариям их создания, те. по виду изменяемости всего множества ключей. Например, статическое множество данных или динамически изменяющееся."
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator"
+	    nestedClasses 	(list nestedClasses
+		(object Class "Статическое множество объектов"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных/Изменяемость множества объектов/Статическое множество объектов|49A533370038
+			    )
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"49A533370038"
+		    documentation 	"Множество объектов константно (например БД на CD\\DVD). Важно подчеркнуть что речь идет тименно о множестве объектов а не о самих данных объектов. Т.е. при константном множестве сами данные не обязаны быть константными и могут менться. "
+		    stereotype 	"UserNeeds")
+		(object Class "Слабо динамическое множество объектов"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных/Изменяемость множества объектов/Слабо динамическое множество объектов|49A5335A0067
+			    )
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"49A5335A0067"
+		    documentation 	"Множетсо объектов может изменться, но масштаб изменений много меньше общего первоначального их колличества."
+		    stereotype 	"UserNeeds")
+		(object Class "Динамическое множество объектов"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных/Изменяемость множества объектов/Динамическое множество объектов|49A5337E024F
+			    )
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"49A5337E024F"
+		    documentation 	"Множестьво объектов создается в динамике, и постоянно подвержано изменениям, характер которых мы не можем предсказать заранее."
+		    stereotype 	"UserNeeds")))
+	(object Class "Структура объекта"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных/Структура объекта|49A5545E00EE
+		    )
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"49A5545E00EE"
+	    documentation 	"Классифицирует данный по типам структуры самих объектов, т.е по структуре персистентных данных, например фиксированного они размера или нет."
+	    stereotype 	"UserNeeds"
+	    language   	"MDA Generator"
+	    nestedClasses 	(list nestedClasses
+		(object Class "Объекты переменной длинны"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных/Структура объекта/Объекты переменной длинны|49A553E6007E
+			    )
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"49A553E6007E"
+		    documentation 	"Объект содержит поля переменной длинны (например строки или коллекции)"
+		    stereotype 	"UserNeeds")
+		(object Class "Разряженные объекты"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных/Структура объекта/Разряженные объекты|49A5546D03CE
+			    )
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"49A5546D03CE"
+		    documentation 	"Объект содержит данный поддающиеся хорошей упаковке (например тексты)"
+		    stereotype 	"UserNeeds")
+		(object Class "Объекты фиксированной длинны"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Ядро/Виды данных/Структура объекта/Объекты фиксированной длинны|49A5548400E3
+			    )
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"49A5548400E3"
+		    documentation 	"Все данные объекта имеют фиксированный размер"
+		    stereotype 	"UserNeeds"))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"49A544030370"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Storage::Ядро::Виды данных::Тип последовательности ключей" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(426, 141)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(106, 122)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	640
+			justify    	0
+			label      	"Тип последовательности ключей")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(106, 78)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	640
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	7885055
+		    fill_color 	12824565
+		    quidu      	"49A53B930191"
+		    width      	658
+		    height     	148
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Ядро::Виды данных::Размер ключей" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(252, 501)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(91, 482)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	322
+			justify    	0
+			label      	"Размер ключей")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(91, 438)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	322
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	7885055
+		    fill_color 	12824565
+		    quidu      	"49A53BD603AE"
+		    width      	340
+		    height     	148
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Ядро::Виды данных::Размер объектов" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(291, 1038)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(107, 1019)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	368
+			justify    	0
+			label      	"Размер объектов")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(107, 975)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	368
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	7885055
+		    fill_color 	12824565
+		    quidu      	"49A53D4801BC"
+		    width      	386
+		    height     	148
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Ядро::Виды данных::Колличество объектов" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(309, 684)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(90, 665)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	438
+			justify    	0
+			label      	"Колличество объектов")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(90, 621)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	438
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	7885055
+		    fill_color 	12824565
+		    quidu      	"49A53D550292"
+		    width      	456
+		    height     	148
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Ядро::Виды данных::Изменяемость множества объектов" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(471, 330)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(93, 311)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	756
+			justify    	0
+			label      	"Изменяемость множества объектов")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(93, 267)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	756
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	7885055
+		    fill_color 	12824565
+		    quidu      	"49A53D6E00B3"
+		    width      	774
+		    height     	148
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Ядро::Виды данных::Структура объекта" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(288, 864)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(95, 845)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	386
+			justify    	0
+			label      	"Структура объекта")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(95, 801)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	386
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	7885055
+		    fill_color 	12824565
+		    quidu      	"49A5545E00EE"
+		    width      	404
+		    height     	148
+		    annotation 	8
+		    autoResize 	TRUE)))
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ClassUID"
+		    value      	"49A53B930191")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"49A53BB402FE"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Storage::Ядро::Виды данных::Тип последовательности ключей::Случайные ключи" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(477, 588)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(185, 562)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	584
+			justify    	0
+			label      	"Случайные ключи")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(185, 518)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	584
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"49A532F601E0"
+		    width      	602
+		    height     	162
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Ядро::Виды данных::Тип последовательности ключей::Последовательные ключи" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(474, 156)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(182, 130)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	584
+			justify    	0
+			label      	"Последовательные ключи")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(182, 86)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	584
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"49A53303035B"
+		    width      	602
+		    height     	162
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Ядро::Виды данных::Тип последовательности ключей::Частично последовательные ключи" @9
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(546, 366)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@9
+			location   	(180, 340)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	732
+			justify    	0
+			label      	"Частично последовательные ключи")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@9
+			location   	(180, 296)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	732
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"49A534520111"
+		    width      	750
+		    height     	162
+		    annotation 	8
+		    autoResize 	TRUE)))
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ClassUID"
+		    value      	"49A53BD603AE")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"49A53BE801CA"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	331
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Storage::Ядро::Виды данных::Размер ключей::Ключи произвольной длинны" @10
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(483, 579)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@10
+			location   	(175, 553)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	616
+			justify    	0
+			label      	"Ключи произвольной длинны")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@10
+			location   	(175, 509)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	616
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"49A53328031B"
+		    width      	634
+		    height     	162
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Ядро::Виды данных::Размер ключей::Короткие ключи" @11
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(354, 153)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@11
+			location   	(176, 127)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	356
+			justify    	0
+			label      	"Короткие ключи")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@11
+			location   	(176, 83)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	356
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"49A5342500CC"
+		    width      	374
+		    height     	162
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Ядро::Виды данных::Размер ключей::Длинные ключи" @12
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(354, 366)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@12
+			location   	(176, 340)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	356
+			justify    	0
+			label      	"Длинные ключи")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@12
+			location   	(176, 296)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	356
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"49A534C303AB"
+		    width      	374
+		    height     	162
+		    annotation 	8
+		    autoResize 	TRUE)))
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ClassUID"
+		    value      	"49A53D4801BC")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"49A53DD30176"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Storage::Ядро::Виды данных::Размер объектов::Маленькие объекты" @13
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(393, 192)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@13
+			location   	(187, 166)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	412
+			justify    	0
+			label      	"Маленькие объекты")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@13
+			location   	(187, 122)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	412
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"49A533AD018D"
+		    width      	430
+		    height     	162
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Ядро::Виды данных::Размер объектов::Большие объекты" @14
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(393, 387)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@14
+			location   	(187, 361)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	412
+			justify    	0
+			label      	"Большие объекты")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@14
+			location   	(187, 317)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	412
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"49A533B703DE"
+		    width      	430
+		    height     	162
+		    annotation 	8
+		    autoResize 	TRUE)))
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ClassUID"
+		    value      	"49A53D550292")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"49A53DBF0095"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	626
+	    origin_y   	253
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Storage::Ядро::Виды данных::Колличество объектов::Сверх большие коллекции объектов" @15
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(483, 600)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@15
+			location   	(119, 574)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	728
+			justify    	0
+			label      	"Сверх большие коллекции объектов")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@15
+			location   	(119, 530)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	728
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"49A534690175"
+		    width      	746
+		    height     	162
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Ядро::Виды данных::Колличество объектов::Маленькие коллекции объектов" @16
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(411, 198)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@16
+			location   	(110, 172)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	602
+			justify    	0
+			label      	"Маленькие коллекции объектов")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@16
+			location   	(110, 128)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	602
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"49A5347E02B8"
+		    width      	620
+		    height     	162
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Ядро::Виды данных::Колличество объектов::Большие коллекции объектов" @17
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(405, 396)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@17
+			location   	(113, 370)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	584
+			justify    	0
+			label      	"Большие коллекции объектов")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@17
+			location   	(113, 326)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	584
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"49A955A2038F"
+		    width      	602
+		    height     	162
+		    annotation 	8
+		    autoResize 	TRUE)))
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ClassUID"
+		    value      	"49A53D6E00B3")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"49A53D9B0231"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	720
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Storage::Ядро::Виды данных::Изменяемость множества объектов::Статическое множество объектов" @18
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(486, 198)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@18
+			location   	(147, 172)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	678
+			justify    	0
+			label      	"Статическое множество объектов")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@18
+			location   	(147, 128)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	678
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"49A533370038"
+		    width      	696
+		    height     	162
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Ядро::Виды данных::Изменяемость множества объектов::Слабо динамическое множество объектов" @19
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(582, 417)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@19
+			location   	(164, 391)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	836
+			justify    	0
+			label      	"Слабо динамическое множество объектов")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@19
+			location   	(164, 347)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	836
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"49A5335A0067"
+		    width      	854
+		    height     	162
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Ядро::Виды данных::Изменяемость множества объектов::Динамическое множество объектов" @20
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(537, 633)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@20
+			location   	(161, 607)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	752
+			justify    	0
+			label      	"Динамическое множество объектов")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@20
+			location   	(161, 563)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	752
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"49A5337E024F"
+		    width      	770
+		    height     	162
+		    annotation 	8
+		    autoResize 	TRUE)))
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ClassUID"
+		    value      	"49A5545E00EE")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"49A554680008"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Storage::Ядро::Виды данных::Структура объекта::Объекты переменной длинны" @21
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(420, 363)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@21
+			location   	(119, 337)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	602
+			justify    	0
+			label      	"Объекты переменной длинны")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@21
+			location   	(119, 293)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	602
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"49A553E6007E"
+		    width      	620
+		    height     	162
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Ядро::Виды данных::Структура объекта::Разряженные объекты" @22
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(345, 561)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@22
+			location   	(121, 535)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	448
+			justify    	0
+			label      	"Разряженные объекты")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@22
+			location   	(121, 491)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	448
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"49A5546D03CE"
+		    width      	466
+		    height     	162
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Ядро::Виды данных::Структура объекта::Объекты фиксированной длинны" @23
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(462, 171)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@23
+			location   	(122, 145)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	680
+			justify    	0
+			label      	"Объекты фиксированной длинны")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@23
+			location   	(122, 101)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	680
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    fill_color 	12824565
+		    quidu      	"49A5548400E3"
+		    width      	698
+		    height     	162
+		    annotation 	8
+		    autoResize 	TRUE)))))

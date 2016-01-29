@@ -1,0 +1,23 @@
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    InputKeys "%т"
+    
+    Window SetContext, "Caption=Открыть документ по номеру", ""
+    InputKeys "12025268{ENTER}"
+    DelayFor 2500
+    Window SetContext, "Caption=ГАРАНТ 6 - Текст документа : ТРУДОВОЙ КОДЕКС РФ ОТ 30.12.2001 N 197-ФЗ", ""
+    GenericObject Click, "Text=Трудовой кодекс Российской Федерации от 30 декабря 2001 г. N 197-ФЗ", "Coords=26,52"
+    GenericObject Click, "Text=Трудовой кодекс Российской Федерации от 30 декабря 2001 г. N 197-ФЗ", "Coords=44,70"
+    GenericObject Click, "Text=Трудовой кодекс Российской Федерации от 30 декабря 2001 г. N 197-ФЗ", "Coords=62,149"
+    GenericObject Click, "Text=Трудовой кодекс Российской Федерации от 30 декабря 2001 г. N 197-ФЗ", "Coords=107,168"
+    GenericObject Click, "Class=TeeEditor;ClassIndex=1", "Coords=19,14"
+    InputKeys "^+{RIGHT}"
+    
+    Result = GenericObjectVP (CompareImage, "Class=TeeEditor;ClassIndex=1", "VP=Oglav")
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIDSelect 12
+  
+End Sub

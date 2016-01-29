@@ -1,0 +1,386 @@
+// VCL 499AF1EA03DB TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499AF1EA03DB
+
+FORWARD ME_499AF24802D2
+
+: ME_49A3EA0603D1
+ CONST UID '49A3EA0603D1'
+ CONST Name 'Caption'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_499AF24802D2 // TMenuItem
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_49A3EA0603D1 Caption
+
+: ME_49A3EAB701E7
+ CONST UID '49A3EAB701E7'
+ CONST Name 'Count'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_499AF24802D2 // TMenuItem
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_49A3EAB701E7 Count
+
+: ME_49A3EB07006A
+ CONST UID '49A3EB07006A'
+ CONST Name 'MenuIndex'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_499AF24802D2 // TMenuItem
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_49A3EB07006A MenuIndex
+
+: ME_49A3EB180091
+ CONST UID '49A3EB180091'
+ CONST Name 'Visible'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_499AF24802D2 // TMenuItem
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_49A3EB180091 Visible
+
+: ME_49A3EB1F0087
+ CONST UID '49A3EB1F0087'
+ CONST Name 'Enabled'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_499AF24802D2 // TMenuItem
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_49A3EB1F0087 Enabled
+
+: ME_49A3EB2702F0
+ CONST UID '49A3EB2702F0'
+ CONST Name 'Checked'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_499AF24802D2 // TMenuItem
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_49A3EB2702F0 Checked
+
+FORWARD ME_49A3EA8000B8
+
+: ME_49A3EA8B0173
+ CONST UID '49A3EA8B0173'
+ CONST Name 'Index'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49A3EA8000B8 // Items
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_49A3EA8B0173 Index
+
+: ME_49A3EA8000B8
+ CONST UID '49A3EA8000B8'
+ CONST Name 'Items'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_499AF24802D2 // TMenuItem
+ ;
+ : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
+ ;
+ : Attributes
+   @ ( ME_49A3EA8B0173 // Index
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_49A3EA8000B8 Items
+
+: ME_49A3EAE00085
+ CONST UID '49A3EAE00085'
+ CONST Name 'Parent'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_499AF24802D2 // TMenuItem
+ ;
+ : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
+ ;
+
+ref; // ME_49A3EAE00085 Parent
+
+: ME_499AF24802D2
+ CONST UID '499AF24802D2'
+ CONST Name 'TMenuItem'
+ CONST Class class_Class
+ : Stereotype st_TestClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_499AF1EA03DB // VCL
+ ;
+ : Inherits
+   @ ( WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_49A3EA0603D1 // Caption
+ ME_49A3EAB701E7 // Count
+ ME_49A3EB07006A // MenuIndex
+ ME_49A3EB180091 // Visible
+ ME_49A3EB1F0087 // Enabled
+ ME_49A3EB2702F0 // Checked
+ ME_49A3EA8000B8 // Items
+ ME_49A3EAE00085 // Parent
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "is friend" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\MenuItem_p.pas'
+
+ref; // ME_499AF24802D2 TMenuItem
+
+FORWARD ME_49A3ECCB0366
+
+: ME_49A3ED2A0248
+ CONST UID '49A3ED2A0248'
+ CONST Name 'Items'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_49A3ECCB0366 // TMenu
+ ;
+ : Target WL 'ME_47E7ABCB0296' '4799D29F033F.pas.ms.script' // TMenuItem
+ ;
+
+ref; // ME_49A3ED2A0248 Items
+
+: ME_49A3ECCB0366
+ CONST UID '49A3ECCB0366'
+ CONST Name 'TMenu'
+ CONST Class class_Class
+ : Stereotype st_TestClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_499AF1EA03DB // VCL
+ ;
+ : Inherits
+   @ ( WL 'ME_49A3EC9F01DC' '4799D29F033F.pas.ms.script' // TMenu
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_49A3ED2A0248 // Items
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "is friend" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\Menu_p.pas'
+
+ref; // ME_49A3ECCB0366 TMenu
+
+FORWARD ME_49A572510280
+
+: ME_49A575600252
+ CONST UID '49A575600252'
+ CONST Name 'QCPopupMenu'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_49A572510280 // TControl
+ ;
+ : Target WL 'ME_49A5750A01E8' '4799D29F033F.pas.ms.script' // TPopupMenu
+ ;
+
+ref; // ME_49A575600252 QCPopupMenu
+
+: ME_49A572510280
+ CONST UID '49A572510280'
+ CONST Name 'TControl'
+ CONST Class class_Class
+ : Stereotype st_TestClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_499AF1EA03DB // VCL
+ ;
+ : Inherits
+   @ ( WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_49A575600252 // QCPopupMenu
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "is friend" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\Control_p.pas'
+
+ref; // ME_49A572510280 TControl
+
+FORWARD ME_53D12ADE0303
+
+: ME_53D12BB30380
+ CONST UID '53D12BB30380'
+ CONST Name 'ControlCount'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_53D12ADE0303 // TWinControl
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_53D12BB30380 ControlCount
+
+FORWARD ME_53D12B6E016C
+
+: ME_53D12B8E02E3
+ CONST UID '53D12B8E02E3'
+ CONST Name 'Index'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53D12B6E016C // Controls
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_53D12B8E02E3 Index
+
+: ME_53D12B6E016C
+ CONST UID '53D12B6E016C'
+ CONST Name 'Controls'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_53D12ADE0303 // TWinControl
+ ;
+ : Target WL 'ME_47E1201703C3' '4799D29F033F.pas.ms.script' // TControl
+ ;
+ : Attributes
+   @ ( ME_53D12B8E02E3 // Index
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_53D12B6E016C Controls
+
+: ME_53D12ADE0303
+ CONST UID '53D12ADE0303'
+ CONST Name 'TWinControl'
+ CONST Class class_Class
+ : Stereotype st_TestClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_499AF1EA03DB // VCL
+ ;
+ : Inherits
+   @ ( WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_53D12BB30380 // ControlCount
+ ME_53D12B6E016C // Controls
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "is friend" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\AFW\WinControl_p.pas'
+
+ref; // ME_53D12ADE0303 TWinControl
+
+: ME_499AF1EA03DB
+ CONST UID '499AF1EA03DB'
+ CONST Name 'VCL'
+ CONST Class class_Category
+ : Stereotype st_TestUnit ;
+ %SUMMARY '—юда складываем тесты дл€ стандартных компонент от Borland' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_499AF0880116' '499AF0880116.pas.ms.script' // AFWTest
+ ;
+ : Children
+   @ ( ME_499AF24802D2 // TMenuItem
+ ME_49A3ECCB0366 // TMenu
+ ME_49A572510280 // TControl
+ ME_53D12ADE0303 // TWinControl
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\499AF1EA03DB.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\499AF1EA03DB.pas.ms.script.runner'
+
+ref; // ME_499AF1EA03DB VCL

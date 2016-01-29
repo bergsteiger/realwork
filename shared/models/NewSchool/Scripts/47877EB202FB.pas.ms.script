@@ -1,0 +1,1022 @@
+// SysUtils 47877EB202FB UtilityPack Class
+
+FORWARD ME_47877EB202FB
+
+: ME_4807861D0118
+ CONST UID '4807861D0118'
+ CONST Name 'TMultiReadExclusiveWriteSynchronizer'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'TMultiReadExclusiveWriteSynchronizer protects memory in a multi-threaded application.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4807861D0118 TMultiReadExclusiveWriteSynchronizer
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_477113FB020B
+ CONST UID '477113FB020B'
+ CONST Name 'TFileName'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ %SUMMARY 'TFileName is a string that represents a file name.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_476136D3010B // String
+ ]
+ ; // Inherits
+ CONST "newRTTI" true
+
+ @SELF
+; // ME_477113FB020B TFileName
+
+FORWARD ME_4787A405013D
+
+: ME_4787A41F02C5
+ CONST UID '4787A41F02C5'
+ CONST Name 'Message'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_476136D3010B // String
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ @SELF
+; // ME_4787A41F02C5 Message
+
+: ME_4787A43A016A
+ CONST UID '4787A43A016A'
+ CONST Name 'HelpContext'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ @SELF
+; // ME_4787A43A016A HelpContext
+
+: ME_3DFD05B206FE
+ CONST UID '3DFD05B206FE'
+ CONST Name 'f_Message'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Message' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_3DFD05B206FE f_Message
+
+: ME_C9DD50814F7E
+ CONST UID 'C9DD50814F7E'
+ CONST Name 'f_HelpContext'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства HelpContext' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_C9DD50814F7E f_HelpContext
+
+: ME_4787A405013D
+ CONST UID '4787A405013D'
+ CONST Name 'Exception'
+ CONST Class 'Class'
+ CONST Stereotype 'Exception'
+ %SUMMARY 'Base Exception.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4807745602C8 // TObject
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4787A41F02C5 // Message
+ ME_4787A43A016A // HelpContext
+ ME_3DFD05B206FE // f_Message
+ ME_C9DD50814F7E // f_HelpContext
+ ]
+ ; // Attributes
+ CONST "force usage" true
+
+ @SELF
+; // ME_4787A405013D Exception
+
+: ME_4787A45401C5
+ CONST UID '4787A45401C5'
+ CONST Name 'ExceptClass'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4787A405013D // Exception
+ ]
+ ; // Inherits
+ CONST "isClassRef" true
+
+ @SELF
+; // ME_4787A45401C5 ExceptClass
+
+: ME_47B19F69027A
+ CONST UID '47B19F69027A'
+ CONST Name 'EOSError'
+ CONST Class 'Class'
+ CONST Stereotype 'Exception'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4787A405013D // Exception
+ ]
+ ; // Inherits
+
+ @SELF
+; // ME_47B19F69027A EOSError
+
+: ME_4808B68300D5
+ CONST UID '4808B68300D5'
+ CONST Name 'TFormatSettings'
+ CONST Class 'Class'
+ CONST Stereotype 'Struct'
+ %SUMMARY 'TFormatSettings defines a thread-safe string formatting context.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_4808B68300D5 TFormatSettings
+
+FORWARD ME_47BB2FD7022D
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_47BB2FEC03B9
+ CONST UID '47BB2FEC03B9'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_47BB2FEC03B9 DoIt
+
+: ME_47BB2FD7022D
+ CONST UID '47BB2FD7022D'
+ CONST Name 'TProcedure'
+ CONST Class 'Class'
+ CONST Stereotype 'Function'
+ %SUMMARY 'TProcedure is used as the type for generic procedures that do not have arguments.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_47BB2FEC03B9 // DoIt
+ ]
+ ; // Operations
+ CONST "of object" false
+
+ @SELF
+; // ME_47BB2FD7022D TProcedure
+
+: ME_4AA7E2060118
+ CONST UID '4AA7E2060118'
+ CONST Name 'EAbort'
+ CONST Class 'Class'
+ CONST Stereotype 'Exception'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_4AA7E2060118 EAbort
+
+: ME_4F56262B01E8
+ CONST UID '4F56262B01E8'
+ CONST Name 'EAssertionFailed'
+ CONST Class 'Class'
+ CONST Stereotype 'Exception'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4787A405013D // Exception
+ ]
+ ; // Inherits
+
+ @SELF
+; // ME_4F56262B01E8 EAssertionFailed
+
+: ME_502550E80220
+ CONST UID '502550E80220'
+ CONST Name 'TSearchRec'
+ CONST Class 'Class'
+ CONST Stereotype 'Struct'
+ %SUMMARY 'TSearchRec defines file information searched for by FindFirst or FindNext.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_502550E80220 TSearchRec
+
+: ME_5485794702B0
+ CONST UID '5485794702B0'
+ CONST Name 'EOutOfMemory'
+ CONST Class 'Class'
+ CONST Stereotype 'Exception'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_5485794702B0 EOutOfMemory
+
+: ME_4E3BC43B021E
+ CONST UID '4E3BC43B021E'
+ CONST Name 'DecimalSeparator'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_482C48430205 // Char
+ ;
+
+ @SELF
+; // ME_4E3BC43B021E DecimalSeparator
+
+FORWARD ME_4ADC58F703CF
+
+: ME_2CDEA6B033AA
+ CONST UID '2CDEA6B033AA'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода FreeAndNil' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_2CDEA6B033AA DoIt
+
+: ME_4ADC58F703CF
+ CONST UID '4ADC58F703CF'
+ CONST Name 'FreeAndNil'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_2CDEA6B033AA // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4ADC58F703CF FreeAndNil
+
+FORWARD ME_4ADEE49C02DF
+
+: ME_D09152F02B52
+ CONST UID 'D09152F02B52'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода Supports' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_D09152F02B52 DoIt
+
+: ME_4ADEE49C02DF
+ CONST UID '4ADEE49C02DF'
+ CONST Name 'Supports'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_D09152F02B52 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4ADEE49C02DF Supports
+
+FORWARD ME_4B2A12BA0288
+
+: ME_09F589FE46AE
+ CONST UID '09F589FE46AE'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода IntToStr' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_09F589FE46AE DoIt
+
+: ME_4B2A12BA0288
+ CONST UID '4B2A12BA0288'
+ CONST Name 'IntToStr'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_09F589FE46AE // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4B2A12BA0288 IntToStr
+
+FORWARD ME_4B2F575E03BA
+
+: ME_CDE5E776F486
+ CONST UID 'CDE5E776F486'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода CompareStr' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_CDE5E776F486 DoIt
+
+: ME_4B2F575E03BA
+ CONST UID '4B2F575E03BA'
+ CONST Name 'CompareStr'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_CDE5E776F486 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4B2F575E03BA CompareStr
+
+FORWARD ME_4BCED67800F1
+
+: ME_5C9DF6CACA8D
+ CONST UID '5C9DF6CACA8D'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода ANSISameText' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_5C9DF6CACA8D DoIt
+
+: ME_4BCED67800F1
+ CONST UID '4BCED67800F1'
+ CONST Name 'ANSISameText'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5C9DF6CACA8D // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4BCED67800F1 ANSISameText
+
+FORWARD ME_4D6BC8D102C0
+
+: ME_E7EDBC9469F6
+ CONST UID 'E7EDBC9469F6'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода StrToInt' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_E7EDBC9469F6 DoIt
+
+: ME_4D6BC8D102C0
+ CONST UID '4D6BC8D102C0'
+ CONST Name 'StrToInt'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_E7EDBC9469F6 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4D6BC8D102C0 StrToInt
+
+FORWARD ME_4DDA4CFE00E8
+
+: ME_D077841FC7FA
+ CONST UID 'D077841FC7FA'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода ExtractFilePath' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_D077841FC7FA DoIt
+
+: ME_4DDA4CFE00E8
+ CONST UID '4DDA4CFE00E8'
+ CONST Name 'ExtractFilePath'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_D077841FC7FA // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4DDA4CFE00E8 ExtractFilePath
+
+FORWARD ME_4DE89E560091
+
+: ME_66C7B20E6E79
+ CONST UID '66C7B20E6E79'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода Format' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_66C7B20E6E79 DoIt
+
+: ME_4DE89E560091
+ CONST UID '4DE89E560091'
+ CONST Name 'Format'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_66C7B20E6E79 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4DE89E560091 Format
+
+FORWARD ME_4DF870EA0062
+
+: ME_E7A933909ECD
+ CONST UID 'E7A933909ECD'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода ChangeFileExt' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_E7A933909ECD DoIt
+
+: ME_4DF870EA0062
+ CONST UID '4DF870EA0062'
+ CONST Name 'ChangeFileExt'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_E7A933909ECD // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4DF870EA0062 ChangeFileExt
+
+FORWARD ME_4E1DDD650025
+
+: ME_2614BFD361C7
+ CONST UID '2614BFD361C7'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода IsEqualGUID' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_2614BFD361C7 DoIt
+
+: ME_4E1DDD650025
+ CONST UID '4E1DDD650025'
+ CONST Name 'IsEqualGUID'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_2614BFD361C7 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4E1DDD650025 IsEqualGUID
+
+FORWARD ME_4E4A3ABD032F
+
+: ME_5A88745D7072
+ CONST UID '5A88745D7072'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода FileExists' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_5A88745D7072 DoIt
+
+: ME_4E4A3ABD032F
+ CONST UID '4E4A3ABD032F'
+ CONST Name 'FileExists'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5A88745D7072 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4E4A3ABD032F FileExists
+
+FORWARD ME_4F7957C203E7
+
+: ME_61AE00490D0A
+ CONST UID '61AE00490D0A'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода GetClassName' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_61AE00490D0A DoIt
+
+: ME_4F7957C203E7
+ CONST UID '4F7957C203E7'
+ CONST Name 'GetClassName'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_61AE00490D0A // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4F7957C203E7 GetClassName
+
+FORWARD ME_4FACFFF103DB
+
+: ME_00E49E2E4618
+ CONST UID '00E49E2E4618'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода Trim' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_00E49E2E4618 DoIt
+
+: ME_4FACFFF103DB
+ CONST UID '4FACFFF103DB'
+ CONST Name 'Trim'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_00E49E2E4618 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4FACFFF103DB Trim
+
+FORWARD ME_50195DC90360
+
+: ME_879736D252DA
+ CONST UID '879736D252DA'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода AnsiStrLIComp' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_879736D252DA DoIt
+
+: ME_50195DC90360
+ CONST UID '50195DC90360'
+ CONST Name 'AnsiStrLIComp'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_879736D252DA // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_50195DC90360 AnsiStrLIComp
+
+FORWARD ME_509116F601C3
+
+: ME_2B1A99D842F7
+ CONST UID '2B1A99D842F7'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода RenameFile' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_2B1A99D842F7 DoIt
+
+: ME_509116F601C3
+ CONST UID '509116F601C3'
+ CONST Name 'RenameFile'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_2B1A99D842F7 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_509116F601C3 RenameFile
+
+FORWARD ME_5091520A024F
+
+: ME_2AE4F32EF8A1
+ CONST UID '2AE4F32EF8A1'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода DeleteFile' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_2AE4F32EF8A1 DoIt
+
+: ME_5091520A024F
+ CONST UID '5091520A024F'
+ CONST Name 'DeleteFile'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_2AE4F32EF8A1 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5091520A024F DeleteFile
+
+FORWARD ME_51D299D903CE
+
+: ME_CF6A68967F72
+ CONST UID 'CF6A68967F72'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода StrToIntDef' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_CF6A68967F72 DoIt
+
+: ME_51D299D903CE
+ CONST UID '51D299D903CE'
+ CONST Name 'StrToIntDef'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_CF6A68967F72 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_51D299D903CE StrToIntDef
+
+FORWARD ME_52F8DC08020F
+
+: ME_095C635C85E0
+ CONST UID '095C635C85E0'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода FormatDateTime' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_095C635C85E0 DoIt
+
+: ME_52F8DC08020F
+ CONST UID '52F8DC08020F'
+ CONST Name 'FormatDateTime'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_095C635C85E0 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_52F8DC08020F FormatDateTime
+
+FORWARD ME_52F8EEFA01C4
+
+: ME_6C65BA3C61CE
+ CONST UID '6C65BA3C61CE'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода Sleep' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_6C65BA3C61CE DoIt
+
+: ME_52F8EEFA01C4
+ CONST UID '52F8EEFA01C4'
+ CONST Name 'Sleep'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_6C65BA3C61CE // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_52F8EEFA01C4 Sleep
+
+FORWARD ME_549A76510063
+
+: ME_DA8FFE5421F8
+ CONST UID 'DA8FFE5421F8'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода ForceDirectories' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_DA8FFE5421F8 DoIt
+
+: ME_549A76510063
+ CONST UID '549A76510063'
+ CONST Name 'ForceDirectories'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_DA8FFE5421F8 // DoIt
+ ]
+ ; // Operations
+ CONST "finished" false
+
+ @SELF
+; // ME_549A76510063 ForceDirectories
+
+FORWARD ME_5511283A02C9
+
+: ME_CC47D0D7E4DB
+ CONST UID 'CC47D0D7E4DB'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода IntToHex' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_CC47D0D7E4DB DoIt
+
+: ME_5511283A02C9
+ CONST UID '5511283A02C9'
+ CONST Name 'IntToHex'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_CC47D0D7E4DB // DoIt
+ ]
+ ; // Operations
+ CONST "finished" false
+
+ @SELF
+; // ME_5511283A02C9 IntToHex
+
+FORWARD ME_5559A8820011
+
+: ME_8C43BABFB29A
+ CONST UID '8C43BABFB29A'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода AllocMem' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_8C43BABFB29A DoIt
+
+: ME_5559A8820011
+ CONST UID '5559A8820011'
+ CONST Name 'AllocMem'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_8C43BABFB29A // DoIt
+ ]
+ ; // Operations
+ CONST "finished" false
+
+ @SELF
+; // ME_5559A8820011 AllocMem
+
+: ME_47877F3902AD
+ CONST UID '47877F3902AD'
+ CONST Name 'Instance'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A451250363 // IUnknown
+ ;
+
+ @SELF
+; // ME_47877F3902AD Instance
+
+: ME_47877F3902C6
+ CONST UID '47877F3902C6'
+ CONST Name 'IID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_469F3EEF0024 // TGUID
+ ;
+
+ @SELF
+; // ME_47877F3902C6 IID
+
+: ME_47877F3902DE
+ CONST UID '47877F3902DE'
+ CONST Name 'Intf'
+ CONST Class 'Parameter'
+ CONST Stereotype 'out'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_47877F3902DE Intf
+
+: ME_47877EF503B1
+ CONST UID '47877EF503B1'
+ CONST Name 'Supports'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_47877F3902AD // Instance
+ ME_47877F3902C6 // IID
+ ME_47877F3902DE // Intf
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47877EF503B1 Supports
+
+: ME_47877EB202FB
+ CONST UID '47877EB202FB'
+ CONST Name 'SysUtils'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ %SUMMARY 'System Utilities Unit' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Attributes
+   [ ME_4E3BC43B021E // DecimalSeparator
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4ADC58F703CF // FreeAndNil
+ ME_4ADEE49C02DF // Supports
+ ME_4B2A12BA0288 // IntToStr
+ ME_4B2F575E03BA // CompareStr
+ ME_4BCED67800F1 // ANSISameText
+ ME_4D6BC8D102C0 // StrToInt
+ ME_4DDA4CFE00E8 // ExtractFilePath
+ ME_4DE89E560091 // Format
+ ME_4DF870EA0062 // ChangeFileExt
+ ME_4E1DDD650025 // IsEqualGUID
+ ME_4E4A3ABD032F // FileExists
+ ME_4F7957C203E7 // GetClassName
+ ME_4FACFFF103DB // Trim
+ ME_50195DC90360 // AnsiStrLIComp
+ ME_509116F601C3 // RenameFile
+ ME_5091520A024F // DeleteFile
+ ME_51D299D903CE // StrToIntDef
+ ME_52F8DC08020F // FormatDateTime
+ ME_52F8EEFA01C4 // Sleep
+ ME_549A76510063 // ForceDirectories
+ ME_5511283A02C9 // IntToHex
+ ME_5559A8820011 // AllocMem
+ ME_47877EF503B1 // Supports
+ ]
+ ; // Operations
+ : Children
+   [ ME_4807861D0118 // TMultiReadExclusiveWriteSynchronizer
+ ME_477113FB020B // TFileName
+ ME_4787A405013D // Exception
+ ME_4787A45401C5 // ExceptClass
+ ME_47B19F69027A // EOSError
+ ME_4808B68300D5 // TFormatSettings
+ ME_47BB2FD7022D // TProcedure
+ ME_4AA7E2060118 // EAbort
+ ME_4F56262B01E8 // EAssertionFailed
+ ME_502550E80220 // TSearchRec
+ ME_5485794702B0 // EOutOfMemory
+ ]
+ ; // Children
+ CONST "no hands" false
+
+ @SELF
+; // ME_47877EB202FB SysUtils

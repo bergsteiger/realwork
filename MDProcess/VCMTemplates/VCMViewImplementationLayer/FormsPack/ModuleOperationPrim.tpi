@@ -1,0 +1,215 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewImplementationLayer/FormsPack/ModuleOperationPrim.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewImplementationLayer::FormsPack::ModuleOperationPrim
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: ModuleOperationPrim::Class
+= Delphi интерфейсы и реализация::MDAGenerator
+= OperationsPublisher::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+v #
+/ - типы видимости
+a f
+/ - тип абстракции
+// Параметры визуализации
+$ C 152,251,152
+$ l 0,64,64
+$ f 0,64,64
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p no test:b=false ? Отключает OnTest
+p no prefix:b=false ? Нет префикса у имени. Костыль для [$133891300]
+p ShowInToolbar:tribool=undefined ? 
+p ShortCut:s ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	SHD
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{no test}"!="%S{!no test}"}%f_up_prefix(%S) *no test* = *%S{no test}* - Отключает OnTest
+	][{"%S{no prefix}"!="%S{!no prefix}"}%f_up_prefix(%S) *no prefix* = *%S{no prefix}* - Нет префикса у имени. Костыль для \[$133891300\]
+	][{"%S{ShowInToolbar}"!="%S{!ShowInToolbar}"}%f_up_prefix(%S) *ShowInToolbar* = *%S{ShowInToolbar}*
+	][{"%S{ShortCut}"!="%S{!ShortCut}"}%f_up_prefix(%S) *ShortCut* = *%S{ShortCut}*
+	]
+
+%f _IsModuleOperation
+// возвращаемый результат: boolean
+//#UC START# *4A9D35E401D5for4A9D2DEA0027*
+	true
+//#UC END# *4A9D35E401D5for4A9D2DEA0027*
+
+// Создаёт слово словаря для операции модуля
+%f _SpellWordForModuleOperation
+//#UC START# *4DB06A78001Ffor4A9D2DEA0027*
+	%P%P%f_add_class(%SU_Word,ScriptKeyword,Tkw_%P%f_FinalName()_[{%S{no prefix}!=true}op]%f_N(%S),Word_Inst)\
+	%{Word_Inst}%f_set_up(ifndef,NoScripts)\
+	%{Word_Inst}%f_set_visibility_type(PrivateAccess)\
+
+	[{"%{TtfwModuleOperationWord}N"=""}%f_find_element(4DB060930263,TtfwModuleOperationWord)]\
+	%{Word_Inst}%f_make_accessable(%{TtfwModuleOperationWord}U)\
+	%f_addG(%{Word_Inst},%{TtfwModuleOperationWord})\
+	%f_addCDep(%P,%{Word_Inst})\
+	%{Word_Inst}%f_set_documentation(Слово словаря для вызова операции модуля %P%f_FinalName().%SN[ (%P%f_FinalDoc()[ %SD])])\
+//	%{Word_Inst}%f_set_up(ifdef,InsiderTest)\
+
+//	[{<{}{%PN=VCMCustomization&%PS=VCMSubsystem}{C}>=0}\
+	[{"%{StdRes}N"=""}%f_find_element(47F260EC02C7,StdRes)]\
+//	[{"%{StdResPrim}N"=""}%f_find_element(4DB69A1F02D4,StdResPrim)]\
+	%{Word_Inst}%f_make_accessable(%{StdRes}U)\
+	%f_addCDep(%{Word_Inst},%{StdRes})\
+
+	[{"%{TtfwModuleOperationWord.GetModuleOperationCode}N"=""}%f_find_element(4DB079E00084,TtfwModuleOperationWord.GetModuleOperationCode)]\
+	%{Word_Inst}%f_add_override(4DB079E00084)\
+	%{TtfwModuleOperationWord.GetModuleOperationCode}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwModuleOperationWord.GetModuleOperationCode},%{Word_Inst})_var,\
+	 {-}\
+	)\
+	%{TtfwModuleOperationWord.GetModuleOperationCode}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwModuleOperationWord.GetModuleOperationCode},%{Word_Inst})_impl,\
+	 Result := TdmStdRes.mod_opcode_%P%f_FinalName()_%f_N(%S);\
+	)
+
+//	]\
+
+	%{Word_Inst}%f_set_up(NotStripUnderline,true)\
+	%{Word_Inst}%f_set_up(NameForScript,моп::%f_str_replace(%P%f_FinalDoc()_[{}{%f_N(%S)}%SD], ,_))\
+	%{Word_Inst}%f_set_abstraction_type(final)\
+	[{"%{TtfwRegisterableWord.GetWordNameForRegister}N"=""}%f_find_element(4DB0614603C8,TtfwRegisterableWord.GetWordNameForRegister)]\
+	%{Word_Inst}%f_add_override(%{TtfwRegisterableWord.GetWordNameForRegister}U)\
+	%{TtfwRegisterableWord.GetWordNameForRegister}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWord.GetWordNameForRegister},%{Word_Inst})_var,\
+	 {-}\
+	)\
+	%{TtfwRegisterableWord.GetWordNameForRegister}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWord.GetWordNameForRegister},%{Word_Inst})_impl,\
+	 Result := '%f_loc_GetNameForScript(%{Word_Inst})';\
+	)
+//#UC END# *4DB06A78001Ffor4A9D2DEA0027*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+%f _OperationsToFuncImpl
+// параметры: aCaller: MDAClass = %1
+//#UC START# *4A8E9F9502BBfor4A9D2DEA0027*
+	[{%f_exists_in_list(PUBLISHED_OPERATIONS_LIST,S)!=true}\
+	%f_add_to_list(PUBLISHED_OPERATIONS_LIST,S)\
+	%f_pas_OpenMethodImplementation("mod_opcode_%P%f_FinalName()_%f_N(%S)",%1)\
+	class function %f_pas_TypeName(%1).mod_opcode_%P%f_FinalName()_%f_N(%S) : TvcmMOpID;
+	begin
+	 Result := g_module_opcode_%P%f_FinalName()_%f_N(%S);
+	 Assert((Result.rMoID \> 0) AND (Result.rOpID \> 0));
+	end;\
+	]
+//#UC END# *4A8E9F9502BBfor4A9D2DEA0027*
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+// Операции в функции
+%f _OperationsToFuncIntf
+// параметры: aCaller: MDAClass = %1
+//#UC START# *4A8E9D5E0038for4A9D2DEA0027*
+	[{%f_exists_in_list(PUBLISHED_OPERATIONS_LIST,S)!=true}\
+	%f_add_to_list(PUBLISHED_OPERATIONS_LIST,S)\
+	\n   class function mod_opcode_%P%f_FinalName()_%f_N(%S) : TvcmMOpID;
+	     \{ %S%PD -\> %SD \}]
+//#UC END# *4A8E9D5E0038for4A9D2DEA0027*
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+// Определяет необходимые uses для операций
+%f _OperationsToUses
+//#UC START# *4A82DDA6016Afor4A9D2DEA0027*
+	%f_pas_PutToUses(%S%P)
+//#UC END# *4A82DDA6016Afor4A9D2DEA0027*
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+// Операции в секцию Var
+%f _OperationsToVar
+//#UC START# *4A8E9D3A01FEfor4A9D2DEA0027*
+	[{%f_exists_in_list(PUBLISHED_OPERATIONS_LIST,S)!=true}\
+	%f_add_to_list(PUBLISHED_OPERATIONS_LIST,S)\
+	\n g_module_opcode_%P%f_FinalName()_%f_N(%S) : TvcmMOpID;]
+//#UC END# *4A8E9D3A01FEfor4A9D2DEA0027*
+
+// реализация абстрактного стереотипа OperationsPublisher::Class
+// Публикует операции
+%f _PublishOperations
+//#UC START# *4A770F770199for4A9D2DEA0027*
+	[{%f_exists_in_list(PUBLISHED_OPERATIONS_LIST,S)!=true}\
+	%f_add_to_list(PUBLISHED_OPERATIONS_LIST,S)\
+	\n g_module_opcode_%P%f_FinalName()_%f_N(%S) := 
+	  PublishModuleOperation(%P%f_FinalTypeName(), '%f_N(%S)', '%SD'\
+	[{%S{no prefix}=true}, true]);\
+	]
+//#UC END# *4A770F770199for4A9D2DEA0027*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Элемент попадает в секцию Published
+%f _IsPublishedAccess
+//#UC START# *49F703730268for4A9D2DEA0027*
+	false
+//#UC END# *49F703730268for4A9D2DEA0027*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит реализацию метода
+// 
+// RealizeType = o|r|f
+%f _pas_MethodImplementation
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494BEC7C03E5for4A9D2DEA0027*
+	[{%S{no test}!=true}%S%f_pas_DoMethodImplementation(%1,%2,"test")]\
+	%S%f_pas_DoMethodImplementation(%1,%2,"exec")
+//#UC END# *494BEC7C03E5for4A9D2DEA0027*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит интерфейс метода
+// 
+// RealizeType = o|r|f
+%f _pas_MethodInterface
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494BEC6A038Afor4A9D2DEA0027*
+	[{%S{no test}!=true}%S%f_pas_DoMethodInterface(%1,%2,"test")\n]\
+	%S%f_pas_DoMethodInterface(%1,%2,"exec")
+//#UC END# *494BEC6A038Afor4A9D2DEA0027*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит имя метода
+%f _pas_MethodName
+// параметры: Modification: a-string = %1
+//#UC START# *494BD6C80075for4A9D2DEA0027*
+	[{%1N=exec}{op%f_N(%S)Test}op%f_N(%S)]
+//#UC END# *494BD6C80075for4A9D2DEA0027*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Параметры операции
+%f _pas_Params
+// параметры: Modification: void = %1
+//#UC START# *494BDCF3030Efor4A9D2DEA0027*
+	[{%1N=exec}{const aParams: IvcmTestParamsPrim}const aParams: IvcmExecuteParamsPrim]
+//#UC END# *494BDCF3030Efor4A9D2DEA0027*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Генератор файлов форм (.dfm)
++ dfm
+R  
+//#UC START# *49F5795900ECfor4A9D2DEA0027*
+//	[{"%S{Options}"!=""}\
+//	#   item
+//	#    Name = '[{%S{no prefix}!=true}op]%f_N(%S)'
+//	#    Options = \[%S{Options}\]
+//	#   end\
+//	]
+//#UC END# *49F5795900ECfor4A9D2DEA0027*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

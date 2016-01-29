@@ -1,0 +1,3811 @@
+uses common, RunPrograms, States, MenuWork, FoldersWork, ListWork, DocumentWork, SettingsWork;
+     
+const
+  UP_KEY = '![Tab]';
+  DOWN_KEY = '[Tab]';
+  
+  EMPTY_FIELD_VALUES = 'если значение поля равно этой константе, то поле просто очищается';
+  EMPTY_FIELDS_DATA = 'пустые данные карточки запроса';
+
+const
+  CARD_PPR = 'ППР';
+  CARD_PPOIZ = 'Поиск по обзору изменений законодательства';
+  CARD_FILTER = CARD_PPR;
+  CARD_LAW_SUPPORT = 'Правовая поддержка';
+  CARD_PRIME = 'Прайм';
+  //
+  CARD_UNKNOWN = 'Неизвестно';
+  
+  SEARCH_CONTINUE_NAME = '#Вернуться*';
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function GetQueryCardType(
+  const queryCardEditor : OleVariant // редактор КЗ 
+) : OleVariant;
+  var cardType : OleVariant;
+begin
+  try
+    Result := CARD_UNKNOWN;
+    if IsSupported(queryCardEditor, 'WndClass') AND (queryCardEditor.WndClass = 'TevQueryCardEditor') then
+      cardType := queryCardEditor.Selection.CardType
+    else
+      cardType := queryCardEditor.CardType;      
+    case cardType of
+      0 : Result := CARD_PPR;
+      1 : Result := CARD_PPOIZ;
+      2 : Result := CARD_PRIME;
+      //3 : Result := CARD_PSPP; //='Поиск с правовой поддержкой', КЗ такой уже нет, код по ней удален
+      4 : Result := CARD_LAW_SUPPORT;
+    else
+      Raise('Неизвестный тип карточки запроса!');
+    end;  
+  except
+    Log.Message('GetQueryCardType: ' + ExceptionMessage, 'cardType: "' + VarToStr(cardType) + '"; ' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := CARD_UNKNOWN;
+    CommonExceptionHandler;    
+  end;               
+end;
+
+{
+  TYPE: Работа с EVD карточкой
+  DESC: Возвращает имя текущего объекта
+  RESULT:
+  REMARK:
+}
+function GetObjectName(
+  const selection : OleVariant // свойство Selection редактора КЗ
+) : String;
+begin
+  try
+    Result := selection.CurrentObjectName; 
+  except
+    Log.Message('GetControlType: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE: Работа с EVD карточкой
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function GetObjectText(
+  const selection : OleVariant // свойство Selection редактора КЗ
+): String;
+var
+  w, i;
+begin
+  try
+    for i := 1 to 3 do  
+    try
+      Result := selection.CurrentObjectText;
+      break;
+    except
+      if StringCompare('*object invoked*process the call now*', ExceptionMessage) then
+      begin
+        Log.Message('GetObjectText: Пытаемся устранить ошибку при получении свойств Selection', '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+
+        if VarToBool(gbl_F1ShellTabsEnabled) then
+          w := GetMainContainer
+        else
+          w := GetMainwindow;
+        if IsExists(w) then
+        begin
+          w.Minimize;
+          w.Restore;
+        end;
+
+        Delay(Options.Run.Timeout);
+      end
+      else
+        break;
+    end;               
+  except
+    Log.Message('GetObjectText: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+ 
+{
+  TYPE: Работа с EVD карточкой
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function GetCellID(
+  const selection : OleVariant // свойство Selection редактора КЗ
+): integer;
+begin
+  try
+    Result := selection.CurrentObjectCellID;
+  except
+    Log.Message('GetCellID: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE: Работа с EVD карточкой
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function GetRowID(
+  const selection : OleVariant // свойство Selection редактора КЗ 
+): integer;
+begin
+  try
+    Result := selection.CurrentObjectRowID;
+  except
+    Log.Message('GetRowID: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+    CommonExceptionHandler;
+  end;               
+end;
+
+procedure ____CT_CONST_______; begin end;
+
+const
+  CT_STATE_BUTTON = 'Кнопка состояния';
+  CT_COMBOBOX = 'Комбобокс';
+  CT_BUTTON = 'Кнопка';
+  CT_DEL_BUTTON = 'Кнопка удаления';
+  CT_ADD_BUTTON = 'Кнопка добавления';  
+  CT_LABEL = 'Надпись';
+  CT_CALENDAR = 'Поле календаря';
+  CT_GROUP = 'Группа';
+  CT_PICTURELABEL = 'Надпись с картинкой';
+  CT_MEMO_EDIT = 'Многострочное поле ввода';
+  CT_EDIT = 'Однострочное поле ввода';
+  CT_EMAIL_EDIT = 'Поле ввода e-mail';
+  CT_PHONE_EDIT = 'Поле для ввода телефона или кода города';
+  //
+  CT_UNKNOWN = 'Неизвестный';
+  
+{
+  TYPE: Работа с EVD карточкой
+  DESC: Возвращает тип текущего объекта
+  RESULT:
+  REMARK:
+}
+function GetControlType(
+  const selection : OleVariant // свойство Selection редактора КЗ
+) : String;
+  var 
+    objType : OleVariant;
+begin
+  try
+    Result := CT_UNKNOWN;
+    objType := selection.CurrentObjectType;
+    
+    case objType of
+      'ev_ctStateButton' : Result := CT_STATE_BUTTON;
+      'ev_ctCombo'  : Result := CT_COMBOBOX;
+      'ev_ctButton' :
+        case AnsiUpperCase(GetObjectName(selection)) of
+          'DELETEBTN' : Result := CT_DEL_BUTTON;
+          'ADDBTN'    : Result := CT_ADD_BUTTON;
+        else
+          Log.Error('Неизвестная кнопка!');
+        end;    
+      'ev_ctLabel'  : Result := CT_LABEL;
+      'ev_ctCalEdit': Result := CT_CALENDAR;
+      'ev_ctPictureLabel' : Result := CT_PICTURELABEL;
+      'ev_ctMemoEdit' : Result := CT_MEMO_EDIT;
+      'ev_ctEdit'     : Result := CT_EDIT;
+      'ev_ctEmailEdit': Result := CT_EMAIL_EDIT;
+      'ev_ctPhoneEdit': Result := CT_PHONE_EDIT;
+      '0' : 
+        if (GetCellID(selection) = -1) AND (GetRowID(selection) = -1) then
+          Result := CT_GROUP;
+      //
+      ''  : Result := CT_UNKNOWN;    
+    else
+      Raise('Неизвестный тип контрола!');
+    end; 
+  except
+    Log.Message('GetControlType: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+    CommonExceptionHandler;
+  end;               
+end;
+
+procedure ____FD_CONST_______; begin end;
+
+const
+  FD_WORDS_IN_CAPTION = 'Слова в названии';
+  FD_WORDS_IN_TEXT = 'Слова в тексте';
+  FD_WHERE_SEARCH = 'Где искать контекст';
+  FD_TYPE = 'Тип';
+  FD_SOURCE = 'Орган/источник';
+  FD_THEME = 'Раздел/Тема';
+  FD_ACCEPTANCE_DATE = 'Дата принятия';
+  FD_ACCEPTANCE_DATE_FROM = 'Дата принятия С:';
+  FD_ACCEPTANCE_DATE_TO = 'Дата принятия По:';
+  FD_EFFECTIVE_DATE = 'Дата вступления в силу';
+  FD_EFFECTIVE_DATE_FROM = 'Дата вступления в силу С:';
+  FD_EFFECTIVE_DATE_TO = 'Дата вступления в силу По:';
+  FD_LC_ALL_DATE = 'Все события за период';
+  FD_LC_ALL_DATE_FROM = 'Все события за период С:';
+  FD_LC_ALL_DATE_TO = 'Все события за период По:';
+  FD_LC_IN_DATE = 'Вступление в силу';
+  FD_LC_IN_DATE_FROM = 'Вступление в силу С:';
+  FD_LC_IN_DATE_TO = 'Вступление в силу По:';
+  FD_LC_ABOLISHED_DATE = 'Утрата силы';
+  FD_LC_ABOLISHED_DATE_FROM = 'Утрата силы С:';
+  FD_LC_ABOLISHED_DATE_TO = 'Утрата силы По:';
+  FD_LC_CHANGED_DATE = 'Внесение изменений';
+  FD_LC_CHANGED_DATE_FROM = 'Внесение изменений С:';
+  FD_LC_CHANGED_DATE_TO = 'Внесение изменений По:';
+  FD_NUMBER = 'Номер'; 
+  FD_MU_REG_DATE = 'Дата регистрации';
+  FD_MU_REG_DATE_FROM = 'Дата регистрации С:';
+  FD_MU_REG_DATE_TO = 'Дата регистрации По:';
+  FD_MU_REG_NUMBER  = 'Регистрационный номер';
+  FD_MU_REG_STATUS = 'Статус регистрации';
+  FD_MEANING = 'Значимость';
+  FD_STATUS = 'Статус';
+  FD_INOPERATIVE_EDITION = 'Искать в недействующих редакциях';
+  FD_KIND_OF_INFORMATION = 'Вид правовой информации';
+  FD_REGULATION_TERRITORY = 'Территория регулирования';
+  FD_INFORMATIONAL_BLOCK = 'Информационный блок';
+  //
+  FD_GROUP_MU_REG = 'Реквизиты регистрации в Минюсте';
+  FD_GROUP_CONTEXT_SEARCH = 'Контекстный поиск';
+  FD_GROUP_BASIC_REQ = 'Основные реквизиты документа';
+  FD_GROUP_LAW_CALENDAR = 'Правовой календарь';
+  FD_GROUP_EXTENDED_REQ = 'Расширенные реквизиты документа';
+  FD_TEXT_DESCRIPTION = 'Текстовое пояснение';
+  // Поиск по обзору изменений законодательства
+  FD_GROUP_LEGISTATION_REVIEW = 'Обзор изменений законодательства';
+  //
+  FD_GROUP_LAW_SUPPORT_QUERY = 'Контактные данные';
+  FD_GROUP_LAW_SUPPORT_TEXT = 'Запрос в службу Правовой поддержки онлайн';
+  FD_LAW_SUPPORT_TEXT = 'Текст запроса правовой консультации';
+  FD_USER_NAME = 'ФИО пользователя';
+  FD_CITY_CODE = 'Код города';
+  FD_USER_PHONE = 'Контактный телефон';
+  FD_USER_EMAIL = 'E-mail';
+  //
+  FD_CONSULTATION_TEXT = 'Текст запроса в поиске с правовой поддержкой';
+  //
+  FD_DEALER_NAME = 'Наименование обслуживающей организации';
+  FD_GROUP_THEME_PARAMS = ' Тематические параметры';
+  FD_THEMES_NAME = 'Название';
+  FD_IMPORTANT_DOCUMENTS = 'Самые значимые документы';
+  FD_ANNO_KIND = 'Вид информации';
+  FD_ANNO_USER = 'Ваша профессия';
+  FD_ANNO_ORG = 'Ваша организация';  
+  FD_ANNO_INTEREST = 'Сфера интересов';
+  FD_GROUP_DELIVERY_PARAMS = 'Параметры рассылки';
+  FD_EMAIL = 'E-mail рассылки';         
+  //
+  FD_UNKNOWN = 'Неизвестный ';
+
+{
+  TYPE: Работа с EVD карточкой
+  DESC: Возвращает тип поля текущего объекта
+  RESULT:
+  REMARK:
+}
+function GetFieldType(
+  const selection : OleVariant // свойство Selection редактора КЗ
+) : String;
+  var 
+    objID, objText, queryCardType : OleVariant;
+begin
+  try
+    Result := '';
+    objID := selection.CurrentObjectOwnerReqId;
+    objText := GetObjectText(selection); 
+    queryCardType := GetQueryCardType( selection );
+    
+    Result := FD_UNKNOWN;
+    case queryCardType of
+      CARD_PPR: // ППР
+        case objID of
+          'AT_TEXT_NAME'  : Result := FD_WORDS_IN_CAPTION;
+          'AT_TEXT_BODY'  : Result := FD_WORDS_IN_TEXT;
+          'AT_TEXT_OPT'   : Result := FD_WHERE_SEARCH;
+          'AT_TYPE'       : Result := FD_TYPE;
+          'AT_SOURCE'     : Result := FD_SOURCE;
+          'AT_CLASS'      : Result := FD_THEME;
+          'AT_PUBLISHING_DATE' : { для даты проводим дополнительное различение полей }
+            case GetControlType(selection) of
+              CT_LABEL    : 
+                if StringCompare('Дата*', objText ) then
+                  Result := FD_ACCEPTANCE_DATE
+                else if StringCompare('С*:*', objText ) then
+                  Result := FD_ACCEPTANCE_DATE_FROM
+                else if StringCompare('По*:*', objText ) then
+                  Result := FD_ACCEPTANCE_DATE_TO;
+              CT_CALENDAR :
+                case GetCellID(selection) of
+                  2 : Result := FD_ACCEPTANCE_DATE_FROM;
+                  4 : Result := FD_ACCEPTANCE_DATE_TO;
+                end;
+              CT_ADD_BUTTON, CT_DEL_BUTTON : Result := FD_ACCEPTANCE_DATE_TO; // это нужно для того чтобы правильно работало позиционирование, хотя формально эти кнопки принадлежат всему полю даты
+            else
+              Result := FD_ACCEPTANCE_DATE;
+            end;
+          'AT_LC_ALL_DATE':
+            case GetControlType(selection) of
+              CT_LABEL    : 
+                if StringCompare('Все*', objText ) then
+                  Result := FD_LC_ALL_DATE
+                else if StringCompare('С*:*', objText ) then
+                  Result := FD_LC_ALL_DATE_FROM
+                else if StringCompare('По*:*', objText ) then
+                  Result := FD_LC_ALL_DATE_TO;
+              CT_CALENDAR :
+                case GetCellID(selection) of
+                  2 : Result := FD_LC_ALL_DATE_FROM;
+                  4 : Result := FD_LC_ALL_DATE_TO;
+                end;
+              CT_ADD_BUTTON, CT_DEL_BUTTON : Result := FD_LC_ALL_DATE_TO;
+            else
+              Result := FD_LC_ALL_DATE;
+            end;
+          'AT_LC_IN_DATE':
+            case GetControlType(selection) of
+              CT_LABEL    : 
+                if StringCompare('Вступление*', objText ) then
+                  Result := FD_LC_IN_DATE
+                else if StringCompare('С*:*', objText ) then
+                  Result := FD_LC_IN_DATE_FROM
+                else if StringCompare('По*:*', objText ) then
+                  Result := FD_LC_IN_DATE_TO;
+              CT_CALENDAR :
+                case GetCellID(selection) of
+                  2 : Result := FD_LC_IN_DATE_FROM;
+                  4 : Result := FD_LC_IN_DATE_TO;
+                end;
+              CT_ADD_BUTTON, CT_DEL_BUTTON : Result := FD_LC_IN_DATE_TO;
+            else
+              Result := FD_LC_IN_DATE;
+            end;
+          'AT_LC_ABOLISHED_DATE':
+            case GetControlType(selection) of
+              CT_LABEL    : 
+                if StringCompare('Утрата*', objText ) then
+                  Result := FD_LC_ABOLISHED_DATE
+                else if StringCompare('С*:*', objText ) then
+                  Result := FD_LC_ABOLISHED_DATE_FROM
+                else if StringCompare('По*:*', objText ) then
+                  Result := FD_LC_ABOLISHED_DATE_TO;
+              CT_CALENDAR :
+                case GetCellID(selection) of
+                  2 : Result := FD_LC_ABOLISHED_DATE_FROM;
+                  4 : Result := FD_LC_ABOLISHED_DATE_TO;
+                end;
+              CT_ADD_BUTTON, CT_DEL_BUTTON : Result := FD_LC_ABOLISHED_DATE_TO;
+            else
+              Result := FD_LC_ABOLISHED_DATE;
+            end;
+          'AT_LC_CHANGED_DATE':
+            case GetControlType(selection) of
+              CT_LABEL    : 
+                if StringCompare('Внесение*', objText ) then
+                  Result := FD_LC_CHANGED_DATE
+                else if StringCompare('С*:*', objText ) then
+                  Result := FD_LC_CHANGED_DATE_FROM
+                else if StringCompare('По*:*', objText ) then
+                  Result := FD_LC_CHANGED_DATE_TO;
+              CT_CALENDAR :
+                case GetCellID(selection) of
+                  2 : Result := FD_LC_CHANGED_DATE_FROM;
+                  4 : Result := FD_LC_CHANGED_DATE_TO;
+                end;
+              CT_ADD_BUTTON, CT_DEL_BUTTON : Result := FD_LC_CHANGED_DATE_TO;
+            else
+              Result := FD_LC_CHANGED_DATE;
+            end;
+          'AT_REG_NUM'    : Result := FD_NUMBER;
+          'AT_REG_DATE'   : { для даты проводим дополнительное различение полей }
+            case GetControlType(selection) of
+              CT_LABEL    : 
+                if StringCompare('Дата*', objText ) then
+                  Result := FD_MU_REG_DATE
+                else if StringCompare('С*:*', objText ) then
+                  Result := FD_MU_REG_DATE_FROM
+                else if StringCompare('По*:*', objText ) then
+                  Result := FD_MU_REG_DATE_TO;
+              CT_CALENDAR :
+                case GetCellID(selection) of
+                  2 : Result := FD_MU_REG_DATE_FROM;
+                  4 : Result := FD_MU_REG_DATE_TO;
+                end; 
+              CT_ADD_BUTTON, CT_DEL_BUTTON : Result := FD_MU_REG_DATE_TO; // это нужно для того чтобы правильно работало позиционирование, хотя формально эти кнопки принадлежат всему полю даты
+            else
+              Result := FD_MU_REG_DATE;
+            end;
+          'AT_REG_IN_MU_NUM'    : Result := FD_MU_REG_NUMBER;
+          'AT_REG_IN_MU'        : Result := FD_MU_REG_STATUS;
+          'AT_NORM'             : Result := FD_MEANING;
+          'AT_STATUS'           : Result := FD_STATUS;
+          'AT_EDITION'          : Result := FD_INOPERATIVE_EDITION;
+          'AT_PREFIX'           : Result := FD_KIND_OF_INFORMATION;
+          'AT_TERRITORY'        : Result := FD_REGULATION_TERRITORY;
+          'AT_BASES'            : Result := FD_INFORMATIONAL_BLOCK;
+          '' :
+            case selection.CurrentObjectShortName of
+              FD_GROUP_CONTEXT_SEARCH     : Result := FD_GROUP_CONTEXT_SEARCH;
+              FD_GROUP_BASIC_REQ          : Result := FD_GROUP_BASIC_REQ;
+              FD_GROUP_LAW_CALENDAR       : Result := FD_GROUP_LAW_CALENDAR;
+              FD_GROUP_MU_REG             : Result := FD_GROUP_MU_REG;
+              FD_GROUP_EXTENDED_REQ       : Result := FD_GROUP_EXTENDED_REQ;
+            end;          
+        end; // end of CARD_PPR
+        
+      CARD_PPOIZ : // Поиск по Обзору изменений законодательства
+        case objID of
+          'AT_SOURCE_REVIEW'     : Result := FD_SOURCE;
+          'AT_CLASS_REVIEW'      : Result := FD_THEME;
+          'AT_PUBLISHING_DATE' : { для даты проводим дополнительное различение полей }
+            case GetControlType(selection) of
+              CT_LABEL    : 
+                if StringCompare('Дата*', objText ) then
+                  Result := FD_ACCEPTANCE_DATE
+                else if StringCompare('С*:*', objText ) then
+                  Result := FD_ACCEPTANCE_DATE_FROM
+                else if StringCompare('По*:*', objText ) then
+                  Result := FD_ACCEPTANCE_DATE_TO;
+              CT_CALENDAR :
+                case GetCellID(selection) of
+                  2 : Result := FD_ACCEPTANCE_DATE_FROM;
+                  4 : Result := FD_ACCEPTANCE_DATE_TO;
+                end;
+              CT_ADD_BUTTON, CT_DEL_BUTTON : Result := FD_ACCEPTANCE_DATE_TO; // это нужно для того чтобы правильно работало позиционирование, хотя формально эти кнопки принадлежат всему полю даты
+            else
+              Result := FD_ACCEPTANCE_DATE;
+            end;
+          'AT_EFFECTIVE_DATE' : { для даты проводим дополнительное различение полей }
+            case GetControlType(selection) of
+              CT_LABEL    : 
+                if StringCompare('Дата*', objText ) then
+                  Result := FD_EFFECTIVE_DATE
+                else if StringCompare('С*:*', objText ) then
+                  Result := FD_EFFECTIVE_DATE_FROM
+                else if StringCompare('По*:*', objText ) then
+                  Result := FD_EFFECTIVE_DATE_TO;
+              CT_CALENDAR :
+                case GetCellID(selection) of
+                  2 : Result := FD_EFFECTIVE_DATE_FROM;
+                  4 : Result := FD_EFFECTIVE_DATE_TO;
+                end;
+              CT_ADD_BUTTON, CT_DEL_BUTTON : Result := FD_EFFECTIVE_DATE_TO; // это нужно для того чтобы правильно работало позиционирование, хотя формально эти кнопки принадлежат всему полю даты
+            else
+              Result := FD_EFFECTIVE_DATE;
+            end;
+          'AT_PREFIX_REVIEW' : Result := FD_KIND_OF_INFORMATION;  
+          '' :
+            case selection.CurrentObjectShortName of
+              FD_GROUP_LEGISTATION_REVIEW : Result := FD_GROUP_LEGISTATION_REVIEW;
+            end;          
+        end; // end of CARD_PPOIZ
+      
+      CARD_PRIME : // F1 Прайм  
+        case objID of
+          'AT_DEALER_NAME'        : Result := FD_DEALER_NAME;
+          'AT_THEMES_NAME'        : Result := FD_THEMES_NAME;
+          'AT_IMPORTANT_DOCUMENTS': Result := FD_IMPORTANT_DOCUMENTS;
+          'AT_ANNO_KIND'          : Result := FD_ANNO_KIND;
+          'AT_ANNO_USER'          : Result := FD_ANNO_USER;
+          'AT_ANNO_ORG'           : Result := FD_ANNO_ORG;
+          'AT_ANNO_INTEREST'      : Result := FD_ANNO_INTEREST;
+          'AT_EMAIL'              : Result := FD_EMAIL;
+          '' :
+            case selection.CurrentObjectShortName of
+              FD_GROUP_THEME_PARAMS         : Result := FD_GROUP_THEME_PARAMS;    
+              FD_GROUP_DELIVERY_PARAMS      : Result := FD_GROUP_DELIVERY_PARAMS;
+            end;
+        end; // end of CARD_PRIME
+        
+      CARD_LAW_SUPPORT : // Правовая поддержка
+        case objID of
+          'AT_LAW_SUPPORT_TEXT' : Result := FD_LAW_SUPPORT_TEXT;
+          'AT_USER_NAME'        : Result := FD_USER_NAME;
+          'AT_USER_PHONE'       : 
+            case GetCellID(selection) of 
+              1 : Result := FD_CITY_CODE;
+              3 : Result := FD_USER_PHONE;
+            end; 
+          'AT_EMAIL'            : Result := FD_USER_EMAIL;             
+          '' :
+            case selection.CurrentObjectShortName of
+              FD_GROUP_LAW_SUPPORT_QUERY  : Result := FD_GROUP_LAW_SUPPORT_QUERY;
+              FD_GROUP_LAW_SUPPORT_TEXT   : Result := FD_GROUP_LAW_SUPPORT_TEXT;
+            end;  
+        end; // end of CARD_LAW_SUPPORT        
+    end;
+    
+    if Result = FD_UNKNOWN then 
+    begin
+      Log.Error('Неизвестный тип поля!', 'ObjID: ' + VarToString(objID) + EndOfLine + 'CurrentObjectShortName: ' + VarToString(selection.CurrentObjectShortName) );
+      Raise('Неизвестный тип поля!');
+    end;  
+    
+  except
+    Log.Message('GetFieldType: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function GetFieldTypeRank(
+  const fieldType : OleVariant;
+  const queryCardType : OleVariant
+) : integer;
+begin
+  try
+    case queryCardType of
+      CARD_PPR : // Поиск по реквизитам
+        case fieldType of
+          FD_GROUP_CONTEXT_SEARCH : Result := 100;
+          FD_WORDS_IN_CAPTION     : Result := 105;
+          FD_WORDS_IN_TEXT        : Result := 110;
+          FD_WHERE_SEARCH         : Result := 115;
+          FD_TEXT_DESCRIPTION     : Result := 120;
+  
+          FD_GROUP_BASIC_REQ      : Result := 200;
+          FD_TYPE                 : Result := 205;
+          FD_SOURCE               : Result := 210;
+          FD_THEME                : Result := 215;
+          FD_ACCEPTANCE_DATE      : Result := 220;
+          FD_ACCEPTANCE_DATE_FROM : Result := 225;
+          FD_ACCEPTANCE_DATE_TO   : Result := 230;
+          FD_NUMBER               : Result := 235;
+
+          FD_GROUP_LAW_CALENDAR   : Result := 300;
+          FD_LC_ALL_DATE          : Result := 305;
+          FD_LC_ALL_DATE_FROM     : Result := 310;
+          FD_LC_ALL_DATE_TO       : Result := 315;
+          FD_LC_IN_DATE           : Result := 320;
+          FD_LC_IN_DATE_FROM      : Result := 325;
+          FD_LC_IN_DATE_TO        : Result := 330;
+          FD_LC_ABOLISHED_DATE    : Result := 335;
+          FD_LC_ABOLISHED_DATE_FROM : Result := 340;
+          FD_LC_ABOLISHED_DATE_TO : Result := 345;
+          FD_LC_CHANGED_DATE      : Result := 350;
+          FD_LC_CHANGED_DATE_FROM : Result := 355;
+          FD_LC_CHANGED_DATE_TO   : Result := 360;
+
+          FD_GROUP_MU_REG         : Result := 400;
+          FD_MU_REG_DATE          : Result := 405;
+          FD_MU_REG_DATE_FROM     : Result := 410;
+          FD_MU_REG_DATE_TO       : Result := 415;
+          FD_MU_REG_NUMBER        : Result := 420;
+          FD_MU_REG_STATUS        : Result := 425;
+          
+          FD_GROUP_EXTENDED_REQ   : Result := 500;
+          FD_MEANING              : Result := 505;
+          FD_STATUS               : Result := 510;
+          FD_INOPERATIVE_EDITION  : Result := 515;
+          FD_KIND_OF_INFORMATION  : Result := 520;
+          FD_REGULATION_TERRITORY : Result := 525;
+          FD_INFORMATIONAL_BLOCK  : Result := 530;
+        else
+          Raise('Неизвестный тип поля!');
+        end;
+      CARD_PPOIZ : // Поиск по обзору изменений законодательства
+        case fieldType of
+          FD_GROUP_LEGISTATION_REVIEW : Result := 5;
+          FD_SOURCE                   : Result := 10;
+          FD_THEME                    : Result := 20;
+          FD_ACCEPTANCE_DATE          : Result := 30; // Дата
+          FD_ACCEPTANCE_DATE_FROM     : Result := 40;
+          FD_ACCEPTANCE_DATE_TO       : Result := 50;
+          FD_EFFECTIVE_DATE           : Result := 60; // Дата
+          FD_EFFECTIVE_DATE_FROM      : Result := 70;
+          FD_EFFECTIVE_DATE_TO        : Result := 80;
+          FD_KIND_OF_INFORMATION      : Result := 90;
+        else
+          Raise('Неизвестный тип поля!');
+        end;
+      CARD_LAW_SUPPORT: // Правовая поддержка
+        case fieldType of
+          FD_GROUP_LAW_SUPPORT_QUERY  : Result := 100;
+          FD_USER_NAME                : Result := 105;
+          FD_CITY_CODE                : Result := 110;
+          FD_USER_PHONE               : Result := 115;
+          FD_USER_EMAIL               : Result := 120;
+          FD_GROUP_LAW_SUPPORT_TEXT   : Result := 200;
+          FD_LAW_SUPPORT_TEXT         : Result := 205;
+        else
+          Raise('Неизвестный тип поля!');
+        end;
+      CARD_PRIME : // Карточка в F1Prime
+        case fieldType of
+          FD_DEALER_NAME            : Result := 10;
+          FD_GROUP_THEME_PARAMS     : Result := 100;
+          FD_THEMES_NAME            : Result := 110;
+          FD_IMPORTANT_DOCUMENTS    : Result := 120;
+          FD_ANNO_KIND              : Result := 130;
+          FD_ANNO_USER              : Result := 140;
+          FD_ANNO_ORG               : Result := 150;
+          FD_ANNO_INTEREST          : Result := 160;
+          FD_GROUP_DELIVERY_PARAMS  : Result := 200;
+          FD_EMAIL                  : Result := 210;         
+        else
+          Raise('Неизвестный тип поля!');
+        end;                    
+    else
+      Raise('Неизвестный тип карточки!');
+    end;    
+  except
+    Log.Message('GetFieldTypeRank: ' + ExceptionMessage, ' fieldType: "' + VarToStr(fieldType) + '"; ' + EndOfLine + 'queryCardType: "' + VarToStr(queryCardType) + '"; ' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function GetFieldFirstControl(
+  const fieldType : OleVariant
+  //case category : String;
+) : integer;
+begin
+  try
+    case fieldType of
+      FD_WORDS_IN_CAPTION     : Result := CT_COMBOBOX;
+      FD_WORDS_IN_TEXT        : Result := CT_COMBOBOX;
+      FD_WHERE_SEARCH         : Result := CT_COMBOBOX;
+      FD_TYPE                 : Result := CT_LABEL;
+      FD_SOURCE               : Result := CT_LABEL;
+      FD_THEME                : Result := CT_LABEL;
+
+      FD_ACCEPTANCE_DATE      : Result := CT_LABEL;
+      FD_ACCEPTANCE_DATE_FROM : Result := CT_CALENDAR;
+      FD_ACCEPTANCE_DATE_TO   : Result := CT_CALENDAR;
+      FD_EFFECTIVE_DATE       : Result := CT_LABEL;
+      FD_EFFECTIVE_DATE_FROM  : Result := CT_CALENDAR;
+      FD_EFFECTIVE_DATE_TO    : Result := CT_CALENDAR;
+      FD_LC_ALL_DATE          : Result := CT_LABEL;
+      FD_LC_ALL_DATE_FROM     : Result := CT_CALENDAR;
+      FD_LC_ALL_DATE_TO       : Result := CT_CALENDAR;
+      FD_LC_IN_DATE           : Result := CT_LABEL;
+      FD_LC_IN_DATE_FROM      : Result := CT_CALENDAR;
+      FD_LC_IN_DATE_TO        : Result := CT_CALENDAR;
+      FD_LC_ABOLISHED_DATE    : Result := CT_LABEL;
+      FD_LC_ABOLISHED_DATE_FROM : Result := CT_CALENDAR;
+      FD_LC_ABOLISHED_DATE_TO : Result := CT_CALENDAR;
+      FD_LC_CHANGED_DATE      : Result := CT_LABEL;
+      FD_LC_CHANGED_DATE_FROM : Result := CT_CALENDAR;
+      FD_LC_CHANGED_DATE_TO   : Result := CT_CALENDAR;
+
+      FD_NUMBER               : Result := CT_LABEL;
+      FD_MU_REG_DATE          : Result := CT_LABEL;
+      FD_MU_REG_DATE_FROM     : Result := CT_CALENDAR;
+      FD_MU_REG_DATE_TO       : Result := CT_CALENDAR;
+      FD_MU_REG_NUMBER        : Result := CT_LABEL;
+      FD_MU_REG_STATUS        : Result := CT_LABEL;
+      FD_MEANING              : Result := CT_LABEL;
+      FD_STATUS               : Result := CT_LABEL;
+      FD_INOPERATIVE_EDITION  : Result := CT_COMBOBOX;
+      FD_KIND_OF_INFORMATION  : Result := CT_LABEL;
+      FD_REGULATION_TERRITORY : Result := CT_LABEL;
+      FD_INFORMATIONAL_BLOCK  : Result := CT_LABEL;
+      
+      FD_LAW_SUPPORT_TEXT     : Result := CT_MEMO_EDIT;
+      FD_USER_NAME            : Result := CT_EDIT;
+      FD_CITY_CODE            : Result := CT_PHONE_EDIT;
+      FD_USER_PHONE           : Result := CT_PHONE_EDIT;
+      FD_USER_EMAIL           : Result := CT_EDIT;
+      
+      FD_CONSULTATION_TEXT    : Result := CT_MEMO_EDIT;
+      
+      FD_DEALER_NAME          : Result := CT_EDIT;
+      FD_THEMES_NAME          : Result := CT_EDIT;
+      FD_IMPORTANT_DOCUMENTS  : Result := CT_COMBOBOX; 
+      FD_ANNO_KIND            : Result := CT_LABEL; 
+      FD_ANNO_USER            : Result := CT_LABEL; 
+      FD_ANNO_ORG             : Result := CT_LABEL; 
+      FD_ANNO_INTEREST        : Result := CT_LABEL;
+      FD_EMAIL                : Result := CT_EMAIL_EDIT;                      
+    else
+      Raise('Неизвестный тип поля!');
+    end;    
+  except
+    Log.Message('GetFieldFirstControl: ' + ExceptionMessage, VarToString(fieldType) ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: Отдает кнопку, которая завершает ввод в поле (при вводе с клавиатуры)
+  RESULT:
+  REMARK:
+}
+function GetFieldFinishKey(
+  const field : OleVariant
+): String;
+begin
+  try
+    Result := '';
+    case field of
+      FD_WORDS_IN_CAPTION,
+      FD_WORDS_IN_TEXT,
+      FD_MU_REG_DATE_FROM,
+      FD_MU_REG_DATE_TO,
+      FD_ACCEPTANCE_DATE_FROM,
+      FD_ACCEPTANCE_DATE_TO,
+      FD_EFFECTIVE_DATE_FROM,
+      FD_EFFECTIVE_DATE_TO,
+      FD_LC_ALL_DATE_FROM,
+      FD_LC_ALL_DATE_TO,
+      FD_LC_IN_DATE_FROM,
+      FD_LC_IN_DATE_TO,
+      FD_LC_ABOLISHED_DATE_FROM,
+      FD_LC_ABOLISHED_DATE_TO,
+      FD_LC_CHANGED_DATE_FROM,
+      FD_LC_CHANGED_DATE_TO,
+      FD_LAW_SUPPORT_TEXT,
+      FD_CONSULTATION_TEXT,
+      FD_DEALER_NAME,
+      FD_THEMES_NAME,
+      FD_EMAIL,
+      FD_USER_NAME,
+      FD_CITY_CODE,
+      FD_USER_PHONE,
+      FD_USER_EMAIL :
+        Result := '';
+    else
+      Result := '[Home][End][Enter]';
+    end;  
+  except
+    Log.Message('GetFieldFinishKey: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: Отдает значение поля по-умолчанию
+  RESULT:
+  REMARK:
+}
+function GetFieldDefaultValue(
+  const field : OleVariant
+): String;
+begin
+  try
+    Result := '';
+    case field of
+      FD_MU_REG_DATE_FROM,
+      FD_MU_REG_DATE_TO,
+      FD_ACCEPTANCE_DATE_FROM,
+      FD_ACCEPTANCE_DATE_TO,
+      FD_EFFECTIVE_DATE_FROM,
+      FD_EFFECTIVE_DATE_TO,
+      FD_LC_ALL_DATE_FROM,
+      FD_LC_ALL_DATE_TO,
+      FD_LC_IN_DATE_FROM,
+      FD_LC_IN_DATE_TO,
+      FD_LC_ABOLISHED_DATE_FROM,
+      FD_LC_ABOLISHED_DATE_TO,
+      FD_LC_CHANGED_DATE_FROM,
+      FD_LC_CHANGED_DATE_TO:
+        Result := '  .  .  ';
+    else
+      Result := '';
+    end;  
+  except
+    Log.Message('GetFieldFinishKey: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE: Работа с EVD карточкой
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function GetObjectState(
+  const selection : OleVariant // свойство Selection редактора КЗ
+): String;
+begin
+  try
+    Result := selection.CurrentObjectState;
+  except
+    Log.Message('GetObjectState: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+const
+  BTN_STATE_UNDEFINED = '';
+  BTN_STATE_OR  = '[ИЛИ]';
+  BTN_STATE_AND = '[И]';
+  BTN_STATE_NOT = '[КРОМЕ]';
+{
+  TYPE: Работа с EVD карточкой
+  DESC: Возвращает или устанавливает состояние кнопки логического условия. Кнопка должна быть выбрана!
+  RESULT:
+  REMARK:
+}
+function LogicButtonState(
+  const selection : OleVariant; // свойство Selection редактора КЗ
+  whatToDo : String;
+  state : String = ''
+) : OleVariant;
+  var i : integer;
+begin
+  try
+    Result := BTN_STATE_UNDEFINED;
+    whatToDo := AnsiUpperCase(whatToDo);
+    if ( GetControlType(selection) = CT_STATE_BUTTON ) then
+      case whatToDo of
+        'GET' :
+          case GetObjectState(selection) of
+            0 : Result := BTN_STATE_OR;
+            1 : Result := BTN_STATE_AND;
+            2 : Result := BTN_STATE_NOT;
+          else
+            Raise('Неизвестное состояние кнопки!');
+          end;
+        'SET' :
+          begin
+            state := AnsiUpperCase(state);
+            if (state <> BTN_STATE_OR) AND (state <> BTN_STATE_AND) AND (state <> BTN_STATE_NOT) then
+              Raise('Параметр state неизвестен или не задан!');
+            for i := 1 to 4 do
+            begin
+              Result := LogicButtonState(selection, 'GET') = state;
+              if Result then break;
+              Sys.Keys('[Enter]');
+            end;
+          end;
+      else
+        Raise('Параметр whatToDo неизвестен!');       
+      end
+    else  
+      Raise('Текущий объект не является кнопкой состояний!');
+  except
+    Log.Message('GetObjectState: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE: Работа с EVD карточкой
+  DESC: Кликает по кнопке. Кнопка должна быть выбрана.
+  RESULT:
+  REMARK:
+}
+function ClickQueryCardButton(
+  const selection : OleVariant // свойство Selection редактора КЗ
+) : boolean;
+  var
+    ctrlType : OleVariant;
+begin
+  try
+    Result := false;
+    ctrlType := GetControlType(selection);
+    if ( ctrlType <> CT_ADD_BUTTON ) AND ( ctrlType <> CT_DEL_BUTTON ) then Raise('Активный элемент не является кнопкой!');
+    Sys.Keys('[Enter]');
+    Result := true;
+  except
+    Log.Message('ClickQueryCardButton: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE: Работа с EVD карточкой
+  DESC: Позиционируется в карточке запроса на контроле указанного типа, в указанном поле
+  RESULT: True, если удалось спозиционироваться. Курсор остается в нужном поле. 
+          Иначе - false, положение курсора в этом случае неопределенное.
+  REMARK:
+}
+function PositionInQueryCard(
+  const queryCardEditor : OleVariant; // редактор КЗ
+  const field : OleVariant; // тип поля
+  control : OleVariant; // типы контрола
+  direction : String = 'AUTO'; // направление перемещения по КЗ
+  const paramString : String = ''
+) : boolean;
+  var
+    key, upKey, downKey, tempStr : String;
+    oldControl, oldField, currControl, currField, selection, paramList, queryCardType, rectangle : OleVariant;
+    currCellID, currRowID, oldCellID, oldRowID, oldDelay, rowID, cellID, neededRank, currentRank, i, j, x, y, x0, y0 : integer;
+    flag, autoSelectDirection, isFieldNotChanged : boolean;
+begin
+  try
+    if NOT IsArray(control) then Raise('Параметр control должен быть массивом');
+    //
+    Log.Message('Start positioning at Field: "' + field + '" on control: "' + Array2String(control) + '"');
+    oldDelay := Options.Run.Delay;
+    Options.Run.Delay := MIN_RUN_DELAY;
+    try
+      if NOT IsExists(queryCardEditor) then Raise('Окно карточки запроса не существует!');
+      selection := queryCardEditor.Selection;
+      if AnsiUpperCase(field) = 'CURRENT' then field := GetFieldType(selection);
+      // парсим параметры
+      paramList := ParseParamString(paramString);
+      
+      tempStr := AnsiUpperCase(GetParam(paramList, 'CellID', '-1'));
+      case tempStr of
+        'CURRENT' : cellID := GetCellID(selection);
+        'NEXT'    : cellID := GetCellID(selection) + 1;
+      else  
+        cellID := StrToInt( tempStr );
+      end;  
+
+      tempStr := AnsiUpperCase(GetParam(paramList, 'RowID', '-1'));
+      case tempStr of
+        'CURRENT' : rowID := GetRowID(selection);
+        'NEXT'    : rowID := GetRowID(selection) + 1;
+      else  
+        rowID := StrToInt( tempStr );
+      end;  
+      
+      upKey := GetParam(paramList, 'UpKey', UP_KEY);
+      downKey := GetParam(paramList, 'DownKey', DOWN_KEY);
+      //
+      Result := false;
+      queryCardEditor.SetFocus;
+      queryCardType := GetQueryCardType(queryCardEditor);
+      
+      // если направление не указано явно, то определяем автоматически
+      if AnsiUpperCase(direction) = 'AUTO' then 
+      begin
+        // определяем порядок текущего и нужного элементов
+        neededRank  :=  GetFieldTypeRank(field, queryCardType);
+        currentRank :=  GetFieldTypeRank( GetFieldType( selection ), queryCardType);
+        // выбираем
+        if neededRank > currentRank then 
+          direction := 'down'
+        else if neededRank < currentRank then
+          direction := 'up'
+        else if neededRank = currentRank then
+        begin
+          PositionInQueryCard(
+            queryCardEditor,
+            field,
+            [GetFieldFirstControl(field)],
+            Choose( GetControlType( selection ) = CT_LABEL, 'down', 'up') );
+          direction := 'down';  
+        end;  
+      end;
+      // задаем кнопку для перемещения вверх или вниз
+      case AnsiUpperCase(direction) of
+        'UP', 'ВВЕРХ'   : key := upKey;
+        'DOWN', 'ВНИЗ'  : key := downKey;
+      else
+        Raise('Неизвестный параметр direction!');
+      end;
+
+      // бежим по КЗ, пока не совпадут поле и контрол, или пока не дойдем до конца
+      currControl := GetControlType( selection );
+      currField := GetFieldType( selection );
+      currCellID := GetCellID( selection );
+      currRowID := GetRowID( selection ); 
+      flag := false;     
+      repeat
+        Result := (currField = field) AND ((cellID=-1) OR (cellID=currCellID)) AND ((rowID=-1) OR (rowID=currRowID)) AND FindElement(control, currControl);
+        if Result then break;
+        if currField = field 
+        then // если мы попали в нужное поле то взводим флаг
+          flag := true
+        else // если вышли из нужного поля, но контрола не нашли, то выходим, чтобы не тратить время
+          if flag then break; 
+        oldControl := currControl;
+        oldField := currField;
+        oldRowID := currRowID;
+        oldCellID := currCellID;
+        // выполянем перемещение
+        Sys.Keys(key);
+        // узнаем куда попали
+        currControl := GetControlType( selection );
+        currField := GetFieldType( selection );
+        currCellID := GetCellID( selection );
+        currRowID := GetRowID( selection );
+        
+        if ((key = downKey) AND (GetFieldTypeRank(currField, queryCardType) < GetFieldTypeRank(oldField, queryCardType))) OR
+           ((key = upKey) AND (GetFieldTypeRank(currField, queryCardType) > GetFieldTypeRank(oldField, queryCardType))) then
+           Raise('Порядок полей не соответствует эталонному!');
+        
+        isFieldNotChanged := (oldControl = currControl) AND (oldField = currField) AND (currCellID = oldCellID) AND (currRowID = oldRowID);
+        // !!!NOTE: Если будет свернута самая верхняя группа и целевое поле будет там, то нижеследующее не сработает
+        if // ЕСЛИ если при движении вниз поля перестали меняться
+          ((key = downKey) AND isFieldNotChanged ) OR
+          // ИЛИ если при движении вверх мы оказались выше нужного поля (проскочили закрытую группу)
+          // NOT flag - для того, чтобы не реагировать тогда, когда мы вышли из последнего контрола нужного поля
+          ((NOT flag) AND (key = upKey) AND ( GetFieldTypeRank(currField, queryCardType) < GetFieldTypeRank(field, queryCardType) ) ) OR
+          // ИЛИ если при движении вниз мы оказались ниже нужного поля (проскочили закрытую группу)
+          ((NOT flag) AND (key = downKey) AND ( GetFieldTypeRank(currField, queryCardType) > GetFieldTypeRank(field, queryCardType) ) ) then
+        begin // ТО пытаемся спозиционироваться на группе и раскрыть ее
+          // раскрываем группу
+
+          if (key = downKey) then
+          begin
+            Sys.Keys(upKey);
+            if isFieldNotChanged then // это на случай последней группы
+            begin
+              i := 0; // чтобы не зациклиться
+              while (i < 20) AND ((GetControlType(selection) <> oldControl) OR ( GetFieldType(selection) <> oldField )) do
+              begin
+                Sys.Keys(downKey);
+                i := i + 1;
+              end;
+              if (i >= 20) then Log.Warning('i >= 20');
+            end;    
+          end  
+          else if key = upKey then
+            key := downKey;
+          
+          // раскрываем группу и перемещаемся на следующее поле         
+          if GetControlType( selection ) = CT_GROUP then Sys.Keys(GRAY_PLUS + key);
+          // узнаем куда попали
+          currControl := GetControlType( selection );
+          currField := GetFieldType( selection );
+          currCellID := GetCellID( selection );
+          currRowID := GetRowID( selection );
+
+        end;
+      until (oldControl = currControl) AND (oldField = currField) AND (currCellID = oldCellID) AND (currRowID = oldRowID);
+    finally
+      Options.Run.Delay := oldDelay;
+    end;
+  except
+    Log.Message('PositionInQueryCard: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function ClearField(
+  const queryCardEditor : OleVariant; // редактор КЗ
+  const fullClear : boolean = true // удалять ли все строки оля, или только текущее
+) : boolean;
+  var
+    fieldType, controlType, selection  : OleVariant;
+    counter : integer;
+begin
+  try
+    selection := queryCardEditor.Selection;
+    fieldType := GetFieldType(selection);
+    controlType := GetControlType(selection);
+    Result := GetObjectText(selection) = '';
+    counter := 1;
+    repeat
+      if NOT Result then
+      begin
+        if (controlType = CT_CALENDAR) then
+        begin // если поле - календарь
+          Sys.Keys('[P200]^a[P200][Del]');
+          Result := Utilities.Trim(GetObjectText(selection)) = '.  .';                                                                
+        end
+        else
+        if (fieldType = FD_INOPERATIVE_EDITION) OR (fieldType = FD_WHERE_SEARCH) OR (fieldType = FD_DEALER_NAME)
+                 OR (fieldType = FD_THEMES_NAME) OR (fieldType = FD_IMPORTANT_DOCUMENTS) OR (fieldType = FD_USER_NAME)
+                 OR (fieldType = FD_CITY_CODE) OR (fieldType = FD_USER_PHONE) OR (fieldType = FD_USER_EMAIL) then
+        begin // если у поля нет кнопок удаления
+          Sys.Keys('[P200]^a[P200][Del]');
+          Result := GetObjectText(selection) = '';
+        end
+        else // если множественное поле - есть кнопки удаления - используем их
+        begin
+          if PositionInQueryCard(queryCardEditor, fieldType, [CT_DEL_BUTTON], 'down', 'RowID:=current') then 
+            ClickQueryCardButton(selection);
+          PositionInQueryCard(queryCardEditor, fieldType, [controlType], 'up' );
+          Result := GetObjectText(selection) = '';
+        end;
+      end;
+      counter := counter + 1;
+    until Result OR (NOT fullClear) OR (counter > 100);
+  except
+    Log.Message('ClearField: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function CreateFieldData(
+  const fieldType : OleVariant;
+  const fieldValues : OleVariant
+) : OleVariant;
+begin
+  try
+    AddToArray(Result, fieldType);
+    AddToArray(Result, fieldValues);
+  except
+    Log.Message('CreateFieldData: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function GetFieldTypeFromFieldData(
+  const fieldData : OleVariant
+) : OleVariant;
+begin
+  try
+    Result := '';
+    //if IsArray(fieldData) then Result := fieldData[VarArrayLowBound(fieldData,1)];
+    Result := GetFromArray(fieldData, 0);
+  except
+    Log.Message('GetFieldTypeFromFieldData: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: Возвращает массив с данными поля
+  RESULT:
+  REMARK:
+}
+function GetFieldValuesFromFieldData(
+  const fieldData : OleVariant
+) : OleVariant;
+  var i : integer;
+begin
+  try
+    Result := GetFromArray(fieldData, 1);
+    //for i := VarArrayLowBound(fieldData, 1)+1 to VarArrayHighBound(fieldData,1) do AddToArray(Result, fieldData[i]);
+  except
+    Log.Message('GetFieldValuesFromFieldData: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK: Должны быть спозиционированы на первом контроле поля!
+}
+function ExtractFieldData(
+  const selection : OleVariant
+) : OleVariant;
+  var
+    currControl, res, fieldType, fieldValues : OleVariant;
+    currRowID, currCellID, i, carX, carY : integer;
+begin
+  try
+    Result := nil;
+    fieldType := GetFieldType(selection);
+    if fieldType = FD_UNKNOWN then Raise('Находимся в неизвестном поле!');
+    
+    res := ''; currCellID := -1234; currRowID := -1234;
+    while (GetFieldType(selection) = fieldType) AND ((currRowID <> GetRowID(selection) ) OR (currCellID <> GetCellID(selection) )) do
+    begin
+      currControl := GetControlType(selection);
+      currRowID := GetRowID(selection);
+      currCellID := GetCellID(selection);      
+      case currControl of
+        CT_STATE_BUTTON : res := LogicButtonState(selection, 'get');
+        CT_COMBOBOX, CT_EDIT, CT_PHONE_EDIT, CT_MEMO_EDIT, CT_EMAIL_EDIT : 
+          begin
+            AddToArray(fieldValues, res + GetObjectText(selection) );
+            { Sys.Keys('^[End]'); эта @#$^#@% карточка опять ведет себя по-новому! }
+            // это должно ставить курсор в конец комбобокса, чтобы можно было перейти Табом на следующий контрол
+            i := 0;
+            carX := 0; carY := 0;
+            while (GetRowID(selection) = currRowID) AND (carX <> selection.Caret.X) AND (carY <> selection.Caret.Y) do
+            begin
+              Sys.Keys('[Down]');
+              i := i + 1;
+              carX := selection.Caret.X;
+              carY := selection.Caret.Y;
+            end;
+            if GetRowID(selection) <> currRowID then
+            begin
+              Sys.Keys('[Up]');
+              PressKeyNCount('[Down]', i-1);
+              Sys.Keys('[End]');
+            end;  
+          end;  
+        CT_CALENDAR     : AddToArray(fieldValues, GetObjectText(selection) );
+        CT_BUTTON, CT_DEL_BUTTON, CT_ADD_BUTTON, CT_LABEL, CT_GROUP, CT_PICTURELABEL    : res := '';
+       else
+        Raise('Поле неизвестного типа!');  
+      end;
+      Sys.Keys(DOWN_KEY);  
+    end;
+    Sys.Keys(UP_KEY);
+    Result := CreateFieldData(fieldType, fieldValues);
+  except
+    Log.Message('ExtractFieldData: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := nil;
+    CommonExceptionHandler;
+  end;               
+end;
+
+
+{
+  TYPE:
+  DESC: Сравнивает массивы со значениями поля (одного, ExtractFieldData) карточки запроса
+  RESULT:
+  REMARK:
+}
+function CompareFieldData(
+  firstArr : OleVariant;
+  secondArr : OleVariant
+) : boolean;
+  var
+    i, diff : OleVariant;
+    fVal1, fVal2, val2, fType1, fType2 :OleVariant;
+begin
+  try
+    Result := false;
+    ForEachElement(firstArr, 'AnsiUpperCase(arr[i])', true);
+    ForEachElement(secondArr, 'AnsiUpperCase(arr[i])', true);    
+    fType1 := GetFieldTypeFromFieldData(firstArr);
+    fType2 := GetFieldTypeFromFieldData(secondArr);
+    Result := fType1 = fType2;
+    if NOT Result then
+      Log.Warning('Типы полей разные!', fType1 + EndOfLine + fType2 );
+    if Result then
+    begin
+      fVal1 := GetFieldValuesFromFieldData(firstArr);
+      fVal2 := GetFieldValuesFromFieldData(secondArr);
+      // если значения полей пустые, то считаем что они равны
+      if IsEqual(fVal1, EMPTY_FIELD_VALUES) AND IsEqual(fVal2, EMPTY_FIELD_VALUES) then
+        diff := nil
+      else  
+        diff := common.Difference(fVal1, fVal2);
+      Result := NOT IsArray( diff );
+      if NOT Result then
+      begin
+        // заточка
+        if NOT IsArray(fVal1) then fVal1 := [ VarToString(fVal1) ];
+        if NOT IsArray(fVal2) then fVal2 := [ VarToString(fVal2) ];
+        //
+        Log.Warning(
+          'Массивы значений полей не совпали!',
+            'Тип поля: ' + GetFieldTypeFromFieldData(firstArr) + EndOfLine + EndOfLine +
+            'Первый массив (построчно):' + EndOfLine + Array2String(fVal1, EndOfLine, true) + EndOfLine + EndOfLine +  
+            'Второй массив (построчно):' + EndOfLine + Array2String(fVal2, EndOfLine, true) + EndOfLine + EndOfLine +
+            'Разница между ними (элементы, присутвтующие в одном, но отсутствующие в другом): ' + EndOfLine + Array2String(diff, EndOfLine)
+        );
+      end;  
+    end;  
+  except
+    Log.Message('CompareFieldData: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;    
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: Заполняет поле. Поле должно быть выбрано!
+  RESULT:
+  REMARK: 
+    На поле должны быть уже спозиционированы
+    В качестве fieldValue принимается массив вида: [FD_константа, значение_1, значение_2, ...]
+      значение может содержать вначале  BTN_STATE_OR|BTN_STATE_AND|BTN_STATE_NOT, тогда соответствующая кнопка будет выставлена к этому значению
+    Например: [ FD_TYPE, '[КРОМЕ]Комментарии, разъяснения, схемы\Комментарий', 'Комментарии, разъяснения, схемы', '[И]Федеральный закон']
+    
+    paramString:
+      IsFillViaTree - заполнять ли поля через дерево аттрибутов или вводом с клавиатуры
+        default: false
+      IsInsByClipboard - при заполнении с клавиатуры вставлять с помощью клавиатуры или через буфер обмена
+        (так, например, в поля типа "Номер" тире почему-то не вставляются (вТС нажимает Gray-, а оболочка его не отрабатывает))
+        при IsFillViaTree=true влияния не имеет
+        default: false
+      IsInsOrigVal - при вставке с клавиатуры заменять ли слэши пробелами (напр., при вводе в поля типа Орган/источник)
+        при IsFillViaTree=true влияния не имеет      
+        default: false
+}
+function FillField(
+  const queryCardEditor : OleVariant; // редактор КЗ
+  fieldData : OleVariant; // значение поля
+  paramString : String = ''
+) : boolean;
+  var
+    selection, w, treeWnd, temp, paramList, fieldValues  : OleVariant;
+    lowBound, highBound, i, rowID : integer;
+    term, value, fieldType, controlType, originalValue : String;
+    bool, isFillViaTree, isInsByClipboard, isInsOrigVal, res, isClearOnly : boolean;
+begin
+  try
+    //
+    paramList := ParseParamString(paramString);
+    isFillViaTree := VarToBool( GetParam(paramList, 'IsFillViaTree', 'false') );
+    isInsByClipboard := VarToBool( GetParam(paramList, 'IsInsByClipboard', 'false') );
+    isInsOrigVal := VarToBool( GetParam(paramList, 'IsInsOrigVal', 'false') );
+    //
+    if NOT IsArray(fieldData) then Raise('Параметр fieldData должен быть массивом!');
+    
+    fieldType := GetFieldTypeFromFieldData(fieldData);
+    fieldValues := GetFieldValuesFromFieldData(fieldData);
+
+    isClearOnly := IsEqual(fieldValues, EMPTY_FIELD_VALUES);
+    if NOT isClearOnly then
+    begin
+      lowBound := VarArrayLowBound(fieldValues, 1);
+      highBound := VarArrayHighBound(fieldValues, 1);
+    end;  
+    
+    selection := queryCardEditor.Selection;
+    //   
+    if isFillViaTree AND (GetControlType(selection) = CT_LABEL ) then
+    begin // если сказано заполнять через дерево и текущий контрол - надпись
+      Sys.Keys('[Enter]');
+      w := GetFromAttributeSelect('ВЫБОР ЗНАЧЕНИЙ РЕКВИЗИТА');
+      if NOT IsExists(w) then Raise('Не получилось найти диалог выбора значений реквизита!');
+      try
+        treeWnd := GetFromAttributeSelect('ДЕРЕВО АТТРИБУТОВ');
+        ClickToolbarButton( GetFromAttributeSelect('НИЖНИЙ ТУЛБАР'), 'Очистить');
+        if isClearOnly then 
+          Result := true
+        else
+          for i := lowBound to highBound do
+          begin
+            // определяем, есть ли в начале строки условие
+            value := fieldValues[i];
+            term := AnsiUpperCase( GetSubStr(value, '', ']') + ']' );
+            if (term = BTN_STATE_OR) OR (term = BTN_STATE_AND) OR (term = BTN_STATE_NOT) then
+              value := GetSubStr(value, ']', '')
+            else
+              term := '';
+            // теперь в value храниться значение, а в term - условие (или не храниться, если не задано)
+            treeWnd.SetFocus;
+            Sys.Keys('[Home]');
+            if (value = '') then continue;
+            if Position_Internal(treeWnd, value) then
+            begin
+              if (term = '') then term := BTN_STATE_OR;
+              term := AnsiUpperCase( GetSubStr(term, '[', ']') );
+              Sys.Keys('[Apps]');
+              Result := ClickByPopupMenuItem(treeWnd, term);
+              if NOT Result then Raise('Не получилось уcтановить указанное логическое условие!');
+            end;  
+          end;
+      finally
+        // закрываем диалог выбора реквизитов
+        // было ClickToolbarButton( GetFromAttributeSelect('НИЖНИЙ ТУЛБАР'), Choose(Result,'Ок', 'Отмен*'));
+        // стало см. ниже, т.к. ТС тупит, зачем-то ждет кнопку после клика по ней 
+        if (Result and IsExists(treeWnd)) then
+          treeWnd.Keys('^[Enter]')
+        else
+          ClickToolbarButton(GetFromAttributeSelect('НИЖНИЙ ТУЛБАР'), 'Отмен*');
+      end;        
+      // сравниваем то что сделали с тем что должны были сделать
+      Result :=
+        PositionInQueryCard(queryCardEditor, fieldType, [GetFieldFirstControl(fieldType)] )
+        AND (
+          ( (NOT isClearOnly) AND CompareFieldData( ExtractFieldData(selection), fieldData))
+          OR (isClearOnly) {здесь, возможно, надо сделать проверку на пустоту поля} );
+      if NOT Result then Raise('Не смог заполнить поле как надо!');
+    end
+    else
+    begin
+      bool := 
+        PositionInQueryCard(queryCardEditor, fieldType, [CT_PHONE_EDIT, CT_EMAIL_EDIT, CT_MEMO_EDIT, CT_EDIT, CT_COMBOBOX, CT_CALENDAR] );
+      controlType := GetControlType(selection);    
+      // заполняем только поле указанного типа и только если оно комбобокс или календарь
+      if (GetFieldType(selection) = fieldType) AND ( (controlType = CT_PHONE_EDIT) OR (controlType = CT_EMAIL_EDIT) OR (controlType = CT_EDIT) OR (controlType = CT_MEMO_EDIT) OR (controlType = CT_COMBOBOX) OR (controlType = CT_CALENDAR)) then
+      begin
+        Result := true;
+        // если поле надо всего лишь очистить, то очищаем и выходим
+        if isClearOnly then
+        begin 
+          Result := ClearField(queryCardEditor);
+          Exit;
+        end;
+        //
+        for i := lowBound to highBound do
+        begin
+          // если поле не пустое, то очищаем его
+          ClearField(queryCardEditor);
+          // определяем, есть ли в начале строки условие
+          value := fieldValues[i];
+          term := AnsiUpperCase( GetSubStr(value, '', ']') + ']' );
+          if (term = BTN_STATE_OR) OR (term = BTN_STATE_AND) OR (term = BTN_STATE_NOT) then
+            value := GetSubStr(value, ']', '')
+          else
+            term := '';
+          // теперь в value храниться значение, а в term - условие (или не храниться, если не задано)
+          originalValue := value;
+          // меняем 
+          if NOT isInsOrigVal then value := StringReplace(value, '\', ' ', 1 or 2); // убираем все слэши
+          
+          // заполняем поле только в том случае, если есть чем заполнять
+          if value <> '' then 
+          begin
+            // заточка на случай, когда в вводимой строке есть дефисы (через Sys.Keys они не вводятся). В этом случае вставляем через буфер обмена.
+            isInsByClipboard := ( Pos('-', value) <> 0 );
+            // конец заточки
+            
+            // заполянем поле
+            if isInsByClipboard
+            then // через буфер обмена
+            begin
+              Sys.Clipboard := value;
+              Sys.Keys('^v');
+            end  
+            else // через клавиатуру
+            begin                         
+              value := StringReplace(value, '!', '!!', 1 or 2);
+              value := StringReplace(value, '~', '~~', 1 or 2);
+              value := StringReplace(value, '^', '^^', 1 or 2);
+              Sys.Keys(value);
+            end;  
+            Sys.Keys( GetFieldFinishKey(fieldType) );
+          end;
+
+          Result := Result AND ( StringReplaceExt(GetObjectText(selection), ['“', '”'], ['"', '"'], 1 or 2) = originalValue);
+
+          // если задано условие, то устанавливаем его явно
+          if Result AND (term <> '') then
+            if PositionInQueryCard(queryCardEditor, GetFieldType(selection), [CT_STATE_BUTTON], 'up', 'RowID:=current') then
+              Result := Result AND LogicButtonState(selection, 'set', term)
+            else
+            begin
+              Log.Error('Не получилось спозиционироваться на кнопке с условием!');
+              Result := false;  
+            end;
+          // добавляеем следующее поле (если надо)
+          if i <> highBound then
+            if PositionInQueryCard(queryCardEditor, GetFieldType(selection), [CT_ADD_BUTTON], 'down', 'RowID:=current') then
+            begin
+              Result := Result AND ClickQueryCardButton(selection);
+            end
+            else  
+            begin
+              Log.Error('Не получилось спозиционироваться на кнопке добавления поля!');
+              Result := false;  
+            end;
+
+          if NOT Result then Raise('Не смог заполнить поле как надо!');            
+        end;
+      end
+      else
+        Raise('Выбранное поле не является комбобоксом или календарем или многострочным полем!');  
+    end;    
+  except
+    Log.Message('FillField: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;               
+end;
+
+procedure SortFieldsTypeArray(
+  var inArray: OleVariant; // входной/выходной массив
+  const queryCardType : OleVariant
+);
+var
+	temp;
+  i, j, iLow, iHigh: integer;  
+begin
+  try
+  	iLow := VarArrayLowBound(InArray, 1);
+    iHigh := VarArrayHighBound(InArray, 1);
+    
+  	for i:= (iLow+1) to iHigh do
+    begin
+    	j := i;
+  		temp := InArray[i];
+      while ( (j > iLow) AND ( GetFieldTypeRank(temp, queryCardType) < GetFieldTypeRank(InArray[j-1], queryCardType) ) ) do
+      begin
+      	InArray[j] := InArray[j-1];
+        j := j - 1;	
+      end;    
+      InArray[j] := temp;
+    end;
+  except
+    Log.Message('SortFieldsTypeArray: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+    CommonExceptionHandler;
+  end;
+end;
+
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function CreateCardData(
+  const cardType : OleVariant;
+  const fieldsData : OleVariant
+) : OleVariant;
+begin
+  try
+    AddToArray(Result, cardType);
+    AddToArray(Result, fieldsData);
+  except
+    Log.Message('CreateCardData: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function GetCardTypeFromCardData(
+  const cardData : OleVariant
+) : OleVariant;
+begin
+  try
+    Result := '';
+    Result := GetFromArray(cardData, 0);
+//    if IsArray(cardData) then Result := cardData[VarArrayLowBound(cardData,1)];
+  except
+    Log.Message('GetCardTypeFromCardData: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function GetFieldsDataFromCardData(
+  const cardData : OleVariant
+) : OleVariant;
+  var i : integer;
+begin
+  try
+    Result := GetFromArray(cardData, 1);
+//    for i := VarArrayLowBound(cardData, 1)+1 to VarArrayHighBound(cardData,1) do AddToArray(Result, cardData[i]);
+  except
+    Log.Message('GetFieldsDataFromCardData: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: Сортирует массив данных карточки по возрастанию типов полей
+  RESULT:
+  REMARK: Используется преимущественно для служебных целей, например, при заполнении карточки,
+    чтобы карточка заполнялась сверху вниз
+}
+procedure SortQueryCardData(
+  var inArray: OleVariant // входной/выходной массив
+);
+var
+	temp, queryCardType, fieldsData;
+  i, j, iLow, iHigh: integer;  
+begin
+  try
+    queryCardType := GetCardTypeFromCardData(inArray);
+    fieldsData := GetFieldsDataFromCardData(inArray);
+   	iLow := VarArrayLowBound(fieldsData, 1);
+    iHigh := VarArrayHighBound(fieldsData, 1);
+  	for i:= iLow to iHigh do
+    begin
+    	j := i;
+  		temp := fieldsData[i];
+      while ( (j > iLow) AND ( GetFieldTypeRank( GetFieldTypeFromFieldData(temp), queryCardType) < GetFieldTypeRank( GetFieldTypeFromFieldData(fieldsData[j-1]), queryCardType) ) ) do
+      begin
+      	fieldsData[j] := fieldsData[j-1];
+        j := j - 1;	
+      end;    
+      fieldsData[j] := temp;
+    end;
+    inArray := CreateCardData(queryCardType, fieldsData);
+  except
+    Log.Message('SortQueryCardData: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+    CommonExceptionHandler;
+  end;
+end;
+
+
+{
+  TYPE:
+  DESC: Проходит по карточке и собирает информацию о состоянии ее полей
+  RESULT: Объект данных карточки
+  REMARK:
+}
+function ExtractQueryCardData(
+  const queryCardEditor : OleVariant; // редактор КЗ
+  const skipEmptyFields : boolean = true
+) : OleVariant;
+  var 
+    oldControl, oldField, currControl, currField, selection, fieldsArr, queryCardType, fieldsData, currFD, currFV, currFT : OleVariant;
+    currCellID, currRowID, oldCellID, oldRowID, rowID, cellID, i, j : integer;
+    key : String;
+    isFounded : boolean;
+    
+begin
+  try
+    Result := nil;
+    if NOT IsExists(queryCardEditor) then Raise('Не найдено окно карточки запроса!');
+    selection := queryCardEditor.Selection;
+    queryCardEditor.SetFocus;
+    Sys.Keys('^[Home]');
+    
+    queryCardType := GetQueryCardType(queryCardEditor);
+    case queryCardType of
+      CARD_PPR : // ППР
+        begin  
+          // массив полей, на которые будем позиционироваться и которые будем копировать
+          fieldsArr := [
+            FD_WORDS_IN_CAPTION, FD_WORDS_IN_TEXT,
+            FD_TYPE, FD_SOURCE, FD_THEME, FD_ACCEPTANCE_DATE_FROM, FD_ACCEPTANCE_DATE_TO, FD_NUMBER,
+            FD_LC_ALL_DATE_FROM, FD_LC_ALL_DATE_TO, FD_LC_IN_DATE_FROM, FD_LC_IN_DATE_TO, FD_LC_ABOLISHED_DATE_FROM, FD_LC_ABOLISHED_DATE_TO, FD_LC_CHANGED_DATE_FROM, FD_LC_CHANGED_DATE_TO,
+            FD_MU_REG_DATE_FROM, FD_MU_REG_DATE_TO, FD_MU_REG_NUMBER, FD_MU_REG_STATUS,
+            FD_MEANING, FD_STATUS, FD_INOPERATIVE_EDITION, FD_KIND_OF_INFORMATION, FD_REGULATION_TERRITORY, FD_INFORMATIONAL_BLOCK  
+          ];
+        end;  
+      CARD_PPOIZ  : // Поиск по обзору изменений законодательства
+          fieldsArr := [
+            FD_SOURCE, FD_THEME, FD_ACCEPTANCE_DATE_FROM, FD_ACCEPTANCE_DATE_TO, FD_EFFECTIVE_DATE_FROM, FD_EFFECTIVE_DATE_TO, FD_KIND_OF_INFORMATION
+          ];
+      CARD_LAW_SUPPORT  : // Правовая поддержка
+          fieldsArr := [
+            FD_USER_NAME, FD_CITY_CODE, FD_USER_PHONE, FD_USER_EMAIL, FD_LAW_SUPPORT_TEXT
+          ];
+      CARD_PRIME : // Карточка Prime
+          fieldsArr := [
+            FD_DEALER_NAME, FD_THEMES_NAME, FD_IMPORTANT_DOCUMENTS, FD_ANNO_KIND, FD_ANNO_USER, FD_ANNO_ORG, FD_ANNO_INTEREST, FD_EMAIL
+          ];    
+    else    
+      Raise('Неизвестная карточка запроса!');
+    end;    
+            
+    if IsArray(fieldsArr) then 
+    begin   
+      // сортируем поля, чтобы обходить их по порядку
+      SortFieldsTypeArray(fieldsArr, queryCardType);
+      for i := VarArrayLowBound(fieldsArr, 1) to VarArrayHighBound(fieldsArr, 1) do
+        if PositionInQueryCard(queryCardEditor, fieldsArr[i], [GetFieldFirstControl(fieldsArr[i])]{, 'down'}) then
+        begin // если спозиционировались, то считываем значение
+          currFD := ExtractFieldData(selection);
+          if skipEmptyFields then
+          begin // если указано, то проверяет, а не пустое ли поле, и если пустое, то не добавляем
+            currFT := GetFieldTypeFromFieldData(currFD);
+            currFV := GetFieldValuesFromFieldData(currFD);
+            for j := VarArrayLowBound(currFV,1) to VarArrayHighBound(currFV,1) do
+              if currFV[j] <> GetFieldDefaultValue(currFT) then
+              begin
+                AddToArray(fieldsData, currFD );
+                break;
+              end;
+          end
+          else // добавляем в любом случаем
+            AddToArray(fieldsData, currFD );
+        end;
+      
+      if NOT IsArray(fieldsData) then
+        Raise('Массив значений полей пуст! Карточка совсем не заполнена!');
+      // теперь в fieldsData есть данные с полей
+      // добавляем пустые значения в поля с датой, если надо
+      if skipEmptyFields then
+      begin
+        // для поля "Дата принятия"
+        for i := VarArrayLowBound(fieldsData,1) to VarArrayHighBound(fieldsData,1) do
+          if (GetFieldTypeFromFieldData(fieldsData[i]) = FD_ACCEPTANCE_DATE_FROM) then
+          begin
+            isFounded := false;
+            for i := VarArrayLowBound(fieldsData,1) to VarArrayHighBound(fieldsData,1) do
+              if (GetFieldTypeFromFieldData(fieldsData[i]) = FD_ACCEPTANCE_DATE_TO) then
+              begin
+                isFounded := true;
+                break;
+              end;
+            if NOT isFounded then
+              AddToArray(fieldsData, CreateFieldData(FD_ACCEPTANCE_DATE_TO, EMPTY_FIELD_VALUES) );
+            break;  
+          end;
+        // для поля "Дата регистрации"
+        for i := VarArrayLowBound(fieldsData,1) to VarArrayHighBound(fieldsData,1) do
+          if (GetFieldTypeFromFieldData(fieldsData[i]) = FD_MU_REG_DATE_FROM) then
+          begin
+            isFounded := false;
+            for i := VarArrayLowBound(fieldsData,1) to VarArrayHighBound(fieldsData,1) do
+              if (GetFieldTypeFromFieldData(fieldsData[i]) = FD_MU_REG_DATE_TO) then
+              begin
+                isFounded := true;
+                break;
+              end;
+            if NOT isFounded then
+              AddToArray(fieldsData, CreateFieldData(FD_MU_REG_DATE_TO, EMPTY_FIELD_VALUES) );
+            break;  
+          end;
+        // для поля "Дата вступления в силу"
+        for i := VarArrayLowBound(fieldsData,1) to VarArrayHighBound(fieldsData,1) do
+          if (GetFieldTypeFromFieldData(fieldsData[i]) = FD_EFFECTIVE_DATE_FROM) then
+          begin
+            isFounded := false;
+            for i := VarArrayLowBound(fieldsData,1) to VarArrayHighBound(fieldsData,1) do
+              if (GetFieldTypeFromFieldData(fieldsData[i]) = FD_EFFECTIVE_DATE_TO) then
+              begin
+                isFounded := true;
+                break;
+              end;
+            if NOT isFounded then
+              AddToArray(fieldsData, CreateFieldData(FD_EFFECTIVE_DATE_TO, EMPTY_FIELD_VALUES) );
+            break;  
+          end;
+        // для поля "Все события за период"
+        for i := VarArrayLowBound(fieldsData,1) to VarArrayHighBound(fieldsData,1) do
+          if (GetFieldTypeFromFieldData(fieldsData[i]) = FD_LC_ALL_DATE_FROM) then
+          begin
+            isFounded := false;
+            for i := VarArrayLowBound(fieldsData,1) to VarArrayHighBound(fieldsData,1) do
+              if (GetFieldTypeFromFieldData(fieldsData[i]) = FD_LC_ALL_DATE_TO) then
+              begin
+                isFounded := true;
+                break;
+              end;
+            if NOT isFounded then
+              AddToArray(fieldsData, CreateFieldData(FD_LC_ALL_DATE_TO, EMPTY_FIELD_VALUES) );
+            break;  
+          end;
+        // для поля "Вступление в силу"
+        for i := VarArrayLowBound(fieldsData,1) to VarArrayHighBound(fieldsData,1) do
+          if (GetFieldTypeFromFieldData(fieldsData[i]) = FD_LC_IN_DATE_FROM) then
+          begin
+            isFounded := false;
+            for i := VarArrayLowBound(fieldsData,1) to VarArrayHighBound(fieldsData,1) do
+              if (GetFieldTypeFromFieldData(fieldsData[i]) = FD_LC_IN_DATE_TO) then
+              begin
+                isFounded := true;
+                break;
+              end;
+            if NOT isFounded then
+              AddToArray(fieldsData, CreateFieldData(FD_LC_IN_DATE_TO, EMPTY_FIELD_VALUES) );
+            break;  
+          end;
+        // для поля "Утрата силы"
+        for i := VarArrayLowBound(fieldsData,1) to VarArrayHighBound(fieldsData,1) do
+          if (GetFieldTypeFromFieldData(fieldsData[i]) = FD_LC_ABOLISHED_DATE_FROM) then
+          begin
+            isFounded := false;
+            for i := VarArrayLowBound(fieldsData,1) to VarArrayHighBound(fieldsData,1) do
+              if (GetFieldTypeFromFieldData(fieldsData[i]) = FD_LC_ABOLISHED_DATE_TO) then
+              begin
+                isFounded := true;
+                break;
+              end;
+            if NOT isFounded then
+              AddToArray(fieldsData, CreateFieldData(FD_LC_ABOLISHED_DATE_TO, EMPTY_FIELD_VALUES) );
+            break;  
+          end;
+        // для поля "Внесение изменений"
+        for i := VarArrayLowBound(fieldsData,1) to VarArrayHighBound(fieldsData,1) do
+          if (GetFieldTypeFromFieldData(fieldsData[i]) = FD_LC_CHANGED_DATE_FROM) then
+          begin
+            isFounded := false;
+            for i := VarArrayLowBound(fieldsData,1) to VarArrayHighBound(fieldsData,1) do
+              if (GetFieldTypeFromFieldData(fieldsData[i]) = FD_LC_CHANGED_DATE_TO) then
+              begin
+                isFounded := true;
+                break;
+              end;
+            if NOT isFounded then
+              AddToArray(fieldsData, CreateFieldData(FD_LC_CHANGED_DATE_TO, EMPTY_FIELD_VALUES) );
+            break;  
+          end;
+      end;
+      //  
+      Result := CreateCardData(queryCardType, fieldsData);
+      SortQueryCardData(Result);
+    end;      
+  except
+    Log.Message('ExtractQueryCardData: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := nil;
+  CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE:
+  DESC: Сравнивает два объекта данных карточки 
+  RESULT:
+  REMARK:
+}
+function CompareQueryCardData(
+  firstArr : OleVariant;
+  secondArr : OleVariant
+) : boolean;
+  var
+    i, j : integer;
+    firstSubArr, secondSubArr, firstFieldsData, secondFieldsData : OleVariant;
+    res : boolean;
+begin
+  try
+    Result := false;
+    if NOT IsArray(firstArr) then Raise('firstArr не массив!');
+    if NOT IsArray(secondArr) then Raise('secondArr не массив!');
+    if GetCardTypeFromCardData(firstArr) <> GetCardTypeFromCardData(secondArr) then
+      Raise('Данные карточек принадлежат карточкам разных типов, сравнение будет некорректно!');
+    //  
+    SortQueryCardData(firstArr);
+    SortQueryCardData(secondArr);
+    firstFieldsData := GetFieldsDataFromCardData(firstArr);
+    secondFieldsData := GetFieldsDataFromCardData(secondArr);
+    //
+    res := true;
+    for i := VarArrayLowBound(firstFieldsData,1) to VarArrayHighBound(firstFieldsData,1) do
+    begin
+      //firstSubArr := firstCardValues[i];
+      for j := VarArrayLowBound(secondFieldsData,1) to VarArrayHighBound(secondFieldsData,1) do
+      begin
+        //secondSubArr := secondCardValues[j];
+        if GetFieldTypeFromFieldData(firstFieldsData[i]) = GetFieldTypeFromFieldData(secondFieldsData[j]) then
+          res := CompareFieldData(firstFieldsData[i], secondFieldsData[j]) AND res;
+      end;
+    end;
+    Result := res;
+     
+  except
+    Log.Message('CompareQueryCardData: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;               
+end;
+
+
+{
+  TYPE:
+  DESC:  СЛУЖЕБНАЯ функция. Не имеет применения в скриптах.
+  RESULT: 
+  REMARK: Конвертирует массив данных карточки в строку дл вставки в скрипт в качестве инициализатора массива
+}
+function ConvertQueryCardDataToString(
+  queryCardData : OleVariant;
+  const isInOneString : boolean = false
+) : String;
+  const
+    TAB = #09;
+  var 
+    p, w, fieldTypeArr, cardTypeArr, fieldData, temp, queryCardType, fieldsData, fieldValues, fieldType : OleVariant;
+    i, j, k : integer;
+begin
+  try
+    Result := '';
+    // в принципе, можно сделать, чтобы значения нижнего массива зависели от типа карточки
+    fieldTypeArr := [
+      'FD_WORDS_IN_CAPTION', 'FD_WHERE_SEARCH', 'FD_WORDS_IN_TEXT', 'FD_TYPE', 'FD_SOURCE', 'FD_THEME',
+      'FD_ACCEPTANCE_DATE', 'FD_ACCEPTANCE_DATE_FROM', 'FD_ACCEPTANCE_DATE_TO', 
+      'FD_EFFECTIVE_DATE', 'FD_EFFECTIVE_DATE_FROM', 'FD_EFFECTIVE_DATE_TO', 
+      'FD_NUMBER', 
+      'FD_LC_ALL_DATE', 'FD_LC_ALL_DATE_FROM', 'FD_LC_ALL_DATE_TO', 
+      'FD_LC_IN_DATE', 'FD_LC_IN_DATE_FROM', 'FD_LC_IN_DATE_TO',
+      'FD_LC_ABOLISHED_DATE', 'FD_LC_ABOLISHED_DATE_FROM', 'FD_LC_ABOLISHED_DATE_TO',
+      'FD_LC_CHANGED_DATE', 'FD_LC_CHANGED_DATE_FROM', 'FD_LC_CHANGED_DATE_TO',                  
+      'FD_MU_REG_DATE', 'FD_MU_REG_DATE_FROM', 'FD_MU_REG_DATE_TO', 
+      'FD_MU_REG_NUMBER', 'FD_MU_REG_STATUS', 'FD_MEANING', 'FD_STATUS', 
+      'FD_INOPERATIVE_EDITION', 'FD_KIND_OF_INFORMATION', 'FD_REGULATION_TERRITORY', 'FD_INFORMATIONAL_BLOCK', 
+      'FD_LAW_SUPPORT_TEXT', 'FD_CONSULTATION_TEXT', 'FD_DEALER_NAME', 'FD_THEMES_NAME', 'FD_IMPORTANT_DOCUMENTS', 'FD_ANNO_KIND', 'FD_ANNO_USER', 'FD_ANNO_ORG', 'FD_ANNO_INTEREST', 'FD_EMAIL', 'FD_USER_NAME', 'FD_CITY_CODE', 'FD_USER_PHONE', 'FD_USER_EMAIL'];
+    cardTypeArr := ['CARD_PPR', 'CARD_PPOIZ', 'CARD_LAW_SUPPORT', 'CARD_PRIME'];
+    if IsArray(queryCardData) then
+    begin
+      Result := '['+ Choose(isInOneString, '', EndOfLine + TAB);
+      // распознаем название константы типа карточки
+      for k := VarArrayLowBound(cardTypeArr,1) to VarArrayHighBound(cardTypeArr,1) do
+      begin
+        temp := Evaluate(cardTypeArr[k]);
+        queryCardType := GetCardTypeFromCardData(queryCardData); 
+        if temp = queryCardType then
+        begin
+          Result := Result + cardTypeArr[k] + ', ([';
+          break;
+        end;
+        if (k = VarArrayHighBound(cardTypeArr,1)) then Raise('Тип карточки не найден в соотвествующем массиве: "' + queryCardType + '"');  
+      end;
+      fieldsData := GetFieldsDataFromCardData(queryCardData);
+      // разворачиваем данные полей
+      for i := VarArrayLowBound(fieldsData, 1) to VarArrayHighBound(fieldsData, 1) do {**}
+        if IsArray(fieldsData[i]) then
+        begin
+          fieldData := fieldsData[i];
+          Result := Result + '([' + Choose(isInOneString, '', EndOfLine  + TAB);
+          // распознаем название константы типа поля
+          fieldType := GetFieldTypeFromFieldData(fieldData);
+          for k := VarArrayLowBound(fieldTypeArr,1) to VarArrayHighBound(fieldTypeArr,1) do
+          begin
+            temp := Evaluate(fieldTypeArr[k]);
+            if temp = fieldType then
+            begin
+              Result := Result + fieldTypeArr[k] + ', ([' + Choose(isInOneString, ' ', EndOfLine + TAB + TAB);
+              break;
+            end;  
+          end;
+          // разбираем значения поля
+          fieldValues := GetFieldValuesFromFieldData(fieldData);
+          if IsEqual(fieldValues, EMPTY_FIELD_VALUES) then
+            Result := Result + 'EMPTY_FIELD_VALUES'
+          else
+            for j := VarArrayLowBound(fieldValues, 1) to VarArrayHighBound(fieldValues, 1) do
+              Result := Result + '''' + fieldValues[j] + '''' + Choose(j <> VarArrayHighBound(fieldValues, 1), ',' + Choose(isInOneString, ' ', EndOfLine + TAB + TAB), '' ) ;
+          Result := Result + ']) ])' + Choose(i <> VarArrayHighBound(fieldsData, 1), ',', ' ]) ' + EndOfLine) ;
+        end;
+      Result := Result + ']';  
+    end;    
+    Sys.Clipboard := Result;    
+  except
+    Log.Message('ConvertQueryCardDataToString: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: Заполняет карточку запроса значениями. 
+  RESULT:
+  REMARK: Карточку перед заполнением лучше очистить
+    данные карточки := [идентификатор_карточки, данные_полей ]
+      данные_полей := [данные_поля_1, данные_поля_2, ..., данные_поля_N]
+        данные_поля := [идентификатор_поля, значения_поля]
+          значения_поля := [значение_1, значение_2, ..., значение_N]
+      
+}
+function FillQueryCard(
+  const queryCard : OleVariant; // окно карточки запроса
+  queryCardData : OleVariant // значение полей
+) : boolean;
+  var
+    queryCardType, currFieldType, fieldsData : OleVariant;
+    i, j : integer;
+    fillFieldParams : String;
+    isDoNothing : boolean;
+begin
+  try
+    Result := false;
+    //
+    queryCard.SetFocus;
+    Sys.Keys('^[Home]');  
+    // 
+    if NOT IsArray(queryCardData) then Raise('queryCardData должен быть массивом!');
+    //
+    Result := true;
+    queryCardType := GetCardTypeFromCardData(queryCardData);
+    if queryCardType <> GetQueryCardType(queryCard) then
+      Raise('Различается тип карточки, указанный в данных, и определенный из карточки!'); 
+    fieldsData := GetFieldsDataFromCardData(queryCardData);  
+    // проверяем, возможно, ничего не надо делать
+    isDoNothing := IsEqual( fieldsData, EMPTY_FIELDS_DATA );
+    if isDoNothing then
+    begin
+      Result := true;
+      Exit;
+    end;
+    // сортируем массив, чтобы заполнять карточку сверху вниз
+    SortQueryCardData(queryCardData);
+    fieldsData := GetFieldsDataFromCardData(queryCardData);
+    //
+    for i := VarArrayLowBound(fieldsData,1) to VarArrayHighBound(fieldsData,1) do  {**}
+    begin
+      currFieldType := GetFieldTypeFromFieldData(fieldsData[i]);
+      // определяем параметры заполнения полей в зависимости от типа карточки
+      case queryCardType of
+        CARD_PPR : // ППР
+          case currFieldType of
+            FD_WORDS_IN_TEXT,
+            FD_WORDS_IN_CAPTION :
+              fillFieldParams := 'IsFillViaTree := false; IsInsOrigVal := true';        
+            FD_NUMBER,
+            FD_MU_REG_NUMBER    :
+              fillFieldParams := 'IsFillViaTree := false; IsInsByClipboard := true; IsInsOrigVal := true';
+          else
+            fillFieldParams:= 'IsFillViaTree := true; ';
+          end; 
+        CARD_PPOIZ : // Поиск по обзору изменений закондательства
+          case currFieldType of
+            FD_ACCEPTANCE_DATE_FROM, FD_ACCEPTANCE_DATE_TO :
+              fillFieldParams := 'IsFillViaTree := false;IsInsOrigVal := true';
+            FD_EFFECTIVE_DATE_FROM, FD_EFFECTIVE_DATE_TO :
+              fillFieldParams := 'IsFillViaTree := false;IsInsOrigVal := true';
+          else
+            fillFieldParams := 'IsFillViaTree := true; ';
+          end;
+        CARD_LAW_SUPPORT: // Правовая поддержка
+          fillFieldParams := 'IsFillViaTree := false';
+        CARD_PRIME : 
+        case currFieldType of
+            FD_DEALER_NAME,
+            FD_THEMES_NAME :
+              fillFieldParams := 'IsFillViaTree := false; IsInsOrigVal := true';
+          else
+            fillFieldParams:= 'IsFillViaTree := true;';
+          end;
+            
+      else
+        Raise('Неизвестный тип карточки запроса!');
+      end;
+      // позиционируемся и заполняем
+      if PositionInQueryCard(queryCard, currFieldType, [GetFieldFirstControl(currFieldType)]) then
+        Result := Result AND FillField(queryCard, fieldsData[i], fillFieldParams)
+      else
+        Raise('Не получилось спозиционироваться на первом контроле поля "' + currFieldType + '"');  
+    end;  
+    
+    queryCard.SetFocus; // переводим фокус обратно в карточку, а то он оттуда может выскочить
+  except
+    Log.Message('FillQueryCard: ' + ExceptionMessage, 'queryCard.FullName : "' + queryCard.FullName + '"' + EndOfLine + 'queryCardData: ' +  ConvertQueryCardDataToString(queryCardData) ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;               
+end;
+
+procedure ___SPECIALISATIONS___________;begin end;
+
+const 
+  ST_IN_ALL_DOCS = 'Искать по всем документам';
+  ST_IN_LIST = 'Искать в списке';
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+    paramString:
+      IsOpenNewCard - открывать ли новую КЗ или использовать уже открытую
+        default: true
+      IsClearCard - очищать ли КЗ перед заполнением
+        default: true
+      SearchType - Тип поиска, ( в комбобоксе внизу  )  (ST_IN_ALL_DOCS|ST_IN_LIST)
+       default:  ST_IN_ALL_DOCS 
+}
+function FillPPRCard(
+  pprCardData : OleVariant; // значение полей
+  const paramString : String = ''
+) : boolean;
+  const
+    COMBOBOX_DEFAULT = 'Искать по всем документам';
+  var
+    paramList, pprCard, combobox : OleVariant;
+    isOpenNewCard, isClearCard : boolean;
+    searchType : String;
+begin
+  try
+    Result := false;
+    // парсим параметры
+    paramList := ParseParamString(paramString);
+    isOpenNewCard := VarToBool( GetParam(paramList, 'IsOpenNewCard', 'true') );
+    isClearCard := VarToBool( GetParam(paramList, 'IsClearCard', 'true') );
+    try
+      searchType := Evaluate(GetParam(paramList, 'SearchType', 'ST_IN_ALL_DOCS'));
+    except
+      Raise('Значение SearchType не может быть вычислено! ParamString: "' + paramString + '"');
+      CommonExceptionHandler;
+    end;  
+    if (searchType <> ST_IN_ALL_DOCS) AND (searchType <> ST_IN_LIST) then Raise('Неожиданное значение параметра SearchType: "' + searchType + '"');
+    // открываем или очищаем карточку
+    if isOpenNewCard then
+      pprCard := GoToPPR('', true)
+    else
+      pprCard := GetFromPPR('КАРТОЧКА ЗАПРОСА');
+    if NOT IsExists(pprCard) then Raise('Карточка ППР не найдена!');
+    if isClearCard then
+      ClickToolbarButton( GetFromPPR('НИЖНИЙ ТУЛБАР КАРТОЧКИ ЗАПРОСА'), 'Очистить' );
+    
+    // выбираем тип поиска
+    combobox := GetToolbarObject( GetFromPPR('НИЖНИЙ ТУЛБАР КАРТОЧКИ ЗАПРОСА'), 'COMBOBOX', 'Тип поиска');
+    if IsExists(combobox) AND combobox.Enabled then
+    begin
+      if NOT SelectInCombobox(combobox, searchType) then
+        Raise('Не получилось установить тип поиска');
+    end  
+    else
+      if searchType <> ST_IN_ALL_DOCS then
+        Raise('Значение комбобокса отличается от дефолтного, но комбобокс не найден или задизейблен!');
+      
+    pprCard.SetFocus;
+    Sys.Keys('^[Home]');  
+    
+    // заполняем
+    Result := FillQueryCard(pprCard, pprCardData);  
+    
+  except
+    Log.Message('FillPPRCard: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;               
+end;
+
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+    paramString:
+      IsOpenNewCard - открывать ли новую КЗ или использовать уже открытую
+        default: true
+      IsClearCard - очищать ли КЗ перед заполнением
+        default: true
+}
+function FillAnalyticReviewCard(
+  cardData : OleVariant; // значение полей
+  const paramString : String = ''
+) : boolean;
+  var
+    paramList, analyticCard, combobox : OleVariant;
+    isOpenNewCard, isClearCard, isFillCard : boolean;
+begin
+  try
+    Result := false;
+    // парсим параметры
+    paramList := ParseParamString(paramString);
+    isOpenNewCard := VarToBool( GetParam(paramList, 'IsOpenNewCard', 'true') );
+    isClearCard := VarToBool( GetParam(paramList, 'IsClearCard', 'true') );
+    isFillCard := VarToBool( GetParam(paramList, 'IsFillCard', 'true') );
+    // открываем или очищаем карточку
+    if isOpenNewCard then
+      analyticCard := GoToAnalyticReview('', true)
+    else
+      analyticCard := GetFromAnalyticReview('КАРТОЧКА ЗАПРОСА');
+    if NOT IsExists(analyticCard) then Raise('Карточка Обзора изменений законодательства не найдена!');
+    if isClearCard then
+      ClickToolbarButton( GetFromAnalyticReview('НИЖНИЙ ТУЛБАР КАРТОЧКИ ЗАПРОСА'), 'Очистить' );
+    analyticCard.SetFocus;
+    Sys.Keys('^[Home]');  
+    // заполняем
+    if isFillCard then
+      Result := FillQueryCard(analyticCard, cardData)
+    else
+      Result := true;
+  except
+    Log.Message('FillAnalyticReviewCard: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+    paramString : 
+      IsFillCard - заполнять ли карточку или считать что она уже заполнена
+        default: true
+}
+function SearchInAnalyticReview( 
+  cardData : OleVariant; // значение полей
+  const paramString : String = '' // параметры
+) : boolean;
+var 
+  paramList, w, progrInd, listWnd : OleVariant;
+  isPIFounded, isFillCard: boolean;
+begin
+  try
+  	Result := false;
+    //
+    paramList := ParseParamString(paramString);
+    //
+    if NOT FillAnalyticReviewCard(cardData, paramString) then
+      Raise('Не получилось заполнить карточку Обзора изменений законодательства!');
+    // делаем поиск
+    if NOT ClickToolbarButton( GetFromAnalyticReview('НИЖНИЙ ТУЛБАР КАРТОЧКИ ЗАПРОСА'), 'Искать' ) then
+      Sys.Keys('^[Enter]');
+    // проверяем наличие окошка о том что в комлекте отсутствует информация соответствующая запросу
+    if WaitForWarningWindow( Options.Run.Timeout div 60, 'Информация*запрос*отсутствует*', true, SEARCH_CONTINUE_NAME) <> '' then
+      Raise('Ничего не найдено по искомому запросу');
+    // построилось что-нибудь? 
+    Result := IsExists(GetFromEditor('ТЕКСТ ДОКУМЕНТА'));
+    if NOT Result then
+    begin
+	  	Log.Warning('Автореферат не открылся по неизвестной причине!');
+      Exit;
+    end;
+  except
+    Log.Message('SearchInAnalyticReview: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end; 
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT: true, либо данные мессаджформы
+  REMARK:
+    paramString : 
+      Expectation - что ожидаем найти после проведения поиска
+        LIST - список (default)
+        DOCUMENT - документ
+      IsFillCard - заполнять ли карточку или считать что она уже заполнена
+        default: true
+      IsReturnMessageForm - возвращать ли объект с данными окна сообщения (в случае если оно найдено, сразу выходим) 
+        default: false
+      IsConfirmListBuild - подтверждать ли построение списка при появлении диалога "...Построить список?..."
+        true <ответить да> | false <ответить нет> | ignore <игнорировать>
+        default: true  
+          
+      + смотри параметры функции FillPPRCard  
+}
+function SearchInPPR( 
+  pprCardData : OleVariant; // значение полей
+  const paramString : String = '' // параметры
+) : OleVariant;
+var 
+  paramList, w, progrInd, listWnd, docWnd, errorForms, mfData, knownForms : OleVariant;
+  isPIFounded, isFillCard, isReturnMessageForm, isConfirmListBuild, res  : boolean;
+  p_Expectation : String;
+  i: integer;
+begin
+  try
+    ScriptAction('SET ACTION', SA_DO_PPR_SEARCH);
+  
+    errorForms := [
+      ([MFT_ERROR, '*не удалось распознать контекст*', 'ОК']),
+      ([MFT_ERROR, 'Символ*может использоваться только*', 'ОК']),
+      ([MFT_WARNING, 'Информация*запрос*отсутствует*', SEARCH_CONTINUE_NAME]),
+      ([MFT_CONFIRMATION, '*Ни*один*документ*не*соответствует*фильтр*', 'Нет'])
+    ];
+    knownForms := nil;
+    
+  	Result := false;
+    //
+    paramList := ParseParamString(paramString);
+    isFillCard := VarToBool( GetParam(paramList, 'IsFillCard', 'true') );
+    isReturnMessageForm := VarToBool( GetParam(paramList, 'IsReturnMessageForm', 'false') );
+
+    isConfirmListBuild := GetParam(paramList, 'IsConfirmListBuild', 'true');
+    if VarToString(isConfirmListBuild) <> 'none' then
+    begin
+      if VarToBool(isConfirmListBuild) then
+        AddToArray(knownForms, [MFT_CONFIRMATION, '*Найдено*документов*Построить список?*', 'Да'])
+      else
+        AddToArray(knownForms, [MFT_CONFIRMATION, '*Найдено*документов*Построить список?*', 'Нет']);
+    end;        
+
+    if VarToBool(GetParam(paramList, 'IsContinueAfterMisprint', 'true') ) then
+      AddToArray(knownForms, [MFT_CONFIRMATION, '*запрос*не*дать*коррект*', '#Продолжить*'])
+    else
+      AddToArray(knownForms, [MFT_CONFIRMATION, '*запрос*не*дать*коррект*', '#Вернуться*редактировать*запрос*']);
+    
+    p_Expectation := AnsiUpperCase( GetParam(paramList, 'Expectation', 'LIST') );
+    //
+    if isFillCard then
+      if NOT FillPPRCard(pprCardData, paramString) then
+        Raise('Не получилось заполнить карточку ППР!');
+    // для устранения ошибки "Operation not allowed.."
+    Delay(1000);
+    // делаем поиск
+    if NOT ClickToolbarButton( GetFromPPR('НИЖНИЙ ТУЛБАР КАРТОЧКИ ЗАПРОСА'), 'Искать' ) then
+      Sys.Keys('^[Enter]');
+
+    WaitForProgressIndicatorAbsence;
+       
+    DoScreenShot('SearchInPPR. Поиск вроде бы успешно окончен.');
+  
+    //
+    if IsArray(knownForms) then
+      CheckForKnownMessageForms(knownForms, mfData, Options.Run.Timeout div 60 ); 
+
+    // ждем и обрабатываем сообщения об ошибках
+    res := CheckForKnownMessageForms(errorForms, mfData, Options.Run.Timeout div 60 );
+    if isReturnMessageForm then Result := mfData;
+    // выходим если форма известна либо она есть и сказано выходить на формах
+    if (res) OR (isReturnMessageForm AND (GetParam(mfData, WFMF_RES_MSGTYPE)  <> MFT_NOT_FOUND) ) then Exit; 
+          
+    case p_Expectation of
+      'LIST' :
+        begin
+          // получаем список
+          listWnd := GetList;
+          DoScreenShot('SearchInPPR. Ждем список.');
+          // построилось ченить? 
+          if NOT IsExists(listWnd) then
+          begin
+      	  	Log.Warning('Список не открылся по неизвестной причине!');
+            Exit;
+          end
+          else
+            DoScreenShot('SearchInPPR. Найдено окно списка.');
+        	// проверяем, что список не пустой
+         	listWnd.SetFocus;
+          Sys.Keys('[Home]');
+          Result := common.GetWindowText(listWnd.Handle) <> '';           
+          if Result then
+          begin
+            DoScreenShot('SearchInPPR. Найден непустой список.');
+            w := GetMainWindow;
+            Log.Message('Нашли непустой список.', 'В статусной строке написано: "' + GetStatusBarText + '". ' + EndOfLine + 'Заголовок окна оболочки: "' + w.WndCaption + '".');
+          end;
+        end; //LIST
+      'DOCUMENT' :
+        begin
+          docWnd := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+          Result := IsExists(docWnd);
+          if Result then
+          begin
+            DoScreenShot('SearchInPPR. После поиска найден документ.');           
+            Log.Message('Нашли документ.');
+          end;
+        end; // DOCUMENT
+    else    
+      Raise('Неизвестное значение Expectation.');
+    end; //case 
+  except
+    Log.Message('SearchInPPR: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end; 
+end;
+
+procedure SearchInPPR_Test;
+  var
+    cardData;
+begin
+
+  cardData := 
+    [
+    	CARD_PPR, ([ ([
+    	FD_WORDS_IN_TEXT, ([
+    		'текст']) ]) ]) {,([
+    	FD_SOURCE, ([
+    		'[ИЛИ]Федеральные министерства и ведомства',
+    		'[КРОМЕ]Средства массовой информации']) ]),([         
+    	FD_ACCEPTANCE_DATE_TO,
+    		EMPTY_FIELD_VALUES ]) ])} 
+    ];
+      
+  Log.Message( SearchInPPR(cardData) );    
+end;
+
+
+function Demo;
+  var p, w, x, y, z : OleVariant;
+    i : integer;
+begin
+  try
+   // w :=Sys.Process('F1Prime').nsEmptyMainWindow.ParentForm.cfSaveLoad.enQueryCard.Editor;
+    
+    {x := [
+      	CARD_PRIME, ([([
+      	FD_DEALER_NAME, ([
+      		'тра ля ля']) ]),([
+      	FD_THEMES_NAME, ([
+      		'раз два три']) ]) ]) 
+      ];
+    
+    p := FillQueryCard(w, x);}
+    
+    {p := PositionInQueryCard(w, FD_ANNO_ORG, CT_COMBOBOX);
+      
+    Log.Message(p);  }
+    
+    x := 
+      [
+      	CARD_PPR, ([([
+      	FD_WORDS_IN_CAPTION, ([
+      		'текст',
+      		'еще один текст']) ]),([
+      	FD_WORDS_IN_TEXT, ([
+      		'раз два три',
+      		'четыре пять шесть']) ]),([
+      	FD_TYPE, ([
+      		'[ИЛИ]Нормативно-техническая документация\СН',
+      		'[ИЛИ]МДС',
+      		'[И]Комментарии, разъяснения, схемы\Комментарий\Статья',
+      		'[И]Конституция',
+      		'[КРОМЕ]Нормативно-техническая документация\СП']) ]),([
+      	FD_SOURCE, ([
+      		'[ИЛИ]Органы законодательной власти России и СССР\Федеральное Собрание\Государственная Дума Федерального Собрания',
+      		'[И]Государственные фонды\Фонд социального страхования России',
+      		'[КРОМЕ]Органы судебной власти РФ и СССР\Верховный Суд России (Пленум)',
+      		'[КРОМЕ]Органы судебной власти РФ и СССР\Суды общей юрисдикции\Чувашская Республика - Чаваш Республика\Верховный суд Чувашской Республики']) ]),([
+      	FD_THEME, ([
+      		'[ИЛИ]Основы государственно-правового устройства\Права и свободы человека и гражданина, гражданство\Правовое положение иностранных граждан и лиц без гражданства\Въезд, выезд и пребывание иностранных граждан в Российской Федерации',
+      		'[И]Основы государственно-правового устройства\Административно-территориальное деление, отдельные регионы\Административно-территориальное деление субъектов Федерации',
+      		'[И]Уголовное право и процесс, уголовно-исполнительное законодательство\Уголовное законодательство\Преступления против личности\Преступления против семьи и несовершеннолетних',
+      		'[КРОМЕ]Основы государственно-правового устройства\Административно-территориальное деление, отдельные регионы\Субъекты Российской Федерации\Соглашения между субъектами Российской Федерации']) ]),([
+      	FD_ACCEPTANCE_DATE_FROM, ([
+      		'11.11.1111']) ]),([
+      	FD_ACCEPTANCE_DATE_TO, ([
+      		'12.12.1212']) ]),([
+      	FD_NUMBER, ([
+      		'01-04-176',
+      		'20/2.2/1756',
+      		'Т0И Р-66-32-95']) ]),([
+      	FD_MU_REG_DATE_FROM, ([
+      		'12.12.1999']) ]),([
+      	FD_MU_REG_DATE_TO, ([
+      		'01.01.0101']) ]),([
+      	FD_MU_REG_NUMBER, ([
+      		'1398',
+      		'824',
+      		'827',
+      		'93']) ]),([
+      	FD_MU_REG_STATUS, ([
+      		'Отказано в регистрации']) ]),([
+      	FD_MEANING, ([
+      		'Общие']) ]),([
+      	FD_STATUS, ([
+      		'Утратившие силу']) ]),([
+      	FD_INOPERATIVE_EDITION, ([
+      		'Да']) ]),([
+      	FD_KIND_OF_INFORMATION, ([
+      		'[ИЛИ]Формы документов',
+      		'[КРОМЕ]Комментарии, разъяснения, схемы\Бухгалтерские проводки']) ]),([
+      	FD_REGULATION_TERRITORY, ([
+      		'[ИЛИ]Субъекты Российской Федерации\Нижегородская область',
+      		'[И]Субъекты Российской Федерации\Санкт-Петербург\Санкт-Петербург',
+      		'[КРОМЕ]Субъекты Российской Федерации\Волгоградская область']) ]),([
+      	FD_INFORMATIONAL_BLOCK, ([
+      		'Суд и Арбитраж',
+      		'Законодательство в схемах. Налоги, бухучет',
+      		'Графические образы классиков']) ]) ]) 
+      ];
+      
+    y := 
+      [
+      	CARD_PPR, ([ ([
+      	FD_WORDS_IN_TEXT, ([
+      		'текст']) ]),([
+      	FD_SOURCE, ([
+      		'[ИЛИ]Федеральные министерства и ведомства',
+      		'[КРОМЕ]Средства массовой информации']) ]),([
+      	FD_INOPERATIVE_EDITION, ([
+      		'Да']) ]),([
+      	FD_ACCEPTANCE_DATE_FROM, ([
+        	'11.11.1111']) ]), ([
+        FD_MU_REG_NUMBER, ([
+      		'93']) ]), ([          
+      	FD_ACCEPTANCE_DATE_TO,
+      		EMPTY_FIELD_VALUES ]) ]) 
+      ];  
+    
+    z := 
+      [
+      	CARD_PPR, 
+        EMPTY_FIELDS_DATA
+      ];  
+    GetMainWindow.SetFocus;
+    Log.Message( FillPPRCard( y ) );
+  
+    
+    w := GetFromPPR('КАРТОЧКА ЗАПРОСА');
+    p := ExtractQueryCardData(w);
+ 
+    Log.Message( '-------------------------------------------' );
+    Log.Message( CompareQueryCardData(x, y) );
+    Log.Message( '-------------------------------------------' );
+
+    Log.Message( '', ConvertQueryCardDataToString(x));
+  except
+    Log.Message('' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Работа с фильтрами
+  DESC: Создает фильтр
+  RESULT:
+  REMARK: 
+    paramString
+      IsOpenNewDialog - открывать ли новый диалог фильтра или воспользоваться существующим
+        default: 'true'
+      IsClearFilter - очищать ли карточкуу фильтра перед заполнением
+        default: 'true'
+      IsCloseDialog - закрывать ли диалог (и сохранять фильтр)  
+        default: 'true'
+}
+function CreateFilter(
+  const filterList : OleVariant; // окно со списком фильтров
+  const filterPath : String; // имя фильтра с путем сохранения, если путь не указан (нет слэшей), то фильтр сохраняется под указанным именем в "Мои документы"
+  const filterData : OleVariant; // как и для КЗ, только тип карточки указывать CARD_FILTER, несмотря на то что сейчас это полностью идентично ППР
+  const paramString : String = ''
+) : boolean;
+  var
+    paramList, queryCardEditor, bottomTB : OleVariant;
+    isOpenNewDialog, isClearFilter, isCloseDialog, res : boolean; 
+begin
+  try
+    if filterPath = '' then Raise('Пустое имя фильтра!');
+
+    paramList := ParseParamString(paramString);
+    isOpenNewDialog := VarToBool( GetParam(paramList, 'IsOpenNewDialog', 'true') );
+    isClearFilter := VarToBool( GetParam(paramList, 'IsClearFilter', 'true') );
+    isCloseDialog := VarToBool( GetParam(paramList, 'IsCloseDialog', 'true') );
+
+    if NOT IsExists(filterList) then Raise('Не найдено окно со спиком фильтров!');
+    // открываем диалог создания фильтра
+    Result := false;
+    if isOpenNewDialog then 
+    begin
+      filterList.SetFocus;
+      Sys.Keys('[Apps]');
+      ClickByPopupMenuItem(filterList, 'Создать новый фильтр');
+    end;
+    // ищем окна
+    queryCardEditor:= GetFromFilterDialog('КАРТОЧКА ЗАПРОСА');
+    if NOT IsExists(queryCardEditor) then Raise('Не получилось найти диалог фильтра или карточку запроса!');
+    bottomTB := GetFromFilterDialog('НИЖНИЙ ТУЛБАР');
+    // очищаем и заполняем карточку фильтра
+    try
+      res := false;
+      if isClearFilter then 
+        if NOT ClickToolbarButton(bottomTB, 'Очистить') then Raise('Не получилось очистить карточку фильтра!');
+      //
+      res := FillQueryCard(queryCardEditor, filterData);
+      if NOT res then Raise('Не получилось правильно заполнить карточку фильтра!');
+    finally
+      if isCloseDialog then 
+        if NOT ClickToolbarButton(bottomTB, Choose(res, 'Сохранить', 'Отмен*') ) then
+          Raise('Не получилось закрыть диалог сохранения/редактирования фильтра!');
+    end;
+    // заполняем диалог сохранения
+    if isCloseDialog AND res then
+    begin
+      if not IsExists(GetFromShell('ПОЛЕ ИМЕНИ ДИАЛОГА СОХРАНЕНИЯ ФИЛЬТРА')) then
+        Raise('Не найдено ПОЛЕ ИМЕНИ ДИАЛОГА СОХРАНЕНИЯ ФИЛЬТРА');
+      GetFromShell('ПОЛЕ ИМЕНИ ДИАЛОГА СОХРАНЕНИЯ ФИЛЬТРА').Keys('[End]' + keyPause + '![Home]' + keyPause + filterPath + '^[Enter]');
+      Result := not IsExists(GetFromShell('ДИАЛОГ СОХРАНЕНИЯ ФИЛЬТРА'));
+    end;
+    // если не удалось сохранить то закрываем окно фильтра  
+    if (NOT Result) AND IsExists(bottomTB) then ClickToolbarButton(bottomTB, 'Отмен*' ); 
+  except
+    Result := false;
+    Log.Message('CreateFilter: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE: Работа с фильтрами
+  DESC: Редактирует фильтр
+  RESULT:
+  REMARK: 
+    paramString
+      IsOpenNewDialog - открывать ли новый диалог фильтра или воспользоваться существующим
+        default: 'true'
+      IsClearFilter - очищать ли карточкуу фильтра перед заполнением
+        default: 'true'
+      IsCloseDialog - закрывать ли диалог (и сохранять фильтр)
+        default: 'true'
+      NewFullFilterName - новый путь и имя фильтра, если указаг, то фильтр будет не перезаписан, а сохранен под указанным именем по указанному пути (если задано только имя, то сохранится в Мои документы
+}
+function EditFilter(
+  const filterList : OleVariant; // окно со списком фильтров
+  const filterName : String; // имя фильтра с путем сохранения, если путь не указан (нет слэшей), то фильтр сохраняется под указанным именем в "Мои документы"
+  const filterData : OleVariant; // как и для КЗ, только тип карточки указывать CARD_FILTER, несмотря на то что сейчас это полностью идентично ППР
+  const paramString : String = ''
+) : boolean;
+  var
+    paramList, queryCardEditor, bottomTB : OleVariant;
+    isOpenNewDialog, isClearFilter, isCloseDialog, res : boolean;
+    newFullFilterName : String;  
+begin
+  try
+    paramList := ParseParamString(paramString);
+    isOpenNewDialog := VarToBool( GetParam(paramList, 'IsOpenNewDialog', 'true') );
+    isClearFilter := VarToBool( GetParam(paramList, 'IsClearFilter', 'true') );
+    isCloseDialog := VarToBool( GetParam(paramList, 'IsCloseDialog', 'true') );
+    newFullFilterName := GetParam(paramList, 'NewFullFilterName', '');
+
+    if NOT IsExists(filterList) then Raise('Не найдено окно со спиком фильтров!');
+    // открываем диалог создания фильтра
+    Result := false;
+    if isOpenNewDialog then 
+    begin
+      filterList.SetFocus;
+      Sys.Keys('[Home]');
+      if not (Position_by_Text(filterList, FILTERNAME)) then
+        Raise('Фильтр не найден!');
+      Sys.Keys('[Apps]');
+      ClickByPopupMenuItem(filterList, 'Редактировать фильтр');
+    end;
+    // ищем окна
+    queryCardEditor:= GetFromFilterDialog('КАРТОЧКА ЗАПРОСА');
+    if NOT IsExists(queryCardEditor) then Raise('Не получилось найти диалог фильтра или карточку запроса!');
+    bottomTB := GetFromFilterDialog('НИЖНИЙ ТУЛБАР');
+    // очищаем и заполняем карточку фильтра
+    try
+      res := false;
+      if isClearFilter then 
+        if NOT ClickToolbarButton(bottomTB, 'Очистить') then Raise('Не получилось очистить карточку фильтра!');
+      //
+      res := FillQueryCard(queryCardEditor, filterData);
+      if NOT res then Raise('Не получилось правильно заполнить карточку фильтра!');
+    finally
+      if isCloseDialog then 
+        if NOT ClickToolbarButton(bottomTB, Choose(res, 'Сохранить', 'Отмен*') ) then
+          Raise('Не получилось закрыть диалог сохранения/редактирования фильтра!');
+      
+      if WaitForErrorWindow(Options.Run.Timeout div 8)<>'' then
+        Raise('Введено несуществующее значение какого-то поля');
+      
+      // сохраняем под новым именем или под старым  
+      if (newFullFilterName <> '') then
+      begin // под новым
+        WaitForConfirmationWindow(Options.Run.Timeout div 10, 'Нет', 'Фильтр*был сохранен*Перезаписать?*');
+        // здесь поднимается диалог сохранения
+        if not IsExists(GetFromShell('ПОЛЕ ИМЕНИ ДИАЛОГА СОХРАНЕНИЯ ФИЛЬТРА')) then
+          Raise('Не найдено ПОЛЕ ИМЕНИ ДИАЛОГА СОХРАНЕНИЯ ФИЛЬТРА');
+        GetFromShell('ПОЛЕ ИМЕНИ ДИАЛОГА СОХРАНЕНИЯ ФИЛЬТРА').Keys('[End]' + keyPause + '![Home]' + keyPause + newFullFilterName + '^[Enter]');
+        Result := not IsExists(GetFromShell('ДИАЛОГ СОХРАНЕНИЯ ФИЛЬТРА'));
+      end
+      else
+      begin // перезаписываем
+        WaitForConfirmationWindow(Options.Run.Timeout div 10, 'Да', 'Фильтр*был сохранен*Перезаписать?*');
+        Result := NOT IsExists(queryCardEditor);
+        if WaitForConfirmationWindow(Options.Run.Timeout div 10, 'Нет', '*доступен только для чтения*сохранить*под другим именем?*') <> '' then
+          ClickToolbarButton(bottomTB, 'Отмен*' );
+      end;  
+    end;
+    // если не удалось сохранить то закрываем окно фильтра
+    if (NOT Result) AND IsExists(bottomTB) then ClickToolbarButton(bottomTB, 'Отмен*' ); 
+  except
+    Log.Message('CreateFilter: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE: Работа с фильтрами
+  DESC: Создает и применяет фильтр
+  RESULT:
+  REMARK: 
+}
+function CreateFilterAndUse(
+  const filterList : OleVariant; // окно со списком фильтров
+  const filterPath : String; // имя фильтра с путем сохранения, если путь не указан (нет слэшей), то фильтр сохраняется под указанным именем в "Мои документы"
+  const filterData : OleVariant // как и для КЗ, только тип карточки указывать CARD_FILTER, несмотря на то что сейчас это полностью идентично ППР
+):boolean;
+begin
+try
+  Result := false;    
+  if CreateFilter(filterList, filterPath, filterData) then
+  begin
+    Result := WorkWithFilters(filterList, 'set', '+' + filterPath);
+    if not Result then
+      Raise('Фильтр не применен, так как почему-то не найден!');
+  end;
+except
+  Result := false;  
+  Log.Message('CreateFilterAndUse: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+end;
+
+{
+  TYPE: Работа с фильтрами
+  DESC: Удаляет фильтр
+  RESULT:
+  REMARK: 
+}
+function DeleteFilter(
+  const filterPath : String // имя фильтра
+): boolean;
+begin
+try
+  Result := false;
+  if not IsExists(GetFilterTree) then
+    if not (GotoPPR and OpenFilterTab and IsExists(GetFilterTree)) then
+      Raise('Не получилось открыть вкладку "Фильтры" в ППР');
+  if not Position_By_Text(GetFilterTree, filterPath, false, true) then
+    Raise('Не найден фильтр "' + filterPath + '"');
+  Result := DelWithConfirm;
+except
+  Result := false;  
+  Log.Message('DeleteFilter: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function QCAnsiCompareText(
+  firstStr : String;
+  secondStr : String
+) : integer;
+begin
+  try
+    firstStr := StringReplace(firstStr, '"', '', 1 or 2);
+    secondStr := StringReplace(secondStr, '"', '', 1 or 2);
+    Result := Utilities.AnsiCompareText(firstStr, secondStr);
+  except
+    Log.Message('QCAnsiCompareText: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: Выполняет бинарный поиск в списке. В прниципе, работает для пбольших списков, когда нужно точное совпадение.
+  RESULT:
+  REMARK:
+}
+function BinaryPositioning(
+  const wnd : OleVariant;
+  const value : String
+) : boolean;
+  const MAX_ITER = 20;
+  var 
+    currStr, nextKey, prevKey : String;
+    i, handle, res, prevRes, counter, min, max : integer;
+    isSimpleSearch : boolean;
+begin
+  try
+    nextKey := '[Down]';
+    prevKey := '[Up]';
+    
+    wnd.SetFocus;
+    Sys.Keys('[Home]');
+    handle := wnd.Handle;
+    
+    isSimpleSearch := false;
+    res := 1;
+    prevRes := -1;
+    counter := 1;
+    max := wnd.VScroll.Max;
+    min := wnd.VScroll.Min;    
+    
+    while (res <> 0) do
+    begin
+      currStr := common.GetWindowText(handle);
+      
+      res := QCAnsiCompareText(value, currStr);
+      if res = 0 then 
+      begin
+        Result := true;
+        break;      
+      end;
+      
+      if ((prevRes > 0) AND (res > 0)) OR ((prevRes < 0) AND (res < 0)) then
+      begin
+        if counter > MAX_ITER then isSimpleSearch := true;
+        counter := counter + 1;
+      end;  
+      
+      if NOT isSimpleSearch then
+      begin
+        if res < 0 then
+        begin
+          max := wnd.VScroll.Pos;
+          wnd.VScroll.Pos := wnd.VScroll.Pos - (wnd.VScroll.Pos - min ) div 2;
+        end  
+        else if res > 0 then
+        begin
+          min := wnd.VScroll.Pos;
+          wnd.VScroll.Pos := wnd.VScroll.Pos + (max - wnd.VScroll.Pos) div 2;
+        end;  
+        wnd.Click(wnd.Width div 2, 8);
+      end
+      else
+      begin
+        if res < 0 then
+          Result := Position_By_Text(wnd, value, true) OR Position_By_Text(wnd, value, false);
+        if res > 0 then
+          Result := Position_By_Text(wnd, value, false) OR Position_By_Text(wnd, value, true);
+        res := 0;
+      end;
+      Log.Message('Min: ' + IntToStr(min) + '  ;  Max: ' + IntToStr(max));
+      prevRes := res;
+    end;
+    
+  except
+    Log.Message('BinaryPositioning: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE: Поиск
+  DESC: Поиск ППС
+  RESULT: 
+  REMARK: Пример ppsCardData = ['Авария\авария', 'Автомобили. Импорт'];  
+}
+function SearchInPPS(
+  ppsCardData: OleVariant;
+  doSearch : boolean = true;
+  newCard: boolean = true;
+  notfill: boolean = false
+): boolean;
+  const
+    SELECT_KEY = '[Ins]';
+  var
+    i, w, position,
+    w_one, w_two,
+    one_text, two_text;
+begin
+  try
+    ScriptAction('SET ACTION', SA_DO_PPS_SEARCH);
+    
+    if newCard then 
+      GoToPPS;
+    
+    w_one := GetFromPPS('СИТУАЦИИ ОСНОВНОГО УРОВНЯ');
+    if not IsExists(w_one) then
+      Raise('Не найдено окно "СИТУАЦИИ ОСНОВНОГО УРОВНЯ"');
+    w_two := GetFromPPS('СИТУАЦИИ ДОПОЛНИТЕЛЬНОГО УРОВНЯ');
+
+    Result := true;
+      
+    if not notfill then
+    begin 
+      Result := false;
+      for i := VarArrayLowBound(ppsCardData,1) to VarArrayHighBound(ppsCardData,1) do
+      begin
+        //получаем путь
+        if ppsCardData[i] = '' then Raise('Строка пути ПУСТА');
+        position := Pos('\', ppsCardData[i]);
+        two_text :='';
+        if (position <> 0) then
+        begin
+          one_text := Copy(ppsCardData[i], 1, position - 1);
+          two_text := Copy(ppsCardData[i], position + 1, length(ppsCardData[i]));
+        end
+        else
+          one_text := ppsCardData[i];  
+        //переходим в ситуации основного уровня
+        //BinaryPositioning(w_two,one_text);
+        if not IsExists(GetFromPPS_Std('СИТУАЦИИ ДОПОЛНИТЕЛЬНОГО УРОВНЯ')) then
+        begin
+          Result := Position_Internal(w_one, one_text, DELIM_CHAR, true, 'IsPressHome:=true');
+          if not Result then 
+            Raise('Не получилось найти ситуацию основного уровня: "' + one_text + '"');
+          if two_text = '' then
+            w_one.Keys(SELECT_KEY)  //выделяем элемент (галкой)
+          else
+          begin 
+            Result := Position_Internal(w_two, two_text, DELIM_CHAR, true, 'IsPressHome:=false');
+            if not Result then 
+              Raise('Не получилось выбрать ситуацию "' + ppsCardData[i] + '"')
+            else
+              w_two.Keys(SELECT_KEY);
+          end;
+        end
+        else
+        begin 
+          Result := Position_Internal(w_two, one_text, DELIM_CHAR, true, 'IsPressHome:=true');
+          if not Result then 
+            Raise('Не получилось найти ситуацию основного уровня: "' + one_text + '"');
+          w_two.SetFocus;
+          if two_text = '' then
+            Sys.Keys(SELECT_KEY)  //выделяем элемент (галкой)
+          else
+          begin
+            w_two.Keys('[Right][Right]');
+            repeat
+              Result := StringCompare(two_text, common.GetWindowText(w_two.Handle));
+              if Result then 
+              begin
+                w_two.Keys(SELECT_KEY);
+                break;
+              end
+              else
+              w_two.Keys('[Down]');
+            until (common.GetWindowText(w_one.Handle) <> one_text);
+            if not Result then Raise('Не получилось выбрать ситуацию "' + ppsCardData[i] + '"');
+          end;
+        end; 
+      end;
+    end;
+    
+    if doSearch then
+    begin
+      Result := Result and ClickToolbarButton(GetFromPPS('НИЖНИЙ ТУЛБАР'), 'Искать*');
+      WaitForProgressIndicatorAbsence;
+      if WaitForWarningWindow(Options.Run.Timeout div 30, 'Информация*запрос*отсутствует*', true, SEARCH_CONTINUE_NAME) <> '' then
+        Raise('Ничего не найдено по искомому ППС запросу');
+    end;
+  except
+    Result := false;
+    Log.Message('SearchInPPS: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Поиск
+  DESC: Поиск ППИО
+  RESULT: 
+  REMARK: Пример ppioCardData = ['[ИЛИ]Реквизит1', [И]Реквизит2', [КРОМЕ]Реквизит3'];
+}
+function SearchInPPIO(
+  ppioCardData: OleVariant;
+  doSearch : boolean = true;
+  newCard: boolean = true;
+  notfill: boolean = false
+):boolean;
+  var
+    treeWnd, i, value, term;
+begin
+  try
+    ScriptAction('SET ACTION', SA_DO_PPIO_SEARCH);
+    
+    if newCard then GoToPPIO;
+    
+    treeWnd := GetFromPPIO('ДЕРЕВО ИЗДАНИЙ');
+    if not IsExists(treeWnd) then
+      Raise('Не найдено окно ДЕРЕВО ИЗДАНИЙ в ППИО');
+
+    Result := true;
+      
+    if not notfill then
+    begin 
+      Result := false;
+      for i := VarArrayLowBound(ppioCardData,1) to VarArrayHighBound(ppioCardData,1) do
+      begin
+        // определяем, есть ли в начале строки условие
+        value := ppioCardData[i];
+        term := AnsiUpperCase(GetSubStr(value, '', ']') + ']');
+        if (term = BTN_STATE_OR) OR (term = BTN_STATE_AND) OR (term = BTN_STATE_NOT) then
+          value := GetSubStr(value, ']', '')
+        else
+          term := '';
+        if value = '' then 
+          Raise('Строка реквизита ПУСТА');
+
+        // теперь в value храниться значение, а в term - условие (или не храниться, если не задано)
+        if Position_Internal(treeWnd, value, DELIM_CHAR, true, 'IsPressHome:=true') then
+        begin
+          if (term = '') then term := BTN_STATE_OR;
+          term := AnsiUpperCase(GetSubStr(term, '[', ']'));
+          treeWnd.Keys('[Apps]');
+          Result := ClickByPopupMenuItem(treeWnd, term);
+          if NOT Result then 
+            Raise('Не получилось уcтановить указанное логическое условие для "' + ppioCardData[i] + '"');
+        end
+        else
+          Raise('Не получилось найти реквизит "' + ppioCardData[i] + '"');
+      end;
+    end;  
+
+    if doSearch then
+    begin
+      Result := Result and ClickToolbarButton(GetFromPPIO('НИЖНИЙ ТУЛБАР ППИО'), 'Искать*');
+      WaitForProgressIndicatorAbsence;
+      if WaitForWarningWindow(Options.Run.Timeout div 30, 'Информация*запрос*отсутствует*', true, SEARCH_CONTINUE_NAME) <> '' then
+        Raise('Ничего не найдено по искомому ППИО запросу');
+    end;
+  except
+    Result := false;
+    Log.Message('SearchInPPIO: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+procedure _SimpleGetCardData_;
+  var w, d : OleVariant;
+begin
+  w := GetFromPPR('КАРТОЧКА ЗАПРОСА');
+  //w := GetFromAnalyticReview('КАРТОЧКА ЗАПРОСА');
+  //w := F1Prime_GetFromMainWindow('КАРТОЧКА ЗАПРОСА');  
+  //
+  d := ExtractQueryCardData(w);
+  Log.Message('', ConvertQueryCardDataToString(d));
+end;
+
+{
+  TYPE: Поиски
+  DESC: Переводжит курсор в ППР на нужное поле
+  RESULT:
+  REMARK: Надо, чтобы группы карточки были раскрыты
+}
+function PositionInPPR(
+  field : String // поле, желательно использовать константы FD_*
+  ; needNewPPR: Boolean = true // Открывать ли новую карточку, или использовать текущую
+) : boolean;
+  var
+    w, pprCard;
+    goToPPRFlag: Boolean;
+begin
+  try
+  	Result := false;
+    goToPPRFlag := True;
+    // если не надо открывать новую ППР припозиционировании
+    // определяем открыта ли уже и выставляем флаг перехода в ППР
+    if NOT needNewPPR then
+    begin
+      w := GetMainWindow;  
+      if StringCompare( '*поиск по реквизитам*', w.Caption) then goToPPRFlag := False;
+    end;
+    if goToPPRFlag AND NOT GoToPPR then Raise('Не получилось перейти в ППР');
+    
+    GetMainWindow.SetFocus;
+    pprCard := GetFromPPR('КАРТОЧКА ЗАПРОСА');
+    pprCard.SetFocus;
+    Sys.Keys('^[Home]');
+    
+    // затычка для сохранения старой функциональности
+    if (field = 'Орган\Источник') then field := FD_SOURCE;
+    //
+    if StringCompare(FD_MU_REG_DATE + '*',field) 
+       or StringCompare(FD_ACCEPTANCE_DATE + '*',field) 
+       or StringCompare(FD_LC_ALL_DATE + '*',field) 
+       or StringCompare(FD_LC_IN_DATE + '*',field)
+       or StringCompare(FD_LC_ABOLISHED_DATE + '*',field)
+       or StringCompare(FD_LC_CHANGED_DATE + '*',field)                     
+       then
+      Result := PositionInQueryCard(pprCard, field, [CT_CALENDAR], 'auto')
+    else
+      Result := PositionInQueryCard(pprCard, field, [CT_COMBOBOX], 'auto');
+  except
+    Log.Message('PositionInPPR: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;             
+  end;  
+end;
+
+{
+  TYPE: Поиски
+  DESC: Переводит курсор в КЗ "Поиск лекарственного средства"  на нужное поле
+  RESULT:
+  REMARK: 
+}
+function PositionInPLP(
+  field : String // поле, желательно использовать константы FD_*
+  ; needNewPLP: Boolean = true // Открывать ли новую карточку, или использовать текущую
+) : boolean;
+  var
+    w, plpCard;
+    goToPLPFlag: Boolean;
+begin
+  try
+  	Result := false;
+    goToPLPFlag := True;
+    // если не надо открывать новую ПЛП припозиционировании
+    // определяем открыта ли уже и выставляем флаг перехода в ПЛП
+    if NOT needNewPLP then
+    begin
+      w := GetMainWindow;  
+      if StringCompare( '*поиск лекарственного средства*', w.Caption) then goToPLPFlag := False;
+    end;
+    if goToPLPFlag AND NOT GoToPLP then Raise('Не получилось перейти в ПЛП');
+    
+    GetMainWindow.SetFocus;
+    plpCard := GetFromPLP('ФОРМА КАРТОЧКИ ЗАПРОСА');
+    plpCard.SetFocus;
+    Sys.Keys('^[Home]');
+    
+    // затычка для сохранения старой функциональности
+    if (field = 'Орган\Источник') then field := FD_SOURCE;
+    //
+    if StringCompare(FD_MU_REG_DATE + '*',field) or StringCompare(FD_ACCEPTANCE_DATE + '*',field) then
+      Result := PositionInQueryCard(pprCard, field, [CT_CALENDAR], 'auto')
+    else
+      Result := PositionInQueryCard(pprCard, field, [CT_COMBOBOX], 'auto');
+  except
+    Log.Message('PositionInPPR: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;             
+  end;  
+end;
+
+procedure ___CONSULTATIONS__; begin end;
+
+const
+  // ИЗМЕНЯЯ ЭТУ КОНСТАНТУ ОБЯЗАТЕЛЬНО ПОМЕНЯЙ ТАКУЮ ЖЕ КОНСТАНТУ В RunPrograms. ОНИ РАЗНЕСЕНЫ ДЛЯ ИСКЛЮЧЕНИЯ ЭТИХ МОДУЛЕЙ (И СКОРОСТИ ЗАПУСКА ПРОЕКТОВ).
+  CS_CHECK_TIMEOUT = 30000; // таймаут проверки консультаций, он же прописывается в инишнк сервера/десктопа при инициализации тестового стенда 
+  CS_STOP_CHECKER_FLAG_FILE = '\\strelka-vm1.garant.ru\TC_Flag\!stop_checker';
+
+{
+  TYPE:
+  DESC: Создает файл флага на машине автоответчика для его останова  
+  RESULT: 
+  REMARK:
+}  
+function StopCsChecker: boolean;
+const
+  FUNC_NAME = 'StopCsChecker: ';
+var 
+  f;
+  i: integer; 
+begin
+  try
+    Result := false;
+    if FileExists(CS_STOP_CHECKER_FLAG_FILE) then
+    try 
+      AssignFile(f, CS_STOP_CHECKER_FLAG_FILE);
+      Rewrite(f);
+      WriteLn(f, 'File was recreated at: ' + DateToStr(Utilities.Date) + ' - ' + TimeToStr(Utilities.Time));
+      Result := true;
+    finally
+      CloseFile(f);
+    end
+    else
+      Result := aqFile.Create(CS_STOP_CHECKER_FLAG_FILE) = 0;
+    if not Result then
+      Raise('Не получилось создать файл: ' + CS_STOP_CHECKER_FLAG_FILE);
+     
+    Delay(CS_CHECK_TIMEOUT);
+    Log.Message(FUNC_NAME + 'Отключили автоответчик консультаций', '', pmNormal, GetLogAttr('SILVER'));    
+  except
+    Log.Message(FUNC_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE:
+  DESC: Удаляет файл флага на машине автоответчика для продолжения работы  
+  RESULT:
+  REMARK:
+}  
+function StartCsChecker: boolean;
+const
+  FUNC_NAME = 'StartCsChecker: ';
+var 
+  i: integer; 
+begin
+  try
+    i := 0;
+    while FileExists(CS_STOP_CHECKER_FLAG_FILE) do
+    begin
+      if DeleteFile(CS_STOP_CHECKER_FLAG_FILE) then
+        break;
+      Inc(i);
+      Delay(5000);
+      if i > 3 then
+        Raise('Не получилось удалить файл: ' + CS_STOP_CHECKER_FLAG_FILE);
+    end;
+
+    Delay(CS_CHECK_TIMEOUT);
+    Log.Message(FUNC_NAME + 'Включили автоответчик консультаций', '', pmNormal, GetLogAttr('SILVER'));
+    Result := true;    
+  except
+    Log.Message(FUNC_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;
+end;
+ 
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+    paramString:
+      IsOpenNewCard - открывать ли новую КЗ или использовать уже открытую
+        default: true
+      IsClearCard - очищать ли КЗ перед заполнением
+        default: true
+}
+function FillLawSupportCard(
+  cardData : OleVariant; // значение полей
+  const paramString : String = ''
+) : boolean;
+  var
+    paramList, lawSupportCard: OleVariant;
+    isOpenNewCard, isClearCard : boolean;
+    searchType : String;
+begin
+  try
+    Result := false;
+    // парсим параметры
+    paramList := ParseParamString(paramString);
+    isOpenNewCard := VarToBool( GetParam(paramList, 'IsOpenNewCard', 'true') );
+    isClearCard := VarToBool( GetParam(paramList, 'IsClearCard', 'true') );  
+
+    // открываем или очищаем карточку
+    if isOpenNewCard then
+      lawSupportCard := GoToLawSupport('', true)
+    else
+      lawSupportCard := GetFromLawSupport('КАРТОЧКА ЗАПРОСА');
+    if NOT IsExists(lawSupportCard) then Raise('Карточка Правовая поддржка не найдена!');
+    if isClearCard then
+      ClickToolbarButton( GetFromLawSupport('НИЖНИЙ ТУЛБАР КАРТОЧКИ ЗАПРОСА'), 'Очистить' );
+    
+    lawSupportCard.SetFocus;
+    
+    // заполняем
+    Result := FillQueryCard(lawSupportCard, cardData);  
+    
+  except
+    Log.Message('FillLawSupportCard: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: Отправляет запрос на консультации.
+  RESULT:
+  REMARK:
+    Формат массива cardData
+      [
+    	  CARD_LAW_SUPPORT, ([([
+      	FD_USER_NAME, ([
+      		'ФИО пользователя']) ]),([
+        FD_CITY_CODE, ([
+      		'Код города']) ]),([
+        FD_USER_PHONE, ([
+      		'Телефон']) ]),([          
+      	FD_LAW_SUPPORT_TEXT, ([
+      		'Вопрос в службу правовой поддержки']) ]) ])
+      ]
+      
+    ExtendedResult:
+      массив, значений возвращаются с помощью GetParam. 
+      Список имен возвращаемых значений:
+        Result - успешно ли выполнена функция (то же что и при IsExtendedResult:=false)    
+        InfoMsgText - текст сообщение в окне Информация (если появится)
+        ErrorMsgText - текст сообщение в окне Ошибка (если появится)   
+}
+function SendConsultation(
+  const cardData : String; // массив параметров запроса
+  const paramString : String = '' // параметры 
+) : OleVariant;
+  const
+    MFT_INFO_SUCCESS = '*Благодарим Вас за обращение в службу Правовой поддержки*';
+  var 
+    paramList, knownForms, mfData, msgType : OleVariant;
+    p_WaitInfoTimeout : Integer;
+    msgText : String;
+    res, IsExtendedResult : boolean;
+begin
+  try
+    knownForms := [
+      ([MFT_ERROR, '*Отсутствует связь с интернет-сервисом*', 'ОК']),
+      ([MFT_WARNING, '*Ошибка связи при попытке отправить запрос*', 'ОК']),
+      ([MFT_ERROR, '*Отсутствуют контактные данные, без которых запрос*ФИО*контактный телефон*', 'ОК']),
+      ([MFT_INFO, MFT_INFO_SUCCESS, 'ОК']),
+      ([MFT_INFO, 'Пожалуйста,*введите текст запроса.', 'ОК']),
+      ([MFT_WARNING, '*услуга*не активирована*обратитесь*в*организацию*', 'ОК'])
+    ];
+    //
+    paramList := ParseParamString(paramString);
+    p_WaitInfoTimeout := VarToInteger( GetParam(paramList, 'WaitInfoTimeout', IntToStr(Options.Run.Timeout)) );
+    IsExtendedResult := VarToBool( GetParam(paramList, 'IsExtendedResult', 'false') );
+    //
+    SetParam(Result, 'Result', false);
+    res := false;
+    //
+    if NOT FillLawSupportCard(cardData, paramString) then Raise('Не получилось заполнить карточку правовой поддержки!');
+    
+    if ClickToolbarButton( GetFromLawSupport('НИЖНИЙ ТУЛБАР КАРТОЧКИ ЗАПРОСА'), 'Отправить запрос' ) then
+    begin
+      if CheckForKnownMessageForms(knownForms, mfData, p_WaitInfoTimeout) then
+      begin
+        msgType := GetParam(mfData, WFMF_RES_MSGTYPE);
+        msgText := GetParam(mfData, WFMF_RES_MSGTEXT);
+        SetParam(Result, 'MFData', mfData);
+        if CheckForKnownMessageForms(knownForms, mfData, Options.Run.Timeout div 3) then
+        begin 
+          msgType := GetParam(mfData, WFMF_RES_MSGTYPE);
+          msgText := GetParam(mfData, WFMF_RES_MSGTEXT);
+          SetParam(Result, 'MFData', mfData);
+        end;
+        if msgType = MFT_ERROR then
+        begin
+          res := false;
+          SetParam(Result, 'ErrorMsgText', msgText);
+          Log.Warning('SendConsultation: Вылезло сообщение об ошибке, в котором написано: "' + msgText + '"');
+        end
+        else
+        if msgType = MFT_WARNING then
+        begin
+          res := false;
+          SetParam(Result, 'WarningMsgText', msgText);
+          Log.Warning('SendConsultation: Вылезло предупреждение, в котором написано: "' + msgText + '"');
+        end 
+        else
+        if msgType = MFT_INFO then
+        begin
+          SetParam(Result, 'InfoMsgText', msgText);
+          if StringCompare(MFT_INFO_SUCCESS, msgText) then
+          begin
+            res := true;
+            Log.Message('SendConsultation: Запрос на консультацию успешно отправлен.', ConvertArrayToString(cardData) );
+          end;  
+        end;
+      end;        
+    end;    
+    
+    if IsExtendedResult then
+      SetParam(Result, 'Result', res)
+    else
+      Result := res;
+      
+  except
+    Log.Message('SendConsultation: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function PositionOnConsultation(
+  const consName : String;
+  folder : String = 'AUTO' // (AUTO|ANSWERS|IN_PROCESS|OUTBOX|UNCONFIRMED)
+) : OleVariant; // окно списка, в котором спозиционировались на консультацию
+  const 
+    PREFIX = 'Консультация: ';
+    SUFFIX = '*(*)';
+  var 
+    myDocWnd  : OleVariant;
+begin
+  try
+    Result := NonExObj;
+    myDocWnd := OpenMyDocTab;
+    if NOT IsExists(myDocWnd) then Raise('Не получилось открыть вкладку "Мои документы"');
+  
+    case AnsiUpperCase(folder) of
+      'ANSWERS' :
+        if Position_Internal(myDocWnd, 'Мои консультации\Ответы\' + PREFIX + consName + SUFFIX, DELIM_CHAR, true, 'IsPressHome := true') then Result := myDocWnd;
+      'IN_PROCESS' :
+        if Position_Internal(myDocWnd, 'Мои консультации\Запросы в обработке\' + PREFIX + consName + SUFFIX, DELIM_CHAR, true, 'IsPressHome := true') then Result := myDocWnd;
+      'OUTBOX' :
+        if Position_Internal(myDocWnd, 'Мои консультации\Исходящие запросы\' + PREFIX + consName + SUFFIX, DELIM_CHAR, true, 'IsPressHome := true') then Result := myDocWnd;
+      'UNCONFIRMED' :
+        if Position_Internal(myDocWnd, 'Мои консультации\Неподтвержденные\' + PREFIX + consName + SUFFIX, DELIM_CHAR, true, 'IsPressHome := true') then Result := myDocWnd;
+      'AUTO' : 
+        if NOT IsExists(Assign(Result, PositionOnConsultation(consName, 'ANSWERS') )) then 
+          if NOT IsExists(Assign(Result, PositionOnConsultation(consName, 'IN_PROCESS') )) then
+            if NOT IsExists(Assign(Result, PositionOnConsultation(consName, 'OUTBOX') )) then 
+              if NOT IsExists(Assign(Result, PositionOnConsultation(consName, 'UNCONFIRMED') )) then
+                Result := NonExObj;
+    else
+      Raise('Неизвестный параметр folder.');
+    end;
+  except
+    Log.Message('PositionOnConsultation: ' + ExceptionMessage, 'consName: "' + VarToStr(consName) + '"; folder: "' + VarToStr(folder) + '"' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function DeleteConsultation(
+  const consName : String;
+  folder : String = 'AUTO' // (AUTO|ANSWERS|IN_PROCESS|OUTBOX|UNCONFIRMED)
+) : boolean;
+  var 
+    wnd  : OleVariant;  
+begin
+  try
+    Result := false;
+    wnd := PositionOnConsultation(consName, folder);
+    if NOT IsExists(wnd) then 
+      Raise('Консультация не найдена!');
+    if NOT Assign(Result, DelWithConfirm) then 
+      Raise('Не получилось удалить консультацию!'); 
+  except
+    Result := false;  
+    Log.Message('DeleteConsultation: ' + ExceptionMessage, 'consName: "' + VarToStr(consName) + '"; folder: "' + VarToStr(folder) + '"' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+
+const
+  CS_UNKNOWN = 1; // вообще ничего неизвестно
+  CS_PROCESSING_NO_NOTIFY = 2; // запрос принят (нотификации нет) 
+  CS_PROCESSING_WITH_NOTIFY = 4; // запрос принят и находится в обработке
+  CS_PROCESSING_CONFIRM = 8; // запрос принят и подтвержден  
+  CS_ANSWER_READ = 16; // в ответах. прочитан
+  CS_ANSWER_UNREAD = 32;  // в ответах. не прочитан
+  CS_OUTBOX = 64;  // в исходящих
+  CS_UNCONFIRMED = 128;  // в неподтвержденных      
+  CS_NOT_FOUND = 256; // консультация не найдена
+  
+  //Названия ссылок подтверждения
+  CS_LINK_NO = 'Нет, не согласен';
+  CS_LINK_YES = 'Да, согласен';    
+
+
+  
+{
+  TYPE: 
+  DESC: 
+  RESULT:
+  REMARK: 
+}
+function GetConsultationStatusName(
+  consStatus: integer
+) : string;
+begin
+  result := CS_UNKNOWN;
+  case consStatus of
+    CS_PROCESSING_NO_NOTIFY: result := 'ЗАПРОС ПРИНЯТ (НОТИФИКАЦИИ НЕТ)';
+    CS_PROCESSING_WITH_NOTIFY: result := 'ЗАПРОС ПРИНЯТ И НАХОДИТСЯ В ОБРАБОТКЕ';
+    CS_PROCESSING_CONFIRM: result := 'ЗАПРОС ПРИНЯТ И ПОДТВЕРЖДЕН';     
+    CS_ANSWER_READ: result := 'В ОТВЕТАХ. ПРОЧИТАН';
+    CS_ANSWER_UNREAD: result := 'В ОТВЕТАХ. НЕ ПРОЧИТАН';
+    CS_OUTBOX: result := 'В ИСХОДЯЩИХ';
+    CS_UNCONFIRMED: result := 'В НЕПОДТВЕРЖДЕННЫХ';
+    CS_NOT_FOUND: result := 'КОНСУЛЬТАЦИЯ НЕ НАЙДЕНА';
+  end;
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function GetConsultationStatus(
+  const consName : String
+) : OleVariant;
+  var
+    wnd, foundedIcon, copy_string : OleVariant;  
+begin
+  try
+    Result := CS_UNKNOWN;
+    if IsExists(Assign(wnd, PositionOnConsultation(consName, 'IN_PROCESS'))) then
+    begin
+      Sys.Keys('[Enter]');
+
+      //на всякий случай, вдруг возникнет вопрос об оценке 
+      WaitForConfirmationWindow(Options.Run.Timeout div 5, 'Отмена');
+      
+      if IsExists( GetFromConsultations('ТЕКСТ КОНСУЛЬТАЦИИ') ) then
+      begin
+        copy_string := CopyToClipBoard(GetFromConsultations('ТЕКСТ КОНСУЛЬТАЦИИ'), 'ALL', 'Trim:=true');
+        GetFromConsultations('ТЕКСТ КОНСУЛЬТАЦИИ').Keys['^[Home]'];
+        if StringCompare('*Ваш*запрос*', copy_string) then
+        begin
+          if StringCompare('*Согласны*оплатить*консультацию?*', copy_string) then 
+            Result := CS_PROCESSING_WITH_NOTIFY
+          else          
+            if StringCompare('*принят и находится в обработке*', copy_string) then
+              Result := CS_PROCESSING_CONFIRM
+            else
+              Result := CS_PROCESSING_NO_NOTIFY;
+        end
+        else
+          Result := CS_UNKNOWN;
+      end
+      else
+        Result := CS_UNKNOWN;            
+    end
+    else if IsExists(Assign(wnd, PositionOnConsultation(consName, 'ANSWERS'))) then
+    begin // консультация найдена в "Ответы"  
+      foundedIcon := CheckSelectedListItemIcon(wnd, ['consultation_read.bmp', 'consultation_unread.bmp']);
+      if (foundedIcon = 'consultation_read.bmp') then 
+        Result := CS_ANSWER_READ
+      else if (foundedIcon = 'consultation_unread.bmp') then
+        Result := CS_ANSWER_UNREAD;        
+    end
+    else if IsExists(Assign(wnd, PositionOnConsultation(consName, 'OUTBOX'))) then
+    begin // консультация найдена в "Исходящих"  
+      Result := CS_OUTBOX;        
+    end
+    else if IsExists(Assign(wnd, PositionOnConsultation(consName, 'UNCONFIRMED'))) then
+    begin // консультация найдена в "Неподтвержденных"  
+      Result := CS_UNCONFIRMED;
+    end
+    else 
+      Result := CS_NOT_FOUND; 
+  except
+    Result := CS_UNKNOWN;
+    Log.Message('GetConsultationStatus: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;    
+  end;               
+end;
+
+
+{
+  TYPE:
+  DESC: Открывает консультацию
+  RESULT: Возвращает объект текста консультаций, или несуществующий объект, если не удалось открыть консультацию.
+  REMARK:
+}
+function ReadConsultation(
+  const consName : String; // имя консультации
+  const paramString : String = ''  
+) : OleVariant;
+  var
+    paramList, wnd : OleVariant;
+    consCode;
+begin
+  try
+    Result := NonExObj;
+    consCode := GetConsultationStatus(consName);
+    case consCode of
+      CS_NOT_FOUND, CS_UNKNOWN : Raise('Консультация не найдена или неизвестного типа, ее код "' + IntToStr(consCode) + '"');
+    else
+      begin
+        wnd := GetFromNavigator('ВКЛАДКА НАВИГАТОРА "МОИ ДОКУМЕНТЫ"');
+        wnd.Keys('[Enter]');
+        
+        //на всякий случай, вдруг возникнет вопрос об оценке 
+        WaitForConfirmationWindow(Options.Run.Timeout div 5, 'Отмена');
+        
+//        Sys.Keys('[Apps]');
+//        if NOT ClickByPopupMenuItem(wnd, 'Открыть для просмотра') then Raise('Не получилось открыть консультацию!');
+        Result := GetFromConsultations('ТЕКСТ КОНСУЛЬТАЦИИ');
+      end;
+    end;
+  except
+    Result := NonExObj;
+    Log.Message('ReadConsultation: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function ConfirmConsultation(
+  const consName : String;
+  const paramString : String = '' // параметры
+) : boolean;
+  const                
+    MFT_INFO_SUCCESS = '*Ваш запрос передан в службу Правовой поддержки*обработки*';
+    MFT_INFO_SUCCESS_DENY = '*Вы отказались от получения консультации*Правов*Ответы*Мои консультации*';
+  var
+    wnd, paramList, knownForms, mfData, msgType : OleVariant;
+    p_WaitInfoTimeout : Integer;
+    msgText, confLink : String;
+    res, IsExtendedResult : boolean;
+begin
+  try
+    Result := false;
+    res := false;    
+    knownForms := [
+      ([MFT_ERROR, '*Отсутствует связь с интернет-сервисом*', 'ОК']),
+      ([MFT_INFO, MFT_INFO_SUCCESS, 'ОК']),
+      ([MFT_INFO, MFT_INFO_SUCCESS_DENY, 'ОК']),
+      ([MFT_INFO, '*К сожалению, отсутствует интернет-канал для связи с сервером службы  Правовой поддержки!*', 'ОК']),           
+      ([MFT_INFO, '*Использование услуги Правового консалтинга запрещено системным администратором Вашей организации.*', 'ОК']),          
+      ([MFT_WARNING, '*услуга не активирована*обратитесь в обслуживающую*организацию*', 'ОК'])
+    ];
+    //
+    paramList := ParseParamString(paramString);
+    confLink := GetParam(paramList, 'ConfirmLinkName', CS_LINK_YES);        
+    p_WaitInfoTimeout := VarToInteger( GetParam(paramList, 'WaitInfoTimeout', IntToStr(Options.Run.Timeout)) );
+    IsExtendedResult := VarToBool( GetParam(paramList, 'IsExtendedResult', 'false') );
+    //
+    wnd := ReadConsultation(consName);
+    if NOT IsExists(wnd) then 
+      Raise('Текст консультации не найден!');
+    if Assign(Result, ClickByHyperLink(wnd, confLink, false, 0 ,0, false)) then
+    begin 
+      if CheckForKnownMessageForms(knownForms, mfData, p_WaitInfoTimeout ) then
+      begin
+        msgType := GetParam(mfData, WFMF_RES_MSGTYPE);
+        msgText := GetParam(mfData, WFMF_RES_MSGTEXT);
+        SetParam(Result, 'MFData', mfData);
+        if msgType = MFT_ERROR then
+        begin
+          res := false;
+          SetParam(Result, 'ErrorMsgText', msgText);
+          Log.Warning('ConfirmConsultation: Вылезло сообщение об ошибке, в котором написано: "' + msgText + '"');
+        end
+        else
+        if msgType = MFT_WARNING then
+        begin
+          res := false;
+          SetParam(Result, 'WarningMsgText', msgText);
+          Log.Warning('SendConsultation: Вылезло предупреждение, в котором написано: "' + msgText + '"');
+        end 
+        else
+        if msgType = MFT_INFO then
+        begin
+          SetParam(Result, 'InfoMsgText', msgText);
+          if StringCompare(MFT_INFO_SUCCESS, msgText) then
+          begin
+            res := true;
+            Log.Message('ConfirmConsultation: Консультация успешно подтверждена.');
+          end
+          else
+          if StringCompare(MFT_INFO_SUCCESS_DENY, msgText) then
+          begin
+            res := true;
+            Log.Message('ConfirmConsultation: Консультация успешно НЕ подтверждена.');
+          end;
+        end;
+      end;        
+    end
+    else
+      Raise('Не получилось кликнуть по ссылке "' + confLink + '" подтверждения консультации!');    
+    
+    if IsExtendedResult then
+      SetParam(Result, 'Result', res)
+    else
+      Result := res;      
+  except
+    Result := false;  
+    Log.Message('ConfirmConsultation: ' + ExceptionMessage, 'consName: "' + VarToStr(consName) + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+
+const
+  CS_RATE_NOT_SURE  = 'Затрудняюсь оценить';
+  CS_RATE_FIVE      = 'Отлично';
+  CS_RATE_FOUR      = 'Хорошо';
+  CS_RATE_THREE     = 'Удовлетворительно';
+  CS_RATE_TWO       = 'Неудовлетворительно';
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function RateConsultation(
+  const consName : String; // имя консультации
+  const rate : OleVariant; // одна из констант CS_RATE_*
+  const comment : String = '';
+  const paramString : String = ''
+) : boolean;
+  const
+    FUNCTION_NAME = 'RateConsultation';
+    MAX_COMMENT_LENGTH = 6000;
+  var 
+    wnd, paramList, rateForm, commentField, checkBox, knownForms, mfData, p_WaitInfoTimeout: OleVariant;
+    p_HowToRate, msg : String;
+    p_IsRateCurrent ,res : boolean;
+begin
+  try
+    Result := false;
+    paramList := ParseParamString(paramString);
+    p_HowToRate := AnsiUpperCase( GetParam(paramList, 'HowToRate', 'FROM POPUPMENU') );
+    p_IsRateCurrent := VarToBool( GetParam(paramList, 'p_IsRateCurrent', 'false') );
+    p_WaitInfoTimeout := VarToInteger( GetParam(paramList, 'WaitInfoTimeout', IntToStr(Options.Run.Timeout)) );
+        
+    knownForms := [
+      ([MFT_ERROR, '*Поле*не*может*содержать*более*6000*', 'ОК'])
+    ];
+
+    // открываем диалог оценки
+    if p_IsRateCurrent then
+      res := ClickByHyperLink(GetFromConsultations('ТЕКСТ КОНСУЛЬТАЦИИ'), 'Оценить ответ', false, 0, 0, false)
+    else  
+      if IsExists(Assign(wnd, PositionOnConsultation(consName, 'ANSWERS'))) then
+      begin 
+        wnd.SetFocus;
+        Sys.Keys('[Enter]');
+        case p_HowToRate of
+          'FROM POPUPMENU' :
+            begin
+              wnd.SetFocus;
+              Sys.Keys('[Apps]');
+              res := ClickByPopupMenuItem(wnd, 'Оценить ответ');
+            end;
+          'FROM TEXT' :
+            res := ClickByHyperLink(GetFromConsultations('ТЕКСТ КОНСУЛЬТАЦИИ'), 'Оценить ответ', false, 0, 0, false);
+          'FROM LEAVEING CONSULTATION' :
+            begin
+              //пытаемся уйти из консультации (в ОМ), чтобы появился вопрос оценивать ли ответ.. 
+              Sys.Keys('[F2]');
+              res := WaitForConfirmationWindow(Options.Run.Timeout div 3) <> '';            
+            end;
+        end;
+      end;
+    msg := '';  
+    if (NOT res) OR (Assign(msg, WaitForInfoWindow(Options.Run.Timeout div 25, '*Ответ уже был оценен*')) <> '') then
+    begin
+      Log.Warning(FUNCTION_NAME + ': ' + 'Не получилось открыть форму оценки. Возможно, ответ уже был оценен.', msg);
+      Exit;
+    end;
+    // здесь диалог оценки должен существовать
+    rateForm := GetFromConsRateForm('ФОРМА ОЦЕНКИ');
+    if NOT IsExists(rateForm) then Raise('Форма оценки не найдена!');
+    // пишем комментарий
+    if comment <> '' then 
+    begin
+      commentField := GetFromConsRateForm('ПОЛЕ КОММЕНТАРИЯ', rateForm);
+      
+      Sys.Clipboard := comment;
+      PasteFromClipboard(commentField, 'HowToPaste:=KEYBOARD'); 
+
+      //commentField.SetFocus;      
+      //Sys.Keys(comment);
+    end;
+    // выставляем оценку
+    case rate of
+      CS_RATE_NOT_SURE : checkBox := GetFromConsRateForm('ЧЕКБОКС "ЗАТРУДНЯЮСЬ ОЦЕНИТЬ"', rateForm);
+      CS_RATE_FIVE     : checkBox := GetFromConsRateForm('ЧЕКБОКС "ОТЛИЧНО"', rateForm);
+      CS_RATE_FOUR     : checkBox := GetFromConsRateForm('ЧЕКБОКС "ХОРОШО"', rateForm);
+      CS_RATE_THREE    : checkBox := GetFromConsRateForm('ЧЕКБОКС "УДОВЛЕТВОРИТЕЛЬНО"', rateForm);
+      CS_RATE_TWO      : checkBox := GetFromConsRateForm('ЧЕКБОКС "НЕУДОВЛЕТВОРИТЕЛЬНО"', rateForm);
+    else  
+      Raise('Неизвестная оценка!');
+    end;
+    if not IsExists(checkBox) then
+      Raise('Чекбокс "' + rate + '" не найден!');
+          
+    checkBox.Click;
+    res := checkBox.wChecked AND res;
+    // Подтверждаем
+    res := ClickToolbarButton( GetFromConsRateForm('НИЖНИЙ ТУЛБАР', rateForm), 'Оценить' ) AND res;
+    
+    if CheckForKnownMessageForms(knownForms, mfData, p_WaitInfoTimeout ) then
+    begin
+      Log.Warning(FUNCTION_NAME + ': ' + 'Появилось сообщение после оценки консультации: "' + GetParam(mfData, WFMF_RES_MSGTYPE) + ': ' + GetParam(mfData, WFMF_RES_MSGTEXT) + '"', '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+      if IsExists(rateForm) then
+        Raise('Форма оценки осталась видна, видимо возникла ошибка при оценки консультации!');
+    end;
+
+    Result := res;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    if IsExists(rateForm) then rateForm.Close;
+    CommonExceptionHandler;
+  end;               
+end;
+
+
+procedure __PRIME__; begin end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+    paramString:
+      IsClearCard - очищать ли КЗ перед заполнением
+        default: true
+}
+function FillPrimeCard(
+  cardData : OleVariant; // значение полей
+  const paramString : String = ''
+) : boolean;
+  var
+    paramList, primeCard: OleVariant;
+    isClearCard : boolean;
+    searchType : String;
+begin
+  try
+    Result := false;
+    // парсим параметры
+    paramList := ParseParamString(paramString);
+    isClearCard := VarToBool( GetParam(paramList, 'IsClearCard', 'true') );
+
+    // очищаем карточку
+    primeCard := F1Prime_GetFromMainWindow('КАРТОЧКА ЗАПРОСА');
+    if NOT IsExists(primeCard) then Raise('Карточка Прайма не найдена!');
+    if isClearCard then
+      ClickToolbarButton( F1Prime_GetFromMainWindow('НИЖНИЙ ТУЛБАР КАРТОЧКИ ЗАПРОСА'), 'Очистить' );
+    
+    primeCard.SetFocus;
+    
+    // заполняем
+    Result := FillQueryCard(primeCard, cardData);
+  except
+    Log.Message('FillPrimeCard: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;               
+end;

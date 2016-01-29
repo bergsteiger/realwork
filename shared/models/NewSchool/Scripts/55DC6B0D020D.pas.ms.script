@@ -1,0 +1,2526 @@
+// NSRCReaderCore 55DC6B0D020D Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55DC6B0D020D
+
+FORWARD ME_55DC6C1902EB
+
+: ME_55DC7AD30146
+ CONST UID '55DC7AD30146'
+ CONST Name 'DocID'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6C1902EB // TsegTarget
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC7AD30146 DocID
+
+: ME_55DC7AE5027E
+ CONST UID '55DC7AE5027E'
+ CONST Name 'SubID'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6C1902EB // TsegTarget
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC7AE5027E SubID
+
+: ME_F1C94D7CAC23
+ CONST UID 'F1C94D7CAC23'
+ CONST Name 'f_DocID'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства DocID' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6C1902EB // TsegTarget
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_F1C94D7CAC23 f_DocID
+
+: ME_3A813C2A2D6C
+ CONST UID '3A813C2A2D6C'
+ CONST Name 'f_SubID'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства SubID' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6C1902EB // TsegTarget
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_3A813C2A2D6C f_SubID
+
+FORWARD ME_55DC94FC0021
+
+: ME_55DC951E0195
+ CONST UID '55DC951E0195'
+ CONST Name 'aDocID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_55DC951E0195 aDocID
+
+: ME_55DC951E01B3
+ CONST UID '55DC951E01B3'
+ CONST Name 'aSubID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_55DC951E01B3 aSubID
+
+: ME_55DC950100C5
+ CONST UID '55DC950100C5'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55DC94FC0021 // Create
+ ;
+ : Parameters
+   @ ( ME_55DC951E0195 // aDocID
+ ME_55DC951E01B3 // aSubID
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55DC950100C5 DoIt
+
+: ME_55DC94FC0021
+ CONST UID '55DC94FC0021'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55DC6C1902EB // TsegTarget
+ ;
+ : Operations
+   @ ( ME_55DC950100C5 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55DC94FC0021 Create
+
+: ME_55DC6C1902EB
+ CONST UID '55DC6C1902EB'
+ CONST Name 'TsegTarget'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DC6B0D020D // NSRCReaderCore
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55DC7AD30146 // DocID
+ ME_55DC7AE5027E // SubID
+ ME_F1C94D7CAC23 // f_DocID
+ ME_3A813C2A2D6C // f_SubID
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_55DC94FC0021 // Create
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\dd\segTarget.pas'
+
+ref; // ME_55DC6C1902EB TsegTarget
+
+FORWARD ME_55DC7B6601E9
+
+: ME_55DC7B720283
+ CONST UID '55DC7B720283'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_55DC7B6601E9 // TsegTargetList
+ ;
+ : Target ME_55DC6C1902EB // TsegTarget
+ ;
+
+ref; // ME_55DC7B720283 ItemType
+
+: ME_55DC7B6601E9
+ CONST UID '55DC7B6601E9'
+ CONST Name 'TsegTargetList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DC6B0D020D // NSRCReaderCore
+ ;
+ : Inherits
+   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_55DEEA210182' '47913B47006E.pas.ms.script' // l3NotSortedObjectRefList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55DC7B720283 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\dd\segTargetList.pas'
+
+ref; // ME_55DC7B6601E9 TsegTargetList
+
+FORWARD ME_55DC6B2E0347
+
+FORWARD ME_55DC6BAE0320
+
+: ME_55DC6E88014D
+ CONST UID '55DC6E88014D'
+ CONST Name 'Start'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6BAE0320 // TsegSegment
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC6E88014D Start
+
+: ME_21BE81A64BAB
+ CONST UID '21BE81A64BAB'
+ CONST Name 'f_Start'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Start' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6BAE0320 // TsegSegment
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_21BE81A64BAB f_Start
+
+: ME_55DC6BAE0320
+ CONST UID '55DC6BAE0320'
+ CONST Name 'TsegSegment'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DC6B2E0347 // ddNSRCSegments
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55DC6E88014D // Start
+ ME_21BE81A64BAB // f_Start
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_55DC6BAE0320 TsegSegment
+
+FORWARD ME_55DC6BC0025D
+
+: ME_55DC6ED5033E
+ CONST UID '55DC6ED5033E'
+ CONST Name 'Finish'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6BC0025D // TsegTextSegment
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC6ED5033E Finish
+
+: ME_7EB4E26D66BD
+ CONST UID '7EB4E26D66BD'
+ CONST Name 'f_Finish'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Finish' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6BC0025D // TsegTextSegment
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_7EB4E26D66BD f_Finish
+
+: ME_55DC6BC0025D
+ CONST UID '55DC6BC0025D'
+ CONST Name 'TsegTextSegment'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DC6B2E0347 // ddNSRCSegments
+ ;
+ : Inherits
+   @ ( ME_55DC6BAE0320 // TsegSegment
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55DC6ED5033E // Finish
+ ME_7EB4E26D66BD // f_Finish
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_55DC6BC0025D TsegTextSegment
+
+FORWARD ME_55DC6BD20302
+
+: ME_55DC6F330176
+ CONST UID '55DC6F330176'
+ CONST Name 'Decor'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6BD20302 // TsegDecorSegment
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC6F330176 Decor
+
+: ME_47253804D92D
+ CONST UID '47253804D92D'
+ CONST Name 'f_Decor'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Decor' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6BD20302 // TsegDecorSegment
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_47253804D92D f_Decor
+
+: ME_55DC6BD20302
+ CONST UID '55DC6BD20302'
+ CONST Name 'TsegDecorSegment'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DC6B2E0347 // ddNSRCSegments
+ ;
+ : Inherits
+   @ ( ME_55DC6BC0025D // TsegTextSegment
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55DC6F330176 // Decor
+ ME_47253804D92D // f_Decor
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_55DC6BD20302 TsegDecorSegment
+
+FORWARD ME_55DC6B9F01BA
+
+: ME_55DC6CDC00E3
+ CONST UID '55DC6CDC00E3'
+ CONST Name 'ColorSelection'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC6CDC00E3 ColorSelection
+
+: ME_55DC6D0402CA
+ CONST UID '55DC6D0402CA'
+ CONST Name 'HLContinue'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC6D0402CA HLContinue
+
+: ME_55DC6D260116
+ CONST UID '55DC6D260116'
+ CONST Name 'Comment'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC6D260116 Comment
+
+: ME_55DC6D410295
+ CONST UID '55DC6D410295'
+ CONST Name 'Hidden'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC6D410295 Hidden
+
+: ME_55DC6D5B01F0
+ CONST UID '55DC6D5B01F0'
+ CONST Name 'OutOfDate'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC6D5B01F0 OutOfDate
+
+: ME_55DC6D790271
+ CONST UID '55DC6D790271'
+ CONST Name 'NotApplied'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC6D790271 NotApplied
+
+: ME_55DC6D950168
+ CONST UID '55DC6D950168'
+ CONST Name 'WithText'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC6D950168 WithText
+
+: ME_55DC6DB401A2
+ CONST UID '55DC6DB401A2'
+ CONST Name 'Start'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC6DB401A2 Start
+
+: ME_55DC6DD30143
+ CONST UID '55DC6DD30143'
+ CONST Name 'Decor'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC6DD30143 Decor
+
+: ME_0CF18EF530F7
+ CONST UID '0CF18EF530F7'
+ CONST Name 'f_ColorSelection'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства ColorSelection' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_0CF18EF530F7 f_ColorSelection
+
+: ME_5D346410C424
+ CONST UID '5D346410C424'
+ CONST Name 'f_HLContinue'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства HLContinue' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5D346410C424 f_HLContinue
+
+: ME_D149FA8198F8
+ CONST UID 'D149FA8198F8'
+ CONST Name 'f_Comment'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Comment' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_D149FA8198F8 f_Comment
+
+: ME_B5F2EE6EE743
+ CONST UID 'B5F2EE6EE743'
+ CONST Name 'f_Hidden'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Hidden' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_B5F2EE6EE743 f_Hidden
+
+: ME_BE4757E385F3
+ CONST UID 'BE4757E385F3'
+ CONST Name 'f_OutOfDate'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства OutOfDate' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_BE4757E385F3 f_OutOfDate
+
+: ME_DA88BC5BA199
+ CONST UID 'DA88BC5BA199'
+ CONST Name 'f_NotApplied'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства NotApplied' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_DA88BC5BA199 f_NotApplied
+
+: ME_88FE79AFAC76
+ CONST UID '88FE79AFAC76'
+ CONST Name 'f_WithText'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства WithText' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_88FE79AFAC76 f_WithText
+
+: ME_5BF226319A19
+ CONST UID '5BF226319A19'
+ CONST Name 'f_Start'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Start' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5BF226319A19 f_Start
+
+: ME_5326E38453B7
+ CONST UID '5326E38453B7'
+ CONST Name 'f_Decor'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Decor' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_5326E38453B7 f_Decor
+
+FORWARD ME_55DC6DFD00C0
+
+: ME_55DC6E100047
+ CONST UID '55DC6E100047'
+ CONST Name 'aDecor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_55DC6BD20302 // TsegDecorSegment
+ ;
+
+ref; // ME_55DC6E100047 aDecor
+
+: ME_55DC6E0B020D
+ CONST UID '55DC6E0B020D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55DC6DFD00C0 // Create
+ ;
+ : Parameters
+   @ ( ME_55DC6E100047 // aDecor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55DC6E0B020D DoIt
+
+: ME_55DC6DFD00C0
+ CONST UID '55DC6DFD00C0'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+ : Operations
+   @ ( ME_55DC6E0B020D // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55DC6DFD00C0 Create
+
+FORWARD ME_55DC6E1E0111
+
+: ME_55DC6E3702B0
+ CONST UID '55DC6E3702B0'
+ CONST Name 'Ch'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482C48430205' '4AB0C3C60310.pas.ms.script' // Char
+ ;
+
+ref; // ME_55DC6E3702B0 Ch
+
+: ME_55DC6E2F0350
+ CONST UID '55DC6E2F0350'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55DC6E1E0111 // IsOn
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_55DC6E3702B0 // Ch
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55DC6E2F0350 DoIt
+
+: ME_55DC6E1E0111
+ CONST UID '55DC6E1E0111'
+ CONST Name 'IsOn'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+ : Operations
+   @ ( ME_55DC6E2F0350 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55DC6E1E0111 IsOn
+
+FORWARD ME_4BE2D013018C
+
+: ME_55DC80A001F3
+ CONST UID '55DC80A001F3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+ : Target ME_4BE2D013018C // evNSRCConst
+ ;
+
+ref; // ME_55DC80A001F3 
+
+: ME_55DC6B9F01BA
+ CONST UID '55DC6B9F01BA'
+ CONST Name 'TddNSRCStackItem'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DC6B2E0347 // ddNSRCSegments
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55DC6CDC00E3 // ColorSelection
+ ME_55DC6D0402CA // HLContinue
+ ME_55DC6D260116 // Comment
+ ME_55DC6D410295 // Hidden
+ ME_55DC6D5B01F0 // OutOfDate
+ ME_55DC6D790271 // NotApplied
+ ME_55DC6D950168 // WithText
+ ME_55DC6DB401A2 // Start
+ ME_55DC6DD30143 // Decor
+ ME_0CF18EF530F7 // f_ColorSelection
+ ME_5D346410C424 // f_HLContinue
+ ME_D149FA8198F8 // f_Comment
+ ME_B5F2EE6EE743 // f_Hidden
+ ME_BE4757E385F3 // f_OutOfDate
+ ME_DA88BC5BA199 // f_NotApplied
+ ME_88FE79AFAC76 // f_WithText
+ ME_5BF226319A19 // f_Start
+ ME_5326E38453B7 // f_Decor
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_55DC6DFD00C0 // Create
+ ME_55DC6E1E0111 // IsOn
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_55DC80A001F3 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_55DC6B9F01BA TddNSRCStackItem
+
+FORWARD ME_55DC6BEF02A6
+
+: ME_55DC70CB0091
+ CONST UID '55DC70CB0091'
+ CONST Name 'ColorSelection'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6BEF02A6 // TsegSeg
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC70CB0091 ColorSelection
+
+: ME_55DC70DC00CA
+ CONST UID '55DC70DC00CA'
+ CONST Name 'HLContinue'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6BEF02A6 // TsegSeg
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC70DC00CA HLContinue
+
+: ME_55DC70F7005C
+ CONST UID '55DC70F7005C'
+ CONST Name 'Comment'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6BEF02A6 // TsegSeg
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC70F7005C Comment
+
+: ME_55DC712500B8
+ CONST UID '55DC712500B8'
+ CONST Name 'Hidden'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6BEF02A6 // TsegSeg
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC712500B8 Hidden
+
+: ME_55DC714503B7
+ CONST UID '55DC714503B7'
+ CONST Name 'OutOfDate'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6BEF02A6 // TsegSeg
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC714503B7 OutOfDate
+
+: ME_55DC715A01D8
+ CONST UID '55DC715A01D8'
+ CONST Name 'NotApplied'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6BEF02A6 // TsegSeg
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC715A01D8 NotApplied
+
+: ME_27450A39E8D8
+ CONST UID '27450A39E8D8'
+ CONST Name 'f_ColorSelection'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства ColorSelection' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6BEF02A6 // TsegSeg
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_27450A39E8D8 f_ColorSelection
+
+: ME_770B5142FF38
+ CONST UID '770B5142FF38'
+ CONST Name 'f_HLContinue'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства HLContinue' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6BEF02A6 // TsegSeg
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_770B5142FF38 f_HLContinue
+
+: ME_8D3250AB229E
+ CONST UID '8D3250AB229E'
+ CONST Name 'f_Comment'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Comment' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6BEF02A6 // TsegSeg
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_8D3250AB229E f_Comment
+
+: ME_77BBA2CB6769
+ CONST UID '77BBA2CB6769'
+ CONST Name 'f_Hidden'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Hidden' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6BEF02A6 // TsegSeg
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_77BBA2CB6769 f_Hidden
+
+: ME_BA19F0B672F2
+ CONST UID 'BA19F0B672F2'
+ CONST Name 'f_OutOfDate'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства OutOfDate' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6BEF02A6 // TsegSeg
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_BA19F0B672F2 f_OutOfDate
+
+: ME_1810B5ABAC46
+ CONST UID '1810B5ABAC46'
+ CONST Name 'f_NotApplied'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства NotApplied' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6BEF02A6 // TsegSeg
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_1810B5ABAC46 f_NotApplied
+
+FORWARD ME_55DC717E0248
+
+: ME_55DC7192023A
+ CONST UID '55DC7192023A'
+ CONST Name 'aDecor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_55DC6BD20302 // TsegDecorSegment
+ ;
+
+ref; // ME_55DC7192023A aDecor
+
+: ME_55DC9B030349
+ CONST UID '55DC9B030349'
+ CONST Name 'anItem'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+
+ref; // ME_55DC9B030349 anItem
+
+: ME_55DC9B120392
+ CONST UID '55DC9B120392'
+ CONST Name 'aFinish'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_55DC9B120392 aFinish
+
+: ME_55DC718E025A
+ CONST UID '55DC718E025A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55DC717E0248 // Create
+ ;
+ : Parameters
+   @ ( ME_55DC7192023A // aDecor
+ ME_55DC9B030349 // anItem
+ ME_55DC9B120392 // aFinish
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55DC718E025A DoIt
+
+: ME_55DC717E0248
+ CONST UID '55DC717E0248'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55DC6BEF02A6 // TsegSeg
+ ;
+ : Operations
+   @ ( ME_55DC718E025A // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55DC717E0248 Create
+
+FORWARD ME_55DC71A50112
+
+: ME_55DC71B90296
+ CONST UID '55DC71B90296'
+ CONST Name 'StackItem'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+
+ref; // ME_55DC71B90296 StackItem
+
+: ME_55DC71B201BA
+ CONST UID '55DC71B201BA'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55DC71A50112 // GetFromStackItem
+ ;
+ : Parameters
+   @ ( ME_55DC71B90296 // StackItem
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55DC71B201BA DoIt
+
+: ME_55DC71A50112
+ CONST UID '55DC71A50112'
+ CONST Name 'GetFromStackItem'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55DC6BEF02A6 // TsegSeg
+ ;
+ : Operations
+   @ ( ME_55DC71B201BA // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55DC71A50112 GetFromStackItem
+
+FORWARD ME_55DC71F002A2
+
+: ME_55DC7221005F
+ CONST UID '55DC7221005F'
+ CONST Name 'aText'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4773DEF0021B' '47913B47006E.pas.ms.script' // Tl3CustomString
+ ;
+
+ref; // ME_55DC7221005F aText
+
+: ME_55DC7221009B
+ CONST UID '55DC7221009B'
+ CONST Name 'aGenerator'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4A5359BD03BE' '4678137501EA.pas.ms.script' // Ik2TagGenerator
+ ;
+
+ref; // ME_55DC7221009B aGenerator
+
+: ME_55DC7217023D
+ CONST UID '55DC7217023D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55DC71F002A2 // SaveToGenerator
+ ;
+ : Parameters
+   @ ( ME_55DC7221005F // aText
+ ME_55DC7221009B // aGenerator
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55DC7217023D DoIt
+
+: ME_55DC71F002A2
+ CONST UID '55DC71F002A2'
+ CONST Name 'SaveToGenerator'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55DC6BEF02A6 // TsegSeg
+ ;
+ : Operations
+   @ ( ME_55DC7217023D // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55DC71F002A2 SaveToGenerator
+
+FORWARD ME_54B3D1340244
+
+: ME_55DC8518027F
+ CONST UID '55DC8518027F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55DC6BEF02A6 // TsegSeg
+ ;
+ : Target ME_54B3D1340244 // ddSegmentScanner
+ ;
+
+ref; // ME_55DC8518027F 
+
+: ME_55DC853200FE
+ CONST UID '55DC853200FE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55DC6BEF02A6 // TsegSeg
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+
+ref; // ME_55DC853200FE 
+
+: ME_55DC856400FF
+ CONST UID '55DC856400FF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55DC6BEF02A6 // TsegSeg
+ ;
+ : Target WL 'ME_484FDC4F013F' '484A470100DD.pas.ms.script' // TextSegment
+ ;
+
+ref; // ME_55DC856400FF 
+
+: ME_55DC857300E4
+ CONST UID '55DC857300E4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55DC6BEF02A6 // TsegSeg
+ ;
+ : Target WL 'ME_476BE0660328' '476BE0350329.pas.ms.script' // Standard
+ ;
+
+ref; // ME_55DC857300E4 
+
+: ME_55DC859E038A
+ CONST UID '55DC859E038A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55DC6BEF02A6 // TsegSeg
+ ;
+ : Target WL 'ME_4808A20402DC' '4AB0997B00A2.pas.ms.script' // Math
+ ;
+
+ref; // ME_55DC859E038A 
+
+: ME_55DC6BEF02A6
+ CONST UID '55DC6BEF02A6'
+ CONST Name 'TsegSeg'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DC6B2E0347 // ddNSRCSegments
+ ;
+ : Inherits
+   @ ( ME_55DC6BD20302 // TsegDecorSegment
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55DC70CB0091 // ColorSelection
+ ME_55DC70DC00CA // HLContinue
+ ME_55DC70F7005C // Comment
+ ME_55DC712500B8 // Hidden
+ ME_55DC714503B7 // OutOfDate
+ ME_55DC715A01D8 // NotApplied
+ ME_27450A39E8D8 // f_ColorSelection
+ ME_770B5142FF38 // f_HLContinue
+ ME_8D3250AB229E // f_Comment
+ ME_77BBA2CB6769 // f_Hidden
+ ME_BA19F0B672F2 // f_OutOfDate
+ ME_1810B5ABAC46 // f_NotApplied
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_55DC717E0248 // Create
+ ME_55DC71A50112 // GetFromStackItem
+ ME_55DC71F002A2 // SaveToGenerator
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_55DC8518027F // 
+ ME_55DC853200FE // 
+ ME_55DC856400FF // 
+ ME_55DC857300E4 // 
+ ME_55DC859E038A // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_55DC6BEF02A6 TsegSeg
+
+FORWARD ME_55DC6C030388
+
+: ME_55DC7B9E0316
+ CONST UID '55DC7B9E0316'
+ CONST Name 'Targets'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6C030388 // TsegHyperLink
+ ;
+ : Target ME_55DC7B6601E9 // TsegTargetList
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_55DC7B9E0316 Targets
+
+: ME_D49B56D2E335
+ CONST UID 'D49B56D2E335'
+ CONST Name 'f_Targets'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Targets' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6C030388 // TsegHyperLink
+ ;
+ : Target ME_55DC7B6601E9 // TsegTargetList
+ ;
+
+ref; // ME_D49B56D2E335 f_Targets
+
+FORWARD ME_55DC7BED0112
+
+: ME_C64AA87855FA
+ CONST UID 'C64AA87855FA'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода Create' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55DC7BED0112 // Create
+ ;
+
+ref; // ME_C64AA87855FA DoIt
+
+: ME_55DC7BED0112
+ CONST UID '55DC7BED0112'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55DC6C030388 // TsegHyperLink
+ ;
+ : Operations
+   @ ( ME_C64AA87855FA // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55DC7BED0112 Create
+
+FORWARD ME_55DC7C020089
+
+: ME_55DC7C1A0155
+ CONST UID '55DC7C1A0155'
+ CONST Name 'aDocID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_55DC7C1A0155 aDocID
+
+: ME_55DC7C1A0173
+ CONST UID '55DC7C1A0173'
+ CONST Name 'aSubID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_55DC7C1A0173 aSubID
+
+: ME_55DC7C080376
+ CONST UID '55DC7C080376'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_55DC7C020089 // Add
+ ;
+ : Parameters
+   @ ( ME_55DC7C1A0155 // aDocID
+ ME_55DC7C1A0173 // aSubID
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_55DC7C080376 DoIt
+
+: ME_55DC7C020089
+ CONST UID '55DC7C020089'
+ CONST Name 'Add'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55DC6C030388 // TsegHyperLink
+ ;
+ : Operations
+   @ ( ME_55DC7C080376 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_55DC7C020089 Add
+
+: ME_55DC7BD8020D
+ CONST UID '55DC7BD8020D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55DC6C030388 // TsegHyperLink
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_55DC7BD8020D 
+
+: ME_55DC8980019D
+ CONST UID '55DC8980019D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55DC6C030388 // TsegHyperLink
+ ;
+ : Target ME_55DC6C1902EB // TsegTarget
+ ;
+
+ref; // ME_55DC8980019D 
+
+: ME_479731C50290_ME_55DC6C030388
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_55DC6C030388 // TsegHyperLink
+ ;
+ref; // ME_479731C50290_ME_55DC6C030388 Cleanup
+
+: ME_55DC6C030388
+ CONST UID '55DC6C030388'
+ CONST Name 'TsegHyperLink'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DC6B2E0347 // ddNSRCSegments
+ ;
+ : Inherits
+   @ ( ME_55DC6BC0025D // TsegTextSegment
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55DC7B9E0316 // Targets
+ ME_D49B56D2E335 // f_Targets
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_55DC7BED0112 // Create
+ ME_55DC7C020089 // Add
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_479731C50290_ME_55DC6C030388 // Cleanup
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_55DC7BD8020D // 
+ ME_55DC8980019D // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_55DC6C030388 TsegHyperLink
+
+: ME_55DC7A770012
+ CONST UID '55DC7A770012'
+ CONST Name 'TsegObject'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DC6B2E0347 // ddNSRCSegments
+ ;
+ : Inherits
+   @ ( ME_55DC6BAE0320 // TsegSegment
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_55DC7A770012 TsegObject
+
+FORWARD ME_55DC6C4E001B
+
+: ME_55DC8AAC0093
+ CONST UID '55DC8AAC0093'
+ CONST Name 'BaseLineOffset'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6C4E001B // TsegPicture
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC8AAC0093 BaseLineOffset
+
+: ME_55DC8AC100F2
+ CONST UID '55DC8AC100F2'
+ CONST Name 'DocID'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6C4E001B // TsegPicture
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC8AC100F2 DocID
+
+: ME_55DC8AD70180
+ CONST UID '55DC8AD70180'
+ CONST Name 'DPI'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6C4E001B // TsegPicture
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC8AD70180 DPI
+
+: ME_55DC8B04009A
+ CONST UID '55DC8B04009A'
+ CONST Name 'Height'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6C4E001B // TsegPicture
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC8B04009A Height
+
+: ME_55DC8B180361
+ CONST UID '55DC8B180361'
+ CONST Name 'Width'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6C4E001B // TsegPicture
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC8B180361 Width
+
+: ME_55DC8B2C0341
+ CONST UID '55DC8B2C0341'
+ CONST Name 'FileName'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6C4E001B // TsegPicture
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC8B2C0341 FileName
+
+: ME_42DE6892A694
+ CONST UID '42DE6892A694'
+ CONST Name 'f_BaseLineOffset'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства BaseLineOffset' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6C4E001B // TsegPicture
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_42DE6892A694 f_BaseLineOffset
+
+: ME_42E362279D43
+ CONST UID '42E362279D43'
+ CONST Name 'f_DocID'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства DocID' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6C4E001B // TsegPicture
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_42E362279D43 f_DocID
+
+: ME_D70A8AFEC01F
+ CONST UID 'D70A8AFEC01F'
+ CONST Name 'f_DPI'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства DPI' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6C4E001B // TsegPicture
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_D70A8AFEC01F f_DPI
+
+: ME_D990A15B648F
+ CONST UID 'D990A15B648F'
+ CONST Name 'f_Height'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Height' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6C4E001B // TsegPicture
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_D990A15B648F f_Height
+
+: ME_9F4A0733C48C
+ CONST UID '9F4A0733C48C'
+ CONST Name 'f_Width'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Width' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6C4E001B // TsegPicture
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_9F4A0733C48C f_Width
+
+: ME_BAB0C3B5D92B
+ CONST UID 'BAB0C3B5D92B'
+ CONST Name 'f_FileName'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства FileName' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6C4E001B // TsegPicture
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_BAB0C3B5D92B f_FileName
+
+: ME_55DC6C4E001B
+ CONST UID '55DC6C4E001B'
+ CONST Name 'TsegPicture'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DC6B2E0347 // ddNSRCSegments
+ ;
+ : Inherits
+   @ ( ME_55DC7A770012 // TsegObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55DC8AAC0093 // BaseLineOffset
+ ME_55DC8AC100F2 // DocID
+ ME_55DC8AD70180 // DPI
+ ME_55DC8B04009A // Height
+ ME_55DC8B180361 // Width
+ ME_55DC8B2C0341 // FileName
+ ME_42DE6892A694 // f_BaseLineOffset
+ ME_42E362279D43 // f_DocID
+ ME_D70A8AFEC01F // f_DPI
+ ME_D990A15B648F // f_Height
+ ME_9F4A0733C48C // f_Width
+ ME_BAB0C3B5D92B // f_FileName
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_55DC6C4E001B TsegPicture
+
+FORWARD ME_55DC6C30016E
+
+: ME_55DC7C670236
+ CONST UID '55DC7C670236'
+ CONST Name 'Text'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_55DC6C30016E // TsegFormula
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_55DC7C670236 Text
+
+: ME_3DBCAF99FBB7
+ CONST UID '3DBCAF99FBB7'
+ CONST Name 'f_Text'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Text' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_55DC6C30016E // TsegFormula
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_3DBCAF99FBB7 f_Text
+
+: ME_55DC6C30016E
+ CONST UID '55DC6C30016E'
+ CONST Name 'TsegFormula'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DC6B2E0347 // ddNSRCSegments
+ ;
+ : Inherits
+   @ ( ME_55DC7A770012 // TsegObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55DC7C670236 // Text
+ ME_3DBCAF99FBB7 // f_Text
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_55DC6C30016E TsegFormula
+
+: ME_55DC85000001
+ CONST UID '55DC85000001'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55DC6B2E0347 // ddNSRCSegments
+ ;
+ : Target ME_54B3D1340244 // ddSegmentScanner
+ ;
+
+ref; // ME_55DC85000001 
+
+: ME_55DC6B2E0347
+ CONST UID '55DC6B2E0347'
+ CONST Name 'ddNSRCSegments'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55DC6B0D020D // NSRCReaderCore
+ ;
+ : Children
+   @ ( ME_55DC6BAE0320 // TsegSegment
+ ME_55DC6BC0025D // TsegTextSegment
+ ME_55DC6BD20302 // TsegDecorSegment
+ ME_55DC6B9F01BA // TddNSRCStackItem
+ ME_55DC6BEF02A6 // TsegSeg
+ ME_55DC6C030388 // TsegHyperLink
+ ME_55DC7A770012 // TsegObject
+ ME_55DC6C4E001B // TsegPicture
+ ME_55DC6C30016E // TsegFormula
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_55DC85000001 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\dd\ddNSRCSegments.pas'
+
+ref; // ME_55DC6B2E0347 ddNSRCSegments
+
+FORWARD ME_4BE2D03D0012
+
+: ME_4BE2D04C02F0
+ CONST UID '4BE2D04C02F0'
+ CONST Name 'ev_NSRCSoftEnter'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4BE2D03D0012 // NSRCConstants
+ ;
+ CONST Value '#29'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4BE2D04C02F0 ev_NSRCSoftEnter
+
+: ME_4BE2D03D0012
+ CONST UID '4BE2D03D0012'
+ CONST Name 'NSRCConstants'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4BE2D013018C // evNSRCConst
+ ;
+ : Attributes
+   @ ( ME_4BE2D04C02F0 // ev_NSRCSoftEnter
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_4BE2D03D0012 NSRCConstants
+
+: ME_4BE2D013018C
+ CONST UID '4BE2D013018C'
+ CONST Name 'evNSRCConst'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Константы для формата NSRC' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55DC6B0D020D // NSRCReaderCore
+ ;
+ : Constants
+   @ ( ME_4BE2D03D0012 // NSRCConstants
+ ) .SequenceCode.It
+ ; // Constants
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_evNSRCConst.pas'
+
+ref; // ME_4BE2D013018C evNSRCConst
+
+: ME_54B3D153007F
+ CONST UID '54B3D153007F'
+ CONST Name 'TddSegmentScanner'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_54B3D1340244 // ddSegmentScanner
+ ;
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_54B3D153007F TddSegmentScanner
+
+: ME_55DC84F700A1
+ CONST UID '55DC84F700A1'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54B3D1340244 // ddSegmentScanner
+ ;
+ : Target ME_55DC6B2E0347 // ddNSRCSegments
+ ;
+
+ref; // ME_55DC84F700A1 
+
+FORWARD ME_55DC85CA02E3
+
+: ME_55DC85E60204
+ CONST UID '55DC85E60204'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54B3D1340244 // ddSegmentScanner
+ ;
+ : Target ME_55DC85CA02E3 // TddNSRCStackItemList
+ ;
+
+ref; // ME_55DC85E60204 
+
+FORWARD ME_55DC8B5A02CD
+
+: ME_55DC8B61017B
+ CONST UID '55DC8B61017B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54B3D1340244 // ddSegmentScanner
+ ;
+ : Target ME_55DC8B5A02CD // TsegObjectList
+ ;
+
+ref; // ME_55DC8B61017B 
+
+FORWARD ME_55DC908902FC
+
+: ME_55DC909B029D
+ CONST UID '55DC909B029D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54B3D1340244 // ddSegmentScanner
+ ;
+ : Target ME_55DC908902FC // TsegHyperLinkList
+ ;
+
+ref; // ME_55DC909B029D 
+
+FORWARD ME_55DC91920313
+
+: ME_55DC919B03D8
+ CONST UID '55DC919B03D8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_54B3D1340244 // ddSegmentScanner
+ ;
+ : Target ME_55DC91920313 // TsegSegList
+ ;
+
+ref; // ME_55DC919B03D8 
+
+: ME_54B3D1340244
+ CONST UID '54B3D1340244'
+ CONST Name 'ddSegmentScanner'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55DC6B0D020D // NSRCReaderCore
+ ;
+ : Children
+   @ ( ME_54B3D153007F // TddSegmentScanner
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_55DC84F700A1 // 
+ ME_55DC85E60204 // 
+ ME_55DC8B61017B // 
+ ME_55DC909B029D // 
+ ME_55DC919B03D8 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddSegmentScanner.pas'
+
+ref; // ME_54B3D1340244 ddSegmentScanner
+
+: ME_55DC85D90134
+ CONST UID '55DC85D90134'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_55DC85CA02E3 // TddNSRCStackItemList
+ ;
+ : Target ME_55DC6B9F01BA // TddNSRCStackItem
+ ;
+
+ref; // ME_55DC85D90134 ItemType
+
+: ME_55DC85CA02E3
+ CONST UID '55DC85CA02E3'
+ CONST Name 'TddNSRCStackItemList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DC6B0D020D // NSRCReaderCore
+ ;
+ : Inherits
+   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_55DEEA210182' '47913B47006E.pas.ms.script' // l3NotSortedObjectRefList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55DC85D90134 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\dd\ddNSRCStackItemList.pas'
+
+ref; // ME_55DC85CA02E3 TddNSRCStackItemList
+
+: ME_55DC8B700047
+ CONST UID '55DC8B700047'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_55DC8B5A02CD // TsegObjectList
+ ;
+ : Target ME_55DC7A770012 // TsegObject
+ ;
+
+ref; // ME_55DC8B700047 ItemType
+
+: ME_55DC8B5A02CD
+ CONST UID '55DC8B5A02CD'
+ CONST Name 'TsegObjectList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DC6B0D020D // NSRCReaderCore
+ ;
+ : Inherits
+   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_55DEEA210182' '47913B47006E.pas.ms.script' // l3NotSortedObjectRefList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55DC8B700047 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\dd\segObjectList.pas'
+
+ref; // ME_55DC8B5A02CD TsegObjectList
+
+: ME_55DC90930037
+ CONST UID '55DC90930037'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_55DC908902FC // TsegHyperLinkList
+ ;
+ : Target ME_55DC6C030388 // TsegHyperLink
+ ;
+
+ref; // ME_55DC90930037 ItemType
+
+: ME_55DC908902FC
+ CONST UID '55DC908902FC'
+ CONST Name 'TsegHyperLinkList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DC6B0D020D // NSRCReaderCore
+ ;
+ : Inherits
+   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_55DEEA210182' '47913B47006E.pas.ms.script' // l3NotSortedObjectRefList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55DC90930037 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\dd\segHyperLinkList.pas'
+
+ref; // ME_55DC908902FC TsegHyperLinkList
+
+: ME_55DC919F01A1
+ CONST UID '55DC919F01A1'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_55DC91920313 // TsegSegList
+ ;
+ : Target ME_55DC6BEF02A6 // TsegSeg
+ ;
+
+ref; // ME_55DC919F01A1 ItemType
+
+: ME_55DC91920313
+ CONST UID '55DC91920313'
+ CONST Name 'TsegSegList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DC6B0D020D // NSRCReaderCore
+ ;
+ : Inherits
+   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_55DEEA210182' '47913B47006E.pas.ms.script' // l3NotSortedObjectRefList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55DC919F01A1 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\dd\segSegList.pas'
+
+ref; // ME_55DC91920313 TsegSegList
+
+: ME_55DEE5100096
+ CONST UID '55DEE5100096'
+ CONST Name 'TddNSRCSub'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DC6B0D020D // NSRCReaderCore
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddNSRCSub.pas'
+
+ref; // ME_55DEE5100096 TddNSRCSub
+
+FORWARD ME_55DEE52F00AC
+
+: ME_55DEE56B01D9
+ CONST UID '55DEE56B01D9'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_55DEE52F00AC // TddNSRCSubList
+ ;
+ : Target ME_55DEE5100096 // TddNSRCSub
+ ;
+
+ref; // ME_55DEE56B01D9 ItemType
+
+: ME_55DEE52F00AC
+ CONST UID '55DEE52F00AC'
+ CONST Name 'TddNSRCSubList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DC6B0D020D // NSRCReaderCore
+ ;
+ : Inherits
+   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_55DEEA210182' '47913B47006E.pas.ms.script' // l3NotSortedObjectRefList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55DEE56B01D9 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\dd\ddNSRCSubList.pas'
+
+ref; // ME_55DEE52F00AC TddNSRCSubList
+
+FORWARD ME_55DEEAFF0079
+
+: ME_55DEEB0C031C
+ CONST UID '55DEEB0C031C'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_55DEEAFF0079 // TddTk2TypeList
+ ;
+ : Target WL 'ME_47AC723D02DC' '49A58A1A03C4.pas.ms.script' // Tk2Type
+ ;
+
+ref; // ME_55DEEB0C031C ItemType
+
+: ME_55DEEAFF0079
+ CONST UID '55DEEAFF0079'
+ CONST Name 'TddTk2TypeList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DC6B0D020D // NSRCReaderCore
+ ;
+ : Inherits
+   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_55DEEA210182' '47913B47006E.pas.ms.script' // l3NotSortedObjectRefList
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55DEEB0C031C // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\dd\ddTk2TypeList.pas'
+
+ref; // ME_55DEEAFF0079 TddTk2TypeList
+
+: ME_55DEF41D03C4
+ CONST UID '55DEF41D03C4'
+ CONST Name 'ddNSRCConst'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_55DC6B0D020D // NSRCReaderCore
+ ;
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddNSRCConst.pas'
+
+ref; // ME_55DEF41D03C4 ddNSRCConst
+
+FORWARD ME_55DF01D8011D
+
+: ME_55DF01EC01A9
+ CONST UID '55DF01EC01A9'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_55DF01D8011D // TddDoc2DocLinkRecList
+ ;
+ : Target WL 'ME_55DF0180035F' '4C9CD07701E6.pas.ms.script' // TDoc2DocLinkRec
+ ;
+
+ref; // ME_55DF01EC01A9 ItemType
+
+: ME_47B07CF403D0_ME_55DF01D8011D
+ CONST UID '47B07CF403D0'
+ CONST Name 'IsSameItems'
+ : Original WL 'ME_47B07CF403D0' '47913B47006E.pas.ms.script' // IsSameItems
+ ;
+ : Implementor ME_55DF01D8011D // TddDoc2DocLinkRecList
+ ;
+ CONST "ifndef" 'l3Items_IsAtomic'
+ref; // ME_47B07CF403D0_ME_55DF01D8011D IsSameItems
+
+: ME_47B2C42A0163_ME_55DF01D8011D
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_55DF01D8011D // TddDoc2DocLinkRecList
+ ;
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_55DF01D8011D AssignItem
+
+: ME_47B99D4503A2_ME_55DF01D8011D
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_55DF01D8011D // TddDoc2DocLinkRecList
+ ;
+ref; // ME_47B99D4503A2_ME_55DF01D8011D CompareExistingItems
+
+: ME_55DF01D8011D
+ CONST UID '55DF01D8011D'
+ CONST Name 'TddDoc2DocLinkRecList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_55DC6B0D020D // NSRCReaderCore
+ ;
+ : Inherits
+   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_4B223ADC02BF' '47913B47006E.pas.ms.script' // l3RecordListPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_55DF01EC01A9 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_47B07CF403D0_ME_55DF01D8011D // IsSameItems
+ ME_47B2C42A0163_ME_55DF01D8011D // AssignItem
+ ME_47B99D4503A2_ME_55DF01D8011D // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\dd\ddDoc2DocLinkRecList.pas'
+
+ref; // ME_55DF01D8011D TddDoc2DocLinkRecList
+
+: ME_55DC6B0D020D
+ CONST UID '55DC6B0D020D'
+ CONST Name 'NSRCReaderCore'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
+ ;
+ : Children
+   @ ( ME_55DC6C1902EB // TsegTarget
+ ME_55DC7B6601E9 // TsegTargetList
+ ME_55DC6B2E0347 // ddNSRCSegments
+ ME_4BE2D013018C // evNSRCConst
+ ME_54B3D1340244 // ddSegmentScanner
+ ME_55DC85CA02E3 // TddNSRCStackItemList
+ ME_55DC8B5A02CD // TsegObjectList
+ ME_55DC908902FC // TsegHyperLinkList
+ ME_55DC91920313 // TsegSegList
+ ME_55DEE5100096 // TddNSRCSub
+ ME_55DEE52F00AC // TddNSRCSubList
+ ME_55DEEAFF0079 // TddTk2TypeList
+ ME_55DEF41D03C4 // ddNSRCConst
+ ME_55DF01D8011D // TddDoc2DocLinkRecList
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
+ WL 'ME_476BE0350329' '476BE0350329.pas.ms.script' // Styles
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
+ WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
+ WL 'ME_49A58A1A03C4' '49A58A1A03C4.pas.ms.script' // k2PrimObjects
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4C9CD07701E6' '4C9CD07701E6.pas.ms.script' // AttrSchema
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\55DC6B0D020D.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55DC6B0D020D.pas.ms.script.runner'
+
+ref; // ME_55DC6B0D020D NSRCReaderCore

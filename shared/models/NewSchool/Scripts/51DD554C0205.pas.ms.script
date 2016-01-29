@@ -1,0 +1,696 @@
+// Tl3MemUtils 51DD554C0205 SimpleClass Class
+
+FORWARD ME_51DD554C0205
+
+: ME_51DD5597022E
+ CONST UID '51DD5597022E'
+ CONST Name 'Rl3MemUtils'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_51DD554C0205 // Tl3MemUtils
+ ]
+ ; // Inherits
+ CONST "isClassRef" true
+
+ @SELF
+; // ME_51DD5597022E Rl3MemUtils
+
+INCLUDE '516137AD0362.pas.ms.script'
+
+: ME_51DD55CB01B0
+ CONST UID '51DD55CB01B0'
+ CONST Name 'l3MemU'
+ CONST Class 'Attribute'
+ CONST Stereotype 'static'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'lnk'
+ : Target ME_51DD5597022E // Rl3MemUtils
+ ;
+ CONST Value 'Tl3MemUtils'
+ : ValueType ME_51DD5597022E // Rl3MemUtils
+ ;
+
+ @SELF
+; // ME_51DD55CB01B0 l3MemU
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_545CF20000ED
+ CONST UID '545CF20000ED'
+ CONST Name 'g_IsDown'
+ CONST Class 'Attribute'
+ CONST Stereotype 'static'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ CONST Value false
+ : ValueType ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_545CF20000ED g_IsDown
+
+: ME_51DD682500F5
+ CONST UID '51DD682500F5'
+ CONST Name 'f_LocalMemUsed'
+ CONST Class 'Attribute'
+ CONST Stereotype 'static'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_51DD682500F5 f_LocalMemUsed
+
+: ME_54B929BE00CC
+ CONST UID '54B929BE00CC'
+ CONST Name 'f_GlobalMemUsed'
+ CONST Class 'Attribute'
+ CONST Stereotype 'static'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_54B929BE00CC f_GlobalMemUsed
+
+FORWARD ME_51DD561502D9
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_51DD565401C4
+ CONST UID '51DD565401C4'
+ CONST Name 'P'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_51DD565401C4 P
+
+: ME_51DD565401E7
+ CONST UID '51DD565401E7'
+ CONST Name 'NewSize'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A618AF0053 // Cardinal
+ ;
+
+ @SELF
+; // ME_51DD565401E7 NewSize
+
+: ME_51DD563F008D
+ CONST UID '51DD563F008D'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_51DD565401C4 // P
+ ME_51DD565401E7 // NewSize
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_51DD563F008D DoIt
+
+: ME_51DD561502D9
+ CONST UID '51DD561502D9'
+ CONST Name 'ReallocLocalMem'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'перераспределить кусок локальной памяти' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_51DD563F008D // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_51DD561502D9 ReallocLocalMem
+
+FORWARD ME_51DD62110253
+
+: ME_51DD62260314
+ CONST UID '51DD62260314'
+ CONST Name 'P'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_51DD62260314 P
+
+: ME_51DD621A01B3
+ CONST UID '51DD621A01B3'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_51DD62260314 // P
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_51DD621A01B3 DoIt
+
+: ME_51DD62110253
+ CONST UID '51DD62110253'
+ CONST Name 'FreeLocalMem'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ %SUMMARY 'освободить кусок локальной памяти' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_51DD621A01B3 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_51DD62110253 FreeLocalMem
+
+FORWARD ME_51DD686A03A3
+
+: ME_FE6E34907D5B
+ CONST UID 'FE6E34907D5B'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода CheckMaxes' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_FE6E34907D5B DoIt
+
+: ME_51DD686A03A3
+ CONST UID '51DD686A03A3'
+ CONST Name 'CheckMaxes'
+ CONST Class 'Class'
+ CONST Stereotype 'virtualmethod'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_FE6E34907D5B // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_51DD686A03A3 CheckMaxes
+
+FORWARD ME_51DD6DCE00DF
+
+: ME_51DD6DF00051
+ CONST UID '51DD6DF00051'
+ CONST Name 'aSize'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_51DD6DF00051 aSize
+
+: ME_51DD6DF00081
+ CONST UID '51DD6DF00081'
+ CONST Name 'aL3'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_51DD6DF00081 aL3
+
+: ME_51DD6DE60382
+ CONST UID '51DD6DE60382'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_51DD6DF00051 // aSize
+ ME_51DD6DF00081 // aL3
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_51DD6DE60382 DoIt
+
+: ME_51DD6DCE00DF
+ CONST UID '51DD6DCE00DF'
+ CONST Name 'StatMemAlloc'
+ CONST Class 'Class'
+ CONST Stereotype 'virtualmethod'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_51DD6DE60382 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_51DD6DCE00DF StatMemAlloc
+
+FORWARD ME_545CF2260294
+
+: ME_545CF2370251
+ CONST UID '545CF2370251'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_545CF2370251 DoIt
+
+: ME_545CF2260294
+ CONST UID '545CF2260294'
+ CONST Name 'IsDown'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_545CF2370251 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_545CF2260294 IsDown
+
+FORWARD ME_545CF241012F
+
+: ME_545CF25F022B
+ CONST UID '545CF25F022B'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_545CF25F022B DoIt
+
+: ME_545CF241012F
+ CONST UID '545CF241012F'
+ CONST Name 'DownBegins'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_545CF25F022B // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_545CF241012F DownBegins
+
+FORWARD ME_54B6A7D401EA
+
+: ME_54B6A7F30040
+ CONST UID '54B6A7F30040'
+ CONST Name 'P'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_54B6A7F30040 P
+
+: ME_54B6A7F3006E
+ CONST UID '54B6A7F3006E'
+ CONST Name 'Size'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A618AF0053 // Cardinal
+ ;
+
+ @SELF
+; // ME_54B6A7F3006E Size
+
+: ME_54B6A7E602A5
+ CONST UID '54B6A7E602A5'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_54B6A7F30040 // P
+ ME_54B6A7F3006E // Size
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54B6A7E602A5 DoIt
+
+: ME_54B6A7D401EA
+ CONST UID '54B6A7D401EA'
+ CONST Name 'GetLocalMem'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54B6A7E602A5 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_54B6A7D401EA GetLocalMem
+
+FORWARD ME_54B6A7FE02E7
+
+: ME_54B6A81B00D9
+ CONST UID '54B6A81B00D9'
+ CONST Name 'P'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_54B6A81B00D9 P
+
+: ME_54B6A81B00F9
+ CONST UID '54B6A81B00F9'
+ CONST Name 'Size'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A618AF0053 // Cardinal
+ ;
+
+ @SELF
+; // ME_54B6A81B00F9 Size
+
+: ME_54B6A8120076
+ CONST UID '54B6A8120076'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_54B6A81B00D9 // P
+ ME_54B6A81B00F9 // Size
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54B6A8120076 DoIt
+
+: ME_54B6A7FE02E7
+ CONST UID '54B6A7FE02E7'
+ CONST Name 'GetLocalMemZ'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54B6A8120076 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_54B6A7FE02E7 GetLocalMemZ
+
+FORWARD ME_54B9291A01AE
+
+INCLUDE '48A41FF10094.pas.ms.script'
+
+: ME_54B92933029A
+ CONST UID '54B92933029A'
+ CONST Name 'aMem'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A465F9028C // THandle
+ ;
+
+ @SELF
+; // ME_54B92933029A aMem
+
+: ME_54B9292E012C
+ CONST UID '54B9292E012C'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A618AF0053 // Cardinal
+ ;
+ : Parameters
+   [ ME_54B92933029A // aMem
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54B9292E012C DoIt
+
+: ME_54B9291A01AE
+ CONST UID '54B9291A01AE'
+ CONST Name 'GlobalSize'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54B9292E012C // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_54B9291A01AE GlobalSize
+
+FORWARD ME_54B9293E006D
+
+: ME_54B92956006E
+ CONST UID '54B92956006E'
+ CONST Name 'aMem'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A608F00301 // Pointer
+ ;
+
+ @SELF
+; // ME_54B92956006E aMem
+
+: ME_54B92952022C
+ CONST UID '54B92952022C'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A618AF0053 // Cardinal
+ ;
+ : Parameters
+   [ ME_54B92956006E // aMem
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54B92952022C DoIt
+
+: ME_54B9293E006D
+ CONST UID '54B9293E006D'
+ CONST Name 'GlobalSize$P'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54B92952022C // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_54B9293E006D GlobalSize$P
+
+FORWARD ME_54B929840238
+
+: ME_54B929A50178
+ CONST UID '54B929A50178'
+ CONST Name 'Mem'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A608F00301 // Pointer
+ ;
+
+ @SELF
+; // ME_54B929A50178 Mem
+
+: ME_54B929A000B1
+ CONST UID '54B929A000B1'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A465F9028C // THandle
+ ;
+ : Parameters
+   [ ME_54B929A50178 // Mem
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54B929A000B1 DoIt
+
+: ME_54B929840238
+ CONST UID '54B929840238'
+ CONST Name 'GlobalFreePtr'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54B929A000B1 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_54B929840238 GlobalFreePtr
+
+FORWARD ME_54B929E501F5
+
+: ME_54B92A1B03BC
+ CONST UID '54B92A1B03BC'
+ CONST Name 'Bytes'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_54B92A1B03BC Bytes
+
+: ME_54B929F6032C
+ CONST UID '54B929F6032C'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A608F00301 // Pointer
+ ;
+ : Parameters
+   [ ME_54B92A1B03BC // Bytes
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54B929F6032C DoIt
+
+: ME_54B929E501F5
+ CONST UID '54B929E501F5'
+ CONST Name 'GlobalAllocPtr'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54B929F6032C // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_54B929E501F5 GlobalAllocPtr
+
+: ME_51DD554C0205
+ CONST UID '51DD554C0205'
+ CONST Name 'Tl3MemUtils'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_516137AD0362 // TRefcounted
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_51DD55CB01B0 // l3MemU
+ ME_545CF20000ED // g_IsDown
+ ME_51DD682500F5 // f_LocalMemUsed
+ ME_54B929BE00CC // f_GlobalMemUsed
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_51DD561502D9 // ReallocLocalMem
+ ME_51DD62110253 // FreeLocalMem
+ ME_51DD686A03A3 // CheckMaxes
+ ME_51DD6DCE00DF // StatMemAlloc
+ ME_545CF2260294 // IsDown
+ ME_545CF241012F // DownBegins
+ ME_54B6A7D401EA // GetLocalMem
+ ME_54B6A7FE02E7 // GetLocalMemZ
+ ME_54B9291A01AE // GlobalSize
+ ME_54B9293E006D // GlobalSize$P
+ ME_54B929840238 // GlobalFreePtr
+ ME_54B929E501F5 // GlobalAllocPtr
+ ]
+ ; // Operations
+ : Children
+   [ ME_51DD5597022E // Rl3MemUtils
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_51DD554C0205 Tl3MemUtils

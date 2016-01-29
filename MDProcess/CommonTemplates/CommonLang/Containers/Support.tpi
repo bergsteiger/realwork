@@ -1,0 +1,87 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Containers/Support.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Containers::Support
+//
+// набор вспомогательных функций
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// выводит тип функтора сравнения
+f _comp_dump
+//#UC START# *47187725031C*
+	[{}{[{"<{}{%CS=allocator}{%CC}>"!="0"}, std::less\<[{%SM=Set::Class}{%f_key_dump(%S)}%f_data_dump(%S)]\>]}<{}{"%CS"="compare"}, %f_type(%C%T)>]
+
+//#UC END# *47187725031C*
+
+// дампит тип данных для ассоциативного контэйнера
+f _data_dump
+//#UC START# *4718773C0261*
+	%f_set_var(SELF,S)\
+	<{}{"%CS"=""}{%C}\
+	%C[%f_set_var(ATTR_TYPE,T)]\
+	[{%{SELF}%PC=Category&%{SELF}%PS=Impl&%{SELF}%P<{}{%D<{}{%CU=%{ATTR_TYPE}U}{%CC}>!=0}{%DC}>=0}%f_set_var(__SCOPE,S)]\
+	[{%C%TS=DataElement}{%f_attr(%C)}%t_attr(%C%T,"ref",%C)]\
+	%f_set_var(__SCOPE,"")>
+//#UC END# *4718773C0261*
+
+// дампит тип функтора-сравнения для хэш-мапы
+f _equalto_dump
+//#UC START# *4718774402DE*
+	[{}{[{<{}{%CS=allocator}{%CC}>!=0|%f_need_key_hash(%S)=true}Core::equal_to\<%f_key_dump(%S)\>]}<{}{%CS=compare}%f_type(%C%T)>]
+
+//#UC END# *4718774402DE*
+
+// дампит тип хэш-функтора для хэш-мапы
+f _hasher_dump
+//#UC START# *4718774C02BF*
+	[{}{[{<{}{%CS=allocator|%CS=compare}{%CC}>!=0|%f_need_key_hash(%S)=true}Core::hash\<%f_key_dump(%S)\>]}<{}{%CS=hasher}%f_type(%C%T)>]
+
+f _allocator_dump
+	<{}{%CS=allocator}%f_type(%C%T)>
+//#UC END# *4718774C02BF*
+
+// возвращает false, если элемент и его тип являются детьми одного родителя
+f _is_foreign_target
+//#UC START# *4718775800CB*
+	[{%T<{}{%PC=Category}%PU>!=%P<{}{%PC=Category}%PU>}{false}true]
+//#UC END# *4718775800CB*
+
+// дампит ключ ассоциативного контэйнера
+f _key_dump
+//#UC START# *4718775F035B*
+	[{%SS!=UnsortedSet&%SS!=Set}{%f_data_dump(%S)}%f_set_var(SELF,S)\
+	<{}{"%CS"=""}{%C}\
+	%C[%f_set_var(ATTR_TYPE,T)]\
+	[{%{SELF}%PC=Category&%{SELF}%PS=Impl&%{SELF}%P<{}{%D<{}{%CU=%{ATTR_TYPE}U}{%CC}>!=0}{C}>=0}%f_set_var(__SCOPE,S)]\
+	[{%C%Cl=agr}{%f_attr(%C%C)}[{%t_simple(%C%C%T)=true|%f_check_if_type(%C%C%T,"a-string")=true|%f_check_if_type(%C%C%T,"a-wstring")=true}{%t_attr(%C%C%T,"%C%Cl-const")}%f_attr(%C%C)]]\
+	%f_set_var(__SCOPE,"")>]
+
+f _need_key_hash
+	[{%SS!=UnsortedSet&%SS!=Set}{[{<{}{"%CS"=""&%Cx=true&%Cl=ref}{%CC}>!=0}{false}true]}[{<{}{"%CS"=""&%C%Cx=true&%C%Cl=ref}{%CC}>!=0}{false}true]]
+//#UC END# *4718775F035B*
+
+// определяет нужно ли генерить определение контэйнера
+// или оно уже было сгенерено раньше как форвард декларация
+f _need_container_def
+//#UC START# *49015F0C0207*
+	%f_set_var(SELF,S)\
+	[{<{}{%n<{}{%{SELF}U=%FU}{%FC}>!=0}{%nC}>=0}{false}true]
+//#UC END# *49015F0C0207*
+
+// гененрит необходимые форвард декларации типом, используемых контэйнером
+f _dump_container_fwds_h
+//#UC START# *4901625A0198*
+	[\
+/	<#%FF
+/	>\
+	[{%f_need_container_def(%S)=false}[<{}{%AC=Attribute}#%A%TF
+	>]]
+	]
+//#UC END# *4901625A0198*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

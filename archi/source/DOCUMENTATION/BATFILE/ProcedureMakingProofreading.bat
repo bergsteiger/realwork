@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\EC Software\HelpAndManual6\HELPMAN.EXE" "D:\MANUAL(CVS)\archi\source\DOCUMENTATION\Procedure for making proofreading.hmxz" "/tsk=Recent Publishes:ProcedureMakingProofreading" "/tsk=Recent Publishes:ProcedureMakingProofreading_!DAILY" "/tsk=Recent Publishes:ProcedureMakingProofreading(web)_!DAILY"

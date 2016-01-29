@@ -1,0 +1,4195 @@
+<<Library>> DUnitTuning
+ %UID '4B2A10C40309'
+ %SUMMARY 'Наши доработки DUnit' ;
+ %DEPENDS
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677E18600C2' /* dd */
+  U$ '467A75D90346' /* VT */
+  U$ '467A8734039C' /* EVD */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '4B2A0D4A006F' /* DUnit */
+  U$ '4B4DCCBF034F' /* JEDI */
+  U$ '4CA0BEBC011E' /* MTDOrb */
+  U$ '4CA0CE0F010F' /* GarORB */
+  U$ '4CA1BFBC0259' /* ServerGate */
+  U$ '4E1F0EB100C4' /* ScriptEngine */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '515AC89F01E1' /* "L3$Basic Concepts" */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+  U$ '54ECA252008F' /* ScriptEngine$Everest */
+  U$ '550012C403C4' /* L3$AFW */
+ ; // %DEPENDS
+ %META
+  %upv "defines" 'tfwDefine.inc'
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'rtl'
+  %upv "ifndef" 'NotTunedDUnit'
+  %upv "is namespace" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677E18600C2' /* dd */
+  U$ '467A75D90346' /* VT */
+  U$ '467A8734039C' /* EVD */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '4B2A0D4A006F' /* DUnit */
+  U$ '4B4DCCBF034F' /* JEDI */
+  U$ '4CA0BEBC011E' /* MTDOrb */
+  U$ '4CA0CE0F010F' /* GarORB */
+  U$ '4CA1BFBC0259' /* ServerGate */
+  U$ '4E1F0EB100C4' /* ScriptEngine */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '515AC89F01E1' /* "L3$Basic Concepts" */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+  U$ '54ECA252008F' /* ScriptEngine$Everest */
+  U$ '550012C403C4' /* L3$AFW */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Interfaces>> tfwKConst
+   %UID '4DF79C0F03A9'
+   %SUMMARY 'Константы для общения тестового фреймфорка с К' ;
+   %META
+    %upv "author" 'Люлин А.В.'
+    %upv "is namespace" true
+    %upv "no hands" true
+    %upv "started" '14.06.2011 21:36'
+   ; // %META
+   %CHILDREN
+    
+     <<Constants>> Archi
+      %UID '4DF79C4D0028'
+      %META
+       %upv "ifdef" 'Archi'
+       %upv "spell names" false
+      ; // %META
+      %ATTRIBUTES
+        <<Attribute>> KUser
+         %UID '4DF79C5A013C'
+         %VALUE '''architester'''
+         %META
+          %upv "AutoInc" false
+          %upv "forced type" 'none'
+          %upv "is define" false
+         ; // %META
+        ; // KUser
+        <<Attribute>> KUserPassword
+         %UID '4DF79C750043'
+         %VALUE '''6v2K3024'''
+         %META
+          %upv "AutoInc" false
+          %upv "forced type" 'none'
+          %upv "is define" false
+         ; // %META
+        ; // KUserPassword
+      ; // %ATTRIBUTES
+     ; // Archi
+     <<Constants>> Nemesis
+      %UID '4DF79C8702EF'
+      %META
+       %upv "ifdef" 'Nemesis,InsiderTest'
+       %upv "spell names" false
+      ; // %META
+      %ATTRIBUTES
+        <<Attribute>> KUser
+         %UID '4DF79C930309'
+         %VALUE '''f1tester'''
+         %META
+          %upv "AutoInc" false
+          %upv "forced type" 'none'
+          %upv "is define" false
+         ; // %META
+        ; // KUser
+        <<Attribute>> KUserPassword
+         %UID '4DF79CAB01D3'
+         %VALUE '''f1_tester_user'''
+         %META
+          %upv "AutoInc" false
+          %upv "forced type" 'none'
+          %upv "is define" false
+         ; // %META
+        ; // KUserPassword
+      ; // %ATTRIBUTES
+     ; // Nemesis
+     <<Constants>> Other
+      %UID '4E89F3EB003A'
+      %META
+       %upv "ifndef" 'Nemesis,Archi,EverestLite'
+       %upv "spell names" false
+      ; // %META
+      %ATTRIBUTES
+        <<Attribute>> KUser
+         %UID '4E89F3FE016D'
+         %VALUE ''''''
+         %META
+          %upv "AutoInc" false
+          %upv "forced type" 'none'
+          %upv "is define" false
+         ; // %META
+        ; // KUser
+        <<Attribute>> KUserPassword
+         %UID '4E89F40803C3'
+         %VALUE ''''''
+         %META
+          %upv "AutoInc" false
+          %upv "forced type" 'none'
+          %upv "is define" false
+         ; // %META
+        ; // KUserPassword
+      ; // %ATTRIBUTES
+     ; // Other
+     <<Constants>> Daily
+      %UID '501A506A023C'
+      %META
+       %upv "ifdef" 'Nemesis'
+       %upv "ifndef" 'InsiderTest'
+       %upv "spell names" false
+      ; // %META
+      %ATTRIBUTES
+        <<Attribute>> KUser
+         %UID '501A508101F7'
+         %VALUE '''shdtester'''
+         %META
+          %upv "AutoInc" false
+          %upv "forced type" 'none'
+          %upv "is define" false
+         ; // %META
+        ; // KUser
+        <<Attribute>> KUserPassword
+         %UID '501A509A0296'
+         %VALUE '''shdtester'''
+         %META
+          %upv "AutoInc" false
+          %upv "forced type" 'none'
+          %upv "is define" false
+         ; // %META
+        ; // KUserPassword
+      ; // %ATTRIBUTES
+     ; // Daily
+     <<Constants>> EverestLite
+      %UID '5409573F000D'
+      %META
+       %upv "ifdef" 'EverestLite'
+       %upv "spell names" false
+      ; // %META
+      %ATTRIBUTES
+        <<Attribute>> KUser
+         %UID '540957610255'
+         %VALUE '''architester'''
+         %META
+          %upv "AutoInc" false
+          %upv "forced type" 'none'
+          %upv "is define" false
+         ; // %META
+        ; // KUser
+        <<Attribute>> KUserPassword
+         %UID '5409576E021D'
+         %VALUE '''6v2K3024'''
+         %META
+          %upv "AutoInc" false
+          %upv "forced type" 'none'
+          %upv "is define" false
+         ; // %META
+        ; // KUserPassword
+      ; // %ATTRIBUTES
+     ; // EverestLite
+   ; // %CHILDREN
+  ; // tfwKConst
+  <<Unit>> BridgeToKviaCORBA
+   %UID '4CA0BB31027B'
+   %SUMMARY 'Мост к К через CORBA' ;
+   %DEPENDS
+    U$ '4678193C009C' /* l3Types */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47D0290B016D' /* l3Utils */
+    U$ '4AB0997B00A2' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4CA0D13D017F' /* idl */
+    U$ '4CA0D18B0351' /* IniAndFini */
+    U$ '4CA0D33A02D6' /* orb */
+    U$ '4CA0DCFB017A' /* build */
+    U$ '4CA1BFF9036D' /* Contents_int */
+    U$ '4CA1C4660358' /* orb_int */
+    U$ '4CA1D154012C' /* Impl */
+    U$ '4DF79C0F03A9' /* tfwKConst */
+   ; // %DEPENDS
+   %META
+    %upv "ifdef" 'MTDORB,NoKPageTool'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4B2A10C40309' /* DUnitTuning */
+    U$ '4CA0BEBC011E' /* MTDOrb */
+    U$ '4CA0CE0F010F' /* GarORB */
+    U$ '4CA1BFBC0259' /* ServerGate */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TKBridge
+      %UID '4CA0BB8600CF'
+      %SUMMARY 'Мост к К' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "singleton" true
+       %upv "started" '27.09.2010 19:43'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4CA0BEBC011E' /* MTDOrb */
+       U$ '4CA1BFBC0259' /* ServerGate */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '49E7754802A9' /* Tl3ProtoObject */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '47A042E100E2' /* InitFields */
+       U$ '5000565C019C' /* ClearFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4CA0D5C802FD"
+         %UID '4CA0D5C802FD'
+         %TARGET U$ '4CA0D1B8017C' /* TGarORBInitializerImpl */
+        ; // 4CA0D5C802FD
+        <<uses>> "4CA1C0B501D9"
+         %UID '4CA1C0B501D9'
+         %TARGET U$ '4CA1C00E03B3' /* IServerGate_Contents_KPage */
+        ; // 4CA1C0B501D9
+        <<uses>> "4CA1C4DA0126"
+         %UID '4CA1C4DA0126'
+         %TARGET U$ '4807756101FE' /* TStringList */
+        ; // 4CA1C4DA0126
+        <<uses>> "4CA1C54300EE"
+         %UID '4CA1C54300EE'
+         %TARGET U$ '4CA1C5300391' /* TNamingContext */
+        ; // 4CA1C54300EE
+        <<uses>> "4CA1C57101D1"
+         %UID '4CA1C57101D1'
+         %TARGET U$ '4CA1C5650080' /* IORBObject */
+        ; // 4CA1C57101D1
+        <<uses>> "4CA1C7E9023A"
+         %UID '4CA1C7E9023A'
+         %TARGET U$ '4CA1C7DB0156' /* INamingContext */
+        ; // 4CA1C7E9023A
+        <<uses>> "4CA1C9C50373"
+         %UID '4CA1C9C50373'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 4CA1C9C50373
+        <<uses>> "4CA1CC060375"
+         %UID '4CA1CC060375'
+         %TARGET U$ '4CA1CBF401AD' /* TName */
+        ; // 4CA1CC060375
+        <<uses>> "4CA1CEF40205"
+         %UID '4CA1CEF40205'
+         %TARGET U$ '4CA1CCDD0268' /* ORB__Init */
+        ; // 4CA1CEF40205
+        <<uses>> "4CA1D0FE000F"
+         %UID '4CA1D0FE000F'
+         %TARGET U$ '4CA1D0ED000F' /* TCoreSrv_SecuritySrv_SessionManagerFactoryManagerSrv */
+        ; // 4CA1D0FE000F
+        <<uses>> "4CA1D11F0094"
+         %UID '4CA1D11F0094'
+         %TARGET U$ '4CA0D4C90266' /* TGarClientSecurity */
+        ; // 4CA1D11F0094
+        <<uses>> "4CA1D18A01C8"
+         %UID '4CA1D18A01C8'
+         %TARGET U$ '4CA1D17B0245' /* TServerGate_Contents_KPage */
+        ; // 4CA1D18A01C8
+        <<uses>> "4DF79CD1004B"
+         %UID '4DF79CD1004B'
+         %TARGET U$ '4DF79C8702EF' /* Nemesis */
+        ; // 4DF79CD1004B
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_orb
+         %UID '4CA1C49E0245'
+         %TARGET U$ '4CA1C4840186' /* IORB */
+         %TOBEINCLUDED
+          U$ '4CA0BEBC011E' /* MTDOrb */
+         ; // %TOBEINCLUDED
+        ; // f_orb
+        PRIVATE <<Attribute>> f_session
+         %UID '4CA1C666017B'
+         %TARGET U$ '4CA1C64B0264' /* ICoreSrv_SecuritySrv_SessionManager */
+         %TOBEINCLUDED
+          U$ '4CA0BEBC011E' /* MTDOrb */
+         ; // %TOBEINCLUDED
+        ; // f_session
+        PRIVATE <<Attribute>> f_NC
+         %UID '4CA1D39202C2'
+         %TARGET U$ '4CA1C7DB0156' /* INamingContext */
+         %TOBEINCLUDED
+          U$ '4CA0BEBC011E' /* MTDOrb */
+         ; // %TOBEINCLUDED
+        ; // f_NC
+        <<readonly>> Page
+         %UID '4CA1D3B10250'
+         %TARGET U$ '4CA1C00E03B3' /* IServerGate_Contents_KPage */
+         %META
+          %upv "needs field" false
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4CA1BFBC0259' /* ServerGate */
+         ; // %TOBEINCLUDED
+         %INDEXES
+          %INDEX anID %TARGET U$ '46A606AC03B2' /* Integer */
+          ;
+         ; // %INDEXES
+        ; // Page
+        PRIVATE <<Attribute>> f_KPageFactory
+         %UID '4CA1D4A00134'
+         %TARGET U$ '4CA1D48F0229' /* IServerGate_Contents_KPageFactoryManagerSrv */
+         %TOBEINCLUDED
+          U$ '4CA1BFBC0259' /* ServerGate */
+         ; // %TOBEINCLUDED
+        ; // f_KPageFactory
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<method>> Logout
+         %UID '4CA1E04300B7'
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CA1E04E003F'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Logout
+        FINAL <<method>> Exists
+         %UID '4CA335E50024'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CA335F403D5'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Exists
+        FINAL <<method>> AttachFile
+         %UID '4CAC9C6100E7'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4CAC9E220070"
+            %UID '4CAC9E220070'
+            %TARGET U$ '4B57004201BD' /* l3FileUtils */
+           ; // 4CAC9E220070
+           <<uses>> "4CAC9F630325"
+            %UID '4CAC9F630325'
+            %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+           ; // 4CAC9F630325
+           <<uses>> "4CAC9F75012D"
+            %UID '4CAC9F75012D'
+            %TARGET U$ '48F4BE400154' /* Tl3FileMode */
+           ; // 4CAC9F75012D
+         ; // %LINKS
+         %ATTRIBUTES
+           PRIVATE FINAL <<var>> F
+            %UID '4CAC9F4C0250'
+            %TARGET U$ '47A0679D00E4' /* Tl3CustomFiler */
+            %META
+             %upv "IsResult" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // F
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CAC9C6E004D'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aPage
+               %UID '4CAC9C7A0199'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aPage
+              <<in>> aFile
+               %UID '4CAC9C7A01C8'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aFile
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // AttachFile
+      ; // %OPERATIONS
+     ; // TKBridge
+   ; // %CHILDREN
+  ; // BridgeToKviaCORBA
+  <<Unit>> Source
+   %UID '4B2A112B011A'
+   %DEPENDS
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4678193C009C' /* l3Types */
+    U$ '476BE98C01B8' /* l3Chars */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '47D0290B016D' /* l3Utils */
+    U$ '4AB0997B00A2' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4AB0C3F60375' /* Win */
+    U$ '4B2A0D6A0077' /* Source */
+    U$ '4B4DCD0B0295' /* Common */
+    U$ '4C98A77001C2' /* Win32API */
+    U$ '4CA0BB31027B' /* BridgeToKviaCORBA */
+    U$ '4CA0D18B0351' /* IniAndFini */
+    U$ '4CA1BFF9036D' /* Contents_int */
+    U$ '4DF79C0F03A9' /* tfwKConst */
+    U$ '4F6843C101D1' /* ddCommon */
+    U$ '515AC8CC02BD' /* l3EtalonsWorking */
+    U$ '537B83AD01F0' /* l3Math */
+    U$ '54B90AC6014B' /* StringUtils */
+    U$ '5506D079035B' /* AFWServices */
+    U$ '55DDB8900080' /* VersionInfo */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4677E18600C2' /* dd */
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4B2A0D4A006F' /* DUnit */
+    U$ '4B2A10C40309' /* DUnitTuning */
+    U$ '4B4DCCBF034F' /* JEDI */
+    U$ '4CA0CE0F010F' /* GarORB */
+    U$ '4CA1BFBC0259' /* ServerGate */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+    U$ '515AC89F01E1' /* "L3$Basic Concepts" */
+    U$ '550012C403C4' /* L3$AFW */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     ABSTRACT <<SimpleClass>> TBaseTest
+      %UID '4B2A11BC0255'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '17.12.2009 14:11'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4B2A0D4A006F' /* DUnit */
+       U$ '4B2A10C40309' /* DUnitTuning */
+       U$ '515AC89F01E1' /* "L3$Basic Concepts" */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4F5F3A4001B5' /* EtalonsWorking */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4B2A0DDE028B' /* TTestCase */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4CAEDCF9006A' /* CheckOutputWithInput$1$4CAEDCF9006A */
+       U$ '4DD533BF023D' /* CheckWithEtalon */
+       U$ '4F5F3C61023E' /* CheckOutputWithInput$4F5F3C61023E */
+       U$ '536A15F901DA' /* CheckPictureOnly */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4B2F40FD0088' /* Cleanup */
+       U$ '4C07996901BE' /* GetEnabled */
+       U$ '4C446D7903B7' /* SetEnabled */
+       U$ '51B1DD8E0018' /* DoClearEtalon */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4B2F42A30359"
+         %UID '4B2F42A30359'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 4B2F42A30359
+        <<uses>> "4C446843005E"
+         %UID '4C446843005E'
+         %TARGET U$ '4C4467E300C2' /* IsTestExcluded */
+        ; // 4C446843005E
+        <<uses>> "4F5F4536038E"
+         %UID '4F5F4536038E'
+         %TARGET U$ '47878E0E0191' /* l3String */
+        ; // 4F5F4536038E
+        <<uses>> "4F5F454500F6"
+         %UID '4F5F454500F6'
+         %TARGET U$ '4CB861CA00F8' /* l3ImageUtils */
+        ; // 4F5F454500F6
+        <<uses>> "4F5F455600FC"
+         %UID '4F5F455600FC'
+         %TARGET U$ '4CA0BB8600CF' /* TKBridge */
+        ; // 4F5F455600FC
+        <<uses>> "4F5F45820091"
+         %UID '4F5F45820091'
+         %TARGET U$ '47A080670100' /* l3Stream */
+        ; // 4F5F45820091
+        <<uses>> "4F5F45B10107"
+         %UID '4F5F45B10107'
+         %TARGET U$ '4B57004201BD' /* l3FileUtils */
+        ; // 4F5F45B10107
+        <<uses>> "51AF4EBC0342"
+         %UID '51AF4EBC0342'
+         %TARGET U$ '4B4DCD220000' /* JclSysInfo */
+        ; // 51AF4EBC0342
+        <<uses>> "51B0AFC400A4"
+         %UID '51B0AFC400A4'
+         %TARGET U$ '48C6811302CB' /* l3SysUtils */
+        ; // 51B0AFC400A4
+        <<uses>> "530339B900A1"
+         %UID '530339B900A1'
+         %TARGET U$ '52F8B15003A7' /* TddPicturePathListner */
+        ; // 530339B900A1
+        <<uses>> "550AEA2901BA"
+         %UID '550AEA2901BA'
+         %TARGET U$ '550AE937003B' /* Tl3TabService */
+        ; // 550AEA2901BA
+      ; // %LINKS
+      %ATTRIBUTES
+        <<static>> f_ToLog
+         %UID '4B2B90FA02F2'
+         %TARGET U$ '4B2B90C60095' /* ToLogProc */
+         %TOBEINCLUDED
+          U$ '4B2A10C40309' /* DUnitTuning */
+         ; // %TOBEINCLUDED
+        ; // f_ToLog
+        PRIVATE <<Attribute>> f_Starts
+         %UID '4B2F419E014F'
+         %SUMMARY 'Начальные точки замеров' ;
+         %TARGET U$ '4B2F4382001F' /* Tl3CardinalList */
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+        ; // f_Starts
+        <<static>> f_TimeToLog
+         %UID '4B2F4E5A0101'
+         %TARGET U$ '4B2F4E4101FD' /* TimeToLogProc */
+         %TOBEINCLUDED
+          U$ '4B2A10C40309' /* DUnitTuning */
+         ; // %TOBEINCLUDED
+        ; // f_TimeToLog
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PROTECTED FINAL <<method>> ToLog
+         %UID '4B2A121601E8'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4B2A128B0148"
+            %UID '4B2A128B0148'
+            %TARGET U$ '4773D64E036C' /* l3Base */
+           ; // 4B2A128B0148
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4B2A1221002D'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aSt
+               %UID '4B2A12270264'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aSt
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // ToLog
+        PROTECTED FINAL <<method>> StartTimer
+         %UID '4B2A122D039A'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4B2A127B00F9"
+            %UID '4B2A127B00F9'
+            %TARGET U$ '48A41FF10094' /* Windows */
+           ; // 4B2A127B00F9
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4B2A123300C9'
+            %TARGET U$ '48FD996601CE' /* Longword */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // StartTimer
+        PROTECTED FINAL <<method>> StopTimer$4B2A123C0086
+         %UID '4B2A123C0086'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4B2A127E02D9"
+            %UID '4B2A127E02D9'
+            %TARGET U$ '48A41FF10094' /* Windows */
+           ; // 4B2A127E02D9
+           <<uses>> "4B2A12C9030F"
+            %UID '4B2A12C9030F'
+            %TARGET U$ '4B2A12BA0288' /* IntToStr */
+           ; // 4B2A12C9030F
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt$4B2A1247023E
+            %UID '4B2A1247023E'
+            %TARGET U$ '48FD996601CE' /* Longword */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aSt
+               %UID '4B2A12500061'
+               %TARGET U$ '476136D3010B' /* String */
+               %VALUE ''''''
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aSt
+              <<in>> aSubName
+               %UID '4B588E1A00B8'
+               %TARGET U$ '476136D3010B' /* String */
+               %VALUE '''''; aNeedTimeToLog : Boolean = true'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aSubName
+            ; // %PARAMETERS
+           ; // DoIt$4B2A1247023E
+         ; // %OPERATIONS
+        ; // StopTimer$4B2A123C0086
+        PROTECTED FINAL <<method>> FileFromCurrent
+         %UID '4B2B9C8001AA'
+         %SUMMARY 'Файл из текущей директории' ;
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4B2B9D4902DB"
+            %UID '4B2B9D4902DB'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 4B2B9D4902DB
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4B2B9D2102FF'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aStr
+               %UID '4EA67A380011'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aStr
+              <<in>> aFolderMode
+               %UID '4EA67A380040'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %VALUE false
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aFolderMode
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // FileFromCurrent
+        PROTECTED FINAL <<method>> TimeToLog
+         %UID '4B2F4C510248'
+         %SUMMARY 'Выводит замер времени в лог' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4B2F4C6C0173'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aTime
+               %UID '4B2F4C880254'
+               %TARGET U$ '46A618AF0053' /* Cardinal */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aTime
+              <<in>> aSt
+               %UID '4B2F4C880276'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aSt
+              <<in>> aSubName
+               %UID '4B588DF503DF'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aSubName
+              <<in>> aIgnoreTestName
+               %UID '512384FC006A'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %VALUE false
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aIgnoreTestName
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // TimeToLog
+        PROTECTED <<method>> FileForOutput
+         %UID '4B4F588B0241'
+         %SUMMARY 'Стандартный файл для вывода, для текщего теста' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4B4F58BB037C'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // FileForOutput
+        PROTECTED FINAL <<method>> FilerForOutput
+         %UID '4B4F615700F9'
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4B4F629801F7"
+            %UID '4B4F629801F7'
+            %TARGET U$ '48F4BE400154' /* Tl3FileMode */
+           ; // 4B4F629801F7
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> Make
+            %UID '4B4F6164006F'
+            %TARGET U$ '4B4F61AD01AA' /* Tl3CustomDosFiler */
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // Make
+         ; // %OPERATIONS
+        ; // FilerForOutput
+        PROTECTED FINAL <<method>> FilerForInput
+         %UID '4B4F624A0116'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> Make
+            %UID '4B4F626303B1'
+            %TARGET U$ '4B4F61AD01AA' /* Tl3CustomDosFiler */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aSt
+               %UID '4B4F62690387'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aSt
+            ; // %PARAMETERS
+           ; // Make
+         ; // %OPERATIONS
+        ; // FilerForInput
+        PROTECTED FINAL <<method>> CheckTimeout
+         %UID '4B56182A0029'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4B56183D0170'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aNow
+               %UID '4B56186F0150'
+               %TARGET U$ '46A618AF0053' /* Cardinal */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aNow
+              <<in>> aTimeout
+               %UID '4B56186F017B'
+               %TARGET U$ '46A618AF0053' /* Cardinal */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aTimeout
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // CheckTimeout
+        PROTECTED FINAL <<method>> StopTimer$1$4B588FEF0363
+         %UID '4B588FEF0363'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt$4B58900300FE
+            %UID '4B58900300FE'
+            %TARGET U$ '48FD996601CE' /* Longword */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aSt
+               %UID '4B58901D00E7'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aSt
+              <<in>> aNeedTimeToLog
+               %UID '4B58901D0141'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aNeedTimeToLog
+            ; // %PARAMETERS
+           ; // DoIt$4B58900300FE
+         ; // %OPERATIONS
+        ; // StopTimer$1$4B588FEF0363
+        PROTECTED FINAL <<method>> KPage
+         %UID '4B853B4603A9'
+         %SUMMARY 'Страница в K' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4B853D960247"
+            %UID '4B853D960247'
+            %TARGET U$ '4B853D8301E9' /* AnsiStartsStr */
+           ; // 4B853D960247
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4B853B6B01FF'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // KPage
+        PROTECTED FINAL <<method>> IsGK
+         %UID '4BEA99EB006D'
+         %SUMMARY 'Тесты запущены ГК' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4BEA9A1D0317"
+            %UID '4BEA9A1D0317'
+            %TARGET U$ '4BEA99B1033C' /* IsGK */
+           ; // 4BEA9A1D0317
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> IsGK
+            %UID '4BEA9A07021E'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // IsGK
+         ; // %OPERATIONS
+        ; // IsGK
+        PROTECTED FINAL <<method>> EtalonSuffix
+         %UID '4CA45CA90312'
+         %SUMMARY 'Суффикс имени эталонного файла' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CA45CD100D4'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // EtalonSuffix
+        PROTECTED <<virtualmethod>> EtalonNeedsComputerName
+         %UID '4CA45DAA01BA'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CA45DC30235'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // EtalonNeedsComputerName
+        FINAL <<method>> ComputerName
+         %UID '4CA45DD902BD'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CA45DE9013B'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // ComputerName
+        PROTECTED FINAL <<method>> OutputPath
+         %UID '4CA5D9100014'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CA5D91B0000'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // OutputPath
+        PROTECTED <<method>> RaiseIfEtalonCreated
+         %UID '4CA5DAD4014C'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CA5DAE903A2'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // RaiseIfEtalonCreated
+        PROTECTED <<method>> EtalonCanHaveDiff
+         %UID '4CAEE13D00E1'
+         %SUMMARY 'Эталон может иметь эталонную разницу для конкретного компьютера. Например как в {RequestLink:234362304}' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CAEE18F001B'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // EtalonCanHaveDiff
+        PROTECTED <<method>> FileNameForOutput
+         %UID '4DCA41A20364'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4DCA41B600E2'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // FileNameForOutput
+        <<virtualmethod>> AlwaysShowAFC
+         %UID '4F5F28EB0242'
+         %SUMMARY 'Всегда показывать сравнивалку файлов, когда не пишем в К' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4F5F2919003A'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // AlwaysShowAFC
+        PROTECTED FINAL <<method>> FolderFromCurrent
+         %UID '4FA152F5019C'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4FA1531F03BC'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aStr
+               %UID '4FA1532A029E'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aStr
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // FolderFromCurrent
+        PROTECTED <<virtualmethod>> NeedCreateEtalonsWhileCheckingOutputWithInput
+         %UID '4FA164500031'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4FA16473006D'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // NeedCreateEtalonsWhileCheckingOutputWithInput
+        FINAL <<method>> TestSetFolderName
+         %UID '51237EAB00E9'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '51237EBB0225'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aNoSuffix
+               %UID '52D8033E0028'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %VALUE false
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aNoSuffix
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // TestSetFolderName
+        PROTECTED <<virtualmethod>> EtalonNeedsXE
+         %UID '51AF49E5001B'
+         %META
+          %upv "ifdef" 'XE'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '51AF49F500E9'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // EtalonNeedsXE
+        PROTECTED <<virtualmethod>> EtalonNeedsOSName
+         %UID '51AF4A1C036E'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '51AF4A2E00D3'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // EtalonNeedsOSName
+        PROTECTED <<virtualmethod>> EtalonNeeds64
+         %UID '51B0AF8E0378'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '51B0AF9F002D'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // EtalonNeeds64
+        PROTECTED <<method>> OutputFolderName
+         %UID '51B1A75D0367'
+         %SUMMARY 'Папка, в которую пишутся выходные файлы.' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '51B1A7C80353'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // OutputFolderName
+        FINAL <<method>> CheckEtalonInFolder
+         %UID '51B1D42C009C'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '51B1D44300C5'
+            %SUMMARY 'Сравнивает файлы в папке с названием класса с эталонами в папке с суффиксом ''_Etalon''.' ;
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aHeaderBegin
+               %UID '51B577D002F1'
+               %TARGET U$ '482C48430205' /* Char */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aHeaderBegin
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // CheckEtalonInFolder
+        FINAL <<method>> ClearTestFolder
+         %UID '51B1DB35010A'
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '51B1DB5A00F1'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // ClearTestFolder
+        FINAL <<method>> OutputFolderNameWitEtalons
+         %UID '51B58D98028F'
+         %SUMMARY 'Директория для эталонов.' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '51B58DC102AA'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // OutputFolderNameWitEtalons
+        FINAL <<method>> GetFullPath2OutputFolderName
+         %UID '529C80A6019D'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '529C80C102AA'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // GetFullPath2OutputFolderName
+        PROTECTED FINAL <<method>> CheckExternalPicture
+         %UID '536A0DB9038B'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '536A0DD30258'
+            %TARGET U$ '483C2FA400B1' /* AnsiString */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aMakeEtalon
+               %UID '536A10B902C6'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aMakeEtalon
+              <<in>> aCVSPath
+               %UID '536A10B902D5'
+               %TARGET U$ '483C2FA400B1' /* AnsiString */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aCVSPath
+              <<inout>> aCompareImage
+               %UID '536A10B902F5'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aCompareImage
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // CheckExternalPicture
+        FINAL <<method>> IsWritingToK
+         %UID '53BE80D30309'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '53BE80DD03CD'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // IsWritingToK
+        FINAL <<method>> HasTabs
+         %UID '555EF1060354'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '555EF12A0385'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // HasTabs
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<Function>> ToLogProc
+         %UID '4B2B90C60095'
+         %META
+          %upv "of object" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           FINAL <<Operation>> DoIt
+            %UID '4B2B90E601BC'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aSt
+               %UID '4B2B90F20125'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aSt
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // ToLogProc
+        <<Function>> TimeToLogProc
+         %UID '4B2F4E4101FD'
+         %META
+          %upv "of object" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           FINAL <<Operation>> DoIt
+            %UID '4B2F4E55036E'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aTime
+               %UID '4B2F4E570370'
+               %TARGET U$ '46A618AF0053' /* Cardinal */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aTime
+              <<in>> aSt
+               %UID '4B2F4E570399'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aSt
+              <<in>> aSubName
+               %UID '4B588D70001A'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aSubName
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // TimeToLogProc
+      ; // %CHILDREN
+     ; // TBaseTest
+     FINAL <<UtilityPack>> KTestRunner
+      %UID '4B2A6D4303A9'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "no hands" true
+       %upv "started" '17.12.2009 20:41'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4B2A0D4A006F' /* DUnit */
+       U$ '4B2A10C40309' /* DUnitTuning */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "4C4467B1011F"
+         %UID '4C4467B1011F'
+         %TARGET U$ '4C44675A0269' /* TExcludedTests */
+        ; // 4C4467B1011F
+        <<uses>> "4C9387800124"
+         %UID '4C9387800124'
+         %TARGET U$ '4C9386230151' /* TExcludedTestsFolders */
+        ; // 4C9387800124
+        <<uses>> "4D1AEC1E03A0"
+         %UID '4D1AEC1E03A0'
+         %TARGET U$ '4D1AEAC80371' /* TTestNameList */
+        ; // 4D1AEC1E03A0
+        <<uses>> "51237ED90246"
+         %UID '51237ED90246'
+         %TARGET U$ '4B2A11BC0255' /* TBaseTest */
+        ; // 51237ED90246
+        <<uses>> "5279D3180306"
+         %UID '5279D3180306'
+         %TARGET U$ '5279D2EA02DE' /* TTestDocumentList */
+        ; // 5279D3180306
+        <<uses>> "55DDB8E9002D"
+         %UID '55DDB8E9002D'
+         %TARGET U$ '4F8BF8D40367' /* vtVerInf */
+        ; // 55DDB8E9002D
+        <<uses>> "55DDCFE400AD"
+         %UID '55DDCFE400AD'
+         %TARGET U$ '55DDCF7C004A' /* Tl3VersionInfoService */
+        ; // 55DDCFE400AD
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> g_ResultsPlace
+         %UID '4B7C0A220226'
+         %SUMMARY 'Информация о месте вывода результатов теста' ;
+         %TARGET U$ '4B7AAF1203B4' /* RTestResultsPlace */
+         %TOBEINCLUDED
+          U$ '4B2A10C40309' /* DUnitTuning */
+         ; // %TOBEINCLUDED
+        ; // g_ResultsPlace
+        <<Attribute>> g_CVSPath
+         %UID '4BB37736010F'
+         %SUMMARY 'Путь к тестам в CVS' ;
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // g_CVSPath
+        PRIVATE <<Attribute>> g_CVSTestSetPath
+         %UID '4D199BD102D3'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // g_CVSTestSetPath
+        PRIVATE <<Attribute>> g_AppTestSetPath
+         %UID '4D199C1D00CA'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // g_AppTestSetPath
+        PRIVATE <<Attribute>> g_Random
+         %UID '4EFC52A602CF'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // g_Random
+        PRIVATE <<Attribute>> g_IgnoreCVS
+         %UID '52F2240801FE'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // g_IgnoreCVS
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<method>> RunRegisteredTests
+         %UID '4B2A6D840279'
+         %META
+          %upv "is static" false
+         ; // %META
+         %LINKS
+           <<uses>> "4B2B93980139"
+            %UID '4B2B93980139'
+            %TARGET U$ '4B2A11BC0255' /* TBaseTest */
+           ; // 4B2B93980139
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4B2A6D8F01B7'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // RunRegisteredTests
+        FINAL <<method>> NeedKTestRunner
+         %UID '4B2A6DAE039F'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4B2A10C40309' /* DUnitTuning */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4B2A6DC702CF'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4B2A10C40309' /* DUnitTuning */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aPlaces
+               %UID '4B7C08BB01FD'
+               %TARGET U$ '4B7AAF5C0096' /* "array of RTestResultsPlace" */
+               %TOBEINCLUDED
+                U$ '4B2A10C40309' /* DUnitTuning */
+               ; // %TOBEINCLUDED
+              ; // aPlaces
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // NeedKTestRunner
+        FINAL <<method>> IsWritingToK
+         %UID '4BB376F00348'
+         %SUMMARY 'Пишем результаты тестов в К' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4BB3770A02EB'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // IsWritingToK
+        FINAL <<method>> IsGK
+         %UID '4BEA99B1033C'
+         %SUMMARY 'Тесты запущены ГК' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> IsGK
+            %UID '4BEA99D601B3'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // IsGK
+         ; // %OPERATIONS
+        ; // IsGK
+        FINAL <<method>> IsLAW
+         %UID '4C35A6FB027C'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4C35A70801C2'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // IsLAW
+        FINAL <<method>> IsTestExcluded
+         %UID '4C4467E300C2'
+         %SUMMARY 'Ислючён ли тест из запуска' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4B2A10C40309' /* DUnitTuning */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4C98A7F40006"
+            %UID '4C98A7F40006'
+            %TARGET U$ '4C98A7AB00F5' /* WTSGetActiveConsoleSessionId */
+           ; // 4C98A7F40006
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4C446809035A'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4B2A10C40309' /* DUnitTuning */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aTest
+               %UID '4C44681500B7'
+               %TARGET U$ '4B2A11BC0255' /* TBaseTest */
+               %TOBEINCLUDED
+                U$ '4B2A10C40309' /* DUnitTuning */
+               ; // %TOBEINCLUDED
+              ; // aTest
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // IsTestExcluded
+        FINAL <<method>> FileFromCurrent
+         %UID '4C44691E00D2'
+         %SUMMARY 'Файл из текущей директории с эталонами' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4C446951038A'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aStr
+               %UID '4EA56D6000B1'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aStr
+              <<in>> anFolderScript
+               %UID '4EA56D6000E0'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // anFolderScript
+              <<in>> aCheckFolderOnly
+               %UID '4FA1535B02A2'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aCheckFolderOnly
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // FileFromCurrent
+        FINAL <<method>> IsFakeCVS
+         %UID '4CA9DF26032E'
+         %SUMMARY 'Не класть эталоны в CVS' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CA9DF3B00BB'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // IsFakeCVS
+        FINAL <<method>> CheckTestExcluded
+         %UID '4CFDD3FE01F7'
+         %SUMMARY 'Проверяет находилтся ли тест в списках выключенных.' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CFDD4D401FB'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aTestName
+               %UID '4CFDD6DF025E'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aTestName
+              <<in>> aFolderName
+               %UID '4CFDD6DF027E'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aFolderName
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // CheckTestExcluded
+        FINAL <<method>> CheckFolderExcluded
+         %UID '4CFDD9AA0156'
+         %SUMMARY 'Проверить папку на исключенные.' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CFDD9EE007F'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aFolderName
+               %UID '4CFDD9FE0115'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aFolderName
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // CheckFolderExcluded
+        FINAL <<method>> DeleteEtalons
+         %UID '4D189B760354'
+         %SUMMARY 'Удаляет эталоны для теста.' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4D189BAD0365'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aTestName
+               %UID '4F9A4E4E0227'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aTestName
+              <<in>> aSubFiler
+               %UID '4F9A4E4E024C'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aSubFiler
+              <<in>> anIsScript
+               %UID '4F9A4E4E0271'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // anIsScript
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DeleteEtalons
+        FINAL <<method>> LoadExcludedFromFile
+         %UID '4D1993F70157'
+         %SUMMARY 'Загрузка исключенных тестов из файла.' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4D19943E0312'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aFileName
+               %UID '4DD0E12C0306'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aFileName
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // LoadExcludedFromFile
+        FINAL <<method>> GetCVSTestSetPath
+         %UID '4D199AE40101'
+         %SUMMARY 'Возвращает путь к хранилищу тестов из CVS' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4D199B18009F'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // GetCVSTestSetPath
+        FINAL <<method>> GetAppTestSetPath
+         %UID '4D199B3302E4'
+         %SUMMARY 'Возвращает путь к хранилищу тестов приложения.' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4D199B690331'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // GetAppTestSetPath
+        PRIVATE FINAL <<method>> CheckExcludedTests
+         %UID '4D19A727015E'
+         %SUMMARY 'Проверяет был ли загружен список исключенных тестов.' ;
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4D19A77203B4'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // CheckExcludedTests
+        FINAL <<method>> LoadTestNamesFromFile
+         %UID '4D1AEDA90114'
+         %SUMMARY 'Загрузка имен тестов для выполнения из файла.' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4B2A10C40309' /* DUnitTuning */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4D1AEDCD02A5'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4B2A10C40309' /* DUnitTuning */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aFileName
+               %UID '52452C5C0306'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aFileName
+              <<in>> anOperation
+               %UID '52452C5C0325'
+               %TARGET U$ '524513D603C3' /* TLoadOperation */
+               %TOBEINCLUDED
+                U$ '4B2A10C40309' /* DUnitTuning */
+               ; // %TOBEINCLUDED
+              ; // anOperation
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // LoadTestNamesFromFile
+        FINAL <<method>> NeedRunTest
+         %UID '4D1AF4DC0002'
+         %SUMMARY 'Проверяет нужно ли запускать тест (наличие его названия в списке загруженных).' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4D1AF52C028C'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aTestName
+               %UID '4DD0DED30045'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aTestName
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // NeedRunTest
+        FINAL <<method>> CheckFileParam
+         %UID '4D1AFEBF00A5'
+         %SUMMARY 'Проверяет есть ли параметр для загрузки непрошедших тестов.' ;
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4D1AFF3F01D5'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // CheckFileParam
+        FINAL <<method>> CheckNeedRandom
+         %UID '4EFC531803DA'
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4EFC53280008'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // CheckNeedRandom
+        FINAL <<method>> NeedRandom
+         %UID '4EFC533C020F'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4EFC534F01F1'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // NeedRandom
+        FINAL <<method>> CheckIgnoreCVS
+         %UID '506D62750048'
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '506D628C0235'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // CheckIgnoreCVS
+        FINAL <<method>> IgnoreCVSPath
+         %UID '506D653C0185'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '506D654F033B'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // IgnoreCVSPath
+        FINAL <<method>> ClearTestNamesList
+         %UID '525CFD5E010C'
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '525CFD6E03D2'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // ClearTestNamesList
+        FINAL <<method>> LoadDocumentIDList
+         %UID '5279D73902C8'
+         %SUMMARY 'Загружает список тестов и номеров документов.' ;
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5279D76F01CB'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // LoadDocumentIDList
+        FINAL <<method>> FindDocID
+         %UID '5279D7860187'
+         %SUMMARY 'Ищет номер доукумента по номеру теста.' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5279D79E0019'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aTestName
+               %UID '5279D7AB03D1'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aTestName
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // FindDocID
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<SimpleClass>> TKTestListener
+         %UID '4B2A6CEB0377'
+         %SUMMARY 'Тест, выводящий результаты в К' ;
+         %META
+          %upv "author" 'Люлин А.В.'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" true
+          %upv "register in scripts" 'undefined'
+          %upv "started" '17.12.2009 20:40'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+          U$ '4B2A0D4A006F' /* DUnit */
+          U$ '4B2A10C40309' /* DUnitTuning */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4B2A6CAD036B' /* TTextTestListener */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '4B2A6CBC008B' /* write */
+          U$ '4B2A6CCF00BB' /* writeln */
+          U$ '4B2B6B800265' /* Cleanup */
+          U$ '4B2B6BA1037F' /* InitFields */
+          U$ '4B2FBFA903C9' /* NeedsMilliseconds */
+          U$ '4CACA6980207' /* PrintErrorItem */
+          U$ '4F16BEF60233' /* AddSuccess */
+          U$ '4F16BF26031B' /* AddError */
+          U$ '4F16BF430163' /* AddFailure */
+          U$ '5374DA8103BC' /* TestingStarts */
+          U$ '5374DA9401BF' /* TestingEnds */
+          U$ '5374DAC503BB' /* StartTest */
+         ; // %OVERRIDES
+         %LINKS
+           <<uses>> "4B2B6D38027A"
+            %UID '4B2B6D38027A'
+            %TARGET U$ '47A082F101DB' /* "Ext Chars" */
+           ; // 4B2B6D38027A
+           <<uses>> "4B2B6D9C0164"
+            %UID '4B2B6D9C0164'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 4B2B6D9C0164
+           <<uses>> "4B4DCDD20108"
+            %UID '4B4DCDD20108'
+            %TARGET U$ '4B4DCDA1023B' /* CPUID */
+           ; // 4B4DCDD20108
+           <<uses>> "4B570081036A"
+            %UID '4B570081036A'
+            %TARGET U$ '4B57005201FC' /* FileDateTime */
+           ; // 4B570081036A
+           <<uses>> "4B5700F400CE"
+            %UID '4B5700F400CE'
+            %TARGET U$ '4B5700DD0069' /* l3DateTimeToStr */
+           ; // 4B5700F400CE
+           <<uses>> "4B570B270117"
+            %UID '4B570B270117'
+            %TARGET U$ '4B570AFF0023' /* AnsiReplaceStr */
+           ; // 4B570B270117
+           <<uses>> "4C937E7B0181"
+            %UID '4C937E7B0181'
+            %TARGET U$ '4B2A0DCE03A9' /* TestFrameWork */
+           ; // 4C937E7B0181
+           <<uses>> "4C98BA7E0242"
+            %UID '4C98BA7E0242'
+            %TARGET U$ '47880AFE0139' /* TScreen */
+           ; // 4C98BA7E0242
+           <<uses>> "4C99C0FD0048"
+            %UID '4C99C0FD0048'
+            %TARGET U$ '4C99C0CC0015' /* l3IsRemoteSession */
+           ; // 4C99C0FD0048
+           <<uses>> "4CA0BBEF0366"
+            %UID '4CA0BBEF0366'
+            %TARGET U$ '4CA0BB8600CF' /* TKBridge */
+           ; // 4CA0BBEF0366
+           <<uses>> "4CACAAC40020"
+            %UID '4CACAAC40020'
+            %TARGET U$ '4CA1C00E03B3' /* IServerGate_Contents_KPage */
+           ; // 4CACAAC40020
+           <<uses>> "4D0BAA5F0199"
+            %UID '4D0BAA5F0199'
+            %TARGET U$ '4B57004201BD' /* l3FileUtils */
+           ; // 4D0BAA5F0199
+           <<uses>> "4DF79CF6035C"
+            %UID '4DF79CF6035C'
+            %TARGET U$ '4DF79C8702EF' /* Nemesis */
+           ; // 4DF79CF6035C
+         ; // %LINKS
+         %ATTRIBUTES
+           PRIVATE <<static>> f_File
+            %UID '4B2B6D0F0045'
+            %TARGET U$ '4B2B6CB403B7' /* TextFile */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_File
+           PRIVATE <<Attribute>> f_TimeInfo
+            %UID '4B2F5D0C023C'
+            %TARGET U$ '4B2F5BB102A4' /* TTimeInfoList */
+            %TOBEINCLUDED
+             U$ '4B2A10C40309' /* DUnitTuning */
+            ; // %TOBEINCLUDED
+           ; // f_TimeInfo
+           PRIVATE <<static>> f_IsFakeK
+            %UID '4B589B0A00A8'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_IsFakeK
+           PRIVATE <<static>> f_FakeKValid
+            %UID '4B589B1302AE'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_FakeKValid
+           PRIVATE <<static>> f_FakeCVSValid
+            %UID '4CA9DFB50249'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_FakeCVSValid
+           PRIVATE <<static>> f_IsFakeCVS
+            %UID '4CA9DFDE035F'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_IsFakeCVS
+           PRIVATE <<Attribute>> f_FailedTests
+            %UID '4D0BA7440021'
+            %TARGET U$ '4B2B6CB403B7' /* TextFile */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_FailedTests
+           PRIVATE <<Attribute>> f_AllRunnedTests
+            %UID '4F16C00701CF'
+            %SUMMARY 'Список всех прошедших тестов' ;
+            %TARGET U$ '4B2B6CB403B7' /* TextFile */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_AllRunnedTests
+           PRIVATE <<Attribute>> f_RunnedCount
+            %UID '5374DB6C02EF'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_RunnedCount
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           PROTECTED FINAL <<method>> PutResultsToK
+            %UID '4B2B6F740014'
+            %LINKS
+              <<uses>> "4B2B7A7B0228"
+               %UID '4B2B7A7B0228'
+               %TARGET U$ '4B2B7A6C004E' /* CreateProcess */
+              ; // 4B2B7A7B0228
+            ; // %LINKS
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4B2B6F8900C1'
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // PutResultsToK
+           PRIVATE FINAL <<method>> ToLog
+            %UID '4B2B93A4002D'
+            %META
+             %upv "is static" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4B2B93AB00BF'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aSt
+                  %UID '4B2B93B30259'
+                  %TARGET U$ '476136D3010B' /* String */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aSt
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // ToLog
+           PRIVATE FINAL <<method>> PutFileToK
+            %UID '4B2B954502BE'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %LINKS
+              <<uses>> "4B2B956303E4"
+               %UID '4B2B956303E4'
+               %TARGET U$ '4B2F92D20307' /* CommunicateWithK */
+              ; // 4B2B956303E4
+              <<uses>> "4B2FC4080306"
+               %UID '4B2FC4080306'
+               %TARGET U$ '4B2FC528001C' /* l3CompareFiles */
+              ; // 4B2FC4080306
+            ; // %LINKS
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4B2B9583032C'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aPageID
+                  %UID '4B2B959602F6'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aPageID
+                 <<in>> aFileName
+                  %UID '4B2B95960327'
+                  %TARGET U$ '476136D3010B' /* String */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aFileName
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // PutFileToK
+           PRIVATE FINAL <<method>> TimeToLog
+            %UID '4B2F51C3008F'
+            %META
+             %upv "is static" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4B2F51D203CE'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aTime
+                  %UID '4B2F51D50309'
+                  %TARGET U$ '46A618AF0053' /* Cardinal */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aTime
+                 <<in>> aSt
+                  %UID '4B2F51D5032A'
+                  %TARGET U$ '476136D3010B' /* String */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aSt
+                 <<in>> aSubName
+                  %UID '4B588D920358'
+                  %TARGET U$ '476136D3010B' /* String */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aSubName
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // TimeToLog
+           FINAL <<method>> CommunicateWithK
+            %UID '4B2F92D20307'
+            %META
+             %upv "is static" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4B2A10C40309' /* DUnitTuning */
+            ; // %TOBEINCLUDED
+            %LINKS
+              <<uses>> "4B2F931A01C3"
+               %UID '4B2F931A01C3'
+               %TARGET U$ '4B2B7A6C004E' /* CreateProcess */
+              ; // 4B2F931A01C3
+            ; // %LINKS
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4B2F92EF0171'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4B2A10C40309' /* DUnitTuning */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aPageID
+                  %UID '4B2F92FC00A1'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aPageID
+                 <<in>> aFileName
+                  %UID '4B2F92FC00EE'
+                  %TARGET U$ '476136D3010B' /* String */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aFileName
+                 <<in>> anOp
+                  %UID '4B2F92FC0118'
+                  %TARGET U$ '4B2F92860054' /* TKFileOperation */
+                  %TOBEINCLUDED
+                   U$ '4B2A10C40309' /* DUnitTuning */
+                  ; // %TOBEINCLUDED
+                 ; // anOp
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // CommunicateWithK
+           PRIVATE FINAL <<method>> GetFileFromK
+            %UID '4B2F95810108'
+            %SUMMARY 'Получает файл из К' ;
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %LINKS
+              <<uses>> "4B2F95D200B2"
+               %UID '4B2F95D200B2'
+               %TARGET U$ '4B2F92D20307' /* CommunicateWithK */
+              ; // 4B2F95D200B2
+            ; // %LINKS
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4B2F959402AD'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aPageID
+                  %UID '4B2F959802D1'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aPageID
+                 <<in>> aFileName
+                  %UID '4B2F959802F9'
+                  %TARGET U$ '476136D3010B' /* String */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aFileName
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // GetFileFromK
+           PRIVATE FINAL <<method>> GetTimesFromK
+            %UID '4B2F9BAE023F'
+            %SUMMARY 'Получает из К замеры времени' ;
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790D09A0378' /* L3 */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %LINKS
+              <<uses>> "4B2F9BEE035A"
+               %UID '4B2F9BEE035A'
+               %TARGET U$ '4B2F95810108' /* GetFileFromK */
+              ; // 4B2F9BEE035A
+              <<uses>> "4B2F9C3702AC"
+               %UID '4B2F9C3702AC'
+               %TARGET U$ '48F4BE400154' /* Tl3FileMode */
+              ; // 4B2F9C3702AC
+              <<uses>> "4B2F9ECF028F"
+               %UID '4B2F9ECF028F'
+               %TARGET U$ '47878E0E0191' /* l3String */
+              ; // 4B2F9ECF028F
+            ; // %LINKS
+            %ATTRIBUTES
+              PRIVATE FINAL <<var>> F
+               %UID '4B2F9C1901C3'
+               %TARGET U$ '47A0679D00E4' /* Tl3CustomFiler */
+               %META
+                %upv "IsResult" false
+               ; // %META
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // F
+              PRIVATE FINAL <<var>> N
+               %UID '4B2F9C2001EC'
+               %TARGET U$ '476136D3010B' /* String */
+               %META
+                %upv "IsResult" false
+               ; // %META
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // N
+              PRIVATE FINAL <<var>> L
+               %UID '4B2F9C6803D1'
+               %TARGET U$ '46780D0003AF' /* Tl3WString */
+               %META
+                %upv "IsResult" false
+               ; // %META
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // L
+            ; // %ATTRIBUTES
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4B2F9BD50138'
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // GetTimesFromK
+           PRIVATE FINAL <<method>> CheckTimeInfo
+            %UID '4B2FA99E03C3'
+            %SUMMARY 'Проверяет, что список времён создан' ;
+            %META
+             %upv "is static" false
+            ; // %META
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4B2FA9BB028A'
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // CheckTimeInfo
+           PRIVATE FINAL <<method>> TimesPage
+            %UID '4B4DC8DD0087'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4B4DC8E80378'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // TimesPage
+           FINAL <<method>> ResultsPage
+            %UID '4B4DC923001A'
+            %META
+             %upv "is static" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4B4DC92E03D2'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // ResultsPage
+           PRIVATE FINAL <<method>> TimesFileName
+            %UID '4B58989D02ED'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4B5898AC02EA'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // TimesFileName
+           PRIVATE FINAL <<method>> ResultsFileName
+            %UID '4B589976028C'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4B5899840129'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // ResultsFileName
+           PRIVATE FINAL <<method>> IsFakeK
+            %UID '4B589ABD02C3'
+            %META
+             %upv "is static" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4B589ACB0015'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // IsFakeK
+           PRIVATE FINAL <<method>> PutTimesToK
+            %UID '4B2F60140143'
+            %SUMMARY 'Выводит в К замеры времени' ;
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790D09A0378' /* L3 */
+             U$ '4B2A10C40309' /* DUnitTuning */
+            ; // %TOBEINCLUDED
+            %LINKS
+              <<uses>> "4B2F61C003AF"
+               %UID '4B2F61C003AF'
+               %TARGET U$ '48F4BE400154' /* Tl3FileMode */
+              ; // 4B2F61C003AF
+              <<uses>> "4B5892FF0367"
+               %UID '4B5892FF0367'
+               %TARGET U$ '47A066980016' /* l3MinMax */
+              ; // 4B5892FF0367
+            ; // %LINKS
+            %ATTRIBUTES
+              PRIVATE FINAL <<var>> Index
+               %UID '4B2F617F0344'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %META
+                %upv "IsResult" false
+               ; // %META
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Index
+              PROTECTED FINAL <<var>> F
+               %UID '4B2F61AC0042'
+               %TARGET U$ '47A0679D00E4' /* Tl3CustomFiler */
+               %META
+                %upv "IsResult" false
+               ; // %META
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // F
+              PRIVATE FINAL <<var>> N
+               %UID '4B2F641E00AC'
+               %TARGET U$ '476136D3010B' /* String */
+               %META
+                %upv "IsResult" false
+               ; // %META
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // N
+              PRIVATE FINAL <<var>> Info
+               %UID '4B2F643F02C2'
+               %TARGET U$ '4B2F565002FD' /* TTimeInfo */
+               %META
+                %upv "IsResult" false
+               ; // %META
+               %TOBEINCLUDED
+                U$ '4B2A10C40309' /* DUnitTuning */
+               ; // %TOBEINCLUDED
+              ; // Info
+            ; // %ATTRIBUTES
+            %OPERATIONS
+              PROTECTED FINAL <<localmethod>> OutTaskLink
+               %UID '4B7C16A10288'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %ATTRIBUTES
+                 PRIVATE FINAL <<var>> KPos
+                  %UID '4B7C16FB0077'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %META
+                   %upv "IsResult" false
+                  ; // %META
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // KPos
+               ; // %ATTRIBUTES
+               %OPERATIONS
+                 PRIVATE FINAL <<Operation>> DoIt
+                  %UID '4B7C16BA02A4'
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                  %PARAMETERS
+                    <<in>> aN
+                     %UID '4B7C16BF0285'
+                     %TARGET U$ '476136D3010B' /* String */
+                     %TOBEINCLUDED
+                      U$ '469F3E37025A' /* Rtl */
+                     ; // %TOBEINCLUDED
+                    ; // aN
+                  ; // %PARAMETERS
+                 ; // DoIt
+               ; // %OPERATIONS
+              ; // OutTaskLink
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4B2F60340106'
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // PutTimesToK
+           PROTECTED FINAL <<method>> GetLabels
+            %UID '4C359E6E02F6'
+            %SUMMARY 'Возвращает метки страницы с тестами' ;
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4C359E89027A'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // GetLabels
+           PRIVATE FINAL <<method>> GetLabelsFileName
+            %UID '4C359EBF0304'
+            %SUMMARY 'Возвращает имя файла с метками страницы тестов' ;
+            %META
+             %upv "ifndef" 'NoKPageTool'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4C359EE101D1'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // GetLabelsFileName
+           PRIVATE FINAL <<method>> IsFakeCVS
+            %UID '4CA9DEBE020F'
+            %SUMMARY 'Не класть эталоны в CVS' ;
+            %META
+             %upv "is static" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4CA9DF0E001F'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // IsFakeCVS
+           PRIVATE FINAL <<method>> FailedTestsFileName
+            %UID '4D0BA93103C6'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4D0BA93F008C'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // FailedTestsFileName
+           FINAL <<method>> WriteMsg
+            %UID '4DD65F780370'
+            %META
+             %upv "is static" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4DD65F8F0243'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aStr
+                  %UID '4DD65F9902B3'
+                  %TARGET U$ '476136D3010B' /* String */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aStr
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // WriteMsg
+           FINAL <<method>> AttachFile
+            %UID '4EB2C81101FB'
+            %META
+             %upv "is static" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4EB2C8250113'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aPage
+                  %UID '4EB2C8320285'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aPage
+                 <<in>> aFile
+                  %UID '4EB2C8320328'
+                  %TARGET U$ '476136D3010B' /* String */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aFile
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // AttachFile
+           PRIVATE FINAL <<method>> TestNameForOutputInTestLists
+            %UID '4F16BFB0026E'
+            %SUMMARY 'Имя теста для вывода в список неудачных тестов и в полный список прогнанных тестов' ;
+            %META
+             %upv "is static" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4B2A0D4A006F' /* DUnit */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4F16BFCD02B4'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4B2A0D4A006F' /* DUnit */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aTest
+                  %UID '4F16BFDF003A'
+                  %TARGET U$ '4B2F420202F4' /* ITest */
+                  %TOBEINCLUDED
+                   U$ '4B2A0D4A006F' /* DUnit */
+                  ; // %TOBEINCLUDED
+                 ; // aTest
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // TestNameForOutputInTestLists
+           PRIVATE FINAL <<method>> AllRunnedTestsFileName
+            %UID '4F16C0470089'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4F16C0590287'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // AllRunnedTestsFileName
+           PRIVATE FINAL <<method>> WriteTestToAllRunnedTests
+            %UID '4F16C8890222'
+            %TOBEINCLUDED
+             U$ '4B2A0D4A006F' /* DUnit */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4F16C8A10390'
+               %TOBEINCLUDED
+                U$ '4B2A0D4A006F' /* DUnit */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aTest
+                  %UID '4F16C8A601B1'
+                  %TARGET U$ '4B2F420202F4' /* ITest */
+                  %TOBEINCLUDED
+                   U$ '4B2A0D4A006F' /* DUnit */
+                  ; // %TOBEINCLUDED
+                 ; // aTest
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // WriteTestToAllRunnedTests
+           PRIVATE FINAL <<method>> AddMemoryStat
+            %UID '5374DB31018E'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '5374DB4A00A7'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aTestName
+                  %UID '5374DB5601A6'
+                  %TARGET U$ '476136D3010B' /* String */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aTestName
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // AddMemoryStat
+         ; // %OPERATIONS
+         %CHILDREN
+          
+           <<Enum>> TKFileOperation
+            %UID '4B2F92860054'
+            %SUMMARY 'Операция с файлом в К' ;
+            %ATTRIBUTES
+              <<Attribute>> foGet
+               %UID '4B2F92A1037F'
+               %SUMMARY 'Прочитать файл' ;
+              ; // foGet
+              <<Attribute>> foSet
+               %UID '4B2F92B2030E'
+               %SUMMARY 'Записать файл' ;
+              ; // foSet
+              <<Attribute>> foGetLabel
+               %UID '4BFD417300C1'
+               %SUMMARY 'Получить метки' ;
+              ; // foGetLabel
+              <<Attribute>> foSetLabel
+               %UID '4BFD418002DF'
+               %SUMMARY 'Установить метки' ;
+              ; // foSetLabel
+              <<Attribute>> foAttach
+               %UID '4EB2C7F20025'
+              ; // foAttach
+            ; // %ATTRIBUTES
+           ; // TKFileOperation
+           <<StaticObject>> TTimeInfoName
+            %UID '4B6BF212005D'
+            %META
+             %upv "not treat as record for XE4" 'undefined'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4B2A10C40309' /* DUnitTuning */
+            ; // %TOBEINCLUDED
+            %LINKS
+              <<uses>> "4B6C3040021E"
+               %UID '4B6C3040021E'
+               %TARGET U$ '4B2F575E03BA' /* CompareStr */
+              ; // 4B6C3040021E
+            ; // %LINKS
+            %ATTRIBUTES
+              FINAL <<Attribute>> rSubName
+               %UID '4B588B1203AA'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // rSubName
+              LINK <<Attribute>> rName
+               %UID '4B6BF2490033'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // rName
+            ; // %ATTRIBUTES
+            %OPERATIONS
+              FINAL <<method>> Compare
+               %UID '4B6C348B023F'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4B2A10C40309' /* DUnitTuning */
+               ; // %TOBEINCLUDED
+               %OPERATIONS
+                 PRIVATE FINAL <<Operation>> Compare
+                  %UID '4B6C3498021F'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                   U$ '4B2A10C40309' /* DUnitTuning */
+                  ; // %TOBEINCLUDED
+                  %PARAMETERS
+                    <<in>> aName
+                     %UID '4B6C34A30367'
+                     %TARGET U$ '4B6BF212005D' /* TTimeInfoName */
+                     %TOBEINCLUDED
+                      U$ '4B2A10C40309' /* DUnitTuning */
+                     ; // %TOBEINCLUDED
+                    ; // aName
+                  ; // %PARAMETERS
+                 ; // Compare
+               ; // %OPERATIONS
+              ; // Compare
+            ; // %OPERATIONS
+           ; // TTimeInfoName
+           <<StaticObject>> TTimeInfo
+            %UID '4B2F565002FD'
+            %SUMMARY 'Информация о замере времени' ;
+            %META
+             %upv "not treat as record for XE4" 'undefined'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4B2A10C40309' /* DUnitTuning */
+            ; // %TOBEINCLUDED
+            %LINKS
+              <<uses>> "4B2F57770198"
+               %UID '4B2F57770198'
+               %TARGET U$ '4B2F575E03BA' /* CompareStr */
+              ; // 4B2F57770198
+            ; // %LINKS
+            %ATTRIBUTES
+              FINAL <<Attribute>> rDate
+               %UID '4B2F56C902AA'
+               %TARGET U$ '47272C8B0128' /* TDateTime */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // rDate
+              FINAL <<Attribute>> rTime
+               %UID '4B2F56E903A4'
+               %TARGET U$ '46A618AF0053' /* Cardinal */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // rTime
+              FINAL <<Attribute>> rID
+               %UID '4B6BF2310334'
+               %TARGET U$ '4B6BF212005D' /* TTimeInfoName */
+               %TOBEINCLUDED
+                U$ '4B2A10C40309' /* DUnitTuning */
+               ; // %TOBEINCLUDED
+              ; // rID
+            ; // %ATTRIBUTES
+            %OPERATIONS
+              FINAL <<Constructor>> C$4B6C40530304
+               %UID '4B6C40530304'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %OPERATIONS
+                 PRIVATE FINAL <<Operation>> C$4B6C405B0053
+                  %UID '4B6C405B0053'
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                  %PARAMETERS
+                    <<in>> aDate
+                     %UID '4B6C405D03AD'
+                     %TARGET U$ '47272C8B0128' /* TDateTime */
+                     %TOBEINCLUDED
+                      U$ '469F3E37025A' /* Rtl */
+                     ; // %TOBEINCLUDED
+                    ; // aDate
+                    <<in>> aName
+                     %UID '4B6C405D03D1'
+                     %TARGET U$ '476136D3010B' /* String */
+                     %TOBEINCLUDED
+                      U$ '469F3E37025A' /* Rtl */
+                     ; // %TOBEINCLUDED
+                    ; // aName
+                    <<in>> aTime
+                     %UID '4B6C405E0010'
+                     %TARGET U$ '46A618AF0053' /* Cardinal */
+                     %TOBEINCLUDED
+                      U$ '469F3E37025A' /* Rtl */
+                     ; // %TOBEINCLUDED
+                    ; // aTime
+                    <<in>> aSubName
+                     %UID '4B6C405E003D'
+                     %TARGET U$ '476136D3010B' /* String */
+                     %TOBEINCLUDED
+                      U$ '469F3E37025A' /* Rtl */
+                     ; // %TOBEINCLUDED
+                    ; // aSubName
+                  ; // %PARAMETERS
+                 ; // C$4B6C405B0053
+               ; // %OPERATIONS
+              ; // C$4B6C40530304
+              FINAL <<Operation>> Compare
+               %UID '4B2F57280040'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4B2A10C40309' /* DUnitTuning */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aInfo
+                  %UID '4B2F5736015D'
+                  %TARGET U$ '4B2F565002FD' /* TTimeInfo */
+                  %TOBEINCLUDED
+                   U$ '4B2A10C40309' /* DUnitTuning */
+                  ; // %TOBEINCLUDED
+                 ; // aInfo
+               ; // %PARAMETERS
+              ; // Compare
+              FINAL <<ctor>> C$4B2F582A0382
+               %UID '4B2F582A0382'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aName
+                  %UID '4B2F5831021B'
+                  %TARGET U$ '476136D3010B' /* String */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aName
+                 <<in>> aTime
+                  %UID '4B2F5831024C'
+                  %TARGET U$ '46A618AF0053' /* Cardinal */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aTime
+               ; // %PARAMETERS
+              ; // C$4B2F582A0382
+              FINAL <<Operation>> EQ
+               %UID '4B2FAB480293'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4B2A10C40309' /* DUnitTuning */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aInfo
+                  %UID '4B2FAB5B0172'
+                  %TARGET U$ '4B2F565002FD' /* TTimeInfo */
+                  %TOBEINCLUDED
+                   U$ '4B2A10C40309' /* DUnitTuning */
+                  ; // %TOBEINCLUDED
+                 ; // aInfo
+               ; // %PARAMETERS
+              ; // EQ
+              FINAL <<ctor>> C$4B588AFA0000
+               %UID '4B588AFA0000'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aDate
+                  %UID '4B588AFD00D7'
+                  %TARGET U$ '47272C8B0128' /* TDateTime */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aDate
+                 <<in>> aName
+                  %UID '4B588AFD0112'
+                  %TARGET U$ '476136D3010B' /* String */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aName
+                 <<in>> aTime
+                  %UID '4B588AFD014F'
+                  %TARGET U$ '46A618AF0053' /* Cardinal */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aTime
+               ; // %PARAMETERS
+              ; // C$4B588AFA0000
+              FINAL <<ctor>> C$4B58926401DE
+               %UID '4B58926401DE'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aName
+                  %UID '4B58926B0289'
+                  %TARGET U$ '476136D3010B' /* String */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aName
+                 <<in>> aTime
+                  %UID '4B58926B02CE'
+                  %TARGET U$ '46A618AF0053' /* Cardinal */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aTime
+                 <<in>> aSubName
+                  %UID '4B58926B0314'
+                  %TARGET U$ '476136D3010B' /* String */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aSubName
+               ; // %PARAMETERS
+              ; // C$4B58926401DE
+            ; // %OPERATIONS
+            %CHILDREN
+             
+              <<Typedef>> PTimeInfo
+               %UID '4B2FC1540213'
+               %META
+                %upv "isPointer" true
+               ; // %META
+               %TOBEINCLUDED
+                U$ '4B2A10C40309' /* DUnitTuning */
+               ; // %TOBEINCLUDED
+               %INHERITS
+                U$ '4B2F565002FD' /* TTimeInfo */
+               ; // %INHERITS
+              ; // PTimeInfo
+            ; // %CHILDREN
+           ; // TTimeInfo
+           <<SimpleClass>> TTimeInfoList
+            %UID '4B2F5BB102A4'
+            %SUMMARY 'Список замеров времени' ;
+            %META
+             %upv "author" 'Люлин А.В.'
+             %upv "needs InstanceR" 'undefined'
+             %upv "needs script" 'undefined'
+             %upv "no hands" true
+             %upv "register in scripts" 'undefined'
+             %upv "started" '21.12.2009 14:28'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790D09A0378' /* L3 */
+             U$ '4B2A10C40309' /* DUnitTuning */
+            ; // %TOBEINCLUDED
+            %INHERITS
+             U$ '4A54DD4E036F' /* Tl3ProtoDataContainer */
+             U$ '4B223DB5024B' /* l3RecordWithEQList */
+            ; // %INHERITS
+            %REALIZES
+             U$ '47B2C42A0163' /* AssignItem */
+             U$ '47B99D4503A2' /* CompareExistingItems */
+            ; // %REALIZES
+            %ATTRIBUTES
+              PRIVATE ABSTRACT <<impurity_value>> ItemType
+               %UID '4B2F5BD50068'
+               %TARGET U$ '4B2F565002FD' /* TTimeInfo */
+               %TOBEINCLUDED
+                U$ '4B2A10C40309' /* DUnitTuning */
+               ; // %TOBEINCLUDED
+              ; // ItemType
+            ; // %ATTRIBUTES
+            %OPERATIONS
+              FINAL <<method>> Compact
+               %UID '4B7A98A10031'
+               %SUMMARY 'Минимизирует число замеров в графике до указанного числа' ;
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4B2A10C40309' /* DUnitTuning */
+               ; // %TOBEINCLUDED
+               %ATTRIBUTES
+                 PRIVATE FINAL <<var>> Name
+                  %UID '4B7A98F702E5'
+                  %SUMMARY 'Имя текущего замера' ;
+                  %TARGET U$ '4B6BF212005D' /* TTimeInfoName */
+                  %META
+                   %upv "IsResult" false
+                  ; // %META
+                  %TOBEINCLUDED
+                   U$ '4B2A10C40309' /* DUnitTuning */
+                  ; // %TOBEINCLUDED
+                 ; // Name
+                 PRIVATE FINAL <<var>> i
+                  %UID '4B7A992B029F'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %META
+                   %upv "IsResult" false
+                  ; // %META
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // i
+                 PRIVATE FINAL <<var>> j
+                  %UID '4B7A993203DD'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %META
+                   %upv "IsResult" false
+                  ; // %META
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // j
+                 PRIVATE FINAL <<var>> C
+                  %UID '4B7A993D00A0'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %META
+                   %upv "IsResult" false
+                  ; // %META
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // C
+                 PRIVATE FINAL <<var>> SeriesCount
+                  %UID '4B7A9AE20058'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %META
+                   %upv "IsResult" false
+                  ; // %META
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // SeriesCount
+               ; // %ATTRIBUTES
+               %OPERATIONS
+                 PRIVATE FINAL <<Operation>> DoIt
+                  %UID '4B7A98C401F1'
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                  %PARAMETERS
+                    <<in>> aCount
+                     %UID '4B7A98CF0198'
+                     %TARGET U$ '46A606AC03B2' /* Integer */
+                     %TOBEINCLUDED
+                      U$ '469F3E37025A' /* Rtl */
+                     ; // %TOBEINCLUDED
+                    ; // aCount
+                  ; // %PARAMETERS
+                 ; // DoIt
+               ; // %OPERATIONS
+              ; // Compact
+              FINAL <<method>> DeleteOld
+               %UID '4B7AA321023D'
+               %SUMMARY 'Удаляет старые замеры' ;
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4B2A10C40309' /* DUnitTuning */
+               ; // %TOBEINCLUDED
+               %ATTRIBUTES
+                 PRIVATE FINAL <<var>> Name
+                  %UID '4B7AA35F0394'
+                  %TARGET U$ '4B6BF212005D' /* TTimeInfoName */
+                  %META
+                   %upv "IsResult" false
+                  ; // %META
+                  %TOBEINCLUDED
+                   U$ '4B2A10C40309' /* DUnitTuning */
+                  ; // %TOBEINCLUDED
+                 ; // Name
+                 PRIVATE FINAL <<var>> i
+                  %UID '4B7AA364036E'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %META
+                   %upv "IsResult" false
+                  ; // %META
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // i
+                 PRIVATE FINAL <<var>> j
+                  %UID '4B7AA36C02EB'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %META
+                   %upv "IsResult" false
+                  ; // %META
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // j
+                 PRIVATE FINAL <<var>> SeriesCount
+                  %UID '4B7AA3730047'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %META
+                   %upv "IsResult" false
+                  ; // %META
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // SeriesCount
+                 PRIVATE FINAL <<var>> C
+                  %UID '4B7AA37E0030'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %META
+                   %upv "IsResult" false
+                  ; // %META
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // C
+                 PRIVATE FINAL <<var>> MaxDate
+                  %UID '4B7AA39B0011'
+                  %TARGET U$ '47272C8B0128' /* TDateTime */
+                  %META
+                   %upv "IsResult" false
+                  ; // %META
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // MaxDate
+               ; // %ATTRIBUTES
+               %OPERATIONS
+                 PRIVATE FINAL <<Operation>> DoIt
+                  %UID '4B7AA33B0391'
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                  %PARAMETERS
+                    <<in>> aDateDelta
+                     %UID '4B7AA34E0148'
+                     %TARGET U$ '46A606AC03B2' /* Integer */
+                     %TOBEINCLUDED
+                      U$ '469F3E37025A' /* Rtl */
+                     ; // %TOBEINCLUDED
+                    ; // aDateDelta
+                  ; // %PARAMETERS
+                 ; // DoIt
+               ; // %OPERATIONS
+              ; // DeleteOld
+            ; // %OPERATIONS
+            %CHILDREN
+             
+              FINAL <<Define>> l3Items_NeedsAssignItem
+               %UID '5305DF9803C7'
+              ; // l3Items_NeedsAssignItem
+            ; // %CHILDREN
+           ; // TTimeInfoList
+         ; // %CHILDREN
+        ; // TKTestListener
+        <<SimpleClass>> TTestResultsPlace
+         %UID '4B7AAC7A031D'
+         %SUMMARY 'Место для складывания результатов тестов' ;
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4B2A10C40309' /* DUnitTuning */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PROTECTED FINAL <<method>> HasTabs
+            %UID '555EF157016F'
+            %META
+             %upv "is static" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '555EF1630385'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // HasTabs
+           PROTECTED ABSTRACT <<static>> CommandLineKey
+            %UID '4B7AB0B6016E'
+            %SUMMARY 'Ключ командной строки при указании которого будет выбрано данное место расположения результатов' ;
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // CommandLineKey
+           PROTECTED ABSTRACT <<static>> TimesPage
+            %UID '4B7C0B43005B'
+            %SUMMARY 'Страница для вывода замеров времени' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // TimesPage
+           PROTECTED ABSTRACT <<static>> ResultsPage
+            %UID '4B7C0B670215'
+            %SUMMARY 'Страница для вывода результатов тестов' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // ResultsPage
+           PROTECTED <<static>> IsGK
+            %UID '4BEA9969001B'
+            %SUMMARY 'Тесты запущены ГК' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // IsGK
+           PROTECTED <<static>> IsLAW
+            %UID '4C35A6DA02E9'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // IsLAW
+         ; // %OPERATIONS
+         %CHILDREN
+          
+           <<Typedef>> RTestResultsPlace
+            %UID '4B7AAF1203B4'
+            %META
+             %upv "isClassRef" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4B2A10C40309' /* DUnitTuning */
+            ; // %TOBEINCLUDED
+            %INHERITS
+             U$ '4B7AAC7A031D' /* TTestResultsPlace */
+            ; // %INHERITS
+            %REALIZES
+             U$ '4B7AB0B6016E' /* CommandLineKey */
+             U$ '4B7C0B43005B' /* TimesPage */
+             U$ '4B7C0B670215' /* ResultsPage */
+            ; // %REALIZES
+           ; // RTestResultsPlace
+           <<Vector>> "array of RTestResultsPlace"
+            %UID '4B7AAF5C0096'
+            %META
+             %upv "array type" 'open'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4B2A10C40309' /* DUnitTuning */
+            ; // %TOBEINCLUDED
+            %ATTRIBUTES
+              <<Attribute>> "4B7AAF680364"
+               %UID '4B7AAF680364'
+               %TARGET U$ '4B7AAF1203B4' /* RTestResultsPlace */
+               %TOBEINCLUDED
+                U$ '4B2A10C40309' /* DUnitTuning */
+               ; // %TOBEINCLUDED
+              ; // 4B7AAF680364
+            ; // %ATTRIBUTES
+           ; // "array of RTestResultsPlace"
+           <<Vector>> TTestResultsPlaces
+            %UID '4B7AAF3101B0'
+            %META
+             %upv "array type" 'dynamic'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4B2A10C40309' /* DUnitTuning */
+            ; // %TOBEINCLUDED
+            %ATTRIBUTES
+              <<Attribute>> "4B7AAF400111"
+               %UID '4B7AAF400111'
+               %TARGET U$ '4B7AAF1203B4' /* RTestResultsPlace */
+               %TOBEINCLUDED
+                U$ '4B2A10C40309' /* DUnitTuning */
+               ; // %TOBEINCLUDED
+              ; // 4B7AAF400111
+            ; // %ATTRIBUTES
+           ; // TTestResultsPlaces
+         ; // %CHILDREN
+        ; // TTestResultsPlace
+        PRIVATE <<Constants>> Tokens
+         %UID '4B2F9F9F00EC'
+         %META
+          %upv "spell names" false
+         ; // %META
+         %ATTRIBUTES
+           <<Attribute>> Header
+            %UID '4B2F9FAE0193'
+            %VALUE '''h4. '''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Header
+           <<Attribute>> Chart
+            %UID '4B2F9FD1006A'
+            %VALUE '''{chart'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Chart
+           <<Attribute>> Columns
+            %UID '4B2FA00001D9'
+            %VALUE '''|| Day || '''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Columns
+           <<Attribute>> Anchor
+            %UID '4B7A95EC01C4'
+            %VALUE '''{anchor:'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Anchor
+           <<Attribute>> Task
+            %UID '4B7C13640154'
+            %VALUE '''Запрос - '''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // Task
+         ; // %ATTRIBUTES
+        ; // Tokens
+      ; // %CHILDREN
+     ; // KTestRunner
+     <<SimpleClass>> TExcludedTests
+      %UID '4C44675A0269'
+      %SUMMARY 'Тесты, которые не надо запускать - [$227477825].' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "singleton" true
+       %upv "started" '19.0.2010 18:56'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4773DCE302FF' /* Tl3StringList */
+      ; // %INHERITS
+      %OPERATIONS
+        FINAL <<method>> Exists
+         %UID '4C446BAE00A3'
+         %SUMMARY 'Определяет создан ли экземпляр синглетона' ;
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4C446BC901D9'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Exists
+      ; // %OPERATIONS
+     ; // TExcludedTests
+     <<SimpleClass>> TExcludedTestsFolders
+      %UID '4C9386230151'
+      %SUMMARY 'Папки тестов исключаемые из запуска' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "singleton" true
+       %upv "started" '17.09.2010 19:16'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4773DCE302FF' /* Tl3StringList */
+      ; // %INHERITS
+      %OPERATIONS
+        FINAL <<method>> Exists
+         %UID '4C938674023A'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4C93867E028A'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Exists
+      ; // %OPERATIONS
+     ; // TExcludedTestsFolders
+     <<SimpleClass>> TTestNameList
+      %UID '4D1AEAC80371'
+      %SUMMARY 'Список тестов для  запуска.' ;
+      %META
+       %upv "author" 'Инишев Д.А.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "singleton" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4B2A10C40309' /* DUnitTuning */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4773DCE302FF' /* Tl3StringList */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '47B1E5230151' /* StringItemClass */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4FF431F703A1"
+         %UID '4FF431F703A1'
+         %TARGET U$ '4FF431A00215' /* TTestNameString */
+        ; // 4FF431F703A1
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<method>> Exists
+         %UID '4D2EE63E0318'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4D2EE65201AD'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Exists
+        FINAL <<method>> LoadFromFileEX
+         %UID '5245135701C4'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4B2A10C40309' /* DUnitTuning */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '524513A3000F'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4B2A10C40309' /* DUnitTuning */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aFileName
+               %UID '524513CE03E6'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aFileName
+              <<in>> aOperation
+               %UID '524513CF001D'
+               %TARGET U$ '524513D603C3' /* TLoadOperation */
+               %TOBEINCLUDED
+                U$ '4B2A10C40309' /* DUnitTuning */
+               ; // %TOBEINCLUDED
+              ; // aOperation
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // LoadFromFileEX
+        FINAL <<method>> ClearList
+         %UID '525CFBC20231'
+         %META
+          %upv "is static" true
+         ; // %META
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '525CFBD1011A'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // ClearList
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<Enum>> TLoadOperation
+         %UID '524513D603C3'
+         %ATTRIBUTES
+           <<Attribute>> lo_Clear
+            %UID '524513E800BD'
+           ; // lo_Clear
+           <<Attribute>> lo_AND
+            %UID '5245140B021A'
+           ; // lo_AND
+           <<Attribute>> lo_OR
+            %UID '5245151502E3'
+           ; // lo_OR
+           <<Attribute>> lo_NOT
+            %UID '5245152003C8'
+           ; // lo_NOT
+         ; // %ATTRIBUTES
+        ; // TLoadOperation
+      ; // %CHILDREN
+     ; // TTestNameList
+     <<SimpleClass>> TTestNameString
+      %UID '4FF431A00215'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4773DED9004C' /* Tl3_String */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '47A869D10074' /* DoSetAsPCharLen */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4FF4339B0102"
+         %UID '4FF4339B0102'
+         %TARGET U$ '4FF4335402DE' /* l3LTrim */
+        ; // 4FF4339B0102
+      ; // %LINKS
+     ; // TTestNameString
+     <<SimpleClass>> TTestDocumentList
+      %UID '5279D2EA02DE'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+       %upv "singleton" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4773DCE302FF' /* Tl3StringList */
+      ; // %INHERITS
+      %OPERATIONS
+        FINAL <<method>> Exists
+         %UID '5279D3220116'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '5279D3410056'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Exists
+      ; // %OPERATIONS
+     ; // TTestDocumentList
+   ; // %CHILDREN
+  ; // Source
+  <<Unit>> VCM_TFW
+   %UID '4B30FC850092'
+   %DEPENDS
+    U$ '476BE98C01B8' /* l3Chars */
+    U$ '4787B0A8007B' /* l3Except */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4AB0997B00A2' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4B2A0D6A0077' /* Source */
+    U$ '4B2A112B011A' /* Source */
+    U$ '4DAEEA14018A' /* "Scripting Axiomatics" */
+    U$ '4DAF19F600C5' /* tfwScriptingInterfaces */
+    U$ '4E1C0134031B' /* MixIns */
+    U$ '54B90AC6014B' /* StringUtils */
+    U$ '550198F60382' /* VCMHelpers */
+    U$ '555F498C03BA' /* EtalonsServices */
+   ; // %DEPENDS
+   %META
+    %upv "ifndef" 'NoScripts'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4B2A0D4A006F' /* DUnit */
+    U$ '4B2A10C40309' /* DUnitTuning */
+    U$ '4E1F0EB100C4' /* ScriptEngine */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+    U$ '54CF97B10370' /* ScriptEngine$Core */
+    U$ '54ECA252008F' /* ScriptEngine$Everest */
+    U$ '550012C403C4' /* L3$AFW */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> VCMBaseTest
+      %UID '4B3235370235'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "ifndef" 'NoVCM'
+       %upv "no hands" true
+       %upv "started" '23.12.209 18:30'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B2A10C40309' /* DUnitTuning */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        PRIVATE FINAL <<method>> FreeMM
+         %UID '4B323587024D'
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4B3235920286'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // FreeMM
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        ABSTRACT <<SimpleClass>> TVCMBaseTest
+         %UID '4B30EEEB01EF'
+         %SUMMARY 'Базовый тест для тестирования объектов VCM' ;
+         %META
+          %upv "author" 'Люлин А.В.'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" true
+          %upv "register in scripts" 'undefined'
+          %upv "started" '22.12.2009 20:07'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4B2A10C40309' /* DUnitTuning */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4B2A11BC0255' /* TBaseTest */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '4B30EEA10210' /* InitFields */
+         ; // %OVERRIDES
+         %LINKS
+           <<uses>> "4B3235790113"
+            %UID '4B3235790113'
+            %TARGET U$ '4773D64E036C' /* l3Base */
+           ; // 4B3235790113
+           <<uses>> "4B32359B0123"
+            %UID '4B32359B0123'
+            %TARGET U$ '4B323587024D' /* FreeMM */
+           ; // 4B32359B0123
+           <<uses>> "4B3235B1023A"
+            %UID '4B3235B1023A'
+            %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+           ; // 4B3235B1023A
+           <<uses>> "55019A3D01DF"
+            %UID '55019A3D01DF'
+            %TARGET U$ '550199070251' /* Tl3MenuManagerHelper */
+           ; // 55019A3D01DF
+         ; // %LINKS
+        ; // TVCMBaseTest
+      ; // %CHILDREN
+     ; // VCMBaseTest
+     ABSTRACT <<SimpleClass>> TvcmInsiderTest
+      %UID '4DAECE5D0060'
+      %SUMMARY 'Базовый тест запускающийся "внутри" тестируемого приложения' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "ifdef" 'nsTest'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '20.04.2011 16:16'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4B2A10C40309' /* DUnitTuning */
+       U$ '4E1F0EB100C4' /* ScriptEngine */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4DAEEA2B029A' /* Scripter */
+       U$ '4DAF1A1700F7' /* ItfwScriptCaller */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4B2A11BC0255' /* TBaseTest */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4DAF1A280116' /* Check */
+       U$ '4DB173AA005A' /* Print$4DB173AA005A */
+       U$ '4DB1785F011A' /* Print$4DB1785F011A */
+       U$ '4DC2E1470046' /* ResolveIncludedFilePath */
+       U$ '4DCA915C0120' /* ResolveOutputFilePath */
+       U$ '4DECF57B02D2' /* ResolveInputFilePath */
+       U$ '4F0D7AC900FA' /* CheckPrintEtalon */
+       U$ '4F0D8B740186' /* ShouldStop */
+       U$ '4F0D8C360085' /* CheckTimeout */
+       U$ '4F0D8C5A01A2' /* StartTimer */
+       U$ '4F0D8CB0015D' /* StopTimer */
+       U$ '4F0D91AA0080' /* KPage */
+       U$ '4F0DA2A7024A' /* ToLog */
+       U$ '4F72CEFE016D' /* GetIsWritingToK */
+       U$ '4F72CF27029A' /* GetIsFakeCVS */
+       U$ '4F72CF78027D' /* GetCVSPath */
+       U$ '4F851D7B0399' /* DontRaiseIfEtalonCreated */
+       U$ '511BC7C60063' /* TimeToLog */
+       U$ '513866B10237' /* GetTestSetFolderName */
+       U$ '5138790002FF' /* GetEtalonSuffix */
+       U$ '52EBC5BB0300' /* CompileOnly */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4B2F40FD0088' /* Cleanup */
+       U$ '4B30EEA10210' /* InitFields */
+       U$ '4CA45DAA01BA' /* EtalonNeedsComputerName */
+       U$ '4CA5DAD4014C' /* RaiseIfEtalonCreated */
+       U$ '4DB03121022B' /* ResolveScriptFilePath */
+       U$ '4F5F28EB0242' /* AlwaysShowAFC */
+       U$ '51AF49E5001B' /* EtalonNeedsXE */
+       U$ '51AF4A1C036E' /* EtalonNeedsOSName */
+       U$ '51B0AF8E0378' /* EtalonNeeds64 */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4DB0332200DD"
+         %UID '4DB0332200DD'
+         %TARGET U$ '4DDA4CFE00E8' /* ExtractFilePath */
+        ; // 4DB0332200DD
+        <<uses>> "4DB173FF0231"
+         %UID '4DB173FF0231'
+         %TARGET U$ '47878E0E0191' /* l3String */
+        ; // 4DB173FF0231
+        <<uses>> "4DCA424701DC"
+         %UID '4DCA424701DC'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 4DCA424701DC
+        <<uses>> "4F5F29330198"
+         %UID '4F5F29330198'
+         %TARGET U$ '4B2A6D4303A9' /* KTestRunner */
+        ; // 4F5F29330198
+        <<uses>> "4F8C11E0035C"
+         %UID '4F8C11E0035C'
+         %TARGET U$ '4F72AE860228' /* TkwPrintDataSaver */
+        ; // 4F8C11E0035C
+        <<uses>> "4F8C13E300D9"
+         %UID '4F8C13E300D9'
+         %TARGET U$ '4F8C1297029C' /* ETestFailure */
+        ; // 4F8C13E300D9
+        <<uses>> "52D805AA009E"
+         %UID '52D805AA009E'
+         %TARGET U$ '4BB3609E0331' /* AnsiStartsText */
+        ; // 52D805AA009E
+        <<uses>> "555F4A93018C"
+         %UID '555F4A93018C'
+         %TARGET U$ '555F49A0015B' /* Tl3EtalonsService */
+        ; // 555F4A93018C
+        <<uses>> "55E5D362002C"
+         %UID '55E5D362002C'
+         %TARGET U$ '4773DED9004C' /* Tl3_String */
+        ; // 55E5D362002C
+        <<uses>> "55E5D3890228"
+         %UID '55E5D3890228'
+         %TARGET U$ '49082AE80393' /* "Code Pages" */
+        ; // 55E5D3890228
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Output
+         %UID '4DCA426E02C3'
+         %TARGET U$ '4B4F61AD01AA' /* Tl3CustomDosFiler */
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+        ; // f_Output
+        PRIVATE <<Attribute>> f_DontRaiseIfEtalonCreated
+         %UID '4F8520820323'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_DontRaiseIfEtalonCreated
+        <<static>> g_CompileOnly
+         %UID '52EBC6170315'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // g_CompileOnly
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PROTECTED FINAL <<method>> OwnScriptFromFile
+         %UID '4DB0333103BF'
+         %SUMMARY 'Запускает "собственный" тест из файла' ;
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4DB03358029A'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // OwnScriptFromFile
+        FINAL <<method>> DoResolveIncludedFilePath
+         %UID '4DC2E1040098'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4DC2E12400E5'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aFile
+               %UID '4DC2E1890397'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aFile
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DoResolveIncludedFilePath
+        PROTECTED FINAL <<method>> CheckOutputFiler
+         %UID '4DCA421B0227'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4DCA422202AB'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aWasException
+               %UID '52EBB63B010D'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aWasException
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // CheckOutputFiler
+        FINAL <<method>> DoResolveOutputFilePath
+         %UID '4DCA92D403C9'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4DCA92E80092'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aFile
+               %UID '4DCA92EB02CC'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aFile
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DoResolveOutputFilePath
+        FINAL <<method>> DoResolveInputFilePath
+         %UID '4DECF5A5003B'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoResolveInputFilePath
+            %UID '4DECF5AD029E'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aFile
+               %UID '4DECF5B70251'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aFile
+            ; // %PARAMETERS
+           ; // DoResolveInputFilePath
+         ; // %OPERATIONS
+        ; // DoResolveInputFilePath
+        PROTECTED <<Operation>> GetScriptName
+         %UID '4DC263E8038F'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // GetScriptName
+      ; // %OPERATIONS
+     ; // TvcmInsiderTest
+   ; // %CHILDREN
+  ; // VCM_TFW
+  <<Unit>> ScriptDebugger
+   %UID '4DB14DDC01A9'
+   %DEPENDS
+    U$ '4B30FC850092' /* VCM_TFW */
+    U$ '4DAEEA14018A' /* "Scripting Axiomatics" */
+    U$ '4DAF19F600C5' /* tfwScriptingInterfaces */
+   ; // %DEPENDS
+   %META
+    %upv "ifdef" 'InsiderTest'
+    %upv "ifndef" 'NoScripts'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '4B2A10C40309' /* DUnitTuning */
+    U$ '4E1F0EB100C4' /* ScriptEngine */
+    U$ '54CF97B10370' /* ScriptEngine$Core */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> tfwScriptDebugger
+      %UID '4DB1629901E8'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "finished" false
+       %upv "no hands" false
+       %upv "started" '22.04.2011 15:12'
+      ; // %META
+      %CHILDREN
+       
+        <<SimpleClass>> TtfwScriptDebugger_Form
+         %UID '4DB14E0A029D'
+         %META
+          %upv "author" 'Люлин А.В.'
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+          %upv "started" '22.04.2011 13:45'
+         ; // %META
+         %LINKS
+           <<uses>> "4DB14E2D007D"
+            %UID '4DB14E2D007D'
+            %TARGET U$ '4DAECE5D0060' /* TvcmInsiderTest */
+           ; // 4DB14E2D007D
+           <<uses>> "4DB1661901AB"
+            %UID '4DB1661901AB'
+            %TARGET U$ '4DAEEA9E0049' /* TtfwScriptEngine */
+           ; // 4DB1661901AB
+         ; // %LINKS
+        ; // TtfwScriptDebugger_Form
+      ; // %CHILDREN
+     ; // tfwScriptDebugger
+   ; // %CHILDREN
+  ; // ScriptDebugger
+ ; // %CHILDREN
+; // DUnitTuning

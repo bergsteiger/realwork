@@ -1,0 +1,101 @@
+// TtfwValueTypesCache 55BF37AB038D SimpleClass Class
+
+INCLUDE '55BF43BA0204.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_55BF37AB038D
+
+FORWARD ME_55C0A4040157
+
+INCLUDE '55BF2B000047.pas.ms.script'
+
+: ME_55C0A4140396
+ CONST UID '55C0A4140396'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_55BF2B000047 // TtfwValueTypes
+ ;
+
+ @SELF
+; // ME_55C0A4140396 aValue
+
+: ME_55C0A40C0291
+ CONST UID '55C0A40C0291'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_55BF2B000047 // TtfwValueTypes
+ ;
+ : Parameters
+   [ ME_55C0A4140396 // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_55C0A40C0291 DoIt
+
+: ME_55C0A4040157
+ CONST UID '55C0A4040157'
+ CONST Name 'CheckList'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_55C0A40C0291 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55C0A4040157 CheckList
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_6B7D51D711D8
+ CONST UID '6B7D51D711D8'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_6B7D51D711D8 Exists
+
+: ME_55BF37AB038D
+ CONST UID '55BF37AB038D'
+ CONST Name 'TtfwValueTypesCache'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_55BF43BA0204 // TtfwValueTypesList
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_55C0A4040157 // CheckList
+ ME_6B7D51D711D8 // Exists
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_47A042E100E2 // InitFields
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_55BF37AB038D TtfwValueTypesCache

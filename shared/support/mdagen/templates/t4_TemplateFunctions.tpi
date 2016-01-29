@@ -1,0 +1,130 @@
+//////////////////////////////////////////////////////////////////////////////////
+// TemplateFunctions
+//////////////////////////////////////////////////////////////////////////////////
+
+: TemplateFunctions::Class
+? Контейнер шаблонных функций
+? Класс с этим стекреотипом служит виртуальным контейнером для шаблонных функций. Т.е. сам класс не определяет никаких артефактов генерации.
+> TemplateFunctions::Class
+$ s
+$ C 245,245,245
+$ l 100,100,100
+$ f 100,100,100
+v +
+W
+
+%t _constraint
+c                                                               {}
+r {%SK!=ParameterizedClass}:                                    {%SS must be parametrized}
+
+%f _dump_with_visible_spec
+	[public:<{}{%CC=Operation&%CV=PublicAccess}
+	%CX
+	>
+	][protected:<{}{%CC=Operation&%CV=ProtectedAccess}
+	%CX
+	>
+	][private:<{}{%CC=Operation&%CV=PrivateAccess}
+	%CX
+	>
+	]
+
+%f _dump_for_utility_pack_h
+	[<{}{%CC=Operation&%CV=PublicAccess}
+	%CX
+	>
+	]
+
++ h
+	%f_shift_intend(-1)\
+	[{%PM=UtilityPack::Class}{%S%f_dump_with_visible_spec()}%S%f_dump_for_utility_pack_h()]%f_shift_intend(1)
+
++ cpp
+	<{}{%CC=Operation}
+	%CX
+	>
+
++ i.h
+= cpp
+
+: TemplateFunctions::Class::Operation
+= SimpleClass::Class::Operation
+%t _constraint
+c                                        {}
+r "%P%PM"="UtilityClass::Class":          {It is illegal to use \<\<%SS\>\> Operation in UtilityClass}
+
++ i.h
+= cpp
+
+: TemplateFunctions::Class::Operation::Parameter
+= SimpleClass::Class::Operation::Parameter
+
++ i.h
+= cpp
+
+: TemplateFunctions::Class::chg::Operation
+= SimpleClass::Class::chg::Operation
+%t _constraint
+c                                        {}
+r "%P%PM"="UtilityPack::Class":          {It is illegal to use \<\<%SS\>\> Operation in UtilityPack}
+r "%P%PM"="UtilityClass::Class":          {It is illegal to use \<\<%SS\>\> Operation in UtilityClass}
+
++ i.h
+= cpp
+
+: TemplateFunctions::Class::oneway::Operation
+= SimpleClass::Class::oneway::Operation
+a raf
+%t _constraint
+c                                        {}
+r "%P%PM"="UtilityPack::Class":          {It is illegal to use \<\<%SS\>\> Operation in UtilityPack}
+r "%P%PM"="UtilityClass::Class":          {It is illegal to use \<\<%SS\>\> Operation in UtilityClass}
+
+: TemplateFunctions::Class::oneway,chg::Operation
+= SimpleClass::Class::oneway,chg::Operation
+
+%t _constraint
+c                                        {}
+r "%P%PM"="UtilityPack::Class":          {It is illegal to use \<\<%SS\>\> Operation in UtilityPack}
+r "%P%PM"="UtilityClass::Class":          {It is illegal to use \<\<%SS\>\> Operation in UtilityClass}
+
++ i.h
+= cpp
+
+: TemplateFunctions::Class::static::Operation
+= SimpleClass::Class::static::Operation
+
+%t _constraint
+c                                        {}
+r "%P%PM"="UtilityPack::Class":          {It is illegal to use \<\<%SS\>\> Operation in UtilityPack}
+
++ h
+	%f_docs(%S)\
+	#%f_templ_header(%P)\
+	#[{%P%PM!=UtilityPack::Class}static ]%f_ret(%S) %SN (<{, }%f_arg_full_decl(%C)>)[
+	#	/*throw (<{, }%E<%NN::>%EN>)*/];
+
++ cpp
+	%f_docs(%S)\
+	%f_templ_header(%{SERV})\
+	%f_templ_header(%P)\
+	%f_ret(%S) %f_function_scope(%{SERV})%SN (<{, }%f_arg_full_decl(%C)>) [
+		/*throw (<{, }%E<%NN::>%EN>)*/
+	]{%f_start_func_cpp(%S,"%{SERV}N::%SN")
+		%f_s_c_op_c_uc(%S)
+	%f_end_func_cpp(%S)}
+
++ i.h
+= cpp
+
+: TemplateFunctions::Class::Parameter
+
++ h
+	[{%SS=withref|%SS=primitive|%SS=in}{%SS}[{%t_simple(%S)=true}{class}typename]] %SN[ = %SI ]
+
++ cpp
+	[{%SS=withref|%SS=primitive|%SS=in}{%SS}[{%t_simple(%S)=true}{class}typename]] %SN
+
++ i.h
+= cpp
+

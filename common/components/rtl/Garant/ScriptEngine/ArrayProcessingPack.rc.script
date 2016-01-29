@@ -1,0 +1,140 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Библиотека "ScriptEngine$Axiomatics"
+// Модуль: "ArrayProcessingPack.rc.script"
+// Скрипты в ресурсах (.rc.script)
+// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi Low Level::ScriptEngine$Axiomatics::ArrayProcessing::ArrayProcessingPack
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//#UC START# *4F50313101D1man_uses*
+//#UC END# *4F50313101D1man_uses*
+
+USES
+ axiom:Array
+;
+
+// Класс ItfwValueList - Array
+//  Операция Clear 
+//  Класс реализующий операцию Array_Clear - Array:Clear
+WordAlias pop:Array:Clear Array:Clear
+//  Операция Item 
+//  Класс реализующий операцию Array_Item - Array:Item
+WordAlias pop:Array:Item Array:Item
+//  Операция Reverted 
+//  Класс реализующий операцию Array_Reverted - Array:Reverted
+WordAlias pop:Array:Reverted Array:Reverted
+//  Операция Filter 
+//  Класс реализующий операцию Array_Filter - Array:Filter
+WordAlias pop:Array:Filter Array:Filter
+//  Операция Map 
+//  Класс реализующий операцию Array_Map - Array:Map
+WordAlias pop:Array:Map Array:Map
+//  Операция Iterate 
+//  Класс реализующий операцию Array_Iterate - Array:Iterate
+WordAlias pop:Array:Iterate Array:Iterate
+//  Операция Add 
+//  Класс реализующий операцию Array_Add - Array:Add
+WordAlias pop:Array:Add Array:Add
+//  Операция FunctorToIterator 
+//  Класс реализующий операцию Array_FunctorToIterator - Array:FunctorToIterator
+WordAlias pop:Array:FunctorToIterator Array:FunctorToIterator
+//  Операция Join 
+//  Класс реализующий операцию Array_Join - Array:Join
+WordAlias pop:Array:Join Array:Join
+//  Операция Trunc 
+//  Класс реализующий операцию Array_Trunc - Array:Trunc
+WordAlias pop:Array:Trunc Array:Trunc
+//  Операция Slice 
+//  Класс реализующий операцию Array_Slice - Array:Slice
+WordAlias pop:Array:Slice Array:Slice
+//  Операция Count 
+//  Класс реализующий операцию Array_Count - Array:Count
+WordAlias pop:Array:Count Array:Count
+
+//#UC START# *4F50313101D1impl*
+//WordAlias FILTER Array:Filter
+WordAlias FunctorToIterator Array:FunctorToIterator
+//WordAlias Iterate Array:Iterate
+WordAlias MAP Array:Map
+//WordAlias Reverted Array:Reverted
+WordAlias Join Array:Join
+WordAlias JOIN Array:Join
+
+//WordAlias .reverted> Array:Reverted
+//WordAlias >reverted> Array:Reverted
+
+ARRAY FUNCTION .join>
+ ARRAY IN aLeft
+ ARRAY ^ IN aRight
+ aRight |^@ DO aLeft JOIN >>> Result
+; // .join>
+
+ARRAY FUNCTION >join>
+ ARRAY ^@ IN aLeft
+ ARRAY ^ IN aRight
+ aRight |^@ DO aLeft |^@ DO JOIN >>> Result
+; // >join>
+
+/*{WordAlias Trunc Array:Trunc
+WordAlias TRUNC Array:Trunc
+
+ARRAY FUNCTION .trunc>
+ ARRAY IN aLeft
+ ^ IN aRight
+ aRight |^@ aLeft TRUNC >>> Result
+; // .trunc>}*/
+
+ARRAY FUNCTION >trunc>
+ ARRAY ^@ IN aLeft
+ ^ IN aRight
+ aRight |^@ aLeft |^@ DO TRUNC >>> Result
+; // >trunc>
+
+WordAlias Slice Array:Slice
+WordAlias SLICE Array:Slice
+
+/*{ARRAY FUNCTION .slice>
+ ARRAY IN aLeft
+ ^ IN aRight
+ aRight |^@ DO aLeft SLICE >>> Result
+; // .slice>}*/
+
+ARRAY FUNCTION >slice>
+ ARRAY ^@ IN aLeft
+ ^ IN aRight
+ aRight |^@ DO aLeft |^@ DO SLICE >>> Result
+; // >join>
+
+ARRAY FUNCTION >map>
+ ^@ IN anArray
+ ^ IN aFunctor
+ aFunctor anArray DO MAP >>> Result
+; // >map>
+
+/*{ARRAY FUNCTION .map>
+ ARRAY IN anArray
+ ^ IN aFunctor
+ aFunctor anArray MAP >>> Result
+; // .map>}*/
+
+ARRAY FUNCTION >filter>
+ ^@ IN anArray
+ ^ IN aFunctor
+ aFunctor anArray DO FILTER >>> Result
+; // >filter>
+
+/*{ARRAY FUNCTION .filter>
+ ARRAY IN anArray
+ ^ IN aFunctor
+ aFunctor anArray FILTER >>> Result
+; // .filter>}*/
+
+//#UC END# *4F50313101D1impl*
+
+
+EXPORTS
+//#UC START# *4F50313101D1exports*
+ *
+//#UC END# *4F50313101D1exports*
+

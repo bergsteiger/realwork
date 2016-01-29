@@ -1,0 +1,157 @@
+// TCsProcWithId 537F6306025B SimpleClass Class
+
+FORWARD ME_537F6306025B
+
+FORWARD ME_537F63170355
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_537F632E0101
+ CONST UID '537F632E0101'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_537F632E0101 DoIt
+
+: ME_537F63170355
+ CONST UID '537F63170355'
+ CONST Name 'TCsReplyProc'
+ CONST Class 'Class'
+ CONST Stereotype 'Function'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_537F632E0101 // DoIt
+ ]
+ ; // Operations
+ CONST "of object" true
+
+ @SELF
+; // ME_537F63170355 TCsReplyProc
+
+INCLUDE '52FBB30A01C6.pas.ms.script'
+
+INCLUDE '537F63590169.pas.ms.script'
+
+: ME_537F639102DF
+ CONST UID '537F639102DF'
+ CONST Name 'QueryId'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_537F63760334 // TCsQueryId
+ ;
+
+ @SELF
+; // ME_537F639102DF QueryId
+
+: ME_537F63A1001E
+ CONST UID '537F63A1001E'
+ CONST Name 'Proc'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_537F63170355 // TCsReplyProc
+ ;
+
+ @SELF
+; // ME_537F63A1001E Proc
+
+FORWARD ME_537F63B40386
+
+: ME_537F63C5009E
+ CONST UID '537F63C5009E'
+ CONST Name 'aQueryId'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_537F63760334 // TCsQueryId
+ ;
+
+ @SELF
+; // ME_537F63C5009E aQueryId
+
+: ME_537F63C500C5
+ CONST UID '537F63C500C5'
+ CONST Name 'aProc'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_537F63170355 // TCsReplyProc
+ ;
+
+ @SELF
+; // ME_537F63C500C5 aProc
+
+: ME_537F63C10100
+ CONST UID '537F63C10100'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_537F63C5009E // aQueryId
+ ME_537F63C500C5 // aProc
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_537F63C10100 DoIt
+
+: ME_537F63B40386
+ CONST UID '537F63B40386'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_537F63C10100 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_537F63B40386 Create
+
+: ME_537F6306025B
+ CONST UID '537F6306025B'
+ CONST Name 'TCsProcWithId'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_52FBB30A01C6 // TCsObject
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_537F639102DF // QueryId
+ ME_537F63A1001E // Proc
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_537F63B40386 // Create
+ ]
+ ; // Operations
+ : Children
+   [ ME_537F63170355 // TCsReplyProc
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_537F6306025B TCsProcWithId

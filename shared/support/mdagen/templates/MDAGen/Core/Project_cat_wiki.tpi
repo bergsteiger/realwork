@@ -1,0 +1,36 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+/ Генератор в wiki.
+//#UC START# *46AA105F013E*
+C conf:/[{"%S{space name}"!=""}{%SN}%S{space name}],key:%S{space key},guid:%SU/Home/Модель проекта "%SN":%SU
+O Модель проекта "%SN"
+L code_project
+# t0_wiki_header
+	[h2. Модель[
+	
+	{info}Используемые другие проекты:
+	<* [{"%D{space key}"!=""}{[{"%D{space name}"!=""}{%DN}%D{space name}]}\[[{"%D{space name}"!=""}{%DN}%D{space name}]|%D{space key}:Home\]]
+	>{info}][
+	
+	{note}Дополнительные свойства:
+	%S%f_wiki_up_print(){note}][{%mx=true&%Cx=true}
+	
+	<{----\n}_[{%mN!=Main}{Основная}%mN] диаграмма проекта:_
+	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+	>]][
+	
+	h2. Состав проекта[
+	
+	_Требования:_<{}{%CS=Requirements}
+	\# *%f_k_link(%C)*
+	_%C?_[, %CD]>][
+	
+	_Модули:_<{}{%CS!=Requirements&%t_target_ex(%C)=false}
+	\# *%f_k_link(%C)*
+	_%C?_[, %CD]>][
+	
+	_Компилируемые цели и инсталляторы:_<{}{%CS!=Requirements&%t_target_ex(%C)=true}
+	\# *%f_k_link(%C)*
+	_%C?_[, %CD]>]]<%CX>
+# t0_wiki_footer
+//#UC END# *46AA105F013E*

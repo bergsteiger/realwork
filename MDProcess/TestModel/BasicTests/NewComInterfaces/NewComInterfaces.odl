@@ -1,0 +1,43 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/TestModel/BasicTests/NewComInterfaces/NewComInterfaces.odl"
+// генератор ODL-файла спецификации COM-интерфейса (.odl)
+// Generated from UML model, root element: <<ComInterfaces::Category>> TestModel::BasicTests::NewComInterfaces
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+import "oaidl.idl";
+[
+	uuid (476D9028-0B18-4B3C-9132-2E3F10DEED0B)
+	, version (1.0)
+	, helpstring ("NewComInterfacesLib 1.0 Type Library")
+]
+
+library NewComInterfacesLib {
+	importlib ("stdole32.tlb");
+	importlib ("stdole2.tlb");
+	//#UC START# *49AED5FE008A_CUSTOM_TLB*
+	//#UC END# *49AED5FE008A_CUSTOM_TLB*
+	[
+		object
+		, uuid (1E1E4282-1347-45EE-AC2E-12D1CDEC92F6)
+		, dual
+		, helpstring("NewComInterface Interface")
+		, pointer_default(unique)
+	]
+	interface NewComInterface : IDispatch {
+//#UC START# *49AEE3F403E2*
+//#UC END# *49AEE3F403E2*
+	};	
+	[
+		uuid (1E1E4282-1347-45EE-AC2E-12D1CDEC9299)
+		, helpstring ("CoNewComInterface Class")
+	]
+	coclass CoNewComInterface {
+		[default] interface NewComInterface;
+	};
+
+};
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

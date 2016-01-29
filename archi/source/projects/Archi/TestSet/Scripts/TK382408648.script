@@ -1,0 +1,22 @@
+USES
+	QuickTestsUtils.script  
+;
+
+Тест TK382408648
+	Параметры: ( "Документ NSR" "Проверка EVD эталона" ) 
+	Выполнить ( 
+	  mrYesToAll wait:Choice
+	  TRY
+	   mrYesToAll wait:Choice
+	   TRY
+		"Разбивка на блоки"
+	   FINALLY	
+		waited:? ASSERT
+	   END  
+	  FINALLY
+	   waited:? ASSERT
+	  END  	
+	)
+;
+
+TK382408648

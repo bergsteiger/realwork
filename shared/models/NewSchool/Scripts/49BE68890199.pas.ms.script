@@ -1,0 +1,239 @@
+// Streams 49BE68890199 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49BE68890199
+
+FORWARD ME_49BE68B201D1
+
+: ME_49BE693D039F
+ CONST UID '49BE693D039F'
+ CONST Name 'f_Inner'
+ CONST Class class_Attribute
+ %SUMMARY 'Поток, над которым мы оборачиваемся' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_49BE68B201D1 // Tl3ProxyStream
+ ;
+ : Target WL 'ME_46A5B0060013' '4677FBA70343.pas.ms.script' // IStream
+ ;
+
+ref; // ME_49BE693D039F f_Inner
+
+: ME_49BE69A10181
+ CONST UID '49BE69A10181'
+ CONST Name 'aStream'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A5B0060013' '4677FBA70343.pas.ms.script' // IStream
+ ;
+
+ref; // ME_49BE69A10181 aStream
+
+: ME_49BE699000B0
+ CONST UID '49BE699000B0'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49BE68B201D1 // Tl3ProxyStream
+ ;
+ : Parameters
+   @ ( ME_49BE69A10181 // aStream
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_49BE699000B0 Create
+
+: ME_49BE71BF0014
+ CONST UID '49BE71BF0014'
+ CONST Name 'aStream'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A5B0060013' '4677FBA70343.pas.ms.script' // IStream
+ ;
+
+ref; // ME_49BE71BF0014 aStream
+
+: ME_49BE71A302F3
+ CONST UID '49BE71A302F3'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ %SUMMARY 'Создаёт обёртку над потоком' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49BE68B201D1 // Tl3ProxyStream
+ ;
+ : Target WL 'ME_46A5B0060013' '4677FBA70343.pas.ms.script' // IStream
+ ;
+ : Parameters
+   @ ( ME_49BE71BF0014 // aStream
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_49BE71A302F3 Make
+
+: ME_49C0DA3F015D
+ CONST UID '49C0DA3F015D'
+ CONST Name 'CloseInner'
+ CONST Class class_Operation
+ %SUMMARY 'Освобождает внутренний поток' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49BE68B201D1 // Tl3ProxyStream
+ ;
+
+ref; // ME_49C0DA3F015D CloseInner
+
+: ME_49BE6D990233
+ CONST UID '49BE6D990233'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49BE68B201D1 // Tl3ProxyStream
+ ;
+ : Target WL 'ME_4981AC0701C1' '4AB0997B00A2.pas.ms.script' // ComObj
+ ;
+
+ref; // ME_49BE6D990233 
+
+: ME_49BE6F140198
+ CONST UID '49BE6F140198'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_49BE68B201D1 // Tl3ProxyStream
+ ;
+ : Target WL 'ME_48EA3BDD0023' '4678193C009C.pas.ms.script' // ActiveXConsts
+ ;
+
+ref; // ME_49BE6F140198 
+
+: ME_479731C50290_ME_49BE68B201D1
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_49BE68B201D1 // Tl3ProxyStream
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_49BE68B201D1 Cleanup
+
+: ME_49BE656C006E_ME_49BE68B201D1
+ CONST UID '49BE656C006E'
+ CONST Name 'Read'
+ : Original WL 'ME_49BE656C006E' '4AB0997B00A2.pas.ms.script' // Read
+ ;
+ : Implementor ME_49BE68B201D1 // Tl3ProxyStream
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49BE656C006E_ME_49BE68B201D1 Read
+
+: ME_49BE658C0261_ME_49BE68B201D1
+ CONST UID '49BE658C0261'
+ CONST Name 'Write'
+ : Original WL 'ME_49BE658C0261' '4AB0997B00A2.pas.ms.script' // Write
+ ;
+ : Implementor ME_49BE68B201D1 // Tl3ProxyStream
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49BE658C0261_ME_49BE68B201D1 Write
+
+: ME_49BE65E80020_ME_49BE68B201D1
+ CONST UID '49BE65E80020'
+ CONST Name 'Seek'
+ : Original WL 'ME_49BE65E80020' '4AB0997B00A2.pas.ms.script' // Seek
+ ;
+ : Implementor ME_49BE68B201D1 // Tl3ProxyStream
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_49BE65E80020_ME_49BE68B201D1 Seek
+
+: ME_49BE68B201D1
+ CONST UID '49BE68B201D1'
+ CONST Name 'Tl3ProxyStream'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Поток служащий обёрткой над другим потоком' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49BE68890199 // Streams
+ ;
+ : Inherits
+   @ ( WL 'ME_48F4748E0192' '47913B47006E.pas.ms.script' // Tl3Stream
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_49BE693D039F // f_Inner
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_49BE699000B0 // Create
+ ME_49BE71A302F3 // Make
+ ME_49C0DA3F015D // CloseInner
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_479731C50290_ME_49BE68B201D1 // Cleanup
+ ME_49BE656C006E_ME_49BE68B201D1 // Read
+ ME_49BE658C0261_ME_49BE68B201D1 // Write
+ ME_49BE65E80020_ME_49BE68B201D1 // Seek
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_49BE6D990233 // 
+ ME_49BE6F140198 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '16.03.2009 17:57'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ProxyStream.pas'
+
+ref; // ME_49BE68B201D1 Tl3ProxyStream
+
+: ME_49BE68890199
+ CONST UID '49BE68890199'
+ CONST Name 'Streams'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Различные потоки' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ ;
+ : Children
+   @ ( ME_49BE68B201D1 // Tl3ProxyStream
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\49BE68890199.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49BE68890199.pas.ms.script.runner'
+
+ref; // ME_49BE68890199 Streams

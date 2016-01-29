@@ -1,0 +1,258 @@
+  TApplication = class(TComponent)
+  private
+    FAppIconic: Boolean;
+    FBiDiMode: TBiDiMode;
+    FBiDiKeyboard: string;
+    FDefaultFont: TFont;
+    FNonBiDiKeyboard: string;
+    FMainForm: TForm;
+    FMouseControl: TControl;
+    FHelpSystem : IHelpSystem;
+    FHelpFile: string;
+    FHint: string;
+    FHintActive: Boolean;
+    FUpdateFormatSettings: Boolean;
+    FUpdateMetricSettings: Boolean;
+    FShowMainForm: Boolean;
+    FHintColor: TColor;
+    FHintControl: TControl;
+    FHintCursorRect: TRect;
+    FHintHidePause: Integer;
+    FHintPause: Integer;
+    FHintShortCuts: Boolean;
+    FHintShortPause: Integer;
+    FHintWindow: THintWindow;
+    FShowHint: Boolean;
+    FTimerMode: TTimerMode;
+    FTimerHandle: Word;
+    FTitle: string;
+    FTopMostList: TList;
+    FTopMostLevel: Integer;
+    FPopupOwners: TList;
+    FPopupLevel: Integer;
+    FIcon: TIcon;
+    FTerminate: Boolean;
+    FActive: Boolean;
+    FAllowTesting: Boolean;
+    FTestLib: THandle;
+    FHandleCreated: Boolean;
+    FRunning: Boolean;
+    FWindowHooks: TList;
+    FWindowList: TTaskWindowList;
+    FDialogHandle: HWnd;
+    FAutoDragDocking: Boolean;
+    FActionUpdateDelay: Integer;
+    FModalLevel: Integer;
+    FCurrentPopupID: Integer;
+    FPopupForms: TPopupFormArray;
+    FModalPopupMode: TPopupMode;
+    FCreatingMainForm: Boolean;
+    FEnumAllWindowsOnActivateHint: Boolean;
+    FMainFormOnTaskBar: Boolean;
+    FLastActivePopup: HWND;
+    FOwnedAppWnds: array of HWND;
+    FInitialMainFormState: TWindowState;
+    FOnActionExecute: TActionEvent;
+    FOnActionUpdate: TActionEvent;
+    FOnException: TExceptionEvent;
+    FOnGetActiveFormHandle: TGetHandleEvent;
+    FOnGetMainFormHandle: TGetHandleEvent;
+    FOnMessage: TMessageEvent;
+    FOnModalBegin: TNotifyEvent;
+    FOnModalEnd: TNotifyEvent;
+    FOnHelp: THelpEvent;
+    FOnHint: TNotifyEvent;
+    FOnIdle: TIdleEvent;
+    FOnDeactivate: TNotifyEvent;
+    FOnActivate: TNotifyEvent;
+    FOnMinimize: TNotifyEvent;
+    FOnRestore: TNotifyEvent;
+    FOnShortCut: TShortCutEvent;
+    FOnShowHint: TShowHintEvent;
+    FOnSettingChange: TSettingChangeEvent;
+{$IF DEFINED(CLR)}
+    FResources: TApplicationResources;
+    FOnShutDown : TNotifyEvent;
+{$ELSE}
+    FHandle: HWnd;
+    FObjectInstance: Pointer;
+    FPopupControlWnd: HWnd;
+{$ENDIF}
+    FNeedToUninitialize: Boolean;
+    FIsMetropolisUI: Boolean;
+    function CheckIniChange(var Message: TMessage): Boolean;
+    procedure DefaultFontChanged(Sender: TObject);
+    procedure DoActionIdle;
+    function DoMouseIdle: TControl;
+    procedure DoNormalizeTopMosts(IncludeMain: Boolean);
+    function DoOnHelp(Command: Word; Data: THelpEventData; var CallHelp: Boolean): Boolean;
+    procedure DoShowOwnedPopups(Show: Boolean);
+    function GetCurrentHelpFile: string;
+    function GetDialogHandle: HWND;
+    function GetActiveFormHandle: HWND;
+    function GetMainFormHandle: HWND;
+    function GetExeName: string;
+    function GetIconHandle: HICON;
+    function GetTitle: string;
+    procedure HintTimerExpired;
+    procedure IconChanged(Sender: TObject);
+    function InvokeHelp(Command: Word; Data: NativeInt): Boolean;
+    procedure InternalRestore;
+    procedure NotifyForms(Msg: Word; WParam: WPARAM = 0; LParam: LPARAM = 0);
+    procedure PopupControlProc(var Message: TMessage);
+    function ProcessMessage(var Msg: TMsg): Boolean;
+    procedure SetBiDiMode(Value: TBiDiMode);
+    procedure SetDefaultFont(Value: TFont);
+    procedure SetDialogHandle(Value: HWnd);
+    procedure SetHandle(Value: HWnd);
+    procedure SetHint(const Value: string);
+    procedure SetHintColor(Value: TColor);
+    procedure SetIcon(Value: TIcon);
+    procedure SetMainFormOnTaskBar(const Value: Boolean);
+    procedure SetShowHint(Value: Boolean);
+    procedure SetTitle(const Value: string);
+    procedure SettingChange(var Message: TWMSettingChange);
+    procedure StartHintTimer(Value: Integer; TimerMode: TTimerMode);
+    procedure StopHintTimer;
+    procedure WndProc(var Message: TMessage);
+    procedure UpdateVisible;
+    function  ValidateHelpSystem: Boolean;
+    procedure WakeMainThread(Sender: TObject);
+{$IF DEFINED(CLR)}
+    function DispatchActionCall(Execute: Boolean; Action: TBasicAction): Boolean;
+    function GetHandle: HWND;
+    function GetPopupControlWnd: HWND;
+{$ELSE}
+    function DispatchAction(Msg: Longint; Action: TBasicAction): Boolean;
+{$ENDIF}
+  protected
+    procedure Idle(const Msg: TMsg);
+                                             
+{$IF DEFINED(CLR)}
+  public
+{$ENDIF}
+    function IsDlgMsg(var Msg: TMsg): Boolean;
+    function IsHintMsg(var Msg: TMsg): Boolean;
+    function IsKeyMsg(var Msg: TMsg): Boolean;
+    function IsMDIMsg(var Msg: TMsg): Boolean;
+    function IsShortCut(var Message: TWMKey): Boolean;
+    function IsPreProcessMessage(var Msg: TMsg): Boolean;
+{$IF DEFINED(CLR)}
+    function DispatchAction(Execute: Boolean; Action: TBasicAction): Boolean; overLoad;
+    function DispatchAction(Execute: Boolean; Action: TBasicAction; EnabledCheck: Boolean): Boolean; overload;
+{$ENDIF}
+  public
+    constructor Create(AOwner: TComponent); override;
+    destructor Destroy; override;
+    procedure ActivateHint(CursorPos: TPoint);
+    function AddPopupForm(APopupForm: TCustomForm): Integer;
+    procedure BringToFront;
+    procedure ControlDestroyed(Control: TControl);
+    procedure CancelHint;
+    procedure CreateForm(InstanceClass: TComponentClass; var Reference);
+    procedure CreateHandle;
+    procedure DoApplicationIdle;
+    function ExecuteAction(Action: TBasicAction): Boolean; reintroduce;
+    procedure HandleException(Sender: TObject);
+    procedure HandleMessage;
+    function HelpCommand(Command: Integer; Data: NativeInt): Boolean;
+    function HelpContext(Context: THelpContext): Boolean;
+    function HelpJump(const JumpID: string): Boolean;
+    function HelpKeyword(const Keyword: string): Boolean;
+    function HelpShowTableOfContents: Boolean;
+    procedure HideHint;
+    procedure HintMouseMessage(Control: TControl; var Message: TMessage);
+    procedure HookMainWindow(Hook: TWindowHook);
+    procedure HookSynchronizeWakeup;
+    procedure Initialize;
+    function IsRightToLeft: Boolean;
+    procedure Minimize;
+    procedure ModalStarted;
+    procedure ModalFinished;
+    procedure NormalizeAllTopMosts;
+    procedure NormalizeTopMosts;
+    procedure ProcessMessages;
+    procedure RemovePopupForm(APopupForm: TCustomForm);
+    procedure Restore;
+    procedure RestoreTopMosts;
+    procedure Run;
+    procedure ShowException(E: Exception);
+    procedure Terminate;
+    procedure UnhookMainWindow(Hook: TWindowHook);
+    procedure UnhookSynchronizeWakeup;
+    function UpdateAction(Action: TBasicAction): Boolean; reintroduce;
+    function UseRightToLeftAlignment: Boolean;
+    function UseRightToLeftReading: Boolean;
+    function UseRightToLeftScrollBar: Boolean;
+    procedure UseMetropolisUI;
+{$IF DEFINED(CLR)}
+    function MessageBox(const Text, Caption: string; Flags: Longint = MB_OK): Integer;
+{$ELSE}
+    function MessageBox(const Text, Caption: PChar; Flags: Longint = MB_OK): Integer;
+{$ENDIF}
+    property Active: Boolean read FActive;
+    property ActionUpdateDelay: Integer read FActionUpdateDelay write FActionUpdateDelay default 0;
+    property ActiveFormHandle: HWND read GetActiveFormHandle;
+    property AllowTesting: Boolean read FAllowTesting write FAllowTesting;
+    property AutoDragDocking: Boolean read FAutoDragDocking write FAutoDragDocking default True;
+    property HelpSystem: IHelpSystem read FHelpSystem;
+    property CurrentHelpFile: string read GetCurrentHelpFile;
+    property DefaultFont: TFont read FDefaultFont write SetDefaultFont;
+    property DialogHandle: HWnd read GetDialogHandle write SetDialogHandle;
+    property EnumAllWindowsOnActivateHint: Boolean read FEnumAllWindowsOnActivateHint write FEnumAllWindowsOnActivateHint;
+    property ExeName: string read GetExeName;
+    property HelpFile: string read FHelpFile write FHelpFile;
+    property Hint: string read FHint write SetHint;
+    property HintColor: TColor read FHintColor write SetHintColor;
+    property HintHidePause: Integer read FHintHidePause write FHintHidePause;
+    property HintPause: Integer read FHintPause write FHintPause;
+    property HintShortCuts: Boolean read FHintShortCuts write FHintShortCuts;
+    property HintShortPause: Integer read FHintShortPause write FHintShortPause;
+    property Icon: TIcon read FIcon write SetIcon;
+    property IsMetropolisUI: Boolean read FIsMetropolisUI;
+    property MainForm: TForm read FMainForm;
+    property MainFormHandle: HWND read GetMainFormHandle;
+    property MainFormOnTaskBar: Boolean read FMainFormOnTaskBar write SetMainFormOnTaskBar;
+    property ModalLevel: Integer read FModalLevel;
+    property ModalPopupMode: TPopupMode read FModalPopupMode write FModalPopupMode default pmNone;
+    property BiDiMode: TBiDiMode read FBiDiMode
+      write SetBiDiMode default bdLeftToRight;
+    property BiDiKeyboard: string read FBiDiKeyboard write FBiDiKeyboard;
+    property NonBiDiKeyboard: string read FNonBiDiKeyboard write FNonBiDiKeyboard;
+    property ShowHint: Boolean read FShowHint write SetShowHint;
+    property ShowMainForm: Boolean read FShowMainForm write FShowMainForm;
+    property Terminated: Boolean read FTerminate;
+    property Title: string read GetTitle write SetTitle;
+    property UpdateFormatSettings: Boolean read FUpdateFormatSettings
+      write FUpdateFormatSettings;
+    property UpdateMetricSettings: Boolean read FUpdateMetricSettings
+      write FUpdateMetricSettings;
+    property OnActionExecute: TActionEvent read FOnActionExecute write FOnActionExecute;
+    property OnActionUpdate: TActionEvent read FOnActionUpdate write FOnActionUpdate;
+    property OnActivate: TNotifyEvent read FOnActivate write FOnActivate;
+    property OnDeactivate: TNotifyEvent read FOnDeactivate write FOnDeactivate;
+    property OnException: TExceptionEvent read FOnException write FOnException;
+    property OnGetActiveFormHandle: TGetHandleEvent read FOnGetActiveFormHandle
+      write FOnGetActiveFormHandle;
+    property OnGetMainFormHandle: TGetHandleEvent read FOnGetMainFormHandle
+      write FOnGetMainFormHandle;
+    property OnIdle: TIdleEvent read FOnIdle write FOnIdle;
+    property OnHelp: THelpEvent read FOnHelp write FOnHelp;
+    property OnHint: TNotifyEvent read FOnHint write FOnHint;
+    property OnMessage: TMessageEvent read FOnMessage write FOnMessage;
+    property OnMinimize: TNotifyEvent read FOnMinimize write FOnMinimize;
+    property OnModalBegin: TNotifyEvent read FOnModalBegin write FOnModalBegin;
+    property OnModalEnd: TNotifyEvent read FOnModalEnd write FOnModalEnd;
+    property OnRestore: TNotifyEvent read FOnRestore write FOnRestore;
+    property OnShowHint: TShowHintEvent read FOnShowHint write FOnShowHint;
+    property OnShortCut: TShortCutEvent read FOnShortCut write FOnShortCut;
+    property OnSettingChange: TSettingChangeEvent read FOnSettingChange write FOnSettingChange;
+{$IF DEFINED(CLR)}
+    property Handle: HWnd read GetHandle write SetHandle;
+    property PopupControlWnd: HWND read GetPopupControlWnd;
+    property OnShutDown: TNotifyEvent read FOnShutDown write FOnShutDown;
+{$ELSE}
+    property Handle: HWnd read FHandle write SetHandle;
+    property PopupControlWnd: HWND read FPopupControlWnd;
+{$ENDIF}
+  end;

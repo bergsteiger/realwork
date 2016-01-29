@@ -1,0 +1,55 @@
+// test_ResolveInputFilePath 53FC3551023F ScriptKeyword Class
+
+INCLUDE '53EDC0E701BC.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_53FC3551023F
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_DEB2A6CEA1DA
+ CONST UID 'DEB2A6CEA1DA'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация test_ResolveInputFilePath' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_DEB2A6CEA1DA Ini_Reg
+
+: ME_53FC3551023F
+ CONST UID '53FC3551023F'
+ CONST Name 'test_ResolveInputFilePath'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY '*Описание:* добавляет к имени файла путь к директории TestSet, где хранятся исходные файлы.'#13#10'*Формат*'#13#10'{code}'#13#10'aFileName test:ResolveInputFilePath'#13#10'{code}'#13#10'где aFileName - имя файля без пути (!).'#13#10'Результат помещается в стек.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_53EDC0E701BC // TtfwRegisterableWord
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_DEB2A6CEA1DA // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_53FC3551023F test_ResolveInputFilePath

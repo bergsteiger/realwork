@@ -1,0 +1,182 @@
+uses States
+		, Clicks
+    , common
+    , RunPrograms
+    , SettingsWork
+    , MenuWork
+    , FoldersWork
+    , DocumentWork
+		, FileWork, ListWork, SearchWork;  
+    
+{
+HLTC376 Панель задач
+  HLTC376.1. Проверить, что панель задач состоит из следующих групп и элементов(проверить также их корректную работу):
+    HLTC376.1.3. Документ
+      HLTC376.1.3.3. Графическая копия официальной публикации  
+}
+function HLTC376_1_3_3_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 2001;  
+  URL = 'http://mirror2.garant.ru/webclient/index.dsp*';
+var  
+  obj;
+  ieAgent;
+begin
+try
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  obj := OpenTasksPanel;
+  if NOT IsExists(obj) then Raise('Не удалось открыть Панель Задач');  
+  if NOT OpenItemInTasksPanel('ДОКУМЕНТ', 'Графическая копия официальной публикации') then
+  begin
+    Log.Error('Не удалось открыть ПАНЕЛЬ ЗАДАЧ\ДОКУМЕНТ\Графическая копия официальной публикации');
+    Raise('Не удалось открыть ПАНЕЛЬ ЗАДАЧ\ДОКУМЕНТ\Графическая копия официальной публикации');
+  end;
+  ieAgent := GetFromInternetAgent('ОСНОВНАЯ ОБЛАСТЬ');
+  Result := IsExists(ieAgent) AND ieAgent.Visible AND (stringCompare('*'+ URL +'*', GetMainWindow.Caption));        
+  if NOT Result then
+   Log.Error('Не удалось обнаружить активное окно IE_AGENT');
+   
+  result := true;
+except   
+  Log.Message( 'HLTC376_1_3_3_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;
+end;
+end;
+
+{
+HLTC376 Панель задач
+  HLTC376.1. Проверить, что панель задач состоит из следующих групп и элементов(проверить также их корректную работу):
+    HLTC376.1.3. Документ
+      HLTC376.1.3.5. Ссылки из документа   
+}
+function HLTC376_1_3_5_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 1055132;
+var  
+  obj;
+  popUpMenu;  
+begin
+try
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  obj := OpenTasksPanel;
+  if NOT IsExists(obj) then Raise('Не удалось открыть Панель Задач');
+  popUpMenu := OpenItemInTasksPanel('ДОКУМЕНТ', 'Ссылки из документа*', 'OpenForPopupMenu:=true');   
+  if NOT  ClickByPopUpMenuItem(popUpMenu, 'Все документы') then
+  begin
+    Log.Error('Не удалось открыть ПАНЕЛЬ ЗАДАЧ\ДОКУМЕНТ\Ссылки из документа\Все документы');
+    Raise('Не удалось открыть ПАНЕЛЬ ЗАДАЧ\ДОКУМЕНТ\Ссылки из документа\Все документы');
+  end;
+  obj := GetFromEditor('ВКЛАДКА "ССЫЛКИ ИЗ ДОКУМЕНТА"');
+  result := IsExists(obj) AND obj.Visible; 
+  if NOT result then
+    Log.Error('Не удалось получить вкладку "ССЫЛКИ ИЗ ДОКУМЕНТА"');
+except   
+  Log.Message( 'HLTC376_1_3_5_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;
+end;
+end;
+
+{
+HLTC376 Панель задач
+  HLTC376.1. Проверить, что панель задач состоит из следующих групп и элементов(проверить также их корректную работу):
+    HLTC376.1.3. Документ
+      HLTC376.1.3.6. Ссылки на документ   
+}
+function HLTC376_1_3_6_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 1055132;
+var  
+  obj;
+  popUpMenu;  
+begin
+try
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  obj := OpenTasksPanel;
+  if NOT IsExists(obj) then Raise('Не удалось открыть Панель Задач');
+  popUpMenu := OpenItemInTasksPanel('ДОКУМЕНТ', 'Ссылки на документ', 'OpenForPopupMenu:=true');   
+  if NOT  ClickByPopUpMenuItem(popUpMenu, 'Все документы') then
+  begin
+    Log.Error('Не удалось открыть ПАНЕЛЬ ЗАДАЧ\ДОКУМЕНТ\Ссылки на документ\Все документы');
+    Raise('Не удалось открыть ПАНЕЛЬ ЗАДАЧ\ДОКУМЕНТ\Ссылки на документ\Все документы');
+  end;
+  obj := GetFromEditor('ВКЛАДКА "ССЫЛКИ НА ДОКУМЕНТ"');
+  result := IsExists(obj) AND obj.Visible; 
+  if NOT result then
+    Log.Error('Не удалось получить вкладку "ССЫЛКИ НА ДОКУМЕНТ"');
+except   
+  Log.Message( 'HLTC376_1_3_6_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;
+end;
+end;
+
+{
+HLTC376 Панель задач
+  HLTC376.1. Проверить, что панель задач состоит из следующих групп и элементов(проверить также их корректную работу):
+    HLTC376.1.4. Запрос(для ППР, ППС, ППИО и обзора зак-ва)
+      HLTC376.1.4.1. Сохранить в Мои документы   
+}
+function HLTC376_1_4_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  PREF = 'HLTC376_1_4_1';
+var  
+  cardWnd;
+  cardData;
+  obj;    
+begin
+try  
+  cardData :=
+    [
+    	CARD_PPR, 
+      ([
+        ([ FD_WORDS_IN_CAPTION,   ([ 'Конституция']) ]),        
+        ([ FD_INOPERATIVE_EDITION,([ 'Да']) ]),        
+        ([FD_TYPE, ([  '[ИЛИ]Комментарии',	'[ИЛИ]Акт']) ])        
+      ])
+    ]; 
+  cardWnd := GoToPPR('', true);
+  if NOT IsExists(cardWnd) then Raise('Не удалось открыть КЗ ППР!');
+  if NOT FillQueryCard(cardWnd, cardData) then Raise('Не удалось заполнить КЗ ППР!');
+  
+  obj := OpenTasksPanel;
+  if NOT IsExists(obj) then Raise('Не удалось открыть Панель Задач');  
+  if NOT OpenItemInTasksPanel('ЗАПРОС', 'Сохранить*') then
+  begin
+    Log.Error('Не удалось вызвать ПАНЕЛЬ ЗАДАЧ\ЗАПРОС\Сохранить в Мои документы');
+    Raise('Не удалось вызвать ПАНЕЛЬ ЗАДАЧ\ЗАПРОС\Сохранить в Мои документы');
+  end;  
+  if NOT SimpleSaveToFolders('Запрос' + PREF, true) then Raise('Не удалось сохранить запрос');
+  GoToMainMenu;
+  if NOT OpenObjectFromFolder(MY_DOCS_PATH + 'Запрос' + PREF) then
+  begin  
+    Log.Error('Не удалось открыть запрос из Моих документов');
+    Raise;
+  end;  
+  obj :=  GetFromPPR('КАРТОЧКА ЗАПРОСА');
+  if NOT IsExists(obj) then Raise('Не удалось получить КЗ');
+  if NOT CompareQueryCardData(cardData, ExtractQueryCardData(obj)) then
+  begin
+    Log.Error('КЗ после загрузки из моих документов не равна эталонной');
+    Raise;
+  end;
+  if NOT DeleteAllInMyDoc then                    
+    Log.Warning('Не удалось удалить все объекты из моих документов');
+  result := true;
+except   
+  Log.Message( 'HLTC376_1_4_1_Execute: ' + ExceptionMessage , '' , pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;
+end;
+end;
+
+////////////////////////////////////////////////////////////////////////////////////
+procedure RykovTest376;         
+var cur;
+begin
+  //Log.Message( HLTC376_1_3_3_Execute(cur));    
+  Log.Message( HLTC376_1_3_5_Execute(cur));
+  //Log.Message( HLTC376_1_3_6_Execute(cur));
+  //Log.Message( HLTC376_1_4_1_Execute(cur));
+end;

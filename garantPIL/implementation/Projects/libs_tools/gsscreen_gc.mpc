@@ -1,0 +1,25 @@
+project (gsscreen_gc) : project-common-defines-tools, project-common-includes, project_generic_core, gsscreen_base {
+	staticname = gsscreen_gc
+	sharedname = gsscreen_gc
+
+	macros += WITH_DBL_THREAD
+	macros += PL_REPLCTR_FUNC
+	macros += MAKE_HDD
+	macros += VERSION63
+
+	macros += OPT_PACK_MPCXC
+	macros += MULTI_INDEX_STREAM_FILE
+	macros += BLOCKSINHERIT
+	macros += DOC_ONLY
+
+	macros -= INSTLL_CIB
+
+	macros += NEWNODOC // macro used in target *.cpp only
+	macros += FLUSH56 // macro used in target *.cpp only
+	macros += MIN_MEM_CONTEXT
+
+//        specific(make) {
+                macros += _USE_STDOUT
+//        }
+
+}

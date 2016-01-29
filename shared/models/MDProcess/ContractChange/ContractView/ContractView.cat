@@ -1,0 +1,323 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "ContractView"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ContractChange/ContractView|48D2320601DC
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19035719468"))
+    quid       	"48D2320601DC"
+    documentation 	"äîêóìåíòàöèÿ îòñóòñòâóåò"
+    stereotype 	"HtmlUnit"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"48D2323D020E"
+	    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestView"
+	    quidu      	"477E279102F4"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "spaceconfig_cc"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ContractChange/ContractView/spaceconfig_cc|48D38A9A00E2
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ContractChange/ContractView/spaceconfig_cc.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*48D38A9A00E2_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*48D38A9A00E2_CUSTOM_CONTENT*¤¤#requireResource("legacy.confluence.web.resources:prototype")¤#requireResource("confluence.web.resources:jquery_with_plugins")¤¤#set ($garEntityHelper = $garContractHelper)¤¤#set($poGroup=$garEntityHelper.getPoGroup($action.key))¤#set($poManager=$garEntityHelper.getPoManager($action.key))¤#set($deputyDevelopmentManager=$garEntityHelper.getDeputyDevelopmentManager($action.key))¤#set($deputyDevelopmentManagerActive=$garEntityHelper.getDeputyDevelopmentManagerActive($action.key))¤#set($fuResponsible=$garEntityHelper.getFuResponsible($action.key))¤#set($fuGroup=$garEntityHelper.getFuGroup($action.key))¤#set($visaGroup=$garEntityHelper.getVisaGroup($action.key))¤#set($allowedLabels = $garEntityHelper.getCcAllowedLabels($action.key))¤#set($ccCreatorGroups = $garEntityHelper.getCcCreatorGroups($action.key))¤#set($supervisorGroup = $garEntityHelper.getSupervisorGroup($action.key))¤#set($administrationManagementGroup = $garEntityHelper.getAdministrationManagementGroup($action.key))¤#set($internalManagementGroup = $garEntityHelper.getInternalManagementGroup($action.key))¤#set($enabled = $garEntityHelper.getMdcEnabled($action.key))¤¤#set($enabledCloseDiscussions = $garEntityHelper.getCloseDiscussionsEnabled($action.key))¤#set($hasUnreadAssignedRequests = $garRequestHelper.hasUnreadAssignedRequests($action.key))¤¤<script language="JavaScript">¤var hasUnreadAssignedRequests = "$hasUnreadAssignedRequests";¤var poManager = "$poManager";¤var prevDevManager = poManager;¤¤function toggleSave () {¤    var $ = jQuery; ¤	¤	var requestURL  = "$req.contextPath/ru/garant/MDProcess/ContractChange/ContractSupport/ContractXPlugin/ContractXPackage/ccspaceconfigsave.action";¤	¤	$('#space_cc_config_form').ajaxSubmit({¤		url : requestURL,¤		beforeSubmit : function() {¤			$('#space_config_cc').html("$garHelper.getText('spaceconfig.saving')...");¤		},¤		success : function(responseText, statusText) { ¤			if(responseText == "success") {¤				$('#space_config_cc').html("$garHelper.getText('spaceconfigcc.changes.saved')");¤			} else if(responseText == "allowedLabelsFormatError") {¤				$('#space_config_cc').html("$garHelper.getText('spaceconfigcc.error.at.saving.labels')");¤			} else {¤				$('#space_config_cc').html("$garHelper.getText('spaceconfigcc.error.saving.data')");¤			}¤		}¤	});¤}¤¤function toggleEnabled() {¤	toggleDisabled(${enabled});¤}¤¤function toggleDisabledCloseDiscussions(enable){¤	enabledCloseDiscussions = enable;¤}¤¤function toggleDisabled(enable) {¤	var $ = jQuery;¤	¤	var tableRows = $('#configTable>tbody>tr');¤	var length = tableRows.length;¤	tableRows.each(function(i) {¤		if(i != length - 1 && i != 0) {¤			enable == true || enable == 'true' ? this.show() : this.hide(); ¤		}¤	});¤}¤¤(function($) {¤¤AJS.toInit(toggleEnabled);¤¤AJS.toInit(function() {¤	$('#deputyDevelopmentManager').change(function() {¤		if($(this).val() != 'undefined') {¤			$('#deputyDevelopmentManagerActive').attr('checked', true);¤			$('#deputyDevelopmentManagerActive').removeAttr('disabled');¤		} else { ¤			$('#deputyDevelopmentManagerActive').removeAttr('checked');¤			$('#deputyDevelopmentManagerActive').attr('disabled', 'disabled');¤		}¤	});¤});¤¤})(jQuery);¤¤function toggleDeveloperManager (what) {¤	developerManager = what;¤	if(hasUnreadAssignedRequests == 'true') {¤		var response = confirm('$garHelper.getText('spaceconfig.unreadrequests')');¤					¤		if (response == false)¤			for (i = 0; i < document.getElementById('poManager').length; i++) ¤				if (prevDevManager == document.getElementById('poManager').options[i].value) ¤					document.getElementById('poManager').options[i].selected = true;	¤	}¤¤	return false;¤}¤¤</script>¤¤<html>¤	<head>¤		<title>$garHelper.getText('settings.cc.space')</title>¤	</head>¤	¤#applyDecorator("root")¤	#decoratorParam("helper" $action.helper)¤	#decoratorParam("context" "space-administration")¤	#decoratorParam("mode"  "view-space-administration")¤			¤#applyDecorator ("root")¤	#decoratorParam ("context" "spaceadminpanel")¤	#decoratorParam ("selection" $action.selection)¤	#decoratorParam ("title" $action.getActionName($action.getClass().getName()))¤	#decoratorParam ("selectedTab" "admin")¤	#decoratorParam("helper" $action.helper)	¤¤<form id="space_cc_config_form"><div id="space_config_cc" style="padding-top: 0px;">¤	<table id="configTable">¤		<tr>¤		<td colspan="2" style="padding-bottom:10px">¤			<div>¤				<span class="formtitle" style="font-size:10pt;">$garHelper.getText('spaceconfigcc.enabled'):</span>¤				<input id="enabled" name="enabled" value="true" type="checkbox" #if(${enabled})checked="true"#end onClick="toggleDisabled(this.checked)"/>¤			</div>¤		</td>¤		</tr>¤		<tr>¤			<td style="width: 300px">¤				<span class="formtitle" style="font-size:10pt;">$garHelper.getText('spaceconfigcc.choose.group.to.create.contract'):</span>¤			</td>¤			<td style="width: 500px">¤				<span class="formtitle" style="font-size:10pt;">$garHelper.getText('spaceconfigcc.enumerate.page.labels.to.attach.to'):</span>¤			</td>¤¤		</tr>¤		<tr>¤			<td rowspan="3">¤				<select id="ccCreatorGroups" name="ccCreatorGroups" multiple size="9" style="width:250px">¤					#foreach($group in $garUserHelper.getEditPermittedGroups($action.key))¤						#if ($ccCreatorGroups.contains($group))¤							<option value="$group" selected>$group</option>¤	        			#else¤	        				<option value="$group">$group</option>¤	        			#end¤	       			#end¤				</select>¤			</td>¤			<td style="width: 500px">¤				<input id="allowedLabels" name="allowedLabels" type="text" value="$allowedLabels" size="80"/>¤			</td>¤		</tr>¤		<tr>¤			<td>¤				<span class="formtitle" style="font-size:10pt;">$garHelper.getText('spaceconfigcc.show.roles.in.ccproject'):</span>¤			</td>¤		</tr>¤		<tr>¤			<td>¤				<table class="navmenu">¤					<tr>¤						<td>$garHelper.getText('spaceconfigcc.group.lawful.support'):</td>¤						<td><select id="poGroup" name="poGroup" style="width:290px">¤								<option value="undefined" #if($poGroup=="undefined")selected#end>$garHelper.getText('spaceconfig.undefined')</option>¤	        					#foreach($group in $garUserHelper.getEditPermittedGroups($action.key))¤									#if ($group == $poGroup)¤										<option value="$group" selected>$group</option>¤	        						#else¤	        							<option value="$group">$group</option>¤	        						#end¤								#end¤								¤	        				</select></td>¤					</tr>¤					<tr>¤						<td>$garHelper.getText('spaceconfigcc.group.manager.software'):</td>¤						<td><select id="poManager" name="developmentManager" style="width:290px" onChange="toggleDeveloperManager($('poManager').options[$('poManager').selectedIndex].value)">¤								<option value="undefined" #if($poManager=="undefined")selected#end>$garHelper.getText('spaceconfig.undefined')</option>¤								#foreach($user in $garUserHelper.getEditPermittedUsers($action.key))¤									#if ($user.name == $poManager)¤										<option value="$user.name" selected>$user.fullName</option>¤									#else¤										<option value="$user.name">$user.fullName</option>¤									#end¤								#end¤							</select>¤						</td>¤					</tr>¤					<tr>¤						<td>$garHelper.getText('spaceconfigcc.deputy.developer.manager'):</td>¤						<td>¤							<select id="deputyDevelopmentManager" name="deputyDevelopmentManager" style="width:290px" onChange="if($F(this) != 'undefined') $('deputyDevelopmentManagerActive').enable(); else $('deputyDevelopmentManagerActive').disable();">¤								<option value="undefined" #if($deputyDevelopmentManager=="undefined")selected#end>$garHelper.getText('spaceconfig.undefined')</option>¤								#foreach($user in $garUserHelper.getEditPermittedUsers($action.key))¤									#if ($user.name == $deputyDevelopmentManager)¤										<option value="$user.name" selected>$user.fullName</option>¤									#else¤										<option value="$user.name">$user.fullName</option>¤									#end¤								#end¤							</select>	¤							<span class="smalltext" style="font-size:9pt;"></span>¤							¤						</td>¤					</tr>¤					<tr>¤						<td>$garHelper.getText('spaceconfigcc.deputy.developer.manager.active'):</td>¤						<td>¤							<input id="deputyDevelopmentManagerActive" name="deputyDevelopmentManagerActive" type="checkbox" value="true" #if($deputyDevelopmentManager=="undefined")disabled="disabled"#end  #if($deputyDevelopmentManagerActive) checked #end/>¤						</td>¤					</tr>¤					<tr>¤						<td>$garHelper.getText('spaceconfigcc.responsible.group.for.fu'):</td>¤						<td><select id="fuGroup" name="fuGroup" style="width:290px">¤								<option value="undefined" #if($fuGroup=="undefined")selected#end>$garHelper.getText('spaceconfig.undefined')</option>¤								#foreach($group in $garUserHelper.getEditPermittedGroups($action.key))¤									#if ($group == $fuGroup)¤										<option value="$group" selected>$group</option>¤									#else¤										<option value="$group">$group</option>¤									#end¤								#end¤							</select>¤						</td>¤					</tr>¤					<tr>¤						<td>$garHelper.getText('spaceconfigcc.responsible.for.fu'):</td>¤						<td><select id="fuResponsible" name="fuResponsible" style="width:290px">¤								<option value="undefined" #if($fuResponsible=="undefined")selected#end>$garHelper.getText('spaceconfig.undefined')</option>¤								#foreach($user in $garUserHelper.getEditPermittedUsers($action.key))¤									#if ($user.name == $fuResponsible)¤										<option value="$user.name" selected>$user.fullName</option>¤									#else¤										<option value="$user.name">$user.fullName</option>¤									#end¤								#end¤							</select>¤						</td>¤					</tr>¤					<tr>¤						<td>$garHelper.getText('spaceconfigcc.group.visa'):</td>¤						<td><select id="visaGroup" name="visaGroup" style="width:290px">¤								<option value="undefined" #if($visaGroup=="undefined")selected#end>$garHelper.getText('spaceconfig.undefined')</option>¤	        					#foreach($group in $garUserHelper.getEditPermittedGroups($action.key))¤									#if ($group == $visaGroup)¤										<option value="$group" selected>$group</option>¤	        						#else¤	        							<option value="$group">$group</option>¤	        						#end¤	        					#end¤	        				</select></td>¤					</tr>¤					<tr>¤						<td>$garHelper.getText('spaceconfigcc.group.supervisor'):</td>¤						<td><select id="supervisorGroup" name="supervisorGroup" style="width:290px">¤								<option value="undefined" #if($supervisorGroup=="undefined")selected#end>$garHelper.getText('spaceconfig.undefined')</option>¤	        					#foreach($group in $garUserHelper.getEditPermittedGroups($action.key))¤									#if ($group == $supervisorGroup)¤										<option value="$group" selected>$group</option>¤	        						#else¤	        							<option value="$group">$group</option>¤	        						#end¤	        					#end¤	        				</select></td>¤					</tr>¤					<tr>¤						<td>$garHelper.getText('spaceconfigcc.group.administractionManagement'):</td>¤						<td><select id="administrationManagementGroup" name="administrationManagementGroup" style="width:290px">¤								<option value="undefined" #if($administrationManagementGroup=="undefined")selected#end>$garHelper.getText('spaceconfig.undefined')</option>¤	        					#foreach($group in $garUserHelper.getEditPermittedGroups($action.key))¤									#if ($group == $administrationManagementGroup)¤										<option value="$group" selected>$group</option>¤	        						#else¤	        							<option value="$group">$group</option>¤	        						#end¤	        					#end¤	        				</select></td>¤					</tr>¤					<tr>¤						<td>$garHelper.getText('spaceconfigcc.group.internalManagement'):</td>¤						<td><select id="internalManagementGroup" name="internalManagementGroup" style="width:290px">¤								<option value="undefined" #if($internalManagementGroup=="undefined")selected#end>$garHelper.getText('spaceconfig.undefined')</option>¤	        					#foreach($group in $garUserHelper.getEditPermittedGroups($action.key))¤									#if ($group == $internalManagementGroup)¤										<option value="$group" selected>$group</option>¤	        						#else¤	        							<option value="$group">$group</option>¤	        						#end¤	        					#end¤	        				</select></td>¤					</tr>¤				</table>¤			</td>¤		</tr>¤		<tr>¤			<td colspan="3" style="width: 800px">¤				<span class="formtitle" style="font-size:10pt;">$garHelper.getText('spaceconfig.select.importances'):</span>¤			</td>¤		</tr>¤		<tr>¤			<td colspan="3" style="border: 1px solid #cccccc; width: 800px">¤				<div>¤					#parse("/ConfluenceMDChange/RequestView/spaceconfig_requestimportances.vm")¤				</div>¤			</td>¤		</tr>¤		<tr>¤			<td colspan="3" style="border: 1px solid #cccccc; width: 800px">¤				<div>¤					<span class="formtitle" style="font-size:10pt;">$garHelper.getText('spaceconfig.automatically.close.discussions.on.close.contracts'):</span>¤						<input id="enabledCloseDiscussions" name="enabledCloseDiscussions" value="true" type="checkbox" #if(${enabledCloseDiscussions})checked="true"#end onClick="toggleDisabledCloseDiscussions(this.checked)"/>¤				</div>¤			</td>¤		</tr>¤		<tr>¤			<td colspan="2">¤				<table width="100%" style="min-width: 206px">¤					<tr>¤						<td width="99%" align="right">¤							<input type=button value="$garHelper.getText('add.name')" onClick="toggleSave();"/>&nbsp;&nbsp;¤							<input type=button value="$garHelper.getText('cancel.name')" onClick="location.replace('${req.contextPath}/spaces/spaceadmin.action?key=$action.key');"/>¤						</td>¤						<td></td>¤					</tr>¤				</table>¤			</td>¤		</tr>¤	</table>¤¤	<input name="spaceKey" type="hidden" value="$action.key"/>¤	¤<form>¤#end¤#end¤</html>¤¤¤##UC_END*48D38A9A00E2_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039306505"))
+	    quid       	"48D38A9A00E2"
+	    documentation 	"ðàçìåòêà ñòðàíèöû íàñòðîåê ñïåéñà ïî óïðàâëåíèþ çàÿâêàìè"
+	    stereotype 	"VM"
+	    language   	"MDA Generator")
+	(object Class "contract-prop-include-js"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/ContractChange/ContractView/contract-prop-include-js.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*48E9BF6000F6_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*48E9BF6000F6_CUSTOM_CONTENT*¤¤#parse("/ConfluenceMDChange/RequestView/request-prop-include-common-js.vm")¤¤<script type="text/javascript" language="JavaScript">¤¤var actionURL = "$req.contextPath/ru/garant/MDProcess/ContractChange/ContractSupport/ContractXPlugin/ContractXPackage/editcontract.action";¤var allEditCtrl = ["forecast", "priorityCalculationType", "releasePriorityCalculationType", "location_request", "isVisaRework", "completionTime", "contractPrice", "limitTime"];¤var allListCtrl = ["type", "event", "executor", "developer", "importance", "visaProvider"];¤var allCheckBoxCtrl = [];¤¤var openPropertiesPanelImg = '/download/resources/net.customware.confluence.plugin.composition:toggle-cloak/img/navigate_down_10.gif';¤var closedPropertiesPanelImg = '/download/resources/net.customware.confluence.plugin.composition:toggle-cloak/img/navigate_right_10.gif';¤¤function togglePriorityChange(up, user) {¤	var immediate = getImmediate();¤	var val = "";¤	if(up == true) {¤		val = immediate ? "RELEASE_USER_IMMEDIATE_FIRST" : "RELEASE_USER_NOT_IMMEDIATE_FIRST";¤	} else {¤		val = immediate ? "RELEASE_USER_IMMEDIATE_LAST" : "RELEASE_USER_NOT_IMMEDIATE_LAST";¤	}¤	var params = "entityId=${request.request.page.id}";¤	params += "&priorityRecalculationType=" + val;¤	params += "&isNeedPriorityChange=true";¤	doRequestWithoutRendering (actionURL, params, onPriorityChangedCallback, new function(){});¤	return false;¤}¤¤var onPriorityChangedCallback = function(xmlDoc) {¤	var newPosExecutorEl = xmlDoc.getElementsByTagName("newPosExecutor")[0];¤	var immediate = xmlDoc.getElementsByTagName("immediate")[0];¤	¤	if(newPosExecutorEl != null) {¤		$('ownerPriorityPosition').innerHTML = newPosExecutorEl.firstChild.nodeValue;¤	}¤	¤	invertImmediateTooltips(immediate.firstChild.nodeValue);¤}¤¤/*function onRequestError(errorCode, errorBlock, needToReloadPage) {¤	showValidationMessage(errorBlock.firstChild.nodeValue);¤}*/¤¤function togglePropertiesPanel() {¤	if($('propertiesTableContainer').style.display != '') {¤        $('propertiesTableContainer').show();¤		$('propertiesPanelImg').src = openPropertiesPanelImg;¤    } else {¤        $('propertiesTableContainer').hide();¤		$('propertiesPanelImg').src = closedPropertiesPanelImg;¤    }¤}¤¤/*public*/ function toggleEmpowerImportant (val) {¤	var params = "entityId=${request.request.page.id}";¤	params += "&empowerImportant=" + val;¤	var onErrorCallback = function() {¤		$('empowerImportant_checkbox_id').checked = !($('empowerImportant_checkbox_id').checked == true);¤	}¤	doRequestWithoutRendering (actionURL, params, function () {}, onErrorCallback);¤	return false;¤}¤¤</script>¤¤##UC_END*48E9BF6000F6_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ContractChange/ContractView/contract-prop-include-js|48E9BF6000F6
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039317008"))
+	    quid       	"48E9BF6000F6"
+	    documentation 	"ñîäåðæèò ñêðèïòû, ñïåöèôè÷íûå äëÿ ðàáîòû ñ çàÿâêàìè"
+	    stereotype 	"VM"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19020869195"))
+		    quid       	"48E9BF8003A3"
+		    stereotype 	"include"
+		    supplier   	"Logical View::MDProcess::ConfluenceMDChange::RequestView::request-prop-include-common-js"
+		    quidu      	"48A40A9602B6"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"48D8E36600F4"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ContractChange::ContractView::spaceconfig_cc" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(582, 306)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(427, 277)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	310
+			justify    	0
+			label      	"spaceconfig_cc")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(427, 227)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	310
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"48D38A9A00E2"
+		    width      	328
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluenceMDChange::RequestView::request-prop-include-common-js" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1440, 831)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	13110000
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1117, 803)
+			nlines     	1
+			max_width  	646
+			justify    	0
+			label      	"request-prop-include-common-js")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1117, 753)
+			anchor     	10
+			nlines     	1
+			max_width  	646
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    line_color 	13110000
+		    fill_color 	16777215
+		    quidu      	"48A40A9602B6"
+		    width      	664
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ContractChange::ContractView::contract-prop-include-js" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(528, 840)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(298, 811)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	460
+			justify    	0
+			label      	"contract-prop-include-js")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(298, 761)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	460
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"48E9BF6000F6"
+		    width      	478
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @4
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @5
+			Parent_View 	@4
+			location   	(937, 716)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<include>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"48E9BF8003A3"
+		    client     	@3
+		    supplier   	@2
+		    vertices   	(list Points
+			(767, 836)
+			(1107, 833))
+		    line_style 	0)))))

@@ -1,0 +1,2017 @@
+<<VCMViews>> View
+ %UID '4AA9194D0280'
+ %SUMMARY 'Представление' ;
+ %DEPENDS
+  U$ '447878770121' /* GCI */
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FBA70343' /* l3Interfaces */
+  U$ '4677FF4B0036' /* Data */
+  U$ '467A75D90346' /* VT */
+  U$ '467A8734039C' /* EVD */
+  U$ '4680E7D50168' /* "Everest Engine" */
+  U$ '4682595B0268' /* l3TreeInterfaces */
+  U$ '4683F37902CF' /* vcmInterfaces */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '46A5E026007E' /* l3Core */
+  U$ '4767743E00E5' /* TypInfo */
+  U$ '476F78840219' /* Messages */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4799D29F033F' /* Implementation */
+  U$ '47E9EEC60260' /* Model */
+  U$ '481EF5C4020D' /* Оболочка */
+  U$ '4954C0500033' /* UserInteraction */
+  U$ '4954FAA00232' /* Search */
+  U$ '4986ECDF01F4' /* View */
+  U$ '499EAAE502A8' /* vcmUserControls */
+  U$ '4A78013D01CD' /* "View$For F1 and Monitorings" */
+  U$ '4A85683403A8' /* View */
+  U$ '4AB0997B00A2' /* Common */
+  U$ '4AB0C3C60310' /* Sys */
+  U$ '4AB0C3F60375' /* Win */
+  U$ '4D4927B5008B' /* VT$Core */
+  U$ '4DAF19F600C5' /* tfwScriptingInterfaces */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E200FED0213' /* Operations */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '4EEA091C01B4' /* View$Prim */
+  U$ '4F3E3F5F0160' /* PrimitiveWords */
+  U$ '4F69DF560034' /* ControlsProcessing */
+  U$ '521C9DA50125' /* "Application Resources" */
+  U$ '5257E836001C' /* View$Strange */
+  U$ '54B90AC6014B' /* StringUtils */
+  U$ '54DB92D203C9' /* "VCL bindings" */
+  U$ '550012C403C4' /* L3$AFW */
+  U$ '5527F81C020E' /* TypesRegistration */
+  U$ '55BA28CE0290' /* tfwScriptingTypes */
+  U$ '55CCADD2013D' /* ClassLikeMapping */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '447878770121' /* GCI */
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FF4B0036' /* Data */
+  U$ '467A75D90346' /* VT */
+  U$ '467A8734039C' /* EVD */
+  U$ '4680E7D50168' /* "Everest Engine" */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47E9EEC60260' /* Model */
+  U$ '481EF5C4020D' /* Оболочка */
+  U$ '4954C0500033' /* UserInteraction */
+  U$ '4954FAA00232' /* Search */
+  U$ '4986ECDF01F4' /* View */
+  U$ '4A78013D01CD' /* "View$For F1 and Monitorings" */
+  U$ '4A85683403A8' /* View */
+  U$ '4D4927B5008B' /* VT$Core */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E200FC9003B' /* VCM$Scripting */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '4EEA091C01B4' /* View$Prim */
+  U$ '5257E836001C' /* View$Strange */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+  U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+  U$ '550012C403C4' /* L3$AFW */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<VCMControls>> FormDefinitions
+   %UID '4BD98A8C0110'
+   %DEPENDS
+    U$ '4683F37902CF' /* vcmInterfaces */
+    U$ '4F3E3F5F0160' /* PrimitiveWords */
+   ; // %DEPENDS
+   %META
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '4790C3B8021E' /* VCM */
+    U$ '54CF97B10370' /* ScriptEngine$Core */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<VCMFormDefinition>> PostingsList
+      %UID '4BD98AA402AC'
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        SUMMONED <<Constants>> PostingsListIDs
+         %UID '0C1AC065B2F7'
+         %META
+          %upv "spell names" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           SUMMONED <<Attribute>> fm_enPostingsList
+            %UID 'E8BE4F981A7C'
+            %SUMMARY 'Идентификатор формы TenPostingsList' ;
+            %TARGET U$ '4FFC30A800DF' /* TvcmFormDescriptor */
+            %VALUE '(rFormID : (rName : ''enPostingsList''; rID : 0); rFactory : nil)'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // fm_enPostingsList
+         ; // %ATTRIBUTES
+        ; // PostingsListIDs
+      ; // %CHILDREN
+     ; // PostingsList
+     SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_Form_PostingsList_ID"
+      %UID '90CA7495E0C6'
+      %SUMMARY 'Слово словаря для идентификатора формы PostingsList'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::PostingsList TryFocus ASSERT'#13#10'{code}' ;
+      %META
+       %upv "NameForScript" 'форма::PostingsList'
+       %upv "ifndef" 'NoScripts'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4DDFD1430390' /* TtfwString */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+       U$ '4DDFD2EA0116' /* GetString */
+      ; // %OVERRIDES
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID 'DEC05511C4EF'
+         %SUMMARY 'Регистрация Tkw_Form_PostingsList_ID' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "Tkw_Form_PostingsList_ID"
+   ; // %CHILDREN
+  ; // FormDefinitions
+  <<VCMControls>> Strange
+   %UID '4C84EDB403D2'
+   %DEPENDS
+    U$ '4914746C019E' /* IvcmEntityForm */
+    U$ '49525C400141' /* IvcmContainer */
+    U$ '4991AD08005B' /* IvcmEntity */
+    U$ '49930CC501C9' /* IvcmAggregate */
+   ; // %DEPENDS
+   %META
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '4790C3B8021E' /* VCM */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<VCMOperations>> PostingToolBar
+      %UID '4C84EDCD017A'
+      %SUMMARY 'Панель новостей' ;
+      %CHILDREN
+       
+        ABSTRACT <<VCMOperation>> ptNewTheme
+         %UID '4C84EE020054'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" true
+          %upv "ShowInToolbar" true
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" true
+         ; // %META
+        ; // ptNewTheme
+        ABSTRACT <<VCMOperation>> ptEditPosting
+         %UID '4C84EE1D0024'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" true
+          %upv "ShowInToolbar" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" true
+         ; // %META
+        ; // ptEditPosting
+        ABSTRACT <<VCMOperation>> ptDeletePosting
+         %UID '4C84EE3801EB'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" true
+          %upv "ShowInToolbar" true
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" true
+         ; // %META
+        ; // ptDeletePosting
+        ABSTRACT <<VCMOperation>> SavePostList
+         %UID '4C84EE590206'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" true
+          %upv "ShowInToolbar" true
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // SavePostList
+        ABSTRACT <<VCMOperation>> ExportSelected
+         %UID '4C84EE750308'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "ShowInContextMenu" true
+          %upv "ShowInToolbar" false
+          %upv "has states" false
+          %upv "is FormActivate" false
+          %upv "is query" false
+          %upv "no prefix" false
+         ; // %META
+        ; // ExportSelected
+      ; // %CHILDREN
+     ; // PostingToolBar
+     <<VCMFacet>> SearchSupport
+      %UID '553FAEB0033D'
+      %OPERATIONS
+        ABSTRACT <<InternalOperation>> ActivatePostingsListForm
+         %UID '553FAEED007A'
+         %META
+          %upv "AutoFocus" false
+          %upv "AutoLock" false
+          %upv "LongProcess" false
+          %upv "Needs Broadcast" true
+          %upv "has states" false
+          %upv "is FormActivate" true
+          %upv "is query" true
+          %upv "no prefix" false
+         ; // %META
+        ; // ActivatePostingsListForm
+      ; // %OPERATIONS
+     ; // SearchSupport
+     SUMMONED <<SimpleClass>> Op_SearchSupport_ActivatePostingsListForm
+      %UID '9E2277079C07'
+      %SUMMARY 'Класс для вызова операции SearchSupport.ActivatePostingsListForm' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        SUMMONED FINAL <<static>> Call$E1F684CF5C8A
+         %UID 'E1F684CF5C8A'
+         %SUMMARY 'Вызов операции SearchSupport.ActivatePostingsListForm у сущности' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '092F8EB332A0'
+            %TARGET U$ '4991AD08005B' /* IvcmEntity */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$E1F684CF5C8A
+        SUMMONED FINAL <<static>> Call$123644BDE6DB
+         %UID '123644BDE6DB'
+         %SUMMARY 'Вызов операции SearchSupport.ActivatePostingsListForm у агрегации' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '756C6CFE0FA4'
+            %TARGET U$ '49930CC501C9' /* IvcmAggregate */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$123644BDE6DB
+        SUMMONED FINAL <<static>> Call$223144433231
+         %UID '223144433231'
+         %SUMMARY 'Вызов операции SearchSupport.ActivatePostingsListForm у формы' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID '9C9DFC7BC610'
+            %TARGET U$ '4914746C019E' /* IvcmEntityForm */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$223144433231
+        SUMMONED FINAL <<static>> Call$8F536004C8EF
+         %UID '8F536004C8EF'
+         %SUMMARY 'Вызов операции SearchSupport.ActivatePostingsListForm у контейнера' ;
+         %TARGET U$ '3DBFFE100240' /* boolean */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           SUMMONED <<in>> aTarget
+            %UID 'F32FBED52252'
+            %TARGET U$ '49525C400141' /* IvcmContainer */
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // aTarget
+         ; // %PARAMETERS
+        ; // Call$8F536004C8EF
+        SUMMONED FINAL <<static>> Broadcast
+         %UID '0335CE99735E'
+         %SUMMARY 'Вызов операции SearchSupport.ActivatePostingsListForm у всех зарегистрированных сущностей' ;
+        ; // Broadcast
+      ; // %OPERATIONS
+     ; // Op_SearchSupport_ActivatePostingsListForm
+   ; // %CHILDREN
+  ; // Strange
+  <<VCMModule>> Monitorings
+   %UID '4AA9196700EB'
+   %DEPENDS
+    U$ '4423F94903C8' /* IO */
+    U$ '45EEAA8E034E' /* Search */
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4682595B0268' /* l3TreeInterfaces */
+    U$ '46837A08002C' /* nsQueryInterfaces */
+    U$ '4683F37902CF' /* vcmInterfaces */
+    U$ '46A5E026007E' /* l3Core */
+    U$ '4767743E00E5' /* TypInfo */
+    U$ '476BF10A0280' /* l3Tree_TLB */
+    U$ '476F78840219' /* Messages */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '47BECCB801BE' /* Prime */
+    U$ '47D036150077' /* l3ControlsTypes */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '47F2170002B2' /* nsTypes */
+    U$ '484A470100DD' /* Standard */
+    U$ '484E610E0335' /* "Информационная поддержка" */
+    U$ '48F747EC0073' /* Common */
+    U$ '4908A8A20107' /* OldTree */
+    U$ '4912DD020283' /* eeInterfaces */
+    U$ '494B947D0127' /* Tree */
+    U$ '4958E382019E' /* "Search$Presentation for F1 and Monitorings" */
+    U$ '499EAAE502A8' /* vcmUserControls */
+    U$ '4AADF9450143' /* Visual */
+    U$ '4AB0997B00A2' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4AB0C3F60375' /* Win */
+    U$ '4AC22E040232' /* OldTreeInterfaces */
+    U$ '4ADF3FBB00C3' /* PrimeDomainInterfaces */
+    U$ '4AE831B30019' /* Strange */
+    U$ '4AE89F8A004B' /* Strange */
+    U$ '4B8E675402AB' /* Dialogs */
+    U$ '4B97E7FD006C' /* Outliner */
+    U$ '4BD97FDB031A' /* FormDefinitions */
+    U$ '4BD98A8C0110' /* FormDefinitions */
+    U$ '4BDAF7510113' /* Tree */
+    U$ '4C84EDB403D2' /* Strange */
+    U$ '4DAF19F600C5' /* tfwScriptingInterfaces */
+    U$ '4E200FED0213' /* Operations */
+    U$ '4EEA0958023A' /* SearchRes */
+    U$ '4F3E3F5F0160' /* PrimitiveWords */
+    U$ '4F69DF560034' /* ControlsProcessing */
+    U$ '521C9DA50125' /* "Application Resources" */
+    U$ '5267C3880201' /* Search */
+    U$ '533D53FF00C2' /* Visual$ChromeLike */
+    U$ '54B90AC6014B' /* StringUtils */
+    U$ '54DB92D203C9' /* "VCL bindings" */
+    U$ '5527F81C020E' /* TypesRegistration */
+    U$ '553213B80041' /* TabbedInterfaceServices */
+    U$ '55BA28CE0290' /* tfwScriptingTypes */
+    U$ '55CCADD2013D' /* ClassLikeMapping */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '447878770121' /* GCI */
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677FF4B0036' /* Data */
+    U$ '467A75D90346' /* VT */
+    U$ '467A8734039C' /* EVD */
+    U$ '4680E7D50168' /* "Everest Engine" */
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '47E9EEC60260' /* Model */
+    U$ '481EF5C4020D' /* Оболочка */
+    U$ '4954C0500033' /* UserInteraction */
+    U$ '4954FAA00232' /* Search */
+    U$ '4A78013D01CD' /* "View$For F1 and Monitorings" */
+    U$ '4A85683403A8' /* View */
+    U$ '4AA9194D0280' /* View */
+    U$ '4D4927B5008B' /* VT$Core */
+    U$ '4E13416D0227' /* VCM$Visual */
+    U$ '4E200FC9003B' /* VCM$Scripting */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+    U$ '4EEA091C01B4' /* View$Prim */
+    U$ '5257E836001C' /* View$Strange */
+    U$ '54CF97B10370' /* ScriptEngine$Core */
+    U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+    U$ '550012C403C4' /* L3$AFW */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<VCMForm>> PrimPostingsList
+      %UID '4AAFA13C01B0'
+      %META
+       %upv "NeedsHackRef" false
+       %upv "ZoneType" 'Any'
+       %upv "author" 'Люлин А.В.'
+       %upv "base wnd class" 'CWnd'
+       %upv "finished dfm" true
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "resizeable" false
+       %upv "restrict form def" 'undefined'
+       %upv "started" '15.09.2009 18:14'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '467A75D90346' /* VT */
+       U$ '4680E7D50168' /* "Everest Engine" */
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790C3B8021E' /* VCM */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4AA9194D0280' /* View */
+       U$ '4E13416D0227' /* VCM$Visual */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+       U$ '5257E836001C' /* View$Strange */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4C84EDCD017A' /* PostingToolBar */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '49525B34022A' /* TvcmEntityForm */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4C84EE020054' /* ptNewTheme */
+       U$ '4C84EE1D0024' /* ptEditPosting */
+       U$ '4C84EE3801EB' /* ptDeletePosting */
+       U$ '4C84EE590206' /* SavePostList */
+       U$ '4C84EE750308' /* ExportSelected */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '47A042E100E2' /* InitFields */
+       U$ '47EA4E9002C6' /* FinishDataUpdate */
+       U$ '49803F5503AA' /* DoInit */
+       U$ '4980407F0076' /* CallCloseQuery */
+       U$ '4A8E8F2E0195' /* InitControls */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4C84F1D1034A"
+         %UID '4C84F1D1034A'
+         %TARGET U$ '4AB0EE02004E' /* Dialogs */
+        ; // 4C84F1D1034A
+        <<uses>> "4C84F21300CF"
+         %UID '4C84F21300CF'
+         %TARGET U$ '4C37236E02A1' /* TvtSaveDialog */
+        ; // 4C84F21300CF
+        <<uses>> "4C84F30B03D1"
+         %UID '4C84F30B03D1'
+         %TARGET U$ '499032AE00A0' /* InsPrimeNode */
+        ; // 4C84F30B03D1
+        <<uses>> "4C84F32C0038"
+         %UID '4C84F32C0038'
+         %TARGET U$ '45EEE145027B' /* Query */
+        ; // 4C84F32C0038
+        <<uses>> "4C84F379011B"
+         %UID '4C84F379011B'
+         %TARGET U$ '4ADEE49C02DF' /* Supports$4ADEE49C02DF */
+        ; // 4C84F379011B
+        <<uses>> "4C84F3920139"
+         %UID '4C84F3920139'
+         %TARGET U$ '4912DD200333' /* IeeTreeView */
+        ; // 4C84F3920139
+        <<uses>> "4C84F511003A"
+         %UID '4C84F511003A'
+         %TARGET U$ '4AA7F1CB012C' /* vcmConstString */
+        ; // 4C84F511003A
+        <<uses>> "4C84F52A0267"
+         %UID '4C84F52A0267'
+         %TARGET U$ '4AB882990057' /* nsCStr */
+        ; // 4C84F52A0267
+        <<uses>> "4C84F54502F8"
+         %UID '4C84F54502F8'
+         %TARGET U$ '496DF8D80017' /* UnknownExportError */
+        ; // 4C84F54502F8
+        <<uses>> "528263B203A9"
+         %UID '528263B203A9'
+         %TARGET U$ '484D2CBA0213' /* TextStyle */
+        ; // 528263B203A9
+        <<uses>> "528264BD0127"
+         %UID '528264BD0127'
+         %TARGET U$ '47D63BA9029A' /* Tl3ActionElementMode */
+        ; // 528264BD0127
+        <<uses>> "5282660B027F"
+         %UID '5282660B027F'
+         %TARGET U$ '4AAF9400011C' /* TnsPostingsTreeSingle */
+        ; // 5282660B027F
+        <<uses>> "52826660038E"
+         %UID '52826660038E'
+         %TARGET U$ '47F260EC02C7' /* StdRes */
+        ; // 52826660038E
+        <<uses>> "5282666A028D"
+         %UID '5282666A028D'
+         %TARGET U$ '47E11FC3021E' /* Controls */
+        ; // 5282666A028D
+        <<uses>> "5282666D014E"
+         %UID '5282666D014E'
+         %TARGET U$ '47E13C6B0341' /* Forms */
+        ; // 5282666D014E
+        <<uses>> "52826B95031E"
+         %UID '52826B95031E'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 52826B95031E
+        <<uses>> "5282722402AE"
+         %UID '5282722402AE'
+         %TARGET U$ '4EC391C00307' /* SearchRes */
+        ; // 5282722402AE
+        <<uses>> "5282724902E1"
+         %UID '5282724902E1'
+         %TARGET U$ '49904D800350' /* InsWrapperNode */
+        ; // 5282724902E1
+        <<uses>> "528272870139"
+         %UID '528272870139'
+         %TARGET U$ '468395190206' /* IqaReqAttribute */
+        ; // 528272870139
+        <<uses>> "52987FDC0376"
+         %UID '52987FDC0376'
+         %TARGET U$ '468274930190' /* Il3SimpleRootNode */
+        ; // 52987FDC0376
+        <<uses>> "542437420196"
+         %UID '542437420196'
+         %TARGET U$ '4B1E8FAE0380' /* DefDataAdapter$4B1E8FAE0380 */
+        ; // 542437420196
+        SUMMONED <<uses>> "6357DE9B9E91"
+         %UID '6357DE9B9E91'
+         %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+        ; // 6357DE9B9E91
+        SUMMONED <<uses>> "2CF145957921"
+         %UID '2CF145957921'
+         %TARGET U$ '4E01D1E002AE' /* Tl3MessageID */
+        ; // 2CF145957921
+        SUMMONED <<uses>> "1D0C8A185F76"
+         %UID '1D0C8A185F76'
+         %TARGET U$ '508528D10384' /* TtfwClassRef */
+        ; // 1D0C8A185F76
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE FINAL <<readonly>> IsNeedSave
+         %UID '52826BBE03A6'
+         %SUMMARY 'определяет нужно ли сохранять текущие результаты работы при смене тематики или закрытии приложения.' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // IsNeedSave
+        PRIVATE <<Attribute>> f_OnUpdate
+         %UID '528270470061'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_OnUpdate
+        SUMMONED PRIVATE <<Attribute>> f_tvPostings
+         %UID 'C2DA491B361B'
+         %SUMMARY 'Поле для свойства tvPostings' ;
+         %TARGET U$ '494B949E022B' /* TeeTreeView */
+         %TOBEINCLUDED
+          U$ '4680E7D50168' /* "Everest Engine" */
+         ; // %TOBEINCLUDED
+        ; // f_tvPostings
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PRIVATE FINAL <<method>> Save
+         %UID '4C84F272012A'
+         %SUMMARY 'Функция проверяет необходимость сохранения запроса программы.'#13#10'Возвращает False, если пользователь нажал "Нет" в предложении сохранить запрос.' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4EAEAE2602FD"
+            %UID '4EAEAE2602FD'
+            %TARGET U$ '4AAF9400011C' /* TnsPostingsTreeSingle */
+           ; // 4EAEAE2602FD
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4C84F278028C'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Save
+        PRIVATE FINAL <<method>> tvPostingsGetItemImage
+         %UID '528262650131'
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '47D63B6D0157' /* Tl3GetItemImage */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID '1AF98620E745'
+            %SUMMARY 'Event to get Index of Bitmap in ImageIndex.' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> Sender
+               %UID 'BEFAD4A08CBB'
+               %TARGET U$ '469F8577004B' /* TObject$Stub */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Sender
+              SUMMONED <<in>> Index
+               %UID 'C063BF69833B'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Index
+              SUMMONED <<inout>> aImages
+               %UID 'EED0559CC305'
+               %TARGET U$ '473DA2AF0168' /* TCustomImageList */
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+               ; // %TOBEINCLUDED
+              ; // aImages
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // tvPostingsGetItemImage
+        PRIVATE FINAL <<method>> tvPostingsActionElement
+         %UID '5282636A000F'
+         %TOBEINCLUDED
+          U$ '467A75D90346' /* VT */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '51432026033F' /* TActionElement */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID '4E3E3A39F1DD'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> Sender
+               %UID '1BF4EFD4F476'
+               %TARGET U$ '4807745602C8' /* TObject */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Sender
+              SUMMONED <<in>> Index
+               %UID 'E9010EBB97A0'
+               %TARGET U$ '4DE60F5E00A6' /* LongInt */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Index
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // tvPostingsActionElement
+        PRIVATE FINAL <<method>> OnAddNode
+         %UID '5282655D0103'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '5257E836001C' /* View$Strange */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '52F9F698015D' /* TnsAddEvent */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID 'BE32D548924B'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aIndex
+               %UID '0B159F0625F6'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aIndex
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // OnAddNode
+        PRIVATE FINAL <<method>> OnDeleteNode
+         %UID '528265720097'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '5257E836001C' /* View$Strange */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '52F9F698015D' /* TnsAddEvent */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID '9C4FC4102E41'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aIndex
+               %UID 'DD8C499D0416'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aIndex
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // OnDeleteNode
+        PRIVATE FINAL <<method>> OnCaptionChange
+         %UID '52826586022D'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+          U$ '5257E836001C' /* View$Strange */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '52F9F6DD0372' /* TnsCaptionChangeEvent */
+         ; // %INHERITS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID 'BC4ACCCFADC2'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aIndex
+               %UID '74A660B1FD45'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aIndex
+              SUMMONED <<in>> aNewCaption
+               %UID 'F529ED09606C'
+               %TARGET U$ '46780DA40383' /* Il3CString */
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // aNewCaption
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // OnCaptionChange
+        SUMMONED PRIVATE FINAL <<ini>> Init_MyPostingListCaption
+         %UID '814DBFCD7E5A'
+         %SUMMARY 'Инициализация str_MyPostingListCaption' ;
+        ; // Init_MyPostingListCaption
+        SUMMONED PRIVATE FINAL <<ini>> Init_PrimeFilter
+         %UID '6E3A77A6A356'
+         %SUMMARY 'Инициализация str_PrimeFilter' ;
+        ; // Init_PrimeFilter
+        SUMMONED PRIVATE FINAL <<ini>> Init_ExportPrimeTitle
+         %UID '16D561E14F15'
+         %SUMMARY 'Инициализация str_ExportPrimeTitle' ;
+        ; // Init_ExportPrimeTitle
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+         %UID '428D8E4B225B'
+         %SUMMARY 'Регистрация PrimPostingsList' ;
+         %META
+          %upv "ifndef" 'NoScripts'
+         ; // %META
+        ; // Ini_Reg_Class
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        FINAL <<UserType>> MyPostingList
+         %UID '4BD71E5E01D4'
+         %SUMMARY 'ПРАЙМ. Моя новостная лента' ;
+         %META
+          %upv "CanClose" false
+          %upv "CanHaveToolbars" 'undefined'
+          %upv "ImageIndex" 145
+          %upv "NeedOnQueryClose" false
+          %upv "NeedOnQueryMaximized" false
+          %upv "NeedOnQueryOpen" false
+          %upv "VisibleToUser" true
+          %upv "Weight" '-1'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %CHILDREN
+          
+           SUMMONED <<Constants>> MyPostingListConstants
+            %UID 'B9787F2065DD'
+            %SUMMARY 'Константы для типа формы MyPostingList' ;
+            %META
+             %upv "spell names" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %ATTRIBUTES
+              SUMMONED <<Attribute>> MyPostingListName
+               %UID 'B1C6F9B4F78E'
+               %SUMMARY 'Строковый идентификатор пользовательского типа "ПРАЙМ. Моя новостная лента"' ;
+               %VALUE '''MyPostingList'''
+               %META
+                %upv "AutoInc" false
+                %upv "forced type" 'none'
+                %upv "is define" false
+               ; // %META
+              ; // MyPostingListName
+              SUMMONED <<Attribute>> MyPostingList
+               %UID 'BEEDDA6A7469'
+               %SUMMARY 'ПРАЙМ. Моя новостная лента' ;
+               %TARGET U$ '47F2534B010F' /* TvcmUserType */
+               %VALUE 0
+               %META
+                %upv "AutoInc" false
+                %upv "forced type" 'none'
+                %upv "is define" true
+               ; // %META
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // MyPostingList
+            ; // %ATTRIBUTES
+           ; // MyPostingListConstants
+           SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_FormUserType_MyPostingList"
+            %UID '89846AB44F41'
+            %SUMMARY 'Слово словаря для типа формы MyPostingList' ;
+            %META
+             %upv "NameForScript" 'тип_формы::MyPostingList'
+             %upv "ifndef" 'NoScripts'
+             %upv "needs InstanceR" 'undefined'
+             %upv "needs script" 'undefined'
+             %upv "no hands" false
+             %upv "register in scripts" 'undefined'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %INHERITS
+             U$ '4EE1DBBB013C' /* TtfwInteger */
+            ; // %INHERITS
+            %OVERRIDES
+             U$ '4DB0614603C8' /* GetWordNameForRegister */
+             U$ '4EE1DC8903BB' /* GetInteger */
+            ; // %OVERRIDES
+            %OPERATIONS
+              SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+               %UID 'E6E3A02250C3'
+               %SUMMARY 'Регистрация Tkw_FormUserType_MyPostingList' ;
+              ; // Ini_Reg
+            ; // %OPERATIONS
+           ; // "Tkw_FormUserType_MyPostingList"
+         ; // %CHILDREN
+        ; // MyPostingList
+        FINAL <<LocalConst>> Local
+         %UID '4BE93A2D0378'
+         %META
+          %upv "Need map interface" false
+          %upv "Need mapping support" false
+          %upv "spell names" false
+         ; // %META
+         %ATTRIBUTES
+           <<Attribute>> PrimeFilter
+            %UID '4BE93A720328'
+            %VALUE '''Ленты новостей|*.xml'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // PrimeFilter
+           <<Attribute>> ExportPrimeTitle
+            %UID '4BE93AE3017A'
+            %VALUE '''Экспорт выделенных лент'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // ExportPrimeTitle
+         ; // %ATTRIBUTES
+        ; // Local
+        FINAL <<Control>> tvPostings
+         %UID '4C84F2B3000F'
+         %META
+          %upv "ControlClass" 'TeeTreeView'
+          %upv "need Caption" 'undefined'
+          %upv "pm" true
+          %upv "put to dfm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4680E7D50168' /* "Everest Engine" */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '494B949E022B' /* TeeTreeView */
+         ; // %INHERITS
+         %REALIZES
+          U$ '46A5AA4B003C' /* Invalidate */
+          U$ '477243870072' /* RootChanged */
+         ; // %REALIZES
+        ; // tvPostings
+        SUMMONED PRIVATE FINAL <<LocalConst>> MyPostingListLocalConstants
+         %UID '7133F0A3DB0F'
+         %SUMMARY 'Локализуемые константы для типа формы MyPostingList' ;
+         %META
+          %upv "Need map interface" false
+          %upv "Need mapping support" false
+          %upv "spell names" false
+         ; // %META
+         %ATTRIBUTES
+           SUMMONED <<Attribute>> MyPostingListCaption
+            %UID '44445BB06984'
+            %SUMMARY 'Заголовок пользовательского типа "ПРАЙМ. Моя новостная лента"' ;
+            %VALUE '''ПРАЙМ. Моя новостная лента'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // MyPostingListCaption
+         ; // %ATTRIBUTES
+        ; // MyPostingListLocalConstants
+        SUMMONED PRIVATE <<Constants>> LCImplMyPostingListLocalConstants
+         %UID 'CFF0A59DAE9F'
+         %SUMMARY 'Локализуемые строки MyPostingListLocalConstants' ;
+         %META
+          %upv "elements prefix" 'str'
+          %upv "spell names" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           SUMMONED <<Attribute>> MyPostingListCaption
+            %UID 'C3CA56EA4409'
+            %SUMMARY 'Заголовок пользовательского типа "ПРАЙМ. Моя новостная лента"' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''MyPostingListCaption''; rValue : ''ПРАЙМ. Моя новостная лента'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // MyPostingListCaption
+         ; // %ATTRIBUTES
+        ; // LCImplMyPostingListLocalConstants
+        SUMMONED <<Constants>> LCImplLocal
+         %UID '3170445F0B8D'
+         %SUMMARY 'Локализуемые строки Local' ;
+         %META
+          %upv "elements prefix" 'str'
+          %upv "spell names" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           SUMMONED <<Attribute>> PrimeFilter
+            %UID '9EAE5EF01026'
+            %SUMMARY '''Ленты новостей|*.xml''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''PrimeFilter''; rValue : ''Ленты новостей|*.xml'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // PrimeFilter
+           SUMMONED <<Attribute>> ExportPrimeTitle
+            %UID '6204D3BAAE1C'
+            %SUMMARY '''Экспорт выделенных лент''' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''ExportPrimeTitle''; rValue : ''Экспорт выделенных лент'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // ExportPrimeTitle
+         ; // %ATTRIBUTES
+        ; // LCImplLocal
+      ; // %CHILDREN
+     ; // PrimPostingsList
+     FINAL <<UtilityPack>> nsFindSelectDialog
+      %UID '4AAF996900DC'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "no hands" true
+       %upv "started" '15.09.2009 17:41'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "4AAF9A190399"
+         %UID '4AAF9A190399'
+         %TARGET U$ '48A41FF10094' /* Windows */
+        ; // 4AAF9A190399
+        <<uses>> "4AAF9B5A028C"
+         %UID '4AAF9B5A028C'
+         %TARGET U$ '47E13C6B0341' /* Forms */
+        ; // 4AAF9B5A028C
+        <<uses>> "4AAF9C2E03AB"
+         %UID '4AAF9C2E03AB'
+         %TARGET U$ '476F78A602B2' /* TMessage */
+        ; // 4AAF9C2E03AB
+        <<uses>> "4AAF9D0D0330"
+         %UID '4AAF9D0D0330'
+         %TARGET U$ '4AAF9CFA0263' /* FindControl */
+        ; // 4AAF9D0D0330
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<Operation>> FindSelectDialog
+         %UID '4AAF99C703C7'
+         %TARGET U$ '47726BE30305' /* WinBool */
+         %META
+          %upv "calling conventions" 'stdcall'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aWnd
+            %UID '4AAF99E00261'
+            %TARGET U$ '46A5DA1F0255' /* hWnd */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aWnd
+           <<in>> aParam
+            %UID '4AAF99E00285'
+            %TARGET U$ '46A608F00301' /* Pointer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aParam
+         ; // %PARAMETERS
+        ; // FindSelectDialog
+      ; // %OPERATIONS
+     ; // nsFindSelectDialog
+     <<VCMForm>> PrimPostingsListOptions
+      %UID '4DF789BF02EF'
+      %META
+       %upv "NeedsHackRef" true
+       %upv "ZoneType" 'Any'
+       %upv "author" 'Люлин А.В.'
+       %upv "base wnd class" 'CWnd'
+       %upv "finished dfm" true
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "resizeable" false
+       %upv "restrict form def" 'undefined'
+       %upv "started" '14.06.2011 20:18'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '481EF5C4020D' /* Оболочка */
+       U$ '4954C0500033' /* UserInteraction */
+       U$ '4AA9194D0280' /* View */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4BDAF7790158' /* Tree */
+       U$ '4EF0BAC0030E' /* "На тулбаре формы ПРАЙМ Моя новостная лента должна быть операция Редактировать индивидуальную ленту" */
+       U$ '553FAEB0033D' /* SearchSupport */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4AAFA13C01B0' /* PrimPostingsList */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4BDAF7880236' /* ExpandAll */
+       U$ '4BDAF7A2005C' /* CollapseAll */
+       U$ '553FAEED007A' /* ActivatePostingsListForm */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C84EE1D0024' /* ptEditPosting */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "55547ABA01B0"
+         %UID '55547ABA01B0'
+         %TARGET U$ '48A41FF10094' /* Windows */
+        ; // 55547ABA01B0
+        <<uses>> "55547ABD020B"
+         %UID '55547ABD020B'
+         %TARGET U$ '47E11FC3021E' /* Controls */
+        ; // 55547ABD020B
+        <<uses>> "55547AE30213"
+         %UID '55547AE30213'
+         %TARGET U$ '553213D902E0' /* Tl3TabbedContainersDispatcher */
+        ; // 55547AE30213
+        SUMMONED <<uses>> "E2BE508869E0"
+         %UID 'E2BE508869E0'
+         %TARGET U$ '508528D10384' /* TtfwClassRef */
+        ; // E2BE508869E0
+      ; // %LINKS
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+         %UID '0C5DEB52771E'
+         %SUMMARY 'Регистрация PrimPostingsListOptions' ;
+         %META
+          %upv "ifndef" 'NoScripts'
+         ; // %META
+        ; // Ini_Reg_Class
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        PRIVATE FINAL <<ExcludeUserTypes>> ExcludeTree
+         %UID '4DF78A71015D'
+         %TOBEINCLUDED
+          U$ '4954C0500033' /* UserInteraction */
+          U$ '4AA9194D0280' /* View */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '4BDAF7790158' /* Tree */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4BD71E5E01D4' /* MyPostingList */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4BDAF7880236' /* ExpandAll */
+          U$ '4BDAF7A2005C' /* CollapseAll */
+         ; // %REALIZES
+        ; // ExcludeTree
+      ; // %CHILDREN
+     ; // PrimPostingsListOptions
+     <<VCMFormsPack>> CommonPost
+      %UID '4AA919B200AB'
+      %SUMMARY 'Новостная лента' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '10.09.2009 19:22'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '4680E7D50168' /* "Everest Engine" */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790C3B8021E' /* VCM */
+       U$ '4AA9194D0280' /* View */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+       U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "4AF3172001AE"
+         %UID '4AF3172001AE'
+         %TARGET U$ '4AE879C5022F' /* SearchParameters */
+        ; // 4AF3172001AE
+        <<uses>> "4BD5C95702D1"
+         %UID '4BD5C95702D1'
+         %TARGET U$ '4BD5BC59017D' /* slqtPostingOrder */
+        ; // 4BD5C95702D1
+        <<uses>> "4BD5C972003F"
+         %UID '4BD5C972003F'
+         %TARGET U$ '4BD5C3510339' /* utqcPostingOrder */
+        ; // 4BD5C972003F
+        <<uses>> "4BD98A6D0052"
+         %UID '4BD98A6D0052'
+         %TARGET U$ '4BD989CB0049' /* Preview */
+        ; // 4BD98A6D0052
+        <<uses>> "4BD98A7D0041"
+         %UID '4BD98A7D0041'
+         %TARGET U$ '4BD97FFF0005' /* QueryCard */
+        ; // 4BD98A7D0041
+        <<uses>> "4BD98AC2036C"
+         %UID '4BD98AC2036C'
+         %TARGET U$ '4BD98AA402AC' /* PostingsList */
+        ; // 4BD98AC2036C
+        <<uses>> "4E0354A90049"
+         %UID '4E0354A90049'
+         %TARGET U$ '4E01D696020C' /* vcmMessagesSupport */
+        ; // 4E0354A90049
+        SUMMONED <<uses>> "A3FEFAB2391E"
+         %UID 'A3FEFAB2391E'
+         %TARGET U$ '47F25BC801DB' /* vcmBase */
+        ; // A3FEFAB2391E
+        SUMMONED <<uses>> "E2BFE5F0DA18"
+         %UID 'E2BFE5F0DA18'
+         %TARGET U$ '08BD36053A81' /* "Tkw_CommonPost_opSavePostList" */
+        ; // E2BFE5F0DA18
+      ; // %LINKS
+      %OPERATIONS
+        PROTECTED FINAL <<method>> OpenPostingOrderForm
+         %UID '4AA9304801B8'
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4AA936F603D0"
+            %UID '4AA936F603D0'
+            %TARGET U$ '4AA936DC0154' /* vcmDispatcher */
+           ; // 4AA936F603D0
+           <<uses>> "4AA937A601E1"
+            %UID '4AA937A601E1'
+            %TARGET U$ '4AA9378C03B4' /* vcmToAggregate */
+           ; // 4AA937A601E1
+           <<uses>> "4AA9381A0287"
+            %UID '4AA9381A0287'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 4AA9381A0287
+           <<uses>> "4AE99BD2000E"
+            %UID '4AE99BD2000E'
+            %TARGET U$ '4AE8A0D10108' /* Query */
+           ; // 4AE99BD2000E
+         ; // %LINKS
+         %ATTRIBUTES
+           PRIVATE FINAL <<var>> Container
+            %UID '4AA9361500A9'
+            %TARGET U$ '4914746C019E' /* IvcmEntityForm */
+            %META
+             %upv "IsResult" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // Container
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4AA9305C0201'
+            %TARGET U$ '4914746C019E' /* IvcmEntityForm */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> anAggregate
+               %UID '4AAFAA330338'
+               %TARGET U$ '49930CC501C9' /* IvcmAggregate */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // anAggregate
+              <<in>> aContainer
+               %UID '4AAFAA33035E'
+               %TARGET U$ '49525C400141' /* IvcmContainer */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aContainer
+              <<in>> aQuery
+               %UID '4AAFAA330385'
+               %TARGET U$ '45EEE145027B' /* Query */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aQuery
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // OpenPostingOrderForm
+        FINAL <<FormFactory>> OpenPostingOrder
+         %UID '4AA93C87000C'
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           PRIVATE FINAL <<var>> Form
+            %UID '4AA93D6F005B'
+            %TARGET U$ '4914746C019E' /* IvcmEntityForm */
+            %META
+             %upv "IsResult" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // Form
+           PRIVATE FINAL <<var>> Cont
+            %UID '4AA93DDB03B1'
+            %TARGET U$ '49525C400141' /* IvcmContainer */
+            %META
+             %upv "IsResult" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // Cont
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4AA93CD10169'
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aQuery
+               %UID '54E71A5103B3'
+               %TARGET U$ '45EEE145027B' /* Query */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aQuery
+              <<in>> aContainer
+               %UID '54E71A5103CE'
+               %TARGET U$ '49525C400141' /* IvcmContainer */
+               %VALUE 'nil'
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aContainer
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // OpenPostingOrder
+        FINAL <<FactoryMethod>> SavePostingList
+         %UID '4AAF935E01A7'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4AAF94230352"
+            %UID '4AAF94230352'
+            %TARGET U$ '4AAF9400011C' /* TnsPostingsTreeSingle */
+           ; // 4AAF94230352
+           <<uses>> "4AAF947600E9"
+            %UID '4AAF947600E9'
+            %TARGET U$ '4A9D129E00FA' /* Say$4A9D129E00FA */
+           ; // 4AAF947600E9
+           <<uses>> "4AAF94DB018B"
+            %UID '4AAF94DB018B'
+            %TARGET U$ '47878E0E0191' /* l3String */
+           ; // 4AAF94DB018B
+           <<uses>> "4AAF955A03B5"
+            %UID '4AAF955A03B5'
+            %TARGET U$ '47ECE41C00D2' /* TApplication */
+           ; // 4AAF955A03B5
+           <<uses>> "4AAF96700032"
+            %UID '4AAF96700032'
+            %TARGET U$ '4AAF965F0187' /* SelectDirectory */
+           ; // 4AAF96700032
+           <<uses>> "4AAF96900062"
+            %UID '4AAF96900062'
+            %TARGET U$ '4AA7F1CB012C' /* vcmConstString */
+           ; // 4AAF96900062
+           <<uses>> "4AAF96B30380"
+            %UID '4AAF96B30380'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 4AAF96B30380
+           <<uses>> "4AAF96D4032D"
+            %UID '4AAF96D4032D'
+            %TARGET U$ '48FF556602BA' /* DataAdapter */
+           ; // 4AAF96D4032D
+           <<uses>> "4AAF96EF01B3"
+            %UID '4AAF96EF01B3'
+            %TARGET U$ '496DF8D80017' /* UnknownExportError */
+           ; // 4AAF96EF01B3
+           <<uses>> "4AAF9737008F"
+            %UID '4AAF9737008F'
+            %TARGET U$ '4AAF9718001D' /* nsAStr */
+           ; // 4AAF9737008F
+         ; // %LINKS
+         %ATTRIBUTES
+           PRIVATE FINAL <<var>> PathName
+            %UID '4AAF94450063'
+            %TARGET U$ '476136D3010B' /* String */
+            %META
+             %upv "IsResult" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // PathName
+           PRIVATE FINAL <<var>> MayExit
+            %UID '4AAF9457003D'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %META
+             %upv "IsResult" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // MayExit
+           PRIVATE FINAL <<var>> Result
+            %UID '4AAF945D0362'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %META
+             %upv "IsResult" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Result
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4AAF93640257'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // SavePostingList
+        PRIVATE FINAL <<method>> MessageHook
+         %UID '4AAF94F8009A'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4AAF952603B8"
+            %UID '4AAF952603B8'
+            %TARGET U$ '48A41FF10094' /* Windows */
+           ; // 4AAF952603B8
+           <<uses>> "4AAF95300396"
+            %UID '4AAF95300396'
+            %TARGET U$ '47ECBD5D03BB' /* "Msg Codes" */
+           ; // 4AAF95300396
+           <<uses>> "4AAF99F3037E"
+            %UID '4AAF99F3037E'
+            %TARGET U$ '4AAF996900DC' /* nsFindSelectDialog */
+           ; // 4AAF99F3037E
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4AAF9507032D'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<inout>> Msg
+               %UID '4AAF950A03BE'
+               %TARGET U$ '476F78A602B2' /* TMessage */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // Msg
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // MessageHook
+        FINAL <<FactoryMethod>> CheckHistory
+         %UID '4AAF9E650070'
+         %SUMMARY 'пробуем возвратиться по истории, если активна форма предварительного просмотра' ;
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4AAF9E6B0244'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // CheckHistory
+        PROTECTED FINAL <<method>> OpenPostingOrderList
+         %UID '4AAFA0B10356'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4AAFA0F801DD"
+            %UID '4AAFA0F801DD'
+            %TARGET U$ '4A93BA1802CE' /* vcmParams */
+           ; // 4AAFA0F801DD
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4AAFA0BD0104'
+            %TARGET U$ '4914746C019E' /* IvcmEntityForm */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> anAggregate
+               %UID '4AAFA1C0023D'
+               %TARGET U$ '49930CC501C9' /* IvcmAggregate */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // anAggregate
+              <<in>> aContainer
+               %UID '4AAFA1C00274'
+               %TARGET U$ '49525C400141' /* IvcmContainer */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aContainer
+              <<in>> anActive
+               %UID '4AAFA1C002A9'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // anActive
+              <<in>> aOwner
+               %UID '54241247000B'
+               %TARGET U$ '479878FA0103' /* TComponent */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aOwner
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // OpenPostingOrderList
+        FINAL <<FormFactory>> StartOpen
+         %UID '4AAFA52603B7'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "555B116C00AD"
+            %UID '555B116C00AD'
+            %TARGET U$ '553FAEB0033D' /* SearchSupport */
+           ; // 555B116C00AD
+           <<uses>> "555B118C0040"
+            %UID '555B118C0040'
+            %TARGET U$ '537AEC5E03DD' /* TvcmTabbedContainerFormDispatcher */
+           ; // 555B118C0040
+           <<uses>> "555B11B50379"
+            %UID '555B11B50379'
+            %TARGET U$ '49895C3C02D6' /* nsOpenUtils */
+           ; // 555B11B50379
+         ; // %LINKS
+         %ATTRIBUTES
+           PRIVATE FINAL <<var>> Aggregate
+            %UID '4AAFA639037B'
+            %TARGET U$ '49930CC501C9' /* IvcmAggregate */
+            %META
+             %upv "IsResult" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+           ; // Aggregate
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4AAFA60F01D6'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aContainer
+               %UID '4AAFA6130233'
+               %TARGET U$ '49525C400141' /* IvcmContainer */
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // aContainer
+              <<in>> aNewTab
+               %UID '555B11100299'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aNewTab
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // StartOpen
+        FINAL <<FactoryMethod>> SavePostList
+         %UID '4B71840A00D2'
+         %SUMMARY 'Сохранить индивидуальные ленты в файл' ;
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4B71842D0063'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // SavePostList
+        FINAL <<FactoryMethod>> CanSavePostList
+         %UID '4B7184370035'
+         %SUMMARY 'Можно ли сохранить индивидуальные ленты в файл' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> Can
+            %UID '4B71844E01F6'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Can
+         ; // %OPERATIONS
+        ; // CanSavePostList
+        PROTECTED FINAL <<ModuleMethod>> SavePostList$Op
+         %UID '4B71847503BF'
+         %SUMMARY 'Экспортировать все индивидуальные ленты в файл' ;
+         %META
+          %upv "ShowInToolbar" 'undefined'
+          %upv "is static" false
+          %upv "no prefix" false
+          %upv "no test" false
+         ; // %META
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4B7187860056'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // SavePostList$Op
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        FINAL <<VCMFinalForm>> PostingsList
+         %UID '4AAFA16202D3'
+         %SUMMARY 'ПРАЙМ. Моя новостная лента' ;
+         %META
+          %upv "NeedsHackRef" true
+          %upv "ZoneType" 'Any'
+          %upv "author" 'Люлин А.В.'
+          %upv "base wnd class" 'CWnd'
+          %upv "finished dfm" true
+          %upv "form name prefix" 'en'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+          %upv "resizeable" false
+          %upv "restrict form def" 'undefined'
+          %upv "started" '15.09.2009 18:15'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4AA9194D0280' /* View */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '4BD98AA402AC' /* PostingsList */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4DF789BF02EF' /* PrimPostingsListOptions */
+         ; // %INHERITS
+         %LINKS
+           SUMMONED <<uses>> "5CC6580B3B5F"
+            %UID '5CC6580B3B5F'
+            %TARGET U$ '508528D10384' /* TtfwClassRef */
+           ; // 5CC6580B3B5F
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+            %UID '5AA26A2C79C6'
+            %SUMMARY 'Регистрация PostingsList' ;
+            %META
+             %upv "ifndef" 'NoScripts'
+            ; // %META
+           ; // Ini_Reg_Class
+           SUMMONED PRIVATE FINAL <<ini>> Ini_FormFactory_PostingsList
+            %UID 'AE6B9019FBDE'
+            %SUMMARY 'Регистрация фабрики формы PostingsList' ;
+           ; // Ini_FormFactory_PostingsList
+         ; // %OPERATIONS
+        ; // PostingsList
+        SUMMONED FINAL <<ScriptKeywordsPack>> PostingsListKeywordsPack
+         %UID '1C12379D921C'
+         %SUMMARY 'Набор слов словаря для доступа к экземплярам контролов формы PostingsList' ;
+         %META
+          %upv "ifndef" 'NoScripts'
+          %upv "needs script" 'undefined'
+          %upv "no class name" 'undefined'
+          %upv "no hands" false
+          %upv "no_pop" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4680E7D50168' /* "Everest Engine" */
+          U$ '4AA9194D0280' /* View */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+          U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4AAFA16202D3' /* PostingsList */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4BDAF7B803CF' /* Wrap */
+         ; // %REALIZES
+         %LINKS
+           SUMMONED <<uses>> "E8AE3FDA8E6A"
+            %UID 'E8AE3FDA8E6A'
+            %TARGET U$ '55153C2C036F' /* TypeInfoExt */
+           ; // E8AE3FDA8E6A
+           SUMMONED <<injects>> "1F56928356FC"
+            %UID '1F56928356FC'
+            %TARGET U$ '4AAFA16202D3' /* PostingsList */
+           ; // 1F56928356FC
+           SUMMONED <<uses>> "9D3405BDD726"
+            %UID '9D3405BDD726'
+            %TARGET U$ '5527F8330362' /* TtfwTypeRegistrator */
+           ; // 9D3405BDD726
+         ; // %LINKS
+         %ATTRIBUTES
+           SUMMONED FINAL <<readonly>> tvPostings
+            %UID 'A47A28A49282'
+            %SUMMARY 'Контрол tvPostings формы TenPostingsList' ;
+            %TARGET U$ '494B949E022B' /* TeeTreeView */
+            %META
+             %upv "NameForScript" '.TenPostingsList.tvPostings'
+             %upv "mapped" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4680E7D50168' /* "Everest Engine" */
+            ; // %TOBEINCLUDED
+           ; // tvPostings
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           SUMMONED FINAL <<keyword>> tvPostings$CE1AA7EF42F8
+            %UID 'CE1AA7EF42F8'
+            %SUMMARY 'Контрол tvPostings формы TenPostingsList' ;
+            %TARGET U$ '494B949E022B' /* TeeTreeView */
+            %META
+             %upv "NameForScript" '.TenPostingsList.tvPostings'
+             %upv "mapped" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4680E7D50168' /* "Everest Engine" */
+            ; // %TOBEINCLUDED
+           ; // tvPostings$CE1AA7EF42F8
+           SUMMONED PRIVATE FINAL <<ini>> Reg_TtfwContext
+            %UID 'B775FB8DAB8F'
+            %SUMMARY 'Регистрация типа TtfwContext' ;
+           ; // Reg_TtfwContext
+           SUMMONED PRIVATE FINAL <<ini>> Reg_PostingsList
+            %UID '528C126903F0'
+            %SUMMARY 'Регистрация типа PostingsList' ;
+           ; // Reg_PostingsList
+           SUMMONED PRIVATE FINAL <<ini>> Reg_TeeTreeView
+            %UID '354D110F9A1A'
+            %SUMMARY 'Регистрация типа TeeTreeView' ;
+           ; // Reg_TeeTreeView
+         ; // %OPERATIONS
+         %CHILDREN
+          
+           SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_Form_PostingsList"
+            %UID 'B32E48C9C5F6'
+            %SUMMARY 'Слово словаря для идентификатора формы PostingsList'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::PostingsList TryFocus ASSERT'#13#10'{code}' ;
+            %META
+             %upv "NameForScript" 'форма::PostingsList'
+             %upv "ifndef" 'NoScripts'
+             %upv "needs InstanceR" 'undefined'
+             %upv "needs script" 'undefined'
+             %upv "no hands" false
+             %upv "register in scripts" 'undefined'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+            ; // %TOBEINCLUDED
+            %INHERITS
+             U$ '508527F30183' /* TtfwControlString */
+            ; // %INHERITS
+            %OVERRIDES
+             U$ '4DB0614603C8' /* GetWordNameForRegister */
+             U$ '4DDFD2EA0116' /* GetString */
+            ; // %OVERRIDES
+            %OPERATIONS
+              SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+               %UID '2FFB2B99CB45'
+               %SUMMARY 'Регистрация Tkw_Form_PostingsList' ;
+              ; // Ini_Reg
+            ; // %OPERATIONS
+           ; // "Tkw_Form_PostingsList"
+           SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_PostingsList_Control_tvPostings"
+            %UID '9246E180CAF0'
+            %SUMMARY 'Слово словаря для идентификатора контрола tvPostings'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::tvPostings TryFocus ASSERT'#13#10'{code}' ;
+            %META
+             %upv "NameForScript" 'контрол::tvPostings'
+             %upv "needs InstanceR" 'undefined'
+             %upv "needs script" 'undefined'
+             %upv "no hands" false
+             %upv "register in scripts" 'undefined'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+            ; // %TOBEINCLUDED
+            %INHERITS
+             U$ '508527F30183' /* TtfwControlString */
+            ; // %INHERITS
+            %OVERRIDES
+             U$ '4DB0614603C8' /* GetWordNameForRegister */
+             U$ '4DDFD2EA0116' /* GetString */
+             U$ '52A086150180' /* RegisterInEngine */
+            ; // %OVERRIDES
+            %LINKS
+              SUMMONED <<uses>> "858F56FD255C"
+               %UID '858F56FD255C'
+               %TARGET U$ '494B949E022B' /* TeeTreeView */
+              ; // 858F56FD255C
+              SUMMONED <<uses>> "E7BC43B4A783"
+               %UID 'E7BC43B4A783'
+               %TARGET U$ '508528D10384' /* TtfwClassRef */
+              ; // E7BC43B4A783
+            ; // %LINKS
+            %OPERATIONS
+              SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+               %UID '7C715A7AA6AA'
+               %SUMMARY 'Регистрация Tkw_PostingsList_Control_tvPostings' ;
+              ; // Ini_Reg
+            ; // %OPERATIONS
+           ; // "Tkw_PostingsList_Control_tvPostings"
+           SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_PostingsList_Control_tvPostings_Push"
+            %UID '7241BE7680A1'
+            %SUMMARY 'Слово словаря для контрола tvPostings'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::tvPostings:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+            %META
+             %upv "NameForScript" 'контрол::tvPostings:push'
+             %upv "needs InstanceR" 'undefined'
+             %upv "needs script" 'undefined'
+             %upv "no hands" false
+             %upv "register in scripts" 'undefined'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+            ; // %TOBEINCLUDED
+            %INHERITS
+             U$ '4F2141AD0203' /* "byname_control_push" */
+            ; // %INHERITS
+            %OVERRIDES
+             U$ '4DAEEDE10285' /* DoDoIt */
+             U$ '4DB0614603C8' /* GetWordNameForRegister */
+            ; // %OVERRIDES
+            %LINKS
+              SUMMONED <<uses>> "733461E5212E"
+               %UID '733461E5212E'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+              ; // 733461E5212E
+            ; // %LINKS
+            %OPERATIONS
+              SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+               %UID '50D414B27E7C'
+               %SUMMARY 'Регистрация Tkw_PostingsList_Control_tvPostings_Push' ;
+              ; // Ini_Reg
+            ; // %OPERATIONS
+           ; // "Tkw_PostingsList_Control_tvPostings_Push"
+           SUMMONED PRIVATE FINAL <<ScriptKeyword>> "enPostingsList_tvPostings"
+            %UID '901756EC93AA'
+            %SUMMARY 'Слово скрипта .TenPostingsList.tvPostings'#13#10'{panel}Контрол tvPostings формы TenPostingsList{panel}'#13#10'*Тип результата:* TeeTreeView'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TeeTreeView'#13#10' aenPostingsList .TenPostingsList.tvPostings >>> l_TeeTreeView'#13#10'{code} ' ;
+            %META
+             %upv "NameForScript" '.TenPostingsList.tvPostings'
+             %upv "needs InstanceR" 'undefined'
+             %upv "needs script" 'undefined'
+             %upv "no hands" false
+             %upv "register in scripts" 'undefined'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4680E7D50168' /* "Everest Engine" */
+             U$ '4AA9194D0280' /* View */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %INHERITS
+             U$ '55CCAE000335' /* TtfwClassLike */
+            ; // %INHERITS
+            %REALIZES
+             U$ '4DAEEDE10285' /* DoDoIt */
+            ; // %REALIZES
+            %OVERRIDES
+             U$ '4DB0614603C8' /* GetWordNameForRegister */
+             U$ '52D00B00031A' /* SetValuePrim */
+             U$ '551544E2001A' /* GetResultTypeInfo */
+            ; // %OVERRIDES
+            %LINKS
+              SUMMONED <<uses>> "9D10BDAC1D1D"
+               %UID '9D10BDAC1D1D'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+              ; // 9D10BDAC1D1D
+              SUMMONED <<uses>> "65C18DF9BBDE"
+               %UID '65C18DF9BBDE'
+               %TARGET U$ '4767748503B5' /* TTypeInfo */
+              ; // 65C18DF9BBDE
+              SUMMONED <<uses>> "07CDABF06FED"
+               %UID '07CDABF06FED'
+               %TARGET U$ '47877EB202FB' /* SysUtils */
+              ; // 07CDABF06FED
+            ; // %LINKS
+            %OPERATIONS
+              SUMMONED PRIVATE FINAL <<Operation>> tvPostings
+               %UID '002683D39CEF'
+               %SUMMARY 'Реализация слова скрипта .TenPostingsList.tvPostings' ;
+               %TARGET U$ '494B949E022B' /* TeeTreeView */
+               %TOBEINCLUDED
+                U$ '4680E7D50168' /* "Everest Engine" */
+                U$ '4AA9194D0280' /* View */
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 SUMMONED <<in>> aCtx
+                  %UID '5E0E70EA535F'
+                  %TARGET U$ '4DB0091E033E' /* TtfwContext */
+                  %TOBEINCLUDED
+                   U$ '54CF97B10370' /* ScriptEngine$Core */
+                  ; // %TOBEINCLUDED
+                 ; // aCtx
+                 SUMMONED <<in>> aenPostingsList
+                  %UID '5E0E70EA5360'
+                  %TARGET U$ '4AAFA16202D3' /* PostingsList */
+                  %TOBEINCLUDED
+                   U$ '4AA9194D0280' /* View */
+                  ; // %TOBEINCLUDED
+                 ; // aenPostingsList
+               ; // %PARAMETERS
+              ; // tvPostings
+              SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+               %UID 'D1A9A8471073'
+               %SUMMARY 'Регистрация enPostingsList_tvPostings' ;
+              ; // Ini_Reg
+            ; // %OPERATIONS
+           ; // "enPostingsList_tvPostings"
+         ; // %CHILDREN
+        ; // PostingsListKeywordsPack
+      ; // %CHILDREN
+     ; // CommonPost
+     SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_CommonPost_opSavePostList"
+      %UID '08BD36053A81'
+      %SUMMARY 'Слово словаря для вызова операции модуля CommonPost.SavePostList$Op (Файл Экспортировать все индивидуальные ленты в файл)' ;
+      %META
+       %upv "NameForScript" 'моп::Файл_Экспортировать_все_индивидуальные_ленты_в_файл'
+       %upv "ifndef" 'NoScripts'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E200FC9003B' /* VCM$Scripting */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4DB060930263' /* TtfwModuleOperationWord */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4DB0614603C8' /* GetWordNameForRegister */
+       U$ '4DB079E00084' /* GetModuleOperationCode */
+      ; // %OVERRIDES
+      %LINKS
+        SUMMONED <<uses>> "2F39DDCDC7C9"
+         %UID '2F39DDCDC7C9'
+         %TARGET U$ '47F260EC02C7' /* StdRes */
+        ; // 2F39DDCDC7C9
+      ; // %LINKS
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+         %UID '2FCBC9064B5B'
+         %SUMMARY 'Регистрация Tkw_CommonPost_opSavePostList' ;
+        ; // Ini_Reg
+      ; // %OPERATIONS
+     ; // "Tkw_CommonPost_opSavePostList"
+   ; // %CHILDREN
+  ; // Monitorings
+ ; // %CHILDREN
+; // View

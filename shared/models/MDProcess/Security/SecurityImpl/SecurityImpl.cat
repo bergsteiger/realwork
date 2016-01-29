@@ -1,0 +1,445 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "SecurityImpl"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/Security/SecurityImpl|4614DF3F01C5
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/Security/SecurityImpl/AuthenticatorImpl|4614E35702DE::4614E35702DE;MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта/Security/SecurityImpl/AuthenticatorImpl|4614E35702DE::4614E35702DE
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (h)"
+	    value      	"w:/MDProcess/Security/impl/SecurityImpl/AuthenticatorImpl.h::4614E35702DE")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (fctr.h)"
+	    value      	"w:/MDProcess/Security/impl/SecurityImpl/AuthenticatorImpl_factory.h::4614E35702DE")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (fctr.cpp)"
+	    value      	"w:/MDProcess/Security/impl/SecurityImpl/AuthenticatorImpl_factory.cpp::4614E35702DE")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (cpp)"
+	    value      	"w:/MDProcess/Security/impl/SecurityImpl/AuthenticatorImpl.cpp::4614E35702DE")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19014938248"))
+    quid       	"4614DF3F01C5"
+    stereotype 	"Impl"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4614DFA1007D"
+	    supplier   	"Logical View::shared::CoreSrv::SecurityComm"
+	    quidu      	"45ED268E0316")
+	(object Visibility_Relationship
+	    quid       	"4614FCA100DA"
+	    supplier   	"Logical View::MDProcess::ServerGate::Users"
+	    quidu      	"4614D5DC001F"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "AuthenticatorImpl"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4614E35702DE_DESTR_BODY*"
+		    value      	(value Text 
+|//#UC START# *4614E35702DE_DESTR_BODY*¤	//#UC END# *4614E35702DE_DESTR_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/Security/SecurityImpl/AuthenticatorImpl|4614E35702DE
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/MDProcess/Security/impl/SecurityImpl/AuthenticatorImpl.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.h)"
+		    value      	"w:/MDProcess/Security/impl/SecurityImpl/AuthenticatorImpl_factory.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.cpp)"
+		    value      	"w:/MDProcess/Security/impl/SecurityImpl/AuthenticatorImpl_factory.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/MDProcess/Security/impl/SecurityImpl/AuthenticatorImpl.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E85A0B0271_45E863D5032C_4614E35702DE_BASE_INIT*"
+		    value      	"//#UC START# *45E85A0B0271_45E863D5032C_4614E35702DE_BASE_INIT*¤//#UC END# *45E85A0B0271_45E863D5032C_4614E35702DE_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E85A0B0271_45E863D5032C_4614E35702DE_BODY*"
+		    value      	(value Text 
+|//#UC START# *45E85A0B0271_45E863D5032C_4614E35702DE_BODY*¤	//#UC END# *45E85A0B0271_45E863D5032C_4614E35702DE_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*45E85A8E0290_4614E35702DE*"
+		    value      	(value Text 
+|//#UC START# *45E85A8E0290_4614E35702DE*¤	CoreSrv::UserID uid = 0;¤	try {¤		ServerGate::Users::Accessor_var a = ServerGate::Users::AccessorFactory::make ();¤		uid = a->authenticate (login, pswd);¤	} CATCH_AND_LOG ("in AuthenticatorSrv::authentication")¤¤	if (0 == uid) {¤		throw CoreSrv::AccessDenied ();¤	}¤¤	CoreSrv::ProfileData* ret = new CoreSrv::ProfileData ();¤	ret->uid = uid;¤	ret->type = CoreSrv::PT_REGULAR;¤	return ret;¤	//#UC END# *45E85A8E0290_4614E35702DE*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19014950464"))
+	    quid       	"4614E35702DE"
+	    stereotype 	"Servant"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19014950846"))
+		    quid       	"4614FCB10222"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ServerGate::Users::Accessor"
+		    quidu      	"4614DC9A03C8"))
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"4614E36C01F4"
+		    supplier   	"Logical View::shared::CoreSrv::SecurityComm::Authenticator"
+		    quidu      	"45E85A0B0271"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"4614DF470109"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	309
+	    origin_y   	541
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::shared::CoreSrv::SecurityComm::Authenticator" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"666")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"189")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"348")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"188"))
+		    location   	(666, 189)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(501, 157)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	330
+			justify    	0
+			label      	"Authenticator")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(501, 107)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	330
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"45E85A0B0271"
+		    width      	348
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::Security::SecurityImpl::AuthenticatorImpl" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"666")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"576")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"372")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"180"))
+		    location   	(666, 576)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(489, 547)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	354
+			justify    	0
+			label      	"AuthenticatorImpl")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(489, 497)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	354
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"4614E35702DE"
+		    width      	372
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @3
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"0")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"0")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"0")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"0")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LineVertices"
+			    value      	"666,485;666,283"))
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4614E36C01F4"
+		    client     	@2
+		    supplier   	@1
+		    vertices   	(list Points
+			(666, 484)
+			(666, 283))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::ServerGate::Users::Accessor" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"1557")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"399")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"388")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"180"))
+		    location   	(1557, 399)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(1363, 367)
+			nlines     	1
+			max_width  	388
+			justify    	0
+			label      	"Accessor")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(1363, 317)
+			anchor     	10
+			nlines     	1
+			max_width  	386
+			justify    	0
+			label      	"<<ServerInterface>>")
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"4614DC9A03C8"
+		    width      	406
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @5
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewXPosition"
+			    value      	"0")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewYPosition"
+			    value      	"0")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewWidth"
+			    value      	"0")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ItemViewHeight"
+			    value      	"0")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LineVertices"
+			    value      	"852,537;1353,438"))
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @6
+			Parent_View 	@5
+			location   	(1080, 371)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3947680
+		    quidu      	"4614FCB10222"
+		    client     	@2
+		    supplier   	@4
+		    vertices   	(list Points
+			(852, 537)
+			(1353, 438))
+		    line_style 	0)))))

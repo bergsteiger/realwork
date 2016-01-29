@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\EC Software\HelpAndManual6\HELPMAN.EXE" D:\MANUAL(CVS)\archi\source\MANUAL\ADJUSTTOPAGE.ADMINGUIDE\AdjustToPage.AdminGuide.hmxz "/tsk=Recent Publishes:AdjustToPage.AdminGuide" "/tsk=Recent Publishes:AdjustToPage_!DAYLY"

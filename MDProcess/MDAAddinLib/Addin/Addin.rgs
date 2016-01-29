@@ -1,0 +1,50 @@
+HKCR
+{
+	Addin.IGeneration.1 = s 'IGeneration Class'
+	{
+		CLSID = s '{70D883FB-31CA-490C-BB42-3877B980BF99}'
+	}
+	Addin.IGeneration = s 'IGeneration Class'
+	{
+		CLSID = s '{70D883FB-31CA-490C-BB42-3877B980BF99}'
+		CurVer = s 'Addin.IGeneration.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {70D883FB-31CA-490C-BB42-3877B980BF99} = s 'IGeneration Class'
+		{
+			ProgID = s 'Addin.IGeneration.1'
+			VersionIndependentProgID = s 'Addin.IGeneration'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{F5934264-A768-461C-BA3D-F163E32AF46E}'
+		}
+	}
+
+	Addin.IModelExplorer.1 = s 'IModelExplorer Class'
+	{
+		CLSID = s '{F9FEFED3-D583-428E-9065-F57014CCEB99}'
+	}
+	Addin.IModelExplorer = s 'IModelExplorer Class'
+	{
+		CLSID = s '{F9FEFED3-D583-428E-9065-F57014CCEB99}'
+		CurVer = s 'Addin.IModelExplorer.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {F9FEFED3-D583-428E-9065-F57014CCEB99} = s 'IModelExplorer Class'
+		{
+			ProgID = s 'Addin.IModelExplorer.1'
+			VersionIndependentProgID = s 'Addin.IModelExplorer'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{F5934264-A768-461C-BA3D-F163E32AF46E}'
+		}
+	}
+}

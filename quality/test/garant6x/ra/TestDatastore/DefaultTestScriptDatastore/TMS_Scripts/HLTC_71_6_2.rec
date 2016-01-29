@@ -1,0 +1,23 @@
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART       
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TeeTreeView;ClassIndex=1", "Coords=7,23"
+    GenericObject Click, "Class=TeeTreeView;ClassIndex=1", "Coords=83,38"
+    Window SetContext, "Caption={ГАРАНТ 6*}", ""
+
+    GenericObject Click, "Class=TeeTreeView", "Coords=400,650"
+    Window SetTestContext, "Caption={ГАРАНТ*}", ""
+    Result = GenericObjectVP (CompareImage, "Text=Основы государственно-правового устройства", "VP=Doc")
+    Window ResetTestContext, "", ""
+    
+'    GenericObject Click, "Class=TeeTreeView", "Coords=400,650"
+    
+
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIDSelect 12
+    GenericObject Click, "Text=Навигатор", "Coords=11,4"
+    GenericObject Click, "Text=Навигатор", "Coords=11,4"
+End Sub

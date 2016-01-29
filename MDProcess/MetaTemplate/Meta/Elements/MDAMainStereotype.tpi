@@ -1,0 +1,103 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MetaTemplate/Meta/Elements/MDAMainStereotype.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::MetaTemplate::Meta::Elements::MDAMainStereotype
+//
+// Абстрактный стереотип база для основных элементов-стереотипов (класс, папка...)
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: MDAMainStereotype::Class
+? Абстрактный стереотип база для основных элементов-стереотипов (класс, папка...)
+= MDAGenerator::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+a ra
+/ - тип абстракции
+d 1
+/ - может иметь унаследованную реализацию
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p visualization bg color:color ? определяет цвет заливки на "своей" диаграмме
+p visualization f-font color:color ? определяет цвет шрифта на "чужой" диаграмме
+p visualization type:s ? определяет способ отображение стереотипа элемента s - stereotype i = icon d = decoration
+p visualization f-line color:color ? определяет цвет линий на "чужой" диаграмме
+p visualization font color:color ? определяет цвет шрифта на "своей" диаграмме
+p visualization line color:color ? определяет цвет линий на "своей" диаграмме
+p disable forward decl:b=false ? "Disable forward declaration" - запрещает/разрешает forward-декларацию элементов,если не задано ни true ни false - по умолчанию принимается true. Этот параметр влияет на определение порядка вывода элементов из модели. Если forward-декларация разрешена, то при обнаружении циклических зависимостей элемент с таким стереотипом может быть forward-декларирован. В противном случае, forward-декларация будет сделана для второго элемента. Если для обоих элементов forward-декларация запрещена, то генератор выдаст ошибку о невозможности разрешения циклических зависимостей.
+p inherite constraints:b=true ? Нужно ли наследовать включаемые/исключаемые элементы. В шаблоне данный признак обязательно должен быть указан перед списком включаемых/исключаемых стереотипов
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{visualization bg color}"!="%S{!visualization bg color}"}%f_up_prefix(%S) *visualization bg color* = *%f_to_rgb(%S{visualization bg color})* - определяет цвет заливки на "своей" диаграмме
+	][{"%S{visualization f-font color}"!="%S{!visualization f-font color}"}%f_up_prefix(%S) *visualization f-font color* = *%f_to_rgb(%S{visualization f-font color})* - определяет цвет шрифта на "чужой" диаграмме
+	][{"%S{visualization type}"!="%S{!visualization type}"}%f_up_prefix(%S) *visualization type* = *%S{visualization type}* - определяет способ отображение стереотипа элемента s - stereotype i = icon d = decoration
+	][{"%S{visualization f-line color}"!="%S{!visualization f-line color}"}%f_up_prefix(%S) *visualization f-line color* = *%f_to_rgb(%S{visualization f-line color})* - определяет цвет линий на "чужой" диаграмме
+	][{"%S{visualization font color}"!="%S{!visualization font color}"}%f_up_prefix(%S) *visualization font color* = *%f_to_rgb(%S{visualization font color})* - определяет цвет шрифта на "своей" диаграмме
+	][{"%S{visualization line color}"!="%S{!visualization line color}"}%f_up_prefix(%S) *visualization line color* = *%f_to_rgb(%S{visualization line color})* - определяет цвет линий на "своей" диаграмме
+	][{"%S{disable forward decl}"!="%S{!disable forward decl}"}%f_up_prefix(%S) *disable forward decl* = *%S{disable forward decl}* - "Disable forward declaration" - запрещает/разрешает forward-декларацию элементов,если не задано ни true ни false - по умолчанию принимается true. Этот параметр влияет на определение порядка вывода элементов из модели. Если forward-декларация разрешена, то при обнаружении циклических зависимостей элемент с таким стереотипом может быть forward-декларирован. В противном случае, forward-декларация будет сделана для второго элемента. Если для обоих элементов forward-декларация запрещена, то генератор выдаст ошибку о невозможности разрешения циклических зависимостей.
+	][{"%S{inherite constraints}"!="%S{!inherite constraints}"}%f_up_prefix(%S) *inherite constraints* = *%S{inherite constraints}* - Нужно ли наследовать включаемые/исключаемые элементы. В шаблоне данный признак обязательно должен быть указан перед списком включаемых/исключаемых стереотипов
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа MDAGenerator::Class
+// выводит определение всех UP
+%f _define_up
+//#UC START# *46E7BDF301F1for46E7B7700193*
+	%S%[inherited]\
+	[{%S{disable forward decl}=true}D\n/ - запрещена форвард-декларация
+	][// Параметры визуализации
+	[$ C %f_to_rgb(%S{visualization bg color})
+	][$ L %f_to_rgb(%S{visualization line color})
+	][$ l %f_to_rgb(%S{visualization f-line color})
+	][$ F %f_to_rgb(%S{visualization font color})
+	][$ f %f_to_rgb(%S{visualization f-font color})
+	][$ i %S{visualization type}
+	]]
+//#UC END# *46E7BDF301F1for46E7B7700193*
+
+// перекрытие базового стереотипа MDAGenerator::Class
+// Определяет необходимость создания описания стереотипа
+%f _need_st_define
+//#UC START# *46E2BB9400EAfor46E7B7700193*
+	true
+//#UC END# *46E2BB9400EAfor46E7B7700193*
+
+// перекрытие базового стереотипа MDAGenerator::Class
+// Возвращает вид стереотипа : main, sub
+%f _st_kind
+//#UC START# *47130CC40213for46E7B7700193*
+	main
+//#UC END# *47130CC40213for46E7B7700193*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Исключенные вложенные стереотипы
+~ MDAMainStereotype::Class::Operation
+~ MDAMainStereotype::Class::transformator::Operation
+~ MDAMainStereotype::Class::list::Attribute
+~ MDAMainStereotype::Class::bool::Attribute
+~ MDAMainStereotype::Class::string::Attribute
+~ MDAMainStereotype::Class::include::ClassDependency
+~ MDAMainStereotype::Class::file::Attribute
+~ MDAMainStereotype::Class::color::Attribute
+~ MDAMainStereotype::Class::tribool::Attribute
+~ MDAMainStereotype::Class::main hierarchy::ClassDependency
+~ MDAMainStereotype::Class::exclude auto copy::ClassDependency
+~ MDAMainStereotype::Class::text::Attribute
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

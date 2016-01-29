@@ -1,0 +1,464 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Entry"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Ìîäåëü ïðîåêòà "Storage"/BuildTestLib/Entry|484806DC035B
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki"))
+    quid       	"484806DC035B"
+    documentation 	"Òî÷êè âõîäà"
+    stereotype 	"LibSupport"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4A70539E0335"
+	    supplier   	"Logical View::MDProcess::ServerGate::Contents"
+	    quidu      	"4A03AD970046")
+	(object Visibility_Relationship
+	    quid       	"4A7054ED01EE"
+	    supplier   	"Logical View::Storage::BuildTestLib::BuildTestComm"
+	    quidu      	"47EA6D9B00DA"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "BuildTestEntryPoint"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/Storage/BuildTestLib/BuildTestEntryPoint.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/Storage/BuildTestLib/BuildTestEntryPoint.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4848071203A1*"
+		    value      	(value Text 
+|//#UC START# *4848071203A1*¤		LOG_I (("Hello world, this is BuildTestEntryPoint!"));¤		std::string oir = ::Core::ParamManagerFactory::get ().get_string ("-ORBInitRef");¤		LOG_I (("%s: oir = %s", GDS_CURRENT_FUNCTION, oir.c_str ()));¤¤		LOG_I (("--------------------------------------------------"));¤		LOG_I (("searching for aborted tests..."));¤¤		std::string absolute_local_path = ListenerParams::get_absolute_local_path();¤		std::string test_aborted_file_path = absolute_local_path + std::string ("test_aborted.txt");¤		LOG_I (("test_aborted_file_path = %s", test_aborted_file_path.c_str ()));¤¤		int id_aborted = 0;¤¤		{ // just stack frame for test_aborted_file¤			FILE* test_aborted_file = fopen (test_aborted_file_path.c_str (), "r");¤			if (test_aborted_file == NULL) {¤				LOG_W (("Can't fopen test_aborted_file_path = %s", test_aborted_file_path.c_str ()));¤			} else {¤				fscanf (test_aborted_file, "%d", &id_aborted);¤				fclose (test_aborted_file);¤			}¤		}¤¤		if (id_aborted != 0) {¤¤			LOG_I (("%s (): id_aborted = %d", GDS_CURRENT_FUNCTION, id_aborted));¤			bool emptify_test_aborted_file = false;¤¤			std::string login = KLoginParams::get_klogin ();¤			std::string passwd = KLoginParams::get_kpasswd ();¤¤			LocalPageLogin lp (login, passwd, id_aborted);¤			try {¤				LOG_I (("%s (): replace label test_started by test_aborted for id_aborted = %d", GDS_CURRENT_FUNCTION, (int) id_aborted));¤				std::string labels = std::string (lp.p ()->get_labels ());¤				LOG_I (("%s (): lp.p ()->get_labels () returns = %s", GDS_CURRENT_FUNCTION, labels.c_str ()));¤				std::string test_aborted = "test_aborted";¤				std::string test_failed = "test_failed";¤				std::string test_done = "test_done";¤				std::string test_started = "test_started";¤				std::vector <std::string> split_labels_vec;¤				GCL::split_string_by (split_labels_vec, labels.c_str (), ',');¤				split_labels_vec.erase (¤					std::remove (split_labels_vec.begin (), split_labels_vec.end (), test_started)¤					, split_labels_vec.end ()¤				);¤				split_labels_vec.erase (¤					std::remove (split_labels_vec.begin (), split_labels_vec.end (), test_aborted)¤					, split_labels_vec.end ()¤				);¤				split_labels_vec.erase (¤					std::remove (split_labels_vec.begin (), split_labels_vec.end (), test_failed)¤					, split_labels_vec.end ()¤				);¤				split_labels_vec.erase (¤					std::remove (split_labels_vec.begin (), split_labels_vec.end (), test_done)¤					, split_labels_vec.end ()¤				);¤				split_labels_vec.push_back (test_aborted);¤				std::string new_labels = GCL::join (split_labels_vec, std::string (","));¤				LOG_I (("%s (): new_labels = %s", GDS_CURRENT_FUNCTION, new_labels.c_str ()));¤				lp.p ()->set_labels (new_labels.c_str ());¤				emptify_test_aborted_file = true;¤				std::string labels2 = std::string (lp.p ()->get_labels ());¤				LOG_I (("%s (): lp.p ()->get_labels () returns2 = %s", GDS_CURRENT_FUNCTION, labels2.c_str ()));¤			} CATCH_AND_LOG ("lp.p ()->set_labels")¤¤			if (emptify_test_aborted_file) {¤				FILE* test_aborted_file = fopen (test_aborted_file_path.c_str (), "w+");¤				if (test_aborted_file == NULL) {¤					LOG_E (("Can't fopen test_aborted_file_path = %s", test_aborted_file_path.c_str ()));¤				} else {¤					fprintf (test_aborted_file, "\n");¤					fclose (test_aborted_file);¤				}¤			}¤		}¤		LOG_I (("done."));¤		//#UC END# *4848071203A1*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4848071203A1_FINI*"
+		    value      	(value Text 
+|//#UC START# *4848071203A1_FINI*¤	//#UC END# *4848071203A1_FINI*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Ìîäåëü ïðîåêòà "Storage"/BuildTestLib/Entry/BuildTestEntryPoint|4848071203A1
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4848071203A1_HANDLE_CONTROl*"
+		    value      	(value Text 
+|//#UC START# *4848071203A1_HANDLE_CONTROl*¤	//TODO: write your code for handle Ctrl-C¤	//#UC END# *4848071203A1_HANDLE_CONTROl*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"type"
+		    value      	"server\\stand alone")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4848071203A1_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *4848071203A1_CUSTOM_INCLUDES*¤#include "shared/Core/Params/Params.h"¤//#UC END# *4848071203A1_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4848071203A1_CUSTOM_BODY*"
+		    value      	(value Text 
+|//#UC START# *4848071203A1_CUSTOM_BODY*¤using namespace BuildTestComm;¤¤struct LocalPageLogin {¤	ServerGate::Contents::PageId id;¤	ServerGate::Contents::KPage* p () {¤		return &ServerGate::Contents::KPageFactory::get (id);¤	}¤	LocalPageLogin (const std::string& login, const std::string& passwd, ServerGate::Contents::PageId page_id): id (page_id) {¤		LOG_I (("%s (): login = %s, passwd = %s, page_id = %d", GDS_CURRENT_FUNCTION, login.c_str (), passwd.c_str (), (int) page_id));¤		bool complete = false;¤		int try_count = 0;¤		while ((try_count < 10) && (!complete)) {¤			try {¤				LOG_I (("%s (): CoreSrv::SessionFactory::get ().login", GDS_CURRENT_FUNCTION));¤				CoreSrv::SessionFactory::get ().login (login, passwd);¤				complete = true;¤			} catch (::CoreSrv::AlreadyLogged& e) {¤				LOG_I (("%s (): Error while login: %s", GDS_CURRENT_FUNCTION, e._name()));¤				try_count++;¤				Sleep(10000);¤			}¤		}¤	}¤	~LocalPageLogin () {¤		try {¤			LOG_I (("%s (): CoreSrv::SessionFactory::get ().logout", GDS_CURRENT_FUNCTION));¤			CoreSrv::SessionFactory::get ().logout ();¤		} CATCH_AND_LOG ("~LocalPageLogin ()")¤	}¤};¤//#UC END# *4848071203A1_CUSTOM_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4848071203A1_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *4848071203A1_CUSTOM_INCLUDES*¤//#UC END# *4848071203A1_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4848071203A1*"
+		    value      	"//#UC START# *4848071203A1*¤//#UC END# *4848071203A1*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file"))
+	    quid       	"4848071203A1"
+	    documentation 	"Òî÷êà âõîäà â ïóñêà÷ òåñòîâ"
+	    stereotype 	"LibExecutor"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4A7053BC0027"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::ServerGate::Contents::KPage"
+		    quidu      	"47EA46010200")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4A7055530274"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::Storage::BuildTestLib::BuildTestComm::ListenerParams"
+		    quidu      	"48D78C580017")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4A7055570357"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::Storage::BuildTestLib::BuildTestComm::KLoginParams"
+		    quidu      	"48F313AB000A"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"484806E80387"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Storage::BuildTestLib::Entry::BuildTestEntryPoint" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(327, 243)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(105, 213)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	444
+			justify    	0
+			label      	"• BuildTestEntryPoint")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(105, 163)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	444
+			justify    	0
+			label      	"<<LibExecutor>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"4848071203A1"
+		    width      	462
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ServerGate::Contents::KPage" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1212, 240)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1026, 212)
+			nlines     	1
+			max_width  	372
+			justify    	0
+			label      	"• KPage")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1026, 162)
+			anchor     	10
+			nlines     	1
+			max_width  	369
+			justify    	0
+			label      	"<<ServerInterface>>")
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"47EA46010200"
+		    width      	390
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @3
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @4
+			Parent_View 	@3
+			location   	(791, 206)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.508898
+			height     	34
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4A7053BC0027"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(558, 241)
+			(1016, 240))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::BuildTestLib::BuildTestComm::KLoginParams" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1197, 609)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1022, 581)
+			nlines     	1
+			max_width  	350
+			justify    	0
+			label      	"• KLoginParams")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(1022, 531)
+			anchor     	10
+			nlines     	1
+			max_width  	350
+			justify    	0
+			label      	"<<Settings>>")
+		    icon_style 	"Label"
+		    line_color 	37632
+		    fill_color 	16777215
+		    quidu      	"48F313AB000A"
+		    width      	368
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::BuildTestLib::BuildTestComm::ListenerParams" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(324, 630)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(135, 602)
+			nlines     	1
+			max_width  	378
+			justify    	0
+			label      	"• ListenerParams")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(135, 552)
+			anchor     	10
+			nlines     	1
+			max_width  	378
+			justify    	0
+			label      	"<<Settings>>")
+		    icon_style 	"Label"
+		    line_color 	37632
+		    fill_color 	16777215
+		    quidu      	"48D78C580017"
+		    width      	396
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @7
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @8
+			Parent_View 	@7
+			location   	(445, 438)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4A7055530274"
+		    client     	@1
+		    supplier   	@6
+		    vertices   	(list Points
+			(326, 335)
+			(324, 539))
+		    line_style 	0)
+		(object UsesView "" @9
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @10
+			Parent_View 	@9
+			location   	(809, 392)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.522312
+			height     	49
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4A7055570357"
+		    client     	@1
+		    supplier   	@5
+		    vertices   	(list Points
+			(547, 335)
+			(1012, 531))
+		    line_style 	0)))))

@@ -1,0 +1,464 @@
+// l3Sortable 47B3245E0148 Impurity Class
+
+FORWARD ME_47B3245E0148
+
+INCLUDE '47A1B1500302.pas.ms.script'
+
+: ME_47B9A14B0217
+ CONST UID '47B9A14B0217'
+ CONST Name 'PItemType'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47A1B1500302 // ItemType
+ ]
+ ; // Inherits
+ CONST "isPointer" true
+
+ @SELF
+; // ME_47B9A14B0217 PItemType
+
+INCLUDE '4678193C009C.pas.ms.script'
+
+: ME_47B5AF7F03DC
+ CONST UID '47B5AF7F03DC'
+ CONST Name 'SortIndex'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ %SUMMARY 'индекс сортировки.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_476F958501F2 // Tl3SortIndex
+ ;
+ CONST Value 'l3_siUnsorted'
+ : ValueType ME_476F958501F2 // Tl3SortIndex
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ @SELF
+; // ME_47B5AF7F03DC SortIndex
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_47B5AFCB0366
+ CONST UID '47B5AFCB0366'
+ CONST Name 'Sorted'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ %SUMMARY 'хранилище сортировано?' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ CONST Value false
+ : ValueType ME_46A603BB0391 // Boolean
+ ;
+ CONST "ifndef" 'l3Items_NoSort'
+ CONST "needs field" false
+ CONST "pm" true
+
+ @SELF
+; // ME_47B5AFCB0366 Sorted
+
+: ME_47B9796900DA
+ CONST UID '47B9796900DA'
+ CONST Name 'Duplicates'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ %SUMMARY 'Как поступать с дубликатами.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_47614B2901AE // Tl3Duplicates
+ ;
+ CONST Value 'l3_dupIgnore'
+ : ValueType ME_47614B2901AE // Tl3Duplicates
+ ;
+ CONST "ifndef" 'l3Items_NoSort'
+ CONST "needs field" false
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ @SELF
+; // ME_47B9796900DA Duplicates
+
+: ME_47B9802D02E7
+ CONST UID '47B9802D02E7'
+ CONST Name 'Hi'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ @SELF
+; // ME_47B9802D02E7 Hi
+
+: ME_47A1B1A702A5
+ CONST UID '47A1B1A702A5'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity param'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_47A1B1500302 // ItemType
+ ;
+
+ @SELF
+; // ME_47A1B1A702A5 ItemType
+
+: ME_4A6599C1023B
+ CONST UID '4A6599C1023B'
+ CONST Name 'Duplicates'
+ CONST Class 'Attribute'
+ CONST Stereotype 'writeonly'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_47614B2901AE // Tl3Duplicates
+ ;
+ CONST "ifdef" 'l3Items_NoSort'
+ CONST "needs field" false
+ CONST "pm" true
+
+ @SELF
+; // ME_4A6599C1023B Duplicates
+
+: ME_29C5CDD75913
+ CONST UID '29C5CDD75913'
+ CONST Name 'f_Duplicates'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Duplicates' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_47614B2901AE // Tl3Duplicates
+ ;
+ CONST "ifndef" 'l3Items_NoSort'
+
+ @SELF
+; // ME_29C5CDD75913 f_Duplicates
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_47B5AE6B0294
+ CONST UID '47B5AE6B0294'
+ CONST Name 'Sort'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'сортирует хранилище.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_47B5AE6B0294 Sort
+
+: ME_47B5B0F903D4
+ CONST UID '47B5B0F903D4'
+ CONST Name 'aLo'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47B5B0F903D4 aLo
+
+: ME_47B5B0FA0023
+ CONST UID '47B5B0FA0023'
+ CONST Name 'aHi'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47B5B0FA0023 aHi
+
+: ME_47B5B0D4000D
+ CONST UID '47B5B0D4000D'
+ CONST Name 'SortInterval'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сортирует диапазон элементов. Признак сортированности хранилища - не трогает.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_47B5B0F903D4 // aLo
+ ME_47B5B0FA0023 // aHi
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47B5B0D4000D SortInterval
+
+: ME_47BEB5440163
+ CONST UID '47BEB5440163'
+ CONST Name 'A'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47A1B1500302 // ItemType
+ ;
+
+ @SELF
+; // ME_47BEB5440163 A
+
+: ME_47BEB54401C8
+ CONST UID '47BEB54401C8'
+ CONST Name 'B'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47A1B1500302 // ItemType
+ ;
+
+ @SELF
+; // ME_47BEB54401C8 B
+
+: ME_47BEB544022F
+ CONST UID '47BEB544022F'
+ CONST Name 'aSortIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476F958501F2 // Tl3SortIndex
+ ;
+
+ @SELF
+; // ME_47BEB544022F aSortIndex
+
+: ME_47BEB5440296
+ CONST UID '47BEB5440296'
+ CONST Name 'aList'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47B3245E0148 // l3Sortable
+ ;
+ CONST "ifdef" 'l3Items_CompareItemsRec_NeedsRList'
+
+ @SELF
+; // ME_47BEB5440296 aList
+
+: ME_47B5B5F1038E
+ CONST UID '47B5B5F1038E'
+ CONST Name 'DoCompareItems'
+ CONST Class 'Operation'
+ CONST Stereotype 'inline'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_47BEB5440163 // A
+ ME_47BEB54401C8 // B
+ ME_47BEB544022F // aSortIndex
+ ME_47BEB5440296 // aList
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47B5B5F1038E DoCompareItems
+
+: ME_47BEC68103A0
+ CONST UID '47BEC68103A0'
+ CONST Name 'I1'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47A1B1500302 // ItemType
+ ;
+
+ @SELF
+; // ME_47BEC68103A0 I1
+
+: ME_47BEC68103E7
+ CONST UID '47BEC68103E7'
+ CONST Name 'I2'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47A1B1500302 // ItemType
+ ;
+
+ @SELF
+; // ME_47BEC68103E7 I2
+
+: ME_47B5B88203A7
+ CONST UID '47B5B88203A7'
+ CONST Name 'Swap'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Меняет элементы хранилища местами. Не проверяет валидность индексов.' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ : Parameters
+   [ ME_47BEC68103A0 // I1
+ ME_47BEC68103E7 // I2
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47B5B88203A7 Swap
+
+: ME_47B9841B03AD
+ CONST UID '47B9841B03AD'
+ CONST Name 'DoGetSortIndex'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476F958501F2 // Tl3SortIndex
+ ;
+
+ @SELF
+; // ME_47B9841B03AD DoGetSortIndex
+
+: ME_47B9843D02AF
+ CONST UID '47B9843D02AF'
+ CONST Name 'Value'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476F958501F2 // Tl3SortIndex
+ ;
+
+ @SELF
+; // ME_47B9843D02AF Value
+
+: ME_47B9843903DB
+ CONST UID '47B9843903DB'
+ CONST Name 'DoSetSortIndex'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Parameters
+   [ ME_47B9843D02AF // Value
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47B9843903DB DoSetSortIndex
+
+: ME_47B98FAE01C6
+ CONST UID '47B98FAE01C6'
+ CONST Name 'aFindData'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47A1B1500302 // ItemType
+ ;
+
+ @SELF
+; // ME_47B98FAE01C6 aFindData
+
+: ME_47B98FAE020F
+ CONST UID '47B98FAE020F'
+ CONST Name 'theIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'out'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47B98FAE020F theIndex
+
+: ME_47B98F7E03A7
+ CONST UID '47B98F7E03A7'
+ CONST Name 'DoFindInsertionPlace'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Ищет ПОСЛЕДНЕЕ вхождение элемента в список. Если не находит - возвращает место предполагаемой вставки.' ;
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_47B98FAE01C6 // aFindData
+ ME_47B98FAE020F // theIndex
+ ]
+ ; // Parameters
+ CONST "ifndef" 'l3Items_NoSort'
+
+ @SELF
+; // ME_47B98F7E03A7 DoFindInsertionPlace
+
+: ME_47C51B8E00FA
+ CONST UID '47C51B8E00FA'
+ CONST Name 'Cleanup'
+ CONST Class 'Operation'
+ CONST Stereotype 'override'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ CONST "is static" false
+
+ @SELF
+; // ME_47C51B8E00FA Cleanup
+
+: ME_47B3245E0148
+ CONST UID '47B3245E0148'
+ CONST Name 'l3Sortable'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Attributes
+   [ ME_47B5AF7F03DC // SortIndex
+ ME_47B5AFCB0366 // Sorted
+ ME_47B9796900DA // Duplicates
+ ME_47B9802D02E7 // Hi
+ ME_47A1B1A702A5 // ItemType
+ ME_4A6599C1023B // Duplicates
+ ME_29C5CDD75913 // f_Duplicates
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_47B5AE6B0294 // Sort
+ ME_47B5B0D4000D // SortInterval
+ ME_47B5B5F1038E // DoCompareItems
+ ME_47B5B88203A7 // Swap
+ ME_47B9841B03AD // DoGetSortIndex
+ ME_47B9843903DB // DoSetSortIndex
+ ME_47B98F7E03A7 // DoFindInsertionPlace
+ ME_47C51B8E00FA // Cleanup
+ ]
+ ; // Operations
+ : Children
+   [ ME_47B9A14B0217 // PItemType
+ ]
+ ; // Children
+ CONST "needs InstanceR" true
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_47B3245E0148 l3Sortable

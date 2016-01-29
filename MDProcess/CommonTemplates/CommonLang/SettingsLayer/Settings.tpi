@@ -1,0 +1,176 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/SettingsLayer/Settings.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess::CommonTemplates::CommonLang::SettingsLayer::Settings
+//
+// Настройки
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: Settings::Class
+? Настройки
+< *::Class,*::Category
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+Y settings.gif
+L settings
+// Параметры визуализации
+$ C 0,147,0
+$ L 0,0,0
+$ l 165,42,0
+$ F 0,0,0
+$ f 0,0,0
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _validate_attribute
+//#UC START# *48AEA0DE036Ffor48A27E2101E1*
+	%f_set_var(IS_VALID,"true")\
+	<{}{%CC=Attribute&"%{IS_VALID}N"="true"}{%C}[{"%C%TN"!="unsigned long"&"%C%TN"!="long"&"%C%TN"!="a-string"&"%C%TN"!="string"&"%C%TN"!="boolean"&"%C%TN"!="integer"&"%C%TN"!="unsigned integer"&"%C%TN"!="short"&"%C%TN"!="unsigned short"}%f_set_var(IS_VALID,"false")]>\
+	%{IS_VALID}N
+//#UC END# *48AEA0DE036Ffor48A27E2101E1*
+
+%f _validate_init_values
+//#UC START# *48B295A501C4for48A27E2101E1*
+	%f_set_var(IS_VALID,"true")\
+	<{}{%CC=Attribute&"%{IS_VALID}N"="true"}{%C}[{"%CI"=""}%f_set_var(IS_VALID,"false")]>\
+	%{IS_VALID}N
+//#UC END# *48B295A501C4for48A27E2101E1*
+
+%f _check_duplicate_attr
+//#UC START# *48B692B502E0for48A27E2101E1*
+	%f_set_var(IS_EXIST_DUPLICATE,"false")\
+	<{}{}{%C}%f_add_to_list(CONTROL_LIST,%f_to_upper("%CN"))>\
+	<{}{"%f_is_empty(CONTROL_LIST)"="false"&"%{IS_EXIST_DUPLICATE}N"="false"}{W}[%f_pop_first_to_var(CONTROL_LIST,EL)[{"%f_exists_in_list(CONTROL_LIST,"%{EL}N")"="true"}%{EL}N%f_set_var(IS_EXIST_DUPLICATE,"true")]]>\
+	%f_clear_list(CONTROL_LIST)
+//#UC END# *48B692B502E0for48A27E2101E1*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for48A27E2101E1*
+c	{}
+r {%S%f_validate_attribute(%S)=false}: { Invalid %SN Attribute:allowed types - long, unsigned long, a-string, string, integer, unsigned integer, short, unsigned short, boolean}
+r {%S%f_validate_init_values(%S)=false}: { Invalid %SN Attribute:missing initial value}
+r {"%S%f_check_duplicate_attr(%S)"!=""}: {Duplicate Attribute in Setting container %SN :%S%f_check_duplicate_attr(%S)}
+
+
+//#UC END# *4704C0E30186for48A27E2101E1*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor48A27E2101E1*
+//#UC END# *4705CBD6003Efor48A27E2101E1*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for48A27E2101E1*
+//#UC END# *470484D50138for48A27E2101E1*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание UP для генерации в wiki
+%f _wiki_up_print
+//#UC START# *46E8283F023Ffor48A27E2101E1*
+//#UC END# *46E8283F023Ffor48A27E2101E1*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor48A27E2101E1*
+//O %SN.cpp
+//	%f_header(%S)
+//	[\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+//	]
+//	\#include %f_dump_include_path(%S)
+//	namespace %SN{
+//	<%CX
+//	>
+//	}
+//	%f_footer(%S)
+//#UC END# *47022CB8034Bfor48A27E2101E1*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor48A27E2101E1*
+//O [%SN.h]
+//	%f_h_header(%S)
+//	namespace %SN{
+//	<%CX
+//	>
+//	}
+//	%f_h_footer(%S)
+//#UC END# *47022C88029Ffor48A27E2101E1*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor48A27E2101E1*
+//#UC END# *47022CCF00EAfor48A27E2101E1*
+
+// реализация абстрактного стереотипа Генеретор настроек::MDAGenerator
++ config
+//#UC START# *48A2868003B9for48A27E2101E1*
+//O [{%PC!=Class}%SN.ini]
+	<%CX
+	>
+//#UC END# *48A2868003B9for48A27E2101E1*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for48A27E2101E1*
+G %PU
+//#UC END# *46E6D4BB0339for48A27E2101E1*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: Settings::Class::Attribute
+// Параметры стереотипа
+Y prameters.gif
+L prameters
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for48A27E7F0092*
+//#UC END# *46E6D4BB0339for48A27E7F0092*
+
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor48A27E7F0092*
+		static %TN get_%SN();
+//#UC END# *47022C88029Ffor48A27E7F0092*
+
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor48A27E7F0092*
+		%TN get_%SN(){
+		}
+//#UC END# *47022CB8034Bfor48A27E7F0092*
+
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor48A27E7F0092*
+//#UC END# *47022CCF00EAfor48A27E7F0092*
+
++ config
+//#UC START# *48A2868003B9for48A27E7F0092*
+	-%SN=%SI
+//#UC END# *48A2868003B9for48A27E7F0092*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

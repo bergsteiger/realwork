@@ -1,0 +1,189 @@
+// Tm3StorageIndexAdapter 4F19108601F3 SimpleClass Class
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+FORWARD ME_4F19108601F3
+
+INCLUDE '47877EB202FB.pas.ms.script'
+
+: ME_4F1915E30150
+ CONST UID '4F1915E30150'
+ CONST Name 'BaseName'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_477113FB020B // TFileName
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ @SELF
+; // ME_4F1915E30150 BaseName
+
+: ME_4F191795019D
+ CONST UID '4F191795019D'
+ CONST Name 'DirName'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_477113FB020B // TFileName
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ @SELF
+; // ME_4F191795019D DirName
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4F192C0903BB
+ CONST UID '4F192C0903BB'
+ CONST Name 'PhaseStr'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_476136D3010B // String
+ ;
+ CONST "ifndef" 'nsTest'
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_4F192C0903BB PhaseStr
+
+: ME_05D217A40379
+ CONST UID '05D217A40379'
+ CONST Name 'f_BaseName'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства BaseName' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_477113FB020B // TFileName
+ ;
+
+ @SELF
+; // ME_05D217A40379 f_BaseName
+
+: ME_2698917B0E01
+ CONST UID '2698917B0E01'
+ CONST Name 'f_DirName'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства DirName' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_477113FB020B // TFileName
+ ;
+
+ @SELF
+; // ME_2698917B0E01 f_DirName
+
+: ME_7D04DB0B0D7B
+ CONST UID '7D04DB0B0D7B'
+ CONST Name 'f_PhaseStr'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства PhaseStr' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_476136D3010B // String
+ ;
+ CONST "ifndef" 'nsTest'
+
+ @SELF
+; // ME_7D04DB0B0D7B f_PhaseStr
+
+INCLUDE '4678193C009C.pas.ms.script'
+
+: ME_4F1921260395
+ CONST UID '4F1921260395'
+ CONST Name 'aFilesMeter'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4F1922630272 // Tl3ProgressProc
+ ;
+
+ @SELF
+; // ME_4F1921260395 aFilesMeter
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4F191143015F
+ CONST UID '4F191143015F'
+ CONST Name 'DoBuildIndex'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4F1921260395 // aFilesMeter
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4F191143015F DoBuildIndex
+
+: ME_5C3FD771340E
+ CONST UID '5C3FD771340E'
+ CONST Name 'Exists'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_5C3FD771340E Exists
+
+: ME_4F19108601F3
+ CONST UID '4F19108601F3'
+ CONST Name 'Tm3StorageIndexAdapter'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4F1915E30150 // BaseName
+ ME_4F191795019D // DirName
+ ME_4F192C0903BB // PhaseStr
+ ME_05D217A40379 // f_BaseName
+ ME_2698917B0E01 // f_DirName
+ ME_7D04DB0B0D7B // f_PhaseStr
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4F191143015F // DoBuildIndex
+ ME_5C3FD771340E // Exists
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ @SELF
+; // ME_4F19108601F3 Tm3StorageIndexAdapter

@@ -1,0 +1,1 @@
+call chrome.cmd "chrome://settings/clearBrowserData"

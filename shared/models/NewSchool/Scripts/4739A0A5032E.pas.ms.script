@@ -1,0 +1,1290 @@
+// ExprMake 4739A0A5032E Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4739A0A5032E
+
+FORWARD ME_4BB3497F03CC
+
+FORWARD ME_4BB34A130179
+
+: ME_4BB34AF002A0
+ CONST UID '4BB34AF002A0'
+ CONST Name 'rChar'
+ CONST Class class_Attribute
+ %SUMMARY '"Символ"' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_4BB34A130179 // TexprTokenInfo
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4BB34AF002A0 rChar
+
+: ME_4BB34B000210
+ CONST UID '4BB34B000210'
+ CONST Name 'rPos'
+ CONST Class class_Attribute
+ %SUMMARY 'Эффективная позиция символа (в исходной строке)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_4BB34A130179 // TexprTokenInfo
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4BB34B000210 rPos
+
+: ME_4BB34B7C01CB
+ CONST UID '4BB34B7C01CB'
+ CONST Name 'rString'
+ CONST Class class_Attribute
+ %SUMMARY 'Дополнительная строка (если существует)' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_ref
+ : Parent ME_4BB34A130179 // TexprTokenInfo
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4BB34B7C01CB rString
+
+FORWARD ME_4BB34BE200EB
+
+: ME_4BB34C030276
+ CONST UID '4BB34C030276'
+ CONST Name 'aChar'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4BB34C030276 aChar
+
+: ME_4BB34C0302A1
+ CONST UID '4BB34C0302A1'
+ CONST Name 'aPos'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4BB34C0302A1 aPos
+
+: ME_4BB34C0302BF
+ CONST UID '4BB34C0302BF'
+ CONST Name 'aString'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4BB34C0302BF aString
+
+: ME_4BB34BEA02E1
+ CONST UID '4BB34BEA02E1'
+ CONST Name 'C'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4BB34BE200EB // C
+ ;
+ : Parameters
+   @ ( ME_4BB34C030276 // aChar
+ ME_4BB34C0302A1 // aPos
+ ME_4BB34C0302BF // aString
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BB34BEA02E1 C
+
+: ME_4BB34BE200EB
+ CONST UID '4BB34BE200EB'
+ CONST Name 'C'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Создаёт информацию о токене' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4BB34A130179 // TexprTokenInfo
+ ;
+ : Operations
+   @ ( ME_4BB34BEA02E1 // C
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4BB34BE200EB C
+
+FORWARD ME_4BB34F6602CC
+
+: ME_4BB34F86002B
+ CONST UID '4BB34F86002B'
+ CONST Name 'aChar'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482C48430205' '4AB0C3C60310.pas.ms.script' // Char
+ ;
+
+ref; // ME_4BB34F86002B aChar
+
+: ME_4BB34F7601B1
+ CONST UID '4BB34F7601B1'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4BB34F6602CC // IsA$Char
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4BB34F86002B // aChar
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BB34F7601B1 DoIt
+
+: ME_4BB34F6602CC
+ CONST UID '4BB34F6602CC'
+ CONST Name 'IsA'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4BB34A130179 // TexprTokenInfo
+ ;
+ : Operations
+   @ ( ME_4BB34F7601B1 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4BB34F6602CC IsA$Char
+
+FORWARD ME_4BB34F8B0303
+
+: ME_4BB34FA30293
+ CONST UID '4BB34FA30293'
+ CONST Name 'anInt'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4BB34FA30293 anInt
+
+: ME_4BB34F9900B9
+ CONST UID '4BB34F9900B9'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4BB34F8B0303 // IsA$Integer
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4BB34FA30293 // anInt
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BB34F9900B9 DoIt
+
+: ME_4BB34F8B0303
+ CONST UID '4BB34F8B0303'
+ CONST Name 'IsA'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4BB34A130179 // TexprTokenInfo
+ ;
+ : Operations
+   @ ( ME_4BB34F9900B9 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4BB34F8B0303 IsA$Integer
+
+: ME_4BB34A130179
+ CONST UID '4BB34A130179'
+ CONST Name 'TexprTokenInfo'
+ CONST Class class_Class
+ : Stereotype st_StaticObject ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Информация о токене' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4BB3497F03CC // TexprTokensList
+ ;
+ : Attributes
+   @ ( ME_4BB34AF002A0 // rChar
+ ME_4BB34B000210 // rPos
+ ME_4BB34B7C01CB // rString
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4BB34BE200EB // C
+ ME_4BB34F6602CC // IsA$Char
+ ME_4BB34F8B0303 // IsA$Integer
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "not treat as record for XE4" 'undefined'
+
+ref; // ME_4BB34A130179 TexprTokenInfo
+
+: ME_4BB34DEA00BF
+ CONST UID '4BB34DEA00BF'
+ CONST Name 'l3Items_NoSort'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4BB3497F03CC // TexprTokensList
+ ;
+
+ref; // ME_4BB34DEA00BF l3Items_NoSort
+
+: ME_4BB34BAE01C0
+ CONST UID '4BB34BAE01C0'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4BB3497F03CC // TexprTokensList
+ ;
+ : Target ME_4BB34A130179 // TexprTokenInfo
+ ;
+
+ref; // ME_4BB34BAE01C0 ItemType
+
+: ME_47B07CF403D0_ME_4BB3497F03CC
+ CONST UID '47B07CF403D0'
+ CONST Name 'IsSameItems'
+ : Original WL 'ME_47B07CF403D0' '47913B47006E.pas.ms.script' // IsSameItems
+ ;
+ : Implementor ME_4BB3497F03CC // TexprTokensList
+ ;
+ CONST "ifndef" 'l3Items_IsAtomic'
+ref; // ME_47B07CF403D0_ME_4BB3497F03CC IsSameItems
+
+: ME_47B2C42A0163_ME_4BB3497F03CC
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_4BB3497F03CC // TexprTokensList
+ ;
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_4BB3497F03CC AssignItem
+
+: ME_47B99D4503A2_ME_4BB3497F03CC
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_4BB3497F03CC // TexprTokensList
+ ;
+ref; // ME_47B99D4503A2_ME_4BB3497F03CC CompareExistingItems
+
+: ME_4BB3497F03CC
+ CONST UID '4BB3497F03CC'
+ CONST Name 'TexprTokensList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A0A5032E // ExprMake
+ ;
+ : Inherits
+   @ ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_4B223ADC02BF' '47913B47006E.pas.ms.script' // l3RecordListPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4BB34BAE01C0 // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_47B07CF403D0_ME_4BB3497F03CC // IsSameItems
+ ME_47B2C42A0163_ME_4BB3497F03CC // AssignItem
+ ME_47B99D4503A2_ME_4BB3497F03CC // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ : Children
+   @ ( ME_4BB34A130179 // TexprTokenInfo
+ ME_4BB34DEA00BF // l3Items_NoSort
+ ) .SequenceCode.It
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '31.03.2010 17:10'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\Expr\exprTokensList.pas'
+
+ref; // ME_4BB3497F03CC TexprTokensList
+
+FORWARD ME_4739A8C90148
+
+: ME_4739B39B0259
+ CONST UID '4739B39B0259'
+ CONST Name 'EIncorrectExpr'
+ CONST Class class_Class
+ : Stereotype st_Exception ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Во время разбора формулы обнаружена синтаксическая ошибка.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A8C90148 // ExprMake
+ ;
+
+ref; // ME_4739B39B0259 EIncorrectExpr
+
+FORWARD ME_4739A0D8009C
+
+: ME_4739B7D803E0
+ CONST UID '4739B7D803E0'
+ CONST Name 'Build'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4739B7D803E0 Build
+
+: ME_4739B7F400D3
+ CONST UID '4739B7F400D3'
+ CONST Name 'P'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4739B7F400D3 P
+
+: ME_4739B8000365
+ CONST UID '4739B8000365'
+ CONST Name 'S'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+
+ref; // ME_4739B8000365 S
+
+: ME_473C3A1B027E
+ CONST UID '473C3A1B027E'
+ CONST Name 'FuncAutoIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_473C3A1B027E FuncAutoIndex
+
+: ME_473C3A30006C
+ CONST UID '473C3A30006C'
+ CONST Name 'VarAutoIndex'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_473C3A30006C VarAutoIndex
+
+: ME_473C3A3D00E3
+ CONST UID '473C3A3D00E3'
+ CONST Name 'PostSymbols'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_473C3A3D00E3 PostSymbols
+
+: ME_4739B7C701AB
+ CONST UID '4739B7C701AB'
+ CONST Name 'aMessage'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+
+ref; // ME_4739B7C701AB aMessage
+
+: ME_4739BA4100A8
+ CONST UID '4739BA4100A8'
+ CONST Name 'aPosition'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4739BA4100A8 aPosition
+
+: ME_4739B7BB02D0
+ CONST UID '4739B7BB02D0'
+ CONST Name 'RaiseError'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Parameters
+   @ ( ME_4739B7C701AB // aMessage
+ ME_4739BA4100A8 // aPosition
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4739B7BB02D0 RaiseError
+
+: ME_4739B82F0345
+ CONST UID '4739B82F0345'
+ CONST Name 'S'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+
+ref; // ME_4739B82F0345 S
+
+: ME_4739B82302B2
+ CONST UID '4739B82302B2'
+ CONST Name 'Preprocess'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ : Parameters
+   @ ( ME_4739B82F0345 // S
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4739B82302B2 Preprocess
+
+: ME_4739B8680301
+ CONST UID '4739B8680301'
+ CONST Name 'Existing'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
+ ;
+
+ref; // ME_4739B8680301 Existing
+
+: ME_4739BA490118
+ CONST UID '4739BA490118'
+ CONST Name 'Multiplier'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
+ ;
+
+ref; // ME_4739BA490118 Multiplier
+
+: ME_4739B83C0131
+ CONST UID '4739B83C0131'
+ CONST Name 'AddMult'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Parameters
+   @ ( ME_4739B8680301 // Existing
+ ME_4739BA490118 // Multiplier
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4739B83C0131 AddMult
+
+: ME_4739B8810285
+ CONST UID '4739B8810285'
+ CONST Name 'Base'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
+ ;
+
+ref; // ME_4739B8810285 Base
+
+: ME_4739B88102B7
+ CONST UID '4739B88102B7'
+ CONST Name 'Exponent'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
+ ;
+
+ref; // ME_4739B88102B7 Exponent
+
+: ME_4739B874036C
+ CONST UID '4739B874036C'
+ CONST Name 'MakePower'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
+ ;
+ : Parameters
+   @ ( ME_4739B8810285 // Base
+ ME_4739B88102B7 // Exponent
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4739B874036C MakePower
+
+: ME_4739B89D01A9
+ CONST UID '4739B89D01A9'
+ CONST Name 'Base'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
+ ;
+
+ref; // ME_4739B89D01A9 Base
+
+: ME_4739B89D01DB
+ CONST UID '4739B89D01DB'
+ CONST Name 'Index'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
+ ;
+
+ref; // ME_4739B89D01DB Index
+
+: ME_4739B890024A
+ CONST UID '4739B890024A'
+ CONST Name 'MakeIndex'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
+ ;
+ : Parameters
+   @ ( ME_4739B89D01A9 // Base
+ ME_4739B89D01DB // Index
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4739B890024A MakeIndex
+
+: ME_4739B8BF03CE
+ CONST UID '4739B8BF03CE'
+ CONST Name 'Base'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
+ ;
+
+ref; // ME_4739B8BF03CE Base
+
+: ME_4739BA5601A3
+ CONST UID '4739BA5601A3'
+ CONST Name 'Style'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4739B8EE00D3' '47398897018F.pas.ms.script' // TExprCapStyle
+ ;
+
+ref; // ME_4739BA5601A3 Style
+
+: ME_4739BA5601D5
+ CONST UID '4739BA5601D5'
+ CONST Name 'N'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4739BA5601D5 N
+
+: ME_4739B8A60328
+ CONST UID '4739B8A60328'
+ CONST Name 'MakeCap'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
+ ;
+ : Parameters
+   @ ( ME_4739B8BF03CE // Base
+ ME_4739BA5601A3 // Style
+ ME_4739BA5601D5 // N
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4739B8A60328 MakeCap
+
+: ME_473C36A90031
+ CONST UID '473C36A90031'
+ CONST Name 'Base'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
+ ;
+
+ref; // ME_473C36A90031 Base
+
+: ME_473C36980376
+ CONST UID '473C36980376'
+ CONST Name 'Decorate'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Parameters
+   @ ( ME_473C36A90031 // Base
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_473C36980376 Decorate
+
+: ME_473C36C0034C
+ CONST UID '473C36C0034C'
+ CONST Name 'Need'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_473C36C0034C Need
+
+: ME_473C3766037C
+ CONST UID '473C3766037C'
+ CONST Name 'AllowComma'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_473C3766037C AllowComma
+
+: ME_473C36B90107
+ CONST UID '473C36B90107'
+ CONST Name 'ExprString'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
+ ;
+ : Parameters
+   @ ( ME_473C36C0034C // Need
+ ME_473C3766037C // AllowComma
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_473C36B90107 ExprString
+
+: ME_473C36FF0324
+ CONST UID '473C36FF0324'
+ CONST Name 'Flags'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_473C36FF0324 Flags
+
+: ME_473C36C802F3
+ CONST UID '473C36C802F3'
+ CONST Name 'BoolExpr'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
+ ;
+ : Parameters
+   @ ( ME_473C36FF0324 // Flags
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_473C36C802F3 BoolExpr
+
+: ME_473C37060071
+ CONST UID '473C37060071'
+ CONST Name 'Flags'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_473C37060071 Flags
+
+: ME_473C36DF00ED
+ CONST UID '473C36DF00ED'
+ CONST Name 'Expr'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
+ ;
+ : Parameters
+   @ ( ME_473C37060071 // Flags
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_473C36DF00ED Expr
+
+: ME_473C36F602F9
+ CONST UID '473C36F602F9'
+ CONST Name 'Flags'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_473C36F602F9 Flags
+
+: ME_473C36EB0040
+ CONST UID '473C36EB0040'
+ CONST Name 'Factor'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
+ ;
+ : Parameters
+   @ ( ME_473C36F602F9 // Flags
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_473C36EB0040 Factor
+
+: ME_473C3721012E
+ CONST UID '473C3721012E'
+ CONST Name 'Flags'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_473C3721012E Flags
+
+: ME_473C37180135
+ CONST UID '473C37180135'
+ CONST Name 'Trans'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
+ ;
+ : Parameters
+   @ ( ME_473C3721012E // Flags
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_473C37180135 Trans
+
+: ME_473C37340208
+ CONST UID '473C37340208'
+ CONST Name 'Flags'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_473C37340208 Flags
+
+: ME_473C372C0152
+ CONST UID '473C372C0152'
+ CONST Name 'Func'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
+ ;
+ : Parameters
+   @ ( ME_473C37340208 // Flags
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_473C372C0152 Func
+
+: ME_473C375702BC
+ CONST UID '473C375702BC'
+ CONST Name 'N'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+
+ref; // ME_473C375702BC N
+
+: ME_473C37570303
+ CONST UID '473C37570303'
+ CONST Name 'Flags'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_473C37570303 Flags
+
+: ME_473C37570349
+ CONST UID '473C37570349'
+ CONST Name 'Brackets'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_473C37570349 Brackets
+
+: ME_473C373E0311
+ CONST UID '473C373E0311'
+ CONST Name 'FuncName'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
+ ;
+ : Parameters
+   @ ( ME_473C375702BC // N
+ ME_473C37570303 // Flags
+ ME_473C37570349 // Brackets
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_473C373E0311 FuncName
+
+: ME_473C38BE02CD
+ CONST UID '473C38BE02CD'
+ CONST Name 'N'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFE240068' '3DBFDB23006E.pas.ms.script' // string
+ ;
+
+ref; // ME_473C38BE02CD N
+
+: ME_473C38BE031D
+ CONST UID '473C38BE031D'
+ CONST Name 'Flags'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_473C38BE031D Flags
+
+: ME_473C38AE03C4
+ CONST UID '473C38AE03C4'
+ CONST Name 'Token'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
+ ;
+ : Parameters
+   @ ( ME_473C38BE02CD // N
+ ME_473C38BE031D // Flags
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_473C38AE03C4 Token
+
+: ME_473C38D302CD
+ CONST UID '473C38D302CD'
+ CONST Name 'N'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+
+ref; // ME_473C38D302CD N
+
+: ME_473C38CB002C
+ CONST UID '473C38CB002C'
+ CONST Name 'GreekLetter'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_473C38D302CD // N
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_473C38CB002C GreekLetter
+
+: ME_473C38DE02DD
+ CONST UID '473C38DE02DD'
+ CONST Name 'Comma'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_473C38DE02DD Comma
+
+: ME_473C38F1028A
+ CONST UID '473C38F1028A'
+ CONST Name 'LookForComma'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+
+ref; // ME_473C38F1028A LookForComma
+
+: ME_473C391200B1
+ CONST UID '473C391200B1'
+ CONST Name 'Expr'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+
+ref; // ME_473C391200B1 Expr
+
+: ME_473C390A0380
+ CONST UID '473C390A0380'
+ CONST Name 'BuildExpr'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
+ ;
+ : Parameters
+   @ ( ME_473C391200B1 // Expr
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_473C390A0380 BuildExpr
+
+: ME_473C392C0271
+ CONST UID '473C392C0271'
+ CONST Name 'Expr'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+
+ref; // ME_473C392C0271 Expr
+
+: ME_473C391B001D
+ CONST UID '473C391B001D'
+ CONST Name 'SafeBuildExpr'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+ : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
+ ;
+ : Parameters
+   @ ( ME_473C392C0271 // Expr
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_473C391B001D SafeBuildExpr
+
+: ME_473C393C00A7
+ CONST UID '473C393C00A7'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A0D8009C // TExprBuilder
+ ;
+
+ref; // ME_473C393C00A7 Create
+
+: ME_4739A0D8009C
+ CONST UID '4739A0D8009C'
+ CONST Name 'TExprBuilder'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Библиотека содержит класс TExprBuilder, который строит дерево выражения по строке, содержащей'#13#10'выражение в текстовом виде. Подробно синтаксис исходного выражения с примерами разобран в программе'#13#10'ExprGuide.'#13#10''#13#10'Класс TExprBuilder имеет две функции для построения выражений: BuildExpr и SafeBuildExpr. Обе эти'#13#10'функции в качестве параметра принимают строку и возвращают указатель на корень построенного дерева.'#13#10'Если выражение содержит ошибки, возникает исключение EIncorrectExpr. Если исключение возникло во'#13#10'время работы функции BuildExpr, в памяти остаётся мусор от частично построенного дерева, поэтому'#13#10'функцией BuildExpr можно пользоваться только для заведомо корректных строк. Функция SafeBuildExpr'#13#10'сначала осуществляет прогонку алгоритма построения дерева вхолостую. На этом этапе дерево не строится,'#13#10'но исключения при неверном синтаксисе возникают. И только если первый этап пройден успешно, функция'#13#10'приступает к следующему этапу: построению дерева. Дерево, созданное в результате работы функций'#13#10'BuildExpr и SafeBuidExpr, после использования надо освободить, вызвав Free.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A8C90148 // ExprMake
+ ;
+ : Inherits
+   @ ( WL 'ME_46780CCE037B' '47913B47006E.pas.ms.script' // Tl3Base
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4739B7D803E0 // Build
+ ME_4739B7F400D3 // P
+ ME_4739B8000365 // S
+ ME_473C3A1B027E // FuncAutoIndex
+ ME_473C3A30006C // VarAutoIndex
+ ME_473C3A3D00E3 // PostSymbols
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4739B7BB02D0 // RaiseError
+ ME_4739B82302B2 // Preprocess
+ ME_4739B83C0131 // AddMult
+ ME_4739B874036C // MakePower
+ ME_4739B890024A // MakeIndex
+ ME_4739B8A60328 // MakeCap
+ ME_473C36980376 // Decorate
+ ME_473C36B90107 // ExprString
+ ME_473C36C802F3 // BoolExpr
+ ME_473C36DF00ED // Expr
+ ME_473C36EB0040 // Factor
+ ME_473C37180135 // Trans
+ ME_473C372C0152 // Func
+ ME_473C373E0311 // FuncName
+ ME_473C38AE03C4 // Token
+ ME_473C38CB002C // GreekLetter
+ ME_473C38DE02DD // Comma
+ ME_473C38F1028A // LookForComma
+ ME_473C390A0380 // BuildExpr
+ ME_473C391B001D // SafeBuildExpr
+ ME_473C393C00A7 // Create
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_4739A0D8009C TExprBuilder
+
+: ME_4BB34C3C00C0
+ CONST UID '4BB34C3C00C0'
+ CONST Name 'Tl3StringEx'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A8C90148 // ExprMake
+ ;
+ : Inherits
+   @ ( ME_4BB3497F03CC // TexprTokensList
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_4BB34C3C00C0 Tl3StringEx
+
+: ME_4739A94C039F
+ CONST UID '4739A94C039F'
+ CONST Name 'Expr'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+
+ref; // ME_4739A94C039F Expr
+
+: ME_4739A90703E6
+ CONST UID '4739A90703E6'
+ CONST Name 'BuildExpr'
+ CONST Class class_Operation
+ %SUMMARY 'Разбирает формулу. Строит дерево разбора. Может возбуждать исключение.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A8C90148 // ExprMake
+ ;
+ : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
+ ;
+ : Parameters
+   @ ( ME_4739A94C039F // Expr
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4739A90703E6 BuildExpr
+
+: ME_4739A9770275
+ CONST UID '4739A9770275'
+ CONST Name 'Expr'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+
+ref; // ME_4739A9770275 Expr
+
+: ME_4739A9530128
+ CONST UID '4739A9530128'
+ CONST Name 'SafeBuildExpr'
+ CONST Class class_Operation
+ %SUMMARY 'Разбирает формулу. Строит дерево разбора. Не может возбуждать исключение.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4739A8C90148 // ExprMake
+ ;
+ : Target WL 'ME_47398921031E' '47398897018F.pas.ms.script' // Tl3Expr
+ ;
+ : Parameters
+   @ ( ME_4739A9770275 // Expr
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4739A9530128 SafeBuildExpr
+
+: ME_4BB349BD01DC
+ CONST UID '4BB349BD01DC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4739A8C90148 // ExprMake
+ ;
+ : Target ME_4BB3497F03CC // TexprTokensList
+ ;
+
+ref; // ME_4BB349BD01DC 
+
+: ME_4739A8C90148
+ CONST UID '4739A8C90148'
+ CONST Name 'ExprMake'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Глобальные методы для разбора формул.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4739A0A5032E // ExprMake
+ ;
+ : Operations
+   @ ( ME_4739A90703E6 // BuildExpr
+ ME_4739A9530128 // SafeBuildExpr
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_4739B39B0259 // EIncorrectExpr
+ ME_4739A0D8009C // TExprBuilder
+ ME_4BB34C3C00C0 // Tl3StringEx
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_4BB349BD01DC // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\Expr\NOT_FINISHED_ExprMake.pas'
+
+ref; // ME_4739A8C90148 ExprMake
+
+: ME_4739A0A5032E
+ CONST UID '4739A0A5032E'
+ CONST Name 'ExprMake'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Библиотека ExprMake предназначена для автоматизации построения формул с помощью библиотеки ExprDraw.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_473987420315' '473987420315.pas.ms.script' // Expr
+ ;
+ : Children
+   @ ( ME_4BB3497F03CC // TexprTokensList
+ ME_4739A8C90148 // ExprMake
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_47398897018F' '47398897018F.pas.ms.script' // ExprDraw
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4739A0A5032E.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4739A0A5032E.pas.ms.script.runner'
+
+ref; // ME_4739A0A5032E ExprMake

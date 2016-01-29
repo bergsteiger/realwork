@@ -1,0 +1,66 @@
+// tfwStackChecking 528F7DDA02BF Impurity Class
+
+INCLUDE '528F7E620313.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+FORWARD ME_528F7DDA02BF
+
+FORWARD ME_528F7301033E
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_528F73120209
+ CONST UID '528F73120209'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_528F73120209 DoIt
+
+: ME_528F7301033E
+ CONST UID '528F7301033E'
+ CONST Name 'StackCheckingMessage'
+ CONST Class 'Class'
+ CONST Stereotype 'virtualmethod'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_528F73120209 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_528F7301033E StackCheckingMessage
+
+: ME_528F7DDA02BF
+ CONST UID '528F7DDA02BF'
+ CONST Name 'tfwStackChecking'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Implements
+   [ ME_528F7E620313 // MtfwWord
+ ]
+ ; // Implements
+ : Operations
+   [ ME_528F7301033E // StackCheckingMessage
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_528F7DDA02BF tfwStackChecking

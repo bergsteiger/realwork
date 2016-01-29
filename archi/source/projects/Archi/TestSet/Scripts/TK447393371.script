@@ -1,0 +1,30 @@
+USES
+	QuickTestsUtils.script	
+;
+
+CONST cnNewDocRedactionID 50000001
+
+PROCEDURE InitChangeDocWizardDlg
+  // Заполняем диалог...
+ "Контрол по имени {(carChangeDocIDField)}" pop:Control:SetFocus ASSERT
+ Конституция IntToStr emitstring  
+ ProcessMessages 
+ // В поле даты при получении фокуса формируется значение по умолчанию - его и используем для теста. 
+ "Контрол по имени {(carChangeDataField)}" pop:Control:SetFocus ASSERT
+ // Необязательная проверка наличия поля...
+ "Контрол по имени {(carChangerActivDateField)}" pop:Control:SetFocus ASSERT 
+ ProcessMessages
+ "Контрол по имени {(rbEditionKindNext)}" pop:RadioButton:Checked := true
+ ProcessMessages
+ "Контрол по имени {(carEditionDocID)}" pop:Control:SetFocus ASSERT  
+ cnNewDocRedactionID IntToStr emitstring
+ ProcessMessages 
+ "Нажать кнопку ОК"
+;
+
+Тест TK447393371
+	Параметры: ( "Документ со стилем STYLE 52" "Проверка EVD документа" "Очищать базу" "Закрывать все окна" )
+	Выполнить ( @ ( macros:MakeChangeDoc ) MODAL InitChangeDocWizardDlg )
+;
+
+TK447393371

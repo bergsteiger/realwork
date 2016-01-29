@@ -1,0 +1,114 @@
+// FolderTestSupport 4EA5156C00C8 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EA5156C00C8
+
+FORWARD ME_4EA515800122
+
+: ME_4EA67C6503B7
+ CONST UID '4EA67C6503B7'
+ CONST Name 'f_DataFolder'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4EA515800122 // TCustomFolderTestSuite
+ ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4EA67C6503B7 f_DataFolder
+
+: ME_4DC38C96018E_ME_4EA515800122
+ CONST UID '4DC38C96018E'
+ CONST Name 'AddTests'
+ : Original WL 'ME_4DC38C96018E' '4B2A0D6A0077.pas.ms.script' // AddTests
+ ;
+ : Implementor ME_4EA515800122 // TCustomFolderTestSuite
+ ;
+ref; // ME_4DC38C96018E_ME_4EA515800122 AddTests
+
+: ME_4EA50B95037D_ME_4EA515800122
+ CONST UID '4EA50B95037D'
+ CONST Name 'GetDataFolder'
+ : Original WL 'ME_4EA50B95037D' '4DC246E40002.pas.ms.script' // GetDataFolder
+ ;
+ : Implementor ME_4EA515800122 // TCustomFolderTestSuite
+ ;
+ref; // ME_4EA50B95037D_ME_4EA515800122 GetDataFolder
+
+: ME_4EA50C04021B_ME_4EA515800122
+ CONST UID '4EA50C04021B'
+ CONST Name 'GetExt'
+ : Original WL 'ME_4EA50C04021B' '4DC246E40002.pas.ms.script' // GetExt
+ ;
+ : Implementor ME_4EA515800122 // TCustomFolderTestSuite
+ ;
+ref; // ME_4EA50C04021B_ME_4EA515800122 GetExt
+
+: ME_4EA515800122
+ CONST UID '4EA515800122'
+ CONST Name 'TCustomFolderTestSuite'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4EA5156C00C8 // FolderTestSupport
+ ;
+ : Inherits
+   @ ( WL 'ME_4DC40A7E00C8' '4DC246E40002.pas.ms.script' // TCustomAutoTestSuite
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4EA67C6503B7 // f_DataFolder
+ ) .SequenceCode.It
+ ; // Attributes
+ : Overridden
+   @ ( ME_4DC38C96018E_ME_4EA515800122 // AddTests
+ ME_4EA50B95037D_ME_4EA515800122 // GetDataFolder
+ ME_4EA50C04021B_ME_4EA515800122 // GetExt
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Abstract_Tests\CustomFolderTestSuite.pas'
+
+ref; // ME_4EA515800122 TCustomFolderTestSuite
+
+: ME_4EA5156C00C8
+ CONST UID '4EA5156C00C8'
+ CONST Name 'FolderTestSupport'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4D02561D01C8' '4D02561D01C8.pas.ms.script' // Abstract Tests
+ ;
+ : Children
+   @ ( ME_4EA515800122 // TCustomFolderTestSuite
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4DC246E40002' '4DC246E40002.pas.ms.script' // AutoTests
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4EA5156C00C8.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4EA5156C00C8.pas.ms.script.runner'
+
+ref; // ME_4EA5156C00C8 FolderTestSupport

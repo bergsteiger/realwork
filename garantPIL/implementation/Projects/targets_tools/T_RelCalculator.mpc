@@ -1,0 +1,47 @@
+project (T_RelCalculator) : project-common-defines, project-common-includes, project_generic_core, project_subsystem_console {
+	exename = RelCalculator
+
+	after += Core
+	libs  += Core
+
+	after += GCL
+	libs  += GCL
+
+	after += boost_thread
+	libs  += boost_thread
+
+	after += boost_system
+	libs  += boost_system
+
+	after += gkdb
+	libs  += gkdb
+
+	after += SearchBase
+	libs  += SearchBase
+
+	after += cchlp1
+	libs  += cchlp1
+
+	after += gctx_tools
+	libs  += gctx_tools
+
+	after += Morpho
+	libs  += Morpho
+
+	after += Search
+	libs  += Search
+
+	after += zlib
+	libs  += zlib
+
+	Header_Files {
+		./../../component/cpp/tools/RelevancyCalculator/RelCalculator.h
+		./../../component/cpp/tools/RelevancyCalculator/RelevancyInfo_i.h
+	}
+
+	Source_Files {
+		./../../component/cpp/tools/RelevancyCalculator/Main.cpp
+		./../../component/cpp/tools/RelevancyCalculator/RelCalculator.cpp
+		./../../component/cpp/tools/RelevancyCalculator/RelevancyInfo_i.cpp
+	}
+}

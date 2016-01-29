@@ -1,0 +1,203 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewInterfacesLayer/FormOperations/VCMOperationState.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewInterfacesLayer::FormOperations::VCMOperationState
+//
+// Состояние операции
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: VCMOperationState::Class
+implementation @ <<VCMOperationState>>
+//? Состояние операции
+//< *::Class,*::Category
+
+//= WikiImplClass::Class
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +
+// - типы видимости
+//a f
+// - тип абстракции
+//Y code_vcm_operationstate.gif
+//L code_vcm_operationstate
+// Параметры визуализации
+//$ C 192,255,255
+//$ l 123,123,192
+//$ f 125,158,192
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p Hint:s ? 
+//p Enabled:tribool=undefined ? 
+//p ImageIndex:s ? 
+//p Checked:tribool=undefined ? 
+//p Visible:tribool=undefined ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{Hint}"!="%S{!Hint}"}%f_up_prefix(%S) *Hint* = *%S{Hint}*
+ ?inherited
+ if ( ( %S get_up ( 'Hint' ) ) %!= ( %S get_up_def ( 'Hint' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *Hint* = *'
+  %S get_up ( 'Hint' ) '*'
+//	][{"%S{Enabled}"!="%S{!Enabled}"}%f_up_prefix(%S) *Enabled* = *%S{Enabled}*
+ end // if
+ if ( ( %S get_up ( 'Enabled' ) ) %!= ( %S get_up_def ( 'Enabled' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *Enabled* = *'
+  %S get_up ( 'Enabled' ) '*'
+//	][{"%S{ImageIndex}"!="%S{!ImageIndex}"}%f_up_prefix(%S) *ImageIndex* = *%S{ImageIndex}*
+ end // if
+ if ( ( %S get_up ( 'ImageIndex' ) ) %!= ( %S get_up_def ( 'ImageIndex' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *ImageIndex* = *'
+  %S get_up ( 'ImageIndex' ) '*'
+//	][{"%S{Checked}"!="%S{!Checked}"}%f_up_prefix(%S) *Checked* = *%S{Checked}*
+ end // if
+ if ( ( %S get_up ( 'Checked' ) ) %!= ( %S get_up_def ( 'Checked' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *Checked* = *'
+  %S get_up ( 'Checked' ) '*'
+//	][{"%S{Visible}"!="%S{!Visible}"}%f_up_prefix(%S) *Visible* = *%S{Visible}*
+ end // if
+ if ( ( %S get_up ( 'Visible' ) ) %!= ( %S get_up_def ( 'Visible' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *Visible* = *'
+  %S get_up ( 'Visible' ) '*'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4C7657C500E9*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for4C7657C500E9*
+; // constraint
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Элемент не является параметром
+//%f _IsNotParam
+: IsNotParam OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4C766D140383for4C7657C500E9*
+//	true
+ true
+//#UC END# *4C766D140383for4C7657C500E9*
+; // IsNotParam
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor4C7657C500E9*
+//#UC END# *470F15B800CBfor4C7657C500E9*
+; // impl.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor4C7657C500E9*
+//	##%SN = state\
+ out_indent out_indent %S |N ' = state'
+//	[\n## { %SD }]\
+ if NOT-EMPTY
+ begin
+  #13#10
+  out_indent out_indent ' { '
+  %S |D ' }' 
+ end // if
+ NOP
+//	[\n## { %S{Hint} }]
+ if NOT-EMPTY
+ begin
+  #13#10
+  out_indent out_indent ' { '
+  %S get_up ( 'Hint' ) ' }' 
+ end // if
+ NOP
+//	##end;//%SN
+ out_indent out_indent 'end;//'
+ %S |N 
+//#UC END# *470F1571031Cfor4C7657C500E9*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for4C7657C500E9*
+//#UC END# *477398E501C0for4C7657C500E9*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for4C7657C500E9*
+//#UC END# *55B8D28B0157for4C7657C500E9*
+; // rc.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for4C7657C500E9*
+//#UC END# *55B8D2F80145for4C7657C500E9*
+; // rc.script.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for4C7657C500E9*
+//#UC END# *55B8DD9C0301for4C7657C500E9*
+; // res.cmd.pas
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<VCMOperationState>>
+

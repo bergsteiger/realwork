@@ -1,0 +1,266 @@
+Shared Delphi Operations For Tests : VCMDomain - 
+version: 184
+TestForms : VCMSubsystem - Тестовые формы
+ Forms : VCMViews - 
+  Everest : VCMForms - 
+   PrimTextLoad : VCMForm - 
+   elCustomEdit : VCMForm - Форма для тестирования TelCustomEdit
+   TextLoad : VCMForm - Форма для загрузки документа
+   F1LikeTextLoad : VCMForm - 
+   QFLikeTextLoad : VCMForm - Форма для работы с КЗ
+   F1LikeFormWithBS : VCMForm - Форма с текстовым редактором с базовым поиском.
+   elCustomEditKeywordsPack : ScriptKeywordsPack - Набор слов словаря для доступа к экземплярам контролов формы elCustomEdit
+   TextLoadKeywordsPack : ScriptKeywordsPack - Набор слов словаря для доступа к экземплярам контролов формы TextLoad
+   F1LikeTextLoadKeywordsPack : ScriptKeywordsPack - Набор слов словаря для доступа к экземплярам контролов формы F1LikeTextLoad
+   QFLikeTextLoadKeywordsPack : ScriptKeywordsPack - Набор слов словаря для доступа к экземплярам контролов формы QFLikeTextLoad
+   F1LikeFormWithBSKeywordsPack : ScriptKeywordsPack - Набор слов словаря для доступа к экземплярам контролов формы F1LikeFormWithBS
+  Outliner : VCMForms - 
+   OutlinerForm : VCMForm - Форма для тестирования списка
+   OutlinerFormKeywordsPack : ScriptKeywordsPack - Набор слов словаря для доступа к экземплярам контролов формы OutlinerForm
+  FormWithPanel : VCMForms - 
+   FromWithPanel : VCMForm - 
+   FromWithPanelKeywordsPack : ScriptKeywordsPack - Набор слов словаря для доступа к экземплярам контролов формы FromWithPanel
+TestFormsTest : TestLibrary - Тесты форм
+ MixIns : Unit - Примеси
+  FormProducer : Impurity - 
+   FormClass : ImpurityParamType - Класс формы
+   MakeForm : method - 
+   FormClassRef : Typedef - 
+   MakeFormClass : method - 
+   FormClass : impurity param - 
+   f_FixedHeight - 
+   FormExtent - Размеры формы
+   FormMade - 
+   UseFormExtentAsClientSize - Использовать заданные размеры формы как размеры клиентской области - размеры формы пересчитываются относительно этих ограничений.
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+ Everest : TestUnit - Тесты для Эвереста
+  TTextViaEditorProcessorPrim : TestCase - Обработчик текста через редактор
+   Load : method - Загружает документ в редактор указанной формы
+   Save : method - Сохраняет текст из редактора в стандартный выходной файл
+   Scroll : method - 
+   ScrollBack : method - Скроллирует текст в обратном направлении
+   ScrollByWeel : method - Прокрутить заданное число раз с помощью колеса мыши
+   ScrollByLine : method - Прокручивать построчно заданное число раз вверх или вниз
+   GotoDocumentBottom : method - Перейти в конец документа
+   PageUp : method - Перейти на страницу вверх
+   PageDown : method - 
+   ScrollCount : readonly - Количество прокруток до конца документа
+   FormClass : impurity value - 
+   ScrollByPage - 
+   WebStyle - 
+   SendKey - Управлять ли окном реактора посредсвом посылки клавиш, а не вызова методов редактора
+   CheckTopAnchor - проверить якорь начала отрисовки после окончания прокрутки
+   F1Like - 
+   QFLike - Создать форму-редактор для работы с КЗ.
+   DoBeforeLoad - Операции предшествующие загрузке документа
+   AllowMultiSelect - Разершить мультивыделение.
+   WithBaseSearch - Форма со строкой базового поиска.
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+   f_ScrollCount - Поле для свойства ScrollCount
+    : uses - undefined
+  K204114253 : TestCase - [$204114253]
+   DoIt : Test - 
+   TelCustomEditHack : SimpleClass - 
+   FormClass : impurity value - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TTextLoad : TestCase - 
+   LoadGK : Test - Загрузка ГК
+   LoadBigTableFromTextEVD : Test - Загрузка боольшой таблицы из текстового EVD
+   K_172361288 : Test - Тест по мотивам {RequestLink:172361288}.
+    : uses - 
+    : uses - undefined
+  TTextEditorVisitorPrim : TestCase - Тест, работающий с текстом документа через редактор, но не изменяющий его
+   VisitText : method - Собственно процедура обработки текста
+   DoVisit - Обработать текст
+   TreatExceptionAsSuccess - 
+    : uses - undefined
+  TTextEditorVisitor : TestCase - Тест, работающий с текстом документа через редактор, но не изменяющий его
+   DoIt : Test - Собственно тело теста
+   GetNormalFontSize - Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию
+   MaxHeight - Если возвращается не 0, то будет организован цикл подбора высоты от FormExtent.Y до MaxHeight
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TTextViaEditorProcessor : TestCase - Обработчик текста через редактор
+   EtalonFileExtension : method - Расширение эталонного файла
+   HeaderBegin : method - 
+   Process - Собственно процесс обработки текста
+    : uses - undefined
+  TSearchAndReplacePrimTest : TestCase - Тест поиска/замены
+   Searcher - 
+   Replacer - 
+   Options - 
+    : uses - undefined
+  TPreviewTestBefore235875079 : TestCase - Тест построения Preview
+   PageFileName : method - Имя файла для сохранения страницы
+   IsBefore235875079 : method - 
+   IsBefore278833302 : method - 
+   OnlyCheckPageCount : method - 
+   f_Done - 
+   f_Now - Время начала теста
+   f_LogNumber - 
+   f_CurrentOutput - 
+   f_PageCount - 
+   f_PrintedPageCount - 
+   ReadColontituls - 
+   GetHAFFontSize - Размер колонтитулов. 0 - по-умолчанию
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TPrimScrollTest : TestCase - 
+    : uses - undefined
+  TScrollBackTest : TestCase - Тест скроллирования документа в обратную сторону
+    : uses - undefined
+  ComplexScrollByLines : TestCase - Тест вида - прокрутили на несколько строк вниз, а потом на несколько вверх.
+   GetScrollLineCount2Down - количество строк для прокрутки вниз
+   GetScrollLineCount2Up - количество строк для прокрутки вверх
+    : uses - undefined
+  TSearchAndReplaceTest : TestCase - Тест поиска/замены
+   StringForSearch - Строка для поиска
+   StringForReplace - Строка для замены
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TTwoEmptyParaForOneReplacerTest : TestCase - Тест замены двух пустых абзацев на один
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TTableSelectTest : TestCase - Базовый тест для работы с выделением таблицы
+   GetTablePara - Возвращает параграф с таблицей
+   SelectColumn - Выделить колонку aColID
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TTwoSpaceForOneReplacerTest : TestCase - Тест замены одного пробела на один
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TChangeAllTablesTest : TestCase - Работа со всеми таблицами документа.
+   ApplyEditorTool - Вызов инструмента из редактора
+    : uses - 
+    : uses - undefined
+  TOldNSRCFlagCnahge : TestCase - Изменить флаг "Выливать в псевдографику" во всех таблицах в документе.
+    : uses - undefined
+  TScrollBackByLineTest : TestCase - Прокрутка построчно снизу вверх
+    : uses - undefined
+  TScrollBackByLineWithCheckTopAnchoTest : TestCase - Тест прокрутки документа вверх с проверкой TopAnchor
+   f_PrevTopAnchor - 
+    : uses - undefined
+  TDrawLineTest : TestCase - Тест рисования линии в документе
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TPasteColumnTest : TestCase - Тест копирования и вставки из буфера колонки с объединенной ячейкой.
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TScrollTest : TestCase - Тест скроллирования документа
+    : uses - undefined
+  TCommentAndScrollTest : TestCase - Тест для добавления и удаления комментария и последующего скроллирования.
+   MoveCursor4Insert - Переместить курсор перед вставкой комментария.
+   GetUserComment - Получить пользовательский комментарий
+   DoScroll - Прокрутка текста в редакторе (если нужна).
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TQueryCardAddAttributeTest : TestCase - Тест добавления атрибута в КЗ.
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TCommentInTableAndScrollTest : TestCase - Тест вставки комметария в таблицу
+   IsUserComment : method - Проверяет указывает ли якорь на пользовательский комментарий.
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TInsertRowTest : TestCase - Тест вставки строки
+    : uses - 
+    : uses - undefined
+  TDrawTestPrim : TestCase - Базовый тест для отрисовки и сравнения.
+   f_Editor - 
+   DoBeforeDrawing - Произвести какие-нибудь операции перед отрисовкой.
+    : uses - 
+    : uses - undefined
+  TDeleteSectionBreakTest : TestCase - Тест на удаление раздела.
+    : uses - 
+    : uses - undefined
+  TTableToolsTestPrim : TestCase - 
+   ApplyTools - Вызвать инструмент для таблицы
+   CheckOperation - Проверка после применения инструмента.
+    : uses - undefined
+  TPreviewWithLinesTestBefore235875079 : TestCase - Тест печати с логом отрисованных линий
+   f_CurrentLinesOutput - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TPreviewTestBefore278833302 : TestCase - 
+    : uses - undefined
+  TPreviewWithLinesTest : TestCase - 
+    : uses - undefined
+  TPreviewTest : TestCase - 
+    : uses - undefined
+  TPageCountTest : TestCase - 
+    : uses - undefined
+ OutlinerTests : TestUnit - 
+  OutlinerTest : TestCase - 
+   DoIt() : Test - 
+   FormClass : impurity value - 
+   Load - Загрузить данные в дерево.
+    : uses - undefined
+ AutoTestSupport : Unit - Поддержка создания форм для автотестов.
+  FormUnits : Impurity - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - 
+  LoadUnits : Impurity - 
+    : uses - 
+    : uses - 
+ EmptyFormTests : TestUnit - Тесты с пустой формой.
+  TEmptyFormTest : TestCase - 
+   DoIt : Test - 
+   CheckControl : method - 
+   FormClass : impurity value - 
+    : uses - undefined

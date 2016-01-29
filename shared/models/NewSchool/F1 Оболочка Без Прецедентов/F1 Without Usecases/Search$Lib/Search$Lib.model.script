@@ -1,0 +1,142 @@
+<<Library>> Search$Lib
+ %UID '4AC225C90144'
+ %DEPENDS
+  U$ '47E9EEC60260' /* Model */
+  U$ '4A78013D01CD' /* "View$For F1 and Monitorings" */
+  U$ '4A7C099B004F' /* View */
+  U$ '4A92C59801C7' /* View */
+  U$ '4A9FFD3F01AD' /* Search */
+  U$ '4CAC58CB03A2' /* Filters */
+  U$ '54F9EC3900D6' /* ContextHistory */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '47E9EEC60260' /* Model */
+  U$ '4A78013D01CD' /* "View$For F1 and Monitorings" */
+  U$ '4A7C099B004F' /* View */
+  U$ '4A92C59801C7' /* View */
+  U$ '4A9FFD3F01AD' /* Search */
+  U$ '4CAC58CB03A2' /* Filters */
+  U$ '54F9EC3900D6' /* ContextHistory */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Unit>> BaseSearch
+   %UID '4AC225E70273'
+   %SUMMARY 'Базовый поиск' ;
+   %DEPENDS
+    U$ '4991C38F0019' /* DataAdapterInterfaces */
+    U$ '4A9F98B901A5' /* BaseSearchInterfaces */
+    U$ '4BD856E802F9' /* FormDefinitions */
+    U$ '4CAC5A7402DE' /* Impl */
+    U$ '4D7A0528021A' /* PrimBaseSearchInterfaces */
+    U$ '54F9F6FB0143' /* ContextHistoryInterfaces */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '47E9EEC60260' /* Model */
+    U$ '4A92C59801C7' /* View */
+    U$ '4A9FFD3F01AD' /* Search */
+    U$ '4CAC58CB03A2' /* Filters */
+    U$ '54F9EC3900D6' /* ContextHistory */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TnsBaseSearcher
+      %UID '4AC226030181'
+      %META
+       %upv "finished" false
+       %upv "ifndef" 'Admin,Monitorings'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '47E9EEC60260' /* Model */
+       U$ '4A9FFD3F01AD' /* Search */
+       U$ '54F9EC3900D6' /* ContextHistory */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4951327800EE' /* InsBaseSearchContextProvider */
+       U$ '495132860112' /* InsBaseSearchResultProcessor */
+       U$ '496B4F6303E5' /* InsBaseSearchDataReadyChecker */
+       U$ '496B512E026D' /* InsMistakesCorrector */
+       U$ '496B533F00AE' /* InsBaseSearchQueryDataProcessor */
+       U$ '496B539D02D5' /* InsContextSearchHistoryNotifier */
+       U$ '496B5FCE02FD' /* InsBaseSearcher */
+       U$ '496B629D0188' /* InsBaseSearcherWindowData */
+       U$ '4991C3C10331' /* InsDataAdapterListener */
+      ; // %IMPLEMENTS
+      %REALIZES
+       U$ '49513746034D' /* RepairMistakes */
+       U$ '4951375B0052' /* Context */
+       U$ '496B4F6D02B5' /* CheckLocalDataReady */
+       U$ '496B4FAA02FA' /* SearchResultEmpty */
+       U$ '496B4FC70065' /* SearchResultExists */
+       U$ '496B4FD20320' /* AnotherSearchSuccessed */
+       U$ '496B513C0168' /* Correct */
+       U$ '496B534B0098' /* SetDataFromQuery */
+       U$ '496B5356008C' /* RequestFind */
+       U$ '496B53B70380' /* HistoryChanged */
+       U$ '496B53C30337' /* ContextSearched */
+       U$ '496B5FE00107' /* ShowWindowByUser */
+       U$ '496B62A60135' /* Find */
+       U$ '496B62BF00A7' /* ContextKind */
+       U$ '496B62E80050' /* AvailableClasses */
+       U$ '496B630301B5' /* ClassesAnywayDisabled */
+       U$ '496B63130085' /* ClassName */
+       U$ '496B631F01AD' /* AllowSearchInTitles */
+       U$ '496B632F022D' /* ApplyCurrentExample */
+       U$ '496B633D033B' /* FindEnabled */
+       U$ '496B636102E7' /* Context */
+       U$ '496B637C00B7' /* ActiveClass */
+       U$ '496B63A602EB' /* SearchWindow */
+       U$ '496B63BE0309' /* Area */
+       U$ '496B63D40168' /* ExampleText */
+       U$ '496B6408019E' /* ErrorWords */
+       U$ '4991C3CD0077' /* Updated */
+       U$ '49FEA2840322' /* FindBackSupported */
+       U$ '49FEA2AE013A' /* FindBackEnabled */
+       U$ '49FEA2CC003F' /* FindBack */
+       U$ '49FFD84603C6' /* FragmentsCountSuffix */
+       U$ '49FFFE5B033A' /* RequestCheckFragmentsCount */
+       U$ '4A13A97F0211' /* RequestCheckFindBack */
+       U$ '4AA4E3FB03C4' /* MakePromptTree */
+       U$ '4AD5EB9B02C8' /* AddPresentation */
+       U$ '4AD5EBB302EA' /* RemovePresentation */
+       U$ '4AD5EDC703BE' /* Presentation */
+       U$ '4C04A80C018D' /* StoreActiveClass */
+       U$ '4C04AFC8015D' /* AnotherSearchCancelled */
+       U$ '4EB7BE980010' /* DropActiveClass */
+       U$ '4EE5F8200085' /* ActiveClassForSaveState */
+       U$ '4F1EA8A202D8' /* ValidateBaseSearchForm */
+       U$ '543392190118' /* MakeState */
+       U$ '5433923F0280' /* AssignState */
+       U$ '5437B478018C' /* ForceUpdateClassForHistory */
+       U$ '54EC1B5C00E4' /* MakeStateParams */
+       U$ '55AF44F501B9' /* ContainerIsClosing */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "4CAD9CB503BA"
+         %UID '4CAD9CB503BA'
+         %TARGET U$ '4CAC5BD701BF' /* TnsFiltersContainer */
+        ; // 4CAD9CB503BA
+        <<uses>> "4D7A65630061"
+         %UID '4D7A65630061'
+         %TARGET U$ '4D7A45A50205' /* BaseSearchContainer */
+        ; // 4D7A65630061
+        <<uses>> "4D7A65700035"
+         %UID '4D7A65700035'
+         %TARGET U$ '4CF4BE760297' /* NewBaseSearch */
+        ; // 4D7A65700035
+      ; // %LINKS
+     ; // TnsBaseSearcher
+   ; // %CHILDREN
+  ; // BaseSearch
+ ; // %CHILDREN
+; // Search$Lib

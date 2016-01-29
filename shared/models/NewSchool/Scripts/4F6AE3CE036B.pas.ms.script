@@ -1,0 +1,56 @@
+// MDProcess$NewGen$Interface 4F6AE3CE036B VCMProject Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_4F6AE3CE036B
+ CONST UID '4F6AE3CE036B'
+ CONST Name 'MDProcess'
+ CONST Class class_Category
+ : Stereotype st_VCMProject ;
+ %SUMMARY 'Интерфейс нового генератора' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Children
+   @ ( WL 'ME_4F6AE4780149' '4F6AE4780149.pas.ms.script' // NewGen
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677DDBD0193' '4677DDBD0193.pas.ms.script' // Shared Delphi
+ WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
+ WL 'ME_49B1511700CA' '49B1511700CA.pas.ms.script' // Shared Delphi Core
+ WL 'ME_4A82FE48010A' '4A82FE48010A.pas.ms.script' // Shared Delphi Operations
+ WL 'ME_4AB1071F01B0' '4AB1071F01B0.pas.ms.script' // Shared Delphi For F1
+ WL 'ME_4ABCC25A0322' '4ABCC25A0322.pas.ms.script' // Shared Delphi Low Level
+ WL 'ME_4B63155B0328' '4B63155B0328.pas.ms.script' // MDProcess$ForDelphi
+ WL 'ME_4F6CCC8800A0' '4F6CCC8800A0.pas.ms.script' // Shared Delphi F1 Like Application
+ WL 'ME_562E251101C2' '562E251101C2.pas.ms.script' // Shared Delphi Rtl
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "Full MDP" false
+ CONST "build share" 'Garant-MDP'
+ CONST "create project" true
+ CONST "defines" 'ngDefine.inc'
+ CONST "fix version" 0
+ CONST "force usage" true
+ CONST "full constraint" true
+ CONST "ifdef" 'NewGen'
+ CONST "major version" 1
+ CONST "minor version" 0
+ CONST "package prefix" 'ru.garant'
+ CONST "root path suffix" '/NewGen'
+ CONST "space key" 'NGEN'
+ CONST "space name" 'New Gen'
+ : Generators
+ @ (
+ gen_forth_structure
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST forth_structure:Path 'shared\models\NewSchool\MDProcess$NewGen$Interface\MDProcess$NewGen$Interface.model.script'
+ CONST intf.pas:Path 'MDProcess\NewGen\MDProcess$NewGen$Interface_prj.info'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4F6AE3CE036B.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4F6AE3CE036B.pas.ms.script.runner'
+
+ref; // ME_4F6AE3CE036B MDProcess$NewGen$Interface

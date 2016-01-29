@@ -1,0 +1,50 @@
+// DUnit Script Support 5130499D0080 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_5130499D0080
+ CONST UID '5130499D0080'
+ CONST Name 'DUnit Script Support'
+ CONST Class class_Category
+ : Stereotype st_Library ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4B30CC420206' '4B30CC420206.pas.ms.script' // Shared Delphi Testing Framework
+ ;
+ : Children
+   @ ( WL 'ME_51304A0E0192' '51304A0E0192.pas.ms.script' // DUnit Keywords
+ WL 'ME_5130776E01BE' '5130776E01BE.pas.ms.script' // DUnitKeyWordsSupport
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
+ WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ WL 'ME_4B2A0D4A006F' '4B2A0D4A006F.pas.ms.script' // DUnit
+ WL 'ME_4B2A10C40309' '4B2A10C40309.pas.ms.script' // DUnitTuning
+ WL 'ME_4DC3D1BC0060' '4DC3D1BC0060.pas.ms.script' // ScriptTestLibrary
+ WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.pas.ms.script' // ScriptEngine
+ WL 'ME_513098F2017C' '513098F2017C.pas.ms.script' // Shared Delphi Tests Common
+ WL 'ME_54CF97B10370' '54CF97B10370.pas.ms.script' // ScriptEngine$Core
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "defines" 'dsDefine.inc'
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'rtl'
+ CONST "ifdef" 'nsTest'
+ CONST "ifndef" 'NoScripts'
+ CONST "is namespace" true
+ CONST "vendor" '/Garant'
+ : Generators
+ @ (
+ gen_forth_structure
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Testing Framework\DUnit Script Support\DUnit Script Support.model.script'
+ CONST intf.pas:Path 'common\components\rtl\Garant\DUnit_Script_Support\DUnit_Script_Support_lib.info'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5130499D0080.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5130499D0080.pas.ms.script.runner'
+
+ref; // ME_5130499D0080 DUnit Script Support

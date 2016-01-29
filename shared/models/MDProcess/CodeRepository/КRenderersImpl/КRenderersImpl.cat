@@ -1,0 +1,2714 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "KRenderersImpl"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"VisabilityType"
+	    value      	"ProtectedAccess")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/CodeRepositoryView/KRenderersImpl|49A0029302F2
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19021724443"))
+    quid       	"49A0029302F2"
+    documentation 	"реализация"
+    stereotype 	"Impl"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"49A002DC0019"
+	    supplier   	"Logical View::MDProcess::CodeRepositoryView::KRenderers"
+	    quidu      	"499FF971033E")
+	(object Visibility_Relationship
+	    quid       	"49A0118803DE"
+	    supplier   	"Logical View::MDProcess::CodeRepositoryView::KRenderersLocal"
+	    quidu      	"49A0114C0240"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "RequestHistoryRevisionInFishEyeStyleImpl"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepositoryView/KRenderersImpl/RequestHistoryRevisionInFishEyeStyleImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepositoryView/KRenderersImpl/RequestHistoryRevisionInFishEyeStyleImplFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49A008B30118_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *49A008B30118_CUSTOM_IMPORT*¤¤import java.util.*;¤¤import org.apache.commons.lang.StringUtils;¤¤import ru.garant.MDProcess.CodeRepository.InformationImpl.FisheyeHelper;¤¤//#UC END# *49A008B30118_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49A008B30118_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *49A008B30118_CUSTOM_CLASS_DEFINITION*¤//#UC END# *49A008B30118_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49A008B30118_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *49A008B30118_CUSTOM_METHODS_AND_DATA*¤	¤	private String getDiffUrlWithParameters (Revision revision, Map<String, List<String>> parameters) {¤		Map<String, String> fishEyeParams = new HashMap<String, String>();¤		String url = FishEyeLinks.diff(¤				FishEyeLinks.makeFishEyePathLink_WORKAROUND (revision)¤				, revision.getRev()¤				, revision.getPrevRev()¤				, fishEyeParams¤				, revision.getRepo()¤			);¤		for (Map.Entry<String, String> parameter : fishEyeParams.entrySet()) {¤			parameters.put(parameter.getKey(), Arrays.asList(parameter.getValue()));¤		}¤		return url;¤	}¤	¤	private String extractDiff (String content) {¤		if (StringUtils.isBlank(content)) {¤			return "";¤		}¤		int startPosition = content.indexOf("<table class=\"diff noWrapping unifiedDiff\"");¤		if (startPosition < 0) {¤			return "";¤		}¤		int endPosition = content.indexOf("</table>", startPosition);¤		if (endPosition < 0) {¤			return "";¤		}¤		return FishEyeLinks.repairLinks(content.substring(startPosition, endPosition));¤	}¤	¤	private String renderLink (Revision rev) {¤		return FishEyeLinks.annotate(rev.getPath(), rev.getRev(), rev.getRepo());¤	}¤	¤	//#UC END# *49A008B30118_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/CodeRepositoryView/KRenderersImpl/RequestHistoryRevisionInFishEyeStyleImpl|49A008B30118
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19021745108"))
+	    quid       	"49A008B30118"
+	    stereotype 	"Servant"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021745468"))
+		    quid       	"49A3BE0F0388"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::CodeRepositoryView::KRenderersImpl::FishEyeLinks"
+		    quidu      	"49A3BDBE0307"))
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"49A009220103"
+		    supplier   	"Logical View::MDProcess::CodeRepositoryView::KRenderersLocal::RequestHistoryRevisionInFishEyeStyle"
+		    quidu      	"49A0053401F6")
+		(object Realize_Relationship
+		    quid       	"49A0098C01FD"
+		    supplier   	"Logical View::MDProcess::CodeRepositoryView::KRenderers::RequestHistoryRevision"
+		    quidu      	"499FFB020245"))
+	    language   	"MDA Generator")
+	(object Class "RequestHistoryRevisionInTextStyleImpl"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepositoryView/KRenderersImpl/RequestHistoryRevisionInTextStyleImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepositoryView/KRenderersImpl/RequestHistoryRevisionInTextStyleImplFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49A008BD0282_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *49A008BD0282_CUSTOM_IMPORT*¤//#UC END# *49A008BD0282_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49A008BD0282_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *49A008BD0282_CUSTOM_CLASS_DEFINITION*¤//#UC END# *49A008BD0282_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49A008BD0282_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *49A008BD0282_CUSTOM_METHODS_AND_DATA*¤	//#UC END# *49A008BD0282_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/CodeRepositoryView/KRenderersImpl/RequestHistoryRevisionInTextStyleImpl|49A008BD0282
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19021746070"))
+	    quid       	"49A008BD0282"
+	    stereotype 	"Servant"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"49A009240026"
+		    supplier   	"Logical View::MDProcess::CodeRepositoryView::KRenderersLocal::RequestHistoryRevisionInTextStyle"
+		    quidu      	"49A0085E02D5"))
+	    language   	"MDA Generator")
+	(object Class "RequestHistoryInFishEyeStyleImpl"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepositoryView/KRenderersImpl/RequestHistoryInFishEyeStyleImplFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepositoryView/KRenderersImpl/RequestHistoryInFishEyeStyleImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49A008C10013_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *49A008C10013_CUSTOM_IMPORT*¤¤import ru.garant.MDProcess.CodeRepository.Information.Changeset;¤¤import java.util.*;¤¤import com.atlassian.confluence.pages.Page;¤¤//#UC END# *49A008C10013_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49A008C10013_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *49A008C10013_CUSTOM_CLASS_DEFINITION*¤//#UC END# *49A008C10013_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49A008C10013_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *49A008C10013_CUSTOM_METHODS_AND_DATA*¤	¤	private static String renderToWiki (final List<Changeset> history) {¤		StringBuilder ret = new StringBuilder();¤		for (Changeset eachChangeset : history) {¤			ret.append("\r\n");¤			ret.append(eachChangeset.getKey());¤			ret.append(" (").append(renderLogToWiki(eachChangeset.getLog())).append(")");¤		}¤		return ret.toString();¤	}¤	¤	private static String renderLogToWiki (String log) {¤		return log.replace("\n", " ").replace("\r", " ");¤	}¤	¤	private static String updateHistoryMacroInContent (String content, String wikiToAppend, String anchor) {¤		int startMacroBodyPosition = content.indexOf(anchor);¤		if (startMacroBodyPosition < 0) {¤			throw new IllegalStateException("Page corrupted, can't add history!!!");¤		}¤		startMacroBodyPosition += anchor.length();¤¤		return content.substring(0, startMacroBodyPosition) + wikiToAppend¤				+ content.substring(startMacroBodyPosition);¤	}¤	¤	private static final String HISTORY_MACRO_SEARCH_STRING_IN_ELEMENT_PAGE = "{linkedrequests}";¤	¤	private static final String HISTORY_MACRO_CLOSING_STRING_IN_ELEMENT_PAGE = "{linkedrequests}";¤	¤	private static final String HISTORY_MACRO_SEARCH_STRING_IN_REQUEST_PAGE = "{RepositoryChangesInFishEyeStyleMacro}";¤	¤	private static final String HISTORY_MACRO_CLOSING_STRING_IN_REQUEST_PAGE = "{RepositoryChangesInFishEyeStyleMacro}";¤	¤	private static final String HISTORY_MACRO_TEMPLATE_IN_REQUEST_PAGE = ¤		"{RepositoryChangesInFishEyeStyleMacro}%s\r\n{RepositoryChangesInFishEyeStyleMacro}";¤	¤	private static final String REQUESTPAGE_META_ANCHOR = "{excerpt}";¤	¤	private static final String HISTORY_MACRO_SEARCH_TEMPLATE_IN_ELEM_PAGE = "{RepositoryChangesInFishEyeStyleMacro:page=%d|markedRevisions=%s}";¤	¤	private static final String HISTORY_MACRO_TEMPLATE_FOR_REQUEST_IN_ELEMENT_PAGE = ¤		"{RepositoryChangesInFishEyeStyleMacro:page=%d|markedRevisions=%s}%%s\r\n{RepositoryChangesInFishEyeStyleMacro}";¤	¤	private static final String ELEMPAGE_META_ANCHOR = "{UserSectionSeparator}";¤	¤	private static boolean hasHistory (final String text, final String searchString) {¤		return text.indexOf(searchString) >= 0;¤	}¤	¤	private static boolean appendToPage (Page page, List<Changeset> history, final String searchString, final String templateString, final String anchorToInsert) {¤		String wiki = renderToWiki(history);¤		if (wiki.length() == 0) {¤			return false;¤		}¤		¤		try {¤			final String content = page.getContent();¤¤			if (hasHistory(page.getContent(), searchString)) {¤				page.setContent(updateHistoryMacroInContent(content, wiki, searchString));¤				return true;¤			} else {¤				int bodyStartPosition = content.indexOf(anchorToInsert);¤				if (bodyStartPosition < 0) {¤					Logs.LOG_W("WARNING: for " + page.getId() + " page can't find anchor to create history.");¤					return false;¤				} else {¤					bodyStartPosition += anchorToInsert.length();¤					String meta = content.substring(0, bodyStartPosition);¤					String body = content.substring(bodyStartPosition);¤					String historyText = String.format(templateString, wiki);¤¤					page.setContent(meta + "\r\n" + historyText + body);¤					return true;¤				}¤			}¤		} catch (Exception e) {¤			Logs.LOG_SEX(e);¤			throw new NullPointerException("appendToPage: " + e.getMessage());¤		}¤	}	¤	//#UC END# *49A008C10013_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/CodeRepositoryView/KRenderersImpl/RequestHistoryInFishEyeStyleImpl|49A008C10013
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19021746560"))
+	    quid       	"49A008C10013"
+	    stereotype 	"Servant"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021746917"))
+		    quid       	"49A3BE15022D"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::CodeRepositoryView::KRenderersImpl::FishEyeLinks"
+		    quidu      	"49A3BDBE0307"))
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"49A009260077"
+		    supplier   	"Logical View::MDProcess::CodeRepositoryView::KRenderersLocal::RequestHistoryInFishEyeStyle"
+		    quidu      	"49A007720359")
+		(object Realize_Relationship
+		    quid       	"49A009670099"
+		    supplier   	"Logical View::MDProcess::CodeRepositoryView::KRenderers::RequestHistory"
+		    quidu      	"499FFDB20083"))
+	    language   	"MDA Generator")
+	(object Class "RequestHistoryInTextStyleImpl"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepositoryView/KRenderersImpl/RequestHistoryInTextStyleImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepositoryView/KRenderersImpl/RequestHistoryInTextStyleImplFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49A008C60268_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *49A008C60268_CUSTOM_IMPORT*¤//#UC END# *49A008C60268_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49A008C60268_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *49A008C60268_CUSTOM_CLASS_DEFINITION*¤//#UC END# *49A008C60268_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49A008C60268_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *49A008C60268_CUSTOM_METHODS_AND_DATA*¤	//#UC END# *49A008C60268_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/CodeRepositoryView/KRenderersImpl/RequestHistoryInTextStyleImpl|49A008C60268
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19021747495"))
+	    quid       	"49A008C60268"
+	    stereotype 	"Servant"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"49A00928039B"
+		    supplier   	"Logical View::MDProcess::CodeRepositoryView::KRenderersLocal::RequestHistoryInTextStyle"
+		    quidu      	"49A0069B0042"))
+	    language   	"MDA Generator")
+	(object Class "FishEyeLinks"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepositoryView/KRenderersImpl/FishEyeLinks.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/CodeRepositoryView/KRenderersImpl/FishEyeLinks|49A3BDBE0307
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49A3BDBE0307_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *49A3BDBE0307_CUSTOM_IMPORT*¤¤import java.io.UnsupportedEncodingException;¤import java.net.URLEncoder;¤¤import org.apache.commons.lang.StringUtils;¤¤//#UC END# *49A3BDBE0307_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49A3BDBE0307_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *49A3BDBE0307_CUSTOM_CLASS_DEFINITION*¤//#UC END# *49A3BDBE0307_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49A3BDBE0307_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *49A3BDBE0307_CUSTOM_METHODS_AND_DATA*¤	¤	private static String encodeURI (String uri) {¤		String prefix = "http://";¤		try {¤			if (uri.startsWith(prefix)) {¤				return prefix+URLEncoder.encode(uri.substring(prefix.length()),"UTF-8").replace("+", "%20").replace("%2F", "/");¤			}¤			return URLEncoder.encode(uri,"UTF-8").replace("+", "%20").replace("%2F", "/");¤		} catch (UnsupportedEncodingException uee) {¤			throw new IllegalStateException (uee);¤		}¤	}¤	¤	public static String makeFishEyePathLink_WORKAROUND (ru.garant.MDProcess.CodeRepository.Information.Revision rev) {¤		//ses: call from RepositoryChanges_Revisions.vm¤		if (rev instanceof ru.garant.MDProcess.CodeRepository.PersistentInformationImpl.PersistentRevisionImpl) {¤			return ((ru.garant.MDProcess.CodeRepository.PersistentInformationImpl.PersistentRevisionImpl)rev).getPathInFishEye();¤		}¤		return rev.getPath();¤	}¤¤	private static String fisheyeURL () {¤		return ru.garant.shared.Core.ParamManager.Factory.get().getString("-FisheyeURL", "http://fisheye.garant.ru");¤	}¤	¤	private static String prefix () {¤		return fisheyeURL () + "/";¤	}¤	¤	//#UC END# *49A3BDBE0307_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19036181179"))
+	    quid       	"49A3BDBE0307"
+	    documentation 	"набор статических методов для генерации ссылок на элементы FishEye"
+	    stereotype 	"UtilityClass"
+	    operations 	(list Operations
+		(object Operation "annotate"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49A3CDEB02C8*"
+			    value      	(value Text 
+|//#UC START# *49A3CDEB02C8*¤		//http://fisheye.garant.ru/browse/GARCVS/MDProcess/BuildSupportLib/LibHome.h?r=MAIN		¤		return prefix() + "browse/" + repo + "/" + encodeURI(path) + (StringUtils.isNotEmpty(rev) ? "?r=" + rev : "");¤		//#UC END# *49A3CDEB02C8*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021748597"))
+		    quid       	"49A3CDEB02C8"
+		    documentation 	"линк на аннотацию"
+		    parameters 	(list Parameters
+			(object Parameter "path"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021748983"))
+			    quid       	"49A3CE390037"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "rev"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021749357"))
+			    quid       	"49A3CE390055"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "repo"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021750682"))
+			    quid       	"4B30C703015C"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE240068")
+		(object Operation "raw"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49A3CE45007C*"
+			    value      	(value Text 
+|//#UC START# *49A3CE45007C*¤		//http://fisheye.garant.ru/browse/~raw,r=MAIN/GARCVS/MDProcess/BuildSupportLib/LibHome.h¤		return prefix() + "browse/~raw,r=" + rev + "/" + repo + "/" + encodeURI(path);¤		//#UC END# *49A3CE45007C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021751205"))
+		    quid       	"49A3CE45007C"
+		    documentation 	"линк на только исходник, без всякого оформления"
+		    parameters 	(list Parameters
+			(object Parameter "path"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021751530"))
+			    quid       	"49A3CE880290"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "rev"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021751909"))
+			    quid       	"49A3CE8802B0"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "repo"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021752279"))
+			    quid       	"4B30C708009E"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE240068")
+		(object Operation "changeset"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49A5050F03C1*"
+			    value      	(value Text 
+|//#UC START# *49A5050F03C1*¤		//http://fisheye.garant.ru/changelog/GARCVS/?cs=MAIN:ses:20090224122151¤		return prefix() + "changelog/" + repo +"/" + "?cs=" + csid;¤		//#UC END# *49A5050F03C1*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021752734"))
+		    quid       	"49A5050F03C1"
+		    documentation 	"возращает ссылку на changeset по FishEye-вскому идентификатору"
+		    parameters 	(list Parameters
+			(object Parameter "csid"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021753043"))
+			    quid       	"49A505580296"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "repo"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021753413"))
+			    quid       	"4B30C70B000D"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE240068")
+		(object Operation "main"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49A505CB0390*"
+			    value      	(value Text 
+|//#UC START# *49A505CB0390*¤		return prefix() + "browse/" + repo + "/" + encodeURI(path);¤		//#UC END# *49A505CB0390*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021753872"))
+		    quid       	"49A505CB0390"
+		    documentation 	"основная ссылка на файл в FishEye"
+		    parameters 	(list Parameters
+			(object Parameter "path"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021754191"))
+			    quid       	"49A505FC00DE"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "repo"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021754559"))
+			    quid       	"4B30C70F033C"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE240068")
+		(object Operation "history"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49A5063202F4*"
+			    value      	(value Text 
+|//#UC START# *49A5063202F4*¤		//http://fisheye.garant.ru/browse/GARCVS/shared/models/MDProcess/CodeRepository/%D0%9ARenderersImpl/%D0%9ARenderersImpl.cat#r1.5¤		return prefix() + "browse/" + repo + "/" + encodeURI(path) + "#r" + rev;¤		//#UC END# *49A5063202F4*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021755017"))
+		    quid       	"49A5063202F4"
+		    documentation 	"ссылка на место для данной ревизии в истории изменений"
+		    parameters 	(list Parameters
+			(object Parameter "path"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021755322"))
+			    quid       	"49A506840276"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "rev"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021755706"))
+			    quid       	"49A50684029E"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "repo"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021756075"))
+			    quid       	"4B30C7140355"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE240068")
+		(object Operation "diff"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49A5073701A8*"
+			    value      	(value Text 
+|//#UC START# *49A5073701A8*¤		//http://fisheye.garant.ru/browse/GARCVS/garant6x/implementation/Garant/GblAdapterLib/impl/Folders_i/FoldersManager_i.cpp?r1=1.21&r2=1.22¤		return prefix() + "browse/" + repo + "/" + encodeURI(path) + "?r1=" + oldRev + "&r2=" + rev;¤		//#UC END# *49A5073701A8*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021756494"))
+		    quid       	"49A5073701A8"
+		    documentation 	"возращает ссылку на сравнение одной ревизии с другой, более старой."
+		    parameters 	(list Parameters
+			(object Parameter "path"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021756830"))
+			    quid       	"49A507A200D2"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "rev"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021757198"))
+			    quid       	"49A507A20101"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "old_rev"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021757587"))
+			    quid       	"49A507A20133"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "repo"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021757958"))
+			    quid       	"4B30C7190157"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE240068")
+		(object Operation "diff"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BF4B7E01FC*"
+			    value      	(value Text 
+|//#UC START# *49BF4B7E01FC*¤		parameters.put("r1", oldRev);¤		parameters.put("r2", rev);¤		parameters.put("content", "true");¤		return prefix() + "browse/" + repo + "/" + encodeURI(path);¤		//#UC END# *49BF4B7E01FC*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021758390"))
+		    quid       	"49BF4B7E01FC"
+		    documentation 	"возвращает ссылку на диффу в fisheye без параметров, а их возвращает через parameters"
+		    parameters 	(list Parameters
+			(object Parameter "path"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021758722"))
+			    quid       	"49BF4BCA0023"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "rev"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021759086"))
+			    quid       	"49BF4BCA006B"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "old_rev"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021759450"))
+			    quid       	"49BF4BCA00AB"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "parameters"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"49BF4B240005")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021759833"))
+			    quid       	"49BF4BCA00E9"
+			    type       	"ParameterMap")
+			(object Parameter "repo"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021760198"))
+			    quid       	"4B30C71D017A"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE240068")
+		(object Operation "repair_links"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BF673B0032*"
+			    value      	(value Text 
+|//#UC START# *49BF673B0032*¤		return fisheyeResponse.replaceAll("src=\"", "src=\"" + fisheyeURL());¤		//#UC END# *49BF673B0032*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021760642"))
+		    quid       	"49BF673B0032"
+		    documentation 	"исправляет ссылки на img в ответе с контентом страницы fisheye"
+		    parameters 	(list Parameters
+			(object Parameter "fisheye_response"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021760948"))
+			    quid       	"49BF67A8006C"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE240068"))
+	    language   	"MDA Generator")
+	(object Class "RequestHistoryChangesetInFishEyeStyleImpl"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/CodeRepositoryView/KRenderersImpl/RequestHistoryChangesetInFishEyeStyleImpl|49BA1F080392
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepositoryView/KRenderersImpl/RequestHistoryChangesetInFishEyeStyleImplFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepositoryView/KRenderersImpl/RequestHistoryChangesetInFishEyeStyleImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BA1F080392_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *49BA1F080392_CUSTOM_IMPORT*¤¤import java.text.DateFormat;¤import java.text.SimpleDateFormat;¤import java.util.regex.Matcher;¤import java.util.regex.Pattern;¤¤import org.apache.commons.lang.StringUtils;¤¤import com.atlassian.confluence.renderer.PageContext;¤import com.atlassian.renderer.WikiStyleRenderer;¤//#UC END# *49BA1F080392_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BA1F080392_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *49BA1F080392_CUSTOM_CLASS_DEFINITION*¤//#UC END# *49BA1F080392_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BA1F080392_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *49BA1F080392_CUSTOM_METHODS_AND_DATA*¤	¤	private static final String[] EMPTY_LOG_MESSAGES = { "*** empty log message ***", "no message" };¤	private static final String EMPTY_LOG_MESSAGE_TRANSLATED = "без комментариев";¤	¤	private DateFormat dateFormatter_ = new SimpleDateFormat("dd.MM.yyyy HH:mm");¤¤	public DateFormat getDateFormatter () {¤		return dateFormatter_;¤	}¤	¤	private String renderLinkText(final Changeset changeset) {¤		String changesetDate = getDateFormatter().format(changeset.getDate());¤		return changesetDate + ", " + getUserFullName(changeset.getAuthor());¤	}¤	¤	private String renderLink (final Changeset changeset) {¤		return FishEyeLinks.changeset(changeset.getKey(), changeset.getRepo());¤	}¤	¤	private String getLogWiki (final Changeset changeset) {¤		String log = getLog(changeset);¤		if (isStringMultiline(log)) {¤			return "\n" + removeBlankLines(log);¤		} else {¤			return " " + log;¤		}¤	}¤	¤	private boolean isStringMultiline (final String s) {¤		boolean hasEnter = false;¤		for (int i = 0; i < s.length(); i++) {¤			if (s.charAt(i) == '\n') {¤				hasEnter = true;¤			} else if (hasEnter) {¤				char ch = s.charAt(i);¤				if (ch != '\n' && ch != '\r') {¤					return true;¤				}¤			}¤		}¤		return false;¤	}¤	¤	private String convertEmptyMessages (String s) {¤		for (String template : EMPTY_LOG_MESSAGES) {¤			if (s.contains(template)) {¤				return s.replace(template, EMPTY_LOG_MESSAGE_TRANSLATED);¤			}¤		}¤		return s;¤	}¤¤	private String getUserFullName (String name) {¤		return ContainerManager.Factory.get().getUserAccessor().getUser(name).getFullName();¤	}¤¤	private String removeBlankLines (String s) {¤		Pattern re = Pattern.compile("\\n(\\n)");¤		Matcher m = re.matcher(s);¤		return m.replaceAll("$1");¤	}¤	¤	private String getLog (Changeset changeset) {¤		return convertEmptyMessages(changeset.getLog().trim());¤	}¤	¤	private String renderWiki (String wiki) {¤		final WikiStyleRenderer wikiStyleRenderer = ContainerManager.Factory.get().getWikiStyleRenderer();¤		return wikiStyleRenderer.convertWikiToXHtml(new PageContext(), wiki);¤	}¤	¤	//#UC END# *49BA1F080392_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19021761643"))
+	    quid       	"49BA1F080392"
+	    stereotype 	"Servant"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021761976"))
+		    quid       	"49BA1F5203E7"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::CodeRepositoryView::KRenderersImpl::FishEyeLinks"
+		    quidu      	"49A3BDBE0307"))
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"49BA2036027A"
+		    supplier   	"Logical View::MDProcess::CodeRepositoryView::KRenderersLocal::RequestHistoryChangesetInFishEyeStyle"
+		    quidu      	"49BA1FB10320")
+		(object Realize_Relationship
+		    quid       	"49BA23CA0044"
+		    supplier   	"Logical View::MDProcess::CodeRepositoryView::KRenderers::RequestHistoryChangeset"
+		    quidu      	"49BA1E130346"))
+	    language   	"MDA Generator")
+	(object Class "RequestHistoryChangesetInTextStyleImpl"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepositoryView/KRenderersImpl/RequestHistoryChangesetInTextStyleImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepositoryView/KRenderersImpl/RequestHistoryChangesetInTextStyleImplFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/CodeRepositoryView/KRenderersImpl/RequestHistoryChangesetInTextStyleImpl|49BA204A01CD
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BA204A01CD_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *49BA204A01CD_CUSTOM_IMPORT*¤//#UC END# *49BA204A01CD_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BA204A01CD_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *49BA204A01CD_CUSTOM_CLASS_DEFINITION*¤//#UC END# *49BA204A01CD_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BA204A01CD_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *49BA204A01CD_CUSTOM_METHODS_AND_DATA*¤	//#UC END# *49BA204A01CD_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19021762645"))
+	    quid       	"49BA204A01CD"
+	    stereotype 	"Servant"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"49BA205C0105"
+		    supplier   	"Logical View::MDProcess::CodeRepositoryView::KRenderersLocal::RequestHistoryChangesetInTextStyle"
+		    quidu      	"49BA1FF50024"))
+	    language   	"MDA Generator")
+	(object Class "SourceInTextStyleImpl"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/CodeRepositoryView/KRenderersImpl/SourceInTextStyleImpl|49BE5FEC0377
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepositoryView/KRenderersImpl/SourceInTextStyleImplFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepositoryView/KRenderersImpl/SourceInTextStyleImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BE5FEC0377_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *49BE5FEC0377_CUSTOM_IMPORT*¤//#UC END# *49BE5FEC0377_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BE5FEC0377_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *49BE5FEC0377_CUSTOM_CLASS_DEFINITION*¤//#UC END# *49BE5FEC0377_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BE5FEC0377_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *49BE5FEC0377_CUSTOM_METHODS_AND_DATA*¤	//#UC END# *49BE5FEC0377_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19021763155"))
+	    quid       	"49BE5FEC0377"
+	    stereotype 	"Servant"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"49BE60000382"
+		    supplier   	"Logical View::MDProcess::CodeRepositoryView::KRenderersLocal::SourceInTextStyle"
+		    quidu      	"49BE5F45035B"))
+	    language   	"MDA Generator")
+	(object Class "SourceInFishEyeStyleImpl"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/CodeRepositoryView/KRenderersImpl/SourceInFishEyeStyleImpl|49BE600A022D
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepositoryView/KRenderersImpl/SourceInFishEyeStyleImplFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/CodeRepositoryView/KRenderersImpl/SourceInFishEyeStyleImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BE600A022D_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *49BE600A022D_CUSTOM_IMPORT*¤//#UC END# *49BE600A022D_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BE600A022D_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *49BE600A022D_CUSTOM_CLASS_DEFINITION*¤//#UC END# *49BE600A022D_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BE600A022D_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *49BE600A022D_CUSTOM_METHODS_AND_DATA*¤	//#UC END# *49BE600A022D_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19021763656"))
+	    quid       	"49BE600A022D"
+	    stereotype 	"Servant"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021763998"))
+		    quid       	"49BE60250146"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::MDProcess::CodeRepositoryView::KRenderersImpl::FishEyeLinks"
+		    quidu      	"49A3BDBE0307"))
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"49BE601B0358"
+		    supplier   	"Logical View::MDProcess::CodeRepositoryView::KRenderersLocal::SourceInFishEyeStyle"
+		    quidu      	"49BE5F6002CB")
+		(object Realize_Relationship
+		    quid       	"49BE601D0306"
+		    supplier   	"Logical View::MDProcess::CodeRepositoryView::KRenderers::Source"
+		    quidu      	"49BE5EC60203"))
+	    language   	"MDA Generator")
+	(object Class "ParameterMap"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19021764624"))
+	    quid       	"49BF4B240005"
+	    documentation 	"мапа с параметрами для http запросов"
+	    stereotype 	"Map"
+	    language   	"MDA Generator")
+	(object Association "$UNNAMED$0"
+	    quid       	"49BF4B640049"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$1"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021765033"))
+		    quid       	"49BF4B640221"
+		    supplier   	"Logical View::Primitives::string"
+		    quidu      	"3DBFFE240068"
+		    keys       	(list class_attribute_list
+			(object ClassAttribute "key"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ValueInitialized"
+				    value      	"true")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"regular")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"452257A0036F")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19021765412"))
+			    quid       	"49BF4B6A025A"
+			    type       	"a-string"
+			    exportControl 	"Public"
+			    Containment 	"By Value"))
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$2"
+		    quid       	"49BF4B640232"
+		    supplier   	"Logical View::MDProcess::CodeRepositoryView::KRenderersImpl::ParameterMap"
+		    quidu      	"49BF4B240005"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"49A002FF0328"
+	    title      	"Main"
+	    zoom       	80
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	1442
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::KRenderers::RequestHistory" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1380, 3126)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(1165, 3094)
+			nlines     	1
+			max_width  	430
+			justify    	0
+			label      	"RequestHistory")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(1165, 3044)
+			anchor     	10
+			nlines     	1
+			max_width  	430
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"499FFDB20083"
+		    width      	448
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::KRenderers::RequestHistoryRevision" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1038, 120)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(679, 85)
+			nlines     	1
+			max_width  	718
+			justify    	0
+			label      	"RequestHistoryRevision")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(679, 35)
+			anchor     	10
+			nlines     	1
+			max_width  	718
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"499FFB020245"
+		    width      	736
+		    height     	194
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::KRenderersLocal::RequestHistoryRevisionInFishEyeStyle" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(858, 438)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(384, 348)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	948
+			justify    	0
+			label      	"RequestHistoryRevisionInFishEyeStyle")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(384, 298)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	948
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"49A0053401F6"
+		    width      	966
+		    height     	304
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::KRenderersLocal::RequestHistoryInTextStyle" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1869, 3456)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(1473, 3373)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	792
+			justify    	0
+			label      	"RequestHistoryInTextStyle")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(1473, 3322)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	792
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"49A0069B0042"
+		    width      	810
+		    height     	292
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @5
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49A006D603E6"
+		    client     	@4
+		    supplier   	@1
+		    vertices   	(list Points
+			(1652, 3309)
+			(1520, 3220))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::KRenderersLocal::RequestHistoryInFishEyeStyle" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(969, 3453)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(521, 3370)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	896
+			justify    	0
+			label      	"RequestHistoryInFishEyeStyle")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(521, 3319)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	896
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"49A007720359"
+		    width      	914
+		    height     	292
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::KRenderersLocal::RequestHistoryRevisionInTextStyle" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1836, 423)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(1406, 333)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	860
+			justify    	0
+			label      	"RequestHistoryRevisionInTextStyle")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(1406, 283)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	860
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"49A0085E02D5"
+		    width      	878
+		    height     	304
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @8
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49A007840316"
+		    client     	@6
+		    supplier   	@1
+		    vertices   	(list Points
+			(1150, 3306)
+			(1258, 3220))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::KRenderersImpl::RequestHistoryRevisionInFishEyeStyleImpl" @9
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(819, 825)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@9
+			location   	(193, 792)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1252
+			justify    	0
+			label      	"RequestHistoryRevisionInFishEyeStyleImpl")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@9
+			location   	(193, 742)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1252
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"49A008B30118"
+		    width      	1270
+		    height     	190
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::KRenderersImpl::RequestHistoryRevisionInTextStyleImpl" @10
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1800, 792)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@10
+			location   	(1225, 759)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1150
+			justify    	0
+			label      	"RequestHistoryRevisionInTextStyleImpl")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@10
+			location   	(1225, 709)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1150
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"49A008BD0282"
+		    width      	1168
+		    height     	190
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::KRenderersImpl::RequestHistoryInTextStyleImpl" @11
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2004, 3840)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@11
+			location   	(1549, 3807)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	910
+			justify    	0
+			label      	"RequestHistoryInTextStyleImpl")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@11
+			location   	(1549, 3757)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	910
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"49A008C60268"
+		    width      	928
+		    height     	190
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::KRenderersImpl::RequestHistoryInFishEyeStyleImpl" @12
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(897, 3855)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@12
+			location   	(391, 3828)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1012
+			justify    	0
+			label      	"RequestHistoryInFishEyeStyleImpl")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@12
+			location   	(391, 3778)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1012
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"49A008C10013"
+		    width      	1030
+		    height     	178
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @13
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49A009240026"
+		    client     	@10
+		    supplier   	@7
+		    vertices   	(list Points
+			(1809, 696)
+			(1820, 575))
+		    line_style 	0)
+		(object RealizeView "" @14
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49A00928039B"
+		    client     	@11
+		    supplier   	@4
+		    vertices   	(list Points
+			(1970, 3744)
+			(1919, 3602))
+		    line_style 	0)
+		(object NoteView @15
+		    location   	(2928, 558)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@15
+			location   	(2525, 55)
+			fill_color 	13434879
+			nlines     	20
+			max_width  	771
+			justify    	1
+			label      	
+|Локальные интерфейсы здесь решают две задачи:
+|- что бы была возможность для однотипных элементов использовать разные стили, например для большинства ссылок на исходники это ссылки на фишай, а для каких-то - ссылка на текстовый файл.
+|- что бы дефолтная фабрика отдавала нам нужный сервант без использования механизма приоритетов (сейчас неработающего) или запрещения генерации не нужных сервантов.
+|Добиться указанного с помощью мультифабрик - не получается.
+			)
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	831
+		    height     	1019)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::KRenderersImpl::FishEyeLinks" @16
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(960, 4461)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@16
+			location   	(71, 4227)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1778
+			justify    	0
+			label      	"FishEyeLinks")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@16
+			location   	(71, 4177)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1778
+			justify    	0
+			label      	"<<UtilityClass>>")
+		    icon_style 	"Label"
+		    fill_color 	14145535
+		    quidu      	"49A3BDBE0307"
+		    width      	1796
+		    height     	592
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @17
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49A009220103"
+		    client     	@9
+		    supplier   	@3
+		    vertices   	(list Points
+			(827, 729)
+			(841, 590))
+		    line_style 	0)
+		(object RealizeView "" @18
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49A0098C01FD"
+		    client     	@9
+		    supplier   	@2
+		    vertices   	(list Points
+			(324, 730)
+			(324, 134)
+			(670, 134))
+		    line_style 	3
+		    origin_attachment 	(324, 730)
+		    terminal_attachment 	(670, 134))
+		(object UsesView "" @19
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @20
+			Parent_View 	@19
+			location   	(276, 1289)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.113909
+			height     	73
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49A3BE0F0388"
+		    client     	@9
+		    supplier   	@16
+		    vertices   	(list Points
+			(203, 919)
+			(203, 4165))
+		    line_style 	3
+		    origin_attachment 	(203, 919)
+		    terminal_attachment 	(203, 4165))
+		(object UsesView "" @21
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @22
+			Parent_View 	@21
+			location   	(506, 4038)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.427632
+			height     	113
+			orientation 	1)
+		    line_color 	3342489
+		    quidu      	"49A3BE15022D"
+		    client     	@12
+		    supplier   	@16
+		    vertices   	(list Points
+			(618, 3943)
+			(618, 4164))
+		    line_style 	3
+		    origin_attachment 	(618, 3943)
+		    terminal_attachment 	(618, 4164))
+		(object RealizeView "" @23
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49A009260077"
+		    client     	@12
+		    supplier   	@6
+		    vertices   	(list Points
+			(912, 3765)
+			(942, 3599))
+		    line_style 	0)
+		(object RealizeView "" @24
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49A009670099"
+		    client     	@12
+		    supplier   	@1
+		    vertices   	(list Points
+			(407, 3766)
+			(407, 3108)
+			(1156, 3108))
+		    line_style 	3
+		    origin_attachment 	(407, 3766)
+		    terminal_attachment 	(1156, 3108))
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::KRenderers::RequestHistoryChangeset" @25
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(945, 1089)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@25
+			location   	(552, 1054)
+			nlines     	1
+			max_width  	786
+			justify    	0
+			label      	"RequestHistoryChangeset")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@25
+			location   	(552, 1004)
+			anchor     	10
+			nlines     	1
+			max_width  	786
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"49BA1E130346"
+		    width      	804
+		    height     	194
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::KRenderersImpl::RequestHistoryChangesetInFishEyeStyleImpl" @26
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(882, 1812)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@26
+			location   	(223, 1779)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1318
+			justify    	0
+			label      	"RequestHistoryChangesetInFishEyeStyleImpl")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@26
+			location   	(223, 1729)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1318
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"49BA1F080392"
+		    width      	1336
+		    height     	190
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @27
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @28
+			Parent_View 	@27
+			location   	(136, 2131)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.099694
+			height     	84
+			orientation 	1)
+		    line_color 	3342489
+		    quidu      	"49BA1F5203E7"
+		    client     	@26
+		    supplier   	@16
+		    vertices   	(list Points
+			(219, 1907)
+			(219, 4165))
+		    line_style 	3
+		    origin_attachment 	(219, 1907)
+		    terminal_attachment 	(219, 4165))
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::KRenderersLocal::RequestHistoryChangesetInFishEyeStyle" @29
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1071, 1407)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@29
+			location   	(676, 1380)
+			nlines     	1
+			max_width  	790
+			justify    	0
+			label      	"RequestHistoryChangesetInFishEyeStyle")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@29
+			location   	(676, 1329)
+			anchor     	10
+			nlines     	1
+			max_width  	790
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"49BA1FB10320"
+		    width      	808
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @30
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49BA1FE200BF"
+		    client     	@29
+		    supplier   	@25
+		    vertices   	(list Points
+			(1034, 1316)
+			(983, 1186))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::KRenderersLocal::RequestHistoryChangesetInTextStyle" @31
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1920, 1437)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@31
+			location   	(1566, 1410)
+			nlines     	1
+			max_width  	708
+			justify    	0
+			label      	"RequestHistoryChangesetInTextStyle")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@31
+			location   	(1566, 1359)
+			anchor     	10
+			nlines     	1
+			max_width  	708
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"49BA1FF50024"
+		    width      	726
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @32
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49BA201A022A"
+		    client     	@31
+		    supplier   	@25
+		    vertices   	(list Points
+			(1667, 1346)
+			(1218, 1186))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::KRenderersImpl::RequestHistoryChangesetInTextStyleImpl" @33
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1887, 1815)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@33
+			location   	(1279, 1782)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1216
+			justify    	0
+			label      	"RequestHistoryChangesetInTextStyleImpl")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@33
+			location   	(1279, 1732)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1216
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"49BA204A01CD"
+		    width      	1234
+		    height     	190
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @34
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49BA205C0105"
+		    client     	@33
+		    supplier   	@31
+		    vertices   	(list Points
+			(1895, 1719)
+			(1911, 1527))
+		    line_style 	0)
+		(object RealizeView "" @35
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49BA2036027A"
+		    client     	@26
+		    supplier   	@29
+		    vertices   	(list Points
+			(926, 1716)
+			(1027, 1497))
+		    line_style 	0)
+		(object RealizeView "" @36
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49BA23CA0044"
+		    client     	@26
+		    supplier   	@25
+		    vertices   	(list Points
+			(474, 1717)
+			(474, 1104)
+			(543, 1104))
+		    line_style 	3
+		    origin_attachment 	(474, 1717)
+		    terminal_attachment 	(543, 1104))
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::KRenderersLocal::SourceInFishEyeStyle" @37
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(660, 2097)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@37
+			location   	(441, 2070)
+			nlines     	1
+			max_width  	438
+			justify    	0
+			label      	"SourceInFishEyeStyle")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@37
+			location   	(441, 2019)
+			anchor     	10
+			nlines     	1
+			max_width  	438
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"49BE5F6002CB"
+		    width      	456
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::KRenderersLocal::SourceInTextStyle" @38
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2187, 2154)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@38
+			location   	(2004, 2127)
+			nlines     	1
+			max_width  	366
+			justify    	0
+			label      	"SourceInTextStyle")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@38
+			location   	(2004, 2076)
+			anchor     	10
+			nlines     	1
+			max_width  	366
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"49BE5F45035B"
+		    width      	384
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::KRenderers::Source" @39
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1320, 2070)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@39
+			location   	(1054, 2035)
+			nlines     	1
+			max_width  	532
+			justify    	0
+			label      	"Source")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@39
+			location   	(1054, 1985)
+			anchor     	10
+			nlines     	1
+			max_width  	532
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"49BE5EC60203"
+		    width      	550
+		    height     	194
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @40
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49BE5F740189"
+		    client     	@38
+		    supplier   	@39
+		    vertices   	(list Points
+			(1994, 2134)
+			(1595, 2096))
+		    line_style 	0)
+		(object InheritView "" @41
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49BE5F7601D8"
+		    client     	@37
+		    supplier   	@39
+		    vertices   	(list Points
+			(888, 2086)
+			(1044, 2080))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::KRenderersImpl::SourceInTextStyleImpl" @42
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2166, 2577)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@42
+			location   	(1830, 2544)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	672
+			justify    	0
+			label      	"SourceInTextStyleImpl")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@42
+			location   	(1830, 2494)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	672
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"49BE5FEC0377"
+		    width      	690
+		    height     	190
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @43
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49BE60000382"
+		    client     	@42
+		    supplier   	@38
+		    vertices   	(list Points
+			(2170, 2481)
+			(2181, 2244))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::KRenderersImpl::SourceInFishEyeStyleImpl" @44
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(858, 2517)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@44
+			location   	(471, 2484)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	774
+			justify    	0
+			label      	"SourceInFishEyeStyleImpl")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@44
+			location   	(471, 2434)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	774
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"49BE600A022D"
+		    width      	792
+		    height     	190
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @45
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49BE601B0358"
+		    client     	@44
+		    supplier   	@37
+		    vertices   	(list Points
+			(812, 2421)
+			(701, 2187))
+		    line_style 	0)
+		(object RealizeView "" @46
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49BE601D0306"
+		    client     	@44
+		    supplier   	@39
+		    vertices   	(list Points
+			(955, 2421)
+			(1218, 2167))
+		    line_style 	0)
+		(object UsesView "" @47
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @48
+			Parent_View 	@47
+			location   	(396, 2852)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.284594
+			height     	123
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49BE60250146"
+		    client     	@44
+		    supplier   	@16
+		    vertices   	(list Points
+			(462, 2518)
+			(273, 2518)
+			(273, 4165))
+		    line_style 	3
+		    origin_attachment 	(462, 2518)
+		    terminal_attachment 	(273, 4165))
+		(object ClassView "Class" "Logical View::Primitives::string" @49
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2805, 4371)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	TRUE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@49
+			location   	(2719, 4325)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	172
+			justify    	0
+			label      	"string")
+		    icon_style 	"None"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"3DBFFE240068"
+		    width      	190
+		    height     	117
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::KRenderersImpl::ParameterMap" @50
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2184, 4359)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@50
+			location   	(1953, 4326)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	462
+			justify    	0
+			label      	"ParameterMap")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@50
+			location   	(1953, 4276)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	462
+			justify    	0
+			label      	"<<Map>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"49BF4B240005"
+		    width      	480
+		    height     	190
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$0" @51
+		    location   	(2566, 4365)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49BF4B640049"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$1" @52
+			    Parent_View 	@51
+			    location   	(823, 9)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"49BF4B640221"
+			    client     	@51
+			    supplier   	@49
+			    vertices   	(list Points
+				(2566, 4365)
+				(2709, 4368))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$2" @53
+			    Parent_View 	@51
+			    location   	(823, 9)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"49BF4B640232"
+			    client     	@51
+			    supplier   	@50
+			    vertices   	(list Points
+				(2566, 4365)
+				(2424, 4362))
+			    line_style 	0
+			    label      	(object SegLabel @54
+				Parent_View 	@53
+				location   	(2556, 4362)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	5
+				anchor_loc 	1
+				nlines     	1
+				max_width  	227
+				justify    	0
+				label      	"key : a-string"
+				pctDist    	0.900000
+				height     	12
+				orientation 	1))))))))

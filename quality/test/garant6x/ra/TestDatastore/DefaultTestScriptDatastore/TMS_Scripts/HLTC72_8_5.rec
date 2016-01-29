@@ -1,0 +1,33 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Text=Правовой навигатор", "Coords=66,9"
+    GenericObject Click, "Text=Документы", "Coords=59,11"
+    ListBox Click, "ObjectIndex=4", "Coords=146,364"
+    ListBox Click, "ObjectIndex=4", "Coords=120,12"
+    InputKeys "{HOME}"
+    InputKeys "^a"
+   ' PopupMenuIDSelect 165
+    InputKeys "{DELETE}"
+    
+    'сортировка по дате
+    Dim Enabled%
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    SQAGetProperty "Type=ComboBox;ObjectIndex=2","Enabled",Enabled
+    Select Case Enabled
+    Case -1
+        SQALogMessage sqaFail, "Комбобокс не задизейблился!!!", ""+CStr(Enabled)    
+    Case 0
+        SQALogMessage sqaPass, "Комбобокс задизейблился!!!", ""+CStr(Enabled) 
+    Case Else
+         SQALogMessage sqaWarning, "Не удалось найти контрол!", ""+CStr(Enabled) 
+    End Select
+    'проверяем
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    MenuIdSelect 12
+
+End Sub

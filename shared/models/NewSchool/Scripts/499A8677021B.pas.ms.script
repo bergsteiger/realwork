@@ -1,0 +1,199 @@
+// ComboTree 499A8677021B TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499A8677021B
+
+FORWARD ME_499A86AA0326
+
+: ME_499A86B50355
+ CONST UID '499A86B50355'
+ CONST Name 'ItemIndex'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_499A86AA0326 // TFakeBox
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_499A86B50355 ItemIndex
+
+: ME_499A86AA0326
+ CONST UID '499A86AA0326'
+ CONST Name 'TFakeBox'
+ CONST Class class_Class
+ : Stereotype st_TestClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_499A8677021B // ComboTree
+ ;
+ : Inherits
+   @ ( WL 'ME_483158FD0155' '48297E42011A.pas.ms.script' // TFakeBox
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_499A86B50355 // ItemIndex
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "is friend" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VT\FakeBox_p.pas'
+
+ref; // ME_499A86AA0326 TFakeBox
+
+FORWARD ME_499AE0580291
+
+: ME_499AE6750165
+ CONST UID '499AE6750165'
+ CONST Name 'CurrentNodeLevel'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_499AE0580291 // TSubTree
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_499AE6750165 CurrentNodeLevel
+
+: ME_499AE7600051
+ CONST UID '499AE7600051'
+ CONST Name 'CurrentNodeIndex'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_499AE0580291 // TSubTree
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_499AE7600051 CurrentNodeIndex
+
+: ME_499AE76A0273
+ CONST UID '499AE76A0273'
+ CONST Name 'CurrentNodeExpanded'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_499AE0580291 // TSubTree
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_499AE76A0273 CurrentNodeExpanded
+
+: ME_499AE07B0052
+ CONST UID '499AE07B0052'
+ CONST Name 'ExpandCurrentNode'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_499AE0580291 // TSubTree
+ ;
+
+ref; // ME_499AE07B0052 ExpandCurrentNode
+
+: ME_499AE507018E
+ CONST UID '499AE507018E'
+ CONST Name 'GoToBeginNode'
+ CONST Class class_Operation
+ %SUMMARY 'этот метод нужен потому что дерево не реагирует на нажатие Home, и вообще не получается перейти на его начало с клавиатуры' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_499AE0580291 // TSubTree
+ ;
+
+ref; // ME_499AE507018E GoToBeginNode
+
+: ME_46A5AA4B003C_ME_499AE0580291
+ CONST UID '46A5AA4B003C'
+ CONST Name 'Invalidate'
+ : Original WL 'ME_46A5AA4B003C' '4677FBA70343.pas.ms.script' // Invalidate
+ ;
+ : Implementor ME_499AE0580291 // TSubTree
+ ;
+ref; // ME_46A5AA4B003C_ME_499AE0580291 Invalidate
+
+: ME_499AE0580291
+ CONST UID '499AE0580291'
+ CONST Name 'TSubTree'
+ CONST Class class_Class
+ : Stereotype st_TestClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_499A8677021B // ComboTree
+ ;
+ : Inherits
+   @ ( WL 'ME_53EDF0B0003D' '48297E42011A.pas.ms.script' // TSubTree
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_499AE6750165 // CurrentNodeLevel
+ ME_499AE7600051 // CurrentNodeIndex
+ ME_499AE76A0273 // CurrentNodeExpanded
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_499AE07B0052 // ExpandCurrentNode
+ ME_499AE507018E // GoToBeginNode
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_46A5AA4B003C_ME_499AE0580291 // Invalidate
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "is friend" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VT\SubTree_p.pas'
+
+ref; // ME_499AE0580291 TSubTree
+
+: ME_499A8677021B
+ CONST UID '499A8677021B'
+ CONST Name 'ComboTree'
+ CONST Class class_Category
+ : Stereotype st_TestUnit ;
+ %SUMMARY 'Тесты для выпадающих деревьев' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_499A86490253' '499A86490253.pas.ms.script' // VTTest
+ ;
+ : Children
+   @ ( ME_499A86AA0326 // TFakeBox
+ ME_499AE0580291 // TSubTree
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_48297E42011A' '48297E42011A.pas.ms.script' // ComboTree
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\499A8677021B.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\499A8677021B.pas.ms.script.runner'
+
+ref; // ME_499A8677021B ComboTree

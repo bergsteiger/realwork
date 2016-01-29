@@ -1,0 +1,491 @@
+object Header: TComponentFileHeader
+  UserData = {}
+end
+object RuntimeDatamodule: TRuntimeDatamodule
+  OldCreateOrder = False
+  Height = 0
+  Width = 0
+  object BIOLIFE_Table1: TTable
+    Active = True
+    DatabaseName = 'DBDEMOS'
+    TableName = 'BIOLIFE.DB'
+    object TFloatField
+      FieldName = 'Species No'
+    end
+    object TStringField
+      FieldName = 'Category'
+      Size = 15
+    end
+    object TStringField
+      FieldName = 'Common_Name'
+      Size = 30
+    end
+    object TStringField
+      FieldName = 'Species Name'
+      Size = 40
+    end
+    object TFloatField
+      FieldName = 'Length (cm)'
+    end
+    object TFloatField
+      FieldName = 'Length_In'
+    end
+    object TMemoField
+      FieldName = 'Notes'
+      BlobType = ftMemo
+      Size = 50
+    end
+    object TGraphicField
+      FieldName = 'Graphic'
+      BlobType = ftGraphic
+    end
+  end
+  object Datasource1: TDataSource
+    Tag = 1
+    DataSet = BIOLIFE_Table1
+  end
+end
+object QuickReport: TDesignQuickReport
+  Frame.Color = clBlack
+  Frame.DrawTop = False
+  Frame.DrawBottom = False
+  Frame.DrawLeft = False
+  Frame.DrawRight = False
+  DataSet = RuntimeDatamodule.BIOLIFE_Table1
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Arial'
+  Font.Style = []
+  Functions.Strings = (
+    'PAGENUMBER'
+    'COLUMNNUMBER'
+    'REPORTTITLE')
+  Functions.DATA = (
+    '0'
+    '0'
+    #39#39)
+  Options = [FirstPageHeader, LastPageFooter]
+  Page.Columns = 1
+  Page.Orientation = poPortrait
+  Page.PaperSize = Letter
+  Page.Values = (
+    100
+    2794
+    100
+    2159
+    100
+    100
+    0)
+  PrinterSettings.Copies = 1
+  PrinterSettings.Duplex = False
+  PrinterSettings.FirstPage = 0
+  PrinterSettings.LastPage = 0
+  PrinterSettings.OutputBin = First
+  PrintIfEmpty = True
+  SnapToGrid = True
+  Units = MM
+  Zoom = 100
+  LabelSettings.FirstLabel = 0
+  LabelSettings.LabelCount = 0
+  PrepareAutomatically = False
+  DesignBackgroundDX = 0
+  DesignBackgroundDY = 0
+  RulerPanel = ReportDesignerForm.RulerPanel1
+  object Detailband: TQRDesignBand
+    Left = 38
+    Top = 148
+    Width = 740
+    Height = 72
+    Frame.Color = clBlack
+    Frame.DrawTop = False
+    Frame.DrawBottom = False
+    Frame.DrawLeft = False
+    Frame.DrawRight = False
+    AlignToBottom = False
+    Color = clWhite
+    ForceNewColumn = False
+    ForceNewPage = False
+    Size.Values = (
+      190.5
+      1957.91666666667)
+    BandType = rbDetail
+    EditorEnabled = True
+    BandNum = 0
+    object QRDBText1: TQRDesignDBText
+      Left = 4
+      Top = 20
+      Width = 63
+      Height = 17
+      Frame.Color = clBlack
+      Frame.DrawTop = False
+      Frame.DrawBottom = False
+      Frame.DrawLeft = False
+      Frame.DrawRight = False
+      Size.Values = (
+        44.9791666666667
+        10.5833333333333
+        52.9166666666667
+        166.6875)
+      Alignment = taLeftJustify
+      AlignToBand = False
+      AutoSize = False
+      AutoStretch = False
+      Color = clWhite
+      DataSet = RuntimeDatamodule.BIOLIFE_Table1
+      DataField = 'Species No'
+      Transparent = False
+      WordWrap = True
+      FixBottomPosition = False
+      StretchHeightWithBand = False
+      FontSize = 10
+    end
+    object QRDBText2: TQRDesignDBText
+      Left = 72
+      Top = 20
+      Width = 97
+      Height = 17
+      Frame.Color = clBlack
+      Frame.DrawTop = False
+      Frame.DrawBottom = False
+      Frame.DrawLeft = False
+      Frame.DrawRight = False
+      Size.Values = (
+        44.9791666666667
+        190.5
+        52.9166666666667
+        256.645833333333)
+      Alignment = taLeftJustify
+      AlignToBand = False
+      AutoSize = False
+      AutoStretch = False
+      Color = clWhite
+      DataSet = RuntimeDatamodule.BIOLIFE_Table1
+      DataField = 'Category'
+      Transparent = False
+      WordWrap = True
+      FixBottomPosition = False
+      StretchHeightWithBand = False
+      FontSize = 10
+    end
+    object QRDBText3: TQRDesignDBText
+      Left = 174
+      Top = 20
+      Width = 195
+      Height = 17
+      Frame.Color = clBlack
+      Frame.DrawTop = False
+      Frame.DrawBottom = False
+      Frame.DrawLeft = False
+      Frame.DrawRight = False
+      Size.Values = (
+        44.9791666666667
+        460.375
+        52.9166666666667
+        515.9375)
+      Alignment = taLeftJustify
+      AlignToBand = False
+      AutoSize = False
+      AutoStretch = False
+      Color = clWhite
+      DataSet = RuntimeDatamodule.BIOLIFE_Table1
+      DataField = 'Common_Name'
+      Transparent = False
+      WordWrap = True
+      FixBottomPosition = False
+      StretchHeightWithBand = False
+      FontSize = 10
+    end
+    object QRDBText4: TQRDesignDBText
+      Left = 374
+      Top = 20
+      Width = 261
+      Height = 17
+      Frame.Color = clBlack
+      Frame.DrawTop = False
+      Frame.DrawBottom = False
+      Frame.DrawLeft = False
+      Frame.DrawRight = False
+      Size.Values = (
+        44.9791666666667
+        989.541666666667
+        52.9166666666667
+        690.5625)
+      Alignment = taLeftJustify
+      AlignToBand = False
+      AutoSize = False
+      AutoStretch = False
+      Color = clWhite
+      DataSet = RuntimeDatamodule.BIOLIFE_Table1
+      DataField = 'Species Name'
+      Transparent = False
+      WordWrap = True
+      FixBottomPosition = False
+      StretchHeightWithBand = False
+      FontSize = 10
+    end
+    object TQRDesignDBImage
+      Left = 640
+      Top = 6
+      Width = 60
+      Height = 60
+      Frame.Color = clBlack
+      Frame.DrawTop = False
+      Frame.DrawBottom = False
+      Frame.DrawLeft = False
+      Frame.DrawRight = False
+      Size.Values = (
+        158.75
+        1693.33333333333
+        15.875
+        158.75)
+      DataField = 'Graphic'
+      DataSet = RuntimeDatamodule.BIOLIFE_Table1
+      Stretch = True
+      FixBottomPosition = False
+      StretchHeightWithBand = False
+    end
+  end
+  object Columnheader: TQRDesignBand
+    Left = 38
+    Top = 88
+    Width = 740
+    Height = 60
+    Frame.Color = clBlack
+    Frame.DrawTop = False
+    Frame.DrawBottom = True
+    Frame.DrawLeft = False
+    Frame.DrawRight = False
+    AlignToBottom = False
+    Color = clWhite
+    ForceNewColumn = False
+    ForceNewPage = False
+    Size.Values = (
+      158.75
+      1957.91666666667)
+    BandType = rbColumnHeader
+    EditorEnabled = True
+    BandNum = 0
+    object QRLabel1: TQRDesignLabel
+      Left = 3
+      Top = 28
+      Width = 63
+      Height = 17
+      Frame.Color = clBlack
+      Frame.DrawTop = False
+      Frame.DrawBottom = False
+      Frame.DrawLeft = False
+      Frame.DrawRight = False
+      Size.Values = (
+        44.9791666666667
+        7.9375
+        74.0833333333333
+        166.6875)
+      Alignment = taLeftJustify
+      AlignToBand = False
+      AutoSize = False
+      AutoStretch = False
+      Caption = 'Species'
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = False
+      WordWrap = True
+      FixBottomPosition = False
+      StretchHeightWithBand = False
+      FontSize = 10
+    end
+    object QRLabel2: TQRDesignLabel
+      Left = 71
+      Top = 28
+      Width = 97
+      Height = 17
+      Frame.Color = clBlack
+      Frame.DrawTop = False
+      Frame.DrawBottom = False
+      Frame.DrawLeft = False
+      Frame.DrawRight = False
+      Size.Values = (
+        44.9791666666667
+        187.854166666667
+        74.0833333333333
+        256.645833333333)
+      Alignment = taLeftJustify
+      AlignToBand = False
+      AutoSize = False
+      AutoStretch = False
+      Caption = 'Category'
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = False
+      WordWrap = True
+      FixBottomPosition = False
+      StretchHeightWithBand = False
+      FontSize = 10
+    end
+    object QRLabel3: TQRDesignLabel
+      Left = 173
+      Top = 28
+      Width = 195
+      Height = 17
+      Frame.Color = clBlack
+      Frame.DrawTop = False
+      Frame.DrawBottom = False
+      Frame.DrawLeft = False
+      Frame.DrawRight = False
+      Size.Values = (
+        44.9791666666667
+        457.729166666667
+        74.0833333333333
+        515.9375)
+      Alignment = taLeftJustify
+      AlignToBand = False
+      AutoSize = False
+      AutoStretch = False
+      Caption = 'Common Name'
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = False
+      WordWrap = True
+      FixBottomPosition = False
+      StretchHeightWithBand = False
+      FontSize = 10
+    end
+    object QRLabel4: TQRDesignLabel
+      Left = 373
+      Top = 28
+      Width = 261
+      Height = 17
+      Frame.Color = clBlack
+      Frame.DrawTop = False
+      Frame.DrawBottom = False
+      Frame.DrawLeft = False
+      Frame.DrawRight = False
+      Size.Values = (
+        44.9791666666667
+        986.895833333333
+        74.0833333333333
+        690.5625)
+      Alignment = taLeftJustify
+      AlignToBand = False
+      AutoSize = False
+      AutoStretch = False
+      Caption = 'Species Name'
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = False
+      WordWrap = True
+      FixBottomPosition = False
+      StretchHeightWithBand = False
+      FontSize = 10
+    end
+    object QRLabel5: TQRDesignLabel
+      Left = 639
+      Top = 28
+      Width = 71
+      Height = 17
+      Frame.Color = clBlack
+      Frame.DrawTop = False
+      Frame.DrawBottom = False
+      Frame.DrawLeft = False
+      Frame.DrawRight = False
+      Size.Values = (
+        44.9791666666667
+        1690.6875
+        74.0833333333333
+        187.854166666667)
+      Alignment = taLeftJustify
+      AlignToBand = False
+      AutoSize = False
+      AutoStretch = False
+      Caption = 'Graphic'
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = False
+      WordWrap = True
+      FixBottomPosition = False
+      StretchHeightWithBand = False
+      FontSize = 10
+    end
+  end
+  object Titleband: TQRDesignBand
+    Left = 38
+    Top = 38
+    Width = 740
+    Height = 50
+    Frame.Color = clBlack
+    Frame.DrawTop = False
+    Frame.DrawBottom = False
+    Frame.DrawLeft = False
+    Frame.DrawRight = False
+    AlignToBottom = False
+    Color = clWhite
+    ForceNewColumn = False
+    ForceNewPage = False
+    Size.Values = (
+      132.291666666667
+      1957.91666666667)
+    BandType = rbTitle
+    EditorEnabled = True
+    BandNum = 0
+    object QRLabel6: TQRDesignLabel
+      Left = 5
+      Top = 5
+      Width = 318
+      Height = 30
+      Frame.Color = clBlack
+      Frame.DrawTop = False
+      Frame.DrawBottom = False
+      Frame.DrawLeft = False
+      Frame.DrawRight = False
+      Size.Values = (
+        79.375
+        13.2291666666667
+        13.2291666666667
+        841.375)
+      Alignment = taLeftJustify
+      AlignToBand = False
+      AutoSize = True
+      AutoStretch = False
+      Caption = 'Sample report for exporting'
+      Color = clWhite
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -24
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+      Transparent = False
+      WordWrap = True
+      FixBottomPosition = False
+      StretchHeightWithBand = False
+      FontSize = 18
+    end
+  end
+end
+object TPropertyAddons
+end

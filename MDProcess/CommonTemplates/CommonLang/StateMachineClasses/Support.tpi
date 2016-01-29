@@ -1,0 +1,425 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/StateMachineClasses/Support.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::StateMachineClasses::Support
+//
+// набор вспомогательных функций для енерации машины состояний
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// проверяет ограничения на использование событий, в случае нарушения ограничений возвращает
+// "нарушителей"
+f _check_event
+//#UC START# *470F3ECF0399*
+	%f_clear_list(EVENT_LIST)\
+////заполняем список именами Event'ов
+	<{}{%AC=Transition&"%AS"=""}%A<{}{%AC=TransitionEvent&"%AN"!=""}%f_add_to_list(EVENT_LIST,"%AN")>>\
+	<{, }{%AC=Transition&"%AS"=""}%A<{}{%AC=TransitionEvent&"%AN"!=""}[{%f_number_cmp("%f_count_in_list(EVENT_LIST,"%AN")","1","\>")=1}%AN in %A%PN]>>%f_clear_list(EVENT_LIST)
+
+//#UC END# *470F3ECF0399*
+
+// проверяет ограничения на использование сторожевых условий, в случае нарушения ограничений
+// возвращает "нарушителей"
+f _check_guard
+//#UC START# *470F3F28033C*
+	%f_clear_list(EVENT_LIST)\
+////заполняем список именами Guard'ов
+	<{}{%AC=Transition&"%AS"=""}%A<{}{%AC=TransitionEvent&"%AI"!=""}%f_add_to_list(EVENT_LIST,"%AI")>>\
+	<{, }{%AC=Transition&"%AS"=""}%A<{}{%AC=TransitionEvent&"%AI"!=""}[{%f_number_cmp("%f_count_in_list(EVENT_LIST,"%AI")","1","\>")=1}%AI in %A%PN]>>%f_clear_list(EVENT_LIST)
+
+//#UC END# *470F3F28033C*
+
+// проверяет ограничения на использование состояний, в случае нарушения ограничений возвращает
+// "состояния-нарушители"
+f _check_state
+//#UC START# *470F3F8B01F4*
+	%f_clear_list(EVENT_LIST)\
+////заполняем список именами State'ов
+	<{}{%AC=State&"%AN"!=""&%AK=Initial}%f_add_to_list(EVENT_LIST,"%AN")>>\
+	<{, }{%AC=State&"%AN"!=""&%AK=Initial}[{%f_number_cmp("%f_count_in_list(EVENT_LIST,"%AN")","1","\>")=1}%AN in %A%PN]>>%f_clear_list(EVENT_LIST)
+
+//#UC END# *470F3F8B01F4*
+
+// проверяет, что элемента со стереотипом Event событию связанному с переходами
+f _check_event_correspondence1
+//#UC START# *470F4012009C*
+	%f_clear_list(EVENT_LIST)\
+////заполняем список именами Event'ов
+	<{}{%AC=Transition&"%AS"=""}%A<{}{%AC=TransitionEvent&"%AN"!=""}%f_add_to_list(EVENT_LIST,"%AN")>>\
+	<{;}{%AM=TransitionEvent::Class&%Aa!=abstract&%f_exists_in_list(EVENT_LIST,"%AN")=false}%AN>
+//#UC END# *470F4012009C*
+
+// ещё одна проверка на отображение Event::Class в событие
+f _check_event_correspondence2
+//#UC START# *470F409200FA*
+	%f_clear_list(EVENT_LIST)\
+////заполняем список именами Event'ов
+	<{}{%AM=TransitionEvent::Class&%Aa!=abstract}%f_add_to_list(EVENT_LIST,"%AN")>\
+	<{;}{%AC=Transition&"%AS"=""}%A<{}{%AC=TransitionEvent&"%AN"!=""&%f_exists_in_list(EVENT_LIST,"%AN")=false}%AN>>
+//#UC END# *470F409200FA*
+
+// возвращает true. если переход осуществляется по сторожевому условию, иначе false
+f _is_guarded_transition
+//#UC START# *470F40DA006D*
+////проверяем есть ли у события, связанного с переходом 
+	[{<{}{%AC=TransitionEvent}{C}>=0|<{}{%AC=TransitionEvent&"%AN"!=""}{C}>=0}{false}true]
+//#UC END# *470F40DA006D*
+
+// дампит сторожевое условие
+f _dump_guard
+//#UC START# *470F4103035B*
+	%f_set_var(GUARD,"<{}{%AC=TransitionEvent&"%AN"=""}%AI>")\
+	[{"%{GUARD}N"=""}{"%f_to_java(%{GUARD}N)"}null]
+
+f _dump_access_cond
+	[{}{null}"%f_to_java(%SI)"]
+//#UC END# *470F4103035B*
+
+// дампит действие связанное с переходом
+f _dump_action
+//#UC START# *470F411F0177*
+	%f_set_var(ACTION,"<{}{%AC=Action&%AK=trigger}%AN>")\
+	[{"%{ACTION}N"=""}{"%f_to_java(%{ACTION}N)"}null]
+//#UC END# *470F411F0177*
+
+// дампит связь между состояними
+f _dump_connect
+//#UC START# *470F413001B5*
+	%{SERV}N.%f_to_upper(st_%f_to_omg(%PN)).add[{%f_is_guarded_transition(%S)=true}{TriggedTransition (%{SERV}N.%f_to_upper(st_%f_to_omg(%TN)), %S<{}{%CC=TransitionEvent&"%CN"!=""}%{SERV}N.%f_to_upper(ev_%f_to_omg(%CN))>, %f_dump_action(%S)[%f_dump_accessible(%S)])}\
+	GuardedTransition (%{SERV}N.%f_to_upper(st_%f_to_omg(%TN)), %f_dump_guard(%S), %f_dump_action(%S)[%f_dump_accessible(%S)])];
+
+f _dump_combine
+	%f_clear_list(ACCESS_LIST)\
+	%f_set_var(TRANSITION,S)\
+	%P<{}{%AC=Transition&%AS=combine&%A%TU=%{TRANSITION}%TU}%f_add_to_list(ACCESS_LIST,"new AccessibleData (true, %f_dump_access_cond(%A))")>\
+	%f_copy_list(ACCESS_LIST,SAVED_ACCESS_LIST)\
+//если состояния связаны связью <<combine>> - нужно сгенерить дополнительный набор состояний
+	[{%f_is_empty(ACCESS_LIST)=false}\
+
+	[%T<{\n}{%AC=Transition&"%AS"=""&%A%TU!=%{TRANSITION}%PU}\
+	[
+	#\
+
+	%{SERV}N.%f_to_upper(st_%f_to_omg(%{TRANSITION}%PN)).add[{%f_is_guarded_transition(%A)=true}{TriggedTransition (%{SERV}N.%f_to_upper(st_%f_to_omg(%A%TN)), %A<{}{%CC=TransitionEvent&"%CN"!=""}%{SERV}N.%f_to_upper(ev_%f_to_omg(%CN))>, %f_dump_action(%A), %f_dump_access_list(%A))}\
+	GuardedTransition (%{SERV}N.%f_to_upper(st_%f_to_omg(%A%TN), %f_dump_guard(%A), %f_dump_action(%A), %f_dump_access_list(%A))];\
+	]\
+	>\
+	]\
+
+	[
+	%T<{\n}{%aC=Transition&"%aS"=""&%aU!=%{TRANSITION}U&%a%PU!=%{TRANSITION}%PU}\
+	[
+	#\
+
+	%{SERV}N.%f_to_upper(st_%f_to_omg(%a%PN).add\
+	[{%f_is_guarded_transition(%a)=true}{\
+	TriggedTransition (%{SERV}N.%f_to_upper(st_%f_to_omg(%{TRANSITION}%PN)), \
+	%a<{}{%CC=TransitionEvent&"%CN"!=""}\
+	%{SERV}N.%f_to_upper(ev_%f_to_omg(%CN))\
+	>\
+	, %f_dump_action(%a), %f_dump_access_list(%a))\
+	}\
+	GuardedTransition (%{SERV}N.%f_to_upper(st_%f_to_omg(%{TRANSITION}%PN)), %f_dump_guard(%a), %f_dump_action(%a), %f_dump_access_list(%a))\
+	]\
+	);\
+	]\
+	>\
+	]\
+	]
+
+f _dump_accessible
+/	%f_set_var(TRANSITION,S)\
+	%f_clear_list(ACCESS_LIST)\
+	%T<{}{%aC=Transition&%aS=combine}%f_add_to_list(ACCESS_LIST,"new AccessibleData (false, %f_dump_access_cond(%a))")>\
+	, %f_dump_access_list(%S)
+/	%P<{}{%AC=Transition&%AS=combine&%A%TU=%{TRANSITION}%TU}%f_set_var(COMBINE,A)>\
+/	, [{"%{COMBINE}U"=""}{false, %f_dump_guard(%{COMBINE})}true, [{}{null}<{}{%AC=TransitionEvent}"%f_to_java(%AI)">]]
+
+f _dump_access_list
+	%f_copy_list(ACCESS_LIST,TEMP_LIST)\
+	[{%SC=Transition&"%SS"=""&"%SI"!=""}\
+	%f_add_to_list(TEMP_LIST,"new AccessibleData (true, %f_dump_access_cond(%S))")]\
+	[{%f_is_empty(TEMP_LIST)=false}{null}\
+	Arrays.asList(<{, }{%f_is_empty(TEMP_LIST)=false}{W}%f_pop_first_to_var(TEMP_LIST,TEMP)[%{TEMP}N]>)]
+//#UC END# *470F413001B5*
+
+// проверяет, что из одного состояния не может быть более ,чем один безусловный переход
+f _check_unconditional_transition
+//#UC START# *470F415903A9*
+	[{%f_number_cmp("<{}{%AC=Transition&"%AS"=""&%f_is_guarded_transition(%A)=true&%f_dump_guard(%A)=null}{%AC}>","1","\>")=1}{true}false]
+//#UC END# *470F415903A9*
+
+// возвращает имя базового класса для состояния:
+// DefaultInitialState
+// DefaultFinalState
+// BaseState
+t _select_state
+//#UC START# *470F419B001F*
+c                                 {}
+r "%SK"="Initial":                {DefaultInitialState}
+r "%SK"="Final":                  {DefaultFinalState}
+r ""="":                          {BaseState}
+//#UC END# *470F419B001F*
+
+// рекурсивно пробегает по всем реализуемым элементам
+// если находит элемент со стереотипом StateMachine - кладет
+// в переменную SM_IMPL
+f _find_sm_impl
+//#UC START# *470F41F8004E*
+	%f_set_var(SM_IMPL,"")%f_find_sm_impl_i(%S)
+f _find_sm_impl_i
+	<{}{}{%R}[{%RM=StateMachine::Class}%f_set_var(SM_IMPL,R)]%f_find_sm_impl_i(%R)>
+//#UC END# *470F41F8004E*
+
+// дампит необходимые методы и атрибуты для серванта, который реализует машину состояний
+f _dump_servant_sm_java
+//#UC START# *470F420A00CB*
+	%f_find_sm_impl(%S)\
+	[{"%{SM_IMPL}U"!=""}#//IStateMachine and %{SM_IMPL}NImpl.%{SM_IMPL}NComm methods implementation
+/	#public void add (final ru.garant.shared.FSM.BaseState state) {
+/	#	m_sm_realize.add (state);
+/	#}
+	[{%f_is_inherit_sm(%{SM_IMPL})=false}#private %f_with_gen_id(fctr.java,%f_dump_java_package_ex(%{SM_IMPL})).%{SM_IMPL}NImpl smRealize_ = null;
+	
+	#public boolean isStopped () {
+	#	return getSMRealize ().isStopped ();
+	#}
+	
+	#public void setEvent (final ru.garant.shared.FSM.BaseEvent event) {
+	#	getSMRealize ().setEvent (event);
+	#}
+	
+	#public ru.garant.shared.FSM.BaseEvent getEvent () {
+	#	return getSMRealize ().getEvent ();
+	#}
+	
+	#public void commit ()
+	#	 throws ru.garant.shared.FSM.StateNotChanged
+	#		, ru.garant.shared.FSM.SaveFailed
+	#		, ru.garant.shared.FSM.ValidationFailed
+	#		, ru.garant.shared.FSM.PreEnterFailed
+	#		, ru.garant.shared.FSM.PreExitFailed
+	#{
+	#	getSMRealize ().commit ();
+	#	try {
+	#		postCommit ();
+	#	} catch (Throwable e) {
+	#		Logs.LOG_E ("%SN::commit () - exception in postCommit " + e);
+	#	}
+	#}
+	
+	#public ru.garant.shared.FSM.State getCurrentState () {
+	#	return getSMRealize ().getCurrentState ();
+	#}
+	
+	#public java.util.List\<ru.garant.shared.FSM.State\> getAllStates () {
+	#	return getSMRealize ().getAllStates ();
+	#}
+	
+	#public void restore (final ru.garant.shared.FSM.State storedState) throws ru.garant.shared.FSM.AlreadyStarted {
+	#	getSMRealize ().restore (storedState);
+	#}
+	
+	#public void validateTransition (final ru.garant.shared.FSM.BaseEvent event) throws ru.garant.shared.FSM.ValidationFailed {
+	#	getSMRealize ().validateTransition (event);
+	#}
+	
+	#public void executeTransitionAction (final String actionId, final ru.garant.shared.FSM.BaseEvent event) {
+	#	try {
+	#		java.lang.reflect.Method m = this.getClass().getMethod(actionId, new Class\[\]{ru.garant.shared.FSM.BaseEvent.class});
+	#		m.invoke(this, event);
+	#	} catch (java.lang.Throwable e) {
+	#		Logs.LOG_SEX (e);
+	#	}
+	#}
+	
+	#public boolean executeTransitionGuard (final String guard) {
+	#	Boolean res = false;
+	#	try {
+	#		java.lang.reflect.Method m = this.getClass().getMethod(guard);
+	#		res = (Boolean)m.invoke(this);
+	#	} catch (java.lang.Throwable e) {
+	#		Logs.LOG_SEX (e);
+	#	}
+	#	return res;
+	#}
+	
+	][#//Actions
+	%f_clear_list(ACTION_LIST)%f_collect_sm_actions(%{SM_IMPL},"ACTION_LIST")\
+	<{}{%f_is_empty(ACTION_LIST)=false}{W}[%f_pop_first_to_var(ACTION_LIST,ACTION)\
+		public void %f_to_java(%{ACTION}N) (final ru.garant.shared.FSM.BaseEvent event) {
+			%f_dump_sm_user_section(%{SERV},"%{SM_IMPL}U_%f_to_upper(%{ACTION}N)_ACTION_IMPL","[{%f_is_override_transition_action(%{ACTION},%{SM_IMPL})=true}super.%f_to_java(%{ACTION}N) (event);]")
+		}
+	]
+	>%f_clear_list(ACTION_LIST)]%f_collect_sm_state_actions(%{SM_IMPL},"ACTION_LIST")[#//State actions
+	<{}{%f_is_empty(ACTION_LIST)=false}{W}[%f_pop_first_to_var(ACTION_LIST,ACTION)\
+		public void %f_to_java(post_%f_to_omg(%{ACTION}%PN)_%{ACTION}N) (final ru.garant.shared.FSM.BaseEvent event) {
+			%f_dump_sm_user_section(%{SERV},"%{SM_IMPL}U_ACTION_%f_to_upper(%{ACTION}%PN_%{ACTION}N)","[{%f_is_override(%{ACTION},%{SM_IMPL})=true}super.%f_to_java(post_%f_to_omg(%{ACTION}%PN)_%{ACTION}N) (event);]")
+		}
+	]
+	>]%f_collect_sm_guards(%{SM_IMPL},"GUARD_LIST")[#//Guards
+	<{}{%f_is_empty(GUARD_LIST)=false}{W}[%f_pop_first_to_var(GUARD_LIST,GUARD)\
+		public boolean %f_to_java(%{GUARD}I) () {
+			%f_dump_sm_user_section(%{SERV},"%{SM_IMPL}U_%f_to_upper(%{GUARD}I)_GUARD_IMPL","[{%f_is_override_guard(%{GUARD},%{SM_IMPL})=true}{assert (false);\n\t\treturn false;}return super.%f_to_java(%{GUARD}I) ();]")
+		}
+	]
+	>%f_clear_list(GUARD_LIST)]%f_collect_sm_states(%{SM_IMPL},"STATES")[#//validation states methods and preEnter/preExit actions
+	<{}{%f_is_empty(STATES)=false}{W}[%f_pop_first_to_var(STATES,STATE)\
+		public void validate%{STATE}N () throws ru.garant.shared.FSM.ValidationFailed {
+			%f_dump_sm_user_section(%{SERV},"%{SM_IMPL}U_%f_to_upper(%{STATE}N)_VALIDATE","[{%f_is_override(%{STATE},%{SM_IMPL})=true}super.validate%{STATE}N ();]")
+		}
+		
+		public void preEnterAction%{STATE}N (final ru.garant.shared.FSM.BaseEvent event) throws ru.garant.shared.FSM.PreEnterFailed {
+			%f_dump_sm_user_section(%{SERV},"%{SM_IMPL}U_%f_to_upper(%{STATE}N)_PRE_ENTER","[{%f_is_override(%{STATE},%{SM_IMPL})=true}super.preEnterAction%{STATE}N (event);]")
+		}
+		
+		public void preExitAction%{STATE}N (final ru.garant.shared.FSM.BaseEvent event) throws ru.garant.shared.FSM.PreExitFailed {
+			%f_dump_sm_user_section(%{SERV},"%{SM_IMPL}U_%f_to_upper(%{STATE}N)_PRE_EXIT","[{%f_is_override(%{STATE},%{SM_IMPL})=true}super.preExitAction%{STATE}N (event);]")
+		}
+	]
+	>]
+	#public void executeSave () throws ru.garant.shared.FSM.SaveFailed {
+	#	%f_dump_sm_user_section(%{SERV},"%{SM_IMPL}U_SAVE_IMPL","[{%f_is_inherit_sm(%{SM_IMPL})=true}super.executeSave ();]")
+	#}
+	
+	#protected void postCommit () {
+	#	%f_dump_sm_user_section(%{SERV},"%{SM_IMPL}U_POST_COMMIT","[{%f_is_inherit_sm(%{SM_IMPL})=true}super.postCommit ();]")
+/	#	%U[{_POST_COMMIT}[{%f_is_inherit_sm(%{SM_IMPL})=true}
+/	#	super.postCommit ();]
+/	#	]
+	#}
+	
+	#protected void finalize () {
+	#	getSMRealize ().unregisterComm ();
+	#}
+		
+	#protected %f_with_gen_id(fctr.java,%f_dump_java_package_ex(%{SM_IMPL})).%{SM_IMPL}NImpl initSMRealize () {
+	#	return new %f_with_gen_id(fctr.java,%f_dump_java_package_ex(%{SM_IMPL})).%{SM_IMPL}NImpl (this);
+	#}
+	
+	#protected %f_with_gen_id(fctr.java,%f_dump_java_package_ex(%{SM_IMPL})).%{SM_IMPL}NImpl getSMRealize () {
+	#	[{%f_is_inherit_sm(%{SM_IMPL})=false}{return (%f_with_gen_id(fctr.java,%f_dump_java_package_ex(%{SM_IMPL})).%{SM_IMPL}NImpl)super.getSMRealize ();}if (smRealize_ == null) {
+	#		smRealize_ = initSMRealize ();
+	#	}
+	#	return smRealize_;]
+	#}]
+
+f _is_override
+	%t_is_override(%S,"",%1)
+
+t _is_override
+c                                                                                 {}
+r {%SM=StateMachine::Class::StateMachine::State::Action}:                         {%f_is_override_state_action(%S,%2)}
+r {%SM=StateMachine::Class::StateMachine::State}:                                 {%f_is_override_state(%S,%2)}
+r {""=""}:                                                                        {false}
+
+
+f _is_override_state_action
+	%f_set_var(__ACTION__,S)\
+	[{%f_has_state_action(%1,%{__ACTION__})=true}{true}\
+	[{%1<{}{%f_has_state_action(%g,%{__ACTION__})=true}{%gC}>!=0}{false}true]]
+
+//возаращает true, если состояние определяет действие с заданным именем
+f _has_state_action
+	%f_set_var(_ACTION_NAME_,"%1N")\
+	%f_set_var(_STATE_NAME_,"%1%PN")\
+	[{"<{}{%AC=State&%AN=%{_STATE_NAME_}N&%A<{}{%CC=Action&%CN=%{_ACTION_NAME_}N}{%CC}>!=0}.>"!=""}{false}true]
+
+f _is_override_guard
+	%f_set_var(__ARG__,S)\
+	[{%f_has_guard(%1,%{__ARG__})=true}{true}\
+	[{%1<{}{%f_has_guard(%g,%{__ARG__})=true}{%gC}>!=0}{false}true]]
+
+f _has_guard
+	%f_set_var(__GUARD__,1)\
+	[{<{}{%AC=Transition&[{%AI=%{__GUARD__}I|%A<{}{%AC=TransitionEvent&%AI=%{__GUARD__}I}{%AC}>!=0}{false}true]=true}{%AC}>!=0}{false}true]
+
+f _is_override_transition_action
+	%f_set_var(__ARG__,S)\
+	[{%f_has_transition_action(%1,%{__ARG__})=true}{true}\
+	[{%1<{}{%f_has_transition_action(%g,%{__ARG__})=true}{%gC}>!=0}{false}true]]
+
+f _has_transition_action
+	%f_set_var(__ACTION_,1)\
+	[{"<{}{%AC=Transition&"%AS"=""&%A<{}{%AC=Action&%AN=%{__ACTION_}N}{%AC}>!=0}.>"!=""}{false}true]
+
+f _is_override_state
+	%f_set_var(__ARG__,S)\
+	[{%f_has_state(%1,%{__ARG__})=true}{true}\
+	%f_set_var(RES,"false")\
+	%f_clear_list(__BASE_STATES__)\
+	%f_collect_base_states(%S,"__BASE_STATES__")\
+	<{}{%f_is_empty(__BASE_STATES__)=false&%{RES}N=false}{W}%f_pop_first_to_var(BASE_STATES,__STATE__)\
+	[{%{__ARG__}N=%{__STATE__}N}%f_set_var(RES,"true")]>\
+	%{RES}N]
+
+f _has_state
+	%f_set_var(__STATE__,1)\
+	[{<{}{%AC=State&%AN=%{__STATE__}N}{%AC}>=0}{true}false]
+
+f _collect_sm_states
+	[{"%1N"=""}%f_error("_collect_sm_states: Не задан идентификатор списка")]\
+	%f_set_var(LIST_ID,"%1N")\
+	%f_clear_list(%{LIST_ID}N)%f_clear_list(%{LIST_ID}N_NAMES)\
+	%f_collect_sm_states_i(%S)\
+	<{}{}{%g}%f_collect_sm_states_i(%g)>
+
+f _collect_sm_states_i
+	<{}{%AC=State}[{%f_exists_in_list(%{LIST_ID}N_NAMES,"%AN")=false}%f_add_to_list(%{LIST_ID}N_NAMES,"%AN")%f_add_to_list(%{LIST_ID}N,A)]>
+
+f _collect_sm_guards
+	[{"%1N"=""}%f_error("_collect_sm_guards: Не задан идентификатор списка")]\
+	%f_set_var(LIST_ID,"%1N")\
+	%f_clear_list(%{LIST_ID}N)%f_clear_list(%{LIST_ID}N_NAMES)\
+	%f_collect_sm_guards_i(%S)\
+	<{}{}{%g}%f_collect_sm_guards_i(%g)>
+
+f _collect_sm_guards_i
+	<{}{%AC=Transition}[{"%AI"!=""&%f_exists_in_list(%{LIST_ID}N_NAMES,"%AI")=false}%f_add_to_list(%{LIST_ID}N_NAMES,"%AI")%f_add_to_list(%{LIST_ID}N,A)]\
+	%A<{}{%AC=TransitionEvent&"%AI"!=""}[{%f_exists_in_list(%{LIST_ID}N_NAMES,"%AI")=false}%f_add_to_list(%{LIST_ID}N_NAMES,"%AI")%f_add_to_list(%{LIST_ID}N,A)]>>
+
+f _collect_sm_state_actions
+	[{"%1N"=""}%f_error("_collect_sm_state_actions: Не задан идентификатор списка")]\
+	%f_set_var(LIST_ID,"%1N")\
+	%f_clear_list(%{LIST_ID}N)%f_clear_list(%{LIST_ID}N_NAMES)\
+	%f_collect_sm_state_actions_i(%S)\
+	<{}{}{%g}%f_collect_sm_state_actions_i(%g)>
+
+f _collect_sm_state_actions_i
+	<{}{%AC=State}%A<{}{%CC=Action}[{%f_exists_in_list(%{LIST_ID}N_NAMES,"%C%PN_%CN")=false}%f_add_to_list(%{LIST_ID}N_NAMES,"%C%PN_%CN")%f_add_to_list(%{LIST_ID}N,C)]>>
+
+f _collect_sm_actions
+	[{"%1N"=""}%f_error("_collect_sm_actions: Не задан идентификатор списка")]\
+	%f_set_var(LIST_ID,"%1N")\
+	%f_clear_list(%{LIST_ID}N)%f_clear_list(%{LIST_ID}N_NAMES)\
+	%f_collect_sm_actions_impl(%S)\
+	<{}{}{%g}%f_collect_sm_actions_impl(%g)>
+
+
+f _collect_sm_actions_impl
+	<{}{%AC=Transition&"%AS"=""}%A<{}{%AC=Action}[{%f_exists_in_list(%{LIST_ID}N_NAMES,"%AN")=false}%f_add_to_list(%{LIST_ID}N_NAMES,"%AN")%f_add_to_list(%{LIST_ID}N,A)]>>
+
+f _is_servant_realize_several_sm
+	[true]
+
+f _dump_sm_user_section
+	%f_set_var(UC_CODE,"%2N")\
+	%U[{_%1N}[{"%{UC_CODE}N"!=""}
+	#	%{UC_CODE}N]
+	#	]
+//#UC END# *470F420A00CB*
+
+// проверяет, что каждому не абстрактному элементу сос стереотипом State соответствует элемент на
+// диаграмме состояний, соответствие определяется по совпадению имён
+f _check_correspondence_state
+//#UC START# *475F8DC801D0*
+////заполняем список именами Event'ов
+	%f_clear_list(STATE_LIST)<{}{%AC=State}%f_add_to_list(STATE_LIST,"%AN")>\
+	<{;}{%CM=State::Class&%Ca!=abstract&%f_exists_in_list(STATE_LIST,"%CN")=false}%CN>
+//#UC END# *475F8DC801D0*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

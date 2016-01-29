@@ -1,0 +1,48 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{8885C17E-D5AE-4758-BF71-0DEAA8616A43}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="gtHtmVwExpD12.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="DCLgtHtmVwExpD12.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="gtHtmVwExpD12">
+			<MSBuild Projects="gtHtmVwExpD12.dproj"/>
+		</Target>
+		<Target Name="gtHtmVwExpD12:Clean">
+			<MSBuild Targets="Clean" Projects="gtHtmVwExpD12.dproj"/>
+		</Target>
+		<Target Name="gtHtmVwExpD12:Make">
+			<MSBuild Targets="Make" Projects="gtHtmVwExpD12.dproj"/>
+		</Target>
+		<Target Name="DCLgtHtmVwExpD12">
+			<MSBuild Projects="DCLgtHtmVwExpD12.dproj"/>
+		</Target>
+		<Target Name="DCLgtHtmVwExpD12:Clean">
+			<MSBuild Targets="Clean" Projects="DCLgtHtmVwExpD12.dproj"/>
+		</Target>
+		<Target Name="DCLgtHtmVwExpD12:Make">
+			<MSBuild Targets="Make" Projects="DCLgtHtmVwExpD12.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="gtHtmVwExpD12;DCLgtHtmVwExpD12"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="gtHtmVwExpD12:Clean;DCLgtHtmVwExpD12:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="gtHtmVwExpD12:Make;DCLgtHtmVwExpD12:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

@@ -1,0 +1,57 @@
+project (zlib_tools) : project_generic_core {
+	staticname = zlib_tools
+	sharedname = zlib_tools
+
+	macros += USE_CPP_ZIP
+
+	includes += ./../../../../common // uses mpcxc.h header
+
+	Header_Files {
+		./../../component/cpp/libs/zlib/src/Alloc.h
+		./../../component/cpp/libs/zlib/src/Bra.h
+		./../../component/cpp/libs/zlib/src/LzFind.h
+		./../../component/cpp/libs/zlib/src/LzFindMt.h
+		./../../component/cpp/libs/zlib/src/LzHash.h
+		./../../component/cpp/libs/zlib/src/Lzma86.h
+		./../../component/cpp/libs/zlib/src/LzmaDec.h
+		./../../component/cpp/libs/zlib/src/LzmaEnc.h
+		./../../component/cpp/libs/zlib/src/Threads.h
+		./../../component/cpp/libs/zlib/src/Types.h
+		./../../component/cpp/libs/zlib/src/zconf_mpcxc.h
+		./../../component/cpp/libs/zlib/src/crc32_old.h
+		./../../component/cpp/libs/zlib/src/deflate.h
+		./../../component/cpp/libs/zlib/src/inffast.h
+		./../../component/cpp/libs/zlib/src/inffixed.h
+		./../../component/cpp/libs/zlib/src/inflate.h
+		./../../component/cpp/libs/zlib/src/inftrees.h
+		./../../component/cpp/libs/zlib/src/trees.h
+		./../../component/cpp/libs/zlib/src/zlib.h
+		./../../component/cpp/libs/zlib/src/zutil.h
+		./../../component/cpp/libs/zlib/src/pack.h
+	}
+
+	Source_Files {
+		./../../component/cpp/libs/zlib/src/Alloc.c
+		./../../component/cpp/libs/zlib/src/Bra86.c
+		./../../component/cpp/libs/zlib/src/LzFind.c
+		./../../component/cpp/libs/zlib/src/LzFindMt.c
+		./../../component/cpp/libs/zlib/src/Lzma86Dec.c
+		./../../component/cpp/libs/zlib/src/Lzma86Enc.c
+		./../../component/cpp/libs/zlib/src/LzmaDec.c
+		./../../component/cpp/libs/zlib/src/LzmaEnc.c
+		./../../component/cpp/libs/zlib/src/Threads.c
+
+		./../../component/cpp/libs/zlib/src/adler32.c
+		./../../component/cpp/libs/zlib/src/compress.c
+		./../../component/cpp/libs/zlib/src/crc32_old.c
+		./../../component/cpp/libs/zlib/src/deflate.c
+		./../../component/cpp/libs/zlib/src/infback.c
+		./../../component/cpp/libs/zlib/src/inffast.c
+		./../../component/cpp/libs/zlib/src/inflate.c
+		./../../component/cpp/libs/zlib/src/inftrees.c
+		./../../component/cpp/libs/zlib/src/trees.c
+		./../../component/cpp/libs/zlib/src/zutil.c
+		./../../component/cpp/libs/zlib/src/pack.cpp
+		./../../component/cpp/libs/zlib/src/unzip.cpp
+	}
+}

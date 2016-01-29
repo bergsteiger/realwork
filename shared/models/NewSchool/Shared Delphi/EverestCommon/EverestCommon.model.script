@@ -1,0 +1,3510 @@
+<<Library>> EverestCommon
+ %UID '48EEE54C0072'
+ %SUMMARY 'Обобщающие функции для разных веток библиотеки Everest' ;
+ %DEPENDS
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677E18600C2' /* dd */
+  U$ '467A8734039C' /* EVD */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %DEPENDS
+ %META
+  %upv "defines" 'evDefine.inc'
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'gui'
+  %upv "is namespace" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677E18600C2' /* dd */
+  U$ '467A8734039C' /* EVD */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Interfaces>> evOldEverestTypes
+   %UID '4F5C4A9D0011'
+   %SUMMARY 'Пакет совместимости со старым редктором.' ;
+   %DEPENDS
+    U$ '47C5207602D1' /* nevTools */
+   ; // %DEPENDS
+   %META
+    %upv "finished" false
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '4797632D0273' /* Everest */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Facet>> IevBaseTagSelection
+      %UID '4F5C4AE20039'
+     ; // IevBaseTagSelection
+     <<Facet>> IevTagSelection
+      %UID '4F5C4BB70353'
+     ; // IevTagSelection
+     <<Facet>> IevTagROPoint
+      %UID '4F5C4C5803D3'
+     ; // IevTagROPoint
+     <<Struct>> TevBaseCursor
+      %UID '4F5C4CDB02BE'
+     ; // TevBaseCursor
+     <<Facet>> IevDataObject
+      %UID '4F5C505B0115'
+     ; // IevDataObject
+     <<Typedef>> InevRange
+      %UID '4F5C531F0008'
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47C5B54401B2' /* InevRange */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47C5B55D00B4' /* Range */
+       U$ '47C5B603039F' /* Formatting */
+       U$ '47C690AB02EE' /* SolidBottomChildBlock */
+       U$ '47C691F0012A' /* GetChildSel */
+       U$ '47C691FB0055' /* GetBorderPoints */
+       U$ '47C6920B01B2' /* BottomChildBlock */
+       U$ '47C6924201FA' /* CloneSel */
+       U$ '47C692B301BF' /* Modify */
+       U$ '47C692C10136' /* ParentRange */
+       U$ '47C692CC024C' /* Contains */
+       U$ '47C6960502ED' /* Select$47C6960502ED */
+       U$ '47C696160251' /* Select$47C696160251 */
+       U$ '47C6962E028E' /* Borders */
+       U$ '47C696B603E7' /* Data */
+       U$ '47FF53790028' /* Solid */
+       U$ '47FF5C3D017E' /* ContainsEnd */
+       U$ '47FF5F3702F6' /* Collapsed */
+       U$ '48EC8339027A' /* AsStorable */
+       U$ '49DDD02D00E3' /* Obj */
+       U$ '49E6FB10002A' /* Text */
+       U$ '49E83F480351' /* SearchReplace */
+       U$ '49E843B10236' /* Search */
+       U$ '4A42196C01CE' /* AsObject */
+       U$ '4A5C6DB4014D' /* AsPoint */
+       U$ '50B727F00221' /* RefreshBorders */
+      ; // %REALIZES
+     ; // InevRange
+   ; // %CHILDREN
+  ; // evOldEverestTypes
+  <<Interfaces>> evCommonTypes
+   %UID '48EEE9330072'
+   %DEPENDS
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4678137501EA' /* k2Interfaces */
+    U$ '4678209200A6' /* nevBase */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47C5207602D1' /* nevTools */
+    U$ '47E3DF460095' /* Cursors */
+    U$ '47ECB04A01F8' /* Processors */
+    U$ '47F0893F0220' /* nevInternalInterfaces */
+    U$ '482D6E960087' /* Readers */
+    U$ '48492FC0029D' /* Standard */
+    U$ '48F4E61C0060' /* Interfaces */
+    U$ '4A4DE16302A2' /* k2Core */
+    U$ '4F5C4A9D0011' /* evOldEverestTypes */
+   ; // %DEPENDS
+   %META
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '4677E16A022A' /* K2 */
+    U$ '467A8734039C' /* EVD */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4797632D0273' /* Everest */
+    U$ '48EEE54C0072' /* EverestCommon */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Typedef>> TevGenerator
+      %UID '48EEEA480069'
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47CC38040095' /* InevTagGenerator */
+      ; // %INHERITS
+      %REALIZES
+       U$ '469F83C300B2' /* AddStringAtom$469F83C300B2 */
+       U$ '469F84BB0023' /* AddStringAtom$469F84BB0023 */
+       U$ '469F870C01B6' /* AddStreamAtom */
+       U$ '469F872B0124' /* AddTransparentAtom */
+       U$ '469F87470084' /* AddIntegerAtom */
+       U$ '469F87D4002D' /* AddBoolAtom */
+       U$ '469F8818037E' /* AddAtom */
+       U$ '469F8B580244' /* AddAtomEx */
+       U$ '469F8B9E02C7' /* Start */
+       U$ '469F8BBA01EB' /* StartChild */
+       U$ '469F8BCC02D7' /* StartDefaultChild */
+       U$ '469F8BF00166' /* StartTag */
+       U$ '469F8C0A031C' /* Finish */
+       U$ '469F8C450231' /* CharsInLine */
+       U$ '469F8C6D01B6' /* NextGenerator */
+       U$ '469F8C8C02FB' /* CurrentStartLevel */
+       U$ '469F956E01A6' /* Rollback */
+       U$ '469F9589032C' /* Pixel2Char */
+       U$ '4C1B7F810123' /* CurrentVersion */
+       U$ '4E31464A0116' /* AddInt64Atom */
+       U$ '532AD07903C5' /* Char2Pixel */
+       U$ '533C0C71011C' /* Context */
+      ; // %REALIZES
+     ; // TevGenerator
+     <<Typedef>> TevCustomFileReader
+      %UID '48EEEAB40364'
+      %TOBEINCLUDED
+       U$ '4677E16A022A' /* K2 */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '482D6ED9000A' /* Tk2CustomReader */
+      ; // %INHERITS
+     ; // TevCustomFileReader
+     <<Typedef>> TnevCustomUndoBuffer
+      %UID '48EEEBA300DE'
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47C5B145018F' /* Ik2UndoBuffer */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47C5B14F00F1' /* GetActiveObject */
+       U$ '47C5B15D0015' /* ExecutedOperation */
+       U$ '47C5B16C010D' /* Undo */
+       U$ '47C5B17B0053' /* Redo */
+       U$ '47C5B18A0183' /* Clear */
+       U$ '47C5B1A20200' /* CanUndo */
+       U$ '47C5B1B30355' /* CanRedo */
+       U$ '47C5B1C500AC' /* Last */
+       U$ '47C5B1D302B9' /* Empty */
+       U$ '47C5B1E90326' /* Disabled */
+      ; // %REALIZES
+     ; // TnevCustomUndoBuffer
+     <<Typedef>> TnevLocation
+      %UID '48EEEBD5008A'
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47C5B50E0118' /* InevLocation */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47C5B55D00B4' /* Range */
+       U$ '47C5B603039F' /* Formatting */
+       U$ '49DDD02D00E3' /* Obj */
+       U$ '49E6FB10002A' /* Text */
+       U$ '4A42196C01CE' /* AsObject */
+       U$ '4A5C6DB4014D' /* AsPoint */
+      ; // %REALIZES
+     ; // TnevLocation
+     <<Typedef>> TnevCursor
+      %UID '48EEEC030354'
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47C5B57E0390' /* InevBasePoint */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47C5B55D00B4' /* Range */
+       U$ '47C5B603039F' /* Formatting */
+       U$ '47C5B65D0195' /* VertPosition */
+       U$ '47C5B6D30128' /* NeedWindowsCaret */
+       U$ '47C5B6E503C3' /* ClonePoint */
+       U$ '47C5B6F202A0' /* DeltaX */
+       U$ '47C5B7400152' /* Inner */
+       U$ '47C5B75F00AF' /* Position */
+       U$ '47C5C25C022F' /* AssignPoint */
+       U$ '47C5C2970095' /* Bottom */
+       U$ '47C5C2A40309' /* IncLine */
+       U$ '47C689E90006' /* DoMove */
+       U$ '47C68A010279' /* Move */
+       U$ '47C68A0E01E9' /* Refresh */
+       U$ '47C68A160190' /* SetEntryPointPrim */
+       U$ '47C68A220200' /* SetEntryPoint$47C68A220200 */
+       U$ '47C68A2E00EC' /* SetEntryPoint$47C68A2E00EC */
+       U$ '47C68A42023A' /* ToBottomChild */
+       U$ '47C68A520059' /* PositionW */
+       U$ '47F5FDA303BC' /* InnerFor */
+       U$ '47F618A90162' /* AfterEnd */
+       U$ '47FB32280262' /* AsLeaf */
+       U$ '47FF3F1800FE' /* AtEnd */
+       U$ '47FF414E039D' /* AtStart */
+       U$ '4803044303DC' /* SetAtEnd */
+       U$ '4803045B0109' /* SetAtStart */
+       U$ '49D218B9032C' /* PointToParent */
+       U$ '49D243600057' /* PointToParentByLevel */
+       U$ '49D2437302B2' /* PointToTypedParent */
+       U$ '49D24386014E' /* TopParentPoint */
+       U$ '49D266AC032F' /* Outer */
+       U$ '49D2687002C7' /* ParentPoint */
+       U$ '49DDD02D00E3' /* Obj */
+       U$ '49DE123A031F' /* MostInner */
+       U$ '49DF51870234' /* Diff */
+       U$ '49E6FB10002A' /* Text */
+       U$ '4A42196C01CE' /* AsObject */
+       U$ '4A4C856300DF' /* DisableListener */
+       U$ '4A4C8581014B' /* EnableListener */
+       U$ '4A58B79A0360' /* HasInner */
+       U$ '4A5B48A701A9' /* ShowCollapsed */
+       U$ '4A5B60870158' /* Compare */
+       U$ '4A5B6D370262' /* CheckPos */
+       U$ '4A5C66200185' /* ReadOnly */
+       U$ '4A5C6DB4014D' /* AsPoint */
+       U$ '4A5C750E01F7' /* AsCursor */
+       U$ '4A5C7D2F0079' /* MarkersSource */
+       U$ '4A5C8A9D0324' /* ProcessMessage */
+       U$ '4A5C9138035D' /* Listener */
+       U$ '4A5C913F0235' /* GetBlockLength */
+       U$ '4A5CCBFC00B3' /* ViewBounds */
+       U$ '4A810F81018E' /* MergeTo */
+       U$ '4AA76AE00147' /* InnerForChildThatNotAfterEnd */
+       U$ '4AA76AF90174' /* HasBaseLine */
+       U$ '4B90DA600047' /* AddInner */
+       U$ '4B9623150178' /* CompareWithOtherInner */
+       U$ '4BBB0DDD026D' /* PartiallyVisible */
+       U$ '4C456C8E027F' /* InnerHead */
+       U$ '4C456CEA01DE' /* HasHeadPart */
+       U$ '4C456D220317' /* AddHeadInner */
+       U$ '4C457D0502E1' /* CopyHeadParts */
+       U$ '4C735E600112' /* InitByCursor */
+       U$ '4D9C113C0320' /* InitBaseLineInner */
+       U$ '4DDCD59301D5' /* InnerTop */
+       U$ '4EC3B0330271' /* BeforeStart */
+       U$ '50DAA7010050' /* CorrectMoveRight */
+      ; // %REALIZES
+     ; // TnevCursor
+     <<Typedef>> TnevBaseCursor
+      %UID '48EEEC1502AA'
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47C5B57E0390' /* InevBasePoint */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47C5B55D00B4' /* Range */
+       U$ '47C5B603039F' /* Formatting */
+       U$ '47C5B65D0195' /* VertPosition */
+       U$ '47C5B6D30128' /* NeedWindowsCaret */
+       U$ '47C5B6E503C3' /* ClonePoint */
+       U$ '47C5B6F202A0' /* DeltaX */
+       U$ '47C5B7400152' /* Inner */
+       U$ '47C5B75F00AF' /* Position */
+       U$ '47C5C25C022F' /* AssignPoint */
+       U$ '47C5C2970095' /* Bottom */
+       U$ '47C5C2A40309' /* IncLine */
+       U$ '47C689E90006' /* DoMove */
+       U$ '47C68A010279' /* Move */
+       U$ '47C68A0E01E9' /* Refresh */
+       U$ '47C68A160190' /* SetEntryPointPrim */
+       U$ '47C68A220200' /* SetEntryPoint$47C68A220200 */
+       U$ '47C68A2E00EC' /* SetEntryPoint$47C68A2E00EC */
+       U$ '47C68A42023A' /* ToBottomChild */
+       U$ '47C68A520059' /* PositionW */
+       U$ '47F5FDA303BC' /* InnerFor */
+       U$ '47F618A90162' /* AfterEnd */
+       U$ '47FB32280262' /* AsLeaf */
+       U$ '47FF3F1800FE' /* AtEnd */
+       U$ '47FF414E039D' /* AtStart */
+       U$ '4803044303DC' /* SetAtEnd */
+       U$ '4803045B0109' /* SetAtStart */
+       U$ '49D218B9032C' /* PointToParent */
+       U$ '49D243600057' /* PointToParentByLevel */
+       U$ '49D2437302B2' /* PointToTypedParent */
+       U$ '49D24386014E' /* TopParentPoint */
+       U$ '49D266AC032F' /* Outer */
+       U$ '49D2687002C7' /* ParentPoint */
+       U$ '49DDD02D00E3' /* Obj */
+       U$ '49DE123A031F' /* MostInner */
+       U$ '49DF51870234' /* Diff */
+       U$ '49E6FB10002A' /* Text */
+       U$ '4A42196C01CE' /* AsObject */
+       U$ '4A4C856300DF' /* DisableListener */
+       U$ '4A4C8581014B' /* EnableListener */
+       U$ '4A58B79A0360' /* HasInner */
+       U$ '4A5B48A701A9' /* ShowCollapsed */
+       U$ '4A5B60870158' /* Compare */
+       U$ '4A5B6D370262' /* CheckPos */
+       U$ '4A5C66200185' /* ReadOnly */
+       U$ '4A5C6DB4014D' /* AsPoint */
+       U$ '4A5C750E01F7' /* AsCursor */
+       U$ '4A5C7D2F0079' /* MarkersSource */
+       U$ '4A5C8A9D0324' /* ProcessMessage */
+       U$ '4A5C9138035D' /* Listener */
+       U$ '4A5C913F0235' /* GetBlockLength */
+       U$ '4A5CCBFC00B3' /* ViewBounds */
+       U$ '4A810F81018E' /* MergeTo */
+       U$ '4AA76AE00147' /* InnerForChildThatNotAfterEnd */
+       U$ '4AA76AF90174' /* HasBaseLine */
+       U$ '4B90DA600047' /* AddInner */
+       U$ '4B9623150178' /* CompareWithOtherInner */
+       U$ '4BBB0DDD026D' /* PartiallyVisible */
+       U$ '4C456C8E027F' /* InnerHead */
+       U$ '4C456CEA01DE' /* HasHeadPart */
+       U$ '4C456D220317' /* AddHeadInner */
+       U$ '4C457D0502E1' /* CopyHeadParts */
+       U$ '4C735E600112' /* InitByCursor */
+       U$ '4D9C113C0320' /* InitBaseLineInner */
+       U$ '4DDCD59301D5' /* InnerTop */
+       U$ '4EC3B0330271' /* BeforeStart */
+       U$ '50DAA7010050' /* CorrectMoveRight */
+      ; // %REALIZES
+     ; // TnevBaseCursor
+     <<Typedef>> InevCommonPoint
+      %UID '48EEEC3C00B6'
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47C5B57E0390' /* InevBasePoint */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47C5B55D00B4' /* Range */
+       U$ '47C5B603039F' /* Formatting */
+       U$ '47C5B65D0195' /* VertPosition */
+       U$ '47C5B6D30128' /* NeedWindowsCaret */
+       U$ '47C5B6E503C3' /* ClonePoint */
+       U$ '47C5B6F202A0' /* DeltaX */
+       U$ '47C5B7400152' /* Inner */
+       U$ '47C5B75F00AF' /* Position */
+       U$ '47C5C25C022F' /* AssignPoint */
+       U$ '47C5C2970095' /* Bottom */
+       U$ '47C5C2A40309' /* IncLine */
+       U$ '47C689E90006' /* DoMove */
+       U$ '47C68A010279' /* Move */
+       U$ '47C68A0E01E9' /* Refresh */
+       U$ '47C68A160190' /* SetEntryPointPrim */
+       U$ '47C68A220200' /* SetEntryPoint$47C68A220200 */
+       U$ '47C68A2E00EC' /* SetEntryPoint$47C68A2E00EC */
+       U$ '47C68A42023A' /* ToBottomChild */
+       U$ '47C68A520059' /* PositionW */
+       U$ '47F5FDA303BC' /* InnerFor */
+       U$ '47F618A90162' /* AfterEnd */
+       U$ '47FB32280262' /* AsLeaf */
+       U$ '47FF3F1800FE' /* AtEnd */
+       U$ '47FF414E039D' /* AtStart */
+       U$ '4803044303DC' /* SetAtEnd */
+       U$ '4803045B0109' /* SetAtStart */
+       U$ '49D218B9032C' /* PointToParent */
+       U$ '49D243600057' /* PointToParentByLevel */
+       U$ '49D2437302B2' /* PointToTypedParent */
+       U$ '49D24386014E' /* TopParentPoint */
+       U$ '49D266AC032F' /* Outer */
+       U$ '49D2687002C7' /* ParentPoint */
+       U$ '49DDD02D00E3' /* Obj */
+       U$ '49DE123A031F' /* MostInner */
+       U$ '49DF51870234' /* Diff */
+       U$ '49E6FB10002A' /* Text */
+       U$ '4A42196C01CE' /* AsObject */
+       U$ '4A4C856300DF' /* DisableListener */
+       U$ '4A4C8581014B' /* EnableListener */
+       U$ '4A58B79A0360' /* HasInner */
+       U$ '4A5B48A701A9' /* ShowCollapsed */
+       U$ '4A5B60870158' /* Compare */
+       U$ '4A5B6D370262' /* CheckPos */
+       U$ '4A5C66200185' /* ReadOnly */
+       U$ '4A5C6DB4014D' /* AsPoint */
+       U$ '4A5C750E01F7' /* AsCursor */
+       U$ '4A5C7D2F0079' /* MarkersSource */
+       U$ '4A5C8A9D0324' /* ProcessMessage */
+       U$ '4A5C9138035D' /* Listener */
+       U$ '4A5C913F0235' /* GetBlockLength */
+       U$ '4A5CCBFC00B3' /* ViewBounds */
+       U$ '4A810F81018E' /* MergeTo */
+       U$ '4AA76AE00147' /* InnerForChildThatNotAfterEnd */
+       U$ '4AA76AF90174' /* HasBaseLine */
+       U$ '4B90DA600047' /* AddInner */
+       U$ '4B9623150178' /* CompareWithOtherInner */
+       U$ '4BBB0DDD026D' /* PartiallyVisible */
+       U$ '4C456C8E027F' /* InnerHead */
+       U$ '4C456CEA01DE' /* HasHeadPart */
+       U$ '4C456D220317' /* AddHeadInner */
+       U$ '4C457D0502E1' /* CopyHeadParts */
+       U$ '4C735E600112' /* InitByCursor */
+       U$ '4D9C113C0320' /* InitBaseLineInner */
+       U$ '4DDCD59301D5' /* InnerTop */
+       U$ '4EC3B0330271' /* BeforeStart */
+       U$ '50DAA7010050' /* CorrectMoveRight */
+      ; // %REALIZES
+     ; // InevCommonPoint
+     <<Typedef>> TnevIRange
+      %UID '48EEEC6402D2'
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47C5B54401B2' /* InevRange */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47C5B55D00B4' /* Range */
+       U$ '47C5B603039F' /* Formatting */
+       U$ '47C690AB02EE' /* SolidBottomChildBlock */
+       U$ '47C691F0012A' /* GetChildSel */
+       U$ '47C691FB0055' /* GetBorderPoints */
+       U$ '47C6920B01B2' /* BottomChildBlock */
+       U$ '47C6924201FA' /* CloneSel */
+       U$ '47C692B301BF' /* Modify */
+       U$ '47C692C10136' /* ParentRange */
+       U$ '47C692CC024C' /* Contains */
+       U$ '47C6960502ED' /* Select$47C6960502ED */
+       U$ '47C696160251' /* Select$47C696160251 */
+       U$ '47C6962E028E' /* Borders */
+       U$ '47C696B603E7' /* Data */
+       U$ '47FF53790028' /* Solid */
+       U$ '47FF5C3D017E' /* ContainsEnd */
+       U$ '47FF5F3702F6' /* Collapsed */
+       U$ '48EC8339027A' /* AsStorable */
+       U$ '49DDD02D00E3' /* Obj */
+       U$ '49E6FB10002A' /* Text */
+       U$ '49E83F480351' /* SearchReplace */
+       U$ '49E843B10236' /* Search */
+       U$ '4A42196C01CE' /* AsObject */
+       U$ '4A5C6DB4014D' /* AsPoint */
+       U$ '50B727F00221' /* RefreshBorders */
+      ; // %REALIZES
+     ; // TnevIRange
+     <<Typedef>> TnevBlock
+      %UID '48EEEC77028F'
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47C5B54401B2' /* InevRange */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47C5B55D00B4' /* Range */
+       U$ '47C5B603039F' /* Formatting */
+       U$ '47C690AB02EE' /* SolidBottomChildBlock */
+       U$ '47C691F0012A' /* GetChildSel */
+       U$ '47C691FB0055' /* GetBorderPoints */
+       U$ '47C6920B01B2' /* BottomChildBlock */
+       U$ '47C6924201FA' /* CloneSel */
+       U$ '47C692B301BF' /* Modify */
+       U$ '47C692C10136' /* ParentRange */
+       U$ '47C692CC024C' /* Contains */
+       U$ '47C6960502ED' /* Select$47C6960502ED */
+       U$ '47C696160251' /* Select$47C696160251 */
+       U$ '47C6962E028E' /* Borders */
+       U$ '47C696B603E7' /* Data */
+       U$ '47FF53790028' /* Solid */
+       U$ '47FF5C3D017E' /* ContainsEnd */
+       U$ '47FF5F3702F6' /* Collapsed */
+       U$ '48EC8339027A' /* AsStorable */
+       U$ '49DDD02D00E3' /* Obj */
+       U$ '49E6FB10002A' /* Text */
+       U$ '49E83F480351' /* SearchReplace */
+       U$ '49E843B10236' /* Search */
+       U$ '4A42196C01CE' /* AsObject */
+       U$ '4A5C6DB4014D' /* AsPoint */
+       U$ '50B727F00221' /* RefreshBorders */
+      ; // %REALIZES
+     ; // TnevBlock
+     <<Typedef>> InevTagSelection
+      %UID '48EEEC8A013B'
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47C5B54401B2' /* InevRange */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47C5B55D00B4' /* Range */
+       U$ '47C5B603039F' /* Formatting */
+       U$ '47C690AB02EE' /* SolidBottomChildBlock */
+       U$ '47C691F0012A' /* GetChildSel */
+       U$ '47C691FB0055' /* GetBorderPoints */
+       U$ '47C6920B01B2' /* BottomChildBlock */
+       U$ '47C6924201FA' /* CloneSel */
+       U$ '47C692B301BF' /* Modify */
+       U$ '47C692C10136' /* ParentRange */
+       U$ '47C692CC024C' /* Contains */
+       U$ '47C6960502ED' /* Select$47C6960502ED */
+       U$ '47C696160251' /* Select$47C696160251 */
+       U$ '47C6962E028E' /* Borders */
+       U$ '47C696B603E7' /* Data */
+       U$ '47FF53790028' /* Solid */
+       U$ '47FF5C3D017E' /* ContainsEnd */
+       U$ '47FF5F3702F6' /* Collapsed */
+       U$ '48EC8339027A' /* AsStorable */
+       U$ '49DDD02D00E3' /* Obj */
+       U$ '49E6FB10002A' /* Text */
+       U$ '49E83F480351' /* SearchReplace */
+       U$ '49E843B10236' /* Search */
+       U$ '4A42196C01CE' /* AsObject */
+       U$ '4A5C6DB4014D' /* AsPoint */
+       U$ '50B727F00221' /* RefreshBorders */
+      ; // %REALIZES
+     ; // InevTagSelection
+     <<Typedef>> IevCommonDataObject
+      %UID '48F86E960118'
+      %TOBEINCLUDED
+       U$ '467A8734039C' /* EVD */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47C68C4500D2' /* DataObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47C68C6701AF' /* Store$47C68C6701AF */
+      ; // %REALIZES
+     ; // IevCommonDataObject
+     <<Typedef>> TevFileReader
+      %UID '4F5C511102BE'
+      %META
+       %upv "force usage" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4677E16A022A' /* K2 */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '482D6ED9000A' /* Tk2CustomReader */
+      ; // %INHERITS
+     ; // TevFileReader
+     <<Typedef>> InevRange
+      %UID '4F5C51B40304'
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47C5B54401B2' /* InevRange */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47C5B55D00B4' /* Range */
+       U$ '47C5B603039F' /* Formatting */
+       U$ '47C690AB02EE' /* SolidBottomChildBlock */
+       U$ '47C691F0012A' /* GetChildSel */
+       U$ '47C691FB0055' /* GetBorderPoints */
+       U$ '47C6920B01B2' /* BottomChildBlock */
+       U$ '47C6924201FA' /* CloneSel */
+       U$ '47C692B301BF' /* Modify */
+       U$ '47C692C10136' /* ParentRange */
+       U$ '47C692CC024C' /* Contains */
+       U$ '47C6960502ED' /* Select$47C6960502ED */
+       U$ '47C696160251' /* Select$47C696160251 */
+       U$ '47C6962E028E' /* Borders */
+       U$ '47C696B603E7' /* Data */
+       U$ '47FF53790028' /* Solid */
+       U$ '47FF5C3D017E' /* ContainsEnd */
+       U$ '47FF5F3702F6' /* Collapsed */
+       U$ '48EC8339027A' /* AsStorable */
+       U$ '49DDD02D00E3' /* Obj */
+       U$ '49E6FB10002A' /* Text */
+       U$ '49E83F480351' /* SearchReplace */
+       U$ '49E843B10236' /* Search */
+       U$ '4A42196C01CE' /* AsObject */
+       U$ '4A5C6DB4014D' /* AsPoint */
+       U$ '50B727F00221' /* RefreshBorders */
+      ; // %REALIZES
+     ; // InevRange
+     <<Typedef>> InevPointTool
+      %UID '4F5C539A0243'
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47C5B56900DA' /* InevPoint */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47C5B55D00B4' /* Range */
+       U$ '47C5B603039F' /* Formatting */
+       U$ '47C5B65D0195' /* VertPosition */
+       U$ '47C5B6D30128' /* NeedWindowsCaret */
+       U$ '47C5B6E503C3' /* ClonePoint */
+       U$ '47C5B6F202A0' /* DeltaX */
+       U$ '47C5B7400152' /* Inner */
+       U$ '47C5B75F00AF' /* Position */
+       U$ '47C5C25C022F' /* AssignPoint */
+       U$ '47C5C2970095' /* Bottom */
+       U$ '47C5C2A40309' /* IncLine */
+       U$ '47C689E90006' /* DoMove */
+       U$ '47C68A010279' /* Move */
+       U$ '47C68A0E01E9' /* Refresh */
+       U$ '47C68A160190' /* SetEntryPointPrim */
+       U$ '47C68A220200' /* SetEntryPoint$47C68A220200 */
+       U$ '47C68A2E00EC' /* SetEntryPoint$47C68A2E00EC */
+       U$ '47C68A42023A' /* ToBottomChild */
+       U$ '47C68A520059' /* PositionW */
+       U$ '47F5FDA303BC' /* InnerFor */
+       U$ '47F618A90162' /* AfterEnd */
+       U$ '47FB32280262' /* AsLeaf */
+       U$ '47FCC68B03B1' /* LinkedPoint */
+       U$ '47FF3F1800FE' /* AtEnd */
+       U$ '47FF414E039D' /* AtStart */
+       U$ '4803044303DC' /* SetAtEnd */
+       U$ '4803045B0109' /* SetAtStart */
+       U$ '49D218B9032C' /* PointToParent */
+       U$ '49D243600057' /* PointToParentByLevel */
+       U$ '49D2437302B2' /* PointToTypedParent */
+       U$ '49D24386014E' /* TopParentPoint */
+       U$ '49D266AC032F' /* Outer */
+       U$ '49D2687002C7' /* ParentPoint */
+       U$ '49DDD02D00E3' /* Obj */
+       U$ '49DE123A031F' /* MostInner */
+       U$ '49DF51870234' /* Diff */
+       U$ '49E6FB10002A' /* Text */
+       U$ '4A42196C01CE' /* AsObject */
+       U$ '4A4C856300DF' /* DisableListener */
+       U$ '4A4C8581014B' /* EnableListener */
+       U$ '4A58B79A0360' /* HasInner */
+       U$ '4A5B48A701A9' /* ShowCollapsed */
+       U$ '4A5B60870158' /* Compare */
+       U$ '4A5B6D370262' /* CheckPos */
+       U$ '4A5C66200185' /* ReadOnly */
+       U$ '4A5C6DB4014D' /* AsPoint */
+       U$ '4A5C750E01F7' /* AsCursor */
+       U$ '4A5C7D2F0079' /* MarkersSource */
+       U$ '4A5C8A9D0324' /* ProcessMessage */
+       U$ '4A5C9138035D' /* Listener */
+       U$ '4A5C913F0235' /* GetBlockLength */
+       U$ '4A5CCBFC00B3' /* ViewBounds */
+       U$ '4A810F81018E' /* MergeTo */
+       U$ '4AA76AE00147' /* InnerForChildThatNotAfterEnd */
+       U$ '4AA76AF90174' /* HasBaseLine */
+       U$ '4B90DA600047' /* AddInner */
+       U$ '4B9623150178' /* CompareWithOtherInner */
+       U$ '4BBB0DDD026D' /* PartiallyVisible */
+       U$ '4C456C8E027F' /* InnerHead */
+       U$ '4C456CEA01DE' /* HasHeadPart */
+       U$ '4C456D220317' /* AddHeadInner */
+       U$ '4C457D0502E1' /* CopyHeadParts */
+       U$ '4C735E600112' /* InitByCursor */
+       U$ '4D9C113C0320' /* InitBaseLineInner */
+       U$ '4DDCD59301D5' /* InnerTop */
+       U$ '4EC3B0330271' /* BeforeStart */
+       U$ '50DAA7010050' /* CorrectMoveRight */
+      ; // %REALIZES
+     ; // InevPointTool
+     <<Typedef>> InevSelection
+      %UID '4F5C542100D1'
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47C5BA5F017D' /* InevSelection */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47C5BA6C03DF' /* Point */
+       U$ '47C5BA850240' /* IsMulti */
+       U$ '47C5BA930025' /* Select */
+       U$ '47C5BC1E0201' /* SelectPt */
+       U$ '47C5BC32005E' /* SelectPoint */
+       U$ '47C5BC510038' /* AddBlock */
+       U$ '47C5BC640314' /* Unselect */
+       U$ '47C5BC78024B' /* GetBlock */
+       U$ '47C5BC880398' /* Contains */
+       U$ '47FCD3A4038C' /* View */
+      ; // %REALIZES
+     ; // InevSelection
+   ; // %CHILDREN
+  ; // evCommonTypes
+  <<Unit>> DataObjects
+   %UID '469C688102A3'
+   %DEPENDS
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4678193C009C' /* l3Types */
+    U$ '467C0CAA02AB' /* l3InternalInterfaces */
+    U$ '4680F5600033' /* l3DataObject */
+    U$ '4682595B0268' /* l3TreeInterfaces */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47AC75550330' /* k2Tags */
+    U$ '47BB24D30205' /* "Стандартные примеси" */
+    U$ '47C695A10172' /* evTypes */
+    U$ '4802FF41005C' /* DataObjects */
+    U$ '48492FC0029D' /* Standard */
+    U$ '48F4BA770180' /* Writers */
+    U$ '48F4E61C0060' /* Interfaces */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4AB0C3F60375' /* Win */
+    U$ '54B90AC6014B' /* StringUtils */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4677E16A022A' /* K2 */
+    U$ '4677E18600C2' /* dd */
+    U$ '467A8734039C' /* EVD */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4797632D0273' /* Everest */
+    U$ '48EEE54C0072' /* EverestCommon */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Impurity>> ddTreeDataObject
+      %UID '469C68EC0226'
+      %SUMMARY 'Объект данных дерева' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '19.12.2006 13:08'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '48EEE54C0072' /* EverestCommon */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4680F8DE02E2' /* l3TreeDataObject */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '48F3504301B7' /* WriteFilesAndSetNames */
+       U$ '48F4B33501DE' /* GetFormats */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "48F4BA23031F"
+         %UID '48F4BA23031F'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 48F4BA23031F
+        <<uses>> "48F4BACF016D"
+         %UID '48F4BACF016D'
+         %TARGET U$ '47C69EBC00A8' /* Tk2TagID */
+        ; // 48F4BACF016D
+        <<uses>> "48F4BAE201DF"
+         %UID '48F4BAE201DF'
+         %TARGET U$ '48F4BA89000D' /* ddRTFWriter */
+        ; // 48F4BAE201DF
+        <<uses>> "48F4BB160032"
+         %UID '48F4BB160032'
+         %TARGET U$ '47A0686803A5' /* l3Filer */
+        ; // 48F4BB160032
+        <<uses>> "48F4BCD5016A"
+         %UID '48F4BCD5016A'
+         %TARGET U$ '468259900322' /* Il3SimpleNode */
+        ; // 48F4BCD5016A
+        <<uses>> "48F4BD3101F1"
+         %UID '48F4BD3101F1'
+         %TARGET U$ '48A41FF10094' /* Windows */
+        ; // 48F4BD3101F1
+        <<uses>> "48F4BDE500A3"
+         %UID '48F4BDE500A3'
+         %TARGET U$ '47878E0E0191' /* l3String */
+        ; // 48F4BDE500A3
+        <<uses>> "48F4BE54019B"
+         %UID '48F4BE54019B'
+         %TARGET U$ '48F4BE400154' /* Tl3FileMode */
+        ; // 48F4BE54019B
+        <<uses>> "48F4BE74003A"
+         %UID '48F4BE74003A'
+         %TARGET U$ '4773D64E036C' /* l3Base */
+        ; // 48F4BE74003A
+        <<uses>> "49AE42370268"
+         %UID '49AE42370268'
+         %TARGET U$ '4857B5260267' /* Document */
+        ; // 49AE42370268
+        <<uses>> "49AE42460099"
+         %UID '49AE42460099'
+         %TARGET U$ '485683750360' /* TextPara */
+        ; // 49AE42460099
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '4CDD4F46039D'
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CDD4F5401D4'
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aData
+               %UID '4CDD4F5902EC'
+               %TARGET U$ '48F8C8C201F0' /* DataType */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // aData
+              <<in>> aBitmap
+               %UID '4CDD4F59031E'
+               %TARGET U$ '476F70910097' /* Il3Bitmap */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // aBitmap
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+        FINAL <<Factory>> Make
+         %UID '4CDD4F24009A'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+          U$ '48EEE54C0072' /* EverestCommon */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '4680F4790135' /* IDataObject */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4CDD4F46039D' /* Create */
+         ; // %INHERITS
+         %REALIZES
+          U$ '48F32DD50284' /* GetData */
+          U$ '48F32E0200AF' /* GetDataHere */
+          U$ '48F32E20007F' /* QueryGetData */
+          U$ '48F32E330154' /* GetCanonicalFormatEtc */
+          U$ '48F32E4D0179' /* SetData */
+          U$ '48F330A10257' /* EnumFormatEtc */
+          U$ '48F330C40367' /* DAdvise */
+          U$ '48F3312B0381' /* DUnadvise */
+          U$ '48F3313E0339' /* EnumDAdvise */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID '2E775C3702AF'
+            %SUMMARY 'Сигнатура фабрики ddTreeDataObject.Make' ;
+            %TARGET U$ '4680F4790135' /* IDataObject */
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aData
+               %UID '9CDC186C8797'
+               %TARGET U$ '48F8C8C201F0' /* DataType */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // aData
+              SUMMONED <<in>> aBitmap
+               %UID '7BB0669E6CD5'
+               %TARGET U$ '476F70910097' /* Il3Bitmap */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // aBitmap
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Make
+        PROTECTED FINAL <<Operation>> GetCaptions
+         %UID '48F4B9F4010C'
+         %TARGET U$ '46780D0003AF' /* Tl3WString */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // GetCaptions
+        PROTECTED FINAL <<Operation>> CreateFileName
+         %UID '48F4BA0E0261'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // CreateFileName
+      ; // %OPERATIONS
+     ; // ddTreeDataObject
+     ABSTRACT <<Impurity>> evTreeData
+      %UID '48F895480266'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '17.10.2008 17:39'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '48EEE54C0072' /* EverestCommon */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '469C68EC0226' /* ddTreeDataObject */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '48F3495D0398' /* DoGetData */
+       U$ '48F351BE0015' /* AcceptableTymed */
+       U$ '4A60B23E00C3' /* COMQueryInterface */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "48F899B1015A"
+         %UID '48F899B1015A'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 48F899B1015A
+        <<uses>> "48F89AF50091"
+         %UID '48F89AF50091'
+         %TARGET U$ '4773D64E036C' /* l3Base */
+        ; // 48F89AF50091
+        <<uses>> "4CDD33580227"
+         %UID '4CDD33580227'
+         %TARGET U$ '4680FBF2003C' /* Il3DataObjectInfo */
+        ; // 4CDD33580227
+        <<uses>> "4CDD34B2025C"
+         %UID '4CDD34B2025C'
+         %TARGET U$ '4B17E8F10299' /* l3IFail */
+        ; // 4CDD34B2025C
+      ; // %LINKS
+      %ATTRIBUTES
+        PROTECTED LINK <<readonly>> Ext
+         %UID '48F895A300E8'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "needs field" true
+          %upv "pm" true
+          %upv "reads field" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Ext
+        PRIVATE LINK <<Attribute>> f_ExtData
+         %UID '48F895E40122'
+         %TARGET U$ '4680F4790135' /* IDataObject */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // f_ExtData
+        <<impurity_param>> DataType
+         %UID '48F8D1450222'
+         %TARGET U$ '48F8C8C201F0' /* DataType */
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+        ; // DataType
+        <<impurity_param>> DataClass
+         %UID '48F8D40502BC'
+         %TARGET U$ '48F8D3EA037C' /* DataClass */
+         %TOBEINCLUDED
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+        ; // DataClass
+        SUMMONED PRIVATE LINK <<Attribute>> f_Ext
+         %UID '00D9FC2F8186'
+         %SUMMARY 'Поле для свойства Ext' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_Ext
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '4CDD4D9D0014'
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> Create
+            %UID '4CDD4DAE018E'
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aData
+               %UID '4CDD4DB90305'
+               %TARGET U$ '48F8C8C201F0' /* DataType */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // aData
+              <<in>> aBitmap
+               %UID '4CDD4DB90324'
+               %TARGET U$ '476F70910097' /* Il3Bitmap */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // aBitmap
+            ; // %PARAMETERS
+           ; // Create
+         ; // %OPERATIONS
+        ; // Create
+        FINAL <<Factory>> Make
+         %UID '4CDD4D79022C'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+          U$ '48EEE54C0072' /* EverestCommon */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '4680F4790135' /* IDataObject */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4CDD4D9D0014' /* Create */
+         ; // %INHERITS
+         %REALIZES
+          U$ '48F32DD50284' /* GetData */
+          U$ '48F32E0200AF' /* GetDataHere */
+          U$ '48F32E20007F' /* QueryGetData */
+          U$ '48F32E330154' /* GetCanonicalFormatEtc */
+          U$ '48F32E4D0179' /* SetData */
+          U$ '48F330A10257' /* EnumFormatEtc */
+          U$ '48F330C40367' /* DAdvise */
+          U$ '48F3312B0381' /* DUnadvise */
+          U$ '48F3313E0339' /* EnumDAdvise */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> Create
+            %UID '0A318F9D7EBA'
+            %SUMMARY 'Сигнатура фабрики evTreeData.Make' ;
+            %TARGET U$ '4680F4790135' /* IDataObject */
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aData
+               %UID 'AD2F89AD33EE'
+               %TARGET U$ '48F8C8C201F0' /* DataType */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // aData
+              SUMMONED <<in>> aBitmap
+               %UID '4FC7456AB510'
+               %TARGET U$ '476F70910097' /* Il3Bitmap */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // aBitmap
+            ; // %PARAMETERS
+           ; // Create
+         ; // %OPERATIONS
+        ; // Make
+        PROTECTED FINAL <<Operation>> ExtData
+         %UID '48F896070020'
+         %TARGET U$ '4680F4790135' /* IDataObject */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // ExtData
+        PROTECTED <<Operation>> MakeExtData
+         %UID '48F89615037B'
+         %TARGET U$ '4680F4790135' /* IDataObject */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // MakeExtData
+        PROTECTED <<Operation>> ExtDataClass
+         %UID '48F8D47302FD'
+         %TARGET U$ '48F8D4B101F0' /* RDataClass */
+         %TOBEINCLUDED
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+        ; // ExtDataClass
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        ABSTRACT <<ImpurityParamType>> DataClass
+         %UID '48F8D3EA037C'
+        ; // DataClass
+        <<Typedef>> RDataClass
+         %UID '48F8D4B101F0'
+         %META
+          %upv "isClassRef" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '48F8D3EA037C' /* DataClass */
+         ; // %INHERITS
+        ; // RDataClass
+      ; // %CHILDREN
+     ; // evTreeData
+     <<SimpleClass>> TevNodeData
+      %UID '48F7014003A5'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '26.12.2006 17:02'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4797632D0273' /* Everest */
+       U$ '48EEE54C0072' /* EverestCommon */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '48F895480266' /* evTreeData */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '48F4B33501DE' /* GetFormats */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "48F7047001C6"
+         %UID '48F7047001C6'
+         %TARGET U$ '483E708900B4' /* "Clipboard Formats" */
+        ; // 48F7047001C6
+        <<uses>> "48F704C9034B"
+         %UID '48F704C9034B'
+         %TARGET U$ '48F4B5300085' /* l3TreeConst */
+        ; // 48F704C9034B
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> DataType
+         %UID '48F8D1AF01C4'
+         %TARGET U$ '468259900322' /* Il3SimpleNode */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // DataType
+        PRIVATE ABSTRACT <<impurity_value>> DataClass
+         %UID '48F8D4FD022D'
+         %TARGET U$ '48F4DC5A018D' /* TevNodeDataObject */
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+        ; // DataClass
+      ; // %ATTRIBUTES
+     ; // TevNodeData
+     <<SimpleClass>> TevConstStringData
+      %UID '48F4CF9903D6'
+      %META
+       %upv "author" 'Лукьянец Р.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '16.07.2007'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '467A8734039C' /* EVD */
+       U$ '4797632D0273' /* Everest */
+       U$ '48EEE54C0072' /* EverestCommon */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '48F895480266' /* evTreeData */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '48F4B33501DE' /* GetFormats */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "48F4D21300FB"
+         %UID '48F4D21300FB'
+         %TARGET U$ '483E708900B4' /* "Clipboard Formats" */
+        ; // 48F4D21300FB
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> DataClass
+         %UID '48F8D4E9021A'
+         %TARGET U$ '48F48A23007D' /* TevConstStringDataObject */
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+        ; // DataClass
+        PRIVATE ABSTRACT <<impurity_value>> DataType
+         %UID '4CDD3ED7016C'
+         %TARGET U$ '4CDD38560217' /* HyperlinkInfo */
+         %TOBEINCLUDED
+          U$ '467A8734039C' /* EVD */
+         ; // %TOBEINCLUDED
+        ; // DataType
+      ; // %ATTRIBUTES
+     ; // TevConstStringData
+   ; // %CHILDREN
+  ; // DataObjects
+  <<Unit>> Generators
+   %UID '4C407B410029'
+   %DEPENDS
+    U$ '4678137501EA' /* k2Interfaces */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47AC75550330' /* k2Tags */
+    U$ '47ECA80B000D' /* Generators */
+    U$ '47ECB8BD00A8' /* Generators */
+    U$ '480DBA6900E6' /* k2Facade */
+    U$ '48492FC0029D' /* Standard */
+    U$ '484A470100DD' /* Standard */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '54B90AC6014B' /* StringUtils */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4677E16A022A' /* K2 */
+    U$ '467A8734039C' /* EVD */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4797632D0273' /* Everest */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TevOEMTableFlagFilter
+      %UID '4C3FED3103B2'
+      %SUMMARY 'Фильтр выставления флага выливать в псевдографику таблицам.' ;
+      %META
+       %upv "author" 'Инишев Д.А.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4677E16A022A' /* K2 */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '49E487A70144' /* Tk2TagFilter */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4836D4C20059' /* CloseStructure */
+       U$ '4A2D1217037A' /* DoStartChild */
+       U$ '4A2D1634025B' /* DoAddAtomEx */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4C3FF8130092"
+         %UID '4C3FF8130092'
+         %TARGET U$ '4857D48E00F4' /* Table */
+        ; // 4C3FF8130092
+        <<uses>> "4C3FF8350398"
+         %UID '4C3FF8350398'
+         %TARGET U$ '47C69EBC00A8' /* Tk2TagID */
+        ; // 4C3FF8350398
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_NeedChange
+         %UID '4C3FF5F40163'
+         %SUMMARY 'Признак нужно ли менять флаг.' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_NeedChange
+      ; // %ATTRIBUTES
+     ; // TevOEMTableFlagFilter
+     <<SimpleClass>> TevUnblockEmptyParaFilter
+      %UID '4C56D4E002D2'
+      %SUMMARY 'Фильтр ищет блоки с пустыми параграфами в самом начале и "вытаскивает" эти пустые параграфы наверх. См. [$228692043]' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '467A8734039C' /* EVD */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '49E4965202A1' /* TevdBufferedFilter */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4836D4650177' /* StartChild */
+       U$ '4836D4C20059' /* CloseStructure */
+       U$ '4C56D54B002A' /* NeedStartBuffering */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4C56D6610144"
+         %UID '4C56D6610144'
+         %TARGET U$ '47878E0E0191' /* l3String */
+        ; // 4C56D6610144
+        <<uses>> "4C56D68D026F"
+         %UID '4C56D68D026F'
+         %TARGET U$ '533C138F0003' /* Ik2Tag */
+        ; // 4C56D68D026F
+        <<uses>> "4C56D69B0032"
+         %UID '4C56D69B0032'
+         %TARGET U$ '47C69EBC00A8' /* Tk2TagID */
+        ; // 4C56D69B0032
+        <<uses>> "4C56D6C602D8"
+         %UID '4C56D6C602D8'
+         %TARGET U$ '4857A87D0337' /* Block */
+        ; // 4C56D6C602D8
+        <<uses>> "4C56D6E7010C"
+         %UID '4C56D6E7010C'
+         %TARGET U$ '485669C9009D' /* LeafPara */
+        ; // 4C56D6E7010C
+        <<uses>> "4C5AAB3600DB"
+         %UID '4C5AAB3600DB'
+         %TARGET U$ '47AAB5EC03C2' /* Tl3System */
+        ; // 4C5AAB3600DB
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_NeedToReport
+         %UID '4C5AB08D0294'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_NeedToReport
+      ; // %ATTRIBUTES
+     ; // TevUnblockEmptyParaFilter
+     <<SimpleClass>> TevStrictContentsElementEliminator
+      %UID '4CA2FFC10275'
+      %SUMMARY 'Фильтр, удаляющий "элементы оглавления" (k2_idContentsElement). Но не блоки, и никаких других наследников' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '29.09.2010 13:00'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4677E16A022A' /* K2 */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '49E487A70144' /* Tk2TagFilter */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4CA3006302BC' /* NeedTranslateChildToNext */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4CA300B701DC"
+         %UID '4CA300B701DC'
+         %TARGET U$ '4A2E44B70095' /* ContentsElement */
+        ; // 4CA300B701DC
+      ; // %LINKS
+     ; // TevStrictContentsElementEliminator
+     <<SimpleClass>> TevBlocksEliminator
+      %UID '4CA311770238'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '2004/10/12 15:30:24'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4677E16A022A' /* K2 */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '49E487A70144' /* Tk2TagFilter */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4CA3006302BC' /* NeedTranslateChildToNext */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4CA311AA02B5"
+         %UID '4CA311AA02B5'
+         %TARGET U$ '4857A87D0337' /* Block */
+        ; // 4CA311AA02B5
+        <<uses>> "4CA311AE010B"
+         %UID '4CA311AE010B'
+         %TARGET U$ '4857B5260267' /* Document */
+        ; // 4CA311AE010B
+      ; // %LINKS
+     ; // TevBlocksEliminator
+     <<SimpleClass>> TevEmptyTableEliminator
+      %UID '4CF7B733015E'
+      %SUMMARY 'Фильтр, выкидывающий пустые таблицы' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '02.12.2010 18:12'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '467A8734039C' /* EVD */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '49E4965202A1' /* TevdBufferedFilter */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4836D4650177' /* StartChild */
+       U$ '4836D49800CA' /* OpenStream */
+       U$ '4A2D1217037A' /* DoStartChild */
+       U$ '4C56D54B002A' /* NeedStartBuffering */
+       U$ '4CF7BC520161' /* NeedFlushBuffer */
+       U$ '4CF7BEC40130' /* DoFlushBuffer */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4CF7BB60011C"
+         %UID '4CF7BB60011C'
+         %TARGET U$ '485669C9009D' /* LeafPara */
+        ; // 4CF7BB60011C
+        <<uses>> "4CF7BB6E0323"
+         %UID '4CF7BB6E0323'
+         %TARGET U$ '4857D48E00F4' /* Table */
+        ; // 4CF7BB6E0323
+        <<uses>> "4CF7BEF8029F"
+         %UID '4CF7BEF8029F'
+         %TARGET U$ '4857E2A70175' /* SBS */
+        ; // 4CF7BEF8029F
+        <<uses>> "4CF8D9FA01B1"
+         %UID '4CF8D9FA01B1'
+         %TARGET U$ '480DBA760390' /* k2Facade */
+        ; // 4CF8D9FA01B1
+        <<uses>> "4D11FE9E0380"
+         %UID '4D11FE9E0380'
+         %TARGET U$ '48579E4A003C' /* ParaList */
+        ; // 4D11FE9E0380
+        <<uses>> "4D1207AD003D"
+         %UID '4D1207AD003D'
+         %TARGET U$ '4857CD8D0093' /* TableCell */
+        ; // 4D1207AD003D
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_WasSomeLeaf
+         %UID '4CF7BDBA0056'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_WasSomeLeaf
+      ; // %ATTRIBUTES
+     ; // TevEmptyTableEliminator
+     <<SimpleClass>> TevLeafParaDecorationsHolderEliminator
+      %UID '4D9343CE038C'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '30.03.2011 18:53'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4677E16A022A' /* K2 */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '49E487A70144' /* Tk2TagFilter */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4CA3006302BC' /* NeedTranslateChildToNext */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4D93442C0399"
+         %UID '4D93442C0399'
+         %TARGET U$ '4CEBC4B702DD' /* LeafParaDecorationsHolder */
+        ; // 4D93442C0399
+      ; // %LINKS
+     ; // TevLeafParaDecorationsHolderEliminator
+     <<SimpleClass>> TevDocumentSubsChildrenCountEliminator
+      %UID '4E7754BD01BA'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '19.09.2011 18:42'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4677E16A022A' /* K2 */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '49E487A70144' /* Tk2TagFilter */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4A2D1634025B' /* DoAddAtomEx */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4E775509038B"
+         %UID '4E775509038B'
+         %TARGET U$ '4857B5260267' /* Document */
+        ; // 4E775509038B
+        <<uses>> "4E77551E023A"
+         %UID '4E77551E023A'
+         %TARGET U$ '47C69EBC00A8' /* Tk2TagID */
+        ; // 4E77551E023A
+      ; // %LINKS
+     ; // TevDocumentSubsChildrenCountEliminator
+   ; // %CHILDREN
+  ; // Generators
+  <<Unit>> Readers
+   %UID '4C9CD483018B'
+   %DEPENDS
+    U$ '482D6E960087' /* Readers */
+    U$ '48EA3D1F0232' /* Readers */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4677E16A022A' /* K2 */
+    U$ '4677E18600C2' /* dd */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TevdNSRCReader
+      %UID '4B59EBB503DA'
+      %META
+       %upv "finished" false
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4677E16A022A' /* K2 */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '483E81520007' /* Tk2CustomFileParser */
+      ; // %INHERITS
+      %LINKS
+        <<uses>> "4C9CD190013F"
+         %UID '4C9CD190013F'
+         %TARGET U$ '4C9CD11901BD' /* ddNSRC_r */
+        ; // 4C9CD190013F
+      ; // %LINKS
+     ; // TevdNSRCReader
+   ; // %CHILDREN
+  ; // Readers
+  <<Unit>> Tools
+   %UID '4CE3995C0300'
+   %DEPENDS
+    U$ '4678193C009C' /* l3Types */
+    U$ '476BE98C01B8' /* l3Chars */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47ECA80B000D' /* Generators */
+    U$ '47ECACA70141' /* Generators */
+    U$ '47ECB8BD00A8' /* Generators */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4B324F930103' /* Filters */
+    U$ '4C407B410029' /* Generators */
+    U$ '4C9CD483018B' /* Readers */
+   ; // %DEPENDS
+   %META
+    %upv "path prefix" '/Tools'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '4677E16A022A' /* K2 */
+    U$ '4677E18600C2' /* dd */
+    U$ '467A8734039C' /* EVD */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4797632D0273' /* Everest */
+    U$ '48EEE54C0072' /* EverestCommon */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TevAdjustNSRCToPage
+      %UID '4CE3998200D9'
+      %SUMMARY '{RequestLink:241012792}' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '17.11.2010 12:00'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        FINAL <<method>> ProcessFile
+         %UID '4CE399BC02E3'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4CE39DB80195"
+            %UID '4CE39DB80195'
+            %TARGET U$ '4C2DD432039C' /* TddSectionWithSub2ParaFilter */
+           ; // 4CE39DB80195
+           <<uses>> "4CE39DBF028C"
+            %UID '4CE39DBF028C'
+            %TARGET U$ '4B324FA20278' /* TddSectionRepairFilter */
+           ; // 4CE39DBF028C
+           <<uses>> "4CE39EF801AA"
+            %UID '4CE39EF801AA'
+            %TARGET U$ '4B59FBCA0096' /* TddNSRCGenerator */
+           ; // 4CE39EF801AA
+           <<uses>> "4CE39F2F0037"
+            %UID '4CE39F2F0037'
+            %TARGET U$ '4B59EBB503DA' /* TevdNSRCReader */
+           ; // 4CE39F2F0037
+           <<uses>> "4CE39F6A033C"
+            %UID '4CE39F6A033C'
+            %TARGET U$ '4B4F61AD01AA' /* Tl3CustomDosFiler */
+           ; // 4CE39F6A033C
+           <<uses>> "4CE3A0990364"
+            %UID '4CE3A0990364'
+            %TARGET U$ '4836BEB200A2' /* TevCustomTextFormatter */
+           ; // 4CE3A0990364
+           <<uses>> "4CE3A0CE01F8"
+            %UID '4CE3A0CE01F8'
+            %TARGET U$ '4836C450038D' /* TevSimpleTextPainter */
+           ; // 4CE3A0CE01F8
+           <<uses>> "4CE3A0E30326"
+            %UID '4CE3A0E30326'
+            %TARGET U$ '49082AE80393' /* "Code Pages" */
+           ; // 4CE3A0E30326
+           <<uses>> "4CE3A14803D1"
+            %UID '4CE3A14803D1'
+            %TARGET U$ '47ECAA5B0394' /* Tk2TagGenerator */
+           ; // 4CE3A14803D1
+           <<uses>> "4CE3A1AD02CE"
+            %UID '4CE3A1AD02CE'
+            %TARGET U$ '4773D64E036C' /* l3Base */
+           ; // 4CE3A1AD02CE
+           <<uses>> "4CE3A2A1018D"
+            %UID '4CE3A2A1018D'
+            %TARGET U$ '48F4BE400154' /* Tl3FileMode */
+           ; // 4CE3A2A1018D
+           <<uses>> "4CE3A51F013C"
+            %UID '4CE3A51F013C'
+            %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+           ; // 4CE3A51F013C
+           <<uses>> "4CF8E29F0347"
+            %UID '4CF8E29F0347'
+            %TARGET U$ '4CF7B733015E' /* TevEmptyTableEliminator */
+           ; // 4CF8E29F0347
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CE399D3015C'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aFile
+               %UID '4CE399DB02D2'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aFile
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // ProcessFile
+      ; // %OPERATIONS
+     ; // TevAdjustNSRCToPage
+   ; // %CHILDREN
+  ; // Tools
+  <<Unit>> Containers
+   %UID '4E562FBF03B9'
+   %DEPENDS
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47C5207602D1' /* nevTools */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4790D09A0378' /* L3 */
+    U$ '4797632D0273' /* Everest */
+    U$ '48EEE54C0072' /* EverestCommon */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TevSearcherAndReplacerPairList
+      %UID '4E56306403C2'
+      %SUMMARY '{RequestLink:280009855}' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '25.08.2011 15:22'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '4797632D0273' /* Everest */
+       U$ '48EEE54C0072' /* EverestCommon */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4A54DD4E036F' /* Tl3ProtoDataContainer */
+       U$ '4B223ADC02BF' /* l3RecordListPrim */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47B07CF403D0' /* IsSameItems */
+       U$ '47B2C42A0163' /* AssignItem */
+       U$ '47B99D4503A2' /* CompareExistingItems */
+      ; // %REALIZES
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> ItemType
+         %UID '4E5630EB02D9'
+         %TARGET U$ '4E5630E20149' /* TevSearcherAndReplacerPair */
+         %TOBEINCLUDED
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+        ; // ItemType
+      ; // %ATTRIBUTES
+      %CHILDREN
+       
+        <<StaticObject>> TevSearcherAndReplacerPair
+         %UID '4E5630E20149'
+         %META
+          %upv "not treat as record for XE4" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           FINAL <<Attribute>> rSearcher
+            %UID '4E5631240370'
+            %TARGET U$ '47C693AA003A' /* IevSearcher */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // rSearcher
+           FINAL <<Attribute>> rReplacer
+            %UID '4E56312C0095'
+            %TARGET U$ '47C693BF0118' /* IevReplacer */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // rReplacer
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           FINAL <<Constructor>> C
+            %UID '4E56313900E0'
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4E56313F0179'
+               %TOBEINCLUDED
+                U$ '4797632D0273' /* Everest */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aSearcher
+                  %UID '4E5631530329'
+                  %TARGET U$ '47C693AA003A' /* IevSearcher */
+                  %TOBEINCLUDED
+                   U$ '4797632D0273' /* Everest */
+                  ; // %TOBEINCLUDED
+                 ; // aSearcher
+                 <<in>> aReplacer
+                  %UID '4E5631530347'
+                  %TARGET U$ '47C693BF0118' /* IevReplacer */
+                  %TOBEINCLUDED
+                   U$ '4797632D0273' /* Everest */
+                  ; // %TOBEINCLUDED
+                 ; // aReplacer
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // C
+         ; // %OPERATIONS
+        ; // TevSearcherAndReplacerPair
+        FINAL <<Define>> l3Items_NoSort
+         %UID '4E56319C0071'
+        ; // l3Items_NoSort
+      ; // %CHILDREN
+     ; // TevSearcherAndReplacerPairList
+   ; // %CHILDREN
+  ; // Containers
+  <<Unit>> evFacade
+   %UID '48EEE7AE0313'
+   %DEPENDS
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4678137501EA' /* k2Interfaces */
+    U$ '4678209200A6' /* nevBase */
+    U$ '469D0AC7005E' /* Types */
+    U$ '4728A7020026' /* Types */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47AC75550330' /* k2Tags */
+    U$ '47C5207602D1' /* nevTools */
+    U$ '47ECA80B000D' /* Generators */
+    U$ '47ECAB0B0265' /* evMsgCode */
+    U$ '47ECB8BD00A8' /* Generators */
+    U$ '47F088300159' /* evInternalInterfaces */
+    U$ '47F0893F0220' /* nevInternalInterfaces */
+    U$ '47F1F38601A3' /* ParaUtils */
+    U$ '4802FF41005C' /* DataObjects */
+    U$ '4829D7D50156' /* Editors */
+    U$ '482BFB50007B' /* TextSources */
+    U$ '482D6E960087' /* Readers */
+    U$ '48453A40017C' /* evOp */
+    U$ '48492FC0029D' /* Standard */
+    U$ '48E3836D00C8' /* evEditorInterfaces */
+    U$ '48EEE9330072' /* evCommonTypes */
+    U$ '48F4E61C0060' /* Interfaces */
+    U$ '4A4DE16302A2' /* k2Core */
+    U$ '4AB0997B00A2' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4B324F930103' /* Filters */
+    U$ '54B90AC6014B' /* StringUtils */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4677E16A022A' /* K2 */
+    U$ '4677E18600C2' /* dd */
+    U$ '467A8734039C' /* EVD */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4797632D0273' /* Everest */
+    U$ '48EEE54C0072' /* EverestCommon */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> evFacadeCursor
+      %UID '48EEE8A503AB'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4797632D0273' /* Everest */
+       U$ '48EEE54C0072' /* EverestCommon */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "48EEEF100271"
+         %UID '48EEEF100271'
+         %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+        ; // 48EEEF100271
+        <<uses>> "48EEEF140289"
+         %UID '48EEEF140289'
+         %TARGET U$ '4829D89703D2' /* TevCustomEditor */
+        ; // 48EEEF140289
+        <<uses>> "48F2F29F01D6"
+         %UID '48F2F29F01D6'
+         %TARGET U$ '47C5BA5F017D' /* InevSelection */
+        ; // 48F2F29F01D6
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<Operation>> evGetMostInnerPos
+         %UID '48EEED050239'
+         %SUMMARY 'Возвращает позицию самого внутреннего курсора' ;
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '48EEED1A02A4'
+            %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+         ; // %PARAMETERS
+        ; // evGetMostInnerPos
+        FINAL <<Operation>> evGetMostInnerEntryPos
+         %UID '48EEED27002F'
+         %SUMMARY 'Возвращает позицию самого внутреннего курсора или начала выделения' ;
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '48EEED370264'
+            %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+         ; // %PARAMETERS
+        ; // evGetMostInnerEntryPos
+        FINAL <<Operation>> evCursorInSel
+         %UID '48EEED52016E'
+         %SUMMARY 'Проверка находится ли курсор в выделении' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '48EEED630064'
+            %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+         ; // %PARAMETERS
+        ; // evCursorInSel
+        FINAL <<Operation>> evMostInnerCursor
+         %UID '48EEED730106'
+         %SUMMARY 'Возвращает курсор самого нижнего уровня' ;
+         %TARGET U$ '48EEEC1502AA' /* TnevBaseCursor */
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '48EEED86004B'
+            %TARGET U$ '4829D89703D2' /* TevCustomEditor */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+         ; // %PARAMETERS
+        ; // evMostInnerCursor
+        FINAL <<Operation>> evCloneCursor
+         %UID '48EEEDA301B2'
+         %SUMMARY 'Клонировать курсор' ;
+         %TARGET U$ '48EEEC030354' /* TnevCursor */
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '48EEEDB2032F'
+            %TARGET U$ '4829D89703D2' /* TevCustomEditor */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+         ; // %PARAMETERS
+        ; // evCloneCursor
+        FINAL <<Operation>> evFreeCursor
+         %UID '48EEEDBC02F0'
+         %SUMMARY 'Освобождает объект/интерфейс курсора' ;
+         %TOBEINCLUDED
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<inout>> aCursor
+            %UID '48EEEDC5035F'
+            %TARGET U$ '48EEEC030354' /* TnevCursor */
+            %TOBEINCLUDED
+             U$ '48EEE54C0072' /* EverestCommon */
+            ; // %TOBEINCLUDED
+           ; // aCursor
+         ; // %PARAMETERS
+        ; // evFreeCursor
+        FINAL <<Operation>> evSelectPoint
+         %UID '48EEEDD200CA'
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '48EEEDDC03B6'
+            %TARGET U$ '4829D89703D2' /* TevCustomEditor */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+           <<const>> aCursor
+            %UID '48EEEDDD000D'
+            %TARGET U$ '48EEEC030354' /* TnevCursor */
+            %TOBEINCLUDED
+             U$ '48EEE54C0072' /* EverestCommon */
+            ; // %TOBEINCLUDED
+           ; // aCursor
+         ; // %PARAMETERS
+        ; // evSelectPoint
+        FINAL <<Operation>> evGetChildCursor
+         %UID '48EEEDE302E0'
+         %SUMMARY 'Возвращает дочерний курсор' ;
+         %TARGET U$ '48EEEC1502AA' /* TnevBaseCursor */
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '48EEEDF9028E'
+            %TARGET U$ '4829D89703D2' /* TevCustomEditor */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+           <<const>> aCursor
+            %UID '48EEEDF902BD'
+            %TARGET U$ '48EEEC1502AA' /* TnevBaseCursor */
+            %TOBEINCLUDED
+             U$ '48EEE54C0072' /* EverestCommon */
+            ; // %TOBEINCLUDED
+           ; // aCursor
+         ; // %PARAMETERS
+        ; // evGetChildCursor
+      ; // %OPERATIONS
+     ; // evFacadeCursor
+     FINAL <<UtilityPack>> evFacadeSelection
+      %UID '48EEF8240298'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4677E16A022A' /* K2 */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4797632D0273' /* Everest */
+       U$ '48EEE54C0072' /* EverestCommon */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "48F2ECDC02C7"
+         %UID '48F2ECDC02C7'
+         %TARGET U$ '47878E0E0191' /* l3String */
+        ; // 48F2ECDC02C7
+        <<uses>> "48F5C36C0096"
+         %UID '48F5C36C0096'
+         %TARGET U$ '47F1F3BC0330' /* evParaTools */
+        ; // 48F5C36C0096
+        <<uses>> "49B0D52901FA"
+         %UID '49B0D52901FA'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 49B0D52901FA
+        <<uses>> "4BEBBDDC00E2"
+         %UID '4BEBBDDC00E2'
+         %TARGET U$ '48E385BC0143' /* TedRange */
+        ; // 4BEBBDDC00E2
+        <<uses>> "52C140CF00E2"
+         %UID '52C140CF00E2'
+         %TARGET U$ '4857CD8D0093' /* TableCell */
+        ; // 52C140CF00E2
+        <<uses>> "52C141160121"
+         %UID '52C141160121'
+         %TARGET U$ '468E49730365' /* MergeStatus */
+        ; // 52C141160121
+        <<uses>> "52C144DE037E"
+         %UID '52C144DE037E'
+         %TARGET U$ '48453A750156' /* Operations */
+        ; // 52C144DE037E
+        <<uses>> "52C147980041"
+         %UID '52C147980041'
+         %TARGET U$ '47AC759800AF' /* ExtTags */
+        ; // 52C147980041
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<method>> evAssignSelection$5321D4830213
+         %UID '5321D4830213'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt$5321D4A501A2
+            %UID '5321D4A501A2'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aMemo
+               %UID '5321D5010255'
+               %TARGET U$ '48454EBB0050' /* TevMemo */
+               %TOBEINCLUDED
+                U$ '4797632D0273' /* Everest */
+               ; // %TOBEINCLUDED
+              ; // aMemo
+              <<in>> aPos
+               %UID '5321D5010284'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aPos
+              <<in>> aLen
+               %UID '5321D50102C2'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aLen
+            ; // %PARAMETERS
+           ; // DoIt$5321D4A501A2
+         ; // %OPERATIONS
+        ; // evAssignSelection$5321D4830213
+        FINAL <<Operation>> evGetSel
+         %UID '48EEF86903A7'
+         %TARGET U$ '48EEEC6402D2' /* TnevIRange */
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '48EEF87B02EE'
+            %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+         ; // %PARAMETERS
+        ; // evGetSel
+        FINAL <<Operation>> evAssignSelection$48EEF88901CE
+         %UID '48EEF88901CE'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aMemo
+            %UID '48F2EA58025D'
+            %TARGET U$ '48454EBB0050' /* TevMemo */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aMemo
+           <<in>> aPos
+            %UID '48F2EA58029C'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aPos
+           <<in>> aCurrStr
+            %UID '48F2EA5802CA'
+            %TARGET U$ '452257A0036F' /* "a-string" */
+           ; // aCurrStr
+         ; // %PARAMETERS
+        ; // evAssignSelection$48EEF88901CE
+        FINAL STRING FUNCTION evGetSelString
+         %UID '48EEF8A0019A'
+         %TARGET U$ '452257A0036F' /* "a-string" */
+         %TOBEINCLUDED
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aRange
+            %UID '4A6844B1027D'
+            %TARGET U$ '48EEEC6402D2' /* TnevIRange */
+            %TOBEINCLUDED
+             U$ '48EEE54C0072' /* EverestCommon */
+            ; // %TOBEINCLUDED
+           ; // aRange
+         ; // %PARAMETERS
+        ; // evGetSelString
+        FINAL <<Operation>> evDeleteBlockEX
+         %UID '48EEF92400B1'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aView
+            %UID '4A6844A801C9'
+            %TARGET U$ '47C5B97302B2' /* InevView */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aView
+           <<in>> Container
+            %UID '4A6844A80208'
+            %TARGET U$ '476BEF7B0378' /* InevOp */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // Container
+           <<in>> aBlock
+            %UID '4A6844A8027A'
+            %TARGET U$ '47C5B54401B2' /* InevRange */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aBlock
+         ; // %PARAMETERS
+        ; // evDeleteBlockEX
+        FINAL <<Operation>> evSaveBlock
+         %UID '48EEFCF1031C'
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '48EEFCF4020E'
+            %TARGET U$ '4829D89703D2' /* TevCustomEditor */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+           <<out>> aSaveBlock
+            %UID '48EEFCF4023C'
+            %TARGET U$ '48EEEBD5008A' /* TnevLocation */
+            %TOBEINCLUDED
+             U$ '48EEE54C0072' /* EverestCommon */
+            ; // %TOBEINCLUDED
+           ; // aSaveBlock
+           <<in>> aCheckCursor
+            %UID '48EEFCF4026B'
+            %TARGET U$ '48EEEC030354' /* TnevCursor */
+            %VALUE 'nil'
+            %TOBEINCLUDED
+             U$ '48EEE54C0072' /* EverestCommon */
+            ; // %TOBEINCLUDED
+           ; // aCheckCursor
+         ; // %PARAMETERS
+        ; // evSaveBlock
+        FINAL <<Operation>> evUnselect
+         %UID '48EEFCFD0192'
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '48EEFD000074'
+            %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+         ; // %PARAMETERS
+        ; // evUnselect
+        FINAL <<Operation>> evFreeBlock
+         %UID '48EEFD3B00D0'
+         %TOBEINCLUDED
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<inout>> aSaveBlock
+            %UID '48EEFD3D01B7'
+            %TARGET U$ '48EEEBD5008A' /* TnevLocation */
+            %TOBEINCLUDED
+             U$ '48EEE54C0072' /* EverestCommon */
+            ; // %TOBEINCLUDED
+           ; // aSaveBlock
+         ; // %PARAMETERS
+        ; // evFreeBlock
+        FINAL <<Operation>> evMostInnerFromBlock
+         %UID '48F2F0CA02E4'
+         %TARGET U$ '48EEEC3C00B6' /* InevCommonPoint */
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aBlock
+            %UID '4A6844BC00DE'
+            %TARGET U$ '48F86E960118' /* IevCommonDataObject */
+            %TOBEINCLUDED
+             U$ '48EEE54C0072' /* EverestCommon */
+            ; // %TOBEINCLUDED
+           ; // aBlock
+           <<in>> anEditor
+            %UID '48F86F2A01B0'
+            %TARGET U$ '4829D89703D2' /* TevCustomEditor */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+         ; // %PARAMETERS
+        ; // evMostInnerFromBlock
+        FINAL <<Operation>> evGetBottomChildBlock
+         %UID '49B0D2EC01FC'
+         %TARGET U$ '47C5B54401B2' /* InevRange */
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aBlock
+            %UID '4A6844C10228'
+            %TARGET U$ '48EEEC6402D2' /* TnevIRange */
+            %TOBEINCLUDED
+             U$ '48EEE54C0072' /* EverestCommon */
+            ; // %TOBEINCLUDED
+           ; // aBlock
+           <<in>> anEditor
+            %UID '49B0D30C03CA'
+            %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+         ; // %PARAMETERS
+        ; // evGetBottomChildBlock
+        FINAL <<Operation>> evRangeInsertFrom
+         %UID '4BEBBCE00119'
+         %TOBEINCLUDED
+          U$ '4677E16A022A' /* K2 */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '4BEBBD0A01B2'
+            %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+           <<in>> aFilter
+            %UID '4BEBBD0A01E9'
+            %TARGET U$ '47ECAA5B0394' /* Tk2TagGenerator */
+            %TOBEINCLUDED
+             U$ '4677E16A022A' /* K2 */
+            ; // %TOBEINCLUDED
+           ; // aFilter
+         ; // %PARAMETERS
+        ; // evRangeInsertFrom
+        FINAL <<Operation>> evGetMostInnerRange
+         %UID '4C332D2F008B'
+         %SUMMARY 'Возвращает InevRange для курсора самого нижнего уровня' ;
+         %TARGET U$ '48EEEC8A013B' /* InevTagSelection */
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '4C334078038E'
+            %TARGET U$ '4829D89703D2' /* TevCustomEditor */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+         ; // %PARAMETERS
+        ; // evGetMostInnerRange
+      ; // %OPERATIONS
+     ; // evFacadeSelection
+     FINAL <<UtilityPack>> evFacadeSub
+      %UID '48EEF8D0004A'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4797632D0273' /* Everest */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "48EF31A60028"
+         %UID '48EF31A60028'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 48EF31A60028
+        <<uses>> "48EF52D1006B"
+         %UID '48EF52D1006B'
+         %TARGET U$ '4773D64E036C' /* l3Base */
+        ; // 48EF52D1006B
+        <<uses>> "48EF534C0198"
+         %UID '48EF534C0198'
+         %TARGET U$ '476BEF7B0378' /* InevOp */
+        ; // 48EF534C0198
+        <<uses>> "48EF5A8601AE"
+         %UID '48EF5A8601AE'
+         %TARGET U$ '4A2621920255' /* evStubs */
+        ; // 48EF5A8601AE
+        <<uses>> "53185A9D00C3"
+         %UID '53185A9D00C3'
+         %TARGET U$ '47ECAB310336' /* "Msg Codes" */
+        ; // 53185A9D00C3
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<Operation>> evDeleteSub
+         %UID '48EEF8EA0247'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '48EEF906016E'
+            %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+           <<const>> aSub
+            %UID '48EEF906018D'
+            %TARGET U$ '47C6B03200AF' /* IevSub */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aSub
+         ; // %PARAMETERS
+        ; // evDeleteSub
+        FINAL <<Operation>> evGetSubList
+         %UID '48EEF96A02C0'
+         %TARGET U$ '47C6A79702F3' /* InevSubList */
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTextSource
+            %UID '48EEF979019F'
+            %TARGET U$ '482BFB7C00B6' /* TevCustomTextSource */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aTextSource
+         ; // %PARAMETERS
+        ; // evGetSubList
+        FINAL <<Operation>> evDeleteAllDocumentParts
+         %UID '48EEFA60019E'
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '48EEFA6A00A4'
+            %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+         ; // %PARAMETERS
+        ; // evDeleteAllDocumentParts
+        FINAL <<Operation>> evNewSub
+         %UID '48EEFB0F0332'
+         %TARGET U$ '47C6B03200AF' /* IevSub */
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '48EEFB11033F'
+            %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+         ; // %PARAMETERS
+        ; // evNewSub
+        FINAL <<Operation>> evCurrentSub
+         %UID '48EEFB1C005F'
+         %TARGET U$ '47C6B03200AF' /* IevSub */
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '48EEFB1E03E5'
+            %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+         ; // %PARAMETERS
+        ; // evCurrentSub
+        FINAL <<Operation>> evSubSelect
+         %UID '48EEFD46016A'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '48EEFD4702EF'
+            %TARGET U$ '4829D89703D2' /* TevCustomEditor */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+           <<in>> aGoToSubID
+            %UID '48EEFD47031D'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aGoToSubID
+         ; // %PARAMETERS
+        ; // evSubSelect
+      ; // %OPERATIONS
+     ; // evFacadeSub
+     FINAL <<UtilityPack>> evFacadeUtils
+      %UID '48EEF98B01FF'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4677E16A022A' /* K2 */
+       U$ '467A8734039C' /* EVD */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4797632D0273' /* Everest */
+       U$ '48EEE54C0072' /* EverestCommon */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "48F2F4AF0279"
+         %UID '48F2F4AF0279'
+         %TARGET U$ '47878E0E0191' /* l3String */
+        ; // 48F2F4AF0279
+        <<uses>> "48F343F000DC"
+         %UID '48F343F000DC'
+         %TARGET U$ '4829D89703D2' /* TevCustomEditor */
+        ; // 48F343F000DC
+        <<uses>> "492E55050394"
+         %UID '492E55050394'
+         %TARGET U$ '483D7C55027A' /* TevdNativeWriter */
+        ; // 492E55050394
+        <<uses>> "492E55E10129"
+         %UID '492E55E10129'
+         %TARGET U$ '48FC8B3D01BC' /* TevTreeDataObject */
+        ; // 492E55E10129
+        <<uses>> "492E566300E5"
+         %UID '492E566300E5'
+         %TARGET U$ '48FC655F025C' /* TevTreeStorableData */
+        ; // 492E566300E5
+        <<uses>> "492E570D03D4"
+         %UID '492E570D03D4'
+         %TARGET U$ '4811C7A80167' /* InevSimpleTree */
+        ; // 492E570D03D4
+        <<uses>> "4BB320160211"
+         %UID '4BB320160211'
+         %TARGET U$ '47F24AFB0308' /* Layers */
+        ; // 4BB320160211
+        <<uses>> "540591030389"
+         %UID '540591030389'
+         %TARGET U$ '47ECAB310336' /* "Msg Codes" */
+        ; // 540591030389
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<Operation>> evInsertFile$48EEF9F20194
+         %UID '48EEF9F20194'
+         %TOBEINCLUDED
+          U$ '4677E16A022A' /* K2 */
+          U$ '4797632D0273' /* Everest */
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTextSource
+            %UID '48F33D6401DA'
+            %TARGET U$ '482BFB7C00B6' /* TevCustomTextSource */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aTextSource
+           <<in>> aReader
+            %UID '48F33D640218'
+            %TARGET U$ '482D6ED9000A' /* Tk2CustomReader */
+            %TOBEINCLUDED
+             U$ '4677E16A022A' /* K2 */
+            ; // %TOBEINCLUDED
+           ; // aReader
+           <<const>> aCursor
+            %UID '48F33D640247'
+            %TARGET U$ '48EEEC030354' /* TnevCursor */
+            %TOBEINCLUDED
+             U$ '48EEE54C0072' /* EverestCommon */
+            ; // %TOBEINCLUDED
+           ; // aCursor
+         ; // %PARAMETERS
+        ; // evInsertFile$48EEF9F20194
+        FINAL <<Operation>> evInsertFile$48EEFA2400D7
+         %UID '48EEFA2400D7'
+         %TOBEINCLUDED
+          U$ '4677E16A022A' /* K2 */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '48F33D740182'
+            %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+           <<in>> aReader
+            %UID '48F33D7401B1'
+            %TARGET U$ '482D6ED9000A' /* Tk2CustomReader */
+            %TOBEINCLUDED
+             U$ '4677E16A022A' /* K2 */
+            ; // %TOBEINCLUDED
+           ; // aReader
+         ; // %PARAMETERS
+        ; // evInsertFile$48EEFA2400D7
+        FINAL <<Operation>> evFreeGenerator
+         %UID '48EEFB4F0184'
+         %TOBEINCLUDED
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<inout>> aGen
+            %UID '48EEFB5002E9'
+            %TARGET U$ '48EEEA480069' /* TevGenerator */
+            %TOBEINCLUDED
+             U$ '48EEE54C0072' /* EverestCommon */
+            ; // %TOBEINCLUDED
+           ; // aGen
+         ; // %PARAMETERS
+        ; // evFreeGenerator
+        FINAL <<Operation>> evReadDataEX
+         %UID '48EEFCDD03A9'
+         %TOBEINCLUDED
+          U$ '4677E16A022A' /* K2 */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTextSource
+            %UID '48F33ECD00DA'
+            %TARGET U$ '482BFB7C00B6' /* TevCustomTextSource */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aTextSource
+           <<in>> G
+            %UID '48F33ECD0118'
+            %TARGET U$ '47ECAA5B0394' /* Tk2TagGenerator */
+            %TOBEINCLUDED
+             U$ '4677E16A022A' /* K2 */
+            ; // %TOBEINCLUDED
+           ; // G
+         ; // %PARAMETERS
+        ; // evReadDataEX
+        FINAL <<Operation>> evInsertText2Memo
+         %UID '48EEFD9903E1'
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aMemo
+            %UID '48F2EAB200A5'
+            %TARGET U$ '48454EBB0050' /* TevMemo */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aMemo
+           <<const>> aRange
+            %UID '48F2EAB200E3'
+            %TARGET U$ '48EEEC6402D2' /* TnevIRange */
+            %TOBEINCLUDED
+             U$ '48EEE54C0072' /* EverestCommon */
+            ; // %TOBEINCLUDED
+           ; // aRange
+           <<in>> aText
+            %UID '48F2EAB20112'
+            %TARGET U$ '452257A0036F' /* "a-string" */
+           ; // aText
+         ; // %PARAMETERS
+        ; // evInsertText2Memo
+        FINAL <<Operation>> evSetPlainTextFlag
+         %UID '48EEFDA30103'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aMemo
+            %UID '48EEFDA4022A'
+            %TARGET U$ '48454EBB0050' /* TevMemo */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aMemo
+           <<in>> aValue
+            %UID '48EEFDA40259'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aValue
+         ; // %PARAMETERS
+        ; // evSetPlainTextFlag
+        FINAL <<Operation>> evGetNewTextGenerator$48EF2BA000E0
+         %UID '48EF2BA000E0'
+         %SUMMARY 'Возвращает генератор для вствки текста.' ;
+         %TARGET U$ '48EEEA480069' /* TevGenerator */
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTextSource
+            %UID '48EF2BB70232'
+            %TARGET U$ '482BFB7C00B6' /* TevCustomTextSource */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aTextSource
+         ; // %PARAMETERS
+        ; // evGetNewTextGenerator$48EF2BA000E0
+        FINAL <<Operation>> evGetNewTextGenerator$48EF2BC503A1
+         %UID '48EF2BC503A1'
+         %SUMMARY 'Возвращает генератор для вствки текста, с учетом текущего курсора.' ;
+         %TARGET U$ '48EEEA480069' /* TevGenerator */
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '48EF2BCF017F'
+            %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+         ; // %PARAMETERS
+        ; // evGetNewTextGenerator$48EF2BC503A1
+        FINAL <<Operation>> evStoreTreeDataObject
+         %UID '492E544E0315'
+         %TOBEINCLUDED
+          U$ '467A8734039C' /* EVD */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<const>> aWriter
+            %UID '492E54CD0333'
+            %TARGET U$ '483D7C55027A' /* TevdNativeWriter */
+            %TOBEINCLUDED
+             U$ '467A8734039C' /* EVD */
+            ; // %TOBEINCLUDED
+           ; // aWriter
+           <<const>> aTree
+            %UID '492E54CD0381'
+            %TARGET U$ '476BF1DD0075' /* InevSimpleTree */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aTree
+           <<in>> aLevelTag
+            %UID '492E54CD03BF'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aLevelTag
+           <<in>> aFlag
+            %UID '492E54CE0025'
+            %TARGET U$ '476F71A701AB' /* Word */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aFlag
+         ; // %PARAMETERS
+        ; // evStoreTreeDataObject
+        FINAL <<Operation>> evSetExcludeWords
+         %UID '4BB3202300B5'
+         %SUMMARY 'Устанавливает/сбрасывает флаг ev_slFoundWords (в зависимости от параметра aClear) в ExcludeSuper редактора.' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '4BB320880003'
+            %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+           <<in>> aClear
+            %UID '4BB320880051'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aClear
+         ; // %PARAMETERS
+        ; // evSetExcludeWords
+        FINAL <<Operation>> evNeedExcludeWords
+         %UID '4BB320970039'
+         %SUMMARY 'Проверяет установлен ли флаг ev_slFoundWords в ExcludeSuper редактора.' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '4BB320C20264'
+            %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+         ; // %PARAMETERS
+        ; // evNeedExcludeWords
+      ; // %OPERATIONS
+     ; // evFacadeUtils
+     FINAL <<UtilityPack>> evFacadeGUI
+      %UID '48EEF9D8031A'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4797632D0273' /* Everest */
+       U$ '48EEE54C0072' /* EverestCommon */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "48F2EFF30222"
+         %UID '48F2EFF30222'
+         %TARGET U$ '47AC759800AF' /* ExtTags */
+        ; // 48F2EFF30222
+        <<uses>> "48F5EBF800C2"
+         %UID '48F5EBF800C2'
+         %TARGET U$ '47C520D80305' /* InevPara */
+        ; // 48F5EBF800C2
+        <<uses>> "49AE8AC00163"
+         %UID '49AE8AC00163'
+         %TARGET U$ '4857D48E00F4' /* Table */
+        ; // 49AE8AC00163
+        <<uses>> "49D0FCA001E9"
+         %UID '49D0FCA001E9'
+         %TARGET U$ '4821E72001F9' /* TnevShapePart */
+        ; // 49D0FCA001E9
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<Operation>> evInvalidatePara
+         %UID '48EEFA40027D'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aPara
+            %UID '5343D61703DB'
+            %TARGET U$ '532031160122' /* Tl3Variant */
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // aPara
+         ; // %PARAMETERS
+        ; // evInvalidatePara
+        FINAL <<Operation>> evCheckInTable
+         %UID '48EEFB7400DB'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aBlock
+            %UID '5343D61E0335'
+            %TARGET U$ '48F86E960118' /* IevCommonDataObject */
+            %TOBEINCLUDED
+             U$ '48EEE54C0072' /* EverestCommon */
+            ; // %TOBEINCLUDED
+           ; // aBlock
+           <<in>> anEditor
+            %UID '48F86EE90216'
+            %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+         ; // %PARAMETERS
+        ; // evCheckInTable
+        FINAL <<Operation>> evUnformatAll
+         %UID '48EEFBCD02EA'
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTextSource
+            %UID '48EEFBD00046'
+            %TARGET U$ '482BFB7C00B6' /* TevCustomTextSource */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aTextSource
+         ; // %PARAMETERS
+        ; // evUnformatAll
+        FINAL <<Operation>> evMouseLP2DP
+         %UID '48EEFCD2037C'
+         %TARGET U$ '4739AD110072' /* TPoint */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '48EEFCD400AC'
+            %TARGET U$ '4829D89703D2' /* TevCustomEditor */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+         ; // %PARAMETERS
+        ; // evMouseLP2DP
+      ; // %OPERATIONS
+     ; // evFacadeGUI
+     FINAL <<UtilityPack>> evFacadTextSource
+      %UID '48EEFBF70249'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4797632D0273' /* Everest */
+       U$ '48EEE54C0072' /* EverestCommon */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "48EF34A3006B"
+         %UID '48EF34A3006B'
+         %TARGET U$ '482D98DE00A9' /* TevTextSource */
+        ; // 48EF34A3006B
+        <<uses>> "48EF35DA0335"
+         %UID '48EF35DA0335'
+         %TARGET U$ '48E385BC0143' /* TedRange */
+        ; // 48EF35DA0335
+        <<uses>> "48EF406801DA"
+         %UID '48EF406801DA'
+         %TARGET U$ '4773D64E036C' /* l3Base */
+        ; // 48EF406801DA
+        <<uses>> "48EF5C3B0342"
+         %UID '48EF5C3B0342'
+         %TARGET U$ '48453A750156' /* Operations */
+        ; // 48EF5C3B0342
+        <<uses>> "4BBDE22303B2"
+         %UID '4BBDE22303B2'
+         %TARGET U$ '48E38399034C' /* IedRange */
+        ; // 4BBDE22303B2
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<Operation>> evGetUndoBuffer
+         %UID '48EEFC180229'
+         %TARGET U$ '48EEEBA300DE' /* TnevCustomUndoBuffer */
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTextSource
+            %UID '48EEFC1A0052'
+            %TARGET U$ '482BFB7C00B6' /* TevCustomTextSource */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aTextSource
+         ; // %PARAMETERS
+        ; // evGetUndoBuffer
+        FINAL <<Operation>> evGetBruttoCharCount
+         %UID '48EEFC5A0393'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTextSource
+            %UID '48EEFC5A03B2'
+            %TARGET U$ '482BFB7C00B6' /* TevCustomTextSource */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aTextSource
+         ; // %PARAMETERS
+        ; // evGetBruttoCharCount
+        FINAL <<Operation>> evGetBruttoCharLimit
+         %UID '48EEFC710310'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTextSource
+            %UID '48EEFC710320'
+            %TARGET U$ '482BFB7C00B6' /* TevCustomTextSource */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aTextSource
+         ; // %PARAMETERS
+        ; // evGetBruttoCharLimit
+        FINAL <<Operation>> evGetNettoCharCount
+         %UID '48EEFC750348'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTextSource
+            %UID '48EEFC750367'
+            %TARGET U$ '482BFB7C00B6' /* TevCustomTextSource */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aTextSource
+         ; // %PARAMETERS
+        ; // evGetNettoCharCount
+        FINAL <<Operation>> evGetShowDocumentParts
+         %UID '48EEFC790248'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '48EEFC790267'
+            %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+         ; // %PARAMETERS
+        ; // evGetShowDocumentParts
+        FINAL <<Operation>> evGetTextParaCount
+         %UID '48EEFC7C03C9'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTextSource
+            %UID '48EEFC7C03D9'
+            %TARGET U$ '482BFB7C00B6' /* TevCustomTextSource */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aTextSource
+         ; // %PARAMETERS
+        ; // evGetTextParaCount
+        FINAL <<Operation>> evInsertFrom
+         %UID '48EEFC8B03E0'
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '48EEFC8C0007'
+            %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+           <<in>> aTextSource
+            %UID '48EEFC8C0046'
+            %TARGET U$ '482BFB7C00B6' /* TevCustomTextSource */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aTextSource
+         ; // %PARAMETERS
+        ; // evInsertFrom
+        FINAL <<Operation>> evSetBruttoCharLimit
+         %UID '48EEFC900196'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTextSource
+            %UID '48EEFC9001B6'
+            %TARGET U$ '482BFB7C00B6' /* TevCustomTextSource */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aTextSource
+           <<in>> aValue
+            %UID '48EEFC9001E4'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aValue
+         ; // %PARAMETERS
+        ; // evSetBruttoCharLimit
+        FINAL <<Operation>> evSetNettoCharCountEvent
+         %UID '48EEFC930337'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTextSource
+            %UID '48EEFC930356'
+            %TARGET U$ '482BFB7C00B6' /* TevCustomTextSource */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aTextSource
+           <<in>> aValue
+            %UID '48EEFC930385'
+            %TARGET U$ '47881B22005A' /* TNotifyEvent */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aValue
+         ; // %PARAMETERS
+        ; // evSetNettoCharCountEvent
+        FINAL <<Operation>> evSetShowDocumentParts
+         %UID '48EEFC970100'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anEditor
+            %UID '48EEFC97011F'
+            %TARGET U$ '4829D92A037B' /* TevCustomEditorWindow */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // anEditor
+           <<in>> aTextSource
+            %UID '48EEFC97015D'
+            %TARGET U$ '482BFB7C00B6' /* TevCustomTextSource */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aTextSource
+           <<in>> aValue
+            %UID '48EEFC97019C'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aValue
+         ; // %PARAMETERS
+        ; // evSetShowDocumentParts
+        FINAL <<Operation>> evSetTextParaLimit
+         %UID '48EEFCA80353'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTextSource
+            %UID '48EEFCA80391'
+            %TARGET U$ '482BFB7C00B6' /* TevCustomTextSource */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aTextSource
+           <<in>> aCount
+            %UID '48EEFCA803DF'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aCount
+         ; // %PARAMETERS
+        ; // evSetTextParaLimit
+        FINAL <<Operation>> evAddStringToTextSource
+         %UID '48EEFD580285'
+         %TOBEINCLUDED
+          U$ '4797632D0273' /* Everest */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aTextSource
+            %UID '48F2EA9D0105'
+            %TARGET U$ '482BFB7C00B6' /* TevCustomTextSource */
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+           ; // aTextSource
+           <<const>> aStr
+            %UID '48F2EA9D0153'
+            %TARGET U$ '452257A0036F' /* "a-string" */
+           ; // aStr
+           <<in>> aFormat
+            %UID '48F2EA9D0191'
+            %TARGET U$ '46A449A301E3' /* Tl3ClipboardFormat */
+            %VALUE 'cf_Text'
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aFormat
+         ; // %PARAMETERS
+        ; // evAddStringToTextSource
+      ; // %OPERATIONS
+     ; // evFacadTextSource
+     FINAL <<UtilityPack>> evStubs
+      %UID '4A2621920255'
+      %SUMMARY 'Процедуры для формирования заглушек локальных процедур' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "finished" false
+       %upv "no hands" false
+       %upv "started" '03.06.2009 11:09'
+      ; // %META
+      %OPERATIONS
+        FINAL <<Operation>> evL2SubA
+         %UID '4A263B280094'
+        ; // evL2SubA
+      ; // %OPERATIONS
+     ; // evStubs
+   ; // %CHILDREN
+  ; // evFacade
+  <<Unit>> Searchers
+   %UID '5075275701AF'
+   %DEPENDS
+    U$ '4678209200A6' /* nevBase */
+    U$ '469D0AC7005E' /* Types */
+    U$ '47AC75550330' /* k2Tags */
+    U$ '47C5207602D1' /* nevTools */
+    U$ '47C695A10172' /* evTypes */
+    U$ '47F1F38601A3' /* ParaUtils */
+    U$ '47F1F90A0391' /* Searchers */
+    U$ '48492FC0029D' /* Standard */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4677E16A022A' /* K2 */
+    U$ '467A8734039C' /* EVD */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4797632D0273' /* Everest */
+    U$ '48EEE54C0072' /* EverestCommon */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> evTableSearch
+      %UID '50751A0A0164'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4797632D0273' /* Everest */
+       U$ '48EEE54C0072' /* EverestCommon */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<SimpleClass>> TevTableTextSearcher
+         %UID '50751AB90061'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50751A9F02EB' /* TevAnyParagraphSearcher */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '50751B680376' /* DoCheckText */
+         ; // %OVERRIDES
+         %LINKS
+           <<uses>> "50753D8E02C4"
+            %UID '50753D8E02C4'
+            %TARGET U$ '47F1F3BC0330' /* evParaTools */
+           ; // 50753D8E02C4
+           <<uses>> "50753DD70204"
+            %UID '50753DD70204'
+            %TARGET U$ '4857CD8D0093' /* TableCell */
+           ; // 50753DD70204
+           <<uses>> "50753DDB01CF"
+            %UID '50753DDB01CF'
+            %TARGET U$ '4857D15D029B' /* SBSCell */
+           ; // 50753DDB01CF
+         ; // %LINKS
+         %OPERATIONS
+           PROTECTED <<method>> CheckCellType
+            %UID '5075300802E0'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '5075301A038E'
+               %TARGET U$ '46A603BB0391' /* Boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4797632D0273' /* Everest */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aCell
+                  %UID '533EBCB601A7'
+                  %TARGET U$ '533D31A90231' /* Tl3Variant */
+                  %TOBEINCLUDED
+                   U$ '4797632D0273' /* Everest */
+                  ; // %TOBEINCLUDED
+                 ; // aCell
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // CheckCellType
+         ; // %OPERATIONS
+        ; // TevTableTextSearcher
+        <<SimpleClass>> TevFirstTableCellSearcher
+         %UID '50751AEF02A9'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50751AB90061' /* TevTableTextSearcher */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '50751B680376' /* DoCheckText */
+         ; // %OVERRIDES
+        ; // TevFirstTableCellSearcher
+        <<SimpleClass>> TevOldNSRCFlagReplacer
+         %UID '50751B080168'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4D553A4A005D' /* TevBaseReplacer */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4D553AC103A3' /* ReplaceFunc */
+         ; // %REALIZES
+         %LINKS
+           <<uses>> "50753E110188"
+            %UID '50753E110188'
+            %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+           ; // 50753E110188
+           <<uses>> "50753E2D036E"
+            %UID '50753E2D036E'
+            %TARGET U$ '4857E2A70175' /* SBS */
+           ; // 50753E2D036E
+           <<uses>> "50753E39030D"
+            %UID '50753E39030D'
+            %TARGET U$ '4857D48E00F4' /* Table */
+           ; // 50753E39030D
+           <<uses>> "50753E5E0130"
+            %UID '50753E5E0130'
+            %TARGET U$ '47C69EBC00A8' /* Tk2TagID */
+           ; // 50753E5E0130
+         ; // %LINKS
+         %ATTRIBUTES
+           PRIVATE <<Attribute>> f_FlagInit
+            %UID '507530CE03D5'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_FlagInit
+           PRIVATE <<Attribute>> f_FlagValue
+            %UID '507530E1004C'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_FlagValue
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           FINAL <<method>> Make
+            %UID '507530F8022A'
+            %META
+             %upv "is static" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '5075311101A5'
+               %TARGET U$ '47C693BF0118' /* IevReplacer */
+               %TOBEINCLUDED
+                U$ '4797632D0273' /* Everest */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> anOptions
+                  %UID '5075312102A4'
+                  %TARGET U$ '47C6CB5C0032' /* TevSearchOptionSet */
+                  %VALUE '[]'
+                  %TOBEINCLUDED
+                   U$ '4797632D0273' /* Everest */
+                  ; // %TOBEINCLUDED
+                 ; // anOptions
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // Make
+         ; // %OPERATIONS
+        ; // TevOldNSRCFlagReplacer
+        <<SimpleClass>> TevTableCellFrameReplacer
+         %UID '50751B12004F'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4797632D0273' /* Everest */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4D553A4A005D' /* TevBaseReplacer */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4D553AC103A3' /* ReplaceFunc */
+         ; // %REALIZES
+         %ATTRIBUTES
+           PRIVATE <<Attribute>> f_Frame
+            %UID '5075380C0091'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_Frame
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           FINAL <<method>> Make
+            %UID '507531E0006E'
+            %META
+             %upv "is static" true
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4797632D0273' /* Everest */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '507531EE01FD'
+               %TARGET U$ '47C693BF0118' /* IevReplacer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4797632D0273' /* Everest */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> aFrame
+                  %UID '507532020288'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // aFrame
+                 <<in>> anOptions
+                  %UID '5075320202A8'
+                  %TARGET U$ '47C6CB5C0032' /* TevSearchOptionSet */
+                  %VALUE '[]'
+                  %TOBEINCLUDED
+                   U$ '4797632D0273' /* Everest */
+                  ; // %TOBEINCLUDED
+                 ; // anOptions
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // Make
+         ; // %OPERATIONS
+        ; // TevTableCellFrameReplacer
+        <<SimpleClass>> TevTextInContinueCellSearcher
+         %UID '50751F2001E9'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '48EEE54C0072' /* EverestCommon */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '50751AB90061' /* TevTableTextSearcher */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '5075300802E0' /* CheckCellType */
+         ; // %OVERRIDES
+         %LINKS
+           <<uses>> "50753E940264"
+            %UID '50753E940264'
+            %TARGET U$ '468E49730365' /* MergeStatus */
+           ; // 50753E940264
+         ; // %LINKS
+        ; // TevTextInContinueCellSearcher
+      ; // %CHILDREN
+     ; // evTableSearch
+   ; // %CHILDREN
+  ; // Searchers
+ ; // %CHILDREN
+; // EverestCommon

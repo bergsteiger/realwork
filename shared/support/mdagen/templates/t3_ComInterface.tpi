@@ -1,0 +1,79 @@
+//////////////////////////////////////////////////////////////////////////////////
+// ComInterface
+//////////////////////////////////////////////////////////////////////////////////
+
+: ComInterface::Category
+? Интерфейсный COM-пакет
+? Содержит экспортируемые наружу COM-компоненты типы и интерфейсы. Может зависить только от других интерфейсных пакетов (своей компоненты или чужой)
+> ComInterface::Class, Facet::Class,Constants::Class, Enum::Class, Exception::Class
+> Struct::Class, BitMask::Class, Typedef::Class, Union::Class, Valuetype::Class
+> HashMap::Class, Map::Class, Queue::Class, Set::Class, UnsortedMap::Class, UnsortedSet::Class, Vector::Class, MultiMap::Class
+$ C 215,215,255
+$ l 10,10,255
+$ f 10,10,255
+D
+v +#i
+p is namespace:b=false ? определяет является ли модуль неймспейсом
+p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+L code_com_interfaces
+Y t3_com_interface.gif
+
+%f _wiki_up_print
+	[{%S{is namespace}=true}* является неймспейсом 
+	]
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= Unit::Category;wiki
+
++ odl
+C /%SN
+O %SN.odl
+	%f_output_constraint(%S)\
+# t0_header
+	import "oaidl.idl";
+	\[
+		uuid (%SG)
+		, version (1.0)
+		, helpstring ("%SNLib 1.0 Type Library")
+	\]
+	
+	library %SNLib {
+		importlib ("stdole32.tlb");
+		importlib ("stdole2.tlb");
+		%U[{_CUSTOM_TLB}
+		]
+	<%CX>
+	};
+# t0_footer
+
++ com.rgs
+C /%SN
+O %SN.rgs
+	%f_output_constraint(%S)\
+	HKCR
+	{<{\n}{%CM=ComInterface::Class}{%C}
+		%SN.%CN.1 = s '%CN Class'
+		{
+			CLSID = s '{%f_str_conv("%CG","%8s-%4s-%4s-%2s%2s-%2s%2s%2s%2s%2s%2s","%8s-%4s-%4s-%2s%2s-%2s%2s%2s%2s%2s")99}'
+		}
+		%SN.%CN = s '%CN Class'
+		{
+			CLSID = s '{%f_str_conv("%CG","%8s-%4s-%4s-%2s%2s-%2s%2s%2s%2s%2s%2s","%8s-%4s-%4s-%2s%2s-%2s%2s%2s%2s%2s")99}'
+			CurVer = s '%SN.%CN.1'
+		}
+		NoRemove CLSID
+		{
+			ForceRemove {%f_str_conv("%CG","%8s-%4s-%4s-%2s%2s-%2s%2s%2s%2s%2s%2s","%8s-%4s-%4s-%2s%2s-%2s%2s%2s%2s%2s")99} = s '%CN Class'
+			{
+				ProgID = s '%SN.%CN.1'
+				VersionIndependentProgID = s '%SN.%CN'
+				ForceRemove 'Programmable'
+				InprocServer32 = s '\%MODULE\%'
+				{
+					val ThreadingModel = s '%C{ThreadingModel}'
+				}
+				'TypeLib' = s '{%SG}'
+			}
+		}>
+	}

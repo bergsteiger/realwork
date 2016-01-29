@@ -1,0 +1,2527 @@
+// evFacade 48EEE7AE0313 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48EEE7AE0313
+
+FORWARD ME_48EEE8A503AB
+
+: ME_48EEED1A02A4
+ CONST UID '48EEED1A02A4'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_48EEED1A02A4 anEditor
+
+: ME_48EEED050239
+ CONST UID '48EEED050239'
+ CONST Name 'evGetMostInnerPos'
+ CONST Class class_Operation
+ %SUMMARY 'Возвращает позицию самого внутреннего курсора' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEE8A503AB // evFacadeCursor
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_48EEED1A02A4 // anEditor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEED050239 evGetMostInnerPos
+
+: ME_48EEED370264
+ CONST UID '48EEED370264'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_48EEED370264 anEditor
+
+: ME_48EEED27002F
+ CONST UID '48EEED27002F'
+ CONST Name 'evGetMostInnerEntryPos'
+ CONST Class class_Operation
+ %SUMMARY 'Возвращает позицию самого внутреннего курсора или начала выделения' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEE8A503AB // evFacadeCursor
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_48EEED370264 // anEditor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEED27002F evGetMostInnerEntryPos
+
+: ME_48EEED630064
+ CONST UID '48EEED630064'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_48EEED630064 anEditor
+
+: ME_48EEED52016E
+ CONST UID '48EEED52016E'
+ CONST Name 'evCursorInSel'
+ CONST Class class_Operation
+ %SUMMARY 'Проверка находится ли курсор в выделении' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEE8A503AB // evFacadeCursor
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_48EEED630064 // anEditor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEED52016E evCursorInSel
+
+: ME_48EEED86004B
+ CONST UID '48EEED86004B'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D89703D2' '4829D7D50156.pas.ms.script' // TevCustomEditor
+ ;
+
+ref; // ME_48EEED86004B anEditor
+
+: ME_48EEED730106
+ CONST UID '48EEED730106'
+ CONST Name 'evMostInnerCursor'
+ CONST Class class_Operation
+ %SUMMARY 'Возвращает курсор самого нижнего уровня' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEE8A503AB // evFacadeCursor
+ ;
+ : Target WL 'ME_48EEEC1502AA' '48EEE9330072.pas.ms.script' // TnevBaseCursor
+ ;
+ : Parameters
+   @ ( ME_48EEED86004B // anEditor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEED730106 evMostInnerCursor
+
+: ME_48EEEDB2032F
+ CONST UID '48EEEDB2032F'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D89703D2' '4829D7D50156.pas.ms.script' // TevCustomEditor
+ ;
+
+ref; // ME_48EEEDB2032F anEditor
+
+: ME_48EEEDA301B2
+ CONST UID '48EEEDA301B2'
+ CONST Name 'evCloneCursor'
+ CONST Class class_Operation
+ %SUMMARY 'Клонировать курсор' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEE8A503AB // evFacadeCursor
+ ;
+ : Target WL 'ME_48EEEC030354' '48EEE9330072.pas.ms.script' // TnevCursor
+ ;
+ : Parameters
+   @ ( ME_48EEEDB2032F // anEditor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEEDA301B2 evCloneCursor
+
+: ME_48EEEDC5035F
+ CONST UID '48EEEDC5035F'
+ CONST Name 'aCursor'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_48EEEC030354' '48EEE9330072.pas.ms.script' // TnevCursor
+ ;
+
+ref; // ME_48EEEDC5035F aCursor
+
+: ME_48EEEDBC02F0
+ CONST UID '48EEEDBC02F0'
+ CONST Name 'evFreeCursor'
+ CONST Class class_Operation
+ %SUMMARY 'Освобождает объект/интерфейс курсора' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEE8A503AB // evFacadeCursor
+ ;
+ : Parameters
+   @ ( ME_48EEEDC5035F // aCursor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEEDBC02F0 evFreeCursor
+
+: ME_48EEEDDC03B6
+ CONST UID '48EEEDDC03B6'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D89703D2' '4829D7D50156.pas.ms.script' // TevCustomEditor
+ ;
+
+ref; // ME_48EEEDDC03B6 anEditor
+
+: ME_48EEEDDD000D
+ CONST UID '48EEEDDD000D'
+ CONST Name 'aCursor'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_48EEEC030354' '48EEE9330072.pas.ms.script' // TnevCursor
+ ;
+
+ref; // ME_48EEEDDD000D aCursor
+
+: ME_48EEEDD200CA
+ CONST UID '48EEEDD200CA'
+ CONST Name 'evSelectPoint'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEE8A503AB // evFacadeCursor
+ ;
+ : Parameters
+   @ ( ME_48EEEDDC03B6 // anEditor
+ ME_48EEEDDD000D // aCursor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEEDD200CA evSelectPoint
+
+: ME_48EEEDF9028E
+ CONST UID '48EEEDF9028E'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D89703D2' '4829D7D50156.pas.ms.script' // TevCustomEditor
+ ;
+
+ref; // ME_48EEEDF9028E anEditor
+
+: ME_48EEEDF902BD
+ CONST UID '48EEEDF902BD'
+ CONST Name 'aCursor'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_48EEEC1502AA' '48EEE9330072.pas.ms.script' // TnevBaseCursor
+ ;
+
+ref; // ME_48EEEDF902BD aCursor
+
+: ME_48EEEDE302E0
+ CONST UID '48EEEDE302E0'
+ CONST Name 'evGetChildCursor'
+ CONST Class class_Operation
+ %SUMMARY 'Возвращает дочерний курсор' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEE8A503AB // evFacadeCursor
+ ;
+ : Target WL 'ME_48EEEC1502AA' '48EEE9330072.pas.ms.script' // TnevBaseCursor
+ ;
+ : Parameters
+   @ ( ME_48EEEDF9028E // anEditor
+ ME_48EEEDF902BD // aCursor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEEDE302E0 evGetChildCursor
+
+: ME_48EEEF100271
+ CONST UID '48EEEF100271'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEE8A503AB // evFacadeCursor
+ ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_48EEEF100271 
+
+: ME_48EEEF140289
+ CONST UID '48EEEF140289'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEE8A503AB // evFacadeCursor
+ ;
+ : Target WL 'ME_4829D89703D2' '4829D7D50156.pas.ms.script' // TevCustomEditor
+ ;
+
+ref; // ME_48EEEF140289 
+
+: ME_48F2F29F01D6
+ CONST UID '48F2F29F01D6'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEE8A503AB // evFacadeCursor
+ ;
+ : Target WL 'ME_47C5BA5F017D' '47C5207602D1.pas.ms.script' // InevSelection
+ ;
+
+ref; // ME_48F2F29F01D6 
+
+: ME_48EEE8A503AB
+ CONST UID '48EEE8A503AB'
+ CONST Name 'evFacadeCursor'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEE7AE0313 // evFacade
+ ;
+ : Operations
+   @ ( ME_48EEED050239 // evGetMostInnerPos
+ ME_48EEED27002F // evGetMostInnerEntryPos
+ ME_48EEED52016E // evCursorInSel
+ ME_48EEED730106 // evMostInnerCursor
+ ME_48EEEDA301B2 // evCloneCursor
+ ME_48EEEDBC02F0 // evFreeCursor
+ ME_48EEEDD200CA // evSelectPoint
+ ME_48EEEDE302E0 // evGetChildCursor
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_48EEEF100271 // 
+ ME_48EEEF140289 // 
+ ME_48F2F29F01D6 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\EverestCommon\evFacadeCursor.pas'
+
+ref; // ME_48EEE8A503AB evFacadeCursor
+
+FORWARD ME_48EEF8240298
+
+FORWARD ME_5321D4830213
+
+: ME_5321D5010255
+ CONST UID '5321D5010255'
+ CONST Name 'aMemo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48454EBB0050' '4829D7D50156.pas.ms.script' // TevMemo
+ ;
+
+ref; // ME_5321D5010255 aMemo
+
+: ME_5321D5010284
+ CONST UID '5321D5010284'
+ CONST Name 'aPos'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5321D5010284 aPos
+
+: ME_5321D50102C2
+ CONST UID '5321D50102C2'
+ CONST Name 'aLen'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_5321D50102C2 aLen
+
+: ME_5321D4A501A2
+ CONST UID '5321D4A501A2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5321D4830213 // evAssignSelection
+ ;
+ : Parameters
+   @ ( ME_5321D5010255 // aMemo
+ ME_5321D5010284 // aPos
+ ME_5321D50102C2 // aLen
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5321D4A501A2 DoIt
+
+: ME_5321D4830213
+ CONST UID '5321D4830213'
+ CONST Name 'evAssignSelection'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF8240298 // evFacadeSelection
+ ;
+ : Operations
+   @ ( ME_5321D4A501A2 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5321D4830213 evAssignSelection
+
+: ME_48EEF87B02EE
+ CONST UID '48EEF87B02EE'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_48EEF87B02EE anEditor
+
+: ME_48EEF86903A7
+ CONST UID '48EEF86903A7'
+ CONST Name 'evGetSel'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF8240298 // evFacadeSelection
+ ;
+ : Target WL 'ME_48EEEC6402D2' '48EEE9330072.pas.ms.script' // TnevIRange
+ ;
+ : Parameters
+   @ ( ME_48EEF87B02EE // anEditor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEF86903A7 evGetSel
+
+: ME_48F2EA58025D
+ CONST UID '48F2EA58025D'
+ CONST Name 'aMemo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48454EBB0050' '4829D7D50156.pas.ms.script' // TevMemo
+ ;
+
+ref; // ME_48F2EA58025D aMemo
+
+: ME_48F2EA58029C
+ CONST UID '48F2EA58029C'
+ CONST Name 'aPos'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_48F2EA58029C aPos
+
+: ME_48F2EA5802CA
+ CONST UID '48F2EA5802CA'
+ CONST Name 'aCurrStr'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+
+ref; // ME_48F2EA5802CA aCurrStr
+
+: ME_48EEF88901CE
+ CONST UID '48EEF88901CE'
+ CONST Name 'evAssignSelection'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF8240298 // evFacadeSelection
+ ;
+ : Parameters
+   @ ( ME_48F2EA58025D // aMemo
+ ME_48F2EA58029C // aPos
+ ME_48F2EA5802CA // aCurrStr
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEF88901CE evAssignSelection
+
+: ME_4A6844B1027D
+ CONST UID '4A6844B1027D'
+ CONST Name 'aRange'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48EEEC6402D2' '48EEE9330072.pas.ms.script' // TnevIRange
+ ;
+
+ref; // ME_4A6844B1027D aRange
+
+: ME_48EEF8A0019A
+ CONST UID '48EEF8A0019A'
+ CONST Name 'evGetSelString'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF8240298 // evFacadeSelection
+ ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+ : Parameters
+   @ ( ME_4A6844B1027D // aRange
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEF8A0019A evGetSelString
+
+: ME_4A6844A801C9
+ CONST UID '4A6844A801C9'
+ CONST Name 'aView'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
+ ;
+
+ref; // ME_4A6844A801C9 aView
+
+: ME_4A6844A80208
+ CONST UID '4A6844A80208'
+ CONST Name 'Container'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476BEF7B0378' '4678209200A6.pas.ms.script' // InevOp
+ ;
+
+ref; // ME_4A6844A80208 Container
+
+: ME_4A6844A8027A
+ CONST UID '4A6844A8027A'
+ CONST Name 'aBlock'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C5B54401B2' '47C5207602D1.pas.ms.script' // InevRange
+ ;
+
+ref; // ME_4A6844A8027A aBlock
+
+: ME_48EEF92400B1
+ CONST UID '48EEF92400B1'
+ CONST Name 'evDeleteBlockEX'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF8240298 // evFacadeSelection
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4A6844A801C9 // aView
+ ME_4A6844A80208 // Container
+ ME_4A6844A8027A // aBlock
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEF92400B1 evDeleteBlockEX
+
+: ME_48EEFCF4020E
+ CONST UID '48EEFCF4020E'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D89703D2' '4829D7D50156.pas.ms.script' // TevCustomEditor
+ ;
+
+ref; // ME_48EEFCF4020E anEditor
+
+: ME_48EEFCF4023C
+ CONST UID '48EEFCF4023C'
+ CONST Name 'aSaveBlock'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target WL 'ME_48EEEBD5008A' '48EEE9330072.pas.ms.script' // TnevLocation
+ ;
+
+ref; // ME_48EEFCF4023C aSaveBlock
+
+: ME_48EEFCF4026B
+ CONST UID '48EEFCF4026B'
+ CONST Name 'aCheckCursor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48EEEC030354' '48EEE9330072.pas.ms.script' // TnevCursor
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_48EEEC030354' '48EEE9330072.pas.ms.script' // TnevCursor
+ ;
+
+ref; // ME_48EEFCF4026B aCheckCursor
+
+: ME_48EEFCF1031C
+ CONST UID '48EEFCF1031C'
+ CONST Name 'evSaveBlock'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF8240298 // evFacadeSelection
+ ;
+ : Parameters
+   @ ( ME_48EEFCF4020E // anEditor
+ ME_48EEFCF4023C // aSaveBlock
+ ME_48EEFCF4026B // aCheckCursor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFCF1031C evSaveBlock
+
+: ME_48EEFD000074
+ CONST UID '48EEFD000074'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_48EEFD000074 anEditor
+
+: ME_48EEFCFD0192
+ CONST UID '48EEFCFD0192'
+ CONST Name 'evUnselect'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF8240298 // evFacadeSelection
+ ;
+ : Parameters
+   @ ( ME_48EEFD000074 // anEditor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFCFD0192 evUnselect
+
+: ME_48EEFD3D01B7
+ CONST UID '48EEFD3D01B7'
+ CONST Name 'aSaveBlock'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_48EEEBD5008A' '48EEE9330072.pas.ms.script' // TnevLocation
+ ;
+
+ref; // ME_48EEFD3D01B7 aSaveBlock
+
+: ME_48EEFD3B00D0
+ CONST UID '48EEFD3B00D0'
+ CONST Name 'evFreeBlock'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF8240298 // evFacadeSelection
+ ;
+ : Parameters
+   @ ( ME_48EEFD3D01B7 // aSaveBlock
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFD3B00D0 evFreeBlock
+
+: ME_4A6844BC00DE
+ CONST UID '4A6844BC00DE'
+ CONST Name 'aBlock'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48F86E960118' '48EEE9330072.pas.ms.script' // IevCommonDataObject
+ ;
+
+ref; // ME_4A6844BC00DE aBlock
+
+: ME_48F86F2A01B0
+ CONST UID '48F86F2A01B0'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D89703D2' '4829D7D50156.pas.ms.script' // TevCustomEditor
+ ;
+
+ref; // ME_48F86F2A01B0 anEditor
+
+: ME_48F2F0CA02E4
+ CONST UID '48F2F0CA02E4'
+ CONST Name 'evMostInnerFromBlock'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF8240298 // evFacadeSelection
+ ;
+ : Target WL 'ME_48EEEC3C00B6' '48EEE9330072.pas.ms.script' // InevCommonPoint
+ ;
+ : Parameters
+   @ ( ME_4A6844BC00DE // aBlock
+ ME_48F86F2A01B0 // anEditor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48F2F0CA02E4 evMostInnerFromBlock
+
+: ME_4A6844C10228
+ CONST UID '4A6844C10228'
+ CONST Name 'aBlock'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48EEEC6402D2' '48EEE9330072.pas.ms.script' // TnevIRange
+ ;
+
+ref; // ME_4A6844C10228 aBlock
+
+: ME_49B0D30C03CA
+ CONST UID '49B0D30C03CA'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_49B0D30C03CA anEditor
+
+: ME_49B0D2EC01FC
+ CONST UID '49B0D2EC01FC'
+ CONST Name 'evGetBottomChildBlock'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF8240298 // evFacadeSelection
+ ;
+ : Target WL 'ME_47C5B54401B2' '47C5207602D1.pas.ms.script' // InevRange
+ ;
+ : Parameters
+   @ ( ME_4A6844C10228 // aBlock
+ ME_49B0D30C03CA // anEditor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_49B0D2EC01FC evGetBottomChildBlock
+
+: ME_4BEBBD0A01B2
+ CONST UID '4BEBBD0A01B2'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_4BEBBD0A01B2 anEditor
+
+: ME_4BEBBD0A01E9
+ CONST UID '4BEBBD0A01E9'
+ CONST Name 'aFilter'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47ECAA5B0394' '47ECA80B000D.pas.ms.script' // Tk2TagGenerator
+ ;
+
+ref; // ME_4BEBBD0A01E9 aFilter
+
+: ME_4BEBBCE00119
+ CONST UID '4BEBBCE00119'
+ CONST Name 'evRangeInsertFrom'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF8240298 // evFacadeSelection
+ ;
+ : Parameters
+   @ ( ME_4BEBBD0A01B2 // anEditor
+ ME_4BEBBD0A01E9 // aFilter
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BEBBCE00119 evRangeInsertFrom
+
+: ME_4C334078038E
+ CONST UID '4C334078038E'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D89703D2' '4829D7D50156.pas.ms.script' // TevCustomEditor
+ ;
+
+ref; // ME_4C334078038E anEditor
+
+: ME_4C332D2F008B
+ CONST UID '4C332D2F008B'
+ CONST Name 'evGetMostInnerRange'
+ CONST Class class_Operation
+ %SUMMARY 'Возвращает InevRange для курсора самого нижнего уровня' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF8240298 // evFacadeSelection
+ ;
+ : Target WL 'ME_48EEEC8A013B' '48EEE9330072.pas.ms.script' // InevTagSelection
+ ;
+ : Parameters
+   @ ( ME_4C334078038E // anEditor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4C332D2F008B evGetMostInnerRange
+
+: ME_48F2ECDC02C7
+ CONST UID '48F2ECDC02C7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF8240298 // evFacadeSelection
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_48F2ECDC02C7 
+
+: ME_48F5C36C0096
+ CONST UID '48F5C36C0096'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF8240298 // evFacadeSelection
+ ;
+ : Target WL 'ME_47F1F3BC0330' '47F1F38601A3.pas.ms.script' // evParaTools
+ ;
+
+ref; // ME_48F5C36C0096 
+
+: ME_49B0D52901FA
+ CONST UID '49B0D52901FA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF8240298 // evFacadeSelection
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_49B0D52901FA 
+
+: ME_4BEBBDDC00E2
+ CONST UID '4BEBBDDC00E2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF8240298 // evFacadeSelection
+ ;
+ : Target WL 'ME_48E385BC0143' '4829D7D50156.pas.ms.script' // TedRange
+ ;
+
+ref; // ME_4BEBBDDC00E2 
+
+: ME_52C140CF00E2
+ CONST UID '52C140CF00E2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF8240298 // evFacadeSelection
+ ;
+ : Target WL 'ME_4857CD8D0093' '48492FC0029D.pas.ms.script' // TableCell
+ ;
+
+ref; // ME_52C140CF00E2 
+
+: ME_52C141160121
+ CONST UID '52C141160121'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF8240298 // evFacadeSelection
+ ;
+ : Target WL 'ME_468E49730365' '469D0AC7005E.pas.ms.script' // MergeStatus
+ ;
+
+ref; // ME_52C141160121 
+
+: ME_52C144DE037E
+ CONST UID '52C144DE037E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF8240298 // evFacadeSelection
+ ;
+ : Target WL 'ME_48453A750156' '48453A40017C.pas.ms.script' // Operations
+ ;
+
+ref; // ME_52C144DE037E 
+
+: ME_52C147980041
+ CONST UID '52C147980041'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF8240298 // evFacadeSelection
+ ;
+ : Target WL 'ME_47AC759800AF' '47AC75550330.pas.ms.script' // ExtTags
+ ;
+
+ref; // ME_52C147980041 
+
+: ME_48EEF8240298
+ CONST UID '48EEF8240298'
+ CONST Name 'evFacadeSelection'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEE7AE0313 // evFacade
+ ;
+ : Operations
+   @ ( ME_5321D4830213 // evAssignSelection
+ ME_48EEF86903A7 // evGetSel
+ ME_48EEF88901CE // evAssignSelection
+ ME_48EEF8A0019A // evGetSelString
+ ME_48EEF92400B1 // evDeleteBlockEX
+ ME_48EEFCF1031C // evSaveBlock
+ ME_48EEFCFD0192 // evUnselect
+ ME_48EEFD3B00D0 // evFreeBlock
+ ME_48F2F0CA02E4 // evMostInnerFromBlock
+ ME_49B0D2EC01FC // evGetBottomChildBlock
+ ME_4BEBBCE00119 // evRangeInsertFrom
+ ME_4C332D2F008B // evGetMostInnerRange
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_48F2ECDC02C7 // 
+ ME_48F5C36C0096 // 
+ ME_49B0D52901FA // 
+ ME_4BEBBDDC00E2 // 
+ ME_52C140CF00E2 // 
+ ME_52C141160121 // 
+ ME_52C144DE037E // 
+ ME_52C147980041 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\EverestCommon\evFacadeSelection.pas'
+
+ref; // ME_48EEF8240298 evFacadeSelection
+
+FORWARD ME_48EEF8D0004A
+
+: ME_48EEF906016E
+ CONST UID '48EEF906016E'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_48EEF906016E anEditor
+
+: ME_48EEF906018D
+ CONST UID '48EEF906018D'
+ CONST Name 'aSub'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_47C6B03200AF' '47C5207602D1.pas.ms.script' // IevSub
+ ;
+
+ref; // ME_48EEF906018D aSub
+
+: ME_48EEF8EA0247
+ CONST UID '48EEF8EA0247'
+ CONST Name 'evDeleteSub'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF8D0004A // evFacadeSub
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_48EEF906016E // anEditor
+ ME_48EEF906018D // aSub
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEF8EA0247 evDeleteSub
+
+: ME_48EEF979019F
+ CONST UID '48EEF979019F'
+ CONST Name 'aTextSource'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482BFB7C00B6' '482BFB50007B.pas.ms.script' // TevCustomTextSource
+ ;
+
+ref; // ME_48EEF979019F aTextSource
+
+: ME_48EEF96A02C0
+ CONST UID '48EEF96A02C0'
+ CONST Name 'evGetSubList'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF8D0004A // evFacadeSub
+ ;
+ : Target WL 'ME_47C6A79702F3' '47C5207602D1.pas.ms.script' // InevSubList
+ ;
+ : Parameters
+   @ ( ME_48EEF979019F // aTextSource
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEF96A02C0 evGetSubList
+
+: ME_48EEFA6A00A4
+ CONST UID '48EEFA6A00A4'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_48EEFA6A00A4 anEditor
+
+: ME_48EEFA60019E
+ CONST UID '48EEFA60019E'
+ CONST Name 'evDeleteAllDocumentParts'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF8D0004A // evFacadeSub
+ ;
+ : Parameters
+   @ ( ME_48EEFA6A00A4 // anEditor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFA60019E evDeleteAllDocumentParts
+
+: ME_48EEFB11033F
+ CONST UID '48EEFB11033F'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_48EEFB11033F anEditor
+
+: ME_48EEFB0F0332
+ CONST UID '48EEFB0F0332'
+ CONST Name 'evNewSub'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF8D0004A // evFacadeSub
+ ;
+ : Target WL 'ME_47C6B03200AF' '47C5207602D1.pas.ms.script' // IevSub
+ ;
+ : Parameters
+   @ ( ME_48EEFB11033F // anEditor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFB0F0332 evNewSub
+
+: ME_48EEFB1E03E5
+ CONST UID '48EEFB1E03E5'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_48EEFB1E03E5 anEditor
+
+: ME_48EEFB1C005F
+ CONST UID '48EEFB1C005F'
+ CONST Name 'evCurrentSub'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF8D0004A // evFacadeSub
+ ;
+ : Target WL 'ME_47C6B03200AF' '47C5207602D1.pas.ms.script' // IevSub
+ ;
+ : Parameters
+   @ ( ME_48EEFB1E03E5 // anEditor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFB1C005F evCurrentSub
+
+: ME_48EEFD4702EF
+ CONST UID '48EEFD4702EF'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D89703D2' '4829D7D50156.pas.ms.script' // TevCustomEditor
+ ;
+
+ref; // ME_48EEFD4702EF anEditor
+
+: ME_48EEFD47031D
+ CONST UID '48EEFD47031D'
+ CONST Name 'aGoToSubID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_48EEFD47031D aGoToSubID
+
+: ME_48EEFD46016A
+ CONST UID '48EEFD46016A'
+ CONST Name 'evSubSelect'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF8D0004A // evFacadeSub
+ ;
+ : Parameters
+   @ ( ME_48EEFD4702EF // anEditor
+ ME_48EEFD47031D // aGoToSubID
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFD46016A evSubSelect
+
+: ME_48EF31A60028
+ CONST UID '48EF31A60028'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF8D0004A // evFacadeSub
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_48EF31A60028 
+
+: ME_48EF52D1006B
+ CONST UID '48EF52D1006B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF8D0004A // evFacadeSub
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_48EF52D1006B 
+
+: ME_48EF534C0198
+ CONST UID '48EF534C0198'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF8D0004A // evFacadeSub
+ ;
+ : Target WL 'ME_476BEF7B0378' '4678209200A6.pas.ms.script' // InevOp
+ ;
+
+ref; // ME_48EF534C0198 
+
+FORWARD ME_4A2621920255
+
+: ME_48EF5A8601AE
+ CONST UID '48EF5A8601AE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF8D0004A // evFacadeSub
+ ;
+ : Target ME_4A2621920255 // evStubs
+ ;
+
+ref; // ME_48EF5A8601AE 
+
+: ME_53185A9D00C3
+ CONST UID '53185A9D00C3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF8D0004A // evFacadeSub
+ ;
+ : Target WL 'ME_47ECAB310336' '47ECAB0B0265.pas.ms.script' // Msg Codes
+ ;
+
+ref; // ME_53185A9D00C3 
+
+: ME_48EEF8D0004A
+ CONST UID '48EEF8D0004A'
+ CONST Name 'evFacadeSub'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEE7AE0313 // evFacade
+ ;
+ : Operations
+   @ ( ME_48EEF8EA0247 // evDeleteSub
+ ME_48EEF96A02C0 // evGetSubList
+ ME_48EEFA60019E // evDeleteAllDocumentParts
+ ME_48EEFB0F0332 // evNewSub
+ ME_48EEFB1C005F // evCurrentSub
+ ME_48EEFD46016A // evSubSelect
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_48EF31A60028 // 
+ ME_48EF52D1006B // 
+ ME_48EF534C0198 // 
+ ME_48EF5A8601AE // 
+ ME_53185A9D00C3 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\EverestCommon\evFacadeSub.pas'
+
+ref; // ME_48EEF8D0004A evFacadeSub
+
+FORWARD ME_48EEF98B01FF
+
+: ME_48F33D6401DA
+ CONST UID '48F33D6401DA'
+ CONST Name 'aTextSource'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482BFB7C00B6' '482BFB50007B.pas.ms.script' // TevCustomTextSource
+ ;
+
+ref; // ME_48F33D6401DA aTextSource
+
+: ME_48F33D640218
+ CONST UID '48F33D640218'
+ CONST Name 'aReader'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482D6ED9000A' '482D6E960087.pas.ms.script' // Tk2CustomReader
+ ;
+
+ref; // ME_48F33D640218 aReader
+
+: ME_48F33D640247
+ CONST UID '48F33D640247'
+ CONST Name 'aCursor'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_48EEEC030354' '48EEE9330072.pas.ms.script' // TnevCursor
+ ;
+
+ref; // ME_48F33D640247 aCursor
+
+: ME_48EEF9F20194
+ CONST UID '48EEF9F20194'
+ CONST Name 'evInsertFile'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF98B01FF // evFacadeUtils
+ ;
+ : Parameters
+   @ ( ME_48F33D6401DA // aTextSource
+ ME_48F33D640218 // aReader
+ ME_48F33D640247 // aCursor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEF9F20194 evInsertFile
+
+: ME_48F33D740182
+ CONST UID '48F33D740182'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_48F33D740182 anEditor
+
+: ME_48F33D7401B1
+ CONST UID '48F33D7401B1'
+ CONST Name 'aReader'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482D6ED9000A' '482D6E960087.pas.ms.script' // Tk2CustomReader
+ ;
+
+ref; // ME_48F33D7401B1 aReader
+
+: ME_48EEFA2400D7
+ CONST UID '48EEFA2400D7'
+ CONST Name 'evInsertFile'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF98B01FF // evFacadeUtils
+ ;
+ : Parameters
+   @ ( ME_48F33D740182 // anEditor
+ ME_48F33D7401B1 // aReader
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFA2400D7 evInsertFile
+
+: ME_48EEFB5002E9
+ CONST UID '48EEFB5002E9'
+ CONST Name 'aGen'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_48EEEA480069' '48EEE9330072.pas.ms.script' // TevGenerator
+ ;
+
+ref; // ME_48EEFB5002E9 aGen
+
+: ME_48EEFB4F0184
+ CONST UID '48EEFB4F0184'
+ CONST Name 'evFreeGenerator'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF98B01FF // evFacadeUtils
+ ;
+ : Parameters
+   @ ( ME_48EEFB5002E9 // aGen
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFB4F0184 evFreeGenerator
+
+: ME_48F33ECD00DA
+ CONST UID '48F33ECD00DA'
+ CONST Name 'aTextSource'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482BFB7C00B6' '482BFB50007B.pas.ms.script' // TevCustomTextSource
+ ;
+
+ref; // ME_48F33ECD00DA aTextSource
+
+: ME_48F33ECD0118
+ CONST UID '48F33ECD0118'
+ CONST Name 'G'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47ECAA5B0394' '47ECA80B000D.pas.ms.script' // Tk2TagGenerator
+ ;
+
+ref; // ME_48F33ECD0118 G
+
+: ME_48EEFCDD03A9
+ CONST UID '48EEFCDD03A9'
+ CONST Name 'evReadDataEX'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF98B01FF // evFacadeUtils
+ ;
+ : Parameters
+   @ ( ME_48F33ECD00DA // aTextSource
+ ME_48F33ECD0118 // G
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFCDD03A9 evReadDataEX
+
+: ME_48F2EAB200A5
+ CONST UID '48F2EAB200A5'
+ CONST Name 'aMemo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48454EBB0050' '4829D7D50156.pas.ms.script' // TevMemo
+ ;
+
+ref; // ME_48F2EAB200A5 aMemo
+
+: ME_48F2EAB200E3
+ CONST UID '48F2EAB200E3'
+ CONST Name 'aRange'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_48EEEC6402D2' '48EEE9330072.pas.ms.script' // TnevIRange
+ ;
+
+ref; // ME_48F2EAB200E3 aRange
+
+: ME_48F2EAB20112
+ CONST UID '48F2EAB20112'
+ CONST Name 'aText'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+
+ref; // ME_48F2EAB20112 aText
+
+: ME_48EEFD9903E1
+ CONST UID '48EEFD9903E1'
+ CONST Name 'evInsertText2Memo'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF98B01FF // evFacadeUtils
+ ;
+ : Parameters
+   @ ( ME_48F2EAB200A5 // aMemo
+ ME_48F2EAB200E3 // aRange
+ ME_48F2EAB20112 // aText
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFD9903E1 evInsertText2Memo
+
+: ME_48EEFDA4022A
+ CONST UID '48EEFDA4022A'
+ CONST Name 'aMemo'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48454EBB0050' '4829D7D50156.pas.ms.script' // TevMemo
+ ;
+
+ref; // ME_48EEFDA4022A aMemo
+
+: ME_48EEFDA40259
+ CONST UID '48EEFDA40259'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_48EEFDA40259 aValue
+
+: ME_48EEFDA30103
+ CONST UID '48EEFDA30103'
+ CONST Name 'evSetPlainTextFlag'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF98B01FF // evFacadeUtils
+ ;
+ : Parameters
+   @ ( ME_48EEFDA4022A // aMemo
+ ME_48EEFDA40259 // aValue
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFDA30103 evSetPlainTextFlag
+
+: ME_48EF2BB70232
+ CONST UID '48EF2BB70232'
+ CONST Name 'aTextSource'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482BFB7C00B6' '482BFB50007B.pas.ms.script' // TevCustomTextSource
+ ;
+
+ref; // ME_48EF2BB70232 aTextSource
+
+: ME_48EF2BA000E0
+ CONST UID '48EF2BA000E0'
+ CONST Name 'evGetNewTextGenerator'
+ CONST Class class_Operation
+ %SUMMARY 'Возвращает генератор для вствки текста.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF98B01FF // evFacadeUtils
+ ;
+ : Target WL 'ME_48EEEA480069' '48EEE9330072.pas.ms.script' // TevGenerator
+ ;
+ : Parameters
+   @ ( ME_48EF2BB70232 // aTextSource
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EF2BA000E0 evGetNewTextGenerator
+
+: ME_48EF2BCF017F
+ CONST UID '48EF2BCF017F'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_48EF2BCF017F anEditor
+
+: ME_48EF2BC503A1
+ CONST UID '48EF2BC503A1'
+ CONST Name 'evGetNewTextGenerator'
+ CONST Class class_Operation
+ %SUMMARY 'Возвращает генератор для вствки текста, с учетом текущего курсора.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF98B01FF // evFacadeUtils
+ ;
+ : Target WL 'ME_48EEEA480069' '48EEE9330072.pas.ms.script' // TevGenerator
+ ;
+ : Parameters
+   @ ( ME_48EF2BCF017F // anEditor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EF2BC503A1 evGetNewTextGenerator
+
+: ME_492E54CD0333
+ CONST UID '492E54CD0333'
+ CONST Name 'aWriter'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_483D7C55027A' '47ECB8BD00A8.pas.ms.script' // TevdNativeWriter
+ ;
+
+ref; // ME_492E54CD0333 aWriter
+
+: ME_492E54CD0381
+ CONST UID '492E54CD0381'
+ CONST Name 'aTree'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_476BF1DD0075' '4678209200A6.pas.ms.script' // InevSimpleTree
+ ;
+
+ref; // ME_492E54CD0381 aTree
+
+: ME_492E54CD03BF
+ CONST UID '492E54CD03BF'
+ CONST Name 'aLevelTag'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_492E54CD03BF aLevelTag
+
+: ME_492E54CE0025
+ CONST UID '492E54CE0025'
+ CONST Name 'aFlag'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476F71A701AB' '4AB0C3C60310.pas.ms.script' // Word
+ ;
+
+ref; // ME_492E54CE0025 aFlag
+
+: ME_492E544E0315
+ CONST UID '492E544E0315'
+ CONST Name 'evStoreTreeDataObject'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF98B01FF // evFacadeUtils
+ ;
+ : Parameters
+   @ ( ME_492E54CD0333 // aWriter
+ ME_492E54CD0381 // aTree
+ ME_492E54CD03BF // aLevelTag
+ ME_492E54CE0025 // aFlag
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_492E544E0315 evStoreTreeDataObject
+
+: ME_4BB320880003
+ CONST UID '4BB320880003'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_4BB320880003 anEditor
+
+: ME_4BB320880051
+ CONST UID '4BB320880051'
+ CONST Name 'aClear'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4BB320880051 aClear
+
+: ME_4BB3202300B5
+ CONST UID '4BB3202300B5'
+ CONST Name 'evSetExcludeWords'
+ CONST Class class_Operation
+ %SUMMARY 'Устанавливает/сбрасывает флаг ev_slFoundWords (в зависимости от параметра aClear) в ExcludeSuper редактора.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF98B01FF // evFacadeUtils
+ ;
+ : Parameters
+   @ ( ME_4BB320880003 // anEditor
+ ME_4BB320880051 // aClear
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BB3202300B5 evSetExcludeWords
+
+: ME_4BB320C20264
+ CONST UID '4BB320C20264'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_4BB320C20264 anEditor
+
+: ME_4BB320970039
+ CONST UID '4BB320970039'
+ CONST Name 'evNeedExcludeWords'
+ CONST Class class_Operation
+ %SUMMARY 'Проверяет установлен ли флаг ev_slFoundWords в ExcludeSuper редактора.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF98B01FF // evFacadeUtils
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_4BB320C20264 // anEditor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4BB320970039 evNeedExcludeWords
+
+: ME_48F2F4AF0279
+ CONST UID '48F2F4AF0279'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF98B01FF // evFacadeUtils
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_48F2F4AF0279 
+
+: ME_48F343F000DC
+ CONST UID '48F343F000DC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF98B01FF // evFacadeUtils
+ ;
+ : Target WL 'ME_4829D89703D2' '4829D7D50156.pas.ms.script' // TevCustomEditor
+ ;
+
+ref; // ME_48F343F000DC 
+
+: ME_492E55050394
+ CONST UID '492E55050394'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF98B01FF // evFacadeUtils
+ ;
+ : Target WL 'ME_483D7C55027A' '47ECB8BD00A8.pas.ms.script' // TevdNativeWriter
+ ;
+
+ref; // ME_492E55050394 
+
+: ME_492E55E10129
+ CONST UID '492E55E10129'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF98B01FF // evFacadeUtils
+ ;
+ : Target WL 'ME_48FC8B3D01BC' '4802FF41005C.pas.ms.script' // TevTreeDataObject
+ ;
+
+ref; // ME_492E55E10129 
+
+: ME_492E566300E5
+ CONST UID '492E566300E5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF98B01FF // evFacadeUtils
+ ;
+ : Target WL 'ME_48FC655F025C' '4802FF41005C.pas.ms.script' // TevTreeStorableData
+ ;
+
+ref; // ME_492E566300E5 
+
+: ME_492E570D03D4
+ CONST UID '492E570D03D4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF98B01FF // evFacadeUtils
+ ;
+ : Target WL 'ME_4811C7A80167' '47C5207602D1.pas.ms.script' // InevSimpleTree
+ ;
+
+ref; // ME_492E570D03D4 
+
+: ME_4BB320160211
+ CONST UID '4BB320160211'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF98B01FF // evFacadeUtils
+ ;
+ : Target WL 'ME_47F24AFB0308' '469D0AC7005E.pas.ms.script' // Layers
+ ;
+
+ref; // ME_4BB320160211 
+
+: ME_540591030389
+ CONST UID '540591030389'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF98B01FF // evFacadeUtils
+ ;
+ : Target WL 'ME_47ECAB310336' '47ECAB0B0265.pas.ms.script' // Msg Codes
+ ;
+
+ref; // ME_540591030389 
+
+: ME_48EEF98B01FF
+ CONST UID '48EEF98B01FF'
+ CONST Name 'evFacadeUtils'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEE7AE0313 // evFacade
+ ;
+ : Operations
+   @ ( ME_48EEF9F20194 // evInsertFile
+ ME_48EEFA2400D7 // evInsertFile
+ ME_48EEFB4F0184 // evFreeGenerator
+ ME_48EEFCDD03A9 // evReadDataEX
+ ME_48EEFD9903E1 // evInsertText2Memo
+ ME_48EEFDA30103 // evSetPlainTextFlag
+ ME_48EF2BA000E0 // evGetNewTextGenerator
+ ME_48EF2BC503A1 // evGetNewTextGenerator
+ ME_492E544E0315 // evStoreTreeDataObject
+ ME_4BB3202300B5 // evSetExcludeWords
+ ME_4BB320970039 // evNeedExcludeWords
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_48F2F4AF0279 // 
+ ME_48F343F000DC // 
+ ME_492E55050394 // 
+ ME_492E55E10129 // 
+ ME_492E566300E5 // 
+ ME_492E570D03D4 // 
+ ME_4BB320160211 // 
+ ME_540591030389 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\EverestCommon\evFacadeUtils.pas'
+
+ref; // ME_48EEF98B01FF evFacadeUtils
+
+FORWARD ME_48EEF9D8031A
+
+: ME_5343D61703DB
+ CONST UID '5343D61703DB'
+ CONST Name 'aPara'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_5343D61703DB aPara
+
+: ME_48EEFA40027D
+ CONST UID '48EEFA40027D'
+ CONST Name 'evInvalidatePara'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF9D8031A // evFacadeGUI
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_5343D61703DB // aPara
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFA40027D evInvalidatePara
+
+: ME_5343D61E0335
+ CONST UID '5343D61E0335'
+ CONST Name 'aBlock'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48F86E960118' '48EEE9330072.pas.ms.script' // IevCommonDataObject
+ ;
+
+ref; // ME_5343D61E0335 aBlock
+
+: ME_48F86EE90216
+ CONST UID '48F86EE90216'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_48F86EE90216 anEditor
+
+: ME_48EEFB7400DB
+ CONST UID '48EEFB7400DB'
+ CONST Name 'evCheckInTable'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF9D8031A // evFacadeGUI
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_5343D61E0335 // aBlock
+ ME_48F86EE90216 // anEditor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFB7400DB evCheckInTable
+
+: ME_48EEFBD00046
+ CONST UID '48EEFBD00046'
+ CONST Name 'aTextSource'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482BFB7C00B6' '482BFB50007B.pas.ms.script' // TevCustomTextSource
+ ;
+
+ref; // ME_48EEFBD00046 aTextSource
+
+: ME_48EEFBCD02EA
+ CONST UID '48EEFBCD02EA'
+ CONST Name 'evUnformatAll'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF9D8031A // evFacadeGUI
+ ;
+ : Parameters
+   @ ( ME_48EEFBD00046 // aTextSource
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFBCD02EA evUnformatAll
+
+: ME_48EEFCD400AC
+ CONST UID '48EEFCD400AC'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D89703D2' '4829D7D50156.pas.ms.script' // TevCustomEditor
+ ;
+
+ref; // ME_48EEFCD400AC anEditor
+
+: ME_48EEFCD2037C
+ CONST UID '48EEFCD2037C'
+ CONST Name 'evMouseLP2DP'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEF9D8031A // evFacadeGUI
+ ;
+ : Target WL 'ME_4739AD110072' '4728A7020026.pas.ms.script' // TPoint
+ ;
+ : Parameters
+   @ ( ME_48EEFCD400AC // anEditor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFCD2037C evMouseLP2DP
+
+: ME_48F2EFF30222
+ CONST UID '48F2EFF30222'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF9D8031A // evFacadeGUI
+ ;
+ : Target WL 'ME_47AC759800AF' '47AC75550330.pas.ms.script' // ExtTags
+ ;
+
+ref; // ME_48F2EFF30222 
+
+: ME_48F5EBF800C2
+ CONST UID '48F5EBF800C2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF9D8031A // evFacadeGUI
+ ;
+ : Target WL 'ME_47C520D80305' '47C5207602D1.pas.ms.script' // InevPara
+ ;
+
+ref; // ME_48F5EBF800C2 
+
+: ME_49AE8AC00163
+ CONST UID '49AE8AC00163'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF9D8031A // evFacadeGUI
+ ;
+ : Target WL 'ME_4857D48E00F4' '48492FC0029D.pas.ms.script' // Table
+ ;
+
+ref; // ME_49AE8AC00163 
+
+: ME_49D0FCA001E9
+ CONST UID '49D0FCA001E9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEF9D8031A // evFacadeGUI
+ ;
+ : Target WL 'ME_4821E72001F9' '4678209200A6.pas.ms.script' // TnevShapePart
+ ;
+
+ref; // ME_49D0FCA001E9 
+
+: ME_48EEF9D8031A
+ CONST UID '48EEF9D8031A'
+ CONST Name 'evFacadeGUI'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEE7AE0313 // evFacade
+ ;
+ : Operations
+   @ ( ME_48EEFA40027D // evInvalidatePara
+ ME_48EEFB7400DB // evCheckInTable
+ ME_48EEFBCD02EA // evUnformatAll
+ ME_48EEFCD2037C // evMouseLP2DP
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_48F2EFF30222 // 
+ ME_48F5EBF800C2 // 
+ ME_49AE8AC00163 // 
+ ME_49D0FCA001E9 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\EverestCommon\evFacadeGUI.pas'
+
+ref; // ME_48EEF9D8031A evFacadeGUI
+
+FORWARD ME_48EEFBF70249
+
+: ME_48EEFC1A0052
+ CONST UID '48EEFC1A0052'
+ CONST Name 'aTextSource'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482BFB7C00B6' '482BFB50007B.pas.ms.script' // TevCustomTextSource
+ ;
+
+ref; // ME_48EEFC1A0052 aTextSource
+
+: ME_48EEFC180229
+ CONST UID '48EEFC180229'
+ CONST Name 'evGetUndoBuffer'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEFBF70249 // evFacadTextSource
+ ;
+ : Target WL 'ME_48EEEBA300DE' '48EEE9330072.pas.ms.script' // TnevCustomUndoBuffer
+ ;
+ : Parameters
+   @ ( ME_48EEFC1A0052 // aTextSource
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFC180229 evGetUndoBuffer
+
+: ME_48EEFC5A03B2
+ CONST UID '48EEFC5A03B2'
+ CONST Name 'aTextSource'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482BFB7C00B6' '482BFB50007B.pas.ms.script' // TevCustomTextSource
+ ;
+
+ref; // ME_48EEFC5A03B2 aTextSource
+
+: ME_48EEFC5A0393
+ CONST UID '48EEFC5A0393'
+ CONST Name 'evGetBruttoCharCount'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEFBF70249 // evFacadTextSource
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_48EEFC5A03B2 // aTextSource
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFC5A0393 evGetBruttoCharCount
+
+: ME_48EEFC710320
+ CONST UID '48EEFC710320'
+ CONST Name 'aTextSource'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482BFB7C00B6' '482BFB50007B.pas.ms.script' // TevCustomTextSource
+ ;
+
+ref; // ME_48EEFC710320 aTextSource
+
+: ME_48EEFC710310
+ CONST UID '48EEFC710310'
+ CONST Name 'evGetBruttoCharLimit'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEFBF70249 // evFacadTextSource
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_48EEFC710320 // aTextSource
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFC710310 evGetBruttoCharLimit
+
+: ME_48EEFC750367
+ CONST UID '48EEFC750367'
+ CONST Name 'aTextSource'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482BFB7C00B6' '482BFB50007B.pas.ms.script' // TevCustomTextSource
+ ;
+
+ref; // ME_48EEFC750367 aTextSource
+
+: ME_48EEFC750348
+ CONST UID '48EEFC750348'
+ CONST Name 'evGetNettoCharCount'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEFBF70249 // evFacadTextSource
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_48EEFC750367 // aTextSource
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFC750348 evGetNettoCharCount
+
+: ME_48EEFC790267
+ CONST UID '48EEFC790267'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_48EEFC790267 anEditor
+
+: ME_48EEFC790248
+ CONST UID '48EEFC790248'
+ CONST Name 'evGetShowDocumentParts'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEFBF70249 // evFacadTextSource
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   @ ( ME_48EEFC790267 // anEditor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFC790248 evGetShowDocumentParts
+
+: ME_48EEFC7C03D9
+ CONST UID '48EEFC7C03D9'
+ CONST Name 'aTextSource'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482BFB7C00B6' '482BFB50007B.pas.ms.script' // TevCustomTextSource
+ ;
+
+ref; // ME_48EEFC7C03D9 aTextSource
+
+: ME_48EEFC7C03C9
+ CONST UID '48EEFC7C03C9'
+ CONST Name 'evGetTextParaCount'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEFBF70249 // evFacadTextSource
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_48EEFC7C03D9 // aTextSource
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFC7C03C9 evGetTextParaCount
+
+: ME_48EEFC8C0007
+ CONST UID '48EEFC8C0007'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_48EEFC8C0007 anEditor
+
+: ME_48EEFC8C0046
+ CONST UID '48EEFC8C0046'
+ CONST Name 'aTextSource'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482BFB7C00B6' '482BFB50007B.pas.ms.script' // TevCustomTextSource
+ ;
+
+ref; // ME_48EEFC8C0046 aTextSource
+
+: ME_48EEFC8B03E0
+ CONST UID '48EEFC8B03E0'
+ CONST Name 'evInsertFrom'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEFBF70249 // evFacadTextSource
+ ;
+ : Parameters
+   @ ( ME_48EEFC8C0007 // anEditor
+ ME_48EEFC8C0046 // aTextSource
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFC8B03E0 evInsertFrom
+
+: ME_48EEFC9001B6
+ CONST UID '48EEFC9001B6'
+ CONST Name 'aTextSource'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482BFB7C00B6' '482BFB50007B.pas.ms.script' // TevCustomTextSource
+ ;
+
+ref; // ME_48EEFC9001B6 aTextSource
+
+: ME_48EEFC9001E4
+ CONST UID '48EEFC9001E4'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_48EEFC9001E4 aValue
+
+: ME_48EEFC900196
+ CONST UID '48EEFC900196'
+ CONST Name 'evSetBruttoCharLimit'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEFBF70249 // evFacadTextSource
+ ;
+ : Parameters
+   @ ( ME_48EEFC9001B6 // aTextSource
+ ME_48EEFC9001E4 // aValue
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFC900196 evSetBruttoCharLimit
+
+: ME_48EEFC930356
+ CONST UID '48EEFC930356'
+ CONST Name 'aTextSource'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482BFB7C00B6' '482BFB50007B.pas.ms.script' // TevCustomTextSource
+ ;
+
+ref; // ME_48EEFC930356 aTextSource
+
+: ME_48EEFC930385
+ CONST UID '48EEFC930385'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+
+ref; // ME_48EEFC930385 aValue
+
+: ME_48EEFC930337
+ CONST UID '48EEFC930337'
+ CONST Name 'evSetNettoCharCountEvent'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEFBF70249 // evFacadTextSource
+ ;
+ : Parameters
+   @ ( ME_48EEFC930356 // aTextSource
+ ME_48EEFC930385 // aValue
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFC930337 evSetNettoCharCountEvent
+
+: ME_48EEFC97011F
+ CONST UID '48EEFC97011F'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4829D92A037B' '4829D7D50156.pas.ms.script' // TevCustomEditorWindow
+ ;
+
+ref; // ME_48EEFC97011F anEditor
+
+: ME_48EEFC97015D
+ CONST UID '48EEFC97015D'
+ CONST Name 'aTextSource'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482BFB7C00B6' '482BFB50007B.pas.ms.script' // TevCustomTextSource
+ ;
+
+ref; // ME_48EEFC97015D aTextSource
+
+: ME_48EEFC97019C
+ CONST UID '48EEFC97019C'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_48EEFC97019C aValue
+
+: ME_48EEFC970100
+ CONST UID '48EEFC970100'
+ CONST Name 'evSetShowDocumentParts'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEFBF70249 // evFacadTextSource
+ ;
+ : Parameters
+   @ ( ME_48EEFC97011F // anEditor
+ ME_48EEFC97015D // aTextSource
+ ME_48EEFC97019C // aValue
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFC970100 evSetShowDocumentParts
+
+: ME_48EEFCA80391
+ CONST UID '48EEFCA80391'
+ CONST Name 'aTextSource'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482BFB7C00B6' '482BFB50007B.pas.ms.script' // TevCustomTextSource
+ ;
+
+ref; // ME_48EEFCA80391 aTextSource
+
+: ME_48EEFCA803DF
+ CONST UID '48EEFCA803DF'
+ CONST Name 'aCount'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_48EEFCA803DF aCount
+
+: ME_48EEFCA80353
+ CONST UID '48EEFCA80353'
+ CONST Name 'evSetTextParaLimit'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEFBF70249 // evFacadTextSource
+ ;
+ : Parameters
+   @ ( ME_48EEFCA80391 // aTextSource
+ ME_48EEFCA803DF // aCount
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFCA80353 evSetTextParaLimit
+
+: ME_48F2EA9D0105
+ CONST UID '48F2EA9D0105'
+ CONST Name 'aTextSource'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_482BFB7C00B6' '482BFB50007B.pas.ms.script' // TevCustomTextSource
+ ;
+
+ref; // ME_48F2EA9D0105 aTextSource
+
+: ME_48F2EA9D0153
+ CONST UID '48F2EA9D0153'
+ CONST Name 'aStr'
+ CONST Class class_Parameter
+ : Stereotype st_const ;
+ : Target WL 'ME_452257A0036F' '3DBFDB23006E.pas.ms.script' // a-string
+ ;
+
+ref; // ME_48F2EA9D0153 aStr
+
+: ME_48F2EA9D0191
+ CONST UID '48F2EA9D0191'
+ CONST Name 'aFormat'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A449A301E3' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormat
+ ;
+ CONST Value 'cf_Text'
+ : ValueType WL 'ME_46A449A301E3' '4677FBA70343.pas.ms.script' // Tl3ClipboardFormat
+ ;
+
+ref; // ME_48F2EA9D0191 aFormat
+
+: ME_48EEFD580285
+ CONST UID '48EEFD580285'
+ CONST Name 'evAddStringToTextSource'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEFBF70249 // evFacadTextSource
+ ;
+ : Parameters
+   @ ( ME_48F2EA9D0105 // aTextSource
+ ME_48F2EA9D0153 // aStr
+ ME_48F2EA9D0191 // aFormat
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_48EEFD580285 evAddStringToTextSource
+
+: ME_48EF34A3006B
+ CONST UID '48EF34A3006B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEFBF70249 // evFacadTextSource
+ ;
+ : Target WL 'ME_482D98DE00A9' '482BFB50007B.pas.ms.script' // TevTextSource
+ ;
+
+ref; // ME_48EF34A3006B 
+
+: ME_48EF35DA0335
+ CONST UID '48EF35DA0335'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEFBF70249 // evFacadTextSource
+ ;
+ : Target WL 'ME_48E385BC0143' '4829D7D50156.pas.ms.script' // TedRange
+ ;
+
+ref; // ME_48EF35DA0335 
+
+: ME_48EF406801DA
+ CONST UID '48EF406801DA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEFBF70249 // evFacadTextSource
+ ;
+ : Target WL 'ME_4773D64E036C' '47913B47006E.pas.ms.script' // l3Base
+ ;
+
+ref; // ME_48EF406801DA 
+
+: ME_48EF5C3B0342
+ CONST UID '48EF5C3B0342'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEFBF70249 // evFacadTextSource
+ ;
+ : Target WL 'ME_48453A750156' '48453A40017C.pas.ms.script' // Operations
+ ;
+
+ref; // ME_48EF5C3B0342 
+
+: ME_4BBDE22303B2
+ CONST UID '4BBDE22303B2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_48EEFBF70249 // evFacadTextSource
+ ;
+ : Target WL 'ME_48E38399034C' '48E3836D00C8.pas.ms.script' // IedRange
+ ;
+
+ref; // ME_4BBDE22303B2 
+
+: ME_48EEFBF70249
+ CONST UID '48EEFBF70249'
+ CONST Name 'evFacadTextSource'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEE7AE0313 // evFacade
+ ;
+ : Operations
+   @ ( ME_48EEFC180229 // evGetUndoBuffer
+ ME_48EEFC5A0393 // evGetBruttoCharCount
+ ME_48EEFC710310 // evGetBruttoCharLimit
+ ME_48EEFC750348 // evGetNettoCharCount
+ ME_48EEFC790248 // evGetShowDocumentParts
+ ME_48EEFC7C03C9 // evGetTextParaCount
+ ME_48EEFC8B03E0 // evInsertFrom
+ ME_48EEFC900196 // evSetBruttoCharLimit
+ ME_48EEFC930337 // evSetNettoCharCountEvent
+ ME_48EEFC970100 // evSetShowDocumentParts
+ ME_48EEFCA80353 // evSetTextParaLimit
+ ME_48EEFD580285 // evAddStringToTextSource
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_48EF34A3006B // 
+ ME_48EF35DA0335 // 
+ ME_48EF406801DA // 
+ ME_48EF5C3B0342 // 
+ ME_4BBDE22303B2 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\EverestCommon\evFacadTextSource.pas'
+
+ref; // ME_48EEFBF70249 evFacadTextSource
+
+: ME_4A263B280094
+ CONST UID '4A263B280094'
+ CONST Name 'evL2SubA'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A2621920255 // evStubs
+ ;
+
+ref; // ME_4A263B280094 evL2SubA
+
+: ME_4A2621920255
+ CONST UID '4A2621920255'
+ CONST Name 'evStubs'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Процедуры для формирования заглушек локальных процедур' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_48EEE7AE0313 // evFacade
+ ;
+ : Operations
+   @ ( ME_4A263B280094 // evL2SubA
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "author" 'Люлин А.В.'
+ CONST "finished" false
+ CONST "no hands" false
+ CONST "started" '03.06.2009 11:09'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\EverestCommon\NOT_FINISHED_evStubs.pas'
+
+ref; // ME_4A2621920255 evStubs
+
+: ME_48EEE7AE0313
+ CONST UID '48EEE7AE0313'
+ CONST Name 'evFacade'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_48EEE54C0072' '48EEE54C0072.pas.ms.script' // EverestCommon
+ ;
+ : Children
+   @ ( ME_48EEE8A503AB // evFacadeCursor
+ ME_48EEF8240298 // evFacadeSelection
+ ME_48EEF8D0004A // evFacadeSub
+ ME_48EEF98B01FF // evFacadeUtils
+ ME_48EEF9D8031A // evFacadeGUI
+ ME_48EEFBF70249 // evFacadTextSource
+ ME_4A2621920255 // evStubs
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
+ WL 'ME_4678209200A6' '4678209200A6.pas.ms.script' // nevBase
+ WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
+ WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
+ WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
+ WL 'ME_47ECA80B000D' '47ECA80B000D.pas.ms.script' // Generators
+ WL 'ME_47ECAB0B0265' '47ECAB0B0265.pas.ms.script' // evMsgCode
+ WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.pas.ms.script' // Generators
+ WL 'ME_47F088300159' '47F088300159.pas.ms.script' // evInternalInterfaces
+ WL 'ME_47F0893F0220' '47F0893F0220.pas.ms.script' // nevInternalInterfaces
+ WL 'ME_47F1F38601A3' '47F1F38601A3.pas.ms.script' // ParaUtils
+ WL 'ME_4802FF41005C' '4802FF41005C.pas.ms.script' // DataObjects
+ WL 'ME_4829D7D50156' '4829D7D50156.pas.ms.script' // Editors
+ WL 'ME_482BFB50007B' '482BFB50007B.pas.ms.script' // TextSources
+ WL 'ME_482D6E960087' '482D6E960087.pas.ms.script' // Readers
+ WL 'ME_48453A40017C' '48453A40017C.pas.ms.script' // evOp
+ WL 'ME_48492FC0029D' '48492FC0029D.pas.ms.script' // Standard
+ WL 'ME_48E3836D00C8' '48E3836D00C8.pas.ms.script' // evEditorInterfaces
+ WL 'ME_48EEE9330072' '48EEE9330072.pas.ms.script' // evCommonTypes
+ WL 'ME_48F4E61C0060' '48F4E61C0060.pas.ms.script' // Interfaces
+ WL 'ME_4A4DE16302A2' '4A4DE16302A2.pas.ms.script' // k2Core
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B324F930103' '4B324F930103.pas.ms.script' // Filters
+ WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\48EEE7AE0313.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\48EEE7AE0313.pas.ms.script.runner'
+
+ref; // ME_48EEE7AE0313 evFacade

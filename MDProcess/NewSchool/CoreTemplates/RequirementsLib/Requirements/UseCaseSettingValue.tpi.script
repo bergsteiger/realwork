@@ -1,0 +1,250 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CoreTemplates/RequirementsLib/Requirements/UseCaseSettingValue.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$CoreTemplates::CoreTemplates::RequirementsLib::Requirements::UseCaseSettingValue
+//
+// Значение настройки прецедента
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: UseCaseSettingValue::Class
+implementation @ <<UseCaseSettingValue>>
+//? Значение настройки прецедента
+//> UseCaseSetting::Class
+
+//= Документация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y usecase.gif
+//L usecase
+// Параметры визуализации
+//$ C 152,251,152
+//$ l 60,179,113
+//$ f 60,179,113
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p CodeName:s ? Имя элемента кода
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	[{"%S{CodeName}"!="%S{!CodeName}"}%f_up_prefix(%S) *CodeName* = *%S{CodeName}* - Имя элемента кода
+ if ( ( %S get_up ( 'CodeName' ) ) %!= ( %S get_up_def ( 'CodeName' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *CodeName* = *'
+  %S get_up ( 'CodeName' ) '* - Имя элемента кода'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for4E30271A0247*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for4E30271A0247*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor4E30271A0247*
+//#UC END# *4705CBD6003Efor4E30271A0247*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for4E30271A0247*
+//#UC END# *470484D50138for4E30271A0247*
+; // wiki_up_add_gen
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for4E30271A0247*
+//C /%SN:%SU
+//O %SN
+//S %SN
+//	%f_wiki_header(%S)
+ [%f] wiki_header %( %S )% 
+//	[%f_k_common_elem_docs(%S)
+ if NOT-EMPTY
+ begin
+  [%f] k_common_elem_docs %( %S )% 
+//	
+  #13#10
+
+//	]\
+ end // if
+ NOP
+
+//	[{%mx=true}\
+ if ( ( %m |x ) %==  true ) then
+ begin
+
+//	[{%Cx=true}\
+//	
+  #13#10
+
+//	
+  #13#10
+
+//	<{----\n}_[{%mN!=Main}{Основная}%mN] диаграмма элемента:_
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%m
+  begin
+   OBJECT IN %m
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( '----'#13#10 )
+    '_'
+    if ( ( %m |N ) %!= 'Main' ) then
+    begin
+     %m |N 
+    end // if
+    else
+    begin
+     'Основная' 
+    end // else
+    ' диаграмма элемента:_'
+//	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+    [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+    %m |U '.jpg}'
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for m
+
+//	]\
+//	]\
+ end // if
+
+//	[{<{}{%CC=StateMachine&%C%mx=true}{%CC}>!=0}
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'StateMachine' AND 
+    ( ( %C ->m |x  ) %==  true  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	<{}{%CC=StateMachine}%C<{----\n}_диаграмма состояний элемента:_
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'StateMachine' ) then
+   begin
+    %C
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%m
+     begin
+      OBJECT IN %m
+      if true then
+      begin
+       if ( l_Counter >0 ) then ( '----'#13#10 )
+       '_диаграмма состояний элемента:_'
+//	%f_dump_diagram(m){ShowDiagram:%mU.jpg}
+       [%f] dump_diagram %( 'm' )% '{ShowDiagram:'
+       %m |U '.jpg}'
+//	>>]\
+
+       ++! l_Counter
+      end // if
+     end // for m
+
+    ) // bind
+ 
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%f_wiki_footer(%S)
+ [%f] wiki_footer %( %S )% 
+//#UC END# *46E6D4BB0339for4E30271A0247*
+; // wiki
+
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
+//+ spell
+<<generator>> spell OBJECT IN %S
+//#UC START# *4A41A13D03D5for4E30271A0247*
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4A41A13D03D5for4E30271A0247*
+; // spell
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<UseCaseSettingValue>>
+

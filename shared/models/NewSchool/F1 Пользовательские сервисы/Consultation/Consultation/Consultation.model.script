@@ -1,0 +1,1606 @@
+<<VCMControllers>> Consultation
+ %UID '493FCF1E03DC'
+ %SUMMARY 'Работа с консультациями' ;
+ %DEPENDS
+  U$ '447878770121' /* GCI */
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677FBA70343' /* l3Interfaces */
+  U$ '4677FF4B0036' /* Data */
+  U$ '467A8734039C' /* EVD */
+  U$ '4680C57D01E9' /* Business */
+  U$ '4680E7D50168' /* "Everest Engine" */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '47E9EEC60260' /* Model */
+  U$ '481EF5C4020D' /* Оболочка */
+  U$ '4954FAA00232' /* Search */
+  U$ '4982BE090383' /* vcmControllers */
+  U$ '4A85683403A8' /* View */
+  U$ '4A9FFD3F01AD' /* Search */
+  U$ '4ABB680E0218' /* Common$Lib */
+  U$ '4ABCF16F01CD' /* Consultation$Lib */
+  U$ '4C6A65ED0374' /* F1DocumentProcessing */
+  U$ '4CF380E402F8' /* Consultation$View */
+  U$ '4D1B64E70031' /* BusinessInterfaces */
+  U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '54B90AC6014B' /* StringUtils */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "ifndef" 'Admin'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '447878770121' /* GCI */
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677FF4B0036' /* Data */
+  U$ '467A8734039C' /* EVD */
+  U$ '4680C57D01E9' /* Business */
+  U$ '4680E7D50168' /* "Everest Engine" */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '47E9EEC60260' /* Model */
+  U$ '481EF5C4020D' /* Оболочка */
+  U$ '4954FAA00232' /* Search */
+  U$ '4A85683403A8' /* View */
+  U$ '4A9FFD3F01AD' /* Search */
+  U$ '4ABB680E0218' /* Common$Lib */
+  U$ '4ABCF16F01CD' /* Consultation$Lib */
+  U$ '4C6A65ED0374' /* F1DocumentProcessing */
+  U$ '4CF380E402F8' /* Consultation$View */
+  U$ '4D1B64E70031' /* BusinessInterfaces */
+  U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<ControllerInterfaces>> ConsultationInterfaces
+   %UID '491C3E540050'
+   %SUMMARY 'Интерфейсы для работы с консультациями' ;
+   %DEPENDS
+    U$ '4AA5503000D7' /* QueryCardInterfaces */
+   ; // %DEPENDS
+   %META
+    %upv "author" 'Люлин А.В.'
+    %upv "is namespace" true
+    %upv "no hands" true
+    %upv "started" '13.11.2008'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '493FCF1E03DC' /* Consultation */
+    U$ '4A9FFD3F01AD' /* Search */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<UseCaseController>> IsdsQuery
+      %UID '492F005A02C7'
+      %SUMMARY 'Бизнес объект прецедентов "Поисковый запрос"' ;
+      %TOBEINCLUDED
+       U$ '4A9FFD3F01AD' /* Search */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<area>> dsQuery
+         %UID '492F006F00BE'
+         %SUMMARY 'для формы поискового запроса' ;
+         %TARGET U$ '491DC972029C' /* IdsQuery */
+         %META
+          %upv "Need Has" 'undefined'
+          %upv "pm" true
+          %upv "required" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A9FFD3F01AD' /* Search */
+         ; // %TOBEINCLUDED
+        ; // dsQuery
+        ABSTRACT LINK <<area>> dsSaveLoad
+         %UID '492F00890059'
+         %SUMMARY 'для контейнера поискового запроса' ;
+         %TARGET U$ '4923F61A0112' /* IdsSaveLoad */
+         %META
+          %upv "Need Has" 'undefined'
+          %upv "pm" true
+          %upv "required" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4A9FFD3F01AD' /* Search */
+         ; // %TOBEINCLUDED
+        ; // dsSaveLoad
+      ; // %ATTRIBUTES
+     ; // IsdsQuery
+     <<UseCaseController>> IsdsSendConsultation
+      %UID '492F01200192'
+      %TOBEINCLUDED
+       U$ '493FCF1E03DC' /* Consultation */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '492F005A02C7' /* IsdsQuery */
+      ; // %INHERITS
+      %REALIZES
+       U$ '492F006F00BE' /* dsQuery */
+       U$ '492F00890059' /* dsSaveLoad */
+      ; // %REALIZES
+     ; // IsdsSendConsultation
+   ; // %CHILDREN
+  ; // ConsultationInterfaces
+  <<ControllerUnit>> Consultation
+   %UID '491C3E40007B'
+   %SUMMARY 'Реализация прецедента работы с консультациями' ;
+   %DEPENDS
+    U$ '4423F94903C8' /* IO */
+    U$ '456EA56002BF' /* BaseTypes */
+    U$ '457007DB002E' /* Consulting */
+    U$ '45700BFD0251' /* DynamicDocList */
+    U$ '4570511E038A' /* Document */
+    U$ '45EEA4890342' /* ExternalOperation */
+    U$ '45EEAA8E034E' /* Search */
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '4678137501EA' /* k2Interfaces */
+    U$ '4678193C009C' /* l3Types */
+    U$ '4680E826036D' /* eeDocumentContainer */
+    U$ '469D0AC7005E' /* Types */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47AC75550330' /* k2Tags */
+    U$ '47C5207602D1' /* nevTools */
+    U$ '47C695A10172' /* evTypes */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '47EA07FA02CE' /* bsTypes */
+    U$ '47EA50050263' /* BaseDocument */
+    U$ '47EA5024034B' /* ListDataSources */
+    U$ '47ECA80B000D' /* Generators */
+    U$ '47ECAAF901F8' /* bsInterfaces */
+    U$ '47F2170002B2' /* nsTypes */
+    U$ '47F260DC003F' /* ns */
+    U$ '483E80C9025F' /* Readers */
+    U$ '48492FC0029D' /* Standard */
+    U$ '484A470100DD' /* Standard */
+    U$ '484E610E0335' /* "Информационная поддержка" */
+    U$ '48F747EC0073' /* Common */
+    U$ '4908545802CA' /* DocumentContainers */
+    U$ '491C3E540050' /* ConsultationInterfaces */
+    U$ '491DAF4202EE' /* SearchInterfaces */
+    U$ '491DCA2C00A9' /* Search */
+    U$ '4982BE090383' /* vcmControllers */
+    U$ '4A85282C0252' /* LiteSearch */
+    U$ '4AA5503000D7' /* QueryCardInterfaces */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4ABCF04F00DF' /* ConsultationDomainInterfaces */
+    U$ '4AC207650135' /* AdapterFacade */
+    U$ '4B1FC2FF03CD' /* DocumentInterfaces */
+    U$ '4C1B915E0261' /* "Version Info" */
+    U$ '4C6A7BA001A5' /* F1DocumentContainers */
+    U$ '4C6ABB3201AC' /* DocInfo */
+    U$ '4CF3810D0038' /* HAFPainters */
+    U$ '54B90AC6014B' /* StringUtils */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '447878770121' /* GCI */
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677E16A022A' /* K2 */
+    U$ '4677FF4B0036' /* Data */
+    U$ '467A8734039C' /* EVD */
+    U$ '4680C57D01E9' /* Business */
+    U$ '4680E7D50168' /* "Everest Engine" */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4797632D0273' /* Everest */
+    U$ '47E9EEC60260' /* Model */
+    U$ '481EF5C4020D' /* Оболочка */
+    U$ '493FCF1E03DC' /* Consultation */
+    U$ '4954FAA00232' /* Search */
+    U$ '4A85683403A8' /* View */
+    U$ '4A9FFD3F01AD' /* Search */
+    U$ '4ABB680E0218' /* Common$Lib */
+    U$ '4ABCF16F01CD' /* Consultation$Lib */
+    U$ '4C6A65ED0374' /* F1DocumentProcessing */
+    U$ '4CF380E402F8' /* Consultation$View */
+    U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<ViewAreaControllerImp>> TdsConsultation
+      %UID '491C3E97009F'
+      %SUMMARY 'БОС запроса на консультацию' ;
+      %META
+       %upv "author" 'Морозов М.А'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '06.04.2006 17.27'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4680C57D01E9' /* Business */
+       U$ '47E9EEC60260' /* Model */
+       U$ '4ABCF16F01CD' /* Consultation$Lib */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '491C3F68021E' /* IdsConsultation */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47EA20430108' /* dsBaseDocumentPrim */
+      ; // %INHERITS
+      %REALIZES
+       U$ '491C3FAA009D' /* ShowingStatus */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '47A042E100E2' /* InitFields */
+       U$ '4A60B23E00C3' /* COMQueryInterface */
+       U$ '4C6AB38800F3' /* MakeContainer */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "491C403B0011"
+         %UID '491C403B0011'
+         %TARGET U$ '4773D64E036C' /* l3Base */
+        ; // 491C403B0011
+        <<uses>> "491C44CD0277"
+         %UID '491C44CD0277'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 491C44CD0277
+        <<uses>> "491D47F6023F"
+         %UID '491D47F6023F'
+         %TARGET U$ '457008050157' /* Consultation */
+        ; // 491D47F6023F
+        <<uses>> "4CF37AF1004E"
+         %UID '4CF37AF1004E'
+         %TARGET U$ '4CF37A0400FB' /* TnsConsultationDocumentContainerNew */
+        ; // 4CF37AF1004E
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_ShowingStatus
+         %UID '491C3F400031'
+         %TARGET U$ '491C3F2F000F' /* TbsConsultationStatuses */
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+        ; // f_ShowingStatus
+        PRIVATE FINAL LINK <<UseCase>> Consultation
+         %UID '491C439C0297'
+         %TARGET U$ '4921732002D9' /* IsdsConsultation */
+         %TOBEINCLUDED
+          U$ '4ABCF16F01CD' /* Consultation$Lib */
+         ; // %TOBEINCLUDED
+        ; // Consultation
+        PRIVATE ABSTRACT <<impurity_value>> FormDataSourceType
+         %UID '4926CDDA00C5'
+         %TARGET U$ '491C3F68021E' /* IdsConsultation */
+         %TOBEINCLUDED
+          U$ '4ABCF16F01CD' /* Consultation$Lib */
+         ; // %TOBEINCLUDED
+        ; // FormDataSourceType
+      ; // %ATTRIBUTES
+     ; // TdsConsultation
+     FINAL <<ViewAreaControllerImp>> TdsQuery
+      %UID '491DCCE101F3'
+      %META
+       %upv "author" 'Морозов М.А'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '06.04.2006 17.27'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790C3B8021E' /* VCM */
+       U$ '4A9FFD3F01AD' /* Search */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '491DC972029C' /* IdsQuery */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '492ACB4100B2' /* vcmFormDataSource */
+      ; // %INHERITS
+      %REALIZES
+       U$ '491DC9970093' /* Query */
+       U$ '491DC9AE0355' /* IsQuerySaved */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> InitDataType
+         %UID '491DCD6000CA'
+         %TARGET U$ '491DAE5C011F' /* IdeQuery */
+         %TOBEINCLUDED
+          U$ '4A9FFD3F01AD' /* Search */
+         ; // %TOBEINCLUDED
+        ; // InitDataType
+        PRIVATE <<Attribute>> f_IsQuerySaved
+         %UID '491DCDA302BF'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_IsQuerySaved
+      ; // %ATTRIBUTES
+     ; // TdsQuery
+     FINAL <<ViewAreaControllerImp>> TdsConsultationMark
+      %UID '49216B3C02E8'
+      %SUMMARY 'БОС оценки консультации' ;
+      %META
+       %upv "author" 'Морозов М.А.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '2006/04/07 08:16:08'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+       U$ '4790D09A0378' /* L3 */
+       U$ '47E9EEC60260' /* Model */
+       U$ '4ABCF16F01CD' /* Consultation$Lib */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '492164C302A6' /* IdsConsultationMark */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47ECE94D03D4' /* vcmFormDataSourcePrim */
+      ; // %INHERITS
+      %REALIZES
+       U$ '49216508016D' /* Send */
+       U$ '49216542034E' /* Mark */
+       U$ '49216552037B' /* Comment */
+       U$ '49216566017F' /* CanSend */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '47A042E100E2' /* InitFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "49216C840250"
+         %UID '49216C840250'
+         %TARGET U$ '4773D64E036C' /* l3Base */
+        ; // 49216C840250
+        <<uses>> "492173100088"
+         %UID '492173100088'
+         %TARGET U$ '4570081E002E' /* Estimation */
+        ; // 492173100088
+        <<uses>> "4921746F0201"
+         %UID '4921746F0201'
+         %TARGET U$ '47F9CF5500D1' /* bsConvert */
+        ; // 4921746F0201
+        <<uses>> "4921747D0235"
+         %UID '4921747D0235'
+         %TARGET U$ '48FF556602BA' /* DataAdapter */
+        ; // 4921747D0235
+        <<uses>> "492175C60048"
+         %UID '492175C60048'
+         %TARGET U$ '48FF569700F6' /* StringRoutines */
+        ; // 492175C60048
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Comment
+         %UID '49216C45028E'
+         %TARGET U$ '4773DED9004C' /* Tl3_String */
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+        ; // f_Comment
+        PRIVATE <<Attribute>> f_Mark
+         %UID '49216C6300F7'
+         %TARGET U$ '4921639C00DB' /* TbsConsultationMark */
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+        ; // f_Mark
+        PRIVATE FINAL LINK <<UseCase>> Consultation
+         %UID '4978A6B0036D'
+         %TARGET U$ '4921732002D9' /* IsdsConsultation */
+         %TOBEINCLUDED
+          U$ '4ABCF16F01CD' /* Consultation$Lib */
+         ; // %TOBEINCLUDED
+        ; // Consultation
+      ; // %ATTRIBUTES
+     ; // TdsConsultationMark
+     <<UseCaseControllerImp>> TsdsConsultation
+      %UID '49228CA903BA'
+      %SUMMARY 'Бизнес объект прецедента "Консультация"' ;
+      %META
+       %upv "author" 'Морозов М.А'
+       %upv "debug log" true
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '2006/04/07 08:16:08'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790C3B8021E' /* VCM */
+       U$ '4ABCF16F01CD' /* Consultation$Lib */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4921732002D9' /* IsdsConsultation */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '49415C640079' /* vcmFormSetDataSourceWithoutData */
+      ; // %INHERITS
+      %REALIZES
+       U$ '492597A602F6' /* MakeGotoPointData */
+       U$ '492EB71000D6' /* dsConsultation */
+       U$ '492EB77C0125' /* dsList */
+       U$ '492EB793009E' /* DSConsultationMark */
+       U$ '492EB7BA035E' /* GiveMark */
+       U$ '492EB82F0391' /* NeedGiveMark */
+       U$ '492EB8620306' /* ConfirmPayment */
+       U$ '492EB8820218' /* UpdateAnswer */
+       U$ '492EB91F0391' /* ListChanged */
+       U$ '492EB93700FF' /* ConsultationWasMarked */
+       U$ '492EBCE002E0' /* MarkSended */
+       U$ '4F4E1E06038E' /* bsConsultation */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '47A042E100E2' /* InitFields */
+       U$ '47F37DF001FE' /* DataExchange */
+       U$ '491B02D80112' /* GetIsNeedChangePosition */
+       U$ '4938F7E702B7' /* ClearAreas */
+       U$ '4A60B23E00C3' /* COMQueryInterface */
+       U$ '5000565C019C' /* ClearFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "492FF6870268"
+         %UID '492FF6870268'
+         %TARGET U$ '491C3E97009F' /* TdsConsultation */
+        ; // 492FF6870268
+        <<uses>> "492FF6F50037"
+         %UID '492FF6F50037'
+         %TARGET U$ '491C0BE302FF' /* TdeDocInfo */
+        ; // 492FF6F50037
+        <<uses>> "492FF71A0183"
+         %UID '492FF71A0183'
+         %TARGET U$ '49216B3C02E8' /* TdsConsultationMark */
+        ; // 492FF71A0183
+        <<uses>> "492FF73F02A3"
+         %UID '492FF73F02A3'
+         %TARGET U$ '4926BD6800C8' /* TdsConsultationList */
+        ; // 492FF73F02A3
+        <<uses>> "492FF76D0016"
+         %UID '492FF76D0016'
+         %TARGET U$ '492FF76202CA' /* TdeDocumentList */
+        ; // 492FF76D0016
+        <<uses>> "492FFBCC029A"
+         %UID '492FFBCC029A'
+         %TARGET U$ '45EEDB730265' /* DynList */
+        ; // 492FFBCC029A
+        <<uses>> "492FFC260204"
+         %UID '492FFC260204'
+         %TARGET U$ '492FFC0701C7' /* Consultation */
+        ; // 492FFC260204
+        <<uses>> "492FFC460224"
+         %UID '492FFC460224'
+         %TARGET U$ '4570098B0157' /* NoDocumentList */
+        ; // 492FFC460224
+        <<uses>> "492FFDFE016E"
+         %UID '492FFDFE016E'
+         %TARGET U$ '492FFDF7011A' /* TbsConsultationManager */
+        ; // 492FFDFE016E
+        <<uses>> "492FFE4B00A8"
+         %UID '492FFE4B00A8'
+         %TARGET U$ '4773D64E036C' /* l3Base */
+        ; // 492FFE4B00A8
+        <<uses>> "492FFE5D03C9"
+         %UID '492FFE5D03C9'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 492FFE5D03C9
+        <<uses>> "492FFEEE016D"
+         %UID '492FFEEE016D'
+         %TARGET U$ '47F21FE90379' /* bsUtils */
+        ; // 492FFEEE016D
+        <<uses>> "492FFFB20345"
+         %UID '492FFFB20345'
+         %TARGET U$ '4926B55401A2' /* DebugStr */
+        ; // 492FFFB20345
+        <<uses>> "492FFFDB033E"
+         %UID '492FFFDB033E'
+         %TARGET U$ '45EEB6520191' /* Document */
+        ; // 492FFFDB033E
+        <<uses>> "4BA77EAF03DB"
+         %UID '4BA77EAF03DB'
+         %TARGET U$ '491B32C1015D' /* TDocumentPositionType */
+        ; // 4BA77EAF03DB
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_IsListChanged
+         %UID '492FF7C2015E'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_IsListChanged
+        PRIVATE <<Attribute>> f_NeedMark
+         %UID '492FF7D203E7'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_NeedMark
+        PROTECTED FINAL <<readonly>> Consultation
+         %UID '492FF824019B'
+         %TARGET U$ '491C422A0003' /* IbsConsultation */
+         %META
+          %upv "needs field" true
+          %upv "pm" true
+          %upv "reads field" true
+          %upv "writes field" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4ABCF16F01CD' /* Consultation$Lib */
+         ; // %TOBEINCLUDED
+        ; // Consultation
+        PRIVATE ABSTRACT <<impurity_value>> InitDataType
+         %UID '4947A2AA0040'
+         %TARGET U$ '491C422A0003' /* IbsConsultation */
+         %TOBEINCLUDED
+          U$ '4ABCF16F01CD' /* Consultation$Lib */
+         ; // %TOBEINCLUDED
+        ; // InitDataType
+        SUMMONED PRIVATE <<Attribute>> f_Consultation
+         %UID '0C216FBC20D8'
+         %SUMMARY 'Поле для свойства Consultation' ;
+         %TARGET U$ '491C422A0003' /* IbsConsultation */
+         %TOBEINCLUDED
+          U$ '4ABCF16F01CD' /* Consultation$Lib */
+         ; // %TOBEINCLUDED
+        ; // f_Consultation
+        SUMMONED PRIVATE ABSTRACT LINK <<impurity_value>> SetType
+         %UID 'DE1695C30A01'
+         %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsConsultation' ;
+         %TARGET U$ '4921732002D9' /* IsdsConsultation */
+         %TOBEINCLUDED
+          U$ '4ABCF16F01CD' /* Consultation$Lib */
+         ; // %TOBEINCLUDED
+        ; // SetType
+        SUMMONED PRIVATE <<Attribute>> f_dsConsultation
+         %UID '0756A23A3D47'
+         %SUMMARY 'Поле для области вывода dsConsultation' ;
+         %TARGET U$ '4982B4D00032' /* IvcmViewAreaControllerRef */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // f_dsConsultation
+        SUMMONED PRIVATE <<Attribute>> f_dsList
+         %UID '10D299394ECD'
+         %SUMMARY 'Поле для области вывода dsList' ;
+         %TARGET U$ '4982B4D00032' /* IvcmViewAreaControllerRef */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // f_dsList
+        SUMMONED PRIVATE <<Attribute>> f_DSConsultationMark
+         %UID '23A892890D7E'
+         %SUMMARY 'Поле для области вывода DSConsultationMark' ;
+         %TARGET U$ '4982B4D00032' /* IvcmViewAreaControllerRef */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // f_DSConsultationMark
+      ; // %ATTRIBUTES
+     ; // TsdsConsultation
+     <<ViewAreaControllerImp>> TdsConsultationList
+      %UID '4926BD6800C8'
+      %SUMMARY 'список консультации' ;
+      %META
+       %upv "author" 'Морозов М.А.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '2006/10/06 13:46:49'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4680C57D01E9' /* Business */
+       U$ '4ABCF16F01CD' /* Consultation$Lib */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '492D73D80122' /* TdsDocumentList */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '47F61AD5022A' /* DoDeleteNodes */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+        PRIVATE FINAL LINK <<UseCase>> Consultation
+         %UID '4978A5D602AC'
+         %TARGET U$ '4921732002D9' /* IsdsConsultation */
+         %TOBEINCLUDED
+          U$ '4ABCF16F01CD' /* Consultation$Lib */
+         ; // %TOBEINCLUDED
+        ; // Consultation
+      ; // %ATTRIBUTES
+     ; // TdsConsultationList
+     FINAL <<UseCaseControllerImp>> TsdsQuery
+      %UID '492FECE300EA'
+      %SUMMARY 'Бизнес объект прецедента "Поисковый запрос"' ;
+      %META
+       %upv "author" 'Морозов М.А'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '2006/04/07 08:36:15'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+       U$ '493FCF1E03DC' /* Consultation */
+       U$ '4A9FFD3F01AD' /* Search */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '492F005A02C7' /* IsdsQuery */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '49415C640079' /* vcmFormSetDataSourceWithoutData */
+      ; // %INHERITS
+      %REALIZES
+       U$ '492F006F00BE' /* dsQuery */
+       U$ '492F00890059' /* dsSaveLoad */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4938F7E702B7' /* ClearAreas */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "492FEE2D01C5"
+         %UID '492FEE2D01C5'
+         %TARGET U$ '4923F66E0262' /* TdsSaveLoad */
+        ; // 492FEE2D01C5
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> InitDataType
+         %UID '4947A14802F9'
+         %TARGET U$ '491DAE5C011F' /* IdeQuery */
+         %TOBEINCLUDED
+          U$ '4A9FFD3F01AD' /* Search */
+         ; // %TOBEINCLUDED
+        ; // InitDataType
+        SUMMONED PRIVATE ABSTRACT LINK <<impurity_value>> SetType
+         %UID '706EBCDD7EA0'
+         %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsQuery' ;
+         %TARGET U$ '492F005A02C7' /* IsdsQuery */
+         %TOBEINCLUDED
+          U$ '493FCF1E03DC' /* Consultation */
+         ; // %TOBEINCLUDED
+        ; // SetType
+        SUMMONED PRIVATE <<Attribute>> f_dsQuery
+         %UID '79335E1FCB55'
+         %SUMMARY 'Поле для области вывода dsQuery' ;
+         %TARGET U$ '4982B4D00032' /* IvcmViewAreaControllerRef */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // f_dsQuery
+        SUMMONED PRIVATE <<Attribute>> f_dsSaveLoad
+         %UID 'C9F857376BD7'
+         %SUMMARY 'Поле для области вывода dsSaveLoad' ;
+         %TARGET U$ '4982B4D00032' /* IvcmViewAreaControllerRef */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // f_dsSaveLoad
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PROTECTED <<Operation>> GetQueryClass
+         %UID '492FEE0000FD'
+         %TARGET U$ '492FEDE7010F' /* TdsQueryClass */
+         %TOBEINCLUDED
+          U$ '493FCF1E03DC' /* Consultation */
+         ; // %TOBEINCLUDED
+        ; // GetQueryClass
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<Typedef>> TdsQueryClass
+         %UID '492FEDE7010F'
+         %META
+          %upv "isClassRef" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '493FCF1E03DC' /* Consultation */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '491DCCE101F3' /* TdsQuery */
+         ; // %INHERITS
+        ; // TdsQueryClass
+      ; // %CHILDREN
+     ; // TsdsQuery
+     <<UseCaseControllerImp>> TsdsSendConsultation
+      %UID '492FF1C500B5'
+      %SUMMARY 'Бизнес объект прецедента "Запрос на консультацию"' ;
+      %META
+       %upv "author" 'Морозов М.А'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '2006/04/07 08:15:44'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '493FCF1E03DC' /* Consultation */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '492F01200192' /* IsdsSendConsultation */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '492FECE300EA' /* TsdsQuery */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '492FEE0000FD' /* GetQueryClass */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "492FF1F80082"
+         %UID '492FF1F80082'
+         %TARGET U$ '491DD030014A' /* TdsSendConsultation */
+        ; // 492FF1F80082
+      ; // %LINKS
+      %ATTRIBUTES
+        SUMMONED PRIVATE ABSTRACT LINK <<impurity_value>> SetType
+         %UID 'A91C5137D088'
+         %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsSendConsultation' ;
+         %TARGET U$ '492F01200192' /* IsdsSendConsultation */
+         %TOBEINCLUDED
+          U$ '493FCF1E03DC' /* Consultation */
+         ; // %TOBEINCLUDED
+        ; // SetType
+      ; // %ATTRIBUTES
+     ; // TsdsSendConsultation
+     <<ViewAreaControllerImp>> TdsSendConsultation
+      %UID '491DD030014A'
+      %SUMMARY 'Бизнес объект "Запрос на консультацию"' ;
+      %META
+       %upv "author" 'Морозов М.А'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '06.04.2006 17.27'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '493FCF1E03DC' /* Consultation */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '491DCCE101F3' /* TdsQuery */
+      ; // %INHERITS
+     ; // TdsSendConsultation
+     <<SimpleClass>> TnsConsultationDocumentContainerNew
+      %UID '4CF37A0400FB'
+      %SUMMARY 'Контейнер документа-консультации' ;
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '29.11.2010 13:02'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '4677E16A022A' /* K2 */
+       U$ '467A8734039C' /* EVD */
+       U$ '4680E7D50168' /* "Everest Engine" */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4797632D0273' /* Everest */
+       U$ '481EF5C4020D' /* Оболочка */
+       U$ '493FCF1E03DC' /* Consultation */
+       U$ '4C6A65ED0374' /* F1DocumentProcessing */
+       U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4F68893A005B' /* "Правый отступ вложенных документов должен быть равен НУЛЮ" */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4680E83D00C8' /* TeeDocumentContainer */
+       U$ '4C6A955F00D6' /* nsDocumentContainer */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '47F27DA80172' /* GetDocument */
+       U$ '47F35CAC00E4' /* HAFPainterClass */
+       U$ '4B1FBF87020C' /* AfterCreate */
+       U$ '5000565C019C' /* ClearFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4CF37B7200D4"
+         %UID '4CF37B7200D4'
+         %TARGET U$ '4CF37B3401D9' /* TnsConsultationHAFPainter */
+        ; // 4CF37B7200D4
+        <<uses>> "4CF388780383"
+         %UID '4CF388780383'
+         %TARGET U$ '46A5B0060013' /* IStream */
+        ; // 4CF388780383
+        <<uses>> "4CF388890202"
+         %UID '4CF388890202'
+         %TARGET U$ '483E708900B4' /* "Clipboard Formats" */
+        ; // 4CF388890202
+        <<uses>> "4CF38999015A"
+         %UID '4CF38999015A'
+         %TARGET U$ '4CEBC75B00B0' /* ConsultingTemplateInfo */
+        ; // 4CF38999015A
+        <<uses>> "4CF38A92002E"
+         %UID '4CF38A92002E'
+         %TARGET U$ '4B1E8FAE0380' /* DefDataAdapter$4B1E8FAE0380 */
+        ; // 4CF38A92002E
+        <<uses>> "4CF3901D002C"
+         %UID '4CF3901D002C'
+         %TARGET U$ '47C69EBC00A8' /* Tk2TagID */
+        ; // 4CF3901D002C
+        <<uses>> "4CF3905B03A8"
+         %UID '4CF3905B03A8'
+         %TARGET U$ '47FB50E4008E' /* nsConst */
+        ; // 4CF3905B03A8
+        <<uses>> "4CF3A9110181"
+         %UID '4CF3A9110181'
+         %TARGET U$ '48EA3BDD0023' /* ActiveXConsts */
+        ; // 4CF3A9110181
+        <<uses>> "4CF3AB3503E1"
+         %UID '4CF3AB3503E1'
+         %TARGET U$ '48C6811302CB' /* l3SysUtils */
+        ; // 4CF3AB3503E1
+        <<uses>> "4E92CC5001FF"
+         %UID '4E92CC5001FF'
+         %TARGET U$ '4857B5260267' /* Document */
+        ; // 4E92CC5001FF
+        <<uses>> "4EAA722B033E"
+         %UID '4EAA722B033E'
+         %TARGET U$ '484FC278000E' /* Para */
+        ; // 4EAA722B033E
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Cons
+         %UID '4CF3963000CA'
+         %TARGET U$ '457008050157' /* Consultation */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // f_Cons
+        PRIVATE <<Attribute>> f_DocInfo
+         %UID '51E6777700DF'
+         %TARGET U$ '47EA0784000D' /* IdeDocInfo */
+         %TOBEINCLUDED
+          U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+         ; // %TOBEINCLUDED
+        ; // f_DocInfo
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '4CF3965400E5'
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CF3965D00E0'
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+             U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aDocInfo
+               %UID '4CF396690392'
+               %TARGET U$ '47EA0784000D' /* IdeDocInfo */
+               %TOBEINCLUDED
+                U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+               ; // %TOBEINCLUDED
+              ; // aDocInfo
+              <<in>> aCons
+               %UID '4CF3966903CC'
+               %TARGET U$ '457008050157' /* Consultation */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aCons
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+        FINAL <<Factory>> Make
+         %UID '4CF3967101C3'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '4797632D0273' /* Everest */
+          U$ '493FCF1E03DC' /* Consultation */
+          U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '47C6A603009D' /* InevDocumentContainer */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '4CF3965400E5' /* Create */
+         ; // %INHERITS
+         %REALIZES
+          U$ '46A44F6B035E' /* Subscribe */
+          U$ '46A44FFE0143' /* Unsubscribe */
+          U$ '47C6B2A20221' /* TagReader */
+          U$ '47C6B2AF033B' /* TagWriter */
+          U$ '47C6B2B903D6' /* FindObjByID */
+          U$ '47C6B2D10224' /* Obj */
+          U$ '47C6B2E00015' /* Modified */
+          U$ '47C6B423011E' /* HasDocument */
+          U$ '47C6B43800FF' /* IsSame */
+          U$ '47C6B4420339' /* IsSameText$47C6B4420339 */
+          U$ '47C6B44D00C6' /* IsSameText$47C6B44D00C6 */
+          U$ '47C6B4780001' /* ReadFrom */
+          U$ '47C6B4820006' /* WriteTo */
+          U$ '47C6B49B0045' /* LinkTextSource */
+          U$ '47C6B4A501B8' /* UnlinkTextSource */
+          U$ '47C6B4BC0363' /* HasProcessor */
+          U$ '47C6B4C300D0' /* RemoveFromDocumentsCache */
+          U$ '47C6B4F7003F' /* Internal */
+          U$ '47C6B50A0326' /* GetSubFlagsIterator */
+          U$ '47C6B6EB019E' /* Preview */
+          U$ '47C6B731004F' /* RealizeSub$47C6B731004F */
+          U$ '47C6B74202C6' /* LinkWaiter */
+          U$ '47C6B74E0271' /* GetGenerator */
+          U$ '47C6B77C032A' /* TextSource */
+          U$ '47C6B7890217' /* Processor */
+          U$ '47C6B84201CC' /* Document */
+          U$ '47C6B8980387' /* SubList */
+          U$ '47C6B8D702EC' /* DocumentInfo */
+          U$ '47C6B8EB03C3' /* DocumentLimits */
+          U$ '47C6B8FF0332' /* AbortedLoad */
+          U$ '47C6B91202D2' /* NeedProcessMessages */
+          U$ '47C6B96400A7' /* ContentsTree */
+          U$ '47C6B97503B2' /* ExistingDocument */
+          U$ '47F3BD430006' /* Loading */
+          U$ '4810D88D0195' /* FormatPool */
+          U$ '4816E2B2004E' /* InvalidateShape */
+          U$ '481850DC002E' /* ViewArea */
+          U$ '48EDB29B0123' /* LinkSubChangeListener */
+          U$ '491815640172' /* ChildAdded */
+          U$ '4918157300FB' /* ChildDeleted */
+          U$ '4918466A021E' /* UpdatePreview */
+          U$ '49184A0B0254' /* PropChanged */
+          U$ '49184AA5012F' /* SubCache */
+          U$ '491878C5007B' /* SectionBreaks */
+          U$ '49E705330213' /* Lock */
+          U$ '4A70398B0307' /* SectionBreakAdded */
+          U$ '4A8D229200AF' /* DefaultDocumentType */
+          U$ '4D2EFD950259' /* NotifySubAdded */
+          U$ '4E5E25700033' /* GetControlImg */
+          U$ '4F33E2A30116' /* AllowsThisDecor */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> DoIt
+            %UID 'EE0AC77238F0'
+            %SUMMARY 'Сигнатура фабрики TnsConsultationDocumentContainerNew.Make' ;
+            %TARGET U$ '47C6A603009D' /* InevDocumentContainer */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+             U$ '4797632D0273' /* Everest */
+             U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aDocInfo
+               %UID 'AB4BFDE359DE'
+               %TARGET U$ '47EA0784000D' /* IdeDocInfo */
+               %TOBEINCLUDED
+                U$ '4D1B6BAB022D' /* F1DocumentProcessingInterfaces */
+               ; // %TOBEINCLUDED
+              ; // aDocInfo
+              SUMMONED <<in>> aCons
+               %UID 'F6521382E405'
+               %TARGET U$ '457008050157' /* Consultation */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aCons
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Make
+        PRIVATE FINAL <<method>> FillTemplateFields
+         %UID '4CF39F58031E'
+         %SUMMARY 'Заполняет поля шаблона реальными значениями' ;
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '4677E16A022A' /* K2 */
+          U$ '467A8734039C' /* EVD */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4CF39FD40042"
+            %UID '4CF39FD40042'
+            %TARGET U$ '48579E4A003C' /* ParaList */
+           ; // 4CF39FD40042
+           <<uses>> "4CF39FF702C3"
+            %UID '4CF39FF702C3'
+            %TARGET U$ '485669C9009D' /* LeafPara */
+           ; // 4CF39FF702C3
+           <<uses>> "4CF3A0360313"
+            %UID '4CF3A0360313'
+            %TARGET U$ '4857923F0186' /* ControlPara */
+           ; // 4CF3A0360313
+           <<uses>> "4CF3A04E0251"
+            %UID '4CF3A04E0251'
+            %TARGET U$ '469245FB0354' /* ControlType */
+           ; // 4CF3A04E0251
+           <<uses>> "4CF3A0790148"
+            %UID '4CF3A0790148'
+            %TARGET U$ '47C69EBC00A8' /* Tk2TagID */
+           ; // 4CF3A0790148
+           <<uses>> "4CF3A09A00FF"
+            %UID '4CF3A09A00FF'
+            %TARGET U$ '47878E0E0191' /* l3String */
+           ; // 4CF3A09A00FF
+           PRIVATE FINAL <<call>> "4CF3A0C2005B"
+            %UID '4CF3A0C2005B'
+            %TARGET U$ '4BB21F9D022F' /* IterateChildrenF */
+            %META
+             %upv "iterator needs params" false
+             %upv "needs after iterator UC" true
+            ; // %META
+           ; // 4CF3A0C2005B
+           <<uses>> "4CF3A344039F"
+            %UID '4CF3A344039F'
+            %TARGET U$ '4CF3A33103AF' /* TnsTemplateFieldType */
+           ; // 4CF3A344039F
+           <<uses>> "4D9C8A9A02C5"
+            %UID '4D9C8A9A02C5'
+            %TARGET U$ '4857E9EE024A' /* ReqCell */
+           ; // 4D9C8A9A02C5
+           SUMMONED <<uses>> "8BE4F09F42B4"
+            %UID '8BE4F09F42B4'
+            %TARGET U$ '4A422BA20187' /* Mk2Children */
+           ; // 8BE4F09F42B4
+         ; // %LINKS
+         %ATTRIBUTES
+           PROTECTED FINAL <<var>> WasSomeHyperlinkHidden
+            %UID '4D9C898F02DB'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %META
+             %upv "IsResult" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // WasSomeHyperlinkHidden
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           PROTECTED FINAL <<localmethod>> DoIt
+            %UID '4CF3B26A011E'
+            %SUMMARY 'Подитеративная функция для вызова L2Mk2ChildrenIterateChildrenFAction из FillTemplateFields' ;
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+             U$ '4677E16A022A' /* K2 */
+             U$ '467A8734039C' /* EVD */
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790D09A0378' /* L3 */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %LINKS
+              <<uses>> "4CF3B28C0117"
+               %UID '4CF3B28C0117'
+               %TARGET U$ '431841610361' /* String */
+              ; // 4CF3B28C0117
+              <<uses>> "4CF3B2CA0302"
+               %UID '4CF3B2CA0302'
+               %TARGET U$ '4AB882990057' /* nsCStr */
+              ; // 4CF3B2CA0302
+              <<uses>> "4CF3B89B02EE"
+               %UID '4CF3B89B02EE'
+               %TARGET U$ '4AC203A500FD' /* AdapterDate */
+              ; // 4CF3B89B02EE
+              <<uses>> "4CF3BA8E0286"
+               %UID '4CF3BA8E0286'
+               %TARGET U$ '4CF3BA7902C0' /* GblAdapterDateToDateTime */
+              ; // 4CF3BA8E0286
+            ; // %LINKS
+            %OPERATIONS
+              PRIVATE FINAL <<localmethod>> FillText$4CF3B096018E
+               %UID '4CF3B096018E'
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+               %OPERATIONS
+                 PRIVATE FINAL <<Operation>> DoIt
+                  %UID '4CF3B0BE03E4'
+                  %TOBEINCLUDED
+                   U$ '4E2F0E1B03BB' /* L3$Domain */
+                  ; // %TOBEINCLUDED
+                  %PARAMETERS
+                    <<in>> aText
+                     %UID '4CF3B0C30200'
+                     %TARGET U$ '46780D0003AF' /* Tl3WString */
+                     %TOBEINCLUDED
+                      U$ '4E2F0E1B03BB' /* L3$Domain */
+                     ; // %TOBEINCLUDED
+                    ; // aText
+                  ; // %PARAMETERS
+                 ; // DoIt
+               ; // %OPERATIONS
+              ; // FillText$4CF3B096018E
+              PRIVATE FINAL <<localmethod>> FillTextS$4CF3B62D02CE
+               %UID '4CF3B62D02CE'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %LINKS
+                 <<uses>> "4CF3B68C02E7"
+                  %UID '4CF3B68C02E7'
+                  %TARGET U$ '4AA7888B0076' /* l3CStr */
+                 ; // 4CF3B68C02E7
+               ; // %LINKS
+               %OPERATIONS
+                 PRIVATE FINAL <<Operation>> DoIt
+                  %UID '4CF3B6540200'
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                  %PARAMETERS
+                    <<in>> aText
+                     %UID '4CF3B6590287'
+                     %TARGET U$ '476136D3010B' /* String */
+                     %TOBEINCLUDED
+                      U$ '469F3E37025A' /* Rtl */
+                     ; // %TOBEINCLUDED
+                    ; // aText
+                  ; // %PARAMETERS
+                 ; // DoIt
+               ; // %OPERATIONS
+              ; // FillTextS$4CF3B62D02CE
+              PRIVATE FINAL <<localmethod>> FillTextL$4CF3B85B002B
+               %UID '4CF3B85B002B'
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+               %OPERATIONS
+                 PRIVATE FINAL <<Operation>> DoIt
+                  %UID '4CF3B8620201'
+                  %TOBEINCLUDED
+                   U$ '456EA3D2031C' /* GblAdapterLib */
+                  ; // %TOBEINCLUDED
+                  %PARAMETERS
+                    <<in>> aText
+                     %UID '4CF3B86F0306'
+                     %TARGET U$ '4CEBCFD7003C' /* ParasList */
+                     %TOBEINCLUDED
+                      U$ '456EA3D2031C' /* GblAdapterLib */
+                     ; // %TOBEINCLUDED
+                    ; // aText
+                  ; // %PARAMETERS
+                 ; // DoIt
+               ; // %OPERATIONS
+              ; // FillTextL$4CF3B85B002B
+              PRIVATE FINAL <<localmethod>> FillTextEVD$4DECEBC00327
+               %UID '4DECEBC00327'
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+                U$ '4677E16A022A' /* K2 */
+                U$ '467A8734039C' /* EVD */
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+               %LINKS
+                 <<uses>> "4DECEC360163"
+                  %UID '4DECEC360163'
+                  %TARGET U$ '4C1B918900FD' /* Ver */
+                 ; // 4DECEC360163
+               ; // %LINKS
+               %ATTRIBUTES
+                 PRIVATE FINAL <<var>> S
+                  %UID '4DECEBF602FE'
+                  %TARGET U$ '499D47A502DE' /* Tl3ConstMemoryStream */
+                  %META
+                   %upv "IsResult" false
+                  ; // %META
+                  %TOBEINCLUDED
+                   U$ '4790D09A0378' /* L3 */
+                  ; // %TOBEINCLUDED
+                 ; // S
+                 PRIVATE FINAL <<var>> R
+                  %UID '4DECEC1E0294'
+                  %TARGET U$ '483E80FA0312' /* TevdNativeReader */
+                  %META
+                   %upv "IsResult" false
+                  ; // %META
+                  %TOBEINCLUDED
+                   U$ '467A8734039C' /* EVD */
+                  ; // %TOBEINCLUDED
+                 ; // R
+                 PRIVATE FINAL <<var>> B
+                  %UID '4DECEC5901A0'
+                  %TARGET U$ '47ECA82403AC' /* Tk2DocumentBuffer */
+                  %META
+                   %upv "IsResult" false
+                  ; // %META
+                  %TOBEINCLUDED
+                   U$ '4677E16A022A' /* K2 */
+                  ; // %TOBEINCLUDED
+                 ; // B
+               ; // %ATTRIBUTES
+               %OPERATIONS
+                 PRIVATE FINAL <<Operation>> DoIt
+                  %UID '4DECEBD4018C'
+                  %TOBEINCLUDED
+                   U$ '456EA3D2031C' /* GblAdapterLib */
+                  ; // %TOBEINCLUDED
+                  %PARAMETERS
+                    <<in>> aText
+                     %UID '4DECEBD600D9'
+                     %TARGET U$ '4CEBCFD7003C' /* ParasList */
+                     %TOBEINCLUDED
+                      U$ '456EA3D2031C' /* GblAdapterLib */
+                     ; // %TOBEINCLUDED
+                    ; // aText
+                  ; // %PARAMETERS
+                 ; // DoIt
+               ; // %OPERATIONS
+              ; // FillTextEVD$4DECEBC00327
+              SUMMONED FINAL BOOLEAN FUNCTION DoIt$AC74D90FB574
+               %UID 'AC74D90FB574'
+               %TARGET U$ '3DBFFE100240' /* boolean */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 SUMMONED <<in>> anItem
+                  %UID '0E0A5FC7C408'
+                  %TARGET U$ '532031160122' /* Tl3Variant */
+                  %TOBEINCLUDED
+                   U$ '4790D09A0378' /* L3 */
+                  ; // %TOBEINCLUDED
+                 ; // anItem
+                 SUMMONED <<in>> anIndex
+                  %UID '0E0A5FC7C409'
+                  %TARGET U$ '46A606AC03B2' /* Integer */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // anIndex
+               ; // %PARAMETERS
+              ; // DoIt$AC74D90FB574
+            ; // %OPERATIONS
+           ; // DoIt
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CF39F6700D3'
+            %SUMMARY 'Заполняет поля шаблона реальными значениями' ;
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aTag
+               %UID '4CF39F91038E'
+               %TARGET U$ '534572370056' /* Tl3Tag */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // aTag
+              <<in>> anInfo
+               %UID '4CF39F9103BE'
+               %TARGET U$ '4CEBC75B00B0' /* ConsultingTemplateInfo */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // anInfo
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // FillTemplateFields
+        PRIVATE FINAL <<method>> HideHyperlinks
+         %UID '4CF3C730039D'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4CF3C98C02EB"
+            %UID '4CF3C98C02EB'
+            %TARGET U$ '47F24AFB0308' /* Layers */
+           ; // 4CF3C98C02EB
+           <<uses>> "4CF3CA2500B6"
+            %UID '4CF3CA2500B6'
+            %TARGET U$ '45EEB65202FC' /* LinkedObjectType */
+           ; // 4CF3CA2500B6
+           <<uses>> "4CF3CA360135"
+            %UID '4CF3CA360135'
+            %TARGET U$ '45EEAEC40311' /* ExternalOperationId */
+           ; // 4CF3CA360135
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4CF3C741019B'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aPara
+               %UID '4CF3C74A0322'
+               %TARGET U$ '534572370056' /* Tl3Tag */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // aPara
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // HideHyperlinks
+        PRIVATE FINAL <<method>> DoFinishAtom
+         %UID '4EAA71CA009F'
+         %TOBEINCLUDED
+          U$ '4677E16A022A' /* K2 */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4EAA71E10182'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '4677E16A022A' /* K2 */
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> G
+               %UID '4EAA71F200A2'
+               %TARGET U$ '47F226C7001F' /* Tk2DocumentGenerator */
+               %TOBEINCLUDED
+                U$ '4677E16A022A' /* K2 */
+               ; // %TOBEINCLUDED
+              ; // G
+              <<inout>> Atom
+               %UID '4EAA71F2010B'
+               %TARGET U$ '47F2272B0394' /* Tk2StackAtom */
+               %TOBEINCLUDED
+                U$ '4677E16A022A' /* K2 */
+               ; // %TOBEINCLUDED
+              ; // Atom
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DoFinishAtom
+        PRIVATE FINAL <<method>> DoGetDocument
+         %UID '51E676440200'
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '51E6768D02BC'
+            %TARGET U$ '534572370056' /* Tl3Tag */
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DoGetDocument
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<Enum>> TnsTemplateFieldType
+         %UID '4CF3A33103AF'
+         %META
+          %upv "children prefix" 'ft'
+          %upv "elements prefix" 'ns'
+         ; // %META
+         %ATTRIBUTES
+           <<Attribute>> Query
+            %UID '4CF3A34802A4'
+           ; // Query
+           <<Attribute>> User
+            %UID '4CF3A35402F1'
+           ; // User
+           <<Attribute>> Date
+            %UID '4CF3A35E0156'
+           ; // Date
+           <<Attribute>> Cost
+            %UID '4CF3A3690369'
+           ; // Cost
+           <<Attribute>> Answer
+            %UID '4CF3A372009A'
+           ; // Answer
+           <<Attribute>> Auther
+            %UID '4CF3A37A03E6'
+           ; // Auther
+           <<Attribute>> DealerInf
+            %UID '4CF3A3880247'
+           ; // DealerInf
+           <<Attribute>> QueryByParas
+            %UID '4D08A8520174'
+           ; // QueryByParas
+         ; // %ATTRIBUTES
+        ; // TnsTemplateFieldType
+      ; // %CHILDREN
+     ; // TnsConsultationDocumentContainerNew
+     FINAL <<UtilityPack>> bsConsultationManager
+      %UID '55FAEA9B0079'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790C3B8021E' /* VCM */
+       U$ '4790D09A0378' /* L3 */
+       U$ '47E9EEC60260' /* Model */
+       U$ '493FCF1E03DC' /* Consultation */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> gv_ConsultationManager
+         %UID '55FAEB7E0176'
+         %TARGET U$ '49527999013D' /* IbsConsultationManager */
+         %VALUE 'nil'
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+        ; // gv_ConsultationManager
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<method>> g__ConsultationManager
+         %UID '55FAEB22015B'
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '55FAEB3702D1'
+            %TARGET U$ '49527999013D' /* IbsConsultationManager */
+            %TOBEINCLUDED
+             U$ '47E9EEC60260' /* Model */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // g__ConsultationManager
+        FINAL <<method>> IsConsultationManagerAssigned
+         %UID '55FBE42C03DF'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '55FBE4390193'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // IsConsultationManagerAssigned
+        PRIVATE FINAL <<fini>> new_fini_op
+         %UID '55FAEB6B0372'
+        ; // new_fini_op
+        PRIVATE FINAL <<ini>> new_ini_op
+         %UID '55FAFF0C0027'
+        ; // new_ini_op
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        FINAL <<SimpleClass>> TbsConsultationManager
+         %UID '492FFDF7011A'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790C3B8021E' /* VCM */
+          U$ '4790D09A0378' /* L3 */
+          U$ '47E9EEC60260' /* Model */
+          U$ '493FCF1E03DC' /* Consultation */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ '47F07B3E02E4' /* l3Notifier */
+          U$ '49527999013D' /* IbsConsultationManager */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '47F25BEE0389' /* TvcmBase */
+         ; // %INHERITS
+         %REALIZES
+          U$ '495279E501CB' /* UnreadChanged */
+          U$ '495279F20005' /* NoConnection */
+          U$ '495279FD039E' /* NoSubscription */
+          U$ '49527A1B0162' /* InternetConnected */
+          U$ '49527A2702F4' /* HasUnread */
+          U$ '4BCD8E0B00AE' /* InternetDisConnected */
+          U$ '5501366003A9' /* CurrentStatus */
+         ; // %REALIZES
+         %LINKS
+           <<uses>> "55FAF45A03B1"
+            %UID '55FAF45A03B1'
+            %TARGET U$ '48FF556602BA' /* DataAdapter */
+           ; // 55FAF45A03B1
+         ; // %LINKS
+         %ATTRIBUTES
+           PRIVATE <<Attribute>> f_Unread
+            %UID '55FACBF603B5'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // f_Unread
+           PRIVATE <<Attribute>> f_CurrentStatus
+            %UID '55FACCE20172'
+            %TARGET U$ '550136350165' /* TbsConsultationOperations */
+            %TOBEINCLUDED
+             U$ '47E9EEC60260' /* Model */
+            ; // %TOBEINCLUDED
+           ; // f_CurrentStatus
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           PRIVATE FINAL <<method>> UpdateUnread
+            %UID '55FACCF500B4'
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID 'DBE4F49328B3'
+               %SUMMARY 'Сигнатура метода UpdateUnread' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // UpdateUnread
+           FINAL <<Constructor>> Create
+            %UID '55FACD130143'
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID 'FDC278944796'
+               %SUMMARY 'Сигнатура метода Create' ;
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // Create
+           FINAL <<Factory>> Make
+            %UID '55FACD4C0399'
+            %META
+             %upv "check nil" false
+             %upv "need AfterCreate" 'undefined'
+             %upv "need Aggregate" 'undefined'
+             %upv "need As" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '47E9EEC60260' /* Model */
+             U$ '493FCF1E03DC' /* Consultation */
+            ; // %TOBEINCLUDED
+            %IMPLEMENTS
+             U$ '49527999013D' /* IbsConsultationManager */
+            ; // %IMPLEMENTS
+            %INHERITS
+             U$ '55FACD130143' /* Create */
+            ; // %INHERITS
+            %REALIZES
+             U$ '46A44F6B035E' /* Subscribe */
+             U$ '46A44FFE0143' /* Unsubscribe */
+             U$ '495279E501CB' /* UnreadChanged */
+             U$ '495279F20005' /* NoConnection */
+             U$ '495279FD039E' /* NoSubscription */
+             U$ '49527A1B0162' /* InternetConnected */
+             U$ '49527A2702F4' /* HasUnread */
+             U$ '4BCD8E0B00AE' /* InternetDisConnected */
+             U$ '5501366003A9' /* CurrentStatus */
+            ; // %REALIZES
+            %OPERATIONS
+              SUMMONED PRIVATE FINAL <<Operation>> DoIt
+               %UID '4CB2043C2518'
+               %SUMMARY 'Сигнатура фабрики TbsConsultationManager.Make' ;
+               %TARGET U$ '49527999013D' /* IbsConsultationManager */
+               %TOBEINCLUDED
+                U$ '47E9EEC60260' /* Model */
+               ; // %TOBEINCLUDED
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // Make
+         ; // %OPERATIONS
+        ; // TbsConsultationManager
+      ; // %CHILDREN
+     ; // bsConsultationManager
+   ; // %CHILDREN
+  ; // Consultation
+ ; // %CHILDREN
+; // Consultation

@@ -1,0 +1,450 @@
+uses RunPrograms, FileWork, exceptions, common, TimeWorks, commonEventHandlers;
+
+const
+  DEFAULT_DELAY = 300;
+  DEFAULT_TIMEOUT = 30000;
+
+procedure InitOptions;
+  var
+    pngSettings : OleVariant;
+begin
+  //блок настроек секции Run
+  Options.Run.Delay := DEFAULT_DELAY; //время между командами во  время выполнения скрипта
+  Options.Run.Timeout := DEFAULT_TIMEOUT; //время, которое ожидается появление окна
+  // установка формата картинок для лога
+  try
+    Log.Enabled := true;
+    //Options.Log.ImageFormat := 'PNG'; 
+    pngSettings := Log.CreatePictureConfiguration('PNG');
+    pngSettings.CompressionLevel := 7;
+    Log.SetDefaultPictureConfiguration( pngSettings );
+  except
+    Log.Warning('Произошла ошибка при установке параметров лога.', ExceptionMessage);
+  end;
+end;
+
+procedure Main;
+  var
+    // список параметров, читаемых из строки параметров, имя параметра совпадает с текстом после суффикса par_, например StopTime
+    par_StopTime; // время в которое останавливаемся
+    par_PathToF1Shell; // путь к оболочке (просто путь!)
+    par_PathToLogs; // путь, куда сохраняем текстовые файлы-логи
+    par_PathToHyperSnap; // путь к утилите снятия скриншотов HyperSnap
+    par_IsPurify; // сервер под пьюрифаем ?
+    par_OuterIterCount;
+    par_InnerIterCount; //  сколько раз запускать функцию до перезапуска оболочки
+    par_PostTestProcedure; // процедура, которая выполняется после выполнения тестов, перед закрытием оболочки
+    { процедура имеет следующий формат: 
+        ProcName(
+          const paramList : OleVariant // сюда передается пропарсеная строка параметров
+        );  }
+    par_TestProcedure; // имя (модуль.имя_функции) которую будем запускать
+    { процедура имеет следующий формат: 
+        ProcName(
+          const paramList : OleVariant; // сюда передается пропарсеная строка параметров
+          var context : OleVariant // сюда передается переменна, никто кроме процедуры ее не трогает
+        );  }
+    par_OptionalRun; // эту строку выполним после запуска проекта (если не пустая)
+    par_IsDuplicateLog; // дублировать ли лог (не полностью) в текстовый файл
+    par_LoginSuffix; // суффикс, который дописывается к логину по-умолчанию
+    par_ServLogin; // логин на компьютер с сервером (для снятия памяти)
+    par_ServPassword; // пароль на компьютер с сервером (-"-)
+    par_ServProcess; // имя процесса, с которого будем снимать память
+    par_SharedPath;
+    par_IsResetAutologin;
+    par_ProductVersion;
+    par_IsStartF1Shell;
+    par_IsCloseF1ShellAtEnd;
+    
+    
+    p, paramList, context, optRunRes : OleVariant;
+    pathToResults, login, password, c_CompWithServer, c_BaseLogName, c_ParamString, iniFileName : String;
+    innerIter, outerIter, countOfAttempts : integer;
+    res : boolean;
+begin
+  Randomize;
+  Log.Message('Start!!!');
+  try
+    InitOptions;
+    // =========================== РАЗБИРАЕМ СТРОКУ С ПАРАМЕТРАМИ ==============
+    // инициализируем параметры
+
+    iniFileName := GetValueFromCmdLine('ini_file');
+    Log.Message(iniFileName);
+    if iniFileName <> '' then 
+    begin
+      if Utilities.ExtractFilePath(iniFileName) = '' then
+        iniFileName := IncludeTrailingBackSlash( Project.Path) + iniFileName;
+      Log.Message('Читаем настройки из файла "' + iniFileName + '"');
+      c_ParamString := GetFileBody(iniFileName);
+      if c_ParamString = '' then 
+        Log.Warning('INI-файл пуст или не найден!');
+    end
+    else
+      c_ParamString := NetworkSuite.Tag;
+    
+    Log.Message('Получена строка параметров', c_ParamString);
+    paramList := ParseParamString(c_ParamString , true, EndOfLine );
+    //
+    par_PathToLogs := IncludeTrailingBackslash(GetParam(paramList,
+      'PathToLogs',
+      '\\strelka.garant.ru\QC\usr.list\' ));
+    c_BaseLogName := par_PathToLogs + CompName;
+    SetParam(paramList, 'BaseLogName', c_BaseLogName);
+    // устанавливаем имя файла для дублирования лога
+    if par_PathToLogs <> '' then _InitLogFileCopy(c_BaseLogName + '.test_log_dub');
+    
+    Log.Message('------------------ Начало ------------------------');
+      
+    par_StopTime := StrToFloat( GetParam(paramList,
+      'StopTime',
+      FloatToStr(Utilities.Now + 1) ) );
+    par_PathToF1Shell := IncludeTrailingBackslash(GetParam(paramList,
+      'PathToF1Shell',
+      '\\strelka.garant.ru\QC\client\' ));
+    // если путь к оболочке задан пустой, то читаем его из реестра    
+    if par_PathToF1Shell = '' then
+      par_PathToF1Shell := IncludeTrailingBackslash(GetF1Directory);
+    SetParam(paramList, 'PathToF1Shell', par_PathToF1Shell);
+    
+    par_IsStartF1Shell := VarToBool( GetParam(paramList,
+      'IsStartF1Shell',
+      true ));
+    par_IsCloseF1ShellAtEnd := VarToBool( GetParam(paramList,
+      'IsCloseF1ShellAtEnd',
+      true ));      
+    
+    par_PathToHyperSnap := IncludeTrailingBackslash(GetParam(paramList,
+      'PathToHyperSnap',
+      '\\strelka.garant.ru\QC\HySnapDX\' ));
+    par_IsPurify := VarToBool( GetParam(paramList,
+      'IsPurify',
+      'FALSE' ));
+    par_InnerIterCount := VarToInteger( GetParam(paramList,
+      'InnerIterCount',
+      '1' ));
+    par_OuterIterCount := VarToInteger( GetParam(paramList,
+      'OuterIterCount',
+      '-1' ));  
+    par_TestProcedure := GetParam(paramList,
+      'TestProcedure',
+      '' );
+    if par_TestProcedure = '' then 
+      Raise('Не задана функция-тест. Продолжение работы невозможно!')
+    else
+      Log.Message('Выполняем процедуру: ' + par_TestProcedure);
+      
+    // устанавливаем версию продукта  
+    try      
+      par_ProductVersion := Evaluate( GetParam(paramList,
+        'ProductVersion',
+        'PRODUCT_VERSION_DEFAULT' ) );
+    except
+      Log.Error('Exception while evaluating par_ProductVersion!', ExceptionMessage);
+      par_ProductVersion := PRODUCT_VERSION_DEFAULT;
+    end;
+    ProductVersion('set', par_ProductVersion);     
+                    
+    par_PostTestProcedure := GetParam(paramList,
+      'PostTestProcedure',
+      '' );      
+    par_OptionalRun := GetParam(paramList,
+      'OptionalRun',
+      '' );
+    par_IsDuplicateLog := VarToBool( GetParam(paramList,
+      'IsDuplicateLog',
+      'TRUE' ));
+    par_IsResetAutologin := VarToBool( GetParam(paramList,
+      'IsResetAutologin',
+      'TRUE' ));
+    par_LoginSuffix := GetParam(paramList,
+      'LoginSuffix',
+      '' );
+    par_ServLogin := GetParam(paramList,
+      'ServLogin',
+      'qc' );
+    par_ServPassword := GetParam(paramList,
+      'ServPassword',
+      '22222' );
+    par_ServProcess := GetParam(paramList,
+      'ServProcess',
+      'F1Server' );
+      
+    par_SharedPath := IncludeTrailingBackslash( GetParam(paramList,
+      'SharedPath',
+      ''));
+    Utilities.ForceDirectories(par_SharedPath);
+    if NOT DirectoryExists(par_SharedPath) then
+      Raise('SharedPath не доступен даже после попытки создания!');
+    SynchroObjectsParams('SET', SO_ALL_SHARED_PATH, par_SharedPath + 'SynchroObjects\');    
+    Utilities.ForceDirectories( SynchroObjectsParams('GET', SO_ALL_SHARED_PATH) );
+      
+    // ============ ОПРЕДЕЛЯЕМ ДОПОЛНИТЕЛЬНЫЕ УСЛОВИЯЫ ВЫПОЛНЕНИЯ ==============
+    // читаем инишник клиента с целью определить, на какой компьютер он смотрит
+    
+    c_CompWithServer := GetClientTarget;
+    if c_CompWithServer <> '' then
+      Log.Message('Клиент нацелен на ' + c_CompWithServer);  
+
+    if par_IsResetAutologin then
+    begin      
+      Storages.Registry(F1REGBRANCH_PARENT, HKEY_CURRENT_USER ).DeleteSubSection(F1REGBRANCH_CHILD);
+      Storages.Registry(F1REGBRANCH_PARENT, HKEY_CURRENT_USER ).GetSubSection(F1REGBRANCH_CHILD);    
+      Storages.Registry(F1REGBRANCH, HKEY_CURRENT_USER).SetOption('FirstStart', 'false');
+      //
+      Storages.Registry(F1REGBRANCH_PARENT, HKEY_CURRENT_USER ).DeleteSubSection(F1LAUNCHERREGBRANCH_CHILD);
+      Storages.Registry(F1REGBRANCH_PARENT, HKEY_CURRENT_USER ).GetSubSection(F1LAUNCHERREGBRANCH_CHILD);
+      Storages.Registry(F1LAUNCHERREGBRANCH, HKEY_CURRENT_USER ).SetOption('DesktopShortcutsStatus', 'Checked' );      
+    end;
+    //
+    if (par_PathToF1Shell <> '') then
+     if NOT SetF1Directory(par_PathToF1Shell, 'client') then
+      Log.Error('Ошибка при установке f1directory');   
+    //
+//    if (GetProductType = PT_FILESERVER) then
+//    begin
+//      Storages.Registry(F1LAUNCHERREGBRANCH, HKEY_CURRENT_USER ).SetOption('InstallRoot', IncludeTrailingBackslash(GetTempDirectory) + 'local_user_settings77' );
+//      SetValueToGarantINI('Launcher', 'ShowInstallRootDialog', 'No', false);
+//    end;
+    
+    // выполняем опциональную команду
+    if par_OptionalRun <> '' then
+    begin
+      optRunRes := Win32API.WinExec(par_OptionalRun, Win32API.SW_SHOWNORMAL);
+      if (optRunRes < 32) then
+        Log.Warning('Не получилось запустить опциональную команду, WinExec вернула ' + VarToString(optRunRes),  par_OptionalRun)
+      else
+        Log.Message('Успешно выполнили опциональную команду.', par_OptionalRun);  
+    end;  
+    
+    // задаем логин и пароль для логина
+    login := CompName + par_LoginSuffix;
+    password := login;
+    
+    // ========================== ВЫПОЛНЯЕМ ТЕСТ ===============================
+    outerIter := 1;
+    while 
+      (NOT IsTimeHasRunOut(par_StopTime)) // пока не истекло время
+      AND ((par_OuterIterCount = -1) OR (outerIter <= par_OuterIterCount)) do // и не истекло число итераций
+    begin
+      // -------- Перезапускаем оболочку и логинимся ------------------------
+      try
+        // закрываем оболочку
+        Log.AppendFolder('Перезапуск оболочки', 'Итерация: ' + IntToStr(outerIter));
+        Log.Message('Закрываем оболочку');
+        Options.Run.Timeout := DEFAULT_TIMEOUT;
+        countOfAttempts := 5;
+        CloseF1Shell(countOfAttempts, Options.Run.Timeout );
+        // запускаем оболочку        
+        Options.Run.Timeout := Choose(par_IsPurify, 50*DEFAULT_TIMEOUT, DEFAULT_TIMEOUT);
+        if par_IsStartF1Shell then
+        begin // запускаем оболочку и логинимся
+          Log.Message('Запускаем оболочку');
+          res := StartF1Shell( par_PathToF1Shell );
+          Log.Message('Запустили, результат:' + Bool2Str(res) );
+          if NOT res then
+          begin
+            Log.Error('Не получилось запустить оболочку. Не найден ее процесс.');
+            continue;
+          end;
+          // логинимся
+          Log.Message('Логинимся...');
+          LoginAnyhow(login, password);
+          Log.Message('Залогинились, наверное...', 'login: "' + login + '", password: "' +  password + '"');
+          res := IsExists( GetMainWindow ); // проверяем, есть ли главное окно
+          if NOT res then
+          begin
+            Log.Error('Не найдено основное окно системы!');
+            continue;
+          end;
+        end;
+      finally  
+        Log.PopLogFolder; // для ноды 'Перезапуск оболочки'
+      end;  
+      // продолжаем
+      Options.Run.Timeout := Choose(par_IsPurify, 7*DEFAULT_TIMEOUT, DEFAULT_TIMEOUT);
+      
+      // --------------------------- Выполняем тест ----------------------------
+      innerIter := 1;
+      while 
+          (NOT IsTimeHasRunOut(par_StopTime)) // пока не истекло время
+          AND ((par_InnerIterCount = -1) OR (innerIter <= par_InnerIterCount)) do
+        try
+          Log.AppendFolder('Запуск теста. Итерация: ' + IntToStr(innerIter), 'Процедура: "' + par_TestProcedure + '"' + EndOfLine + 'c_ParamString: "' + c_ParamString + '"');
+          Log.Picture(Sys_Desktop.Picture, 'Перед запуском теста');
+          Runner.CallMethod(par_TestProcedure, paramList, context);
+          innerIter := innerIter + 1;
+          Log.Picture(Sys_Desktop.Picture, 'После запуска теста');          
+        finally  
+          Log.PopLogFolder;
+        end;
+
+      outerIter := outerIter + 1;
+    end;
+    
+    if (par_PostTestProcedure <> '') then
+      try
+        Log.AppendFolder('PostTestProcedure', 'Процедура: "' + par_PostTestProcedure + '"');
+        Log.Picture(Sys_Desktop.Picture, 'Перед запуском функции');
+        Runner.CallMethod(par_PostTestProcedure, paramList); 
+        Log.Picture(Sys_Desktop.Picture, 'После запуска функции');          
+      finally  
+        Log.PopLogFolder;
+      end;
+    
+    if par_IsCloseF1ShellAtEnd then 
+    begin
+      Log.Message('Закрываем оболочку');
+      Options.Run.Timeout := Choose(par_IsPurify, 2*DEFAULT_TIMEOUT, DEFAULT_TIMEOUT);
+      countOfAttempts := 5;
+      CloseF1Shell(countOfAttempts, Options.Run.Timeout );
+    end;  
+    
+  finally
+    // ========================== ОКОНЧАТЕЛЬНЫЕ ДЕЙСТВИЯ =======================
+    //
+    Log.Message('------------------ Окончание ------------------------');
+  end;
+end;
+
+procedure StartTestRunner;
+begin
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function CheckForWork(
+  const paramList : String;
+  var context : OleVariant
+);
+begin
+  try 
+    if IsEmpty(context) then context := 1;
+    
+    Log.Message('CheckForWork 1', GetParam(paramList, 'PathToF1Shell') );
+    Log.Message('CheckForWork 2', VarToStr(context) );
+    
+    context := context + 1;
+  except
+    Log.Message('' + ExceptionMessage, '' , 4);
+  end;               
+end;
+
+function temporary;
+  var p, w : OleVariant;
+begin
+  try
+    Log.Message('1');
+  except
+    Log.Message('' + ExceptionMessage, '' , 4);
+  end;               
+end;
+
+procedure StartDistributedTestsRunner;
+  var 
+    paramList : OleVariant;
+    paramString, tempDir, timeStamp, batContent, command, runRes : String;
+    
+    p_SDTR_PathToBat;
+    p_SDTR_PathToIni;
+    p_SDTR_ProjectToRun;
+    p_SDTR_BatRunDelay;
+    p_SDTR_Routine;
+    p_SDTR_Unit;
+    p_SDTR_Project;
+    p_SDTR_DelayAfterRun;
+    p_SDTR_BeginSPDelay;
+    sspContext;
+    //p_SDTR_EndSPDelay;
+begin
+  _InitLogFileCopy(Log.Path + 'TestLog.Dub.Txt');
+  try
+       
+    paramString := NetworkSuite.Tag;
+    if paramString <> '' then
+    begin
+      Log.Message('Получена непустая строка NetSuite.Tag', paramString);
+      
+      tempDir := IncludeTrailingBackslash( GetTempDirectory );
+      timeStamp := FormatDateTime('yyyy-mm-dd hh-nn-ss', Utilities.Now);
+      
+      paramList := ParseParamString(paramString, true, EndOfLine);
+      p_SDTR_PathToBat := GetParam(paramList, 'SDTR_PathToBat', tempDir + timeStamp + '.bat' );
+      p_SDTR_PathToIni := GetParam(paramList, 'SDTR_PathToINI', tempDir + timeStamp + '.ini' );
+      p_SDTR_ProjectToRun := GetParam(paramList, 'SDTR_ProjectToRun', '' );       
+      if p_SDTR_ProjectToRun = '' then Raise('Не задан проект для запуска, продолжение работы невозможно!');
+      
+      p_SDTR_Project := GetParam(paramList, 'SDTR_Project', '' );
+      if p_SDTR_Project = '' then Raise('Должно быть задано имя проекта!');
+      p_SDTR_Unit := GetParam(paramList, 'SDTR_Unit', '' );
+      if p_SDTR_Unit = '' then Raise('Должно быть задано имя модуля!');
+      p_SDTR_Routine := GetParam(paramList, 'SDTR_Routine', '' );
+      if p_SDTR_Routine = '' then Raise('Должно быть задано имя функции!'); 
+      
+      p_SDTR_BatRunDelay := StrToInt( GetParam(paramList, 'SDTR_BatRunDelay', IntToStr( 90000 ) ) );
+//      p_SDTR_DelayAfterRun := StrToInt( GetParam(paramList, 'SDTR_DelayAfterRun', IntToStr( 90*1000 ) ) );
+//      p_SDTR_BeginSPDelay := StrToInt( GetParam(paramList, 'SDTR_BeginSPDelay', IntToStr( 10*60*1000 ) ) );       
+      //p_SDTR_EndSPDelay := StrToInt( GetParam(paramList, 'SDTR_EndSPDelay', IntToStr( 20*60*1000 ) ) );      
+      // формируем инишник 
+      SaveStrToFile(p_SDTR_PathToIni, paramString);
+      Log.Message('Создали ini-файл по пути "' + p_SDTR_PathToIni + '"', paramString);
+      
+      // формируем bat-ник
+      batContent :=
+        'set BASE_PATH=' + GetPathTo(PATH_TO_IMPLEMENTATION) + EndOfLine +
+        'set PSTOOLS_PATH=' + GetPathTo(PATH_TO_PSTOOLS) + EndOfLine +        
+        'set SHARED_PATH=' + IncludeTrailingBackslash( GetParam(paramList, 'SharedPath', '') ) + EndOfLine +
+        '' + EndOfLine +            
+        ':loop' + EndOfLine +
+        'rem Засыпаем на это время, чтобы дать возможность TestExecute или TestComplete выгрузиться ' + EndOfLine +
+        '%PSTOOLS_PATH%sleep.exe 60' + EndOfLine + 
+        'rem Прибиваем TestComplete' + EndOfLine +
+        '%PSTOOLS_PATH%sleep.exe 5' + EndOfLine +
+        '%PSTOOLS_PATH%pskill.exe TestComplete' + EndOfLine +
+        '%PSTOOLS_PATH%sleep.exe 5' + EndOfLine +
+        '%PSTOOLS_PATH%pskill.exe TestExecute' + EndOfLine +
+        '' + EndOfLine +
+        'rem Перезапускаем этот убогий tcrea чтобы он не висел и не напрягал' + EndOfLine +      
+        '%PSTOOLS_PATH%pskill.exe tcrea' + EndOfLine +
+        '%PSTOOLS_PATH%sleep.exe 5' + EndOfLine +
+        'start "tcrea" "%PROGRAMFILES%\Automated QA\TestExecute 6\Bin\tcrea.exe"' + EndOfLine +
+        '%PSTOOLS_PATH%sleep.exe 30' + EndOfLine +
+        '' + EndOfLine +
+        'rem Запускаем TestExecute' + EndOfLine +
+        '"%PROGRAMFILES%\Automated QA\TestExecute 6\Bin\testexecute.exe" "' + p_SDTR_ProjectToRun  + '" /run /project:' + p_SDTR_Project + '  /unit:' + p_SDTR_Unit + ' /routine:' + p_SDTR_Routine + ' /exit /SilentMode -ini_file="' + p_SDTR_PathToIni + '"' + EndOfLine +
+        '' + EndOfLine +
+        'rem Засыпаем на минуту' + EndOfLine +
+        '%PSTOOLS_PATH%sleep.exe 60' + EndOfLine +
+        '' + EndOfLine +
+        'rem Прибиваем TestComplete' + EndOfLine +
+        '%PSTOOLS_PATH%pskill.exe TestComplete' + EndOfLine +
+        '%PSTOOLS_PATH%sleep.exe 5' + EndOfLine +
+        '%PSTOOLS_PATH%pskill.exe TestExecute' + EndOfLine;
+        
+      SaveStrToFile(p_SDTR_PathToBat, batContent);  
+      
+      //  
+      StarterSynchroPoints(SSPOP_INIT, sspContext, paramList);      
+      StarterSynchroPoints(SSPOP_WAIT_ON_BEGIN_SP, sspContext);
+            
+      //NetworkSuite.Synchronize('EndSP', 20*60*1000);
+      
+      // запускаем
+      command := '"' + p_SDTR_PathToBat + '"';
+      runRes := Win32API.WinExec(command, Win32API.SW_SHOWNORMAL);
+      if (runRes < 32) then
+        Log.Warning('Не получилось запустить батник, WinExec вернула ' + VarToString(runRes),  command)
+      else
+        Log.Message('Успешно запустили батник!', command);
+        
+      StarterSynchroPoints(SSPOP_WAIT_ON_END_SP, sspContext);        
+    end;
+  except
+    Log.Error('Exception', ExceptionMessage);
+  end;
+end;
+

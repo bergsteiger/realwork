@@ -1,0 +1,37 @@
+// **********************************************************************
+//
+// Copyright (c) 2001 - 2002
+// MT Tools
+// Samara, Russia
+//
+// All Rights Reserved
+// 
+// **********************************************************************
+
+#ifndef __dynamic_idl
+#define __dynamic_idl
+
+#pragma prefix "omg.org"
+
+#include "orbtypes.idl"
+
+module Dynamic
+{
+
+struct Parameter
+{
+    any argument;
+    CORBA::ParameterMode mode;
+};
+
+typedef sequence<Parameter> ParameterList;
+
+typedef CORBA::StringSeq ContextList;
+
+typedef sequence<CORBA::TypeCode> ExceptionList;
+
+typedef CORBA::StringSeq RequestContext;
+
+};
+
+#endif

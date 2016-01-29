@@ -1,0 +1,1050 @@
+// Application 50883A2E00B3 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_50883A2E00B3
+
+FORWARD ME_4AB22E140136
+
+: ME_4AB23A8A0223
+ CONST UID '4AB23A8A0223'
+ CONST Name 'RvcmApplication'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AB22E140136 // TvcmApplication
+ ;
+ : Inherits
+   @ ( ME_4AB22E140136 // TvcmApplication
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "isClassRef" true
+
+ref; // ME_4AB23A8A0223 RvcmApplication
+
+: ME_4AB23AA10088
+ CONST UID '4AB23AA10088'
+ CONST Name 'g_Instance'
+ CONST Class class_Attribute
+ : Stereotype st_static::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4AB22E140136 // TvcmApplication
+ ;
+ : Target ME_4AB23A8A0223 // RvcmApplication
+ ;
+ CONST "ifndef" 'DesignTimeLibrary'
+
+ref; // ME_4AB23AA10088 g_Instance
+
+FORWARD ME_4AB23A660050
+
+: ME_4AB23AC80337
+ CONST UID '4AB23AC80337'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4AB23A660050 // Instance
+ ;
+ : Target ME_4AB23A8A0223 // RvcmApplication
+ ;
+
+ref; // ME_4AB23AC80337 DoIt
+
+: ME_4AB23A660050
+ CONST UID '4AB23A660050'
+ CONST Name 'Instance'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AB22E140136 // TvcmApplication
+ ;
+ : Operations
+   @ ( ME_4AB23AC80337 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "ifndef" 'DesignTimeLibrary'
+ CONST "is static" true
+
+ref; // ME_4AB23A660050 Instance
+
+FORWARD ME_4AB33E56019A
+
+: ME_4AB33E7A03B0
+ CONST UID '4AB33E7A03B0'
+ CONST Name 'aModule'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4AB33E2C03D7' '47D0E1500033.pas.ms.script' // RvcmModule
+ ;
+
+ref; // ME_4AB33E7A03B0 aModule
+
+: ME_4C910A6A011E
+ CONST UID '4C910A6A011E'
+ CONST Name 'aCap'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4C910A6A011E aCap
+
+: ME_4AB33E77023E
+ CONST UID '4AB33E77023E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4AB33E56019A // PublishModule
+ ;
+ : Parameters
+   @ ( ME_4AB33E7A03B0 // aModule
+ ME_4C910A6A011E // aCap
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4AB33E77023E DoIt
+
+: ME_4AB3407002A3
+ CONST UID '4AB3407002A3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AB33E56019A // PublishModule
+ ;
+ : Target WL 'ME_4AB34044026A' '4AB34028023E.pas.ms.script' // TvcmModulesCollection
+ ;
+
+ref; // ME_4AB3407002A3 
+
+: ME_4AB33E56019A
+ CONST UID '4AB33E56019A'
+ CONST Name 'PublishModule'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4AB22E140136 // TvcmApplication
+ ;
+ : Operations
+   @ ( ME_4AB33E77023E // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4AB3407002A3 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifndef" 'DesignTimeLibrary'
+ CONST "is static" false
+
+ref; // ME_4AB33E56019A PublishModule
+
+FORWARD ME_4AB33E8201D8
+
+: ME_4AB33EAC01A4
+ CONST UID '4AB33EAC01A4'
+ CONST Name 'aModule'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4AB33E2C03D7' '47D0E1500033.pas.ms.script' // RvcmModule
+ ;
+
+ref; // ME_4AB33EAC01A4 aModule
+
+: ME_4AB33EAC01C1
+ CONST UID '4AB33EAC01C1'
+ CONST Name 'aName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4AB33EAC01C1 aName
+
+: ME_4AB33EAC01DE
+ CONST UID '4AB33EAC01DE'
+ CONST Name 'aCap'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4AB33EAC01DE aCap
+
+: ME_4ABC7A9E00C4
+ CONST UID '4ABC7A9E00C4'
+ CONST Name 'aNoPrefix'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4ABC7A9E00C4 aNoPrefix
+
+: ME_4AB33E9900E3
+ CONST UID '4AB33E9900E3'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4AB33E8201D8 // PublishModuleOperation
+ ;
+ : Target WL 'ME_4683CF84010A' '467BAB7F021E.pas.ms.script' // TvcmMOPID
+ ;
+ : Parameters
+   @ ( ME_4AB33EAC01A4 // aModule
+ ME_4AB33EAC01C1 // aName
+ ME_4AB33EAC01DE // aCap
+ ME_4ABC7A9E00C4 // aNoPrefix
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4AB33E9900E3 DoIt
+
+: ME_4AB34074033F
+ CONST UID '4AB34074033F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AB33E8201D8 // PublishModuleOperation
+ ;
+ : Target WL 'ME_4AB34044026A' '4AB34028023E.pas.ms.script' // TvcmModulesCollection
+ ;
+
+ref; // ME_4AB34074033F 
+
+: ME_4AB33E8201D8
+ CONST UID '4AB33E8201D8'
+ CONST Name 'PublishModuleOperation'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4AB22E140136 // TvcmApplication
+ ;
+ : Operations
+   @ ( ME_4AB33E9900E3 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4AB34074033F // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifndef" 'DesignTimeLibrary'
+ CONST "is static" false
+
+ref; // ME_4AB33E8201D8 PublishModuleOperation
+
+FORWARD ME_4AB33EF900E2
+
+: ME_4AB33F37036A
+ CONST UID '4AB33F37036A'
+ CONST Name 'anEn'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4AB33F37036A anEn
+
+: ME_4AB33F370384
+ CONST UID '4AB33F370384'
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4AB33F370384 anOp
+
+: ME_4AB33F37039F
+ CONST UID '4AB33F37039F'
+ CONST Name 'anEnCap'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4AB33F37039F anEnCap
+
+: ME_4AB33F3703BE
+ CONST UID '4AB33F3703BE'
+ CONST Name 'anOpCap'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4AB33F3703BE anOpCap
+
+: ME_4AB33F3703DB
+ CONST UID '4AB33F3703DB'
+ CONST Name 'aNoPrefix'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4AB33F3703DB aNoPrefix
+
+: ME_4AB33F2301A5
+ CONST UID '4AB33F2301A5'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4AB33EF900E2 // PublishOperation
+ ;
+ : Target WL 'ME_4683CF3401F5' '467BAB7F021E.pas.ms.script' // TvcmOPID
+ ;
+ : Parameters
+   @ ( ME_4AB33F37036A // anEn
+ ME_4AB33F370384 // anOp
+ ME_4AB33F37039F // anEnCap
+ ME_4AB33F3703BE // anOpCap
+ ME_4AB33F3703DB // aNoPrefix
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4AB33F2301A5 DoIt
+
+: ME_4AB3407C0076
+ CONST UID '4AB3407C0076'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AB33EF900E2 // PublishOperation
+ ;
+ : Target WL 'ME_4AB3405E0326' '4AB34028023E.pas.ms.script' // TvcmRepEntitiesCollection
+ ;
+
+ref; // ME_4AB3407C0076 
+
+: ME_4AB33EF900E2
+ CONST UID '4AB33EF900E2'
+ CONST Name 'PublishOperation'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4AB22E140136 // TvcmApplication
+ ;
+ : Operations
+   @ ( ME_4AB33F2301A5 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4AB3407C0076 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifndef" 'DesignTimeLibrary'
+ CONST "is static" false
+
+ref; // ME_4AB33EF900E2 PublishOperation
+
+FORWARD ME_4AB33F44024A
+
+: ME_4AB33F6200B8
+ CONST UID '4AB33F6200B8'
+ CONST Name 'anEn'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4AB33F6200B8 anEn
+
+: ME_4AB33F6200D9
+ CONST UID '4AB33F6200D9'
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4AB33F6200D9 anOp
+
+: ME_4AB33F6200F9
+ CONST UID '4AB33F6200F9'
+ CONST Name 'anEnCap'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4AB33F6200F9 anEnCap
+
+: ME_4AB33F620117
+ CONST UID '4AB33F620117'
+ CONST Name 'anOpCap'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4AB33F620117 anOpCap
+
+: ME_4AB33F620135
+ CONST UID '4AB33F620135'
+ CONST Name 'aNoPrefix'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4AB33F620135 aNoPrefix
+
+: ME_4AB33F5F020B
+ CONST UID '4AB33F5F020B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4AB33F44024A // PublishInternalOperation
+ ;
+ : Target WL 'ME_4683CF3401F5' '467BAB7F021E.pas.ms.script' // TvcmOPID
+ ;
+ : Parameters
+   @ ( ME_4AB33F6200B8 // anEn
+ ME_4AB33F6200D9 // anOp
+ ME_4AB33F6200F9 // anEnCap
+ ME_4AB33F620117 // anOpCap
+ ME_4AB33F620135 // aNoPrefix
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4AB33F5F020B DoIt
+
+: ME_4AB3407F0316
+ CONST UID '4AB3407F0316'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AB33F44024A // PublishInternalOperation
+ ;
+ : Target WL 'ME_4AB3405E0326' '4AB34028023E.pas.ms.script' // TvcmRepEntitiesCollection
+ ;
+
+ref; // ME_4AB3407F0316 
+
+: ME_4AB33F44024A
+ CONST UID '4AB33F44024A'
+ CONST Name 'PublishInternalOperation'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4AB22E140136 // TvcmApplication
+ ;
+ : Operations
+   @ ( ME_4AB33F5F020B // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4AB3407F0316 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifndef" 'DesignTimeLibrary'
+ CONST "is static" false
+
+ref; // ME_4AB33F44024A PublishInternalOperation
+
+FORWARD ME_4C77C9C402B7
+
+: ME_4C77CA3800A5
+ CONST UID '4C77CA3800A5'
+ CONST Name 'anEn'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4C77CA3800A5 anEn
+
+: ME_4C77CA3800C3
+ CONST UID '4C77CA3800C3'
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4C77CA3800C3 anOp
+
+: ME_4C77CA3800E1
+ CONST UID '4C77CA3800E1'
+ CONST Name 'aState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4C77CA3800E1 aState
+
+: ME_4C77CA380103
+ CONST UID '4C77CA380103'
+ CONST Name 'aNoPrefix'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4C77CA380103 aNoPrefix
+
+: ME_4C77C9FC01A9
+ CONST UID '4C77C9FC01A9'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Публикует состояние операции' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4C77C9C402B7 // PublishOperationState
+ ;
+ : Target WL 'ME_4C77C99500F6' '4AB34028023E.pas.ms.script' // TvcmBaseOperationState
+ ;
+ : Parameters
+   @ ( ME_4C77CA3800A5 // anEn
+ ME_4C77CA3800C3 // anOp
+ ME_4C77CA3800E1 // aState
+ ME_4C77CA380103 // aNoPrefix
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4C77C9FC01A9 DoIt
+
+: ME_4C77C9C402B7
+ CONST UID '4C77C9C402B7'
+ CONST Name 'PublishOperationState'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AB22E140136 // TvcmApplication
+ ;
+ : Operations
+   @ ( ME_4C77C9FC01A9 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "ifndef" 'DesignTimeLibrary'
+ CONST "is static" false
+
+ref; // ME_4C77C9C402B7 PublishOperationState
+
+FORWARD ME_4EC4C83F01B4
+
+: ME_4EC4C87C01F0
+ CONST UID '4EC4C87C01F0'
+ CONST Name 'anEn'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4EC4C87C01F0 anEn
+
+: ME_4EC4C87C02AE
+ CONST UID '4EC4C87C02AE'
+ CONST Name 'anOp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4EC4C87C02AE anOp
+
+: ME_4EC4C87C0350
+ CONST UID '4EC4C87C0350'
+ CONST Name 'anImageIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4EC4C87C0350 anImageIndex
+
+: ME_4EC4C87D000A
+ CONST UID '4EC4C87D000A'
+ CONST Name 'aNoPrefix'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4EC4C87D000A aNoPrefix
+
+: ME_4EC4C8580286
+ CONST UID '4EC4C8580286'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4EC4C83F01B4 // SetOperationImageIndex
+ ;
+ : Parameters
+   @ ( ME_4EC4C87C01F0 // anEn
+ ME_4EC4C87C02AE // anOp
+ ME_4EC4C87C0350 // anImageIndex
+ ME_4EC4C87D000A // aNoPrefix
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4EC4C8580286 DoIt
+
+: ME_4EC4C83F01B4
+ CONST UID '4EC4C83F01B4'
+ CONST Name 'SetOperationImageIndex'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AB22E140136 // TvcmApplication
+ ;
+ : Operations
+   @ ( ME_4EC4C8580286 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "ifndef" 'DesignTimeLibrary'
+
+ref; // ME_4EC4C83F01B4 SetOperationImageIndex
+
+FORWARD ME_4F6AF5F00058
+
+: ME_4F6AF5F801B8
+ CONST UID '4F6AF5F801B8'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6AF5F00058 // MakeResources
+ ;
+
+ref; // ME_4F6AF5F801B8 DoIt
+
+: ME_4F6AF5F00058
+ CONST UID '4F6AF5F00058'
+ CONST Name 'MakeResources'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AB22E140136 // TvcmApplication
+ ;
+ : Operations
+   @ ( ME_4F6AF5F801B8 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_4F6AF5F00058 MakeResources
+
+FORWARD ME_4F79A8E60206
+
+: ME_4F79A8F9000B
+ CONST UID '4F79A8F9000B'
+ CONST Name 'aTitle'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+
+ref; // ME_4F79A8F9000B aTitle
+
+: ME_4F79A8F9005C
+ CONST UID '4F79A8F9005C'
+ CONST Name 'aHelpFile'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4F79A8F9005C aHelpFile
+
+: ME_4F79A8F601F2
+ CONST UID '4F79A8F601F2'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F79A8E60206 // Run
+ ;
+ : Parameters
+   @ ( ME_4F79A8F9000B // aTitle
+ ME_4F79A8F9005C // aHelpFile
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F79A8F601F2 DoIt
+
+: ME_4F79AC200294
+ CONST UID '4F79AC200294'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F79A8E60206 // Run
+ ;
+ : Target WL 'ME_4BA2214002EE' '4F9BDEEE01BC.pas.ms.script' // Tl3ConstStrings
+ ;
+
+ref; // ME_4F79AC200294 
+
+: ME_521B8DAC02FB
+ CONST UID '521B8DAC02FB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F79A8E60206 // Run
+ ;
+ : Target WL 'ME_47ECE41C00D2' '4799D29F033F.pas.ms.script' // TApplication
+ ;
+
+ref; // ME_521B8DAC02FB 
+
+: ME_521B8F7500DF
+ CONST UID '521B8F7500DF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F79A8E60206 // Run
+ ;
+ : Target WL 'ME_47752AF90375' '47750CE700D0.pas.ms.script' // afwFacade
+ ;
+
+ref; // ME_521B8F7500DF 
+
+: ME_4F79A8E60206
+ CONST UID '4F79A8E60206'
+ CONST Name 'Run'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4AB22E140136 // TvcmApplication
+ ;
+ : Operations
+   @ ( ME_4F79A8F601F2 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4F79AC200294 // 
+ ME_521B8DAC02FB // 
+ ME_521B8F7500DF // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "is static" true
+
+ref; // ME_4F79A8E60206 Run
+
+FORWARD ME_4F6AF5860291
+
+: ME_4F6AF5AB02A9
+ CONST UID '4F6AF5AB02A9'
+ CONST Name 'aTitle'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.pas.ms.script' // Tl3StringIDEx
+ ;
+
+ref; // ME_4F6AF5AB02A9 aTitle
+
+: ME_4F6AF5AB02F4
+ CONST UID '4F6AF5AB02F4'
+ CONST Name 'aHelpFile'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4F6AF5AB02F4 aHelpFile
+
+: ME_4F6AF59403C0
+ CONST UID '4F6AF59403C0'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F6AF5860291 // Runner
+ ;
+ : Parameters
+   @ ( ME_4F6AF5AB02A9 // aTitle
+ ME_4F6AF5AB02F4 // aHelpFile
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4F6AF59403C0 DoIt
+
+: ME_4F6AF5860291
+ CONST UID '4F6AF5860291'
+ CONST Name 'Runner'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AB22E140136 // TvcmApplication
+ ;
+ : Operations
+   @ ( ME_4F6AF59403C0 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_4F6AF5860291 Runner
+
+FORWARD ME_52F2269B0373
+
+: ME_52F226AA017C
+ CONST UID '52F226AA017C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52F2269B0373 // BeforeApplicationRun
+ ;
+
+ref; // ME_52F226AA017C DoIt
+
+: ME_52F2269B0373
+ CONST UID '52F2269B0373'
+ CONST Name 'BeforeApplicationRun'
+ CONST Class class_Class
+ : Stereotype st_virtualmethod ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AB22E140136 // TvcmApplication
+ ;
+ : Operations
+   @ ( ME_52F226AA017C // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_52F2269B0373 BeforeApplicationRun
+
+: ME_4AB23D2801E8
+ CONST UID '4AB23D2801E8'
+ CONST Name 'aMain'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C7A0114' '4AADF9450143.pas.ms.script' // TvcmMainForm
+ ;
+
+ref; // ME_4AB23D2801E8 aMain
+
+: ME_4AB23CF803E5
+ CONST UID '4AB23CF803E5'
+ CONST Name 'RegisterModules'
+ CONST Class class_Operation
+ : Stereotype st_static::Operation ;
+ %SUMMARY 'Регистрирует модули приложения' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AB22E140136 // TvcmApplication
+ ;
+ : Parameters
+   @ ( ME_4AB23D2801E8 // aMain
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "ifndef" 'DesignTimeLibrary'
+
+ref; // ME_4AB23CF803E5 RegisterModules
+
+: ME_4AB24E3703E3
+ CONST UID '4AB24E3703E3'
+ CONST Name 'RegisterFormSetFactories'
+ CONST Class class_Operation
+ %SUMMARY 'Регистрирует фабрики сборок' ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AB22E140136 // TvcmApplication
+ ;
+ CONST "ifndef" 'DesignTimeLibrary'
+
+ref; // ME_4AB24E3703E3 RegisterFormSetFactories
+
+: ME_4AB24E770161
+ CONST UID '4AB24E770161'
+ CONST Name 'aFactory'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4AB250E60392' '47B9727603BE.pas.ms.script' // RvcmFormSetFactory
+ ;
+
+ref; // ME_4AB24E770161 aFactory
+
+: ME_4AB24E6E0127
+ CONST UID '4AB24E6E0127'
+ CONST Name 'RegisterFormSetFactory'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4AB22E140136 // TvcmApplication
+ ;
+ : Parameters
+   @ ( ME_4AB24E770161 // aFactory
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "ifndef" 'DesignTimeLibrary'
+
+ref; // ME_4AB24E6E0127 RegisterFormSetFactory
+
+: ME_4AB24F0D00D3
+ CONST UID '4AB24F0D00D3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4AB22E140136 // TvcmApplication
+ ;
+ : Target WL 'ME_4AB24EF502BB' '4AADF9450143.pas.ms.script' // vcmBaseMenuManager
+ ;
+
+ref; // ME_4AB24F0D00D3 
+
+: ME_47D1602000C6_ME_4AB22E140136
+ CONST UID '47D1602000C6'
+ CONST Name 'Create'
+ : Original WL 'ME_47D1602000C6' '4AB0997B00A2.pas.ms.script' // Create
+ ;
+ : Implementor ME_4AB22E140136 // TvcmApplication
+ ;
+ref; // ME_47D1602000C6_ME_4AB22E140136 Create
+
+: ME_4AB22E140136
+ CONST UID '4AB22E140136'
+ CONST Name 'TvcmApplication'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_50883A2E00B3 // Application
+ ;
+ : Inherits
+   @ ( WL 'ME_4AAA214A0250' '4AB0997B00A2.pas.ms.script' // TDataModule
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4AB23AA10088 // g_Instance
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4AB23A660050 // Instance
+ ME_4AB33E56019A // PublishModule
+ ME_4AB33E8201D8 // PublishModuleOperation
+ ME_4AB33EF900E2 // PublishOperation
+ ME_4AB33F44024A // PublishInternalOperation
+ ME_4C77C9C402B7 // PublishOperationState
+ ME_4EC4C83F01B4 // SetOperationImageIndex
+ ME_4F6AF5F00058 // MakeResources
+ ME_4F79A8E60206 // Run
+ ME_4F6AF5860291 // Runner
+ ME_52F2269B0373 // BeforeApplicationRun
+ ME_4AB23CF803E5 // RegisterModules
+ ME_4AB24E3703E3 // RegisterFormSetFactories
+ ME_4AB24E6E0127 // RegisterFormSetFactory
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_47D1602000C6_ME_4AB22E140136 // Create
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_4AB23A8A0223 // RvcmApplication
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_4AB24F0D00D3 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '17.09.2009 16:40'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmApplication.pas'
+
+ref; // ME_4AB22E140136 TvcmApplication
+
+: ME_523040FB01AA
+ CONST UID '523040FB01AA'
+ CONST Name 'MvcmApplication'
+ CONST Class class_Class
+ : Stereotype st_MixInMirror ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_50883A2E00B3 // Application
+ ;
+ : Inherits
+   @ ( ME_4AB22E140136 // TvcmApplication
+ ) .SequenceCode.It
+ ; // Inherits
+
+ref; // ME_523040FB01AA MvcmApplication
+
+: ME_50883A2E00B3
+ CONST UID '50883A2E00B3'
+ CONST Name 'Application'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
+ ;
+ : Children
+   @ ( ME_4AB22E140136 // TvcmApplication
+ ME_523040FB01AA // MvcmApplication
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+ WL 'ME_47750CE700D0' '47750CE700D0.pas.ms.script' // afwFacade
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_47B9727603BE' '47B9727603BE.pas.ms.script' // FormSets
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.pas.ms.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4AB34028023E' '4AB34028023E.pas.ms.script' // Components
+ WL 'ME_4F9BDEEE01BC' '4F9BDEEE01BC.pas.ms.script' // Поддержка локализованных сообщений
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "path prefix" '/implementation/Visual'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\50883A2E00B3.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\50883A2E00B3.pas.ms.script.runner'
+
+ref; // ME_50883A2E00B3 Application

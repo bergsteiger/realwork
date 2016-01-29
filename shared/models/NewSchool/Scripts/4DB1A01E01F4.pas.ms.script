@@ -1,0 +1,58 @@
+// Key 4DB1A01E01F4 ScriptKeyword Class
+
+INCLUDE '53EDC0E701BC.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_4DB1A01E01F4
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_FBCCC42388D6
+ CONST UID 'FBCCC42388D6'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Key' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_FBCCC42388D6 Ini_Reg
+
+: ME_4DB1A01E01F4
+ CONST UID '4DB1A01E01F4'
+ CONST Name 'Key'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Нажатие на кнопку клавиатуры.'#13#10'Пример:'#13#10'{code}'#13#10': "Нажать" STRING IN aString'#13#10' aString key'#13#10';'#13#10'{code}' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_53EDC0E701BC // TtfwRegisterableWord
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_FBCCC42388D6 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'key'
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '22.04.2011 19:35'
+
+ @SELF
+; // ME_4DB1A01E01F4 Key

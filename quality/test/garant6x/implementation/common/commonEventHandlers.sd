@@ -1,0 +1,609 @@
+uses common, FileWork, RunPrograms, exceptions, ProjectWork;
+
+function ErrorUnexpectedWindow(  whatToDo : string; value : string = ''): OleVariant; forward;
+procedure AnalyseErrorWindow(  wnd : OleVariant = nil); forward;
+
+var
+  gbl_isBeenUnexpWnd : boolean;
+  gbl_isUWEnabled : boolean;  
+  gbl_strUnexpWndType : String;
+  gbl_strPathToUnexpWndScreenShot : String;
+  gbl_strUnexpWndMessage : String;
+  
+  gbl_isBeenErrorWnd : boolean;
+  gbl_strErrorWndMessage : string;
+
+// Эта процедура вызывается в самом начале работы
+// Устанавливаем параметры работы оболочки в режиме вкладок и т.д.
+procedure Common_OnStartTest(Sender);
+begin
+  try
+  
+//    gbl_F1ShellTabsEnabled := false;
+    gbl_F1ShellTabsEnabled := true;
+    
+//    gbl_F1ShellOpenDocsInNewTab := false;
+    gbl_F1ShellOpenDocsInNewTab := true;
+    
+    ////////////////////////////////////    
+    // PW_CallInitializationRoutines;
+  except
+    Log.Error('Common_OnStartTest :' + ExceptionMessage);
+  end;  
+end;
+
+// Эта процедура вызывается в самом конце работы
+procedure Common_OnStopTest(Sender);
+begin
+  // пока ничего не делаем
+end;
+  
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function UnexpWindow(
+  whatToDo : String;
+  const value : OleVariant = -1
+) : OleVariant;
+begin
+  try
+    whatToDo := AnsiUpperCase(whatToDo);
+    case whatToDo of
+      'RESET' : 
+        begin
+          gbl_isUWEnabled := true;
+          gbl_isBeenUnexpWnd := false;
+          gbl_strUnexpWndType := 'undefined';
+          gbl_strPathToUnexpWndScreenShot := '';
+          gbl_strUnexpWndMessage := '';
+        end;
+      'GET FLAG' : Result := ( VarType(gbl_isBeenUnexpWnd) = varBoolean ) AND gbl_isBeenUnexpWnd;
+      'RAISE FLAG' : gbl_isBeenUnexpWnd := true;
+
+      'GET TYPE' : if ( VarType(gbl_strUnexpWndType) = varOleStr ) then Result := gbl_strUnexpWndType else Result := 'undefined';
+      'SET TYPE' : gbl_strUnexpWndType := value;
+      
+      'GET MESSAGE' : if ( VarType(gbl_strUnexpWndMessage) = varOleStr ) then Result := gbl_strUnexpWndMessage else Result := '';
+      'SET MESSAGE' : gbl_strUnexpWndMessage := value;
+
+      'SET PATH TO SCREENSHOT' : gbl_strPathToUnexpWndScreenShot := value;
+      'GET PATH TO SCREENSHOT' : if ( VarType(gbl_strPathToUnexpWndScreenShot) = varOleStr ) then Result := gbl_strPathToUnexpWndScreenShot else Result := '';
+      
+      'DISABLE HANDLER' :  gbl_isUWEnabled := false;
+      'ENABLE HANDLER' :  gbl_isUWEnabled := true;
+      'IS HANDLER ENABLED' : Result := (( VarType(gbl_isUWEnabled) = varBoolean ) AND gbl_isUWEnabled) OR (IsEmpty(gbl_isUWEnabled));
+    else
+      Raise('Параметр не распознан!');  
+    end;   
+  except
+    Log.Message('UnexpWindow: ' + ExceptionMessage, 'whatToDo: "' + VarToStr(whatToDo) + '"; ' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;               
+end;
+
+const
+  UW_UNKNOWN = 'Совершенно неизвестное окно';
+  UW_SHELL_UNKNOWN = 'Какое-то окно оболочки';
+  UW_SHELL_MESSAGEFORM = 'Неизвестная MessageForm.';
+  UW_SHELL_INTERNALERROR = 'Внутренняя ошибка оболочки!';
+  UW_SHELL_ACCESSVIOLATION = 'Access violation!';
+  UW_SHELL_CORBAUNKNOWN = 'CORBA Unknown!';
+  UW_SHELL_UNKNOWNERROR = 'Неизвестная ошибка оболочки!';
+  UW_SHELL_BASEUPDATE = 'Предупреждение о том, что идет обновление данных';
+  UW_OTHER_UNKNOWN = 'Неизвестное стороннее окно';
+  UW_OTHER_SHELLERROR = 'Окно Windows, с сообщением об ошибке в оболочке.';
+  
+
+var gbl_CountOfAttempts : integer; // глобальный счетчик числа попыток закрытий оболочки. Глобальный - потому что закрытие оболочки может вызываться несколько раз обработчиком неизвестных окон, чтобы избежать закцикливания при закрытии незакрывающихся окон ошибок. 
+const GBL_COA_INIT = 6;
+{
+  TYPE:
+  DESC: Обработчик неожиданных окон
+  RESULT:
+  REMARK:
+}
+procedure Common_OnUnexpectedWindow(
+  sender: OleVariant;
+  window: OleVariant;
+  logParams: OleVariant
+);
+  var
+    strMessage, fullName, str : String;
+    w, p ; OleVariant;
+    i, countOfAttempts : integer;
+    isShellWindow: boolean;
+begin
+  // блокируем логгирование действий скрипта. для предотвращения попадания действий по закрытию оболочки.
+  ScriptAction('LOCK', nil);
+  
+  if IsEmpty(gbl_CountOfAttempts) then gbl_CountOfAttempts := GBL_COA_INIT;
+  
+  {if NOT UnexpWindow('IS HANDLER ENABLED') then
+  begin
+    Log.Message('MyProjectEvents_OnUnexpectedWindow заблокирован. Обработка unexpected window не производится.');
+    try Exit; except end;
+  end
+  else
+    UnexpWindow('DISABLE HANDLER');  }
+  fullName := window.FullName;
+  // фотографируем окно
+  UnexpWindow('set type', UW_UNKNOWN);
+  str := Log.Picture(window, 'Обнаружено неизвестное окно', fullName);
+  Log.Warning('Обнаружено неизвестное окно', fullName);
+  UnexpWindow('SET PATH TO SCREENSHOT', str);
+// ======= Здесь мы ТОЛЬКО КЛАССИФИЦИРУЕМ окно (максимум - сообщаем в лог). Обработка пойдет ниже ==========
+  isShellWindow := StringCompare('*process(''' + SHELL_PROCESS_NAME + ''')*', fullName);
+  if isShellWindow then // проверяем, окно оболочки ли это?
+  begin // =================== ОБРАБОТКА ОКОН ОБОЛОЧКИ =========================
+    UnexpWindow('set type', UW_SHELL_UNKNOWN);
+    if StringCompare('TMessageForm', window.WndClass) then // проверям, MessageForm ли это?
+    begin // да, это MessageForm
+      // значит мы уже можем получить ее текст
+      strMessage := window.Message.Buffer;
+      UnexpWindow('set type', UW_SHELL_MESSAGEFORM);    
+      UnexpWindow('set message', window.Message.Buffer);
+      
+      // проверяем, ошибка ли это
+      if StringCompare('Ошибка*', window.WndCaption) then
+      begin // это окно с ошибкой, обрабатываем его текст
+        UnexpWindow('set type', UW_SHELL_UNKNOWNERROR);
+        if StringCompare('*внутренняя*ошибка*системы*', strMessage) then
+           UnexpWindow('set type', UW_SHELL_INTERNALERROR);
+        if StringCompare('*access*violation*', strMessage) then
+           UnexpWindow('set type', UW_SHELL_ACCESSVIOLATION);
+        if StringCompare('*CORBA*', strMessage) then
+           UnexpWindow('set type', UW_SHELL_CORBAUNKNOWN);      
+        Log.Error(UnexpWindow('get type'), strMessage,  pmNormal, GetLogAttr('EXCEPTION'));
+      end
+      else // это не ошибка, но MessageForm
+        Log.Warning(UnexpWindow('get type'), UnexpWindow('get message'),  pmNormal, GetLogAttr('EXCEPTION'));
+    end// end MessageForm         
+    else // проверяем, может это окно о обновлении
+    if StringCompare('TenLongProcessMessage', window.WndClass) then
+    begin
+      strMessage := window.MessageLabel.Caption;
+      if StringCompare('*ид*т обновление данных*', strMessage) then
+      begin // это точно окно об обновлении данных
+        UnexpWindow('set type', UW_SHELL_BASEUPDATE);    
+        UnexpWindow('set message', strMessage);
+      end;        
+    end; // end TenLongProcessMessage
+    
+    
+  end// end Окно оболочки
+  else // это НЕ окно оболочки
+  begin // ================ ОБРАБОТКА СТОРОННИХ ОКОН ===========================
+    //проверяем, а не сдохла ли это оболочка
+    if (window.WndClass = '#32770') AND StringCompare('*f1shell*run*', window.WndCaption) then // очень похоже на окно ватсона
+      if IsSupported(GetParentObject(window), 'ProcessName') AND StringCompare('dwwin', GetParentObject(window).ProcessName) then 
+      begin // точно окно ватсона, оболочка упала
+        UnexpWindow('set type', UW_OTHER_SHELLERROR);
+        Log.Error(UnexpWindow('get type'), '',  pmNormal, GetLogAttr('EXCEPTION'));
+      end
+      else // видимо не окно ватсона, но что-то смутно похожее 
+        UnexpWindow('set type', UW_OTHER_UNKNOWN);
+  end;
+// ============== КОНЕЦ КЛАССИФИКАЦИИ ====================  
+
+// ========= теперь ОБРАБАТЫВАЕМ окна в зависимости от его типа ==============
+
+  case UnexpWindow('get type') of
+
+    UW_SHELL_UNKNOWN, UW_SHELL_MESSAGEFORM, UW_SHELL_INTERNALERROR, UW_SHELL_UNKNOWNERROR, UW_SHELL_ACCESSVIOLATION, UW_SHELL_CORBAUNKNOWN  :
+      if IsExists(window) then 
+      begin 
+        window.Close;
+        Delay(Options.Run.Timeout div 30);
+        if IsExists(window) then 
+        begin
+          Win32API.Beep(5000,1000);
+          Log.Error('Не удалось закрыть неизвестное окно оболочки!!!');
+        end;
+        //  
+        case UnexpWindow('get type') of
+          UW_SHELL_ACCESSVIOLATION :
+            begin
+              Log.Error('Обнаружено AV. Оболочка будет закрыта во избежании возникновения наведенных ошибок.');              
+              gbl_CountOfAttempts := gbl_CountOfAttempts - 1;
+              CloseF1Shell(gbl_CountOfAttempts, Options.Run.Delay div 6);
+              gbl_CountOfAttempts := GBL_COA_INIT; // предполагается, что к этой строке оболочка будет убита. В этом случае восстанавливаем количество попыток
+            end;
+            
+          UW_SHELL_CORBAUNKNOWN :
+            begin
+              Log.Error('Обнаружено CORBA Unknown. Оболочка будет закрыта, а сервер перехагружен во избежании возникновения наведенных ошибок.');
+              // закрываем оболочку
+              gbl_CountOfAttempts := gbl_CountOfAttempts - 1;
+              CloseF1Shell(gbl_CountOfAttempts, Options.Run.Delay div 6);
+              gbl_CountOfAttempts := GBL_COA_INIT;
+              // перезагружаем сервер
+              if (GetProductType = PT_SERVER) then
+                if StopF1Server then
+                  if NOT StartF1Server then Log.Error('Не получилось :-(');    
+            end;     
+        end;        
+      end; 
+    
+    UW_OTHER_SHELLERROR :
+      begin
+        Log.Error(UnexpWindow('get type'), '',  pmNormal, GetLogAttr('EXCEPTION'));
+        Log.Message('Пытаемся закрыть это окно!');
+        w := window.WaitWindow('Button', '*Close*', -1, Options.Run.Timeout div 10);
+        if IsExists(w) then w.Click;
+        Delay(2000);
+        if IsExists(w) then Log.Error('Не получилось закрыть окно! :-(') else Log.Message('Успешно закрыли окно.');
+        //        
+        gbl_CountOfAttempts := gbl_CountOfAttempts - 1;
+        CloseF1Shell(gbl_CountOfAttempts, Options.Run.Delay div 6);
+        gbl_CountOfAttempts := GBL_COA_INIT;
+      end;
+
+    UW_OTHER_UNKNOWN :
+      begin
+        Log.Message('Неизвестное окно, записываем его параметры.');
+        Objects.Save(window, 'Свойства неизвестного окна');      
+      end;
+
+    UW_SHELL_BASEUPDATE :
+      begin
+        Log.Picture(Sys_Desktop.Picture, 'Обнаружено окно об обновлении данных, будем ждать его пропадания целую вечность.');
+        while (IsExists(window) AND window.Visible) do Delay(1000);
+        Log.Picture(Sys_Desktop.Picture, 'Окно об обновлении пропало или стало невидимо.'); 
+      end;               
+    end;
+
+  if IsExists(window) then Log.Error('Не закрыли неизвестное окно!!!');  
+  UnexpWindow('raise flag');
+ { UnexpWindow('ENABLE HANDLER');    }
+ 
+ ScriptAction('UNLOCK', nil);
+end;
+
+var 
+  g_TextLogFileName : String;
+  g_MsgNumber : integer;
+  g_FileLogObject : OleVariant;
+  g_IsLogFileReady : boolean;
+  g_Indent : String;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK: служебная функция
+}
+procedure _InitLogFileCopy(
+  fileName : String = ''
+);
+  const
+    csvHeader = 'Имя машины;Время;Номер сообщения;Тип сообщения;Сообщение;Расширенное сообщение;';
+begin
+  try
+    if fileName = '' then fileName := Log.Path + 'TestLog.dub.txt'; 
+    g_MsgNumber := 0; 
+    g_FileLogObject := Sys.OleObject('Scripting.FileSystemObject').CreateTextFile(fileName, true, false);
+    g_FileLogObject.WriteLine(csvHeader);
+    g_IsLogFileReady := (VarType(g_FileLogObject) = varDispatch);
+    g_Indent := '';
+  except
+    Log.Message('_InitLogFileCopy: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;               
+end;
+
+const
+  LOG_MESSAGE     = 1;
+  LOG_WARNING     = 2;
+  LOG_ERROR       = 3;
+  LOG_EVENT       = 4;
+  LOG_FILE        = 5;
+  LOG_LINK        = 6;
+  LOG_PICTURE     = 7;
+  LOG_CREATE_NODE = 8;
+  LOG_CLOSE_NODE  = 9;     
+  
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK: служебная функция
+}
+procedure _SaveLogMessageToFile(
+  var logParams: OleVariant;
+  const msgType : Integer
+);
+  var
+    msgTypeStr : String;
+    isAdd : Boolean;
+begin  
+  try   
+    if (VarType(g_IsLogFileReady) = varBoolean) AND (g_IsLogFileReady) then
+    begin
+      isAdd := true;
+      case msgType of
+        LOG_MESSAGE     : msgTypeStr := 'Message';
+        LOG_WARNING     : msgTypeStr := 'Warning';
+        LOG_ERROR       : msgTypeStr := 'ERROR';
+        LOG_EVENT       : msgTypeStr := 'Event';
+        LOG_FILE        : msgTypeStr := 'File';
+        LOG_LINK        : msgTypeStr := 'Link';
+        LOG_PICTURE     : msgTypeStr := 'Picture';
+        LOG_CREATE_NODE : msgTypeStr := 'Node';        
+        LOG_CLOSE_NODE  : isAdd := false;
+      else
+        msgTypeStr := 'UNKNOWN';  
+      end;
+      
+      if isAdd then
+      begin        
+        Inc(g_MsgNumber);
+        g_FileLogObject.WriteLine( g_Indent + CompName + ';' + Utilities.FormatDateTime('dd-mm-yyyy hh:nn:ss' , Utilities.Now) + ';' + VarToStr(g_MsgNumber) + ';'+ msgTypeStr + ';' + logParams.Str + ';' + logParams.StrEx );
+      end;
+      
+      if (msgType = LOG_CREATE_NODE) then
+        g_Indent := g_Indent + '  '
+      else if (msgType = LOG_CLOSE_NODE) AND (Length(g_Indent) > 1) then
+        SetLength(g_Indent, Length(g_Indent)-2);                     
+    end; 
+  except
+    Log.Message('_SaveLogMessageToFile: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;               
+end;
+
+
+
+    
+var gbl_LogCopy : OleVariant;
+var gbl_LogCopyEnabled : OleVarriant;
+
+procedure EnableLogCopy;
+begin
+  gbl_LogCopyEnabled := true;
+end;
+
+procedure DisableLogCopy;
+begin
+  gbl_LogCopyEnabled := false;
+end;
+
+procedure AddToLogCopy(
+  var logCopy : OleVariant;
+  const msgType : OleVariant;
+  var LogParams : OleVariant;
+  const LogFileParams : OleVariant = nil
+);
+begin 
+  if (VarType(gbl_LogCopyEnabled = varBoolean) AND (gbl_LogCopyEnabled)) then
+    if (logParams.Priority <> LOG_PRIORITY_INTERNAL) then        
+      AddToArray(gbl_LogCopy, [msgType, LogParams, logFileParams] );
+end;
+
+procedure ClearLogArray;
+begin
+  VarClear(gbl_LogCopy);  
+end;
+
+{
+  TYPE: Общие
+  DESC: Обрабатывает событие "запись ошибки в лог"
+  RESULT:
+  REMARK:
+}
+procedure Common_OnLogError(
+  sender: OleVariant;
+  logParams: OleVariant
+);
+begin
+  Log.Picture(Sys_Desktop.Picture, 'Скриншот экрана. Автоматические сгенерирован во время записи ошибки в лог.');
+  _SaveLogMessageToFile(logParams, LOG_ERROR);
+  AddToLogCopy(gbl_LogCopy, LOG_ERROR, logParams);
+  
+  AnalyseErrorWindow;
+end;
+
+{
+  TYPE: Общие
+  DESC: Обрабатывает событие "запись действия в лог"
+  RESULT:
+  REMARK:
+}
+procedure Common_OnLogEvent(
+  sender: OleVariant;
+  logParams: OleVariant
+);
+begin
+  _SaveLogMessageToFile(logParams, LOG_EVENT);
+  if (Pos('CLICK', AnsiUpperCase(logParams.Str)) <> 0) then 
+    Log.Picture(Sys_Desktop.Picture, 'Скриншот экрана, автоматически сгенерирован по Click.', logParams.StrEx);
+  AddToLogCopy(gbl_LogCopy, LOG_EVENT, logParams);
+
+  AnalyseErrorWindow;
+end;
+
+{
+  TYPE: Общие
+  DESC: Обрабатывает событие "запись сообщения в лог"
+  RESULT:
+  REMARK:
+}
+procedure Common_OnLogMessage(
+  sender: OleVariant;
+  logParams: OleVariant
+);
+begin
+  _SaveLogMessageToFile(logParams, LOG_MESSAGE);
+  AddToLogCopy(gbl_LogCopy, LOG_MESSAGE, logParams);
+end;
+
+{
+  TYPE: Общие
+  DESC: Обрабатывает событие "запись предупреждения в лог"
+  RESULT:
+  REMARK:
+}
+procedure Common_OnLogWarning(
+  sender: OleVariant;
+  logParams: OleVariant
+);
+begin
+  _SaveLogMessageToFile(logParams, LOG_WARNING);
+  AddToLogCopy(gbl_LogCopy, LOG_WARNING, logParams);  
+end;
+
+{
+  TYPE: Общие
+  DESC: Обрабатывает событие "запись картинки в лог"
+  RESULT:
+  REMARK:
+}
+procedure Common_OnLogPicture(sender; logParams; logFileParams);
+begin
+  _SaveLogMessageToFile(logParams, LOG_PICTURE);
+  AddToLogCopy(gbl_LogCopy, LOG_PICTURE, logParams, logFileParams);
+end;
+
+{
+  TYPE: Общие
+  DESC: Обрабатывает событие "запись файла в лог"
+  RESULT:
+  REMARK:
+}
+procedure Common_OnLogFile(sender; logParams; logFileParams);
+begin
+  _SaveLogMessageToFile(logParams, LOG_FILE);
+  AddToLogCopy(gbl_LogCopy, LOG_FILE, logParams, logFileParams);
+end;
+
+
+procedure Common_OnLogCreateNode(
+  Sender : OleVariant;
+  LogParams : OleVariant
+);
+begin
+  _SaveLogMessageToFile(logParams, LOG_CREATE_NODE);
+  AddToLogCopy(gbl_LogCopy, LOG_CREATE_NODE, logParams);
+end;
+
+procedure Common_OnLogCloseNode(
+  Sender : OleVariant;
+  LogParams : OleVariant
+);
+begin
+  _SaveLogMessageToFile(logParams, LOG_CLOSE_NODE);
+  AddToLogCopy(gbl_LogCopy, LOG_CLOSE_NODE, logParams);
+end;
+
+
+{
+DESK:
+}
+procedure AnalyseErrorWindow(
+  wnd : OleVariant = nil
+);
+const
+  FUNCTION_NAME = 'AnalyseErrorWindow';
+  TEXT_ERROR = '*Вы можете сообщить о ней разработчикам*';
+var
+  deskWnd,  process, msgWnd : OleVariant;
+  procName, wndText, procStr : string;
+  
+begin
+  try
+    deskWnd := Sys_Desktop;
+    
+    if (wnd = nil) then
+    begin      
+      wnd := deskWnd.ActiveWindow();
+      if NOT IsExists(wnd) then Exit;// видимо, исключения приводят к глюкам. К тому же, окно можем легко не найти если оно успело закрыться Raise('Не удалось получить активное окно!');     
+    end;
+        
+    //process := GetProcessFromWnd(wnd);
+    // фактически это дубликат функции GetProcessFromWnd. Есть подозрение, что Raise из другого модуля в обработчкие события вызывает проблемы.
+    process := wnd;
+    while (NOT IsSupported(process, 'ProcessId')) do process := process.Parent;    
+       
+    if NOT IsExists(process) then Raise('Не удалось получить процесс от окна!');  
+    procName := process.ProcessName;
+    //  
+    //Если родительский процесс активного окна = f1shell или другой Гаранта
+    if (AnsiUpperCase(procName) = AnsiUpperCase(SHELL_PROCESS_NAME)) or (AnsiUpperCase(procName) = AnsiUpperCase(PRIME_PROCESS_NAME)) or (AnsiUpperCase(procName) = AnsiUpperCase(ADMIN_PROCESS_NAME)) then
+    begin
+      if (wnd.WndClass = 'TMessageForm') AND (wnd.WndCaption = 'Ошибка') then         
+      begin      
+        msgWnd := wnd.WaitVCLObject('Message', 0); // поменял с VCLObject, чтобы при невозможности нахождения окна не происходило зацикливания Error -> AnalyseErrorWindow -> Error -> ...       
+        if NOT IsExists(msgWnd) then //Raise('Не удалось получить форму сообщения с ошибкой');
+        begin
+          Log.Warning('Не удалось получить форму сообщения с ошибкой'); // не Error, чтобы не было зацикливания
+          Exit;
+        end;       
+        wndText := msgWnd.Buffer;
+        if StringCompare(TEXT_ERROR, wndText) then//Проверяем, что окно с ошибкой действительно Является ошибкой
+        begin    
+          ErrorUnexpectedWindow('SET FLAG');//Говорим, что ошибка есть
+          ErrorUnexpectedWindow('SET MESSAGE', wndText);        
+          Log.Picture(deskWnd, FUNCTION_NAME + ': На оболочке обнаружено окно с ошибкой', '',  pmNormal, GetLogAttr('RED'));              
+          Log.Picture(wnd, FUNCTION_NAME + ': Окно с ошибкой', '',  pmNormal, GetLogAttr('RED'));        
+        end;          
+      end
+      else
+      if (wnd.WndCaption = 'Microsoft Visual C++ Runtime Library') then
+      begin
+        msgWnd := FindWindowByPath(wnd, 'WNDCAPTION:=Runtime Error*;WNDCLASS:=Static'); 
+        wndText := msgWnd.WndCaption;
+        ErrorUnexpectedWindow('SET FLAG');//Говорим, что ошибка есть
+        ErrorUnexpectedWindow('SET MESSAGE', wndText);        
+        Log.Picture(deskWnd, FUNCTION_NAME + ': На оболочке обнаружено окно с ошибкой', '',  pmNormal, GetLogAttr('RED'));              
+        Log.Picture(wnd, FUNCTION_NAME + ': Окно с ошибкой', '',  pmNormal, GetLogAttr('RED'));
+      end;
+    end    
+    else 
+    if (AnsiUpperCase(procName) = 'CMD') OR (AnsiUpperCase(procName) = AnsiUpperCase(F1SERVER_PROCESS_NAME)) then
+    begin
+      // здесь ничего не делаем, т.к. эти процессы пропускаем
+    end 
+    else 
+    if (AnsiUpperCase(procName) = AnsiUpperCase(DATAUPD_PROCESS_NAME)) then
+    begin
+      // здесь ничего не делаем, т.к. эти процессы пропускаем
+    end 
+    else 
+    if (AnsiUpperCase(procName) = AnsiUpperCase(F1DATASETUP_PROCESS_NAME)) then
+    begin
+      // здесь ничего не делаем, т.к. эти процессы пропускаем
+    end 
+    else
+    begin//Если родительский процесс активного окна не распознан
+       Log.Picture(deskWnd, 'Активным является окно, процесс которого не распознан: ' + procName, wnd.FullName);
+       Log.Message('Активным является окно, процесс которого не распознан: ' + procName, wnd.FullName);
+    end;      
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;   
+end;
+
+{
+DESK: Функция сообщает о неизвестных окнах
+}
+function ErrorUnexpectedWindow(
+  whatToDo : string;
+  value : string = ''   
+): OleVariant;
+begin
+  whatToDo := AnsiUpperCase(whatToDo);
+  case whatToDo of
+    'RESET' : 
+      begin        
+        gbl_isBeenErrorWnd := false;       
+        gbl_strErrorWndMessage := '';
+      end;
+    'GET FLAG' :    Result := ( VarType(gbl_isBeenErrorWnd) = varBoolean ) AND gbl_isBeenErrorWnd;
+    'GET MESSAGE' : Result := gbl_strErrorWndMessage;
+    'SET FLAG' :    gbl_isBeenErrorWnd := true;
+    'SET MESSAGE' : gbl_strErrorWndMessage := value;  
+    
+    else
+      Log.Error('Параметр не распознан!');
+  end;//case  
+end;                    
+

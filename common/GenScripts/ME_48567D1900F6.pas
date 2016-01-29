@@ -1,0 +1,30 @@
+unit StyledLeafPara_Const;
+
+interface
+
+uses
+ l3IntfUses
+ , LeafPara_Const
+ , evdTextStyle_Const
+ , Justification_Const
+ , k2Handle_Const
+ , k2Long_Const
+;
+
+ // StyledLeafParaTag
+ 
+implementation
+
+uses
+ l3ImplUses
+ , nevTools
+ , evdTypes
+ , evStyleInterfaceEx
+ , evdStyles
+ , l3Stream
+ , Classes
+ , Graphics
+ , nevBase
+;
+
+end.

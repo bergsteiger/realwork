@@ -1,0 +1,39 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewInterfacesLayer/FormOperations/VCMOperationBase.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewInterfacesLayer::FormOperations::VCMOperationBase
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: VCMOperationBase::Class
+= VCMOperationPrim::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p ShowInContextMenu:tribool=undefined ? 
+p ShowInToolbar:tribool=undefined ? 
+p ImageIndex:s ? 
+p ContextMenuWeight:s ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	SHD
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{ShowInContextMenu}"!="%S{!ShowInContextMenu}"}%f_up_prefix(%S) *ShowInContextMenu* = *%S{ShowInContextMenu}*
+	][{"%S{ShowInToolbar}"!="%S{!ShowInToolbar}"}%f_up_prefix(%S) *ShowInToolbar* = *%S{ShowInToolbar}*
+	][{"%S{ImageIndex}"!="%S{!ImageIndex}"}%f_up_prefix(%S) *ImageIndex* = *%S{ImageIndex}*
+	][{"%S{ContextMenuWeight}"!="%S{!ContextMenuWeight}"}%f_up_prefix(%S) *ContextMenuWeight* = *%S{ContextMenuWeight}*
+	]
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

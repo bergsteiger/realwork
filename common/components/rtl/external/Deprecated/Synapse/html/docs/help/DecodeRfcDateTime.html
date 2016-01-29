@@ -1,0 +1,32 @@
+<Html><Head><Title>DecodeRfcDateTime</Title></Head><Body BGCOLOR="#FFFAEC" LINK="Red" ALINK="Blue" VLINK="Purple">
+<!---1--->
+<font face="Arial">
+<P Align="left"><BIG><B>DecodeRfcDateTime function</B></BIG><BR>
+</P><B>function</B> DecodeRfcDateTime(Value: string): TDateTime;<BR>
+<BR>
+<B>Unit</B><BR>
+
+<A href="SynaUtil.html">SynaUtil</A><BR>
+<BR>
+<B>Description</B><BR>
+Decode various string representations of date and time to Tdatetime type. This function do all timezone corrections too!<BR>
+<BR>
+This function can decode lot of formats like:<BR>
+<BR>
+ddd, d mmm yyyy hh:mm:ss<BR>
+ddd, d mmm yy hh:mm:ss<BR>
+ddd, mmm d yyyy hh:mm:ss<BR>
+ddd mmm dd hh:mm:ss yyyy<BR>
+<BR>
+and more with lot of modifications, include:<BR>
+<BR>
+Sun, 06 Nov 1994 08:49:37 GMT    ; RFC 822, updated by RFC 1123<BR>
+Sunday, 06-Nov-94 08:49:37 GMT   ; RFC 850, obsoleted by RFC 1036<BR>
+Sun Nov  6 08:49:37 1994         ; ANSI C's asctime() Format<BR>
+<BR>
+Timezone corrections known lot of symbolic timezone names (like CEST, EDT, etc.) or numeric representation (like +0200). By convention defined in RFC timezone +0000 is GMT and -0000 is current your system timezone.<BR>
+<BR>
+<BR>
+<B>See also:</B><BR>
+<A href="AnsiCDateTime.html">AnsiCDateTime</A>, <A href="CDateTime.html">CDateTime</A>, <A href="Rfc822DateTime.html">Rfc822DateTime</A>, <A href="SimpleDateTime.html">SimpleDateTime</A><BR>
+</font></Body></Html>

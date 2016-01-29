@@ -1,0 +1,88 @@
+// DataBase 4E4B5C5E0032 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E4B5C5E0032
+
+FORWARD ME_4E4B5C770387
+
+FORWARD ME_4E4B5C8E01C8
+
+: ME_918856EA8E92
+ CONST UID '918856EA8E92'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода InitBaseEngine' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E4B5C8E01C8 // InitBaseEngine
+ ;
+
+ref; // ME_918856EA8E92 DoIt
+
+: ME_4E4B5C8E01C8
+ CONST UID '4E4B5C8E01C8'
+ CONST Name 'InitBaseEngine'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E4B5C770387 // ddHTinit
+ ;
+ : Operations
+   @ ( ME_918856EA8E92 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4E4B5C8E01C8 InitBaseEngine
+
+: ME_4E4B5C770387
+ CONST UID '4E4B5C770387'
+ CONST Name 'ddHTinit'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E4B5C5E0032 // DataBase
+ ;
+ : Operations
+   @ ( ME_4E4B5C8E01C8 // InitBaseEngine
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddHTinit.pas'
+
+ref; // ME_4E4B5C770387 ddHTinit
+
+: ME_4E4B5C5E0032
+ CONST UID '4E4B5C5E0032'
+ CONST Name 'DataBase'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
+ ;
+ : Children
+   @ ( ME_4E4B5C770387 // ddHTinit
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E4B5C5E0032.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E4B5C5E0032.pas.ms.script.runner'
+
+ref; // ME_4E4B5C5E0032 DataBase

@@ -1,0 +1,89 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/garantPIL/implementation/component/cpp/garantCore/project/DBExt.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<Library::Category>> garantCore::DBExt
+//
+// Библиотека с расширенной функциональностью ядра
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (DBExt) : project_generic_core {
+	sharedname = DBExt
+	staticname = DBExt
+
+	includes += ../../
+
+	after += GCL
+	libs  += GCL
+
+	after += ContextSearch
+	libs  += ContextSearch
+
+	after += DB
+	libs  += DB
+
+	Header_Files {
+		Std_Headers {
+			./../DBExt/LibHome.h
+		}
+	
+		Def {
+			./../DBExt/Def/Def.h
+		}
+	
+		Readers {
+			./../DBExt/Readers/BaseReader.h
+			./../DBExt/Readers/MemDataStream_i.h
+			./../DBExt/Readers/MemRefStream_i.h
+			./../DBExt/Readers/MemoryIndex.h
+			./../DBExt/Readers/PositionsReader.h
+			./../DBExt/Readers/StreamReader.h
+		}
+	
+		Utility {
+			./../DBExt/Utility/DataLoader.h
+			./../DBExt/Utility/Operations.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		Def {
+		}
+	
+		Readers {
+		}
+	
+		Utility {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../DBExt/LibHome.cpp
+		}
+	
+		Def {
+		}
+	
+		Readers {
+			./../DBExt/Readers/BaseReader.cpp
+			./../DBExt/Readers/MemDataStream_i.cpp
+			./../DBExt/Readers/MemRefStream_i.cpp
+			./../DBExt/Readers/MemoryIndex.cpp
+			./../DBExt/Readers/PositionsReader.cpp
+			./../DBExt/Readers/StreamReader.cpp
+		}
+	
+		Utility {
+			./../DBExt/Utility/DataLoader.cpp
+			./../DBExt/Utility/Operations.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

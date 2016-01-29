@@ -1,0 +1,48 @@
+Declare Function GetValue222 As String
+Declare Function Fetch222
+Declare Function ReFetch222
+
+Function GetValue222 As String
+    Dim i, CurElementID As Long
+    Dim TempStr As String
+
+    Open "test.datapool.info" For Input Access Read Shared As #20
+    Input #20, CurElementID
+    Close #20
+
+    Open "test.datapool.data" For Input Access Read Shared As #20
+
+    For i=1 to CurElementID 
+        Line Input #20, TempStr$
+    Next i
+    
+    GetValue222$ = TempStr$
+End Function
+
+Function Fetch222
+    Dim MaxElementID, CurElementID As Long
+
+    Open "test.datapool.info" For Input Access Read Shared As #20
+    Input #20, CurElementID, MaxElementID
+    Close #20
+
+    if CurElementID=MaxElementID then CurElementID=1 else CurElementID=CurElementID+1
+
+    Open "test.datapool.info" For Output Access Write Lock Read Write As #20
+    Write #20, CurElementID, MaxElementID
+    Close #20
+End Function
+
+Function ReFetch222
+    Dim MaxElementID, CurElementID As Long
+
+    Open "test.datapool.info" For Input Access Read Shared As #20
+    Input #20, CurElementID, MaxElementID
+    Close #20
+
+    CurElementID=1 
+    
+    Open "test.datapool.info" For Output Access Write Lock Read Write As #20
+    Write #20, CurElementID, MaxElementID
+    Close #20
+End Function

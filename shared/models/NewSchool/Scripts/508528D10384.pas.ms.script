@@ -1,0 +1,215 @@
+// TtfwClassRef 508528D10384 SimpleClass Class
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+FORWARD ME_508528D10384
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_50852912034E
+ CONST UID '50852912034E'
+ CONST Name 'f_Class'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_476775CB036A // TClass
+ ;
+
+ @SELF
+; // ME_50852912034E f_Class
+
+FORWARD ME_5085292201A0
+
+: ME_50852933008E
+ CONST UID '50852933008E'
+ CONST Name 'aClass'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476775CB036A // TClass
+ ;
+
+ @SELF
+; // ME_50852933008E aClass
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5085292B0117
+ CONST UID '5085292B0117'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_50852933008E // aClass
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5085292B0117 DoIt
+
+: ME_5085292201A0
+ CONST UID '5085292201A0'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5085292B0117 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5085292201A0 Create
+
+FORWARD ME_50853350035F
+
+: ME_5085336A02DB
+ CONST UID '5085336A02DB'
+ CONST Name 'aClass'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476775CB036A // TClass
+ ;
+
+ @SELF
+; // ME_5085336A02DB aClass
+
+: ME_5085335E01E1
+ CONST UID '5085335E01E1'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+ : Parameters
+   [ ME_5085336A02DB // aClass
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5085335E01E1 DoIt
+
+: ME_50853350035F
+ CONST UID '50853350035F'
+ CONST Name 'Register'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5085335E01E1 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_50853350035F Register
+
+FORWARD ME_53E0F85002E1
+
+: ME_53E0F8760188
+ CONST UID '53E0F8760188'
+ CONST Name 'aClasses'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_53E0F89E000C // array of TClass
+ ;
+
+ @SELF
+; // ME_53E0F8760188 aClasses
+
+: ME_53E0F86202DC
+ CONST UID '53E0F86202DC'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_53E0F8760188 // aClasses
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_53E0F86202DC DoIt
+
+: ME_53E0F85002E1
+ CONST UID '53E0F85002E1'
+ CONST Name 'Register$Classes'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_53E0F86202DC // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_53E0F85002E1 Register$Classes
+
+: ME_326FBCAB1723
+ CONST UID '326FBCAB1723'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TtfwClassRef' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_326FBCAB1723 Ini_Reg_Class
+
+: ME_508528D10384
+ CONST UID '508528D10384'
+ CONST Name 'TtfwClassRef'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_54D229E702B6 // TtfwRegisterableWordPrim
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_50852912034E // f_Class
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_5085292201A0 // Create
+ ME_50853350035F // Register
+ ME_53E0F85002E1 // Register$Classes
+ ME_326FBCAB1723 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_551544E2001A // GetResultTypeInfo
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_508528D10384 TtfwClassRef

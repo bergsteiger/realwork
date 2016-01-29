@@ -1,0 +1,77 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/shared/project/TestLib.mpc"
+// дополнительные файлы проектов (mpc)
+// Generated from UML model, root element: <<ServerLibrary::Category>> shared::TestLib
+//
+// Тестирующая библиотека
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (TestLib) : project_generic_core_corba {
+	staticname = TestLib
+
+	includes += ../../
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	after += TestLib_cs
+	libs  += TestLib_cs
+
+	after += GCI
+	libs  += GCI
+
+	after += GSI
+	libs  += GSI
+
+	after += ContextSearch
+	libs  += ContextSearch
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	Header_Files {
+		Std_Headers {
+			./../TestLib/ServerLibHome.h
+		}
+	
+		NewImpl {
+			./../TestLib/impl/NewImpl/Auth_i.h
+			./../TestLib/impl/NewImpl/Auth_i_factory.h
+		}
+	
+		NewLibraryImpl {
+			./../TestLib/DummyTest.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		NewImpl {
+		}
+	
+		NewLibraryImpl {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../TestLib/ServerLibHome.cpp
+		}
+	
+		NewImpl {
+			./../TestLib/impl/NewImpl/Auth_i.cpp
+			./../TestLib/impl/NewImpl/Auth_i_factory.cpp
+		}
+	
+		NewLibraryImpl {
+			./../TestLib/DummyTest.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

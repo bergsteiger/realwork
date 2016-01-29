@@ -1,0 +1,320 @@
+// ddClientMessageSortableList 53A2F5F9024F UtilityPack Class
+
+FORWARD ME_53A2F5F9024F
+
+FORWARD ME_53A2FAB0014A
+
+FORWARD ME_7D5E62891A1F
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_0AB85F724B10
+ CONST UID '0AB85F724B10'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Тип подитеративной функции для ddClientMessageIterator.ForEachF' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_3DBFFE100240 // boolean
+ ;
+
+ @SELF
+; // ME_0AB85F724B10 DoIt
+
+: ME_7D5E62891A1F
+ CONST UID '7D5E62891A1F'
+ CONST Name 'ddClientMessageIterator_ForEachF_Action'
+ CONST Class 'Class'
+ CONST Stereotype 'Function'
+ %SUMMARY 'Тип подитеративной функции для ddClientMessageIterator.ForEachF' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_0AB85F724B10 // DoIt
+ ]
+ ; // Operations
+ CONST "of object" false
+
+ @SELF
+; // ME_7D5E62891A1F ddClientMessageIterator_ForEachF_Action
+
+FORWARD ME_53A2FAD90339
+
+INCLUDE '52FA504602B0.pas.ms.script'
+
+: ME_53A2FAE901E5
+ CONST UID '53A2FAE901E5'
+ CONST Name ''
+ CONST Class 'Attribute'
+ CONST Stereotype 'element type'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'lnk'
+ : Target ME_52FA505600C7 // TddClientMessage
+ ;
+
+ @SELF
+; // ME_53A2FAE901E5 
+
+: ME_53A2FAD90339
+ CONST UID '53A2FAD90339'
+ CONST Name 'ForEachF'
+ CONST Class 'Class'
+ CONST Stereotype 'facetiterator'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Attributes
+   [ ME_53A2FAE901E5 // 
+ ]
+ ; // Attributes
+ CONST "needs index" false
+ CONST "needs result" false
+
+ @SELF
+; // ME_53A2FAD90339 ForEachF
+
+: ME_8F45C70DD9A9
+ CONST UID '8F45C70DD9A9'
+ CONST Name 'anAction'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_3ECB343C024C // pointer
+ ;
+
+ @SELF
+; // ME_8F45C70DD9A9 anAction
+
+: ME_42BC46DA9086
+ CONST UID '42BC46DA9086'
+ CONST Name 'L2_ddClientMessageIterator_ForEachF_Action'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для ddClientMessageIterator.ForEachF' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_7D5E62891A1F // ddClientMessageIterator_ForEachF_Action
+ ;
+ : Parameters
+   [ ME_8F45C70DD9A9 // anAction
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_42BC46DA9086 L2_ddClientMessageIterator_ForEachF_Action
+
+: ME_53A2FAB0014A
+ CONST UID '53A2FAB0014A'
+ CONST Name 'ddClientMessageIterator'
+ CONST Class 'Class'
+ CONST Stereotype 'PureMixIn'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_53A2FAD90339 // ForEachF
+ ME_42BC46DA9086 // L2_ddClientMessageIterator_ForEachF_Action
+ ]
+ ; // Operations
+ : Children
+   [ ME_7D5E62891A1F // ddClientMessageIterator_ForEachF_Action
+ ]
+ ; // Children
+
+ @SELF
+; // ME_53A2FAB0014A ddClientMessageIterator
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '53A03846011C.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_53A2EA3D0044
+
+INCLUDE '52FA508003E5.pas.ms.script'
+
+: ME_53A2F9C90070
+ CONST UID '53A2F9C90070'
+ CONST Name 'Items'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_52FA508003E5 // TddClientMessageSortableListPrim
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_53A2F9C90070 Items
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_53A2FA8802B1
+ CONST UID '53A2FA8802B1'
+ CONST Name 'Count'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "pm" true
+
+ @SELF
+; // ME_53A2FA8802B1 Count
+
+: ME_B5B96DB7AF92
+ CONST UID 'B5B96DB7AF92'
+ CONST Name 'f_Items'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Items' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_52FA508003E5 // TddClientMessageSortableListPrim
+ ;
+
+ @SELF
+; // ME_B5B96DB7AF92 f_Items
+
+FORWARD ME_53A2FA070288
+
+: ME_53A2FA1B02B8
+ CONST UID '53A2FA1B02B8'
+ CONST Name 'anItem'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_52FA505600C7 // TddClientMessage
+ ;
+
+ @SELF
+; // ME_53A2FA1B02B8 anItem
+
+: ME_53A2FA110107
+ CONST UID '53A2FA110107'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_53A2FA1B02B8 // anItem
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_53A2FA110107 DoIt
+
+: ME_53A2FA070288
+ CONST UID '53A2FA070288'
+ CONST Name 'Add'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_53A2FA110107 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_53A2FA070288 Add
+
+FORWARD ME_53A2FA2003C6
+
+: ME_53A2FA28019A
+ CONST UID '53A2FA28019A'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_53A2FA28019A DoIt
+
+: ME_53A2FA2003C6
+ CONST UID '53A2FA2003C6'
+ CONST Name 'Clear'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_53A2FA28019A // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_53A2FA2003C6 Clear
+
+: ME_53A2EA3D0044
+ CONST UID '53A2EA3D0044'
+ CONST Name 'TddClientMessageSortableList'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_53A03846011C // l3CriticalSectionHolder
+ ME_53A2FAB0014A // ddClientMessageIterator
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_53A2F9C90070 // Items
+ ME_53A2FA8802B1 // Count
+ ME_B5B96DB7AF92 // f_Items
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_53A2FA070288 // Add
+ ME_53A2FA2003C6 // Clear
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_53A2FAD90339 // ForEachF
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_47A042E100E2 // InitFields
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_53A2EA3D0044 TddClientMessageSortableList
+
+: ME_53A2F5F9024F
+ CONST UID '53A2F5F9024F'
+ CONST Name 'ddClientMessageSortableList'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_53A2FAB0014A // ddClientMessageIterator
+ ME_53A2EA3D0044 // TddClientMessageSortableList
+ ]
+ ; // Children
+ CONST "no hands" false
+
+ @SELF
+; // ME_53A2F5F9024F ddClientMessageSortableList

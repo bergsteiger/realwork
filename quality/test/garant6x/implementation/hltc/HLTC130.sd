@@ -1,0 +1,1086 @@
+////////////////////////////////////////////////////////////////////////////////
+//////////////////// HLTC 130: Документы на контроле	 //////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+uses SettingsWork, States, Clicks, common, DocumentWork, FileWork, FoldersWork, ListWork, 
+MenuWork, RunPrograms, SearchWork;
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+const
+  HLTC130_LOGINNAME = 'HLTC_130';
+///// Key flags
+  HELP_OPEN = 'h';
+////////////
+
+function CloseInfoWindow(proc: string): boolean;
+begin
+  Result := WaitForInfoWindow(Options.Run.Timeout div 8) <> '';
+  if not Result then
+    Log.Warning(proc + ': Не было окна предупреждения о постановке документа на контроль');
+end;
+
+function GetTempDocState: boolean;
+begin
+try
+  Result:= GetToolbarButton(GetFromEditor('ТУЛБАР "ДОКУМЕНТ: ТЕКСТ ДОКУМЕНТА"'), '* контрол*').Down;
+except
+  Result:= false;
+  Log.Error('GetTempDocState: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+end;
+
+function GetIsPossibleSetDocToControl: boolean;
+begin
+try
+  Result:= GetToolbarButton(GetFromEditor('ТУЛБАР "ДОКУМЕНТ: ТЕКСТ ДОКУМЕНТА"'), '* контрол*').Enabled;
+except
+  Result:= false;
+  Log.Error('GetIsPossibleSetDocToControl: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+end;
+
+//Проверка нахождения документов в списке на контроле
+function CheckDocsOnControl(var docnames: OleVariant; doClean: boolean): boolean;
+const
+  FUNCTION_NAME = 'CheckDocsOnControl: ';
+var
+  i, listArray;
+  onControlTab;
+begin
+try
+  onControlTab := OpenDocUnderControlTab;
+  if not IsExists(onControlTab) then Raise('ВКЛАДКА НАВИГАТОРА "ДОКУМЕНТЫ НА КОНТРОЛЕ" не найдена');
+  //
+  listArray := GetElementsFromTree(onControlTab);
+  Result := true;
+  for i := VarArrayLowBound(docnames,1) to VarArrayHighBound(docnames,1) do
+  begin
+    if not FindElement(listArray, docnames[i][0], true) then
+    begin
+      Result := ErrorResult(FUNCTION_NAME + 'Не найден документ на контроле "' + docnames[i][0] + '"');
+      if doClean then docnames[i][0] := '';
+    end;
+  end;
+  if doClean then
+    for i := VarArrayLowBound(docnames,1) to VarArrayHighBound(docnames,1) do
+      if docnames[i][0] = '' then DeleteElementFromArray(docnames, i);
+  if Result then 
+    Log.Message(FUNCTION_NAME + 'Проверяемые документы присутствуют в списке документов на контроле');
+except
+  Result := false;
+  Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+end;
+
+
+//Вызов контекстного меню на иконке закладки
+function ClickByBookmarkPopUpMenuItem(name: string):boolean;
+var
+  sub, x, y;
+begin
+try
+  sub := GetFromEditor('САБ ПАНЕЛЬ');
+  if not IsExists(GetEditor) then Raise('Не найден текст документа!');
+  if NOT MoveMouseToObject(sub, 'Bookmark.bmp',0,0,true) then
+    Raise('Не удалось найти иконку закладки на СУБ панели');
+  y := Sys.Desktop.MouseY;
+  x := Sys.Desktop.MouseX;
+  common.ScreenToClient(sub, x, y);
+  sub.ClickR(x+1, y+1);
+  Result := ClickByPopupMenuItem(sub, name);
+  if NOT Result then
+    Raise('Не получилось кликнуть по пункту попапменю "' + name + '"');
+except
+  Result := false;
+  Log.Error('ClickByBookmarkPopUpMenuItem: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+
+end;
+
+//Постановка на контроль через тулбар
+function SetDocToControlFromToolbar(docnumber: longint):boolean;
+var
+  toolbar;
+begin
+try
+  if not OpenDocByNumberEx(docnumber, false) then
+    Raise('Не получилось открыть документ по номеру "' + IntToStr(docnumber) + '"');
+  if GetTempDocState then Raise('Документ по номеру "' + IntToStr(docnumber) + '" уже стоит на контроле');
+  toolbar := GetFromEditor('ТУЛБАР "ДОКУМЕНТ: ТЕКСТ ДОКУМЕНТА"');
+  if not ClickToolbarButton(toolbar, 'Поставить на контроль*') then
+    Raise('Не получилось поставить на контроль документ "' + IntToStr(docnumber) + '"');
+  CloseInfoWindow('SetDocToControlFromToolbar');
+  Result := true;
+except
+  Result := false;
+  Log.Error('SetDocToControlFromToolbar: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+
+end;
+
+//Постановка на контроль через тулбар
+function SetDocToControlFromPopUpMenu(docnumber: longint):boolean;
+const
+  str = 'HLTC_130_1_2';
+var                  
+  icon;
+begin
+try
+  if not OpenDocByNumberEx(docnumber, false) then
+    Raise('Не получилось открыть документ по номеру "' + IntToStr(docnumber) + '"');
+  if GetTempDocState then Raise('Документ по номеру "' + IntToStr(docnumber) + '" уже стоит на контроле');
+  //icon := GetFromEditor('ЗНАЧОК: НАСТОЯЩИЙ ДОКУМЕНТ УТРАТИЛ СИЛУ');
+  //if IsExists(icon) then icon.NativeDelphiObject.Top := -256; // visible у него ликвидировали, поэтому скрываем, чтобы не мешал
+  if not SetBookmark(str) then
+    Raise('Не получилось установить закладку в документе по номеру "' + IntToStr(docnumber) + '"');
+  if Position_Internal(OpenMyDocTab, MY_DOCS_PATH + str) then
+  begin // нашли путь
+    Sys.Keys('[Apps]');
+    if not IsMenuItemChecked(OpenMyDocTab.QCPopupMenu, 'На контроле') then
+      if not ClickByPopupMenuItem(GetFolderTree, 'На контроле') then
+        Raise('Не получилось кликнуть по пункту попап меню "На контроле');
+  end
+  else
+    Raise('Не получилось найти документ "' + str + '"');
+  //CloseInfoWindow('SetDocToControlFromToolbar');
+  DeleteObjectFromFolder(MY_DOCS_PATH + str);
+  Result := true;
+except
+  Result := false;
+  Log.Error('SetDocToControlFromPopUpMenu: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+
+end;
+
+//Постановка на контроль через кнопку во вкладке документы на контроле из вкладки
+function SetDocToControlFromTab(docnumber: longint):boolean;
+const
+  BUTT_DOCTOCTRL = 'Добавить сохраненный документ на контроль'; 
+var                  
+  bookmarkPath, docName;
+begin
+try
+  Result := false; 
+  docname := IntToStr(docnumber);
+  bookmarkPath := MY_DOCS_PATH + HLTC130_LOGINNAME + '_' + docname;
+  if not OpenDocByNumberEx(docnumber, false) then
+    Raise('Не получилось открыть документ по номеру "' + docname + '"');
+  if GetTempDocState then Raise('Документ по номеру "' + docname + '" уже стоит на контроле');
+  if not SetBookmark(HLTC130_LOGINNAME + '_' + docname) then
+    Raise('Не получилось установить закладку в документе по номеру "' + docname + '"');
+
+  if not IsExists(OpenDocUnderControlTab) then
+    Raise('Не найдена вкладка "Документы на контроле"'); 
+  if not IsExists(GetToolbarButton(GetFromNavigator('ТУЛБАР "ДОКУМЕНТЫ НА КОНТРОЛЕ"'), BUTT_DOCTOCTRL)) then
+  begin 
+	  AddOPerationsToToolBar('Документы на контроле (вкладка)', [BUTT_DOCTOCTRL]);
+    if not IsExists(GetToolbarButton(GetFromNavigator('ТУЛБАР "ДОКУМЕНТЫ НА КОНТРОЛЕ"'), BUTT_DOCTOCTRL)) then
+      Raise('Не найдена кнопка "' + BUTT_DOCTOCTRL + '" на тулбаре "Документы на контроле"');       
+  end; 
+
+  Result := ClickToolbarButton(GetFromNavigator('ТУЛБАР "ДОКУМЕНТЫ НА КОНТРОЛЕ"'), BUTT_DOCTOCTRL)
+            and OpenObjectFromFolder(bookmarkPath, GetFromFolderForm('ДЕРЕВО ПАПОК', GetFromShell('ДИАЛОГ ПОСТАНОВКИ НА КОНТРОЛЬ')));
+  if not Result then
+    Raise('Не получилось поставить документ "' + docname + '" на контроль');
+except
+  Result := false;
+  Log.Error('SetDocToControlFromTab: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+  DeleteObjectFromFolder(bookmarkPath);
+end;
+
+//Постановка на контроль через контекстное меню папки
+function SetDocToControlByFolder(docNumbers: OleVariant):boolean;
+const
+  FOLDERNAME = 'HLTC_130_FOLDER';
+var                  
+  i, docName;
+begin
+  Result := true;
+  for i := VarArrayLowBound(docNumbers,1) to VarArrayHighBound(docNumbers,1) do
+    Result := Result and SetDocToControlFromToolbar(docnumbers[i]);
+{try
+  if not CreateFolderFrom(true, MY_DOCS_PATH, FOLDERNAME) then
+    Raise('Не получилось создать папку "' + FOLDERNAME + '"');
+  for i := VarArrayLowBound(docNumbers,1) to VarArrayHighBound(docNumbers,1) do
+  begin
+    docname := IntToStr(docnumbers[i]);
+    if not OpenDocByNumberEx(docnumbers[i], false) then
+      Raise('Не получилось открыть документ по номеру "' + docname + '"');
+    if GetTempDocState then Raise('Документ по номеру "' + docname + '" уже стоит на контроле');
+    if not SetBookmark(HLTC130_LOGINNAME + '_' + docname, '', FOLDERNAME) then
+      Raise('Не получилось установить закладку в документе по номеру "' + docname + '"');
+  end;
+  //
+  if Position_Internal(OpenMyDocTab, MY_DOCS_PATH + FOLDERNAME) then
+  begin // нашли путь
+    Sys.Keys('[Apps]');
+    ClickByPopupMenuItem(GetFolderTree, 'На контроле');
+  end;
+except
+  Result := false;
+  Log.Error('SetDocToControlByFolder: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+}
+end;
+
+//Постановка на контроль через список
+function SetDocToControlFromList: boolean;
+const
+  DOCNAME = 'Конституция Российской Федерации (принята на всенародном голосовании 12 декабря 1993 г.)';
+var                  
+  rubricatorTree, listTree, docnumber;
+begin
+try
+	Result := false;
+  //Из списка
+  rubricatorTree := OpenMenuTab;
+  if (common.Position_Internal(rubricatorTree, LIST_MAIN)) then
+  begin
+		Sys.Keys('[Enter]');
+    listTree := GetList;
+    listTree.SetFocus;
+    if (common.Position_by_Text(listTree, DOCNAME)) then
+    begin
+      Sys.Keys('[Apps]');
+      if not ClickByPopupMenuItem(listTree, 'Выделенные док*\Поставить на контроль*') then
+        Raise('Не получилось поставить документ на контроль из контекстного меню в списке "' + DOCNAME + '"');
+        Result := CloseInfoWindow('SetDocToControlFromList');
+    end;
+  end;
+except
+  Result := false;
+  Log.Error('SetDocToControlFromList: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+end;
+
+function SetDocToControlFromSaveDialogToMyDOC(docnumber):boolean;
+var                  
+  rubricatorTree, listTree;
+begin
+try
+	Result := false;
+  //Галкой в диалоге сохранения в Мои документы
+  if not OpenDocByNumberEx(docnumber) then
+    Raise('Не получилось открыть документ по номеру "' + IntToStr(docnumber) + '"');
+  if GetTempDocState then Raise('Документ по номеру "' + IntToStr(docnumber) + '" уже стоит на контроле');
+  if not SimpleSaveToFolders(HLTC130_LOGINNAME + '_' + IntToStr(docnumber), false, 'UnderControl:=true') then
+    Raise('Не получилось поставить документ на контроль по номеру "' + IntToStr(docnumber) + '" в диалоге сохранения');
+
+  DeleteObjectFromFolder(MY_DOCS_PATH + HLTC130_LOGINNAME + '_' + IntToStr(docnumber));
+  Result := true;
+except
+  Result := false;
+  Log.Error('SetDocToControlFromSaveDialogToMyDOC: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+
+end;
+
+function SetDocToControlFromMainMenu(docnumber):boolean;
+var                  
+  rubricatorTree, listTree;
+begin
+try
+	Result := false;
+  //Через меню  «Анализ \ Поставить на контроль...»
+  if not OpenDocByNumberEx(docnumber, false) then
+    Raise('Не получилось открыть документ по номеру "' + IntToStr(docnumber) + '"');
+  if GetTempDocState then Raise('Документ по номеру "' + IntToStr(docnumber) + '" уже стоит на контроле');
+  if not ClickByMainMenuItem('Анализ\Поставить на контроль*') then
+    Raise('Не получилось поставить документ на контроль по номеру "' + IntToStr(docnumber) + '" через главное меню "Анализ\Поставить на контроль"');
+  Result := CloseInfoWindow('SetDocToControlFromMainMenu');
+except
+  Result := false;
+  Log.Error('SetDocToControlFromMainMenu: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+
+end;
+
+//Проверка синей медальки
+function IsBlueMedalExists(hintCaption: string = ''; reportOnError: boolean = true): boolean;
+const
+  FUNCTION_NAME = 'IsBlueMedalExists: ';
+var
+  iconUnderControl, text_iconUnderControl;
+  hint_str, message_str;
+begin
+try
+  Result := true;
+  iconUnderControl := GetFromMainWindow('ЗНАЧОК: ДОКУМЕНТЫ НА КОНТРОЛЕ ИЗМЕНИЛИСЬ');
+  if not IsExists(iconUnderControl) then
+    if reportOnError then
+      Raise('Не найдено Cиняя медаль (документы изменились), требуемый хинт "' + hintCaption + '"')
+    else
+      Result := false;
+  if hintCaption = '' then exit;
+  hint_str := GetHintTextByCoords(iconUnderControl.ScreenLeft + iconUnderControl.Width div 2, iconUnderControl.ScreenTop + iconUnderControl.Height div 2); 
+  if not StringCompare(hintCaption, hint_str) then
+    Result := ErrorResult(FUNCTION_NAME + 'Найденный хинт на синей медальке неверный: "' + hint_str + '". Должен быть: "' + hintCaption + '"');
+
+  //HLTC130.2.2: Убедиться, что при одинарном клике по данному значку открывается закладка навигатора «Документы на контроле».
+  if not ReminderAway then
+    Result := ErrorResult(FUNCTION_NAME + 'Не получилось переместить значек (медаль) предупреждения!');
+
+  if not ClickOnVgSceneObject(iconUnderControl) then
+    Result := ErrorResult(FUNCTION_NAME + 'Не получилось кликнуть по ЗНАЧОКУ ДОКУМЕНТЫ НА КОНТРОЛЕ ИЗМЕНИЛИСЬ');
+  text_iconUnderControl := GetFromMainWindow('ОКНО СООБЩЕНИЯ ЗНАЧКА ДОКУМЕНТЫ НА КОНТРОЛЕ ИЗМЕНИЛИСЬ');
+  if not IsExists(text_iconUnderControl) then
+    Result := ErrorResult(FUNCTION_NAME + 'Не найдено "ОКНО СООБЩЕНИЯ ЗНАЧКА ДОКУМЕНТЫ НА КОНТРОЛЕ ИЗМЕНИЛИСЬ"')
+  else
+  begin
+    message_str := text_iconUnderControl.Selection.CurrentObjectText;
+    if not StringCompare(hintCaption, message_str) then
+      Result := ErrorResult(FUNCTION_NAME + 'После клика по главной Синей медальке, не найдено окно с информацией "' + hintCaption + '", что документы изменились или текст не соответствует. Текст в окне "' + message_str + '"');
+    if not CloseBalloonVgSceneMessage(text_iconUnderControl) then
+      Result := ErrorResult(FUNCTION_NAME + 'Не получилось закрыть "ОКНО СООБЩЕНИЯ ЗНАЧКА ДОКУМЕНТЫ НА КОНТРОЛЕ ИЗМЕНИЛИСЬ"');
+    //HLTC130.2.2: ...При закрытии баллона, медаль пропадает.
+    iconUnderControl := GetFromMainWindow('ЗНАЧОК: ДОКУМЕНТЫ НА КОНТРОЛЕ ИЗМЕНИЛИСЬ');    
+    if IsExists(iconUnderControl) then
+      Result := ErrorResult(FUNCTION_NAME + 'Cиняя медаль (документы изменились) не исчезла после закрытия баллона "ОКНО СООБЩЕНИЯ ЗНАЧКА ДОКУМЕНТЫ НА КОНТРОЛЕ ИЗМЕНИЛИСЬ"');
+  end;
+  if not IsExists(OpenDocUnderControlTab(false)) then
+    Result := ErrorResult(FUNCTION_NAME + 'Вкладка документы на контроле не открылась через клик по синей медальке');
+except
+  Result := false;
+  Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+end;
+
+function CheckHintOnCurrentElementInList(hintText: string; IsChanged: boolean = true): boolean;
+const
+  FUNCTION_NAME = 'CheckHintOnCurrentElementInList: ';
+var
+  onControlTab;
+  picpattern, x, y, hx, hy, hintcaption;
+begin
+try
+  Result := false;
+  onControlTab := OpenDocUnderControlTab;
+  if (hintText = '') or (not IsChanged) then
+    picpattern := 'Active.bmp'
+  else
+  begin
+    if Pos('удален', hintText) <> 0 then
+      picpattern := 'DocOnControl_Deleted.bmp'
+    else
+      picpattern := 'DocOnControl_Changed.bmp';
+  end;
+  if not GetTextSelectionCoords(onControlTab, x, y) then
+    Raise('Не найден текущий выделенный документ для проверки его иконки (и хинта)');
+  if not FindPicture(onControlTab, picpattern, hX, hY, 1, y - 8, x, 24) then
+    Raise('Отличается иконка (может не сбросился статус документа в списке). Должна быть "' + picpattern + '"');
+  if not IsChanged then
+  begin
+    Result := true;
+    exit;
+  end;
+  if hintText = '' then 
+    hintcaption := ''
+  else
+  begin
+    hintcaption := GetHintTextByCoords(hX+10, hY+10, onControlTab);
+  end;
+  Result := StringCompare(hintText, hintcaption);
+  if not Result then
+    Raise('Хинт на иконке списка "' + hintcaption + '" отличается от эталонного "' + hintText + '"')
+  else
+    Log.Message(FUNCTION_NAME + 'Хинт на иконке списка: "' + hintcaption + '". Эталонный: "' + hintText + '"');
+except
+  Result := false;
+  Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+end;
+
+//Проверка документа на контроле
+function CheckDocOnControlAfterChangeBase(docnames; medalVisible: boolean = true): boolean;
+const
+  FUNCTION_NAME = 'CheckDocOnControlAfterChangeBase: ';
+var
+  i, editor, medal, text_medal, message_str, message_need_str;
+  x, y;
+  hintCaption;
+  onControlTab;
+begin
+try
+  Result := true;
+  for i := VarArrayLowBound(docnames,1) to VarArrayHighBound(docnames,1) do
+  begin
+    onControlTab := OpenDocUnderControlTab;
+    if not IsExists(onControlTab) then Raise('ВКЛАДКА НАВИГАТОРА "ДОКУМЕНТЫ НА КОНТРОЛЕ" не найдена');
+    if common.Position_Internal(onControlTab, docnames[i][0], DELIM_CHAR, true, 'isPressHome:=true') then
+    begin
+      onControlTab.Keys('[Enter]');
+      WaitForConfirmationWindow(Options.Run.Timeout div 10, '#Открыть*');
+      Log.Message(FUNCTION_NAME + 'Зашли в документ "' + docnames[i][0] + '"');
+
+      Result := CheckHintOnCurrentElementInList(docnames[i][1], medalVisible) and Result;
+      editor := GetEditor;
+      editor.SetFocus;
+      medal := GetFromEditor('ЗНАЧОК: ДОКУМЕНТ НА КОНТРОЛЕ ИЗМЕНИЛСЯ');
+      if not medalVisible then
+      begin
+        if IsExists(medal) then
+          Result := ErrorResult(FUNCTION_NAME + 'Найдена Синяя медаль для снятого с контроля документа "' + docnames[i][0] + '"');
+      end
+      else
+      begin
+        if docnames[i][1] = '' then
+        begin
+          if IsExists(medal) then
+            Result := ErrorResult(FUNCTION_NAME + 'Найдена Синяя медаль для неизмененного документа "' + docnames[i][0] + '"');
+        end
+        else
+        begin
+          if not IsExists(medal) then
+            Result := ErrorResult(FUNCTION_NAME + 'Не найдена Синяя медаль для измененного документа "' + docnames[i][0] + '"')
+          else
+          begin
+            hintCaption := GetHintTextByCoords(medal.ScreenLeft + medal.Width div 2, medal.ScreenTop + medal.Height div 2);
+            if Pos(HELP_OPEN, docnames[i][2]) <> 0 then
+            begin
+              if not ClickOnVgSceneObject(medal) then
+                Result := ErrorResult(FUNCTION_NAME + 'Не получилось кликнуть по Синей медальке внутри документа "' + docnames[i][0] + '"');
+              text_medal := GetFromMainWindow('ОКНО СООБЩЕНИЯ ЗНАЧКА ДОКУМЕНТ НА КОНТРОЛЕ ИЗМЕНИЛСЯ');
+              if not IsExists(text_medal) then
+                Result := ErrorResult(FUNCTION_NAME + 'Не найдено "ОКНО СООБЩЕНИЯ ЗНАЧКА ДОКУМЕНТ НА КОНТРОЛЕ ИЗМЕНИЛСЯ"')
+              else
+              begin
+                if not FindPicture(text_medal, 'start_help_in_balloon_link.bmp', x, y) then
+                  Result := ErrorResult(FUNCTION_NAME + 'Не найдена ссылка "см. в справке" в окне значка Синей медали для документа "' + docnames[i][0] + '"')
+                else
+                if not (ClickXYOnVgSceneObject(text_medal, x+5, y+5) and IsExists(GetFromEditor('ВКЛАДКА "СПРАВКА"'))
+                  //2 клика, т.к. http://mdp.garant.ru/pages/viewpage.action?pageId=509115846
+                  or ClickXYOnVgSceneObject(text_medal, x+5, y+5) and IsExists(GetFromEditor('ВКЛАДКА "СПРАВКА"'))
+                //                
+                ) then
+                  Result := ErrorResult(FUNCTION_NAME + 'После клика в окне значка Синей медали по ссылке "см. в справке" не открылась справка для документа "' + docnames[i][0] + '"');
+
+                message_str := text_medal.Selection.CurrentObjectText;
+                message_need_str := 'Статус*документа*контроле*изменился*'+ docnames[i][1];
+                if not CloseBalloonVgSceneMessage(text_medal) then
+                  Result := ErrorResult(FUNCTION_NAME + 'Не получилось закрыть "ОКНО СООБЩЕНИЯ ЗНАЧКА ДОКУМЕНТ НА КОНТРОЛЕ ИЗМЕНИЛСЯ"');
+                if not StringCompare(message_need_str, message_str) then
+                  Result := ErrorResult(FUNCTION_NAME + 'Неправильное сообщение значка об изменившемся документе на контроле для документа "' + docnames[i][0] + '". Содержимое инфо окна: "' + message_str + '". Должно быть: "' + message_need_str + '"');
+              end;
+            end;
+            if not StringCompare(docnames[i][1], hintCaption) then
+              Result := ErrorResult(FUNCTION_NAME + 'Хинт Синей медали "' + hintCaption + '" отличается от эталонного "' + docnames[i][1] + '"');
+          end;
+        end;
+      end;
+    end
+    else
+      Result := ErrorResult(FUNCTION_NAME + 'Не найден документ на контроле "' + docnames[i][0] + '"');
+  end;
+  if Result then
+    Log.Message(FUNCTION_NAME + 'Во всех измененных документах присутствуют медальки, и правильные тексты хинтов');
+except
+  Result := false;
+  Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+end;
+
+function CheckChangedDocsOnControl(var docnames: OleVariant): boolean;
+const
+  FUNCTION_NAME = 'CheckChangedDocsOnControl: ';
+var
+  i, listArray;
+  onControlTab;
+begin
+try
+  onControlTab := OpenDocUnderControlTab;
+  if not IsExists(onControlTab) then 
+    Raise('ВКЛАДКА НАВИГАТОРА "ДОКУМЕНТЫ НА КОНТРОЛЕ" не найдена');
+
+  if not ClickToolbarButton(GetFromNavigator('ТУЛБАР "ДОКУМЕНТЫ НА КОНТРОЛЕ"'), 'Список изменившихся*контроле') then
+    Raise('Не получилось кликнуть по кнопке Список изменившихся документов');
+  WaitForInfoWindow(Options.Run.Timeout div 32);
+  if not IsExists(GetList) then
+    Raise('После клика по кнопке "Список изменившихся документов" список изменившихся документов не открылся');
+
+  listArray := GetElementsFromTree(GetList);
+  Result := true;
+  for i := VarArrayLowBound(docnames,1) to VarArrayHighBound(docnames,1) do
+  begin
+    if (docnames[i][1] = '') or (pos('удален', docnames[i][1]) <> 0) then
+    begin
+      if FindElement(listArray, docnames[i][0], true) then
+        Result := ErrorResult(FUNCTION_NAME + 'Найден неизмененный документ "' + docnames[i][0] + '"');
+    end
+    else
+      if not FindElement(listArray, docnames[i][0], true) then
+        Result := ErrorResult(FUNCTION_NAME + 'Не найден изменившийся документ "' + docnames[i][0] + '"');
+  end;
+  if Result then 
+    Log.Message('CheckChangedDocsOnControl: Пройдена успешно');
+except
+  Result := false;
+  Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+end;
+
+function SetSortOnDocUnderControlTab(sortName: string): boolean;
+const
+  FUNCTION_NAME = 'SetSortOnDocUnderControlTab: ';
+  CB_NAME = 'сорт*';
+var
+  onControlTab, cb;
+begin
+try
+  Result := false;  
+
+  onControlTab := OpenDocUnderControlTab;
+  if not IsExists(onControlTab) then
+    Raise('ВКЛАДКА НАВИГАТОРА "ДОКУМЕНТЫ НА КОНТРОЛЕ" не найдена');
+
+  cb := GetToolbarObject(GetFromNavigator('ТУЛБАР "ДОКУМЕНТЫ НА КОНТРОЛЕ"'), 'COMBOBOX', CB_NAME);
+  if not IsExists(cb) then
+    AddOPerationsToToolBar('Документы на контроле (вкладка)', ['Сортировать']);
+  
+  cb := GetToolbarObject(GetFromNavigator('ТУЛБАР "ДОКУМЕНТЫ НА КОНТРОЛЕ"'), 'COMBOBOX', CB_NAME);
+  if not IsExists(cb) then
+    Raise('Комбобокс не найден!');    
+  
+  Result := SelectInComboBox(cb, sortName);
+  if not Result then
+    Raise('Не получилось включить сортировку: ' + sortName);
+    
+  WaitForInfoWindow(Options.Run.Timeout div 32);
+except
+  Result := false;
+  Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+end;
+
+function CheckSortResult: boolean;
+const
+  FUNCTION_NAME = 'CheckSortResult: ';
+var
+  listArray;
+  onControlTab;
+begin
+try
+  onControlTab := OpenDocUnderControlTab;
+  if not IsExists(onControlTab) then
+    Raise('ВКЛАДКА НАВИГАТОРА "ДОКУМЕНТЫ НА КОНТРОЛЕ" не найдена');
+
+  listArray := GetElementsFromTree(onControlTab);
+  if not SetSortOnDocUnderControlTab('По алфавиту') then
+    Raise('Не получилось переключить сортировку');  
+  SortArray(listArray);
+  Result := CompareArray(listArray, GetElementsFromTree(onControlTab));
+  if Result then 
+    Log.Message(FUNCTION_NAME + 'Пройдена успешно');
+except
+  Result := false;
+  Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+end;
+
+//HLTC130.5.1: Открыть закладку навигатора «На контроле». Выделить 2-а документа с изменениями и снять у них статус «изменен» при помощи кнопки тулбара ЦУК «Сбросить статус изменен». Выделить еще 2-а документа на контроле – один с изменениями и один который не изменился (Конституция) снять статус изменения с помощью контекстного меню (щелкнуть правой кнопкой мыши на измененном документе и выбрать пункт меню «Сбросить статус изменен»). Убедиться, что иконки документов изменились.
+function ChangedStatusOff: boolean;
+const
+  FUNCTION_NAME = 'ChangedStatusOff: ';
+var
+  listArray, i;
+  onControlTab;
+begin
+try
+  Result := true;
+  onControlTab := OpenDocUnderControlTab;
+  if not IsExists(onControlTab) then
+    Raise('ВКЛАДКА НАВИГАТОРА "ДОКУМЕНТЫ НА КОНТРОЛЕ" не найдена');
+
+  if not SetSortOnDocUnderControlTab('По виду изменений') then
+    Raise('Не получилось переключить сортировку');  
+
+  //сброс статуса для 1-ого документа
+  onControlTab := OpenDocUnderControlTab;
+  if IsExists(onControlTab) then
+  begin
+    onControlTab.Keys('[Home]');
+    onControlTab.Keys('[Enter]');
+    WaitForConfirmationWindow(Options.Run.Timeout div 10, '#Открыть*');
+  end
+  else
+    Raise('Не получилось открыть 1-ый документ в списке для сброса статуса "Изменен"');
+
+  //сброс статуса для 2-ого документа
+  onControlTab := OpenDocUnderControlTab;   
+  if IsExists(onControlTab) then
+  begin
+    onControlTab.Keys('[Down]');
+    onControlTab.Keys('[Enter]');
+    WaitForConfirmationWindow(Options.Run.Timeout div 10, '#Открыть*');
+    GoToPPR;
+  end
+  else
+    Raise('Не получилось открыть 2-ой документ в списке для сброса статуса "Изменен"');
+      
+  //сброс статуса для 3-6-ого документа
+  onControlTab := OpenDocUnderControlTab;
+  PressKeyWithCheck(['[Down]'], onControlTab, 'Count:=1');
+  PressKeyWithCheck(['![Down]'], onControlTab, 'Count:=3');
+  //HLTC130.5.5: Выделить несколько не измененных документов на контроле (у них уже нет статуса изменен) и снять у них статус “изменен” с помощью кнопки тулбара и при помощи контекстного меню. Хотя у всех документов на контроле нету статуса «изменен» нажать несколько раз кнопку тулбара «Сбросить статус ‘изменен’ у всех документов». Убедиться, что система не зависла.
+  for i := 1 to 4 do
+  begin
+    Result := ClickToolbarButton(GetFromNavigator('ТУЛБАР "ДОКУМЕНТЫ НА КОНТРОЛЕ"'), 'Сбросить*изменен"') and Result;
+    WaitForConfirmationWindow(Options.Run.Timeout div 10);
+  end;
+  if not Result then
+    Raise('Не получилось кликнуть по кнопке "Сбросить статус изменен"');
+  
+  //сброс статуса для 7-8-ого документа
+  onControlTab := OpenDocUnderControlTab;
+  PressKeyWithCheck(['![Down]'], onControlTab, 'Count:=2');
+  onControlTab.Keys('[Apps]');
+  Result := ClickByPopupMenuItem(onControlTab, 'Сбросить*изменен*') and Result;
+  if not Result then
+    Raise('Не получилось кликнуть по пункту попап меню "Сбросить статус изменен"');
+  WaitForConfirmationWindow(Options.Run.Timeout div 32);
+  
+  //сброс статуса для 9-ого документа
+  //конституцию РФ не сбрасываем, т.к. она не меняется
+  Result := OpenDocByNumber(2460120) and Result;
+  if not Result then
+    Raise('Не получилось открыть документ 2460120 для авто сброса статуса "Изменен"');
+
+  GoToMainMenu;
+  if Result then
+    Log.Message(FUNCTION_NAME + 'Пройдена успешно');
+except
+  Result := false;
+  Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+end;
+
+
+function DelDocFromControl: boolean;
+const
+  FUNCTION_NAME = 'DelDocFromControl: ';
+var
+  i, end_str, oldelem, newelem, onControlTab;
+begin
+try
+  onControlTab := OpenDocUnderControlTab;
+  if not IsExists(onControlTab) then
+    Raise('ВКЛАДКА НАВИГАТОРА "ДОКУМЕНТЫ НА КОНТРОЛЕ" не найдена');
+
+  Result := true; 
+  i:=0;
+  oldelem := common.GetWindowText(onControlTab.Handle);
+  repeat
+    inc(i);
+    case Random(3) of
+    	0: begin
+            Sys.Keys('[Del]');
+         end;
+      1:begin
+          Result := ClickToolbarButton(GetFromNavigator('ТУЛБАР "ДОКУМЕНТЫ НА КОНТРОЛЕ"'), 'Снять с контроля') and Result;
+        end;
+      2:begin
+          Sys.Keys('[Apps]');
+          if not ClickByPopupMenuItem(onControlTab, 'Снять с контроля') then
+            Result := ErrorResult(FUNCTION_NAME + 'Не получилось кликнуть по пункту попап меню "Снять с контроля"');
+        end;
+    end;
+
+    WaitForConfirmationWindow(Options.Run.Timeout div 32);
+    newelem := common.GetWindowText(onControlTab.Handle);
+
+    Result := (oldelem <> newelem) and Result;
+    end_str := StringCompare('На контроль не поставлено*', newelem);
+  until end_str or (i>=10);
+  if not end_str then
+    Result := ErrorResult(FUNCTION_NAME + 'Не найдена строка "На контроль не поставлено ни одного документа"');
+
+  if Result then
+    Log.Message(FUNCTION_NAME + 'Успешно удалены все документы, стоявшие на контроле');
+except
+  Result := false;
+  Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+
+end;
+
+function SetOnControlSettings: boolean;
+begin
+  try
+    Result := SetSettings([ (['ДОКУМЕНТЫ НА КОНТРОЛЕ\ПОДТВЕРЖДЕНИЯ', 'ДЕЙСТВИЕ ПРИ ВЫБОРЕ ИЗМЕНЕННОГО ДОКУМЕНТА НА КОНТРОЛЕ [COMBOBOX]', 'Открыть текст документа']) ]);
+  except
+    Result := false;
+    Log.Error('SetOnControlSettings: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+function SetClearFlag(typename: string): boolean;
+const
+  FUNCTION_NAME = 'SetClearFlag: ';
+var
+  sets;  
+begin
+  try
+    Result := SetSettings([ (['ДОКУМЕНТЫ НА КОНТРОЛЕ', 'СБРОС СТАТУСА [COMBOBOX]', typename]) ]);
+    if not Result then
+      Result := ErrorResult(FUNCTION_NAME + 'Не получилось установить сброс статуса документов на контроле в "' + typename + '"');
+    if Result then
+      Log.Message(FUNCTION_NAME + 'Успешно  установлен сброс статуса документов на контроле в "' + typename + '"');
+  except
+    Result := false;
+    Log.Error(FUNCTION_NAME + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+function RestartF1ShellWithChangeBase(base: string):boolean;
+const
+  FUNCTION_NAME = 'RestartF1ShellWithChangeBase: ';
+var 
+  basetype;
+begin
+  Result := false;
+  basetype := GetDataBaseType;
+  case base of
+  'НОВАЯ':
+  begin
+    if (basetype = DBT_OLD) then
+    begin
+      Log.Message(FUNCTION_NAME + 'Переключение на НОВУЮ базу данных');
+      Result := SwitchDataBase(DBT_OTHER);
+      if IsExists(GetFromLoginForm('ФОРМА ЛОГИНА', 'SEARCHESCOUNT:=5;TIMEOUT:=' + IntToStr(Options.Run.Timeout * 3))) then
+        LoginAnyhow(HLTC130_LOGINNAME, HLTC130_LOGINNAME);
+    end
+    else
+    begin
+      Result := true;
+      Log.Message(FUNCTION_NAME + 'Уже подключена НОВАЯ база данных, переключение не требуется');    
+    end;
+  end;      
+
+  'СТАРАЯ':
+  begin
+    if (basetype = DBT_NEW) then
+    begin
+      Log.Message(FUNCTION_NAME + 'Переключение на СТАРУЮ базу данных');
+      Result := SwitchDataBase(DBT_OTHER);
+      if IsExists(GetFromLoginForm('ФОРМА ЛОГИНА', 'SEARCHESCOUNT:=5;TIMEOUT:=' + IntToStr(Options.Run.Timeout * 3))) then
+        LoginAnyhow(HLTC130_LOGINNAME, HLTC130_LOGINNAME);
+    end
+    else
+    begin
+      Result := true;
+      Log.Message(FUNCTION_NAME + 'Уже подключена СТАРАЯ база данных, переключение не требуется');
+    end;
+  end;  
+  end;
+
+  if not ReminderAway then
+    Result := ErrorResult(FUNCTION_NAME + 'Не получилось переместить значек (медаль) предупреждения!'); 
+end;
+////////////////////////////////////////////////////////////////////////////////
+{
+HLTC130: Документы на контроле
+Пользователь автоматически отслеживает изменения интересующей его информации с помощью функции «Постановка на контроль».
+  HLTC130.1: Постановка на контроль
+  В тестовой базе изменялись следующие документы с номерами: 179145, 1118221, 1118471, 1119438, 10101873, 12111217, 12121246, 12123012, 12125267, 12125732, 2560120, 900100, 1155340.
+  !Внимание – вышеописанные номера НЕ являются внутренними, поэтому на форме открытия документа по номеру НЕ должна стоять «галка» «Внутренний номер документа в базе». 
+  Поставить их на контроль следующими способами:
+
+  HLTC130.1.1: 179145, 1118471 поставить на контроль, нажав кнопку тулбара «Поставить на контроль». Убедиться, что в папках (Мои документы) нет закладок на документы на контроле(если только на эти документы не ставили закладки ранее).
+  HLTC130.1.2: 12121246 поставить на контроль следующим способом. Установить закладку, щелкнуть по ней правой кнопкой мыши и выбрать пункт контекстного меню «на контроле». Убедиться, что у этой закладки изменилась иконка.  
+  HLTC130.1.3: 12125267, 12125732 ставим на контроль следующим способом. Поставить закладки на документы с данными номерами. Открыть закладку навигатора «На контроле». На тулбаре навигатора нажать кнопку «Добавить сохраненный в папках документ на контроль»  
+  HLTC130.1.4: Создать в «Моих документах» новую папку. Сохранить в нее закладки на документы 2560120 и 1155340. Перейти на вкладку «Мои документы» и, щелкнув правой кнопкой мыши по вновь созданной папке, выбрать пункт контекстного меню «Поставить на контроль». Убедиться, что у закладок в данной папке изменились иконки.   
+  HLTC130.1.5: Перейти по первой ветке классификатора до списка. Поставить на контроль конституцию кликнув правой кнопкой мыши по ней и выбрав пункт контекстного меню «поставить на контроль...».Убедиться, что на вкладке «на контроле» появилась конституция.  
+  HLTC130.1.6: Перейти по первой ветке рубрикатора до списка. Воспользовавшись контекстным поиском, найти в списке документ «Будующий документ С ограниченной редакцией (800100) ver 1.0». (он будет находиться примерно в середине списка). Перейти в данный документ. На последней строчке документа кликнуть правой кнопкой мышью и выбрать пункт «установить закладку». В диалоге сохранения закладки установить флаг «на контроле». Нажать кнопку «Сохранить». Убедиться, что документ поставился на контроль.  
+  HLTC130.1.7: Перейти по первой ветке рубрикатора до списка. Зайти в Конституцию (уже ранее поставленную на контроль). Нажать кнопку панели инструментов «Сохранить в Мои документы». Убедиться. что в диалоге сохранения флаг «На контроле» стоит и недоступен для редактирования.  
+  HLTC130.1.8: Открыть по номеру (НЕ внутреннему) документ 10101873, Поставить данный документ на контроль, воспользовавшись пунктом командного меню «Анализ \ Поставить на контроль...»  
+}
+function HLTC130_1_Execute(var  current_state: OleVariant): OleVariant;
+var
+  listofdocs, base, base1;
+begin
+ Result := false;
+// exit;
+ try
+  //список всех документов на контроле
+  listofdocs :=
+    [
+    (['Унифицированная система организационн*', '*Зарегистрирован в Минюсте РФ, вступил в силу, изменен*', '']),
+    (['Протокольное решение о праздновании 50-летия*', '*Документ зарегистрирован в Минюсте РФ*', '']),
+    (['Будующий документ С ограниченной*', '*Документ вступил в силу*', '']),
+    (['Кодекс Российской Федерации об адм*', '*Документ вступил в силу*', '']),
+    (['Конвенция*отменяющая требование легализации*', '*Документ изменен*', HELP_OPEN]),
+    (['КОНСТИТУЦИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ*', '', '']),
+    (['Правовое руководство ЮНСИТРАЛ*', '*Документу отказано в регистрации в Минюсте РФ*', '']),
+    (['Приказ ГТК РФ от 20 декабря 2001 г.*', '*Отказано в регистрации в Минюсте РФ, изменен*', '']),
+    (['Распоряжение ГТК РФ от 4 ноября 2000 г.*', '*Вступил в силу, изменен*', HELP_OPEN]),
+    (['Решение о председательстве в Совете глав правительств*', '*Документ удален*', ''])
+    ];
+
+//  CheckDocOnControlAfterChangeBase( listofdocs );  exit;
+  if not RestartF1Shell(3,Options.Run.Timeout div 6, HLTC130_LOGINNAME, HLTC130_LOGINNAME) then
+    Raise('Не получилось перезапустить оболочку под логином "' + HLTC130_LOGINNAME + '"');
+  Result := RestartF1ShellWithChangeBase('СТАРАЯ');
+
+  if not SetDefaultSettings then
+    Raise('Не получилось сбросить настройки по умолчанию!');
+  if not SetOnControlSettings then
+    Raise('Не получилось установить настройки для документов на контроле, продолжение невозможно!');
+  //HLTC130.1.1
+  Result := SetDocToControlFromToolbar(179145) and Result;
+  Result := SetDocToControlFromToolbar(1118471) and Result;
+  //HLTC130.1.2
+  Result := SetDocToControlFromPopUpMenu(12121246) and Result;
+  //HLTC130.1.3
+  Result := SetDocToControlFromTab(12125267) and Result; 
+  Result := SetDocToControlFromTab(12125732) and Result;
+  //HLTC130.1.4
+  Result := SetDocToControlByFolder([2560120, 1155340]) and Result;
+  //HLTC130.1.5
+  Result := SetDocToControlFromToolbar(10103000) and Result;
+  //HLTC130.1.6
+  //Result := SetDocToControlFromSaveDialogToMyDOC(800100) and Result;
+  Result := SetDocToControlFromPopUpMenu(900100) and Result;
+  //HLTC130.1.8
+  Result := SetDocToControlFromMainMenu(10101873) and Result;
+  //
+  Result := CheckDocsOnControl(listofdocs, false) and Result;
+  //HLTC130.2: Смена тестовой базы
+  //Для проверки изменения документов поставленных на контроль необходимо переключить сервер на тестовую базу с измененными документами и сформированным индексом Control для данных документов.
+  if not RestartF1ShellWithChangeBase('НОВАЯ') then
+    Raise('Не получилось переключить базу');
+  //
+  if not SetClearFlag('Вручную') then
+    Raise('Не получилось изменить флаг сброса документов на контроле');
+  //Проверяем наличие синей медальки
+  Result := IsBlueMedalExists('Внимание! Документы на контроле изменились*') and Result;
+
+  Log.Message('Проверка документов на контроле после смены старой базы на новую');
+  Result := CheckDocsOnControl(listofdocs, true) and Result;
+
+  //HLTC130.3.4: Проверка приоритетных изменений
+  //В закладке навигатора «На контроле» можно быстро узнать изменения произошедшие в документах. Для этого надо навести курсор мыши на иконку документа и просмотреть изменение во всплывающей подсказке. Изменения должны быть те же, что и в пункте выше (HLTC130.3.2).
+  Result := CheckDocOnControlAfterChangeBase(listofdocs) and Result;
+  
+  //HLTC130.4.4: Нажать на тулбаре ЦУК кнопку «Список изменившихся документов», убедиться, что система в правой части окна приложения отображает список всех изменившихся документов и в нем нет Конституции. Убедиться, что список отсортирован в соответствии с текущими настройками сортировки списка. Изменить в настройке порядок сортировки списков по умолчанию. Перейти на закладку навигатора «На контроле» и вновь построить список изменившихся документов. Убедиться, что сортировка списка соответствует только что выставленной в настройках (инф. для внутр. использования - CQ:7227).  
+  Result := CheckChangedDocsOnControl(listofdocs) and Result;
+  //HLTC130.4.3: Отсортировать список документов по алфавиту и убедиться в корректности сортировки.
+  if not CheckSortResult then
+    Raise('Не получилось изменить сортировку документов на контроле, продолжение невозможно');
+
+  if not SetClearFlag('Автоматически после просмотра документа') then
+    Raise('Не получилось изменить флаг сброса документов на контроле');
+  if not ChangedStatusOff then
+    Raise('Произошла ошибка при сбросе изменившихся документов на контроле');
+  if not SetClearFlag('Вручную') then
+    Raise('Не получилось изменить флаг сброса документов на контроле');
+
+  Result := CheckDocOnControlAfterChangeBase(listofdocs, false) and Result;
+
+  Result := DelDocFromControl and Result;
+
+  if not RestartF1ShellWithChangeBase('СТАРАЯ') then
+    Raise('Не получилось переключить базу');
+
+  if IsBlueMedalExists('', false) then
+    Result := ErrorResult('Найдена окно Синяя медаль, после возврата к старой базе');
+
+  GoToMainMenu;
+  if not Result then
+    Log.Message('Проверка документов на контроле завершилась НЕУСПЕШНО', '', pmNormal, GetLogAttr('RED'))
+  else
+    Log.Message('Проверка документов на контроле ЗАВЕРШЕНА УСПЕШНО', '', pmNormal, GetLogAttr('GREEN'));
+except
+  Result := false;
+  Log.Message('Аварийное переключение базы данных при возникновении ошибки');
+  RestartF1ShellWithChangeBase('СТАРАЯ');
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+
+end;
+
+{
+HLTC130.5.3: В настройках системы (командное меню: Вид \ Список конфигураций) установить 
+  свойство «Сброс статуса `изменен`» в значение «Автоматически для всех просмотренных». 
+  Открыть закладку навигатора «На контроле» и просмотреть 2-а измененных документа 
+  (у документа не снят статус изменен). Закрыть Гарант 6. Убедиться, что при закрытии 
+  система выдаст подтверждение о снятии статуса «изменен» у просмотренных документов. 
+  Нажать в диалоге «Да». Запустить систему снова и зарегистрироваться под тем же логином. 
+  Перейти на закладку «На контроле» и убедиться, что у просмотренных документов изменились 
+  иконки – т.е. после закрытия приложения у них сбросился статус «изменен». 
+}
+function HLTC130_5_3_Execute(var  current_state: OleVariant): OleVariant;
+var
+  listofdocs, base, base1, str;
+begin           
+ Result := false;
+ try
+  //список всех документов на контроле
+  listofdocs :=
+    [
+    (['Унифицированная система организационн*', '*Зарегистрирован в Минюсте РФ, вступил в силу, изменен*', '']),
+    (['Протокольное решение о праздновании 50-летия*', '*Документ зарегистрирован в Минюсте РФ*', ''])
+    ];
+
+  if not RestartF1Shell(3,Options.Run.Timeout div 6, HLTC130_LOGINNAME, HLTC130_LOGINNAME) then
+    Raise('Не получилось перезапустить оболочку под логином "' + HLTC130_LOGINNAME + '"');
+  if not SetOnControlSettings then
+    Raise('Не получилось установить настройки для документов на контроле, продолжение невозможно!');
+  if not SetClearFlag('Для всех просмотренных при выходе из системы') then
+    Raise;
+  Result := RestartF1ShellWithChangeBase('СТАРАЯ');
+  Result := SetDocToControlFromToolbar(179145) and Result;
+  Result := SetDocToControlFromToolbar(1118471) and Result;
+
+  //Для проверки изменения документов поставленных на контроль необходимо переключить 
+  //сервер на тестовую базу с измененными документами и сформированным индексом Control
+  //для данных документов.
+  if not RestartF1ShellWithChangeBase('НОВАЯ') then
+    Raise('Не получилось переключить базу на "Новую"');
+  //Проверяем наличие синей медальки
+  Result := IsBlueMedalExists and Result;
+                        
+  Result := CheckDocOnControlAfterChangeBase(listofdocs) and Result;
+
+  ClickByMainMenuItem('Файл\Выход');
+  if WaitForConfirmationWindow(Options.Run.Timeout div 3, '#Выйти*') = '' then
+    Result := ErrorResult('Не было окна предупреждения о закрытии');
+  str := WaitForConfirmationWindow(Options.Run.Timeout div 3, 'Да');
+  if not StringCompare('Сбросить статус*контроле*', str) then
+    Result := ErrorResult('Не найдено или неправильное подтверждение "Сброс статуса документов на контроле", полученный текст подтверждения: "' + str + '"');
+
+  StartF1Shell;
+  if not RestartF1ShellWithChangeBase('СТАРАЯ') then
+    Result := ErrorResult('Не получилось переключить базу на "СТАРАЯ"');
+except
+  Result := false;
+  Log.Message('Аварийное переключение базы данных при возникновении ошибки');
+  RestartF1ShellWithChangeBase('СТАРАЯ');
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  CommonExceptionHandler;
+end;
+  DelDocFromControl;
+  GoToMainMenu;
+end;
+
+{
+  HLTC130.6.6: Построить любой список, поставить в нем на контроль любой документ через пункт главного меню Анализ. 
+               Таким же образом снять этот документ с контроля.
+}
+function  HLTC130_6_6_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOCNAME = 'Конституция Российской Федерации';
+begin
+try
+  DelDocFromControl;
+  if not BaseSearch(nil, DOCNAME) then 
+    Raise('Не получилось произвести БП');
+  if not Position_Internal(GetList, DOCNAME + '*', DELIM_CHAR, true) then
+    Raise('Не получилось перейти к "' + DOCNAME + '" в списке');
+    
+  if not ClickByMainMenuItem('Анализ\Поставить на контроль*') then
+    Raise('Не получилось поставить документ на контроль "' + DOCNAME + '" через главное меню');
+  Result := WaitForInfoWindow(Options.Run.Timeout div 8) <> '';
+  if not ClickByMainMenuItem('Анализ\Снять с контроля*') then
+    Raise('Не получилось снять с контроля "' + DOCNAME + '" через главное меню');
+  Result := (WaitForConfirmationWindow(Options.Run.Timeout div 8) <> '') and Result;
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  DelDocFromControl;
+  GoToMainMenu;
+end;
+
+{
+  HLTC130.9: Проверить, что неактуальную редакцию нельзя поставить на контроль(кнопкой на тулбаре, из контекстного и главного меню).
+    HLTC130.9.2: Для документа. Alt+N 5128343.
+}
+function  HLTC130_9_2_Execute(var  current_state: OleVariant): OleVariant;
+begin
+try
+  Result := true;
+  if not OpenDocByNumber(5128343) then
+    Raise('Не получилось открыть по номеру документ "5128343"');   
+  if GetTempDocState then
+    Result := ErrorResult('Кнопка тулбара "Поставить на контроль" нажата для документа, который нельзя поставить на контроль');
+  if GetIsPossibleSetDocToControl then
+    Result := ErrorResult('Кнопка тулбара "Поставить на контроль" доступна для документа, который нельзя поставить на контроль');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  GoToMainMenu;
+end;
+
+{
+  HLTC130.10: Проверить, что во вкладке на контроле хинты к документам отображают полное имя документа.
+}
+function  HLTC130_10_Execute(var  current_state: OleVariant): OleVariant;
+const
+  DOCNUM = 10900200;
+  DOCNAME = 'Налоговый кодекс Российской Федерации (НК РФ) (с изменениями и дополнениями)';
+var
+  onControlTab, hintcaption, x, y;
+begin
+try
+  Result := true; 
+  if not SetDocToControlFromToolbar(DOCNUM) then
+    Raise;
+  onControlTab := OpenDocUnderControlTab;
+  if not GetTextSelectionCoords(onControlTab, x, y) then
+    Raise('Не найден выделенный документ на контроле');
+  hintcaption := GetHintTextByCoords(x + 20, y + 4, onControlTab);
+  if not StringCompare(DOCNAME, hintcaption) then
+    Raise('Хинт, содержащий название документа "' + hintcaption + '" отличается от эталонного "' + DOCNAME + '"');
+except
+  Result := false;
+  Log.Error(ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+end;
+  DelDocFromControl;
+  GoToMainMenu;
+end;
+////////////////////////////////////////////////////////////////////////////////
+procedure RunMyTests130;
+var i, p, w, x, y;
+begin
+//  HLTC130_1_Execute(p);
+//  HLTC130_5_3_Execute(p);
+//  HLTC130_6_6_Execute(p);
+//  HLTC130_9_2_Execute(p);
+//  HLTC130_10_Execute(p);
+/////////////////////////////////
+
+       
+
+  
+  
+
+
+
+  
+
+end;

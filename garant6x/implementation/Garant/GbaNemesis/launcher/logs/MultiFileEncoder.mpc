@@ -1,0 +1,19 @@
+project (MultiFileEncoder) : project_subsystem_windows, project_bzlib {
+	sharedname = MultiFileEncoder
+
+	dynamicflags = MULTIFILEENCODER_BUILD_DLL
+	staticflags += MULTIFILEENCODER_AS_STATIC_LIBS
+
+	Header_Files {
+		./MultiFileEncoder.h
+	}
+
+	Source_Files {
+		./MultiFileEncoder.cpp
+	}
+
+	Resource_Files {
+		./MultiFileEncoder.rc
+		./MultiFileEncoder.rch
+	}
+}

@@ -1,0 +1,178 @@
+// Tl3ImageList 47D02E5F022F SimpleClass Class
+
+INCLUDE '4AE5CA2D0034.pas.ms.script'
+
+INCLUDE '467C0CAA02AB.pas.ms.script'
+
+FORWARD ME_47D02E5F022F
+
+INCLUDE '4AB0F6DB029C.pas.ms.script'
+
+: ME_47D149FA02C8
+ CONST UID '47D149FA02C8'
+ CONST Name 'f_List'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_473DA2AF0168 // TCustomImageList
+ ;
+
+ @SELF
+; // ME_47D149FA02C8 f_List
+
+: ME_47D14AF70335
+ CONST UID '47D14AF70335'
+ CONST Name 'aList'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_473DA2AF0168 // TCustomImageList
+ ;
+
+ @SELF
+; // ME_47D14AF70335 aList
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_47D14ADF03A0
+ CONST UID '47D14ADF03A0'
+ CONST Name 'Create'
+ CONST Class 'Operation'
+ CONST Stereotype 'vctor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Parameters
+   [ ME_47D14AF70335 // aList
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47D14ADF03A0 Create
+
+: ME_47D14B040160
+ CONST UID '47D14B040160'
+ CONST Name 'aList'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_473DA2AF0168 // TCustomImageList
+ ;
+
+ @SELF
+; // ME_47D14B040160 aList
+
+: ME_47D14B01003A
+ CONST UID '47D14B01003A'
+ CONST Name 'Make'
+ CONST Class 'Operation'
+ CONST Stereotype 'factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_4728C6AC0070 // Il3ImageList
+ ;
+ : Parameters
+   [ ME_47D14B040160 // aList
+ ]
+ ; // Parameters
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_47D14B01003A Make
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_47D14E0C0120
+ CONST UID '47D14E0C0120'
+ CONST Name 'DoGetBigSize'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_47D14E0C0120 DoGetBigSize
+
+: ME_47D14E200098
+ CONST UID '47D14E200098'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_47D14E200098 aValue
+
+: ME_47D14E1A009A
+ CONST UID '47D14E1A009A'
+ CONST Name 'DoSetBigSize'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Parameters
+   [ ME_47D14E200098 // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47D14E1A009A DoSetBigSize
+
+: ME_47D02E5F022F
+ CONST UID '47D02E5F022F'
+ CONST Name 'Tl3ImageList'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4AE5CA2D0034 // Tl3CProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_4728C6AC0070 // Il3ImageList
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_47D149FA02C8 // f_List
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_47D14ADF03A0 // Create
+ ME_47D14B01003A // Make
+ ME_47D14E0C0120 // DoGetBigSize
+ ME_47D14E1A009A // DoSetBigSize
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4728C6D400FA // Draw
+ ME_4728C6F401E6 // Draw
+ ME_4728C76E03C2 // Draw
+ ME_4728C79B0269 // Hack
+ ME_4728C7A90345 // Width
+ ME_4728C7B50144 // Height
+ ME_4728C7C7006D // Count
+ ME_4728C7D202A4 // Handle
+ ME_4728C7DC01EA // BigSize
+ ]
+ ; // Implemented
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '28.07.2005 15:50'
+
+ @SELF
+; // ME_47D02E5F022F Tl3ImageList

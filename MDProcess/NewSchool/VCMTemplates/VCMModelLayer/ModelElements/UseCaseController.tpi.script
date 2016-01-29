@@ -1,0 +1,2186 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMModelLayer/ModelElements/UseCaseController.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMModelLayer::ModelElements::UseCaseController
+//
+// Контроллер логики прецедента
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: UseCaseController::Class
+implementation @ <<UseCaseController>>
+//? Контроллер логики прецедента
+//> Facet::Class
+//> Area::Class
+//> ViewAreaController::Class
+//> SynchroViewArea::Class
+
+//= Facet::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//a ra
+// - тип абстракции
+//Y code_vcm_usecase_controller.gif
+//L code_vcm_usecase_controller
+// Параметры визуализации
+//$ C 153,136,198
+//$ L 0,0,0
+//$ l 128,128,192
+//$ F 0,0,0
+//$ f 139,132,189
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+; // st_space_key
+
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor492E97E60140*
+//	%f_set_var(SELF,S)\
+ [%f] set_var %( 'SELF' %, 'S' )% 
+//	%f_clear_list(CAST_AREAS)\
+ [%f] clear_list %( 'CAST_AREAS' )% 
+//	<{}{%C#f_IsVCMArea()=true}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C %?f IsVCMArea %( )% ) %==  true ) then
+  begin
+//	[{%f_NeedHas(%C)=true}\
+   if ( ( [%f] NeedHas %( %C )% ) %==  true ) then
+   begin
+//	%f_add_to_list(CAST_AREAS,C)\
+    [%f] add_to_list %( 'CAST_AREAS' %, 'C' )% 
+//	]\
+   end // if
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for C
+//	%{CAST_AREAS}<{}{}{%C}\
+ ( get_global_var ( 'CAST_AREAS' ) ) 
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+//	%f_CastHas(%{SELF},%C)\
+    [%f] CastHas %( ( get_global_var ( 'SELF' ) ) %, %C )% 
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for C
+
+ ) // bind
+
+//	%f_clear_list(CAST_AREAS)\
+ [%f] clear_list %( 'CAST_AREAS' )% 
+//	<{}{%CS=SynchroViewArea}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |S ) %== 'SynchroViewArea' ) then
+  begin
+//	[{%C<{}{%R#f_IsVCMArea()=true}{C}>!=0}\
+   if ( ( %C
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%R
+     begin
+      OBJECT IN %R
+      if ( ( %R %?f IsVCMArea %( )% ) %==  true ) then
+      begin
+
+       ++! l_Counter
+      end // if
+     end // for R
+     l_Counter
+
+    ) // bind
+ )     %!= 0 ) then
+   begin
+//	%f_add_to_list(CAST_AREAS,C)\
+    [%f] add_to_list %( 'CAST_AREAS' %, 'C' )% 
+//	]\
+   end // if
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for C
+
+//	[{%f_is_empty(CAST_AREAS)=false}\
+ if ( ( [%f] is_empty %( 'CAST_AREAS' )% ) %==  false ) then
+ begin
+//	%{CAST_AREAS}<{}{}{%C}\
+  ( get_global_var ( 'CAST_AREAS' ) ) 
+  bind ( 
+   OBJECT VAR %S
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+//	%f_set_var(SV_NAME,"%f_cut_prefix(%{SELF}N,Isds)_%f_cut_prefix(%CN,ds)")\
+     [%f] set_var %( 'SV_NAME' %, [%f] cut_prefix %( ( get_global_var ( 'SELF' ) |N ) %, 'Isds' )% '_'
+     [%f] cut_prefix %( %C |N %, 'ds' )% )% 
+//	%{SELF}%P%f_add_class(%CU_Enum,Enum,T%{SV_NAME}N_Areas,Enum_Inst)\
+     ( get_global_var ( 'SELF' )  ->P %f add_class %( %C |U '_Enum' %, 'Enum' %, 'T'
+     ( get_global_var ( 'SV_NAME' ) |N ) '_Areas' %, 'Enum_Inst' )% ) 
+//	%{Enum_Inst}%f_set_documentation(Типы зон для "[{}{%CN}%CD]")\
+     ( get_global_var ( 'Enum_Inst' ) %f set_documentation %( 'Типы зон для "'
+     if NOT-EMPTY
+     begin
+      %C |D 
+     end // if
+     NOP
+     else
+     begin
+      %C |N 
+     end // else
+)% ) //	%{Enum_Inst}%f_set_up(isSynchroEnum,true)\
+     ( get_global_var ( 'Enum_Inst' ) %f set_up %( 'isSynchroEnum' %, true )% ) 
+//	%{Enum_Inst}%f_set_var(SDS_CASTER,"%{SELF}U")\
+     ( get_global_var ( 'Enum_Inst' ) %f set_var %( 'SDS_CASTER' %, ( get_global_var ( 'SELF' ) |U ) )% ) 
+
+//	%{Enum_Inst}%f_set_up(elements prefix,sva_%{SV_NAME}N)\
+     ( get_global_var ( 'Enum_Inst' ) %f set_up %( 'elements prefix' %, 'sva_'
+     ( get_global_var ( 'SV_NAME' ) |N ) )% ) 
+
+//	%{Enum_Inst}%f_add_attribute(%{Enum_Inst}U_None,,None,Attr_Inst)\
+     ( get_global_var ( 'Enum_Inst' ) %f add_attribute %( ( get_global_var ( 'Enum_Inst' ) |U ) '_None' %, '' %, 'None' %, 'Attr_Inst' )% ) 
+//	%{Attr_Inst}%f_set_documentation(Зона не определена)\
+     ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Зона не определена' )% ) 
+
+//	%C<{}{%R#f_IsVCMArea()=true}{%R}\
+     %C
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%R
+      begin
+       OBJECT IN %R
+       if ( ( %R %?f IsVCMArea %( )% ) %==  true ) then
+       begin
+//	%{Enum_Inst}%f_add_attribute(%RU_%{SELF}U_Enum,,%f_cut_prefix(%RN,ds),Attr_Inst)\
+        ( get_global_var ( 'Enum_Inst' ) %f add_attribute %( %R |U '_'
+        ( get_global_var ( 'SELF' ) |U ) '_Enum' %, '' %, [%f] cut_prefix %( %R |N %, 'ds' )% %, 'Attr_Inst' )% ) 
+//	%{Attr_Inst}%f_set_documentation([{}{%RN}%RD])\
+        ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( if NOT-EMPTY
+        begin
+         %R |D 
+        end // if
+        NOP
+        else
+        begin
+         %R |N 
+        end // else
+)% ) //	>\
+
+        ++! l_Counter
+       end // if
+      end // for R
+
+     ) // bind
+ 
+
+//	%{SELF}<{}{%C#f_IsInjectsTo()=true}{%C}\
+     ( get_global_var ( 'SELF' ) ) 
+     bind ( 
+      OBJECT VAR %S
+      INTEGER VAR l_Counter l_Counter := 0
+      for %S%C
+      begin
+       OBJECT IN %C
+       if ( ( %C %?f IsInjectsTo %( )% ) %==  true ) then
+       begin
+
+
+//	%C%T%f_add_attribute(%C%TU_%{Enum_Inst}U_SynchroForm,\
+        %C ->T %f add_attribute %( %C ->T |U  '_'
+        ( get_global_var ( 'Enum_Inst' ) |U ) '_SynchroForm' %, 
+//	[{%C#f_IsReflectedBy()!=true}{property}readonly],\
+        if ( ( %C %?f IsReflectedBy %( )% ) %!=  true ) then
+        begin
+         'readonly' 
+        end // if
+        else
+        begin
+         'property' 
+        end // else
+%, //	%{SV_NAME}N_Form : %{Enum_Inst}U,Attr_Inst)\
+        ( get_global_var ( 'SV_NAME' ) |N ) '_Form : '
+        ( get_global_var ( 'Enum_Inst' ) |U ) %, 'Attr_Inst' )%  
+
+//	%{Attr_Inst}%f_set_documentation(Форма синхронного просмотра)\
+        ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Форма синхронного просмотра' )% ) 
+//	%{Attr_Inst}%f_set_up(needs field,true)\
+        ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'needs field' %, true )% ) 
+//	%{Attr_Inst}%f_set_up(pm,true)\
+        ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'pm' %, true )% ) 
+//	%C%T<{}{%L#f_IsSimpleClass()=true|%L#f_IsMixIn()=true}{%L}\
+        %C ->T
+        bind ( 
+         OBJECT VAR %S
+         INTEGER VAR l_Counter l_Counter := 0
+         for %S%L
+         begin
+          OBJECT IN %L
+          if ( ( %L %?f IsSimpleClass %( )% ) %==  true OR 
+           ( ( %L %?f IsMixIn %( )% ) %==  true  ) ) then
+          begin
+//	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)get_var,\
+           ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+           [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %L )% 'get_var' %, 
+//	 {-}\
+           ' {-}'
+//	)\
+)% ) //	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)get_impl,\
+           ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+           [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %L )% 'get_impl' %, 
+//	 Result := f_%{Attr_Inst}N;\
+           ' Result := f_'
+           ( get_global_var ( 'Attr_Inst' ) |N ) ';'
+//	)\
+)% ) //	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)set_var,\
+           ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+           [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %L )% 'set_var' %, 
+//	 {-}\
+           ' {-}'
+//	)\
+)% ) //	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)set_impl,\
+           ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+           [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %L )% 'set_impl' %, 
+//	 f_%{Attr_Inst}N := aValue;\
+           ' f_'
+           ( get_global_var ( 'Attr_Inst' ) |N ) ' := aValue;'
+//	)\
+)% ) //	>\
+
+           ++! l_Counter
+          end // if
+         end // for L
+
+        ) // bind
+  
+
+//	[{%C{needs default form}=true}\
+        if ( ( %C get_up ( 'needs default form' ) ) %==  true ) then
+        begin
+//	%C%T%f_add_attribute(%C%TU_%{Enum_Inst}U_DefaultSynchroForm,readonly,Default_%{SV_NAME}N_Form : %{Enum_Inst}U,Attr_Inst)\
+         %C ->T %f add_attribute %( %C ->T |U  '_'
+         ( get_global_var ( 'Enum_Inst' ) |U ) '_DefaultSynchroForm' %, 'readonly' %, 'Default_'
+         ( get_global_var ( 'SV_NAME' ) |N ) '_Form : '
+         ( get_global_var ( 'Enum_Inst' ) |U ) %, 'Attr_Inst' )%  
+//	%{Attr_Inst}%f_set_documentation(Форма синхронного просмотра по-умолчанию)\
+         ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Форма синхронного просмотра по-умолчанию' )% ) 
+//	%{Attr_Inst}%f_set_up(needs field,true)\
+         ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'needs field' %, true )% ) 
+//	%{Attr_Inst}%f_set_up(pm,true)\
+         ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'pm' %, true )% ) 
+//	]\
+        end // if
+//	%C%T%f_set_up(injected,true)\
+        %C ->T %f set_up %( 'injected' %, true )%  
+//	>\
+
+        ++! l_Counter
+       end // if
+      end // for C
+
+     ) // bind
+
+
+//	>\
+
+     ++! l_Counter
+    end // if
+   end // for C
+
+  ) // bind
+//	]\
+ end // if
+
+//	%{CAST_AREAS}<{}{}{%C}\
+ ( get_global_var ( 'CAST_AREAS' ) ) 
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+//	%C<{}{%R#f_IsVCMArea()=true}{%R}\
+    %C
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%R
+     begin
+      OBJECT IN %R
+      if ( ( %R %?f IsVCMArea %( )% ) %==  true ) then
+      begin
+//	%f_set_var(CASTER,R)\
+       [%f] set_var %( 'CASTER' %, 'R' )% 
+//	%f_CastSVAMethods(%2,%{CASTER})\
+       [%f] CastSVAMethods %( %2 %, ( get_global_var ( 'CASTER' ) ) )% 
+//	%S<{}{%G#f_IsViewAreaController()=true}{%G}\
+       %S
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%G
+        begin
+         OBJECT IN %G
+         if ( ( %G %?f IsViewAreaController %( )% ) %==  true ) then
+         begin
+//	%f_CastSVAMethods(%G,%{CASTER})\
+          [%f] CastSVAMethods %( %G %, ( get_global_var ( 'CASTER' ) ) )% 
+//	%f_CastHas(%G,%{CASTER})\
+          [%f] CastHas %( %G %, ( get_global_var ( 'CASTER' ) ) )% 
+//	>\
+
+          ++! l_Counter
+         end // if
+        end // for G
+
+       ) // bind
+ //	>\
+
+       ++! l_Counter
+      end // if
+     end // for R
+
+    ) // bind
+ //	>\
+
+    ++! l_Counter
+   end // if
+  end // for C
+
+ ) // bind
+
+//	%f_clear_list(CAST_AREAS)\
+ [%f] clear_list %( 'CAST_AREAS' )% 
+//	<{}{%C#f_IsVCMArea()=true&%C#f_IsVCMAreaLink()!=true}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C %?f IsVCMArea %( )% ) %==  true AND 
+   ( ( %C %?f IsVCMAreaLink %( )% ) %!=  true  ) ) then
+  begin
+//	%f_add_to_list(CAST_AREAS,C)\
+   [%f] add_to_list %( 'CAST_AREAS' %, 'C' )% 
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for C
+//	<{}{%R#f_IsUseCaseController()=true}{%R}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if ( ( %R %?f IsUseCaseController %( )% ) %==  true ) then
+  begin
+//	%R<{}{%C#f_IsVCMArea()=true&%C#f_IsVCMAreaLink()!=true}\
+   %R
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C %?f IsVCMArea %( )% ) %==  true AND 
+      ( ( %C %?f IsVCMAreaLink %( )% ) %!=  true  ) ) then
+     begin
+//	%f_add_to_list(CAST_AREAS,C)\
+      [%f] add_to_list %( 'CAST_AREAS' %, 'C' )% 
+//	>\
+
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+ //	>\
+
+   ++! l_Counter
+  end // if
+ end // for R
+
+//	%{CAST_AREAS}<{}{}{%C}\
+ ( get_global_var ( 'CAST_AREAS' ) ) 
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+//	%f_set_var(CASTER,C)\
+    [%f] set_var %( 'CASTER' %, 'C' )% 
+//	%{SELF}<{}{%C#f_IsReflectedBy()=true}{%C}\
+    ( get_global_var ( 'SELF' ) ) 
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C %?f IsReflectedBy %( )% ) %==  true ) then
+      begin
+//	%f_set_var(NAME,"%{CASTER}NRef")\
+       [%f] set_var %( 'NAME' %, ( get_global_var ( 'CASTER' ) |N ) 'Ref' )% 
+//	[{%f_HasAttr(%C%T,%{NAME})!=true}\
+       if ( ( [%f] HasAttr %( %C ->T  %, ( get_global_var ( 'NAME' ) ) )% ) %!=  true ) then
+       begin
+//	%C%T%f_make_accessable(47EB514C0336)\
+        %C ->T %f make_accessable %( 47 'EB514C0336' )%  
+//	%C%T%f_add_attribute(%C%TU_%{CASTER}U_Ref,readonly,%{NAME}N : 47EB514C0336,Attr_Inst)\
+        %C ->T %f add_attribute %( %C ->T |U  '_'
+        ( get_global_var ( 'CASTER' ) |U ) '_Ref' %, 'readonly' %, ( get_global_var ( 'NAME' ) |N ) ' : 47EB514C0336' %, 'Attr_Inst' )%  
+//	%{Attr_Inst}%f_set_link_type(lnk)\
+        ( get_global_var ( 'Attr_Inst' ) %f set_link_type %( 'lnk' )% ) 
+//	%{Attr_Inst}%f_set_up(pm,true)\
+        ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'pm' %, true )% ) 
+//	%{Attr_Inst}%f_set_up(needs field,true)\
+        ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'needs field' %, true )% ) 
+//	%{Attr_Inst}%f_set_documentation(Ссылка на "[{}{%{CASTER}N}%{CASTER}D]")\
+        ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Ссылка на "'
+        if NOT-EMPTY
+        begin
+         ( get_global_var ( 'CASTER' ) |D ) 
+        end // if
+        NOP
+        else
+        begin
+         ( get_global_var ( 'CASTER' ) |N ) 
+        end // else
+)% ) //	%C%T<{}{%L#f_IsSimpleClass()=true|%L#f_IsMixIn()=true}{%L}\
+        %C ->T
+        bind ( 
+         OBJECT VAR %S
+         INTEGER VAR l_Counter l_Counter := 0
+         for %S%L
+         begin
+          OBJECT IN %L
+          if ( ( %L %?f IsSimpleClass %( )% ) %==  true OR 
+           ( ( %L %?f IsMixIn %( )% ) %==  true  ) ) then
+          begin
+//	%L%f_make_accessable(4982B743016E)\
+           %L %f make_accessable %( 4982 'B743016E' )% 
+//	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)get_var,\
+           ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+           [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %L )% 'get_var' %, 
+//	 {-}\
+           ' {-}'
+//	)\
+)% ) //	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)get_impl,\
+           ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+           [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %L )% 'get_impl' %, 
+//	 Result := vcmCheckAndMake(f_%{Attr_Inst}N\
+           ' Result := vcmCheckAndMake(f_'
+           ( get_global_var ( 'Attr_Inst' ) |N ) 
+//	[{%{CASTER}{required}=true}, vcm_nmYes]\
+           if ( ( ( get_global_var ( 'CASTER' ) get_up ( 'required' ) ) ) %==  true ) then
+           begin
+            ', vcm_nmYes' 
+           end // if
+//	);\
+           ');'
+//	)\
+)% ) //	>\
+
+           ++! l_Counter
+          end // if
+         end // for L
+
+        ) // bind
+  //	]\
+       end // if
+
+
+//	[{%f_NeedHas(%{CASTER})=true}\
+       if ( ( [%f] NeedHas %( ( get_global_var ( 'CASTER' ) ) )% ) %==  true ) then
+       begin
+//	%f_set_var(NAME,"Has%f_cut_prefix(%{CASTER}N,ds)")\
+        [%f] set_var %( 'NAME' %, 'Has'
+        [%f] cut_prefix %( ( get_global_var ( 'CASTER' ) |N ) %, 'ds' )% )% 
+//	[{%f_HasAttr(%C%T,%{NAME})!=true}\
+        if ( ( [%f] HasAttr %( %C ->T  %, ( get_global_var ( 'NAME' ) ) )% ) %!=  true ) then
+        begin
+//	%C%T%f_make_accessable(491BF08F035F)\
+         %C ->T %f make_accessable %( 491 'BF08F035F' )%  
+//	%C%T%f_add_attribute(%C%TU_%{CASTER}U_Has,property,%{NAME}N : 491BF08F035F,Attr_Inst)\
+         %C ->T %f add_attribute %( %C ->T |U  '_'
+         ( get_global_var ( 'CASTER' ) |U ) '_Has' %, 'property' %, ( get_global_var ( 'NAME' ) |N ) ' : 491BF08F035F' %, 'Attr_Inst' )%  
+//	%{Attr_Inst}%f_set_link_type(lnk)\
+         ( get_global_var ( 'Attr_Inst' ) %f set_link_type %( 'lnk' )% ) 
+//	%{Attr_Inst}%f_set_up(pm,true)\
+         ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'pm' %, true )% ) 
+//	%{Attr_Inst}%f_set_up(needs field,true)\
+         ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'needs field' %, true )% ) 
+//	%{Attr_Inst}%f_set_documentation(Есть ли "[{}{%{CASTER}N}%{CASTER}D]")\
+         ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Есть ли "'
+         if NOT-EMPTY
+         begin
+          ( get_global_var ( 'CASTER' ) |D ) 
+         end // if
+         NOP
+         else
+         begin
+          ( get_global_var ( 'CASTER' ) |N ) 
+         end // else
+)% ) //	%C%T<{}{%L#f_IsSimpleClass()=true|%L#f_IsMixIn()=true}{%L}\
+         %C ->T
+         bind ( 
+          OBJECT VAR %S
+          INTEGER VAR l_Counter l_Counter := 0
+          for %S%L
+          begin
+           OBJECT IN %L
+           if ( ( %L %?f IsSimpleClass %( )% ) %==  true OR 
+            ( ( %L %?f IsMixIn %( )% ) %==  true  ) ) then
+           begin
+//	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)get_var,\
+            ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+            [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %L )% 'get_var' %, 
+//	 {-}\
+            ' {-}'
+//	)\
+)% ) //	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)get_impl,\
+            ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+            [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %L )% 'get_impl' %, 
+//	 Result := f_%{Attr_Inst}N;\
+            ' Result := f_'
+            ( get_global_var ( 'Attr_Inst' ) |N ) ';'
+//	)\
+)% ) //	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)set_var,\
+            ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+            [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %L )% 'set_var' %, 
+//	 {-}\
+            ' {-}'
+//	)\
+)% ) //	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)set_impl,\
+            ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+            [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %L )% 'set_impl' %, 
+//	 f_%{Attr_Inst}N := aValue;\
+            ' f_'
+            ( get_global_var ( 'Attr_Inst' ) |N ) ' := aValue;'
+//	)\
+)% ) //	>\
+
+            ++! l_Counter
+           end // if
+          end // for L
+
+         ) // bind
+  //	]\
+        end // if
+//	]\
+       end // if
+
+
+//	>\
+
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for C
+
+ ) // bind
+
+//	%f_clear_list(CAST_AREAS)\
+ [%f] clear_list %( 'CAST_AREAS' )% 
+//	<{}{%C#f_IsReflectable()=true}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C %?f IsReflectable %( )% ) %==  true ) then
+  begin
+//	[{%f_exists_in_list(CAST_AREAS,C)!=true}\
+   if ( ( [%f] exists_in_list %( 'CAST_AREAS' %, 'C' )% ) %!=  true ) then
+   begin
+//	%f_add_to_list(CAST_AREAS,C)\
+    [%f] add_to_list %( 'CAST_AREAS' %, 'C' )% 
+//	]\
+   end // if
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for C
+
+//	<{}{%R#f_IsUseCaseController()=true|%R#f_IsPureMixIn()=true}{%R}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if ( ( %R %?f IsUseCaseController %( )% ) %==  true OR 
+   ( ( %R %?f IsPureMixIn %( )% ) %==  true  ) ) then
+  begin
+
+
+//	%R<{}{%C#f_IsReflectable()=true}{%C}\
+   %R
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C %?f IsReflectable %( )% ) %==  true ) then
+     begin
+//	[{%f_exists_in_list(CAST_AREAS,C)!=true}\
+      if ( ( [%f] exists_in_list %( 'CAST_AREAS' %, 'C' )% ) %!=  true ) then
+      begin
+//	%f_add_to_list(CAST_AREAS,C)\
+       [%f] add_to_list %( 'CAST_AREAS' %, 'C' )% 
+//	]\
+      end // if
+//	>\
+
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+ 
+
+//	%R<{}{%R#f_IsPureMixIn()=true}{%R}\
+   %R
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%R
+    begin
+     OBJECT IN %R
+     if ( ( %R %?f IsPureMixIn %( )% ) %==  true ) then
+     begin
+//	%R<{}{%C#f_IsReflectable()=true}{%C}\
+      %R
+      bind ( 
+       OBJECT VAR %S
+       INTEGER VAR l_Counter l_Counter := 0
+       for %S%C
+       begin
+        OBJECT IN %C
+        if ( ( %C %?f IsReflectable %( )% ) %==  true ) then
+        begin
+//	[{%f_exists_in_list(CAST_AREAS,C)!=true}\
+         if ( ( [%f] exists_in_list %( 'CAST_AREAS' %, 'C' )% ) %!=  true ) then
+         begin
+//	%f_add_to_list(CAST_AREAS,C)\
+          [%f] add_to_list %( 'CAST_AREAS' %, 'C' )% 
+//	]\
+         end // if
+//	>\
+
+         ++! l_Counter
+        end // if
+       end // for C
+
+      ) // bind
+ //	>\
+
+      ++! l_Counter
+     end // if
+    end // for R
+
+   ) // bind
+ 
+
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for R
+
+//	%{CAST_AREAS}<{}{}{%C}\
+ ( get_global_var ( 'CAST_AREAS' ) ) 
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+//	%f_set_var(CASTER,C)\
+    [%f] set_var %( 'CASTER' %, 'C' )% 
+//	%{SELF}<{}{%C#f_IsReflectedBy()=true}{%C}\
+    ( get_global_var ( 'SELF' ) ) 
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if ( ( %C %?f IsReflectedBy %( )% ) %==  true ) then
+      begin
+//	%f_set_var(NAME,"%{CASTER}N")\
+       [%f] set_var %( 'NAME' %, ( get_global_var ( 'CASTER' ) |N ) )% 
+//	[{%f_HasAttr(%C%T,%{NAME})!=true}\
+       if ( ( [%f] HasAttr %( %C ->T  %, ( get_global_var ( 'NAME' ) ) )% ) %!=  true ) then
+       begin
+
+
+//	[{%f_pas_TypeName(%{CASTER}%T)=Boolean}{\
+        if ( ( [%f] pas_TypeName %( ( get_global_var ( 'CASTER' )  ->T ) )% ) %== 'Boolean' ) then
+        begin
+//	%f_set_var(CASTER_TYPE,"491BF08F035F")\
+         [%f] set_var %( 'CASTER_TYPE' %, 491 'BF08F035F' )% 
+//	]\
+        end // if
+        else
+        begin
+//	%f_set_var(CASTER_TYPE,"%{CASTER}%TU")\
+         [%f] set_var %( 'CASTER_TYPE' %, ( get_global_var ( 'CASTER' )  ->T |U ) )% 
+//	}\
+        end // else
+
+
+//	%C%T%f_make_accessable(%{CASTER_TYPE}N)\
+        %C ->T %f make_accessable %( ( get_global_var ( 'CASTER_TYPE' ) |N ) )%  
+//	%C%T%f_add_attribute(%C%TU_%{CASTER}U_Ref,property,%{NAME}N : %{CASTER_TYPE}N,Attr_Inst)\
+        %C ->T %f add_attribute %( %C ->T |U  '_'
+        ( get_global_var ( 'CASTER' ) |U ) '_Ref' %, 'property' %, ( get_global_var ( 'NAME' ) |N ) ' : '
+        ( get_global_var ( 'CASTER_TYPE' ) |N ) %, 'Attr_Inst' )%  
+//	%{Attr_Inst}%f_set_link_type(%{CASTER}l)\
+        ( get_global_var ( 'Attr_Inst' ) %f set_link_type %( ( get_global_var ( 'CASTER' ) |l ) )% ) 
+//	%{Attr_Inst}%f_set_up(pm,true)\
+        ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'pm' %, true )% ) 
+//	%{Attr_Inst}%f_set_up(needs field,true)\
+        ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'needs field' %, true )% ) 
+//	%{Attr_Inst}%f_set_documentation([{}{%{CASTER}N}%{CASTER}D])\
+        ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( if NOT-EMPTY
+        begin
+         ( get_global_var ( 'CASTER' ) |D ) 
+        end // if
+        NOP
+        else
+        begin
+         ( get_global_var ( 'CASTER' ) |N ) 
+        end // else
+)% ) //	%C%T<{}{%L#f_IsSimpleClass()=true|%L#f_IsMixIn()=true}{%L}\
+        %C ->T
+        bind ( 
+         OBJECT VAR %S
+         INTEGER VAR l_Counter l_Counter := 0
+         for %S%L
+         begin
+          OBJECT IN %L
+          if ( ( %L %?f IsSimpleClass %( )% ) %==  true OR 
+           ( ( %L %?f IsMixIn %( )% ) %==  true  ) ) then
+          begin
+//	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)get_var,\
+           ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+           [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %L )% 'get_var' %, 
+//	 {-}\
+           ' {-}'
+//	)\
+)% ) //	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)get_impl,\
+           ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+           [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %L )% 'get_impl' %, 
+//	 Result := f_%{Attr_Inst}N;\
+           ' Result := f_'
+           ( get_global_var ( 'Attr_Inst' ) |N ) ';'
+//	)\
+)% ) //	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)set_var,\
+           ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+           [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %L )% 'set_var' %, 
+//	 {-}\
+           ' {-}'
+//	)\
+)% ) //	%{Attr_Inst}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Attr_Inst},%L)set_impl,\
+           ( get_global_var ( 'Attr_Inst' ) %f set_uc_content %( 'intf.pas' %, '_'
+           [%f] pas_MethodOwnerID %( ( get_global_var ( 'Attr_Inst' ) ) %, %L )% 'set_impl' %, 
+//	 f_%{Attr_Inst}N := aValue;\
+           ' f_'
+           ( get_global_var ( 'Attr_Inst' ) |N ) ' := aValue;'
+//	)\
+)% ) //	>\
+
+           ++! l_Counter
+          end // if
+         end // for L
+
+        ) // bind
+  //	]\
+       end // if
+//	>\
+
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for C
+
+ ) // bind
+
+//	%f_clear_list(CAST_AREAS)\
+ [%f] clear_list %( 'CAST_AREAS' )% 
+
+//	%S%[inherited]
+ inherited
+
+//f _HasAttr
+; // DoSpell
+
+end. // <<UseCaseController>>
+
+: HasAttr OBJECT IN %S
+//@ %SU_%1N
+//	[{<{}{%CN=%1N&%CC=Attribute}{%CC}>!=0}{\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |N ) %== ( %1 |N ) AND 
+    ( ( %C |C ) %== 'Attribute'  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	[{<{}{%f_HasAttr(%G,%1)=true}{%GC}>!=0}{\
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%G
+   begin
+    OBJECT IN %G
+    if ( ( [%f] HasAttr %( %G %, %1 )% ) %==  true ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for G
+   l_Counter
+   %!= 0 ) then
+  begin
+//	true\
+    true 
+//	]\
+  end // if
+  else
+  begin
+//	false\
+    false 
+//	}\
+  end // else
+//	}\
+ end // else
+
+//f _HasOp
+; // HasAttr
+
+: HasOp OBJECT IN %S
+//@ %SU_%1N
+//	[{<{}{%CN=%1N&%CC=Operation}{%CC}>!=0}{\
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |N ) %== ( %1 |N ) AND 
+    ( ( %C |C ) %== 'Operation'  ) ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	[{<{}{%f_HasAttr(%G,%1)=true}{%GC}>!=0}{\
+  if ( 
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%G
+   begin
+    OBJECT IN %G
+    if ( ( [%f] HasAttr %( %G %, %1 )% ) %==  true ) then
+    begin
+
+     ++! l_Counter
+    end // if
+   end // for G
+   l_Counter
+   %!= 0 ) then
+  begin
+//	true\
+    true 
+//	]\
+  end // if
+  else
+  begin
+//	false\
+    false 
+//	}\
+  end // else
+//	}\
+ end // else
+
+//f _CastSVAMethods
+; // HasOp
+
+: CastSVAMethods OBJECT IN %S
+//	%f_set_var(NAME,"Is%f_cut_prefix(%1N,ds)Active")\
+ [%f] set_var %( 'NAME' %, 'Is'
+ [%f] cut_prefix %( %1 |N %, 'ds' )% 'Active' )% 
+//	[{%f_HasAttr(%S,%{NAME})!=true}\
+ if ( ( [%f] HasAttr %( %S %, ( get_global_var ( 'NAME' ) ) )% ) %!=  true ) then
+ begin
+//	[{"%{BOOLEAN}N"=""}%f_find_element(46A603BB0391,BOOLEAN)]\
+  if ( ( ( get_global_var ( 'BOOLEAN' ) |N ) ) %== '' ) then
+  begin
+   [%f] find_element %( '46A603BB0391' %, 'BOOLEAN' )% 
+  end // if
+//	%S%f_add_attribute(%SU_%1U_IsOpened,readonly,\
+  %S %f add_attribute %( %S |U '_'
+  %1 |U '_IsOpened' %, 'readonly' %, 
+//	%{NAME}N : %{BOOLEAN}U,\
+  ( get_global_var ( 'NAME' ) |N ) ' : '
+  ( get_global_var ( 'BOOLEAN' ) |U ) %, 
+//	Attr_Inst)\
+  'Attr_Inst' )% 
+//	%{Attr_Inst}%f_set_abstraction_type(abstract)\
+  ( get_global_var ( 'Attr_Inst' ) %f set_abstraction_type %( 'abstract' )% ) 
+//	%{Attr_Inst}%f_set_visibility_type(PublicAccess)\
+  ( get_global_var ( 'Attr_Inst' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+//	%{Attr_Inst}%f_set_up(pm,true)\
+  ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'pm' %, true )% ) 
+//	%{Attr_Inst}%f_set_documentation(Определяет что открыта ViewArea "[{}{%1N}%1D]")\
+  ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Определяет что открыта ViewArea "'
+  if NOT-EMPTY
+  begin
+   %1 |D 
+  end // if
+  NOP
+  else
+  begin
+   %1 |N 
+  end // else
+)% ) //	]\
+ end // if
+
+//	[{%f_HasOp(%S,%{NAME})!=true}\
+ if ( ( [%f] HasOp %( %S %, ( get_global_var ( 'NAME' ) ) )% ) %!=  true ) then
+ begin
+//	%f_set_var(NAME,"Open%f_cut_prefix(%1N,ds)")\
+  [%f] set_var %( 'NAME' %, 'Open'
+  [%f] cut_prefix %( %1 |N %, 'ds' )% )% 
+//	%S%f_add_operation(%SU_%1U_Open,,\
+  %S %f add_operation %( %S |U '_'
+  %1 |U '_Open' %, '' %, 
+//	%{NAME}N (),\
+  ( get_global_var ( 'NAME' ) |N ) ' ()' %, 
+//	Op_Inst)\
+  'Op_Inst' )% 
+//	%{Attr_Inst}%f_set_link_type(ref)\
+//	%{Op_Inst}%f_set_abstraction_type(abstract)\
+  ( get_global_var ( 'Op_Inst' ) %f set_abstraction_type %( 'abstract' )% ) 
+//	%{Op_Inst}%f_set_visibility_type(PublicAccess)\
+  ( get_global_var ( 'Op_Inst' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+//	%{Op_Inst}%f_set_documentation(Открывает ViewArea "[{}{%1N}%1D]")\
+  ( get_global_var ( 'Op_Inst' ) %f set_documentation %( 'Открывает ViewArea "'
+  if NOT-EMPTY
+  begin
+   %1 |D 
+  end // if
+  NOP
+  else
+  begin
+   %1 |N 
+  end // else
+)% ) //	]
+ end // if
+
+//f _CastHas
+; // CastSVAMethods
+
+: CastHas OBJECT IN %S
+//	%f_set_var(NAME,"Has%f_cut_prefix(%1N,ds)")\
+ [%f] set_var %( 'NAME' %, 'Has'
+ [%f] cut_prefix %( %1 |N %, 'ds' )% )% 
+//	[{%f_HasAttr(%S,%{NAME})!=true}\
+ if ( ( [%f] HasAttr %( %S %, ( get_global_var ( 'NAME' ) ) )% ) %!=  true ) then
+ begin
+//	[{"%{BOOLEAN}N"=""}%f_find_element(46A603BB0391,BOOLEAN)]\
+  if ( ( ( get_global_var ( 'BOOLEAN' ) |N ) ) %== '' ) then
+  begin
+   [%f] find_element %( '46A603BB0391' %, 'BOOLEAN' )% 
+  end // if
+//	%S%f_add_attribute(%SU_%1U_NeedHas,readonly,\
+  %S %f add_attribute %( %S |U '_'
+  %1 |U '_NeedHas' %, 'readonly' %, 
+//	%{NAME}N : %{BOOLEAN}U,\
+  ( get_global_var ( 'NAME' ) |N ) ' : '
+  ( get_global_var ( 'BOOLEAN' ) |U ) %, 
+//	Attr_Inst)\
+  'Attr_Inst' )% 
+//	%{Attr_Inst}%f_set_abstraction_type(abstract)\
+  ( get_global_var ( 'Attr_Inst' ) %f set_abstraction_type %( 'abstract' )% ) 
+//	%{Attr_Inst}%f_set_visibility_type(PublicAccess)\
+  ( get_global_var ( 'Attr_Inst' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+//	%{Attr_Inst}%f_set_up(ifdef,%1{ifdef})\
+  ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifdef' %, %1 get_up ( 'ifdef' ) )% ) 
+//	%{Attr_Inst}%f_set_up(ifndef,%1{ifndef})\
+  ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifndef' %, %1 get_up ( 'ifndef' ) )% ) 
+//	%{Attr_Inst}%f_set_up(pm,true)\
+  ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'pm' %, true )% ) 
+//	%{Attr_Inst}%f_set_documentation(Определяет что есть данные для "[{}{%1N}%1D]")\
+  ( get_global_var ( 'Attr_Inst' ) %f set_documentation %( 'Определяет что есть данные для "'
+  if NOT-EMPTY
+  begin
+   %1 |D 
+  end // if
+  NOP
+  else
+  begin
+   %1 |N 
+  end // else
+)% ) //	]
+ end // if
+
+//f _NeedHas
+; // CastHas
+
+: NeedHas OBJECT IN %S
+//	[{%S#f_IsVCMAreaLink()!=true}{\
+ if ( ( %S %?f IsVCMAreaLink %( )% ) %!=  true ) then
+ begin
+
+//	[{%S{Need Has}!=false&"%S{Need Has}"!=""}{\
+//	[{%S{Need Has}!=false}{\
+  if ( ( %S get_up ( 'Need Has' ) ) %!=  false ) then
+  begin
+//	true\
+    true 
+//	]\
+  end // if
+  else
+  begin
+//	false\
+    false 
+//	}\
+  end // else
+//	]
+ end // if
+ else
+ begin
+//	[{%S{Need Has}=true}{false}true]\
+  if ( ( %S get_up ( 'Need Has' ) ) %==  true ) then
+  begin
+    true 
+  end // if
+  else
+  begin
+    false 
+  end // else
+//	}\
+ end // else
+//#UC END# *4B2A19E3038Bfor492E97E60140*
+; // NeedHas
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет является ли элемент контроллером прецедента
+//%f _IsUseCaseController
+implementation @ <<UseCaseController>>
+: IsUseCaseController OBJECT IN %S
+//#UC START# *494B7E8B02B1for492E97E60140*
+//	true
+ true
+//#UC END# *494B7E8B02B1for492E97E60140*
+; // IsUseCaseController
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа
+//%f _pas_TypeName
+: pas_TypeName OBJECT IN %S
+//#UC START# *4947F8AD02A1for492E97E60140*
+//@ %SU
+//	[I%P#f_pas_ElementPrefixBase()]%SN
+ if NOT-EMPTY
+ begin
+  'I'
+  %P %?f pas_ElementPrefixBase %( )% 
+ end // if
+ NOP
+ %S |N 
+//#UC END# *4947F8AD02A1for492E97E60140*
+; // pas_TypeName
+
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for492E97E60140*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for492E97E60140*
+; // constraint
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: UseCaseController::Class::area::Attribute
+end. // <<UseCaseController>>
+
+implementation @ :: <<UseCaseController>> <<area>> ;
+//? Область ввода
+//? Логика прецендента (UseCaseController) собирается из логики областей вывода.
+//? 
+//? Типы связи:
+//? link - прецедент сам содержит область вывода
+//? reference - ссылка на область вывода содержится в "данных прецедента" и порождается ещё свойства типа IvcmFormDataSourceRef.
+//? 
+//? Байда с reference нужна для поддержки существующего положения вещей с сохранением данных прецедента в историю, оставшейся в Наследство от Морозова. Обсуждение - [$127762441].
+//= AbstractFacet::Class::readonly::Attribute
+
+// Параметры стереотипа
+//l lr
+// - возможные типы связи атрибута
+
+// Пользовательские свойства
+//p Need Has:tribool=undefined ? Определяет, что надо генерировать свойство NeedXXX, где XXX - имя Area
+//p pm:b=true ? выводит методы для доступа к свойству в виде pm_Get/pm_Set, иначе Get_/Set_ - для переходного периода переноса исходников на модель
+//p required:tribool=undefined ? Определяет, что данную зону надо обязательно открывать при открытии прецедента
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for492EAC6D029A*
+//#UC END# *46E6D4BB0339for492EAC6D029A*
+; // wiki
+
+
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for492EAC6D029A*
+//#UC END# *47022BBE0261for492EAC6D029A*
+; // idl
+
+
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for492EAC6D029A*
+//#UC END# *47022C0F01E4for492EAC6D029A*
+; // idl_ami
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor492EAC6D029A*
+//#UC END# *47022CB8034Bfor492EAC6D029A*
+; // cpp
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor492EAC6D029A*
+//#UC END# *47022CCF00EAfor492EAC6D029A*
+; // i.h
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor492EAC6D029A*
+//#UC END# *470321C1038Afor492EAC6D029A*
+; // fctr.java
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for492EAC6D029A*
+//#UC END# *55B8D28B0157for492EAC6D029A*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for492EAC6D029A*
+//#UC END# *55B8D2F80145for492EAC6D029A*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for492EAC6D029A*
+//#UC END# *55B8DD9C0301for492EAC6D029A*
+; // res.cmd.pas
+
+
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for492EAC6D029A*
+//R  
+//	[{%S%f_IsVCMAreaLink()=true}   f_%SN: IvcmViewAreaControllerRef;]
+ if ( ( %S %f IsVCMAreaLink %( )% ) %==  true ) then
+ begin
+  '   f_'
+  %S |N ': IvcmViewAreaControllerRef;' 
+ end // if
+//#UC END# *4774D2A20372for492EAC6D029A*
+; // intf3.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{pm}"!="%S{!pm}"}%f_up_prefix(%S) *pm* = *%S{pm}* - выводит методы для доступа к свойству в виде pm_Get/pm_Set, иначе Get_/Set_ - для переходного периода переноса исходников на модель
+ ?inherited
+ if ( ( %S get_up ( 'pm' ) ) %!= ( %S get_up_def ( 'pm' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *pm* = *'
+  %S get_up ( 'pm' ) '* - выводит методы для доступа к свойству в виде pm_Get/pm_Set, иначе Get_/Set_ - для переходного периода переноса исходников на модель'
+//	][{"%S{Need Has}"!="%S{!Need Has}"}%f_up_prefix(%S) *Need Has* = *%S{Need Has}* - Определяет, что надо генерировать свойство NeedXXX, где XXX - имя Area
+ end // if
+ if ( ( %S get_up ( 'Need Has' ) ) %!= ( %S get_up_def ( 'Need Has' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *Need Has* = *'
+  %S get_up ( 'Need Has' ) '* - Определяет, что надо генерировать свойство NeedXXX, где XXX - имя Area'
+//	][{"%S{required}"!="%S{!required}"}%f_up_prefix(%S) *required* = *%S{required}* - Определяет, что данную зону надо обязательно открывать при открытии прецедента
+ end // if
+ if ( ( %S get_up ( 'required' ) ) %!= ( %S get_up_def ( 'required' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *required* = *'
+  %S get_up ( 'required' ) '* - Определяет, что данную зону надо обязательно открывать при открытии прецедента'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for492EAC6D029A*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for492EAC6D029A*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for492EAC6D029A*
+//#UC END# *470484D50138for492EAC6D029A*
+; // wiki_up_add_gen
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что стереотип описывает область ввода (как составную часть прецедента)
+//%f _IsVCMArea
+: IsVCMArea OBJECT IN %S
+//#UC START# *4A3665370285for492EAC6D029A*
+//	true
+ true
+//#UC END# *4A3665370285for492EAC6D029A*
+; // IsVCMArea
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что это Link на область ввода, а не Reference
+//%f _IsVCMAreaLink
+: IsVCMAreaLink OBJECT IN %S
+//#UC START# *4A37945D011Ffor492EAC6D029A*
+//	[{%Sl=lnk}{false}true]
+ if ( ( %S |l ) %== 'lnk' ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+   false 
+ end // else
+//#UC END# *4A37945D011Ffor492EAC6D029A*
+; // IsVCMAreaLink
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит тело метода
+// 
+// Modification = get|set|area|areareaf|o|r|f
+//%f _pas_MethodBodyPrim
+: pas_MethodBodyPrim OBJECT IN %S
+// параметры: Implementator: void = %1, Modification: void = %2, RealizeType: a-string = %3, aOverrider: MDAClass = %4
+//#UC START# *494BB3A201A2for492EAC6D029A*
+//#UC START# *494BB3A201A2for470F151302FD*
+//	[{%2N!=arearef}{
+ if ( ( %2 |N ) %!= 'arearef' ) then
+ begin
+//	[{%2N!=get}{
+  if ( ( %2 |N ) %!= 'get' ) then
+  begin
+//	%S%[inherited]f_pas_MethodBodyPrim(%1,%2)\
+   call-inherited pas_MethodBodyPrim %( %1 %, %2 )%
+//	]]
+  end // if
+  else
+  begin
+   #13#10
+
+//	%U[{_%f_pas_MethodOwnerID(%S,%1)%2N_var}\n]
+   %Usersection (
+    '_'
+    [%f] pas_MethodOwnerID %( %S %, %1 )% %2 |N '_var' 
+   )
+   (
+    #13#10 
+   ) // Usersection
+ //	begin
+   'begin'
+//	[{%S%f_IsVCMAreaLink()=true}{\
+   if ( ( %S %f IsVCMAreaLink %( )% ) %==  true ) then
+   begin
+//	 if (f_%SN = nil) then
+    ' if (f_'
+    %S |N ' = nil) then'
+//	 begin
+    ' begin'
+//	  f_%SN := TvcmViewAreaControllerRef.Make;
+    '  f_'
+    %S |N ' := TvcmViewAreaControllerRef.Make;'
+//	  %U[{_%f_pas_MethodOwnerID(%S,%1)%2N_init}
+    '  '
+    %Usersection (
+     '_'
+     [%f] pas_MethodOwnerID %( %S %, %1 )% %2 |N '_init' 
+    )
+    (
+     #13#10
+
+//	  // - код инициализации ссылки на ViewArea\n  ]
+     '  // - код инициализации ссылки на ViewArea'#13#10'  ' 
+    ) // Usersection
+ //	 end;//f_%SN = nil
+    ' end;//f_'
+    %S |N ' = nil'
+//	[{%Cx!=true}{\
+    if ( ( %C |x ) %!=  true ) then
+    begin
+    end // if
+    else
+    begin
+//	 if (f_%SN.NeedMake = vcm_nmNo) and %CN then
+     ' if (f_'
+     %S |N '.NeedMake = vcm_nmNo) and '
+     %C |N ' then'
+//	  f_%SN.NeedMake := vcm_nmYes;
+     '  f_'
+     %S |N '.NeedMake := vcm_nmYes;'
+//	}]\
+    end // else
+//	 if f_%SN.IsEmpty
+    ' if f_'
+    %S |N '.IsEmpty'
+//	  %U[{_%f_pas_MethodOwnerID(%S,%1)%2N_need}
+    '  '
+    %Usersection (
+     '_'
+     [%f] pas_MethodOwnerID %( %S %, %1 )% %2 |N '_need' 
+    )
+    (
+     #13#10
+
+//	  // - условие создания ViewArea\n  ]
+     '  // - условие создания ViewArea'#13#10'  ' 
+    ) // Usersection
+ //	  then
+    '  then'
+//	   f_%SN.Referred := %S%f_pas_MethodName("area")[(<{, }%CN>)];
+    '   f_'
+    %S |N '.Referred := '
+    %S %f pas_MethodName %( 'area' )% if NOT-EMPTY
+    begin
+     '('
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if true then
+      begin
+       if ( l_Counter >0 ) then ( ', ' )
+       %C |N 
+       ++! l_Counter
+      end // if
+     end // for C
+     ')' 
+    end // if
+    NOP
+    ';'
+//	 Result := %S%f_pas_ResultTypeName()(f_%SN.Referred);]
+    ' Result := '
+    %S %f pas_ResultTypeName %( )% '(f_'
+    %S |N '.Referred);' 
+   end // if
+   else
+   begin
+//	 with %S%f_pas_MethodName("arearef") do
+    ' with '
+    %S %f pas_MethodName %( 'arearef' )% ' do'
+//	 begin
+    ' begin'
+//	  if IsEmpty
+    '  if IsEmpty'
+//	   %U[{_%f_pas_MethodOwnerID(%S,%1)%2N_need}
+    '   '
+    %Usersection (
+     '_'
+     [%f] pas_MethodOwnerID %( %S %, %1 )% %2 |N '_need' 
+    )
+    (
+     #13#10
+
+//	   // - условие создания ViewArea\n  ]
+     '   // - условие создания ViewArea'#13#10'  ' 
+    ) // Usersection
+ //	   then
+    '   then'
+//	    Referred := %S%f_pas_MethodName("area")[(<{, }%CN>)];
+    '    Referred := '
+    %S %f pas_MethodName %( 'area' )% if NOT-EMPTY
+    begin
+     '('
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if true then
+      begin
+       if ( l_Counter >0 ) then ( ', ' )
+       %C |N 
+       ++! l_Counter
+      end // if
+     end // for C
+     ')' 
+    end // if
+    NOP
+    ';'
+//	  Result := %S%f_pas_ResultTypeName()(Referred);
+    '  Result := '
+    %S %f pas_ResultTypeName %( )% '(Referred);'
+//	 end;//with %S%f_pas_MethodName("arearef")\
+    ' end;//with '
+    %S %f pas_MethodName %( 'arearef' )% 
+//	}\
+   end // else
+//	end;\
+   'end;'
+//	}\
+  end // else
+ end // if
+ else
+ begin
+  #13#10
+
+//	begin
+  'begin'
+//	 Result := SetData.%SNRef;
+  ' Result := SetData.'
+  %S |N 'Ref;'
+//	end;\
+  'end;'
+//	}\
+ end // else
+//#UC END# *494BB3A201A2for492EAC6D029A*
+; // pas_MethodBodyPrim
+
+
+//: UseCaseController::Class::injects to::ClassDependency
+end. // :: <<UseCaseController>> <<area>> ;
+
+implementation @ :: <<UseCaseController>> <<"injects to">> ;
+//= ClassBaseGenerator::MDAGenerator
+
+// Пользовательские свойства
+//p needs default form:b=false ? 
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for5011502C019D*
+//#UC END# *46E6D4BB0339for5011502C019D*
+; // wiki
+
+
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor5011502C019D*
+//#UC END# *47022C88029Ffor5011502C019D*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor5011502C019D*
+//#UC END# *47022CB8034Bfor5011502C019D*
+; // cpp
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor5011502C019D*
+//#UC END# *47022CCF00EAfor5011502C019D*
+; // i.h
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for5011502C019D*
+//#UC END# *470321950119for5011502C019D*
+; // java
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor5011502C019D*
+//#UC END# *470321C1038Afor5011502C019D*
+; // fctr.java
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor5011502C019D*
+//#UC END# *470F1571031Cfor5011502C019D*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor5011502C019D*
+//#UC END# *470F15B800CBfor5011502C019D*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for5011502C019D*
+//#UC END# *477398E501C0for5011502C019D*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for5011502C019D*
+//#UC END# *55B8D28B0157for5011502C019D*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for5011502C019D*
+//#UC END# *55B8D2F80145for5011502C019D*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for5011502C019D*
+//#UC END# *55B8DD9C0301for5011502C019D*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{needs default form}"!="%S{!needs default form}"}%f_up_prefix(%S) *needs default form* = *%S{needs default form}*
+ ?inherited
+ if ( ( %S get_up ( 'needs default form' ) ) %!= ( %S get_up_def ( 'needs default form' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *needs default form* = *'
+  %S get_up ( 'needs default form' ) '*'
+//	]
+ end // if
+
+//%f _IsInjectsTo
+; // wiki_up_print
+
+: IsInjectsTo OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *50123F830077for5011502C019D*
+//	true
+ true
+//#UC END# *50123F830077for5011502C019D*
+; // IsInjectsTo
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for5011502C019D*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for5011502C019D*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor5011502C019D*
+//	dep
+ 'dep'
+//#UC END# *4705CBD6003Efor5011502C019D*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for5011502C019D*
+//#UC END# *470484D50138for5011502C019D*
+; // wiki_up_add_gen
+
+
+//: UseCaseController::Class::reflected by::ClassDependency
+end. // :: <<UseCaseController>> <<"injects to">> ;
+
+implementation @ :: <<UseCaseController>> <<"reflected by">> ;
+//? Ссылка на интерфейс для рефлексии
+//? Определяет что контроллер сохраняет свои данные в указанный интерфейс
+//= UseCaseController::Class::injects to::ClassDependency
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _IsReflectedBy
+; // st_space_key
+
+: IsReflectedBy OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *50123F9502DFfor5011434D0313*
+//	true
+ true
+//#UC END# *50123F9502DFfor5011434D0313*
+; // IsReflectedBy
+
+
+//: UseCaseController::Class::inited by::ClassDependency
+end. // :: <<UseCaseController>> <<"reflected by">> ;
+
+implementation @ :: <<UseCaseController>> <<"inited by">> ;
+//? Ссылка на интерфейс для инициализации
+//? Определяет, что данные объекты инициализируются указанным интерфейсом
+//= UseCaseController::Class::injects to::ClassDependency
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+//: UseCaseController::Class::readonly::Attribute
+; // st_space_key
+
+end. // :: <<UseCaseController>> <<"inited by">> ;
+
+implementation @ :: <<UseCaseController>> <<readonly>> ;
+//= AbstractFacet::Class::readonly::Attribute
+//= Reflectable::Class
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for501818650280*
+//#UC END# *46E6D4BB0339for501818650280*
+; // wiki
+
+
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for501818650280*
+//#UC END# *47022BBE0261for501818650280*
+; // idl
+
+
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for501818650280*
+//#UC END# *47022C0F01E4for501818650280*
+; // idl_ami
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor501818650280*
+//#UC END# *47022CB8034Bfor501818650280*
+; // cpp
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor501818650280*
+//#UC END# *47022CCF00EAfor501818650280*
+; // i.h
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor501818650280*
+//#UC END# *470321C1038Afor501818650280*
+; // fctr.java
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for501818650280*
+//#UC END# *55B8D28B0157for501818650280*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for501818650280*
+//#UC END# *55B8D2F80145for501818650280*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for501818650280*
+//#UC END# *55B8DD9C0301for501818650280*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[AbstractFacet::Class::readonly::Attribute]f_wiki_up_print()[{"%S{reflectable}"!="%S{!reflectable}"}%f_up_prefix(%S) *reflectable* = *%S{reflectable}*
+ call-inherited:: 'AbstractFacet::readonly::Attribute' wiki_up_print %( )%
+ if ( ( %S get_up ( 'reflectable' ) ) %!= ( %S get_up_def ( 'reflectable' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *reflectable* = *'
+  %S get_up ( 'reflectable' ) '*'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for501818650280*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for501818650280*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for501818650280*
+//#UC END# *470484D50138for501818650280*
+; // wiki_up_add_gen
+
+
+//: UseCaseController::Class::writeonly::Attribute
+end. // :: <<UseCaseController>> <<readonly>> ;
+
+implementation @ :: <<UseCaseController>> <<writeonly>> ;
+//= AbstractFacet::Class::writeonly::Attribute
+//= Reflectable::Class
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for50181882031B*
+//#UC END# *46E6D4BB0339for50181882031B*
+; // wiki
+
+
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for50181882031B*
+//#UC END# *47022BBE0261for50181882031B*
+; // idl
+
+
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for50181882031B*
+//#UC END# *47022C0F01E4for50181882031B*
+; // idl_ami
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor50181882031B*
+//#UC END# *47022CB8034Bfor50181882031B*
+; // cpp
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor50181882031B*
+//#UC END# *47022CCF00EAfor50181882031B*
+; // i.h
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor50181882031B*
+//#UC END# *470321C1038Afor50181882031B*
+; // fctr.java
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for50181882031B*
+//#UC END# *55B8D28B0157for50181882031B*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for50181882031B*
+//#UC END# *55B8D2F80145for50181882031B*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for50181882031B*
+//#UC END# *55B8DD9C0301for50181882031B*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[AbstractFacet::Class::writeonly::Attribute]f_wiki_up_print()[{"%S{reflectable}"!="%S{!reflectable}"}%f_up_prefix(%S) *reflectable* = *%S{reflectable}*
+ call-inherited:: 'AbstractFacet::writeonly::Attribute' wiki_up_print %( )%
+ if ( ( %S get_up ( 'reflectable' ) ) %!= ( %S get_up_def ( 'reflectable' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *reflectable* = *'
+  %S get_up ( 'reflectable' ) '*'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for50181882031B*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for50181882031B*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for50181882031B*
+//#UC END# *470484D50138for50181882031B*
+; // wiki_up_add_gen
+
+
+//: UseCaseController::Class::property::Attribute
+end. // :: <<UseCaseController>> <<writeonly>> ;
+
+implementation @ :: <<UseCaseController>> <<property>> ;
+//= AbstractFacet::Class::property::Attribute
+//= Reflectable::Class
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for5018188F009D*
+//#UC END# *46E6D4BB0339for5018188F009D*
+; // wiki
+
+
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for5018188F009D*
+//#UC END# *47022BBE0261for5018188F009D*
+; // idl
+
+
+// генератор idl спецификаций для AMI (.idl)
+//+ idl_ami
+<<generator>> idl_ami OBJECT IN %S
+//#UC START# *47022C0F01E4for5018188F009D*
+//#UC END# *47022C0F01E4for5018188F009D*
+; // idl_ami
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor5018188F009D*
+//#UC END# *47022CB8034Bfor5018188F009D*
+; // cpp
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor5018188F009D*
+//#UC END# *47022CCF00EAfor5018188F009D*
+; // i.h
+
+
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor5018188F009D*
+//#UC END# *470321C1038Afor5018188F009D*
+; // fctr.java
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for5018188F009D*
+//#UC END# *55B8D28B0157for5018188F009D*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for5018188F009D*
+//#UC END# *55B8D2F80145for5018188F009D*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for5018188F009D*
+//#UC END# *55B8DD9C0301for5018188F009D*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[AbstractFacet::Class::property::Attribute]f_wiki_up_print()[{"%S{reflectable}"!="%S{!reflectable}"}%f_up_prefix(%S) *reflectable* = *%S{reflectable}*
+ call-inherited:: 'AbstractFacet::property::Attribute' wiki_up_print %( )%
+ if ( ( %S get_up ( 'reflectable' ) ) %!= ( %S get_up_def ( 'reflectable' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *reflectable* = *'
+  %S get_up ( 'reflectable' ) '*'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // wiki_up_print
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for5018188F009D*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for5018188F009D*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for5018188F009D*
+//#UC END# *470484D50138for5018188F009D*
+; // wiki_up_add_gen
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<UseCaseController>> <<property>> ;
+

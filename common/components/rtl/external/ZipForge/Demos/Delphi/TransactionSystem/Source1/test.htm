@@ -1,0 +1,296 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./test.files/filelist.xml">
+<title>//FlexCompress Transaction system demo</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Monster</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>Monster</o:LastAuthor>
+  <o:Revision>1</o:Revision>
+  <o:TotalTime>0</o:TotalTime>
+  <o:Created>2002-07-31T14:54:00Z</o:Created>
+  <o:LastSaved>2002-07-31T14:54:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>313</o:Words>
+  <o:Characters>1786</o:Characters>
+  <o:Company>Home</o:Company>
+  <o:Lines>14</o:Lines>
+  <o:Paragraphs>3</o:Paragraphs>
+  <o:CharactersWithSpaces>2193</o:CharactersWithSpaces>
+  <o:Version>9.2812</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:2.0cm 42.5pt 2.0cm 3.0cm;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+</head>
+
+<body lang=RU style='tab-interval:35.4pt'>
+
+<div class=Section1>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'>//FlexCompress
+Transaction system demo.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='mso-ansi-language:EN-US'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal>unit uMain;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>interface<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>uses<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">  </span>Windows, Messages,
+SysUtils, Classes, Graphics, Controls, Forms, Dialogs,<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">  </span>StdCtrls, Buttons,
+FlexCompress;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>type<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">  </span>TfmMain =
+class(TForm)<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>Archiver:
+TFlexCompress;<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>bnStart: TBitBtn;<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>BitBtn2: TBitBtn;<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>Label1: TLabel;<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>procedure
+bnStartClick(Sender: TObject);<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>procedure
+BitBtn2Click(Sender: TObject);<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">  </span>private<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ Private
+declarations }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">  </span>public<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>{ Public
+declarations }<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">  </span>end;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>var<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">  </span>fmMain: TfmMain;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>implementation<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>{$R *.DFM}<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>procedure TfmMain.bnStartClick(Sender: TObject);<o:p></o:p></p>
+
+<p class=MsoNormal>begin<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>with Archiver do<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>begin<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>FileName :=
+'Archive\test.fxc';<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>// Create a
+new archive file<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">       
+</span>OpenArchive(fmCreate);<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>// Start a
+transaction<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>BeginUpdate;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>// Set path
+to folder with some HTML files to BaseDir<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>BaseDir :=
+'Source';<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>// Add all
+files from Source folder to the archive<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>try<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">         
+</span>AddFiles('*.*');<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>except<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">          </span>// If
+errors occurs rollback transaction. All modifications will be cancelled.<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">         
+</span>CancelUpdate;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">          </span>// Close
+archive and exit current procedure<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">         
+</span>CloseArchive;<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">         
+</span>ShowMessage('Error adding all files');<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">          </span>Exit;<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>end;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>// Set path
+to folder with some HTML files to BaseDir<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>BaseDir :=
+'Source1\';<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>// Add all
+HTML files from Source1 folder to the archive<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>try<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">         
+</span>AddFiles('*.htm?');<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>except<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">          </span>// If
+errors occurs rollback transaction. All modifications will be cancelled.<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">         
+</span>CancelUpdate;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">          </span>// Close
+archive and exit current procedure<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">         
+</span>CloseArchive;<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">         
+</span>ShowMessage('Error adding html files');<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">          </span>Exit;<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>end;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>// Commit a
+transaction. All modifications will be saved.<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>EndUpdate;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>// Set path
+to destination folder<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>BaseDir :=
+'Dest';<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>// Extract
+all files<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">       
+</span>ExtractFiles('*.*');<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>// Close the
+archive<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">        </span>CloseArchive;<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>end;<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes">    </span>ShowMessage('All
+files were added and extracted successfully.');<o:p></o:p></p>
+
+<p class=MsoNormal>end;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>procedure TfmMain.BitBtn2Click(Sender: TObject);<o:p></o:p></p>
+
+<p class=MsoNormal>begin<o:p></o:p></p>
+
+<p class=MsoNormal><span style="mso-spacerun: yes"> </span>Close;<o:p></o:p></p>
+
+<p class=MsoNormal>end;<o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>end.</p>
+
+</div>
+
+</body>
+
+</html>

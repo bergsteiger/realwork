@@ -1,0 +1,360 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Views items
+//////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////
+: Dialog::Class
+? Диалог
+= SimpleClass::Class
+p resizeable:b=false ? Может ли диалог изменять свой размер
+$ C 255,185,235
+$ l 240,10,200
+$ f 240,10,200
+
+L code_gui_dialog
+Y t4_dialog.gif
+
+%f _wiki_up_print
+%f _wiki_up_add_gen
+
+%t _constraint
+c        {}
+r {%ax=false&<{}{%aS=Dialog|%aS=PropertyPage|%aS=PropertySheet|%a%PS=PropertyPage|%a%PS=PropertySheet|%a%PS=Dialog}{C}>=0&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}: {%SS ни кем (включая прецеденты) не используется %ax<{,}%aN-%aS-%aC>}
+r {<{}{%GS=%SS&%S{resizeable}=true&%G{resizeable}!=true}{%GC}>!=0}:              {Resizeable %SS can't inherit from non resizeable %SS}
+
+%f _base_class_decl
+	: [{}{public [{%S{resizeable}=false}{WinGUI::ETSLayout}C]%SS}<{, }{%GS=%SS}public %f_type(%G)>]<{}{%GS!=%SS}, public %f_type(%G)> 
+
+%f _self_forward
+
+%f _specific_include
+	\#include "shared/Core/fix/win_afx.h"
+	\#include %f_dump_include_path(%P%PL,%P%P)
+	[{%S{resizeable}=true}\#include "shared/WinGUI/Controls/ETSLayout.h"
+	]%P%P<{}{%aM=ComTarget::Category}{Sp}\#include %f_dump_include_path(%f_with_gen_id(h,%aL),%a)>
+
+%f _ctor_n_dctor_h
+	#//////////////////////////////////////////////////////////////////////////////////////////
+	#// constructors and destructor
+	[{%Sa!=abstract&%SS!=PropertySheet}public:
+	#	enum { IDD = IDD_%f_to_upper(%f_to_omg(%SN)) };
+	
+	][{}{#public:
+	#	%SN ([{%Sa=abstract}UINT templ_id]);
+	
+	}[public:
+	<{}{"%CC"="Operation"&"%CS"="ctor"&"%CV"="PublicAccess"}{Sn}%CX
+	
+	>][#protected:
+	<{}{"%CC"="Operation"&"%CS"="ctor"&"%CV"!="PublicAccess"}{Sn}%CX
+	
+	>][%f_dump_cpp_derrived_constr_h(%S)]]#public:
+	#	[{%Sa!=final}virtual ]~%SN ();
+	]
+%f _ctor_n_dctor_cpp
+	//////////////////////////////////////////////////////////////////////////////////////////
+	// constructors and destructor\
+	[{}{
+	
+	%f_type(%S)::%SN ([{%Sa=abstract}UINT templ_id])
+		: %f_addit_init(%S)
+	%U[{_CTOR_BASE_INIT!cpp!}
+	]
+	{
+		%U[{_CTOR!cpp!}
+		]
+	}
+	}[<{}{"%CC"="Operation"&"%CS"="ctor"}{Sn}
+	
+	%CX>][
+	
+	%f_dump_cpp_derrived_constr_cpp(%S)]][
+	
+	%f_servant_cpp_destructor_cpp(%S)
+	]
+
+%f _auto_self_data_h
+/	[{%S{resizeable}=true}#	Core::Aptr\<WinGUI::LayoutHelper\> m_layout_helper;]
+
+%f _auto_self_methods_h
+	#	DECLARE_MESSAGE_MAP()
+	
+	[{%Sa!=abstract}#	DECLARE_[{%SS!=PropertyPage}{DYNCREATE}DYNAMIC](%SN)
+	
+	]#	virtual void DoDataExchange(CDataExchange* pDX);
+	
+	#	BOOL OnInitDialog ();[{%S{resizeable}=true&%Sa!=abstract}
+	
+	#	int OnCreate(LPCREATESTRUCT create_struct);
+	
+	#	void init_constraint ();]
+
+%f _auto_self_methods_cpp
+	BEGIN_MESSAGE_MAP(%f_type(%S), %f_base_dlg_class(%S))[{%S{resizeable}=true&%Sa!=abstract}
+		ON_WM_CREATE()]
+		%U[{_MESSAGE_MAP}
+		]
+	END_MESSAGE_MAP()
+	
+	[{%Sa!=abstract}IMPLEMENT_[{%SS!=PropertyPage}{DYNCREATE}DYNAMIC](%SN, C%SS)
+	
+	]void %f_type(%S)::DoDataExchange(CDataExchange* pDX) {
+		C%SS::DoDataExchange(pDX);
+		%U[{_DO_DATA_EXCHANGE}
+		]
+	}
+	
+	BOOL %f_type(%S)::OnInitDialog () {
+		BOOL ret = %f_base_dlg_class(%S)::OnInitDialog();
+		try {
+			%U[{_ON_INIT_DLG}
+			][{%S{resizeable}=true&%Sa!=abstract}
+	
+/			m_layout_helper = new WinGUI::LayoutHelper;
+/			m_layout_helper-\>layout_style () = WinGUI::LayoutHelper::DEFAULT_LAYOUT;
+/			m_layout_helper-\>attach_wnd(*this);
+/			m_layout_helper-\>add_child_controls();
+/	
+			this-\>init_constraint ();
+			UpdateLayout ();
+	]
+		} catch (...) {
+			::MessageBox (
+				0
+				, "В процессе инициализации диалога \\"%SN\\" произошло неизвестное исключение"
+				, "Ошибка"
+				, MB_ICONEXCLAMATION
+			);
+			this-\>EndDialog (IDCANCEL);
+		}
+		return ret;
+	}[{%S{resizeable}=true&%Sa!=abstract}
+	
+	int %f_type(%S)::OnCreate(LPCREATESTRUCT create_struct) {
+		this-\>ModifyStyle (DS_MODALFRAME, WS_THICKFRAME);
+		
+		return %f_base_dlg_class(%S)::OnCreate (create_struct);
+	}
+	
+	void %f_type(%S)::init_constraint () {
+		%U[{_CUSTOM_CONTROLS_CONSTRAINT}
+		]
+	}]
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= Servant::Class;wiki
+
+f _base_dlg_class
+	[{}{[{%S{resizeable}=false}{WinGUI::ETSLayout}C]%SS}<{}{%GS=%SS}%f_type(%G)>]
+
+: Dialog::Class::Parameter
+= SimpleClass::Class::Parameter
+
+: Dialog::Class::Operation
+= SimpleClass::Class::Operation
+
+: Dialog::Class::chg::Operation
+= SimpleClass::Class::chg::Operation
+
+: Dialog::Class::ctor::Operation
+= SimpleClass::Class::ctor::Operation
+%f _addit_init
+	%f_addit_init(%P)
+
+f _addit_init
+	%f_base_dlg_class(%S) ([{%SS!=PropertySheet}{""}[{%Sa=abstract}{%f_type(%S)::IDD}templ_id]][{%f_base_dlg_class(%S)=%SS}, 0])
+
+: Dialog::Class::oneway::Operation
+= SimpleClass::Class::oneway::Operation
+
+: Dialog::Class::oneway,chg::Operation
+= SimpleClass::Class::oneway,chg::Operation
+
+: Dialog::Class::static::Operation
+= SimpleClass::Class::static::Operation
+
+: Dialog::Class::Operation::Parameter
+= SimpleClass::Class::Operation::Parameter
+
+: Dialog::Class::Attribute
+= SimpleClass::Class::Attribute
+
+: Dialog::Class::cached::Attribute
+= SimpleClass::Class::cached::Attribute
+
+: Dialog::Class::mutable::Attribute
+= SimpleClass::Class::mutable::Attribute
+
+: Dialog::Class::static::Attribute
+= SimpleClass::Class::static::Attribute
+
+: Dialog::Class::uses::ClassDependency
+= SimpleClass::Class::uses::ClassDependency
+
+: Dialog::Class::friend::ClassDependency
+= SimpleClass::Class::friend::ClassDependency
+
+
+//////////////////////////////////////////////////////////////////////////////////
+: PropertySheet::Class
+? Диалог Свойств
+= Dialog::Class
+L code_gui_property_sheet
+Y t4_ps.gif
+
+: PropertySheet::Class::Parameter
+= SimpleClass::Class::Parameter
+
+: PropertySheet::Class::Operation
+= SimpleClass::Class::Operation
+
+: PropertySheet::Class::chg::Operation
+= SimpleClass::Class::chg::Operation
+
+: PropertySheet::Class::ctor::Operation
+= SimpleClass::Class::ctor::Operation
+
+: PropertySheet::Class::oneway::Operation
+= SimpleClass::Class::oneway::Operation
+
+: PropertySheet::Class::oneway,chg::Operation
+= SimpleClass::Class::oneway,chg::Operation
+
+: PropertySheet::Class::Operation::Parameter
+= SimpleClass::Class::Operation::Parameter
+
+: PropertySheet::Class::Attribute
+= SimpleClass::Class::Attribute
+
+: PropertySheet::Class::cached::Attribute
+= SimpleClass::Class::cached::Attribute
+
+: PropertySheet::Class::mutable::Attribute
+= SimpleClass::Class::mutable::Attribute
+
+: PropertySheet::Class::static::Attribute
+= Dialog::Class::static::Attribute
+
+: PropertySheet::Class::uses::ClassDependency
+= SimpleClass::Class::uses::ClassDependency
+
+: PropertySheet::Class::friend::ClassDependency
+= SimpleClass::Class::friend::ClassDependency
+
+//////////////////////////////////////////////////////////////////////////////////
+: PropertyPage::Class
+? Cтраница свойств
+? Элемент (страница) диалога свойств
+= Dialog::Class
+L code_gui_property_page
+Y t4_pp.gif 
+
+: PropertyPage::Class::Parameter
+= SimpleClass::Class::Parameter
+
+: PropertyPage::Class::Operation
+= SimpleClass::Class::Operation
+
+: PropertyPage::Class::chg::Operation
+= SimpleClass::Class::chg::Operation
+
+: PropertyPage::Class::ctor::Operation
+= SimpleClass::Class::ctor::Operation
+
+: PropertyPage::Class::oneway::Operation
+= SimpleClass::Class::oneway::Operation
+
+: PropertyPage::Class::oneway,chg::Operation
+= SimpleClass::Class::oneway,chg::Operation
+
+: PropertyPage::Class::Operation::Parameter
+= SimpleClass::Class::Operation::Parameter
+
+: PropertyPage::Class::Attribute
+= SimpleClass::Class::Attribute
+
+: PropertyPage::Class::cached::Attribute
+= SimpleClass::Class::cached::Attribute
+
+: PropertyPage::Class::mutable::Attribute
+= SimpleClass::Class::mutable::Attribute
+
+: PropertyPage::Class::static::Attribute
+= Dialog::Class::static::Attribute
+
+: PropertyPage::Class::uses::ClassDependency
+= SimpleClass::Class::uses::ClassDependency
+
+: PropertyPage::Class::friend::ClassDependency
+= SimpleClass::Class::friend::ClassDependency
+
+//////////////////////////////////////////////////////////////////////////////////
+: GuiControl::Class
+? Визуальный элемент управления
+= Dialog::Class
+L code_gui_control
+Y t4_gui_control.gif
+
+: GuiControl::Class::Parameter
+= Dialog::Class::Parameter
+
+: GuiControl::Class::Operation
+= Dialog::Class::Operation
+
+: GuiControl::Class::chg::Operation
+= Dialog::Class::chg::Operation
+
+: GuiControl::Class::ctor::Operation
+= Dialog::Class::ctor::Operation
+
+: GuiControl::Class::oneway::Operation
+= Dialog::Class::oneway::Operation
+
+: GuiControl::Class::oneway,chg::Operation
+= Dialog::Class::oneway,chg::Operation
+
+: GuiControl::Class::Operation::Parameter
+= Dialog::Class::Operation::Parameter
+
+: GuiControl::Class::Attribute
+= Dialog::Class::Attribute
+
+: GuiControl::Class::cached::Attribute
+= Dialog::Class::cached::Attribute
+
+: GuiControl::Class::mutable::Attribute
+= Dialog::Class::mutable::Attribute
+
+: GuiControl::Class::static::Attribute
+= Dialog::Class::static::Attribute
+
+: GuiControl::Class::uses::ClassDependency
+= Dialog::Class::uses::ClassDependency
+
+: GuiControl::Class::friend::ClassDependency
+= Dialog::Class::friend::ClassDependency
+
+: Resource::Class
+? Ресурсник
+? определяет набор дефайнов и описание русорсов библиотеки
+
+p need UC:b = false ? явно включает генерацию дополнительных секций Юзер-Кода
++ h
+O %SN.h
+# t0_h_header
+	<{\n}{}{%C}#define %CN %f_init(%C);[ // %CD]>
+	[{%S{need UC}=true}%U[
+	]]
+# t0_h_footer
+
++ rc
+O %SN.rc
+# t0_header
+	\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+	%U[
+	]
+# t0_footer
+
+: Resource::Class::Attribute
+? дефайны

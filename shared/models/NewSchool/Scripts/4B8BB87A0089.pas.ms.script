@@ -1,0 +1,184 @@
+// l3DictionaryPrim 4B8BB87A0089 Impurity Class
+
+FORWARD ME_4B8BB87A0089
+
+: ME_5303777501B4
+ CONST UID '5303777501B4'
+ CONST Name 'IDIndexType'
+ CONST Class 'Class'
+ CONST Stereotype 'ImpurityParamType'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+
+ @SELF
+; // ME_5303777501B4 IDIndexType
+
+: ME_4B88D4E500F9
+ CONST UID '4B88D4E500F9'
+ CONST Name 'THackIndex'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Хак' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_5303777501B4 // IDIndexType
+ ]
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4B88D4E500F9 THackIndex
+
+INCLUDE '53148D6A00AE.pas.ms.script'
+
+INCLUDE '4A5CB93700CF.pas.ms.script'
+
+INCLUDE '4B8688ED0168.pas.ms.script'
+
+INCLUDE '4B8689C60111.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+INCLUDE '47A74A5F0123.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+INCLUDE '47B3245E0148.pas.ms.script'
+
+: ME_4B8BB9E4023D
+ CONST UID '4B8BB9E4023D'
+ CONST Name 'f_IDIndex'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'lnk'
+ : Target ME_5303777501B4 // IDIndexType
+ ;
+
+ @SELF
+; // ME_4B8BB9E4023D f_IDIndex
+
+FORWARD ME_4B8BBA220048
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4B8BBA22004A
+ CONST UID '4B8BBA22004A'
+ CONST Name 'anID'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4B8BBA22004A anID
+
+: ME_4B8BBA220048
+ CONST UID '4B8BBA220048'
+ CONST Name 'DRByID'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ %SUMMARY 'Элемент по идентификатору' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'lnk'
+ : Target ME_530373420000 // StringType
+ ;
+ : Attributes
+   [ ME_4B8BBA22004A // anID
+ ]
+ ; // Attributes
+ CONST "needs field" false
+ CONST "pm" true
+
+ @SELF
+; // ME_4B8BBA220048 DRByID
+
+: ME_5303778501DC
+ CONST UID '5303778501DC'
+ CONST Name 'IDIndexType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity param'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_5303777501B4 // IDIndexType
+ ;
+
+ @SELF
+; // ME_5303778501DC IDIndexType
+
+: ME_4B8BBAA800AB
+ CONST UID '4B8BBAA800AB'
+ CONST Name 'ControlFindByID'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_4B8BBAA800AB ControlFindByID
+
+: ME_4B8BB87A0089
+ CONST UID '4B8BB87A0089'
+ CONST Name 'l3DictionaryPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_53148D6A00AE // l3DictionaryPrimPrim
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_4A5CB93700CF // Ml3Unknown
+ ME_4B8688ED0168 // Ml3Items
+ ME_4B8689C60111 // Ml3TypedListPrim
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_4B8BB9E4023D // f_IDIndex
+ ME_4B8BBA220048 // DRByID
+ ME_5303778501DC // IDIndexType
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4B8BBAA800AB // ControlFindByID
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479F2AFB0397 // Release
+ ME_47A042E100E2 // InitFields
+ ME_47B1C16D0188 // Clear
+ ME_47B49EC50034 // DirectInsert
+ ME_47B5AE6B0294 // Sort
+ ME_47B98F7E03A7 // DoFindInsertionPlace
+ ME_4B87FCF8038B // BeforeFreeItem
+ ]
+ ; // Overridden
+ : Children
+   [ ME_5303777501B4 // IDIndexType
+ ME_4B88D4E500F9 // THackIndex
+ ]
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '01.03.2010 15:52'
+
+ @SELF
+; // ME_4B8BB87A0089 l3DictionaryPrim

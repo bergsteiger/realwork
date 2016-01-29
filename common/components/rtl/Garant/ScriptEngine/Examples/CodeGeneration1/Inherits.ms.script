@@ -1,0 +1,37 @@
+USES
+ NoCapsLock.ms.dict
+ InheritsAndImplementsNew.ms.dict
+ Testing.ms.dict
+;
+
+Test&Dump InheritsTest
+
+ : A
+ ; // A
+
+ : B
+ ; // B
+
+ : C
+  Inherits ( A B )
+ ; // C
+ 
+ : I1
+ ; // I1
+ 
+ : I2
+ ; // I2
+ 
+ : D
+  Inherits A
+  Implements ( I1 I2 )
+ ; // D
+ 
+ : E
+  Inherits A
+  Implements I1
+ ; // D
+ 
+; // InheritsTest
+
+InheritsTest

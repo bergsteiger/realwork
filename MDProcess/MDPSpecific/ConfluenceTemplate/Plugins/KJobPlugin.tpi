@@ -1,0 +1,103 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MDPSpecific/ConfluenceTemplate/Plugins/KJobPlugin.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess::MDPSpecific::ConfluenceTemplate::Plugins::KJobPlugin
+//
+// Плагин-job
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: KJobPlugin::Class
+? Плагин-job
+= ClassPluginBase::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+v +#-
+/ - типы видимости
+a raf
+/ - тип абстракции
+Y code_cplugin.gif
+L code_cplugin
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p repeated:b=false ? определяет повторяемый ли триггер
+p cron-expression:s ? выражение для шедулера
+p repeat-count:s ? число повторений
+p repeat-interval:s ? интервал повторения
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{repeated}"!="%S{!repeated}"}%f_up_prefix(%S) *repeated* = *%S{repeated}* - определяет повторяемый ли триггер
+	][{"%S{cron-expression}"!="%S{!cron-expression}"}%f_up_prefix(%S) *cron-expression* = *%S{cron-expression}* - выражение для шедулера
+	][{"%S{repeat-count}"!="%S{!repeat-count}"}%f_up_prefix(%S) *repeat-count* = *%S{repeat-count}* - число повторений
+	][{"%S{repeat-interval}"!="%S{!repeat-interval}"}%f_up_prefix(%S) *repeat-interval* = *%S{repeat-interval}* - интервал повторения
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа ClassPluginBase::Class
+// генерация иерархии наследования конкретного плагина
+%f _java_base_class_decl
+//#UC START# *4704D85102BFfor4704BAFD03C8*
+	[{%Gx=false}{%f_java_base(%S)} extends AbstractJob[{%Rx=true} implements <{, }{}%RN>]]
+//#UC END# *4704D85102BFfor4704BAFD03C8*
+
+// перекрытие базового стереотипа ClassPluginBase::Class
+// генерация импорта классов необходимых конкретному плагину
+%f _java_servant_import_self
+//#UC START# *4704D854007Dfor4704BAFD03C8*
+	import org.quartz.JobExecutionException;
+	import org.quartz.JobExecutionContext;
+	import com.atlassian.quartz.jobs.AbstractJob;
+//#UC END# *4704D854007Dfor4704BAFD03C8*
+
+// перекрытие базового стереотипа ClassPluginBase::Class
+// генерация специфического контента (методы, операции) плагина
+%f _servant_content_java
+//#UC START# *4704D85602FDfor4704BAFD03C8*
+	#	public void doExecute (JobExecutionContext jec) throws JobExecutionException {
+	#		%U[{_DO_EXECUTE_IMPLEMETATION}
+	#		]
+	#	}
+//#UC END# *4704D85602FDfor4704BAFD03C8*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for4704BAFD03C8*
+c                              {}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%aS=UseCase}{C}>=0}: {%SS ни кем (включая прецеденты) не используется}
+r {<{}{%gS!=%SS}{C}>!=0&<{}{%gS=%SS}{C}>=0}: {%SS должен напрямую или опосредованно наследоваться от %SS}
+
+//#UC END# *4704C0E30186for4704BAFD03C8*
+
+// перекрытие базового стереотипа Проектные файлы Java::MDAGenerator
+// генератор файлов с описанием плагинов для Confluence
++ output.xml
+//#UC START# *4703223D01A5for4704BAFD03C8*
+	[{%Sa!=abstract}%f_dump_plugin_xml(%S)\
+	%f_set_var(TRIGGER,"%f_str_replace([{%S{repeated}=true}{[\<schedule cron-expression="%S{cron-expression}" /\>]}\<schedule repeat-interval="%S{repeat-interval}" [{"%S{repeat-count}"!=""}repeat-count="%S{repeat-count}"] /\>], """""", """")")[{"%{TRIGGER}N"!=""}
+	\t\<trigger name="%SNTrigger" key="%f_dump_java_package(%S).%SNTrigger"\>
+	\t	\<job key="%f_dump_java_package(%S).%SN"/\>
+	\t	%{TRIGGER}N
+	\t\</trigger\>
+	]]
+//#UC END# *4703223D01A5for4704BAFD03C8*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

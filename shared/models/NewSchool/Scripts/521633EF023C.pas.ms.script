@@ -1,0 +1,71 @@
+// Document 521633EF023C VCMUseCase Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_521633EF023C
+
+: ME_5216340000E6
+ CONST UID '5216340000E6'
+ CONST Name 'Document'
+ CONST Class class_Class
+ : Stereotype st_VCMUseCaseRealization ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Документ' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_521633EF023C // Document
+ ;
+ : Inherits
+   @ ( WL 'ME_5216345D004A' '5216343A0088.pas.ms.script' // Document
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\SandBox\VCM\View\moDocument.pas'
+ CONST extprop:pas:TypeName 'Tmo_Document'
+
+ref; // ME_5216340000E6 Document$UC
+
+: ME_521633EF023C
+ CONST UID '521633EF023C'
+ CONST Name 'Document'
+ CONST Class class_Category
+ : Stereotype st_VCMUseCase ;
+ %SUMMARY 'Работа с документом' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent WL 'ME_521632B1034E' '521632B1034E.pas.ms.script' // Shared Delphi Sand Box$UC
+ ;
+ : Children
+   @ ( ME_5216340000E6 // Document$UC
+ WL 'ME_5216341A01BF' '5216341A01BF.pas.ms.script' // View
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ WL 'ME_4790B4F00236' '4790B4F00236.pas.ms.script' // AFW
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+ WL 'ME_5214D28E024C' '5214D28E024C.pas.ms.script' // dd$AppConfig
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "vendor" 'none'
+ : Generators
+ @ (
+ gen_forth_structure
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Sand Box$UC\Document\Document.model.script'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\521633EF023C.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\521633EF023C.pas.ms.script.runner'
+
+ref; // ME_521633EF023C Document

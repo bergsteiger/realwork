@@ -1,0 +1,26 @@
+HKCR
+{
+	QCFileComponents.QCTextStream.1 = s 'QCTextStream Class'
+	{
+		CLSID = s '{E0FE23B0-93BC-4786-91D8-AE51F6696172}'
+	}
+	QCFileComponents.QCTextStream = s 'QCTextStream Class'
+	{
+		CLSID = s '{E0FE23B0-93BC-4786-91D8-AE51F6696172}'
+		CurVer = s 'QCFileComponents.QCTextStream.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E0FE23B0-93BC-4786-91D8-AE51F6696172} = s 'QCTextStream Class'
+		{
+			ProgID = s 'QCFileComponents.QCTextStream.1'
+			VersionIndependentProgID = s 'QCFileComponents.QCTextStream'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{AA5B6FB8-FC61-4A34-ABDA-734282E7FE43}'
+		}
+	}
+}

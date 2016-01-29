@@ -1,0 +1,93 @@
+// Samples 5226F7CC03C6 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5226F7CC03C6
+
+: ME_5226F85800FA
+ CONST UID '5226F85800FA'
+ CONST Name 'Spin'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5226F7CC03C6 // Samples
+ ;
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Samples\Spin.pas'
+
+ref; // ME_5226F85800FA Spin
+
+FORWARD ME_53E0F45F02B2
+
+: ME_53E491DB0065
+ CONST UID '53E491DB0065'
+ CONST Name 'TGauge'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_53E0F45F02B2 // Gauges
+ ;
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_53E491DB0065 TGauge
+
+: ME_53E0F45F02B2
+ CONST UID '53E0F45F02B2'
+ CONST Name 'Gauges'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5226F7CC03C6 // Samples
+ ;
+ : Children
+   @ ( ME_53E491DB0065 // TGauge
+ ) .SequenceCode.It
+ ; // Children
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Samples\Gauges.pas'
+
+ref; // ME_53E0F45F02B2 Gauges
+
+: ME_5226F7CC03C6
+ CONST UID '5226F7CC03C6'
+ CONST Name 'Samples'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_5226F61C0109' '5226F61C0109.pas.ms.script' // Samples
+ ;
+ : Children
+   @ ( ME_5226F85800FA // Spin
+ ME_53E0F45F02B2 // Gauges
+ ) .SequenceCode.It
+ ; // Children
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5226F7CC03C6.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5226F7CC03C6.pas.ms.script.runner'
+
+ref; // ME_5226F7CC03C6 Samples

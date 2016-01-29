@@ -1,0 +1,1476 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+
+<!DOCTYPE ru.garant.extensions SYSTEM "../../ru.garant/extensions.dtd">
+
+<project
+	name = "scriptset.garantF1-tests"
+	basedir = "."
+	default = "default"
+>
+
+	<!--
+		apache `ant` script [http://ant.apache.org]
+
+		required third party jars {
+			bsf.jar:               [http://jakarta.apache.org/bsf]
+			commons-logging-*.jar: [http://jakarta.apache.org/commons/logging]
+
+			js.jar:                [http://www.mozilla.org/rhino]
+		}
+	-->
+
+<!-- external uses { -->
+	<!-- properties { -->
+		&ru.garant.extensions.properties.cppBuildMaxCyclesCount;
+
+		&ru.garant.extensions.properties.cvsRoot;
+		&ru.garant.extensions.properties.cvsUpdateMaxCyclesCount;
+
+		&ru.garant.extensions.properties.externalMountPath;
+		&ru.garant.extensions.properties.externalMountRoot;
+
+		&ru.garant.extensions.properties.signDescription;
+		&ru.garant.extensions.properties.signDescriptionURL;
+		&ru.garant.extensions.properties.signSHA1;
+		&ru.garant.extensions.properties.signTargetMaxCyclesCount;
+		&ru.garant.extensions.properties.signTimestampServer;
+
+		&ru.garant.extensions.properties.svnRoot;
+		&ru.garant.extensions.properties.svnUpdateMaxCyclesCount;
+
+		&ru.garant.extensions.properties.workRootDir;
+	<!-- } properties -->
+
+	<!-- scriptdefs { -->
+		&ru.garant.extensions.scriptdefs.buildCppTarget;
+		&ru.garant.extensions.scriptdefs.buildPasTarget;
+
+		&ru.garant.extensions.scriptdefs.cleanupAllFiles;
+
+		&ru.garant.extensions.scriptdefs.cleanupCppBuilds;
+		&ru.garant.extensions.scriptdefs.cleanupPasBuilds;
+
+		&ru.garant.extensions.scriptdefs.cleanupCvsByOutput;
+
+		&ru.garant.extensions.scriptdefs.cleanupSvnByPath;
+
+		&ru.garant.extensions.scriptdefs.copyDirToDir;
+
+		&ru.garant.extensions.scriptdefs.copyFile;
+		&ru.garant.extensions.scriptdefs.copyFileToDir;
+
+		&ru.garant.extensions.scriptdefs.copyCppTarget;
+
+		&ru.garant.extensions.scriptdefs.createFile;
+		&ru.garant.extensions.scriptdefs.removeFile;
+
+		&ru.garant.extensions.scriptdefs.manifestTarget;
+
+		&ru.garant.extensions.scriptdefs.mountResource;
+		&ru.garant.extensions.scriptdefs.unmountResource;
+
+		&ru.garant.extensions.scriptdefs.setCvsTagByList;
+		&ru.garant.extensions.scriptdefs.updateCvsByList;
+
+		&ru.garant.extensions.scriptdefs.setSvnTagByList;
+		&ru.garant.extensions.scriptdefs.updateSvnByList;
+
+		&ru.garant.extensions.scriptdefs.signTarget;
+	<!-- } scriptdefs -->
+<!-- } external uses -->
+
+<!-- properties { -->
+	<property
+		name = "properties.buildOutputMountPath"
+		value = "\\10.14.3.205\garant-nemesis"
+	/>
+
+	<property
+		name = "properties.buildOutputMountRoot"
+		value = "N:"
+	/>
+
+	<property
+		name = "properties.buildOutputMountRoot.deploymentCatalog"
+		value = "${properties.buildOutputMountRoot}/deployment"
+	/>
+
+	<property
+		name = "properties.buildRoot"
+		value = "${ru.garant.extensions.properties.workRootDir}/build"
+	/>
+
+	<property
+		name = "properties.buildSuccessName"
+		value = "!success-tests"
+	/>
+
+	<property
+		name = "properties.buildSuccessFile"
+		value = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/${properties.buildSuccessName}"
+	/>
+
+	<property
+		name = "properties.cppTargetDefaultConfig32"
+		value = "Release|Win32"
+	/>
+
+	<property
+		name = "properties.cppTargetDefaultConfig64"
+		value = "Release|x64"
+	/>
+
+	<property
+		name = "properties.cppTargetDefaultFolder"
+		value = "bin/Release_Static"
+	/>
+
+	<property
+		name = "properties.cppTargetReleaseConfig32"
+		value = "Final|Win32"
+	/>
+
+	<property
+		name = "properties.cppTargetReleaseConfig64"
+		value = "Final|x64"
+	/>
+
+	<property
+		name = "properties.cppTargetReleaseFolder"
+		value = "bin/Final_Static"
+	/>
+
+	<property
+		name = "properties.cppTargetRootDir"
+		value = "${ru.garant.extensions.properties.workRootDir}"
+	/>
+
+	<property
+		name = "properties.cvsDirsetListForTagging"
+		value = "build_scripts,common,garant6x,garantPIL,garantServer,garsock,quality,shared"
+	/>
+
+	<property
+		name = "properties.cvsDirsetListForUpdate"
+		value = "common,garant6x,garantPIL,garantServer,garsock,quality,shared"
+	/>
+
+	<property
+		name = "properties.cvsRootDir"
+		value = "${ru.garant.extensions.properties.workRootDir}"
+	/>
+
+	<property
+		name = "properties.cvsTagName"
+		value = "!cvs_tag-tests"
+	/>
+
+	<property
+		name = "properties.cvsTagFile"
+		value = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/${properties.cvsTagName}"
+	/>
+
+	<property
+		name = "properties.externalMountPath"
+		value = "${ru.garant.extensions.properties.externalMountPath}"
+	/>
+
+	<property
+		name = "properties.externalMountPathRevision"
+		value = "msvc090only-current"
+	/>
+
+	<property
+		name = "properties.externalMountPath.win64"
+		value = "${properties.externalMountPath}/${properties.externalMountPathRevision}/win64"
+	/>
+
+	<property
+		name = "properties.externalMountPath.winNT-garsock"
+		value = "${properties.externalMountPath}/${properties.externalMountPathRevision}/winNT+stlport"
+	/>
+
+	<property
+		name = "properties.externalMountPath.winNT+garsock"
+		value = "${properties.externalMountPath}/${properties.externalMountPathRevision}/winNT+stlport+garsock"
+	/>
+
+	<property
+		name = "properties.externalMountRoot"
+		value = "${ru.garant.extensions.properties.externalMountRoot}"
+	/>
+
+	<property
+		name = "properties.flashRevision"
+		value = "9d"
+	/>
+
+	<property
+		name = "properties.pasTargetConfigsPath"
+		value = "${basedir}/delphi.configs-${properties.delphi.suffix}"
+	/>
+
+	<property
+		name = "properties.pasTargetRootDir"
+		value = "${ru.garant.extensions.properties.workRootDir}"
+	/>
+<!-- } properties -->
+
+<!-- conditions { -->
+	<condition property = "disable-buildCppTargets.win64">
+		<isset property = "disable-buildCppTargets"/>
+	</condition>
+
+	<condition property = "disable-buildCppTargets.winNT">
+		<isset property = "disable-buildCppTargets"/>
+	</condition>
+
+	<condition property = "disable-buildCppTargets.winNT-garsock">
+		<isset property = "disable-buildCppTargets.winNT"/>
+	</condition>
+
+	<condition property = "disable-buildCppTargets.winNT+garsock">
+		<isset property = "disable-buildCppTargets.winNT"/>
+	</condition>
+
+	<condition property = "disable-copyPasOtherFilesToDeploymentCatalog">
+		<isset property = "disable-buildPasTargets"/>
+	</condition>
+
+	<condition property = "disable-buildPasTargets.winXX-console">
+		<isset property = "disable-buildPasTargets"/>
+	</condition>
+
+	<condition property = "disable-buildPasTargets.winXX+console">
+		<isset property = "disable-buildPasTargets"/>
+	</condition>
+
+	<condition property = "disable-copyCppOtherFilesToDeploymentCatalog">
+		<isset property = "disable-buildCppTargets"/>
+	</condition>
+
+	<condition property = "disable-copyCppTargetsToDeploymentCatalog.win64">
+		<isset property = "disable-buildCppTargets.win64"/>
+	</condition>
+
+	<condition property = "disable-copyCppTargetsToDeploymentCatalog.winNT-garsock">
+		<isset property = "disable-buildCppTargets.winNT-garsock"/>
+	</condition>
+
+	<condition property = "disable-copyCppTargetsToDeploymentCatalog.winNT+garsock">
+		<isset property = "disable-buildCppTargets.winNT+garsock"/>
+	</condition>
+
+	<condition property = "disable-copyPasTargetsToDeploymentCatalog.winXX-console">
+		<isset property = "disable-buildPasTargets.winXX-console"/>
+	</condition>
+
+	<condition property = "disable-copyPasTargetsToDeploymentCatalog.winXX+console">
+		<isset property = "disable-buildPasTargets.winXX+console"/>
+	</condition>
+<!-- } conditions -->
+
+<!-- targets { -->
+	<target
+		name = "buildCppTargets"
+		depends = "copyCppTargetsToDeploymentCatalog.win64,buildCppTargets.winNT,copyCppOtherFilesToDeploymentCatalog"
+		unless = "disable-buildCppTargets"
+	>
+
+<!--
+		// do nothing
+-->
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // buildCppTargets -->
+
+	<target
+		name = "buildCppTargets.win64"
+		depends = "updateCvs"
+		unless = "disable-buildCppTargets.win64"
+	>
+		<ru.garant.extensions.scriptdefs.cleanupCppBuilds
+		/>
+
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.externalMountRoot}"
+			mount.path = "${properties.externalMountPath.win64}"
+		/>
+
+<!-- -->
+<!--
+		// empty
+-->
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.externalMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // buildCppTargets.win64 -->
+
+	<target
+		name = "buildCppTargets.winNT"
+		depends = "copyCppTargetsToDeploymentCatalog.winNT-garsock,copyCppTargetsToDeploymentCatalog.winNT+garsock"
+		unless = "disable-buildCppTargets.winNT"
+	>
+
+<!--
+		// do nothing
+-->
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // buildCppTargets.winNT -->
+
+	<target
+		name = "buildCppTargets.winNT-garsock"
+		depends = "updateCvs"
+		unless = "disable-buildCppTargets.winNT-garsock"
+	>
+		<ru.garant.extensions.scriptdefs.cleanupCppBuilds
+		/>
+
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.externalMountRoot}"
+			mount.path = "${properties.externalMountPath.winNT-garsock}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.buildCppTarget
+			cpp.target = "garsock_redirector"
+			cpp.target.project.path = "garsock/garsock.sln"
+
+			cpp.target.default.config = "${properties.cppTargetDefaultConfig32}"
+			cpp.target.release.config = "${properties.cppTargetReleaseConfig32}"
+
+			cpp.target.root.dir = "${properties.cppTargetRootDir}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.buildCppTarget
+			cpp.target = "T_GblAdapterClient"
+			cpp.target.project.path = "garant6x/implementation/Garant/project/garant6x.sln"
+
+			cpp.target.default.config = "${properties.cppTargetDefaultConfig32}"
+			cpp.target.release.config = "${properties.cppTargetReleaseConfig32}"
+
+			cpp.target.root.dir = "${properties.cppTargetRootDir}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.buildCppTarget
+			cpp.target = "T_HCAdapter"
+			cpp.target.project.path = "garant6x/implementation/Garant/project/garant6x.sln"
+
+			cpp.target.default.config = "${properties.cppTargetDefaultConfig32}"
+			cpp.target.release.config = "${properties.cppTargetReleaseConfig32}"
+
+			cpp.target.root.dir = "${properties.cppTargetRootDir}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.buildCppTarget
+			cpp.target = "TCPSendRecvTest"
+			cpp.target.project.path = "shared/PerformanceTests/TCPSendRecvTest/TCPSendRecvTest.sln"
+
+			cpp.target.default.config = "${properties.cppTargetDefaultConfig32}"
+			cpp.target.release.config = "${properties.cppTargetReleaseConfig32}"
+
+			cpp.target.root.dir = "${properties.cppTargetRootDir}"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.externalMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // buildCppTargets.winNT-garsock -->
+
+	<target
+		name = "buildCppTargets.winNT+garsock"
+		depends = "updateCvs"
+		unless = "disable-buildCppTargets.winNT+garsock"
+	>
+		<ru.garant.extensions.scriptdefs.cleanupCppBuilds
+		/>
+
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.externalMountRoot}"
+			mount.path = "${properties.externalMountPath.winNT+garsock}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.buildCppTarget
+			cpp.target = "garsock"
+			cpp.target.project.path = "garsock/garsock.sln"
+
+			cpp.target.default.config = "${properties.cppTargetDefaultConfig32}"
+			cpp.target.release.config = "${properties.cppTargetReleaseConfig32}"
+
+			cpp.target.root.dir = "${properties.cppTargetRootDir}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.buildCppTarget
+			cpp.target = "T_CSAdapter"
+			cpp.target.project.path = "garantPIL/implementation/Projects/garant_main.sln"
+
+			cpp.target.default.config = "${properties.cppTargetDefaultConfig32}"
+			cpp.target.release.config = "${properties.cppTargetReleaseConfig32}"
+
+			cpp.target.root.dir = "${properties.cppTargetRootDir}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.buildCppTarget
+			cpp.target = "T_GblAdapterServer"
+			cpp.target.project.path = "garant6x/implementation/Garant/project/garant6x.sln"
+
+			cpp.target.default.config = "${properties.cppTargetDefaultConfig32}"
+			cpp.target.release.config = "${properties.cppTargetReleaseConfig32}"
+
+			cpp.target.root.dir = "${properties.cppTargetRootDir}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.buildCppTarget
+			cpp.target = "TCPSendRecvTest"
+			cpp.target.project.path = "shared/PerformanceTests/TCPSendRecvTest/TCPSendRecvTest.sln"
+
+			cpp.target.default.config = "${properties.cppTargetDefaultConfig32}"
+			cpp.target.release.config = "${properties.cppTargetReleaseConfig32}"
+
+			cpp.target.root.dir = "${properties.cppTargetRootDir}"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.externalMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // buildCppTargets.winNT+garsock -->
+
+	<target
+		name = "buildPasTargets"
+		depends = "copyPasTargetsToDeploymentCatalog.winXX-console,copyPasTargetsToDeploymentCatalog.winXX+console,copyPasOtherFilesToDeploymentCatalog"
+		unless = "disable-buildPasTargets"
+	>
+
+<!--
+		// do nothing
+-->
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // buildPasTargets -->
+
+	<target
+		name = "buildPasTargets.winXX-console"
+		depends = "updateCvs"
+		unless = "disable-buildPasTargets.winXX-console"
+	>
+		<ru.garant.extensions.scriptdefs.cleanupPasBuilds
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.buildPasTarget
+			pas.target.project.name = "AdapterTest.dpr"
+			pas.target.compile.name = "F1AdapterTest.dpr"
+
+			pas.target.config.file = "${properties.pasTargetRootDir}/quality/test/garant6x/AdapterTest/_cfg/F1AdapterTest.cfg"
+
+			pas.target.root.dir = "${properties.pasTargetRootDir}/quality/test/garant6x/AdapterTest"
+		/>
+
+		<ru.garant.extensions.scriptdefs.buildPasTarget
+			pas.target.project.name = "DailyTest.dpr"
+			pas.target.compile.name = "DailyTest.dpr"
+
+			pas.target.config.file = "${properties.pasTargetRootDir}/common/components/DailyTest/_cfg/DailyTest.cfg"
+			pas.target.root.dir = "${properties.pasTargetRootDir}/common/components/DailyTest"
+		/>
+
+		<ru.garant.extensions.scriptdefs.buildPasTarget
+			pas.target.project.name = "SearchTest.dpr"
+			pas.target.compile.name = "SearchTest.dpr"
+
+			pas.target.config.file = "${properties.pasTargetRootDir}/common/components/SearchTest/_cfg/SearchTest.cfg"
+			pas.target.root.dir = "${properties.pasTargetRootDir}/common/components/SearchTest"
+		/>
+
+		<ru.garant.extensions.scriptdefs.buildPasTarget
+			pas.target.project.name = "FlashViewer.dpr"
+			pas.target.compile.name = "FlashViewer.dpr"
+
+			pas.target.config.file = "${properties.pasTargetRootDir}/garant6x/implementation/Garant/ExtendUtils/FlashViewer/_cfg/FlashViewer.cfg"
+
+			pas.target.root.dir = "${properties.pasTargetRootDir}/garant6x/implementation/Garant/ExtendUtils/FlashViewer"
+		/>
+
+<!-- HCAdapterTest
+		<ru.garant.extensions.scriptdefs.buildPasTarget
+			pas.target.project.name = "HCAdapterTest.dpr"
+			pas.target.compile.name = "HCAdapterTest.dpr"
+
+			pas.target.config.file = "${properties.pasTargetRootDir}/garant6x/test/implementation/HCAdapter/_cfg/HCAdapterTest.cfg"
+
+			pas.target.root.dir = "${properties.pasTargetRootDir}/garant6x/test/implementation/HCAdapter"
+		/>
+HCAdapterTest !-->
+
+		<ru.garant.extensions.scriptdefs.buildPasTarget
+			pas.target.project.name = "AdminAppTest.dpr"
+			pas.target.compile.name = "AdminAppTest.dpr"
+
+			pas.target.config.file = "${properties.pasTargetRootDir}/garant6x/implementation/Garant/GbaNemesis/_cfg/AdminAppTest.cfg"
+			pas.target.root.dir = "${properties.pasTargetRootDir}/garant6x/implementation/Garant/GbaNemesis"
+		/>
+
+		<ru.garant.extensions.scriptdefs.buildPasTarget
+			pas.target.project.name = "NemesisAppTest.dpr"
+			pas.target.compile.name = "NemesisAppTest.dpr"
+
+			pas.target.config.file = "${properties.pasTargetRootDir}/garant6x/implementation/Garant/GbaNemesis/_cfg/NemesisAppTest.cfg"
+			pas.target.root.dir = "${properties.pasTargetRootDir}/garant6x/implementation/Garant/GbaNemesis"
+		/>
+
+		<ru.garant.extensions.scriptdefs.buildPasTarget
+			pas.target.project.name = "PrimeAppTest.dpr"
+			pas.target.compile.name = "PrimeAppTest.dpr"
+
+			pas.target.config.file = "${properties.pasTargetRootDir}/garant6x/implementation/Garant/GbaNemesis/_cfg/PrimeAppTest.cfg"
+			pas.target.root.dir = "${properties.pasTargetRootDir}/garant6x/implementation/Garant/GbaNemesis"
+		/>
+<!-- -->
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // buildPasTargets.winXX-console -->
+
+	<target
+		name = "buildPasTargets.winXX+console"
+		depends = "updateCvs"
+		unless = "disable-buildPasTargets.winXX+console"
+	>
+		<ru.garant.extensions.scriptdefs.cleanupPasBuilds
+		/>
+
+<!-- -->
+<!--
+		// empty
+-->
+<!-- -->
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // buildPasTargets.winXX+console -->
+
+	<target
+		name = "createSuccessFile"
+		depends = "setCvsTag"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.createFile
+			file.name = "${properties.buildSuccessFile}"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // createSuccessFile -->
+
+	<target
+		name = "copyCppOtherFilesToDeploymentCatalog"
+		depends = "updateCvs"
+		unless = "disable-copyCppOtherFilesToDeploymentCatalog"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/garant6x/implementation/Garant/GblAdapter/i18n/messages/en/adapter.mo"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/client/messages/en/adapter.mo"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/garant6x/implementation/Garant/GblAdapter/i18n/messages/en/adapter.mo"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/desktop/messages/en/adapter.mo"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/garant6x/implementation/Garant/GblAdapter/i18n/messages/en/adapter.mo"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/messages/en/adapter.mo"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/garantServer/src/i18n/messages/en/server.mo"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/desktop/messages/en/server.mo"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/garantServer/src/Business/GblPrime/prime.ini"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/desktop/rules/prime.ini"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/shared/PerformanceTests/TCPSendRecvTest/TCPSendRecvTest-client.bat"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/tcp/garsock/TCPSendRecvTest-client.bat"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/shared/PerformanceTests/TCPSendRecvTest/TCPSendRecvTest-client.bat"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/tcp/winsock/TCPSendRecvTest-client.bat"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/shared/PerformanceTests/TCPSendRecvTest/TCPSendRecvTest-common.bat"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/tcp/garsock/TCPSendRecvTest-common.bat"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/shared/PerformanceTests/TCPSendRecvTest/TCPSendRecvTest-common.bat"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/tcp/winsock/TCPSendRecvTest-common.bat"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/shared/PerformanceTests/TCPSendRecvTest/TCPSendRecvTest-server.bat"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/tcp/garsock/TCPSendRecvTest-server.bat"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/shared/PerformanceTests/TCPSendRecvTest/TCPSendRecvTest-server.bat"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/tcp/winsock/TCPSendRecvTest-server.bat"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // copyCppOtherFilesToDeploymentCatalog -->
+
+	<target
+		name = "copyCppTargetsToDeploymentCatalog.win64"
+		depends = "buildCppTargets.win64"
+		unless = "disable-copyCppTargetsToDeploymentCatalog.win64"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+<!--
+		// empty
+-->
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.cleanupCppBuilds
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // copyCppTargetsToDeploymentCatalog.win64 -->
+
+	<target
+		name = "copyCppTargetsToDeploymentCatalog.winNT-garsock"
+		depends = "buildCppTargets.winNT-garsock"
+		unless = "disable-copyCppTargetsToDeploymentCatalog.winNT-garsock"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/${properties.cppTargetDefaultFolder}/GblAdapterClient/GblAdapter.dll"
+			cpp.target.release.file = "${properties.buildRoot}/${properties.cppTargetReleaseFolder}/GblAdapterClient/GblAdapter.dll"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/client/winNT/GblAdapter.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/${properties.cppTargetDefaultFolder}/GblAdapterClient/GblAdapter.dll"
+			cpp.target.release.file = "${properties.buildRoot}/${properties.cppTargetReleaseFolder}/GblAdapterClient/GblAdapter.dll"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/winNT/GblAdapter.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/${properties.cppTargetDefaultFolder}/gsock32_redirector.dll"
+			cpp.target.release.file = "${properties.buildRoot}/${properties.cppTargetReleaseFolder}/gsock32_redirector.dll"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/desktop/winNT/GSOCK32.dll.redirector"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/${properties.cppTargetDefaultFolder}/gsock32_redirector.dll"
+			cpp.target.release.file = "${properties.buildRoot}/${properties.cppTargetReleaseFolder}/gsock32_redirector.dll"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/tcp/garsock/winNT/GSOCK32.dll.redirector"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/${properties.cppTargetDefaultFolder}/HCAdapter.dll"
+			cpp.target.release.file = "${properties.buildRoot}/${properties.cppTargetReleaseFolder}/HCAdapter.dll"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/client/winNT/HCAdapter.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/${properties.cppTargetDefaultFolder}/TCPSendRecvTest.exe"
+			cpp.target.release.file = "${properties.buildRoot}/${properties.cppTargetReleaseFolder}/TCPSendRecvTest.exe"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/tcp/winsock/winNT/TCPSendRecvTest.exe"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.cleanupCppBuilds
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // copyCppTargetsToDeploymentCatalog.winNT-garsock -->
+
+	<target
+		name = "copyCppTargetsToDeploymentCatalog.winNT+garsock"
+		depends = "buildCppTargets.winNT+garsock"
+		unless = "disable-copyCppTargetsToDeploymentCatalog.winNT+garsock"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/${properties.cppTargetDefaultFolder}/CSAdapter.dll"
+			cpp.target.release.file = "${properties.buildRoot}/${properties.cppTargetReleaseFolder}/CSAdapter.dll"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/desktop/winNT/CSAdapter.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/${properties.cppTargetDefaultFolder}/GblAdapterServer/GblAdapter.dll"
+			cpp.target.release.file = "${properties.buildRoot}/${properties.cppTargetReleaseFolder}/GblAdapterServer/GblAdapter.dll"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/desktop/winNT/GblAdapter.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/${properties.cppTargetDefaultFolder}/gsock32.dll"
+			cpp.target.release.file = "${properties.buildRoot}/${properties.cppTargetReleaseFolder}/gsock32.dll"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/desktop/winNT/GSOCK32.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/${properties.cppTargetDefaultFolder}/gsock32.dll"
+			cpp.target.release.file = "${properties.buildRoot}/${properties.cppTargetReleaseFolder}/gsock32.dll"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/tcp/garsock/winNT/GSOCK32.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyCppTarget
+			cpp.target.default.file = "${properties.buildRoot}/${properties.cppTargetDefaultFolder}/TCPSendRecvTest.exe"
+			cpp.target.release.file = "${properties.buildRoot}/${properties.cppTargetReleaseFolder}/TCPSendRecvTest.exe"
+
+			cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/tcp/garsock/winNT/TCPSendRecvTest.exe"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.cleanupCppBuilds
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // copyCppTargetsToDeploymentCatalog.winNT+garsock -->
+
+	<target
+		name = "copyPasOtherFilesToDeploymentCatalog"
+		depends = "updateCvs"
+		unless = "disable-copyPasOtherFilesToDeploymentCatalog"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.copyDirToDir
+			dir = "${properties.cvsRootDir}/common/components/DailyTest/TestSet"
+			to.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/daily/TestSet"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/DailyTest/KPageTool.exe"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/daily/KPageTool.exe"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/DailyTest/KPageTool.exe"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/KPageTool.exe"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/DailyTest/KPageTool.ini"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/daily/KPageTool.ini"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/DailyTest/KPageTool.ini"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/KPageTool.ini"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/DailyTest/MLMA32RU.dll"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/daily/MLMA32RU.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/DailyTest/MTDORB_UCUtils.dll"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/daily/MTDORB_UCUtils.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/DailyTest/sd.cmd"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/daily/sd.cmd"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/DailyTest/d.cmd"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/daily/d.cmd"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/DailyTest/afc.cmd"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/daily/afc.cmd"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/DailyTest/sdiff.exe"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/daily/sdiff.exe"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/DailyTest/diff.exe"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/daily/diff.exe"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/DailyTest/libiconv2.dll"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/daily/libiconv2.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/DailyTest/libintl3.dll"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/daily/libintl3.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/DailyTest/MLMA32RU.dll"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/MLMA32RU.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/DailyTest/MTDORB_UCUtils.dll"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/MTDORB_UCUtils.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/DailyTest/sd.cmd"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/sd.cmd"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+                        file = "${properties.cvsRootDir}/garant6x/implementation/Garant/GbaNemesis/TestSet/callbubat.cmd"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/callbubat.cmd"
+                />
+                
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/DailyTest/d.cmd"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/d.cmd"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/DailyTest/afc.cmd"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/afc.cmd"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/DailyTest/sdiff.exe"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/sdiff.exe"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/DailyTest/diff.exe"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/diff.exe"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/DailyTest/libiconv2.dll"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/libiconv2.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/DailyTest/libintl3.dll"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/libintl3.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyDirToDir
+			dir = "${properties.cvsRootDir}/common/components/SearchTest/TestSet"
+			to.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/SearchTest/TestSet"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/rtl/External/flash/Flash${properties.flashRevision}.ocx"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/FLASH.ocx"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/rtl/External/flash/Flash${properties.flashRevision}.ocx"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/flash/FLASH.ocx"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/garant6x/implementation/Garant/GbaNemesis/shell.mo.en"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/client/messages/en/shell.mo"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/garant6x/implementation/Garant/GbaNemesis/shell.mo.en"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/desktop/messages/en/shell.mo"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/garant6x/implementation/Garant/GbaNemesis/shell.mo.en"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/messages/en/shell.mo"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/garant6x/implementation/Garant/GbaNemesis/launcher/ini_templates/garant.ini-client"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/client/garant.ini"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/garant6x/implementation/Garant/GbaNemesis/launcher/ini_templates/garant.ini-desktop"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/desktop/garant.ini"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyDirToDir
+			dir = "${properties.cvsRootDir}/garant6x/implementation/Garant/GbaNemesis/TestSet"
+			to.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/TestSet"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}common/components/rtl/external/Doc2Rtf/wrs6.dll"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/daily/wrs6.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/rtl/external/Docx2Rtf/drs32.dll"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/daily/drs32.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/rtl/external/Docx2Rtf/ter22.dll"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/daily/ter22.dll"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.cvsRootDir}/common/components/rtl/external/Docx2Rtf/txml2.dll"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/daily/txml2.dll"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // copyPasOtherFilesToDeploymentCatalog -->
+
+	<target
+		name = "copyPasTargetsToDeploymentCatalog.winXX-console"
+		depends = "buildPasTargets.winXX-console"
+		unless = "disable-copyPasTargetsToDeploymentCatalog.winXX-console"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.buildRoot}/exe/DailyTest.exe"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/daily/DailyTest.exe"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.buildRoot}/exe/DailyTest.map"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/daily/DailyTest.map"
+		/>
+
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.buildRoot}/exe/SearchTest.exe"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/SearchTest/SearchTest.exe"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.buildRoot}/exe/SearchTest.map"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/SearchTest/SearchTest.map"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.buildRoot}/exe/F1AdapterTest.exe"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/client/F1AdapterTest.exe"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.buildRoot}/exe/F1AdapterTest.exe"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/desktop/F1AdapterTest.exe"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.buildRoot}/exe/FlashViewer.exe"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/flash/FlashViewer.exe"
+		/>
+
+<!-- HCAdapterTest
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.buildRoot}/exe/HCAdapterTest.exe"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/client/winNT/HCAdapterTest.exe"
+		/>
+HCAdapterTest !-->
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.buildRoot}/exe/AdminAppTest.exe"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/AdminAppTest.exe"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.buildRoot}/exe/AdminAppTest.map"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/AdminAppTest.map"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.buildRoot}/exe/NemesisAppTest.exe"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/NemesisAppTest.exe"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.buildRoot}/exe/NemesisAppTest.map"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/NemesisAppTest.map"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.buildRoot}/exe/PrimeAppTest.exe"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/PrimeAppTest.exe"
+		/>
+
+		<ru.garant.extensions.scriptdefs.copyFile
+			file = "${properties.buildRoot}/exe/PrimeAppTest.map"
+			to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp/PrimeAppTest.map"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.cleanupPasBuilds
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // copyPasTargetsToDeploymentCatalog.winXX-console -->
+
+	<target
+		name = "copyPasTargetsToDeploymentCatalog.winXX+console"
+		depends = "buildPasTargets.winXX+console"
+		unless = "disable-copyPasTargetsToDeploymentCatalog.winXX+console"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+<!--
+		// empty
+-->
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<ru.garant.extensions.scriptdefs.cleanupPasBuilds
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // copyPasTargetsToDeploymentCatalog.winXX+console -->
+
+	<target
+		name = "default"
+		depends = "createSuccessFile"
+	>
+
+<!--
+		// do nothing
+-->
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // default -->
+
+	<target
+		name = "manifestCppTargets"
+		depends = "buildCppTargets"
+		unless = "disable-manifestCppTargets"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.manifestTarget
+			manifest.target = "TCPSendRecvTest.exe"
+
+			manifest.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/tcp/garsock/winNT"
+		/>
+
+		<ru.garant.extensions.scriptdefs.manifestTarget
+			manifest.target = "TCPSendRecvTest.exe"
+
+			manifest.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/tcp/winsock/winNT"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // manifestCppTargets -->
+
+	<target
+		name = "manifestPasTargets"
+		depends = "buildPasTargets"
+		unless = "disable-manifestPasTargets"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.manifestTarget
+			manifest.target = "DailyTest.exe"
+
+			manifest.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/daily"
+		/>
+
+		<ru.garant.extensions.scriptdefs.manifestTarget
+			manifest.target = "SearchTest.exe"
+
+			manifest.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/SearchTest"
+		/>
+
+		<ru.garant.extensions.scriptdefs.manifestTarget
+			manifest.target = "F1AdapterTest.exe"
+
+			manifest.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/client"
+		/>
+
+		<ru.garant.extensions.scriptdefs.manifestTarget
+			manifest.target = "F1AdapterTest.exe"
+
+			manifest.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/desktop"
+		/>
+
+		<ru.garant.extensions.scriptdefs.manifestTarget
+			manifest.target = "FlashViewer.exe"
+
+			manifest.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/flash"
+		/>
+
+<!-- HCAdapterTest
+		<ru.garant.extensions.scriptdefs.manifestTarget
+			manifest.target = "HCAdapterTest.exe"
+
+			manifest.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/client/winNT"
+		/>
+HCAdapterTest !-->
+
+		<ru.garant.extensions.scriptdefs.manifestTarget
+			manifest.target = "AdminAppTest.exe"
+
+			manifest.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp"
+		/>
+
+		<ru.garant.extensions.scriptdefs.manifestTarget
+			manifest.target = "NemesisAppTest.exe"
+
+			manifest.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp"
+		/>
+
+		<ru.garant.extensions.scriptdefs.manifestTarget
+			manifest.target = "PrimeAppTest.exe"
+
+			manifest.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // manifestPasTargets -->
+
+	<target
+		name = "removeSuccessFile"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.removeFile
+			file.name = "${properties.buildSuccessFile}"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // removeSuccessFile -->
+
+	<target
+		name = "setCvsTag"
+		depends = "removeSuccessFile,signCppTargets,signPasTargets"
+		unless = "disable-setCvsTag"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.setCvsTagByList
+			cvs.dirset.list = "${properties.cvsDirsetListForTagging}"
+			cvs.root.dir = "${properties.cvsRootDir}"
+
+			cvs.tag.file = "${properties.cvsTagFile}"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // setCvsTag -->
+
+	<target
+		name = "signCppTargets"
+		depends = "manifestCppTargets"
+		unless = "disable-signCppTargets"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.signTarget
+			sign.target = "CSAdapter.dll"
+
+			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/desktop/winNT"
+		/>
+
+		<ru.garant.extensions.scriptdefs.signTarget
+			sign.target = "GSOCK32.dll"
+
+			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/desktop/winNT"
+		/>
+
+		<ru.garant.extensions.scriptdefs.signTarget
+			sign.target = "TCPSendRecvTest.exe"
+
+			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/tcp/garsock/winNT"
+		/>
+
+		<ru.garant.extensions.scriptdefs.signTarget
+			sign.target = "TCPSendRecvTest.exe"
+
+			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/tcp/winsock/winNT"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // signCppTargets -->
+
+	<target
+		name = "signPasTargets"
+		depends = "manifestPasTargets"
+		unless = "disable-signPasTargets"
+	>
+		<ru.garant.extensions.scriptdefs.mountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+			mount.path = "${properties.buildOutputMountPath}"
+		/>
+
+<!-- -->
+		<ru.garant.extensions.scriptdefs.signTarget
+			sign.target = "DailyTest.exe"
+
+			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/daily"
+		/>
+
+		<ru.garant.extensions.scriptdefs.signTarget
+			sign.target = "SearchTest.exe"
+
+			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/SearchTest"
+		/>
+
+		<ru.garant.extensions.scriptdefs.signTarget
+			sign.target = "F1AdapterTest.exe"
+
+			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/client"
+		/>
+
+		<ru.garant.extensions.scriptdefs.signTarget
+			sign.target = "F1AdapterTest.exe"
+
+			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/desktop"
+		/>
+
+		<ru.garant.extensions.scriptdefs.signTarget
+			sign.target = "FlashViewer.exe"
+
+			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/flash"
+		/>
+
+<!-- HCAdapterTest
+		<ru.garant.extensions.scriptdefs.signTarget
+			sign.target = "HCAdapterTest.exe"
+
+			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/client/winNT"
+		/>
+HCAdapterTest !-->
+
+		<ru.garant.extensions.scriptdefs.signTarget
+			sign.target = "AdminAppTest.exe"
+
+			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp"
+		/>
+
+		<ru.garant.extensions.scriptdefs.signTarget
+			sign.target = "NemesisAppTest.exe"
+
+			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp"
+		/>
+
+		<ru.garant.extensions.scriptdefs.signTarget
+			sign.target = "PrimeAppTest.exe"
+
+			sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/support/test/dailyApp"
+		/>
+<!-- -->
+
+		<ru.garant.extensions.scriptdefs.unmountResource
+			mount.root = "${properties.buildOutputMountRoot}"
+		/>
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // signPasTargets -->
+
+	<target
+		name = "updateCvs"
+		unless = "disable-updateCvs"
+	>
+<!-- -->
+		<ru.garant.extensions.scriptdefs.updateCvsByList
+			cvs.dirset.list = "${properties.cvsDirsetListForUpdate}"
+			cvs.root.dir = "${properties.cvsRootDir}"
+		/>
+<!-- -->
+
+		<echo
+			message = "TARGET PASSED"
+		/>
+	</target> <!-- // updateCvs -->
+<!-- } targets -->
+
+</project> <!-- // scriptset.garantF1-tests -->

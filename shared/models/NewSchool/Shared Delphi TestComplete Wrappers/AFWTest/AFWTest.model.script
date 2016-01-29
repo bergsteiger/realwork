@@ -1,0 +1,229 @@
+<<TestLibrary>> AFWTest
+ %UID '499AF0880116'
+ %SUMMARY 'Тесты для AFW и стандартных библиотек' ;
+ %DEPENDS
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'gui'
+  %upv "is namespace" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<TestUnit>> VCL
+   %UID '499AF1EA03DB'
+   %SUMMARY 'Сюда складываем тесты для стандартных компонент от Borland' ;
+   %DEPENDS
+    U$ '4799D29F033F' /* Implementation */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<TestClass>> TMenuItem
+      %UID '499AF24802D2'
+      %META
+       %upv "is friend" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47E7ABCB0296' /* TMenuItem */
+      ; // %INHERITS
+      %ATTRIBUTES
+        FINAL LINK <<readonly>> Caption
+         %UID '49A3EA0603D1'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Caption
+        FINAL LINK <<readonly>> Count
+         %UID '49A3EAB701E7'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Count
+        FINAL LINK <<readonly>> MenuIndex
+         %UID '49A3EB07006A'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // MenuIndex
+        FINAL LINK <<readonly>> Visible
+         %UID '49A3EB180091'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Visible
+        FINAL LINK <<readonly>> Enabled
+         %UID '49A3EB1F0087'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Enabled
+        FINAL LINK <<readonly>> Checked
+         %UID '49A3EB2702F0'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Checked
+        FINAL LINK <<readonly>> Items
+         %UID '49A3EA8000B8'
+         %TARGET U$ '47E7ABCB0296' /* TMenuItem */
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INDEXES
+          %INDEX Index %TARGET U$ '46A606AC03B2' /* Integer */
+          ;
+         ; // %INDEXES
+        ; // Items
+        FINAL LINK <<readonly>> Parent
+         %UID '49A3EAE00085'
+         %TARGET U$ '47E7ABCB0296' /* TMenuItem */
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+        ; // Parent
+      ; // %ATTRIBUTES
+     ; // TMenuItem
+     FINAL <<TestClass>> TMenu
+      %UID '49A3ECCB0366'
+      %META
+       %upv "is friend" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '49A3EC9F01DC' /* TMenu */
+      ; // %INHERITS
+      %ATTRIBUTES
+        FINAL LINK <<readonly>> Items
+         %UID '49A3ED2A0248'
+         %TARGET U$ '47E7ABCB0296' /* TMenuItem */
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+        ; // Items
+      ; // %ATTRIBUTES
+     ; // TMenu
+     FINAL <<TestClass>> TControl
+      %UID '49A572510280'
+      %META
+       %upv "is friend" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47E1201703C3' /* TControl */
+      ; // %INHERITS
+      %ATTRIBUTES
+        FINAL LINK <<readonly>> QCPopupMenu
+         %UID '49A575600252'
+         %TARGET U$ '49A5750A01E8' /* TPopupMenu */
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+         ; // %TOBEINCLUDED
+        ; // QCPopupMenu
+      ; // %ATTRIBUTES
+     ; // TControl
+     FINAL <<TestClass>> TWinControl
+      %UID '53D12ADE0303'
+      %META
+       %upv "is friend" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47E124E90272' /* TWinControl */
+      ; // %INHERITS
+      %ATTRIBUTES
+        FINAL LINK <<readonly>> ControlCount
+         %UID '53D12BB30380'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // ControlCount
+        FINAL LINK <<readonly>> Controls
+         %UID '53D12B6E016C'
+         %TARGET U$ '47E1201703C3' /* TControl */
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INDEXES
+          %INDEX Index %TARGET U$ '46A606AC03B2' /* Integer */
+          ;
+         ; // %INDEXES
+        ; // Controls
+      ; // %ATTRIBUTES
+     ; // TWinControl
+   ; // %CHILDREN
+  ; // VCL
+  <<TestUnit>> Rtl
+   %UID '53723A1C0058'
+   %DEPENDS
+    U$ '4AB0997B00A2' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<TestClass>> TComponent
+      %UID '53723A470044'
+      %META
+       %upv "is friend" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '479878FA0103' /* TComponent */
+      ; // %INHERITS
+      %ATTRIBUTES
+        FINAL LINK <<readonly>> OwnerName
+         %UID '53723DFA005B'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // OwnerName
+        FINAL LINK <<readonly>> Owner
+         %UID '53723A65014D'
+         %TARGET U$ '479878FA0103' /* TComponent */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Owner
+      ; // %ATTRIBUTES
+     ; // TComponent
+   ; // %CHILDREN
+  ; // Rtl
+ ; // %CHILDREN
+; // AFWTest

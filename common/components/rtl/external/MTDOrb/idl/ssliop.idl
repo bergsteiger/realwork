@@ -1,0 +1,36 @@
+// -*- c++ -*-
+
+#include <mico/current.idl>
+
+/*
+ * The security spec says that AssociationOptions is
+ * unsigned short, but Visibroker defines it as unsigned long.
+ * I dont know whether this is a bug in VB or whether the
+ * spec changed the definition (perhaps it was an enum before?).
+ * For compatibility with VB we use unsigned long as well...
+ */
+//#define MICO_SSL_VB_COMPAT
+
+module Security {
+#ifdef MICO_SSL_VB_COMPAT
+    typedef unsigned long AssociationOptions;
+#else
+    typedef unsigned short AssociationOptions;
+#endif
+
+    const AssociationOptions NoProtection = 1;
+    const AssociationOptions Integrity = 2;
+    const AssociationOptions Confidentiality = 4;
+    const AssociationOptions DetectReplay = 8;
+    const AssociationOptions DetectMisordering = 16;
+    const AssociationOptions EstablishTrustInTarget = 32;
+    const AssociationOptions EstablishTrustInClient = 64;
+};
+
+module SSLIOP {
+    struct SSL {
+	Security::AssociationOptions target_supports;
+	Security::AssociationOptions target_requires;
+	unsigned short port;
+    };
+};

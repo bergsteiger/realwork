@@ -1,0 +1,2449 @@
+// Classes 478CF30500C1 UtilityPack Class
+
+FORWARD ME_478CF30500C1
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4FD09D790377
+ CONST UID '4FD09D790377'
+ CONST Name 'TFiler'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4807745602C8 // TObject
+ ]
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4FD09D790377 TFiler
+
+FORWARD ME_478CF32A03B6
+
+FORWARD ME_4FD08EF002D0
+
+: ME_4FD08F05029E
+ CONST UID '4FD08F05029E'
+ CONST Name 'Filer'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4FD09D790377 // TFiler
+ ;
+
+ @SELF
+; // ME_4FD08F05029E Filer
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4FD08EFD03B9
+ CONST UID '4FD08EFD03B9'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4FD08F05029E // Filer
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4FD08EFD03B9 DoIt
+
+: ME_4FD08EF002D0
+ CONST UID '4FD08EF002D0'
+ CONST Name 'DefineProperties'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_4FD08EFD03B9 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4FD08EF002D0 DefineProperties
+
+FORWARD ME_55CCBC12038F
+
+: ME_55CCBC190384
+ CONST UID '55CCBC190384'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_51546CAE03B7 // String$XE
+ ;
+
+ @SELF
+; // ME_55CCBC190384 DoIt
+
+: ME_55CCBC12038F
+ CONST UID '55CCBC12038F'
+ CONST Name 'GetNamePath'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_55CCBC190384 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55CCBC12038F GetNamePath
+
+: ME_478CF3540243
+ CONST UID '478CF3540243'
+ CONST Name 'Source'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_478CF32A03B6 // TPersistent
+ ;
+
+ @SELF
+; // ME_478CF3540243 Source
+
+: ME_478CF34E02CE
+ CONST UID '478CF34E02CE'
+ CONST Name 'Assign'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Parameters
+   [ ME_478CF3540243 // Source
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_478CF34E02CE Assign
+
+: ME_478CF37902DD
+ CONST UID '478CF37902DD'
+ CONST Name 'Dest'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_478CF32A03B6 // TPersistent
+ ;
+
+ @SELF
+; // ME_478CF37902DD Dest
+
+: ME_478CF372010B
+ CONST UID '478CF372010B'
+ CONST Name 'AssignTo'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Parameters
+   [ ME_478CF37902DD // Dest
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_478CF372010B AssignTo
+
+: ME_480DD1890221
+ CONST UID '480DD1890221'
+ CONST Name 'GetOwner'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Target ME_478CF32A03B6 // TPersistent
+ ;
+
+ @SELF
+; // ME_480DD1890221 GetOwner
+
+: ME_478CF32A03B6
+ CONST UID '478CF32A03B6'
+ CONST Name 'TPersistent'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4807745602C8 // TObject
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4FD08EF002D0 // DefineProperties
+ ME_55CCBC12038F // GetNamePath
+ ME_478CF34E02CE // Assign
+ ME_478CF372010B // AssignTo
+ ME_480DD1890221 // GetOwner
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_478CF32A03B6 TPersistent
+
+: ME_4D5418F5009C
+ CONST UID '4D5418F5009C'
+ CONST Name 'TComponentName'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_4D5418F5009C TComponentName
+
+FORWARD ME_47E124920022
+
+: ME_47E124A0038F
+ CONST UID '47E124A0038F'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_47E124A0038F DoIt
+
+: ME_47E124920022
+ CONST UID '47E124920022'
+ CONST Name 'TWndMethod'
+ CONST Class 'Class'
+ CONST Stereotype 'Function'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_47E124A0038F // DoIt
+ ]
+ ; // Operations
+ CONST "of object" true
+
+ @SELF
+; // ME_47E124920022 TWndMethod
+
+: ME_47E12513030E
+ CONST UID '47E12513030E'
+ CONST Name 'TBiDiMode'
+ CONST Class 'Class'
+ CONST Stereotype 'Enum'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_47E12513030E TBiDiMode
+
+FORWARD ME_48F47C8001FF
+
+: ME_48F47C8B017F
+ CONST UID '48F47C8B017F'
+ CONST Name 'soBeginning'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_48F47C8B017F soBeginning
+
+: ME_48F47C9000A3
+ CONST UID '48F47C9000A3'
+ CONST Name 'soCurrent'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_48F47C9000A3 soCurrent
+
+: ME_48F47C94033C
+ CONST UID '48F47C94033C'
+ CONST Name 'soEnd'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_48F47C94033C soEnd
+
+: ME_48F47C8001FF
+ CONST UID '48F47C8001FF'
+ CONST Name 'TSeekOrigin'
+ CONST Class 'Class'
+ CONST Stereotype 'Enum'
+ %SUMMARY 'TStream seek origins' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_48F47C8B017F // soBeginning
+ ME_48F47C9000A3 // soCurrent
+ ME_48F47C94033C // soEnd
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_48F47C8001FF TSeekOrigin
+
+FORWARD ME_47E21A8A0324
+
+: ME_47E21AB50104
+ CONST UID '47E21AB50104'
+ CONST Name 'Clear'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+
+ @SELF
+; // ME_47E21AB50104 Clear
+
+: ME_47E21ADF0033
+ CONST UID '47E21ADF0033'
+ CONST Name 'Index'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47E21ADF0033 Index
+
+: ME_47E21ADF004E
+ CONST UID '47E21ADF004E'
+ CONST Name 'S'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_51546CAE03B7 // String$XE
+ ;
+
+ @SELF
+; // ME_47E21ADF004E S
+
+: ME_47E21AD40366
+ CONST UID '47E21AD40366'
+ CONST Name 'Insert'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Parameters
+   [ ME_47E21ADF0033 // Index
+ ME_47E21ADF004E // S
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47E21AD40366 Insert
+
+: ME_47E21AF900BA
+ CONST UID '47E21AF900BA'
+ CONST Name 'Index'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47E21AF900BA Index
+
+: ME_47E21AF20186
+ CONST UID '47E21AF20186'
+ CONST Name 'Get'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Target ME_51546CAE03B7 // String$XE
+ ;
+ : Parameters
+   [ ME_47E21AF900BA // Index
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47E21AF20186 Get
+
+: ME_47E21B1600EC
+ CONST UID '47E21B1600EC'
+ CONST Name 'Index'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47E21B1600EC Index
+
+: ME_47E21B16010D
+ CONST UID '47E21B16010D'
+ CONST Name 'S'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_51546CAE03B7 // String$XE
+ ;
+
+ @SELF
+; // ME_47E21B16010D S
+
+: ME_47E21B0A0167
+ CONST UID '47E21B0A0167'
+ CONST Name 'Put'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Parameters
+   [ ME_47E21B1600EC // Index
+ ME_47E21B16010D // S
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47E21B0A0167 Put
+
+: ME_47E21B2403D5
+ CONST UID '47E21B2403D5'
+ CONST Name 'GetCount'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47E21B2403D5 GetCount
+
+: ME_47E21BB0029A
+ CONST UID '47E21BB0029A'
+ CONST Name 'Index'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47E21BB0029A Index
+
+: ME_47E21BAA029A
+ CONST UID '47E21BAA029A'
+ CONST Name 'GetObject'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+ : Parameters
+   [ ME_47E21BB0029A // Index
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47E21BAA029A GetObject
+
+: ME_47E21BD4039E
+ CONST UID '47E21BD4039E'
+ CONST Name 'Index'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_47E21BD4039E Index
+
+: ME_47E21BD403C7
+ CONST UID '47E21BD403C7'
+ CONST Name 'AObject'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_47E21BD403C7 AObject
+
+: ME_47E21BC40258
+ CONST UID '47E21BC40258'
+ CONST Name 'PutObject'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Parameters
+   [ ME_47E21BD4039E // Index
+ ME_47E21BD403C7 // AObject
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47E21BC40258 PutObject
+
+: ME_47E21A8A0324
+ CONST UID '47E21A8A0324'
+ CONST Name 'TStrings'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'TStrings is the base class for objects that represent a list of strings.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_478CF32A03B6 // TPersistent
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_47E21AB50104 // Clear
+ ME_47E21AD40366 // Insert
+ ME_47E21AF20186 // Get
+ ME_47E21B0A0167 // Put
+ ME_47E21B2403D5 // GetCount
+ ME_47E21BAA029A // GetObject
+ ME_47E21BC40258 // PutObject
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_47E21A8A0324 TStrings
+
+FORWARD ME_4D55109C0309
+
+: ME_4D5510A80181
+ CONST UID '4D5510A80181'
+ CONST Name 'opInsert'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_4D5510A80181 opInsert
+
+: ME_4D5510B100E3
+ CONST UID '4D5510B100E3'
+ CONST Name 'opRemove'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_4D5510B100E3 opRemove
+
+: ME_4D55109C0309
+ CONST UID '4D55109C0309'
+ CONST Name 'TOperation'
+ CONST Class 'Class'
+ CONST Stereotype 'Enum'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_4D5510A80181 // opInsert
+ ME_4D5510B100E3 // opRemove
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_4D55109C0309 TOperation
+
+: ME_480768DD00F0
+ CONST UID '480768DD00F0'
+ CONST Name 'TList'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'TList stores an array of pointers.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4807745602C8 // TObject
+ ]
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_480768DD00F0 TList
+
+: ME_4807756101FE
+ CONST UID '4807756101FE'
+ CONST Name 'TStringList'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'TStringList maintains a list of strings.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47E21A8A0324 // TStrings
+ ]
+ ; // Inherits
+ : Implemented
+   [ ME_47E21AB50104 // Clear
+ ME_47E21AD40366 // Insert
+ ME_47E21AF20186 // Get
+ ME_47E21B0A0167 // Put
+ ME_47E21B2403D5 // GetCount
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4807756101FE TStringList
+
+: ME_4807825A006E
+ CONST UID '4807825A006E'
+ CONST Name 'TInterfaceList'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'TInterfaceList represents a list of interfaces.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_48077FF80141 // TInterfacedObject
+ ]
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4807825A006E TInterfaceList
+
+FORWARD ME_4808963302B7
+
+: ME_480896440047
+ CONST UID '480896440047'
+ CONST Name 'dupIgnore'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_480896440047 dupIgnore
+
+: ME_4808964B0173
+ CONST UID '4808964B0173'
+ CONST Name 'dupAccept'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_4808964B0173 dupAccept
+
+: ME_4808965301C3
+ CONST UID '4808965301C3'
+ CONST Name 'dupError'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_4808965301C3 dupError
+
+: ME_4808963302B7
+ CONST UID '4808963302B7'
+ CONST Name 'TDuplicates'
+ CONST Class 'Class'
+ CONST Stereotype 'Enum'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_480896440047 // dupIgnore
+ ME_4808964B0173 // dupAccept
+ ME_4808965301C3 // dupError
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_4808963302B7 TDuplicates
+
+INCLUDE '46A0E6C5023A.pas.ms.script'
+
+: ME_483FF49100F4
+ CONST UID '483FF49100F4'
+ CONST Name 'TStreamAdapter'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'TStreamAdapter implements the IStream interface on a TStream object.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_48077FF80141 // TInterfacedObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_46A5AFF103CA // IStream
+ ]
+ ; // Implements
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_483FF49100F4 TStreamAdapter
+
+FORWARD ME_47E150FF028A
+
+FORWARD ME_5481E0EE0096
+
+: ME_5481E1090269
+ CONST UID '5481E1090269'
+ CONST Name 'NewSize'
+ CONST Class 'Parameter'
+ CONST Stereotype 'const'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47208C70028B // Int64
+ ;
+
+ @SELF
+; // ME_5481E1090269 NewSize
+
+: ME_5481E1040103
+ CONST UID '5481E1040103'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_5481E1090269 // NewSize
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5481E1040103 DoIt
+
+: ME_5481E0EE0096
+ CONST UID '5481E0EE0096'
+ CONST Name 'SetSize'
+ CONST Class 'Class'
+ CONST Stereotype 'virtualmethod'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_5481E1040103 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5481E0EE0096 SetSize
+
+: ME_49BE65820041
+ CONST UID '49BE65820041'
+ CONST Name 'Buffer'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_49BE65820041 Buffer
+
+: ME_49BE65820077
+ CONST UID '49BE65820077'
+ CONST Name 'Count'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_3DBFFD7002C2 // long
+ ;
+
+ @SELF
+; // ME_49BE65820077 Count
+
+: ME_49BE656C006E
+ CONST UID '49BE656C006E'
+ CONST Name 'Read'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Target ME_3DBFFD7002C2 // long
+ ;
+ : Parameters
+   [ ME_49BE65820041 // Buffer
+ ME_49BE65820077 // Count
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_49BE656C006E Read
+
+: ME_49BE65A10150
+ CONST UID '49BE65A10150'
+ CONST Name 'Buffer'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_49BE65A10150 Buffer
+
+: ME_49BE65A10187
+ CONST UID '49BE65A10187'
+ CONST Name 'Count'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_3DBFFD7002C2 // long
+ ;
+
+ @SELF
+; // ME_49BE65A10187 Count
+
+: ME_49BE658C0261
+ CONST UID '49BE658C0261'
+ CONST Name 'Write'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Target ME_3DBFFD7002C2 // long
+ ;
+ : Parameters
+   [ ME_49BE65A10150 // Buffer
+ ME_49BE65A10187 // Count
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_49BE658C0261 Write
+
+: ME_49BE65DA0328
+ CONST UID '49BE65DA0328'
+ CONST Name 'Offset'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_3DBFFD7002C2 // long
+ ;
+
+ @SELF
+; // ME_49BE65DA0328 Offset
+
+: ME_49BE65DA035E
+ CONST UID '49BE65DA035E'
+ CONST Name 'Origin'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476F71A701AB // Word
+ ;
+
+ @SELF
+; // ME_49BE65DA035E Origin
+
+: ME_49BE65B10224
+ CONST UID '49BE65B10224'
+ CONST Name 'Seek'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_3DBFFD7002C2 // long
+ ;
+ : Parameters
+   [ ME_49BE65DA0328 // Offset
+ ME_49BE65DA035E // Origin
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_49BE65B10224 Seek
+
+: ME_49BE65ED0270
+ CONST UID '49BE65ED0270'
+ CONST Name 'Offset'
+ CONST Class 'Parameter'
+ CONST Stereotype 'const'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47208C70028B // Int64
+ ;
+
+ @SELF
+; // ME_49BE65ED0270 Offset
+
+: ME_49BE65ED02AA
+ CONST UID '49BE65ED02AA'
+ CONST Name 'Origin'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_48F47C8001FF // TSeekOrigin
+ ;
+
+ @SELF
+; // ME_49BE65ED02AA Origin
+
+: ME_49BE65E80020
+ CONST UID '49BE65E80020'
+ CONST Name 'Seek'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47208C70028B // Int64
+ ;
+ : Parameters
+   [ ME_49BE65ED0270 // Offset
+ ME_49BE65ED02AA // Origin
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_49BE65E80020 Seek
+
+: ME_47E150FF028A
+ CONST UID '47E150FF028A'
+ CONST Name 'TStream'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'TStream is the base class type for stream objects that can read from or write to various kinds of storage media, such as disk files, dynamic memory, and so on' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4807745602C8 // TObject
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_5481E0EE0096 // SetSize
+ ME_49BE656C006E // Read
+ ME_49BE658C0261 // Write
+ ME_49BE65B10224 // Seek
+ ME_49BE65E80020 // Seek
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_47E150FF028A TStream
+
+: ME_483FF4CA0307
+ CONST UID '483FF4CA0307'
+ CONST Name 'TCustomMemoryStream'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'TCustomMemoryStream is an abstract base class used as the common ancestor for memory streams' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_47E150FF028A // TStream
+ ]
+ ; // Inherits
+ : Implemented
+   [ ME_49BE656C006E // Read
+ ME_49BE658C0261 // Write
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_483FF4CA0307 TCustomMemoryStream
+
+: ME_4FD09DA800F9
+ CONST UID '4FD09DA800F9'
+ CONST Name 'TWriter'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4807745602C8 // TObject
+ ]
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4FD09DA800F9 TWriter
+
+: ME_469F85A900E3
+ CONST UID '469F85A900E3'
+ CONST Name 'TStream$Stub'
+ CONST Class 'Class'
+ CONST Stereotype 'ObjStub'
+ %SUMMARY 'Поток.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_469F8577004B // TObject$Stub
+ ]
+ ; // Inherits
+
+ @SELF
+; // ME_469F85A900E3 TStream$Stub
+
+: ME_476F72030260
+ CONST UID '476F72030260'
+ CONST Name 'TPersistent$Stub'
+ CONST Class 'Class'
+ CONST Stereotype 'ObjStub'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_469F8577004B // TObject$Stub
+ ]
+ ; // Inherits
+
+ @SELF
+; // ME_476F72030260 TPersistent$Stub
+
+: ME_46A4B9AA00F0
+ CONST UID '46A4B9AA00F0'
+ CONST Name 'TComponent$Stub'
+ CONST Class 'Class'
+ CONST Stereotype 'ObjStub'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_476F72030260 // TPersistent$Stub
+ ]
+ ; // Inherits
+
+ @SELF
+; // ME_46A4B9AA00F0 TComponent$Stub
+
+: ME_46A464DB0262
+ CONST UID '46A464DB0262'
+ CONST Name 'TStrings$Stub'
+ CONST Class 'Class'
+ CONST Stereotype 'ObjStub'
+ %SUMMARY 'Список строк.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_476F72030260 // TPersistent$Stub
+ ]
+ ; // Inherits
+
+ @SELF
+; // ME_46A464DB0262 TStrings$Stub
+
+: ME_47880FB90325
+ CONST UID '47880FB90325'
+ CONST Name 'TInterfacedPersistent$Stub'
+ CONST Class 'Class'
+ CONST Stereotype 'ObjStub'
+ %SUMMARY 'TInterfacedPersistent is an ancestor for persistent objects that implement interfaces.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_476F72030260 // TPersistent$Stub
+ ]
+ ; // Inherits
+
+ @SELF
+; // ME_47880FB90325 TInterfacedPersistent$Stub
+
+FORWARD ME_4787FD9103E6
+
+: ME_499D3BE0004D
+ CONST UID '499D3BE0004D'
+ CONST Name 'Execute'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+
+ @SELF
+; // ME_499D3BE0004D Execute
+
+: ME_4787FD9103E6
+ CONST UID '4787FD9103E6'
+ CONST Name 'TThread$Stub'
+ CONST Class 'Class'
+ CONST Stereotype 'ObjStub'
+ %SUMMARY 'TThread is an abstract class that enables creation of separate threads of execution in an application.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_469F8577004B // TObject$Stub
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_499D3BE0004D // Execute
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4787FD9103E6 TThread$Stub
+
+: ME_483FF50C00F4
+ CONST UID '483FF50C00F4'
+ CONST Name 'TMemoryStream'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'TMemoryStream is a stream that stores its data in dynamic memory.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_483FF4CA0307 // TCustomMemoryStream
+ ]
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_483FF50C00F4 TMemoryStream
+
+FORWARD ME_4728CE680258
+
+: ME_476F7223012C
+ CONST UID '476F7223012C'
+ CONST Name 'ssShift'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_476F7223012C ssShift
+
+: ME_476F72280281
+ CONST UID '476F72280281'
+ CONST Name 'ssAlt'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_476F72280281 ssAlt
+
+: ME_476F722D031B
+ CONST UID '476F722D031B'
+ CONST Name 'ssCtrl'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_476F722D031B ssCtrl
+
+: ME_476F723201F5
+ CONST UID '476F723201F5'
+ CONST Name 'ssLeft'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_476F723201F5 ssLeft
+
+: ME_476F723701ED
+ CONST UID '476F723701ED'
+ CONST Name 'ssRight'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_476F723701ED ssRight
+
+: ME_476F723C01FC
+ CONST UID '476F723C01FC'
+ CONST Name 'ssMiddle'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_476F723C01FC ssMiddle
+
+: ME_476F7241037F
+ CONST UID '476F7241037F'
+ CONST Name 'ssDouble'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+
+ @SELF
+; // ME_476F7241037F ssDouble
+
+: ME_4728CE680258
+ CONST UID '4728CE680258'
+ CONST Name 'TShiftState'
+ CONST Class 'Class'
+ CONST Stereotype 'Enum'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_476F7223012C // ssShift
+ ME_476F72280281 // ssAlt
+ ME_476F722D031B // ssCtrl
+ ME_476F723201F5 // ssLeft
+ ME_476F723701ED // ssRight
+ ME_476F723C01FC // ssMiddle
+ ME_476F7241037F // ssDouble
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_4728CE680258 TShiftState
+
+: ME_499562B802E7
+ CONST UID '499562B802E7'
+ CONST Name 'TShortCut'
+ CONST Class 'Class'
+ CONST Stereotype 'Range'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_476F71A701AB // Word
+ ]
+ ; // Inherits
+ CONST "spell names" false
+
+ @SELF
+; // ME_499562B802E7 TShortCut
+
+: ME_4A840F5703AC
+ CONST UID '4A840F5703AC'
+ CONST Name 'TAlignment'
+ CONST Class 'Class'
+ CONST Stereotype 'Enum'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_4A840F5703AC TAlignment
+
+INCLUDE '47877EB202FB.pas.ms.script'
+
+: ME_479F1C5600EA
+ CONST UID '479F1C5600EA'
+ CONST Name 'EListError'
+ CONST Class 'Class'
+ CONST Stereotype 'Exception'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4787A405013D // Exception
+ ]
+ ; // Inherits
+
+ @SELF
+; // ME_479F1C5600EA EListError
+
+FORWARD ME_47881B22005A
+
+: ME_47881B4E000F
+ CONST UID '47881B4E000F'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_47881B4E000F DoIt
+
+: ME_47881B22005A
+ CONST UID '47881B22005A'
+ CONST Name 'TNotifyEvent'
+ CONST Class 'Class'
+ CONST Stereotype 'Function'
+ %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_47881B4E000F // DoIt
+ ]
+ ; // Operations
+ CONST "of object" true
+
+ @SELF
+; // ME_47881B22005A TNotifyEvent
+
+: ME_4952341C01BF
+ CONST UID '4952341C01BF'
+ CONST Name 'EStreamError'
+ CONST Class 'Class'
+ CONST Stereotype 'Exception'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_4952341C01BF EStreamError
+
+: ME_4C8778220341
+ CONST UID '4C8778220341'
+ CONST Name 'EFCreateError'
+ CONST Class 'Class'
+ CONST Stereotype 'Exception'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_4C8778220341 EFCreateError
+
+FORWARD ME_479878FA0103
+
+FORWARD ME_4F884378016A
+
+: ME_4F8843AE00F8
+ CONST UID '4F8843AE00F8'
+ CONST Name 'AComponent'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_479878FA0103 // TComponent
+ ;
+
+ @SELF
+; // ME_4F8843AE00F8 AComponent
+
+: ME_4F8843AE011A
+ CONST UID '4F8843AE011A'
+ CONST Name 'Operation'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4D55109C0309 // TOperation
+ ;
+
+ @SELF
+; // ME_4F8843AE011A Operation
+
+: ME_4F88439000C4
+ CONST UID '4F88439000C4'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4F8843AE00F8 // AComponent
+ ME_4F8843AE011A // Operation
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4F88439000C4 DoIt
+
+: ME_4F884378016A
+ CONST UID '4F884378016A'
+ CONST Name 'Notification'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_4F88439000C4 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4F884378016A Notification
+
+FORWARD ME_4FD092040227
+
+: ME_4FD092200341
+ CONST UID '4FD092200341'
+ CONST Name 'Writer'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4FD09DA800F9 // TWriter
+ ;
+
+ @SELF
+; // ME_4FD092200341 Writer
+
+: ME_4FD092170312
+ CONST UID '4FD092170312'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4FD092200341 // Writer
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4FD092170312 DoIt
+
+: ME_4FD092040227
+ CONST UID '4FD092040227'
+ CONST Name 'WriteState'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_4FD092170312 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4FD092040227 WriteState
+
+FORWARD ME_52BC212F023F
+
+: ME_52BD9CD702F4
+ CONST UID '52BD9CD702F4'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'const'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4D5418F5009C // TComponentName
+ ;
+
+ @SELF
+; // ME_52BD9CD702F4 aValue
+
+: ME_52BC21430213
+ CONST UID '52BC21430213'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_52BD9CD702F4 // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_52BC21430213 DoIt
+
+: ME_52BC212F023F
+ CONST UID '52BC212F023F'
+ CONST Name 'SetName'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_52BC21430213 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_52BC212F023F SetName
+
+: ME_47D1602A031A
+ CONST UID '47D1602A031A'
+ CONST Name 'AOwner'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_479878FA0103 // TComponent
+ ;
+
+ @SELF
+; // ME_47D1602A031A AOwner
+
+: ME_47D1602000C6
+ CONST UID '47D1602000C6'
+ CONST Name 'Create'
+ CONST Class 'Operation'
+ CONST Stereotype 'vctor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Parameters
+   [ ME_47D1602A031A // AOwner
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_47D1602000C6 Create
+
+: ME_47D1607601A5
+ CONST UID '47D1607601A5'
+ CONST Name 'IID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_469F3EEF0024 // TGUID
+ ;
+
+ @SELF
+; // ME_47D1607601A5 IID
+
+: ME_47D1607601D2
+ CONST UID '47D1607601D2'
+ CONST Name 'Obj'
+ CONST Class 'Parameter'
+ CONST Stereotype 'out'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_47D1607601D2 Obj
+
+: ME_47D160620295
+ CONST UID '47D160620295'
+ CONST Name 'QueryInterface'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Target ME_469F99BD026B // HResult
+ ;
+ : Parameters
+   [ ME_47D1607601A5 // IID
+ ME_47D1607601D2 // Obj
+ ]
+ ; // Parameters
+ CONST "calling conventions" 'stdcall'
+
+ @SELF
+; // ME_47D160620295 QueryInterface
+
+: ME_484516C00214
+ CONST UID '484516C00214'
+ CONST Name 'Loaded'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_484516C00214 Loaded
+
+: ME_479878FA0103
+ CONST UID '479878FA0103'
+ CONST Name 'TComponent'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'TComponent is the common ancestor of all component classes.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_478CF32A03B6 // TPersistent
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4F884378016A // Notification
+ ME_4FD092040227 // WriteState
+ ME_52BC212F023F // SetName
+ ME_47D1602000C6 // Create
+ ME_47D160620295 // QueryInterface
+ ME_484516C00214 // Loaded
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_479878FA0103 TComponent
+
+: ME_4AAA214A0250
+ CONST UID '4AAA214A0250'
+ CONST Name 'TDataModule'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_479878FA0103 // TComponent
+ ]
+ ; // Inherits
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4AAA214A0250 TDataModule
+
+FORWARD ME_4D555B78015F
+
+FORWARD ME_4D555B5B01E8
+
+FORWARD ME_4F8E7D3303B9
+
+: ME_4F8E7D4A02E9
+ CONST UID '4F8E7D4A02E9'
+ CONST Name 'Value'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_4F8E7D4A02E9 Value
+
+: ME_4F8E7D410290
+ CONST UID '4F8E7D410290'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4F8E7D4A02E9 // Value
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4F8E7D410290 DoIt
+
+: ME_4F8E7D3303B9
+ CONST UID '4F8E7D3303B9'
+ CONST Name 'SetIndex'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_4F8E7D410290 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4F8E7D3303B9 SetIndex
+
+FORWARD ME_55CCBB5A01E5
+
+: ME_55CCBB6703AE
+ CONST UID '55CCBB6703AE'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_51546CAE03B7 // String$XE
+ ;
+
+ @SELF
+; // ME_55CCBB6703AE DoIt
+
+: ME_55CCBB5A01E5
+ CONST UID '55CCBB5A01E5'
+ CONST Name 'GetDisplayName'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_55CCBB6703AE // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55CCBB5A01E5 GetDisplayName
+
+: ME_4D555CFF0165
+ CONST UID '4D555CFF0165'
+ CONST Name 'aCollection'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4D555B78015F // TCollection
+ ;
+
+ @SELF
+; // ME_4D555CFF0165 aCollection
+
+: ME_4D555CF50027
+ CONST UID '4D555CF50027'
+ CONST Name 'Create'
+ CONST Class 'Operation'
+ CONST Stereotype 'vctor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Parameters
+   [ ME_4D555CFF0165 // aCollection
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4D555CF50027 Create
+
+: ME_17B429CD7D91
+ CONST UID '17B429CD7D91'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TCollectionItem' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_17B429CD7D91 Ini_Reg_Class
+
+: ME_4D555B5B01E8
+ CONST UID '4D555B5B01E8'
+ CONST Name 'TCollectionItem'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_478CF32A03B6 // TPersistent
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4F8E7D3303B9 // SetIndex
+ ME_55CCBB5A01E5 // GetDisplayName
+ ME_4D555CF50027 // Create
+ ME_17B429CD7D91 // Ini_Reg_Class
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" true
+
+ @SELF
+; // ME_4D555B5B01E8 TCollectionItem
+
+: ME_4F8E7AB5037E
+ CONST UID '4F8E7AB5037E'
+ CONST Name 'TCollectionNotification'
+ CONST Class 'Class'
+ CONST Stereotype 'Enum'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_4F8E7AB5037E TCollectionNotification
+
+FORWARD ME_4F8E7A900279
+
+: ME_4F8E7AB00283
+ CONST UID '4F8E7AB00283'
+ CONST Name 'Item'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4D555B5B01E8 // TCollectionItem
+ ;
+
+ @SELF
+; // ME_4F8E7AB00283 Item
+
+: ME_4F8E7AB002A4
+ CONST UID '4F8E7AB002A4'
+ CONST Name 'Action'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4F8E7AB5037E // TCollectionNotification
+ ;
+
+ @SELF
+; // ME_4F8E7AB002A4 Action
+
+: ME_4F8E7AA00209
+ CONST UID '4F8E7AA00209'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_4F8E7AB00283 // Item
+ ME_4F8E7AB002A4 // Action
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4F8E7AA00209 DoIt
+
+: ME_4F8E7A900279
+ CONST UID '4F8E7A900279'
+ CONST Name 'Notify'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_4F8E7AA00209 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4F8E7A900279 Notify
+
+FORWARD ME_560A9DA80335
+
+: ME_560A9DAF0259
+ CONST UID '560A9DAF0259'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_560A9DAF0259 DoIt
+
+: ME_560A9DA80335
+ CONST UID '560A9DA80335'
+ CONST Name 'GetAttrCount'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_560A9DAF0259 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_560A9DA80335 GetAttrCount
+
+FORWARD ME_560A9DCD009D
+
+: ME_560A9DD80128
+ CONST UID '560A9DD80128'
+ CONST Name 'Index'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_560A9DD80128 Index
+
+: ME_560A9DD40326
+ CONST UID '560A9DD40326'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+ : Parameters
+   [ ME_560A9DD80128 // Index
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_560A9DD40326 DoIt
+
+: ME_560A9DCD009D
+ CONST UID '560A9DCD009D'
+ CONST Name 'GetAttr'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_560A9DD40326 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_560A9DCD009D GetAttr
+
+FORWARD ME_560A9DEB0155
+
+: ME_560A9DF902FC
+ CONST UID '560A9DF902FC'
+ CONST Name 'Index'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_560A9DF902FC Index
+
+: ME_560A9DF9031A
+ CONST UID '560A9DF9031A'
+ CONST Name 'ItemIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_560A9DF9031A ItemIndex
+
+: ME_560A9DF00326
+ CONST UID '560A9DF00326'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+ : Parameters
+   [ ME_560A9DF902FC // Index
+ ME_560A9DF9031A // ItemIndex
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_560A9DF00326 DoIt
+
+: ME_560A9DEB0155
+ CONST UID '560A9DEB0155'
+ CONST Name 'GetItemAttr'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_560A9DF00326 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_560A9DEB0155 GetItemAttr
+
+: ME_0723FA770C06
+ CONST UID '0723FA770C06'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TCollection' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_0723FA770C06 Ini_Reg_Class
+
+: ME_4D555B78015F
+ CONST UID '4D555B78015F'
+ CONST Name 'TCollection'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_478CF32A03B6 // TPersistent
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4F8E7A900279 // Notify
+ ME_560A9DA80335 // GetAttrCount
+ ME_560A9DCD009D // GetAttr
+ ME_560A9DEB0155 // GetItemAttr
+ ME_0723FA770C06 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Children
+   [ ME_4F8E7AB5037E // TCollectionNotification
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" true
+
+ @SELF
+; // ME_4D555B78015F TCollection
+
+: ME_4F8E7BED02DC
+ CONST UID '4F8E7BED02DC'
+ CONST Name 'TCollectionItemClass'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4D555B5B01E8 // TCollectionItem
+ ]
+ ; // Inherits
+ CONST "isClassRef" true
+
+ @SELF
+; // ME_4F8E7BED02DC TCollectionItemClass
+
+: ME_47E1214E00F2
+ CONST UID '47E1214E00F2'
+ CONST Name 'TInterfacedPersistent'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'TInterfacedPersistent is an ancestor for persistent objects that implement interfaces.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_478CF32A03B6 // TPersistent
+ ]
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_47E1214E00F2 TInterfacedPersistent
+
+: ME_47E762B6004C
+ CONST UID '47E762B6004C'
+ CONST Name 'TBasicAction'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_479878FA0103 // TComponent
+ ]
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_47E762B6004C TBasicAction
+
+FORWARD ME_4FFC4CA60156
+
+: ME_17018915422C
+ CONST UID '17018915422C'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TOwnedCollection' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_17018915422C Ini_Reg_Class
+
+: ME_4FFC4CA60156
+ CONST UID '4FFC4CA60156'
+ CONST Name 'TOwnedCollection'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4D555B78015F // TCollection
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_17018915422C // Ini_Reg_Class
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4FFC4CA60156 TOwnedCollection
+
+FORWARD ME_4FFFDF4601F9
+
+FORWARD ME_4FFFDF740099
+
+: ME_4FFFDF90030E
+ CONST UID '4FFFDF90030E'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4FFFDF90030E DoIt
+
+: ME_4FFFDF740099
+ CONST UID '4FFFDF740099'
+ CONST Name 'Execute'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'abstract'
+ : Operations
+   [ ME_4FFFDF90030E // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4FFFDF740099 Execute
+
+: ME_4FFFDF4601F9
+ CONST UID '4FFFDF4601F9'
+ CONST Name 'TThread'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4807745602C8 // TObject
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4FFFDF740099 // Execute
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4FFFDF4601F9 TThread
+
+: ME_508FA905037C
+ CONST UID '508FA905037C'
+ CONST Name 'THelpContext'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_508FA905037C THelpContext
+
+: ME_508FA9150190
+ CONST UID '508FA9150190'
+ CONST Name 'THelpType'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_508FA9150190 THelpType
+
+FORWARD ME_52A088B20026
+
+FORWARD ME_5339368F0001
+
+: ME_5339369D017A
+ CONST UID '5339369D017A'
+ CONST Name 'AClient'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_5339369D017A AClient
+
+: ME_5339369A00EA
+ CONST UID '5339369A00EA'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_5339369D017A // AClient
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5339369A00EA DoIt
+
+: ME_5339368F0001
+ CONST UID '5339368F0001'
+ CONST Name 'AssignClient'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_5339369A00EA // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5339368F0001 AssignClient
+
+: ME_52A088B20026
+ CONST UID '52A088B20026'
+ CONST Name 'TBasicActionLink'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4807745602C8 // TObject
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_5339368F0001 // AssignClient
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_52A088B20026 TBasicActionLink
+
+: ME_53A8571101A2
+ CONST UID '53A8571101A2'
+ CONST Name 'EParserError'
+ CONST Class 'Class'
+ CONST Stereotype 'Exception'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_53A8571101A2 EParserError
+
+: ME_546F14DC0358
+ CONST UID '546F14DC0358'
+ CONST Name 'EReadError'
+ CONST Class 'Class'
+ CONST Stereotype 'Exception'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4787A405013D // Exception
+ ]
+ ; // Inherits
+
+ @SELF
+; // ME_546F14DC0358 EReadError
+
+FORWARD ME_4CB722C101EB
+
+: ME_E059A6349420
+ CONST UID 'E059A6349420'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода Rect' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_E059A6349420 DoIt
+
+: ME_4CB722C101EB
+ CONST UID '4CB722C101EB'
+ CONST Name 'Rect'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_E059A6349420 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_4CB722C101EB Rect
+
+FORWARD ME_549BCFD20030
+
+: ME_549BD0500215
+ CONST UID '549BD0500215'
+ CONST Name 'Mathod'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47E124920022 // TWndMethod
+ ;
+
+ @SELF
+; // ME_549BD0500215 Mathod
+
+: ME_549BD0340261
+ CONST UID '549BD0340261'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_549BD0500215 // Mathod
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_549BD0340261 DoIt
+
+: ME_549BCFD20030
+ CONST UID '549BCFD20030'
+ CONST Name 'AllocateHWnd'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_549BD0340261 // DoIt
+ ]
+ ; // Operations
+ CONST "finished" false
+
+ @SELF
+; // ME_549BCFD20030 AllocateHWnd
+
+: ME_478CF30500C1
+ CONST UID '478CF30500C1'
+ CONST Name 'Classes'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ %SUMMARY 'Реализация модуля Classes.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_4CB722C101EB // Rect
+ ME_549BCFD20030 // AllocateHWnd
+ ]
+ ; // Operations
+ : Children
+   [ ME_4FD09D790377 // TFiler
+ ME_478CF32A03B6 // TPersistent
+ ME_4D5418F5009C // TComponentName
+ ME_47E124920022 // TWndMethod
+ ME_47E12513030E // TBiDiMode
+ ME_48F47C8001FF // TSeekOrigin
+ ME_47E21A8A0324 // TStrings
+ ME_4D55109C0309 // TOperation
+ ME_480768DD00F0 // TList
+ ME_4807756101FE // TStringList
+ ME_4807825A006E // TInterfaceList
+ ME_4808963302B7 // TDuplicates
+ ME_483FF49100F4 // TStreamAdapter
+ ME_47E150FF028A // TStream
+ ME_483FF4CA0307 // TCustomMemoryStream
+ ME_4FD09DA800F9 // TWriter
+ ME_469F85A900E3 // TStream$Stub
+ ME_476F72030260 // TPersistent$Stub
+ ME_46A4B9AA00F0 // TComponent$Stub
+ ME_46A464DB0262 // TStrings$Stub
+ ME_47880FB90325 // TInterfacedPersistent$Stub
+ ME_4787FD9103E6 // TThread$Stub
+ ME_483FF50C00F4 // TMemoryStream
+ ME_4728CE680258 // TShiftState
+ ME_499562B802E7 // TShortCut
+ ME_4A840F5703AC // TAlignment
+ ME_479F1C5600EA // EListError
+ ME_47881B22005A // TNotifyEvent
+ ME_4952341C01BF // EStreamError
+ ME_4C8778220341 // EFCreateError
+ ME_479878FA0103 // TComponent
+ ME_4AAA214A0250 // TDataModule
+ ME_4D555B5B01E8 // TCollectionItem
+ ME_4D555B78015F // TCollection
+ ME_4F8E7BED02DC // TCollectionItemClass
+ ME_47E1214E00F2 // TInterfacedPersistent
+ ME_47E762B6004C // TBasicAction
+ ME_4FFC4CA60156 // TOwnedCollection
+ ME_4FFFDF4601F9 // TThread
+ ME_508FA905037C // THelpContext
+ ME_508FA9150190 // THelpType
+ ME_52A088B20026 // TBasicActionLink
+ ME_53A8571101A2 // EParserError
+ ME_546F14DC0358 // EReadError
+ ]
+ ; // Children
+ CONST "no hands" false
+
+ @SELF
+; // ME_478CF30500C1 Classes

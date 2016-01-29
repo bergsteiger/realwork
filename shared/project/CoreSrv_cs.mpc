@@ -1,0 +1,148 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/shared/project/CoreSrv_cs.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<ServerLibrary::Category>> shared::CoreSrv
+//
+// Клиент-серверное ядро, набор базовых вспомогательных функциий и типов для работы с CORBA, а так
+// же клиент-сервная часть фреймворка GCM2
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (CoreSrv_cs) : project_generic_core_corba, project_compile_idl {
+	staticname = CoreSrv_cs
+
+	includes += ../../
+
+	after += Core
+	libs  += Core
+
+	IDL_Files (EventComm) {
+		idlflags += -o ./../CoreSrv/EventComm
+		./../CoreSrv/EventComm/EventComm.idl
+	}
+
+	IDL_Files (RootSrv) {
+		idlflags += -o ./../CoreSrv/RootSrv
+		./../CoreSrv/RootSrv/RootSrv.idl
+	}
+
+	IDL_Files (SecuritySrv) {
+		idlflags += -o ./../CoreSrv/SecuritySrv
+		./../CoreSrv/SecuritySrv/SecuritySrv.idl
+	}
+
+	IDL_Files (SecuritySrvComm) {
+		idlflags += -o ./../CoreSrv/SecuritySrvComm
+		./../CoreSrv/SecuritySrvComm/SecuritySrvComm.idl
+	}
+
+	Header_Files {
+		Std_Headers {
+			./../CoreSrv/LibHome.h
+		}
+	
+		EventComm {
+			./../CoreSrv/EventComm/EventComm.h
+			./../CoreSrv/EventComm/EventCommC.h
+			./../CoreSrv/EventComm/EventCommS.h
+			./../CoreSrv/EventComm/EventCommFactories.h
+		}
+	
+		RootSrv {
+			
+			./../CoreSrv/RootSrv/RootSrvC.h
+			./../CoreSrv/RootSrv/RootSrvS.h
+		}
+	
+		SecuritySrv {
+			./../CoreSrv/SecuritySrv/SecuritySrv.h
+			./../CoreSrv/SecuritySrv/SecuritySrvC.h
+			./../CoreSrv/SecuritySrv/SecuritySrvS.h
+			./../CoreSrv/SecuritySrv/SecuritySrvFactories.h
+		}
+	
+		SecuritySrvComm {
+			./../CoreSrv/SecuritySrvComm/SecuritySrvComm.h
+			./../CoreSrv/SecuritySrvComm/SecuritySrvCommC.h
+			./../CoreSrv/SecuritySrvComm/SecuritySrvCommS.h
+		}
+	
+		interceptors {
+			./../CoreSrv/ClientSecurity.h
+			./../CoreSrv/ServerSecurity.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		EventComm {
+			
+			./../CoreSrv/EventComm/EventCommC.inl
+			./../CoreSrv/EventComm/EventCommS.inl
+		}
+	
+		RootSrv {
+			
+			./../CoreSrv/RootSrv/RootSrvC.inl
+			./../CoreSrv/RootSrv/RootSrvS.inl
+		}
+	
+		SecuritySrv {
+			
+			./../CoreSrv/SecuritySrv/SecuritySrvC.inl
+			./../CoreSrv/SecuritySrv/SecuritySrvS.inl
+		}
+	
+		SecuritySrvComm {
+			
+			./../CoreSrv/SecuritySrvComm/SecuritySrvCommC.inl
+			./../CoreSrv/SecuritySrvComm/SecuritySrvCommS.inl
+		}
+	
+		interceptors {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../CoreSrv/LibHome.cpp
+		}
+	
+		EventComm {
+			./../CoreSrv/EventComm/EventComm.cpp
+			./../CoreSrv/EventComm/EventCommC.cpp
+			./../CoreSrv/EventComm/EventCommS.cpp
+			./../CoreSrv/EventComm/EventCommFactories.cpp
+		}
+	
+		RootSrv {
+			
+			./../CoreSrv/RootSrv/RootSrvC.cpp
+			./../CoreSrv/RootSrv/RootSrvS.cpp
+		}
+	
+		SecuritySrv {
+			./../CoreSrv/SecuritySrv/SecuritySrv.cpp
+			./../CoreSrv/SecuritySrv/SecuritySrvC.cpp
+			./../CoreSrv/SecuritySrv/SecuritySrvS.cpp
+			./../CoreSrv/SecuritySrv/SecuritySrvFactories.cpp
+		}
+	
+		SecuritySrvComm {
+			
+			./../CoreSrv/SecuritySrvComm/SecuritySrvCommC.cpp
+			./../CoreSrv/SecuritySrvComm/SecuritySrvCommS.cpp
+		}
+	
+		interceptors {
+			./../CoreSrv/ClientSecurity.cpp
+			./../CoreSrv/ServerSecurity.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,56 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfaceTypes/ValueMapper.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfaceTypes::ValueMapper
+//
+// Примесный класс для генерации поддержки мапинга значений
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: ValueMapper::Class
+implementation @ <<ValueMapper>>
+//? Примесный класс для генерации поддержки мапинга значений
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p Need mapping support:b=false ? Нужно ли генерировать поддержку для мапинга значений
+//p Need map interface:b=false ? Нужна ли реализация интерфейса мапы
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	[{"%S{Need mapping support}"!="%S{!Need mapping support}"}%f_up_prefix(%S) *Need mapping support* = *%S{Need mapping support}* - Нужно ли генерировать поддержку для мапинга значений
+ if ( ( %S get_up ( 'Need mapping support' ) ) %!= ( %S get_up_def ( 'Need mapping support' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *Need mapping support* = *'
+  %S get_up ( 'Need mapping support' ) '* - Нужно ли генерировать поддержку для мапинга значений'
+//	][{"%S{Need map interface}"!="%S{!Need map interface}"}%f_up_prefix(%S) *Need map interface* = *%S{Need map interface}* - Нужна ли реализация интерфейса мапы
+ end // if
+ if ( ( %S get_up ( 'Need map interface' ) ) %!= ( %S get_up_def ( 'Need map interface' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *Need map interface* = *'
+  %S get_up ( 'Need map interface' ) '* - Нужна ли реализация интерфейса мапы'
+//	]
+ end // if
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // wiki_up_print
+
+end. // <<ValueMapper>>
+

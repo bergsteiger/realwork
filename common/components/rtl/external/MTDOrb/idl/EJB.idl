@@ -1,0 +1,166 @@
+
+#ifndef __EJB__
+#define __EJB__
+
+#include "orb.idl"
+
+module java {
+	module lang {
+
+		valuetype StackTraceElement {
+			private long lineNumber;
+			private ::CORBA::WStringValue declaringClass;
+			private ::CORBA::WStringValue fileName;
+			private ::CORBA::WStringValue methodName;
+		};
+
+		#pragma ID StackTraceElement "RMI:java.lang.StackTraceElement:CD38F9930EA8AAEC:6109C59A2636DD85"
+
+		typedef sequence<::java::lang::StackTraceElement> StackTraceElementSeq;
+		valuetype seq1_StackTraceElement StackTraceElementSeq;
+
+		#pragma ID seq1_StackTraceElement "RMI:[Ljava.lang.StackTraceElement;:CD38F9930EA8AAEC:6109C59A2636DD85"
+
+		valuetype Throwable {
+			private ::java::lang::Throwable cause;
+			private ::CORBA::WStringValue detailMessage;
+			private ::java::lang::seq1_StackTraceElement stackTrace;
+		};
+
+		#pragma ID Throwable "RMI:java.lang.Throwable:F8678B4F4D2EB705:D5C635273977B8CB"
+
+		exception ThrowableEx {
+			Throwable value;
+		};
+
+		typedef any _Object;
+
+		valuetype _Exception: ::java::lang::Throwable {
+		};
+
+		#pragma ID _Exception "RMI:java.lang.Exception:77E8B62CD7E79AA2:D0FD1F3E1A3B1CC4"
+
+		exception Ex {
+			_Exception value;
+		};
+		
+		valuetype Error: ::java::lang::Throwable {
+		};
+
+		#pragma ID Error "RMI:java.lang.Error:77E8B62CD7E79AA2:451D36568B820E56"
+
+		exception ErrorEx {
+			Error value;
+		};
+
+		abstract valuetype Comparable {
+		};
+		
+		valuetype Number {
+		};
+
+		#pragma ID Number "RMI:java.lang.Number:071DA8BE7F971128:86AC951D0B94E08B"
+
+		valuetype Integer: ::java::lang::Number, ::java::lang::Comparable {
+			const long MIN_VALUE = -2147483647;
+        		const long MAX_VALUE = 2147483647;
+        		private long value;
+		};
+
+		#pragma ID Integer "RMI:java.lang.Integer:47693FFB4FE579F4:12E2A0A4F7818738"
+		
+		valuetype _Boolean {
+			private boolean value;
+		};
+
+		#pragma ID _Boolean "RMI:java.lang.Boolean:FE070D6A7BD7419A:CD207280D59CFAEE"
+
+	};
+	
+};
+
+module javax {
+	module ejb {
+
+		interface EJBObject;
+		interface EJBHome;
+
+		valuetype CreateException: ::java::lang::_Exception {
+		};
+
+		#pragma ID CreateException "RMI:javax.ejb.CreateException:048A3675A6FD5463:575FB6C03D49AD6A"
+
+		exception CreateEx {
+			CreateException value;
+		};
+
+		abstract interface Handle {
+			readonly attribute ::javax::ejb::EJBObject EJBObject;
+		};
+
+		#pragma ID Handle "RMI:javax.ejb.Handle:0000000000000000"
+
+		abstract interface HomeHandle {
+			readonly attribute ::javax::ejb::EJBHome EJBHome;
+		};
+
+		#pragma ID HomeHandle "RMI:javax.ejb.HomeHandle:0000000000000000"
+
+		abstract valuetype EJBMetaData;
+
+		valuetype RemoveException: ::java::lang::_Exception {
+		};
+
+		#pragma ID RemoveException "RMI:javax.ejb.RemoveException:048A3675A6FD5463:C06A008FD05A462A"
+
+		exception RemoveEx {
+			RemoveException value;
+		};
+
+		valuetype FinderException: ::java::lang::_Exception {
+		};
+
+		#pragma ID FinderException "RMI:javax.ejb.FinderException:048A3675A6FD5463:79EE1514C8B7CA15"
+		
+		exception FinderEx {
+			FinderException value;
+		};
+
+		valuetype ObjectNotFoundException: ::javax::ejb::FinderException {
+		};
+
+		#pragma ID ObjectNotFoundException "RMI:javax.ejb.ObjectNotFoundException:2E921E9DEB124A7F:00106DD5ADF01DDA"
+
+		exception ObjectNotFoundEx {
+			ObjectNotFoundException value;
+		};
+
+		interface EJBHome {
+			readonly attribute ::javax::ejb::EJBMetaData EJBMetaData;
+			readonly attribute ::javax::ejb::HomeHandle homeHandle;
+			void remove__java_lang_Object(in ::java::lang::_Object arg0 )
+				raises (::javax::ejb::RemoveEx );
+			void remove__javax_ejb_Handle(in ::javax::ejb::Handle arg0 ) 
+				raises (::javax::ejb::RemoveEx );
+		};
+
+		#pragma ID EJBHome "RMI:javax.ejb.EJBHome:0000000000000000"
+
+		interface EJBObject {
+			readonly attribute ::javax::ejb::EJBHome EJBHome;
+			readonly attribute ::javax::ejb::Handle handle;
+			readonly attribute ::java::lang::_Object primaryKey;
+			boolean isIdentical(in ::javax::ejb::EJBObject arg0 );
+			void remove()
+				raises (::javax::ejb::RemoveEx);
+		};
+
+		#pragma ID EJBObject "RMI:javax.ejb.EJBObject:0000000000000000"
+
+	};
+	
+};
+
+#pragma prefix "";
+
+#endif

@@ -1,0 +1,1982 @@
+FINAL <<VCMGUI>> Monitoring
+ %UID '4AA9032A002B'
+ %SUMMARY 'Мониторинги' ;
+ %DEPENDS
+  U$ '447878770121' /* GCI */
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4683F37902CF' /* vcmInterfaces */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4767743E00E5' /* TypInfo */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '490838AA02D0' /* Nemesis */
+  U$ '49549627008C' /* LegalDomain */
+  U$ '4986ECDF01F4' /* View */
+  U$ '49871D5103B9' /* StatusBar */
+  U$ '499ABF2A0338' /* Navigator */
+  U$ '499AEC6A0372' /* F1Test */
+  U$ '499EAAE502A8' /* vcmUserControls */
+  U$ '4A78010000B7' /* Search */
+  U$ '4A78013D01CD' /* "View$For F1 and Monitorings" */
+  U$ '4A7960CC03A4' /* " Panels" */
+  U$ '4A8567F2039C' /* SearchLite */
+  U$ '4A9FD48B02A5' /* "F1 Application Template" */
+  U$ '4AB0C3C60310' /* Sys */
+  U$ '4B322B67038B' /* ext */
+  U$ '4B63155B0328' /* MDProcess$ForDelphi */
+  U$ '4DAF19F600C5' /* tfwScriptingInterfaces */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4F3E3F5F0160' /* PrimitiveWords */
+  U$ '4F69DF560034' /* ControlsProcessing */
+  U$ '4F7C1DF701C7' /* View */
+  U$ '4F7C1E2803C5' /* MainForm */
+  U$ '521C9DA50125' /* "Application Resources" */
+  U$ '542015B5012C' /* PostingOrder */
+  U$ '547CC9D40158' /* VT$Panels */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+  U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+  U$ '54DB92D203C9' /* "VCL bindings" */
+  U$ '5527F81C020E' /* TypesRegistration */
+  U$ '55BA28CE0290' /* tfwScriptingTypes */
+  U$ '55CCADD2013D' /* ClassLikeMapping */
+  U$ '561F9F7D02A7' /* ScriptEngine */
+  U$ '562E251101C2' /* "Shared Delphi Rtl" */
+ ; // %DEPENDS
+ %META
+  %upv "F1Like" 'undefined'
+  %upv "HelpFile" 'F1Prime'
+  %upv "needs second icon" true
+ ; // %META
+ %TOBEINCLUDED
+  U$ '447878770121' /* GCI */
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '490838AA02D0' /* Nemesis */
+  U$ '49549627008C' /* LegalDomain */
+  U$ '4986ECDF01F4' /* View */
+  U$ '499AEC6A0372' /* F1Test */
+  U$ '4A78010000B7' /* Search */
+  U$ '4A78013D01CD' /* "View$For F1 and Monitorings" */
+  U$ '4A8567F2039C' /* SearchLite */
+  U$ '4A9FD48B02A5' /* "F1 Application Template" */
+  U$ '4B63155B0328' /* MDProcess$ForDelphi */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4F7C1DF701C7' /* View */
+  U$ '542015B5012C' /* PostingOrder */
+  U$ '547CC9D40158' /* VT$Panels */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+  U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+  U$ '562E251101C2' /* "Shared Delphi Rtl" */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  FINAL <<VCMApplication>> Monitorings
+   %UID '4AA9038C0387'
+   %SUMMARY 'Мониторинги' ;
+   %META
+    %upv "author" 'Люлин А.В.'
+    %upv "needs InstanceR" 'undefined'
+    %upv "needs script" 'undefined'
+    %upv "no hands" true
+    %upv "register in scripts" 'undefined'
+    %upv "started" '10.09.2009 17:48'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '490838AA02D0' /* Nemesis */
+    U$ '4A78013D01CD' /* "View$For F1 and Monitorings" */
+    U$ '4AA9032A002B' /* Monitoring */
+    U$ '4F7C1DF701C7' /* View */
+    U$ '547CC9D40158' /* VT$Panels */
+    U$ '54CF97B10370' /* ScriptEngine$Core */
+    U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+   ; // %TOBEINCLUDED
+   %INHERITS
+    U$ '4AAA42BF0267' /* ShellAndMonitorings */
+   ; // %INHERITS
+   %OVERRIDES
+    U$ '4AA7E4DC0047' /* DoRun */
+   ; // %OVERRIDES
+   %LINKS
+     <<uses>> "4AA919EF02D4"
+      %UID '4AA919EF02D4'
+      %TARGET U$ '4AA919DA010C' /* CommonPost */
+     ; // 4AA919EF02D4
+     SUMMONED <<uses>> "36D286A3861D"
+      %UID '36D286A3861D'
+      %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+     ; // 36D286A3861D
+     SUMMONED <<uses>> "93C7CD5A16C3"
+      %UID '93C7CD5A16C3'
+      %TARGET U$ '4E01D1E002AE' /* Tl3MessageID */
+     ; // 93C7CD5A16C3
+     SUMMONED <<uses>> "399C0DBAA7F9"
+      %UID '399C0DBAA7F9'
+      %TARGET U$ '4D514CA600C2' /* evExtFormat */
+     ; // 399C0DBAA7F9
+     SUMMONED <<uses>> "102A8289E472"
+      %UID '102A8289E472'
+      %TARGET U$ '47F260EC02C7' /* StdRes */
+     ; // 102A8289E472
+   ; // %LINKS
+   %OPERATIONS
+     SUMMONED PRIVATE FINAL <<ini>> Init_MonitoringTitle
+      %UID 'DA5A0975D373'
+      %SUMMARY 'Инициализация str_MonitoringTitle' ;
+     ; // Init_MonitoringTitle
+   ; // %OPERATIONS
+   %CHILDREN
+    
+     <<VCMMainForm>> PrimMonitoringsMain
+      %UID '4AA919040176'
+      %META
+       %upv "NeedsHackRef" true
+       %upv "ZoneType" 'Any'
+       %upv "author" 'Люлин А.В.'
+       %upv "base wnd class" 'CWnd'
+       %upv "finished dfm" true
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "resizeable" false
+       %upv "restrict form def" 'undefined'
+       %upv "started" '10.09.2009 19:19'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4A78013D01CD' /* "View$For F1 and Monitorings" */
+       U$ '4F7C1DF701C7' /* View */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4F7C1E96000A' /* AdminAndMonitoringsMainForm */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4AAA43F601F7' /* ShellAndMonitoringsMain */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '49803F5503AA' /* DoInit */
+      ; // %OVERRIDES
+      %LINKS
+        SUMMONED <<uses>> "BE3F24D0F58F"
+         %UID 'BE3F24D0F58F'
+         %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+        ; // BE3F24D0F58F
+        SUMMONED <<uses>> "B900EA68AB55"
+         %UID 'B900EA68AB55'
+         %TARGET U$ '4E01D1E002AE' /* Tl3MessageID */
+        ; // B900EA68AB55
+        SUMMONED <<uses>> "0AB8F0933CC1"
+         %UID '0AB8F0933CC1'
+         %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+        ; // 0AB8F0933CC1
+      ; // %LINKS
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Init_utEmptyMainWindowCaption
+         %UID '1CD1CD4A5A3A'
+         %SUMMARY 'Инициализация str_utEmptyMainWindowCaption' ;
+        ; // Init_utEmptyMainWindowCaption
+        SUMMONED PRIVATE FINAL <<ini>> Init_utEmptyMainWindowSettingsCaption
+         %UID '25C19092138D'
+         %SUMMARY 'Инициализация str_utEmptyMainWindowSettingsCaption' ;
+        ; // Init_utEmptyMainWindowSettingsCaption
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+         %UID '0A22AE23AB3C'
+         %SUMMARY 'Регистрация PrimMonitoringsMain' ;
+         %META
+          %upv "ifndef" 'NoScripts'
+         ; // %META
+        ; // Ini_Reg_Class
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        FINAL <<UserType>> utEmptyMainWindow
+         %UID '4BD84E0603B5'
+         %SUMMARY 'Главное окно' ;
+         %META
+          %upv "CanClose" 'undefined'
+          %upv "CanHaveToolbars" 'undefined'
+          %upv "ImageIndex" '-1'
+          %upv "NeedOnQueryClose" false
+          %upv "NeedOnQueryMaximized" false
+          %upv "NeedOnQueryOpen" false
+          %upv "SettingsCaption" 'Главная панель инструментов'
+          %upv "VisibleToUser" true
+          %upv "Weight" '-1'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %CHILDREN
+          
+           SUMMONED <<Constants>> utEmptyMainWindowConstants
+            %UID '5E0D3F501471'
+            %SUMMARY 'Константы для типа формы utEmptyMainWindow' ;
+            %META
+             %upv "spell names" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %ATTRIBUTES
+              SUMMONED <<Attribute>> utEmptyMainWindowName
+               %UID '4D92BC475F10'
+               %SUMMARY 'Строковый идентификатор пользовательского типа "Главное окно"' ;
+               %VALUE '''utEmptyMainWindow'''
+               %META
+                %upv "AutoInc" false
+                %upv "forced type" 'none'
+                %upv "is define" false
+               ; // %META
+              ; // utEmptyMainWindowName
+              SUMMONED <<Attribute>> utEmptyMainWindow
+               %UID '48C19DB4F69E'
+               %SUMMARY 'Главное окно' ;
+               %TARGET U$ '47F2534B010F' /* TvcmUserType */
+               %VALUE 0
+               %META
+                %upv "AutoInc" false
+                %upv "forced type" 'none'
+                %upv "is define" true
+               ; // %META
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // utEmptyMainWindow
+            ; // %ATTRIBUTES
+           ; // utEmptyMainWindowConstants
+           SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_FormUserType_utEmptyMainWindow"
+            %UID 'BD980C2F0BF3'
+            %SUMMARY 'Слово словаря для типа формы utEmptyMainWindow' ;
+            %META
+             %upv "NameForScript" 'тип_формы::utEmptyMainWindow'
+             %upv "ifndef" 'NoScripts'
+             %upv "needs InstanceR" 'undefined'
+             %upv "needs script" 'undefined'
+             %upv "no hands" false
+             %upv "register in scripts" 'undefined'
+            ; // %META
+            %TOBEINCLUDED
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %INHERITS
+             U$ '4EE1DBBB013C' /* TtfwInteger */
+            ; // %INHERITS
+            %OVERRIDES
+             U$ '4DB0614603C8' /* GetWordNameForRegister */
+             U$ '4EE1DC8903BB' /* GetInteger */
+            ; // %OVERRIDES
+            %OPERATIONS
+              SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+               %UID '540AFDFB20AC'
+               %SUMMARY 'Регистрация Tkw_FormUserType_utEmptyMainWindow' ;
+              ; // Ini_Reg
+            ; // %OPERATIONS
+           ; // "Tkw_FormUserType_utEmptyMainWindow"
+         ; // %CHILDREN
+        ; // utEmptyMainWindow
+        SUMMONED PRIVATE FINAL <<LocalConst>> utEmptyMainWindowLocalConstants
+         %UID '53CB6069EC1A'
+         %SUMMARY 'Локализуемые константы для типа формы utEmptyMainWindow' ;
+         %META
+          %upv "Need map interface" false
+          %upv "Need mapping support" false
+          %upv "spell names" false
+         ; // %META
+         %ATTRIBUTES
+           SUMMONED <<Attribute>> utEmptyMainWindowCaption
+            %UID '2223A66B7E5C'
+            %SUMMARY 'Заголовок пользовательского типа "Главное окно"' ;
+            %VALUE '''Главное окно'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // utEmptyMainWindowCaption
+           SUMMONED <<Attribute>> utEmptyMainWindowSettingsCaption
+            %UID 'D7F21C10DA6E'
+            %SUMMARY 'Заголовок пользовательского типа "Главное окно" для настройки панелей инструментов' ;
+            %VALUE '''Главная панель инструментов'''
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // utEmptyMainWindowSettingsCaption
+         ; // %ATTRIBUTES
+        ; // utEmptyMainWindowLocalConstants
+        SUMMONED PRIVATE <<Constants>> LCImplutEmptyMainWindowLocalConstants
+         %UID '0C90E699281E'
+         %SUMMARY 'Локализуемые строки utEmptyMainWindowLocalConstants' ;
+         %META
+          %upv "elements prefix" 'str'
+          %upv "spell names" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           SUMMONED <<Attribute>> utEmptyMainWindowCaption
+            %UID '21973BB13B8A'
+            %SUMMARY 'Заголовок пользовательского типа "Главное окно"' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''utEmptyMainWindowCaption''; rValue : ''Главное окно'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // utEmptyMainWindowCaption
+           SUMMONED <<Attribute>> utEmptyMainWindowSettingsCaption
+            %UID '9829DDD71BB4'
+            %SUMMARY 'Заголовок пользовательского типа "Главное окно" для настройки панелей инструментов' ;
+            %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+            %VALUE '(rS : -1; rLocalized : false; rKey : ''utEmptyMainWindowSettingsCaption''; rValue : ''Главная панель инструментов'')'
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+           ; // utEmptyMainWindowSettingsCaption
+         ; // %ATTRIBUTES
+        ; // LCImplutEmptyMainWindowLocalConstants
+      ; // %CHILDREN
+     ; // PrimMonitoringsMain
+     FINAL <<LocalConst>> MonitoringTitle
+      %UID '4F79AF74026A'
+      %META
+       %upv "Need map interface" false
+       %upv "Need mapping support" false
+       %upv "spell names" false
+      ; // %META
+      %ATTRIBUTES
+        <<Attribute>> MonitoringTitle
+         %UID '4F79AF7C02CC'
+         %VALUE '''ГАРАНТ аэро'''
+         %META
+          %upv "AutoInc" false
+          %upv "forced type" 'none'
+          %upv "is define" false
+         ; // %META
+        ; // MonitoringTitle
+      ; // %ATTRIBUTES
+     ; // MonitoringTitle
+     FINAL <<VCMMainForm>> MonitoringsMain
+      %UID '4F7C2E78015C'
+      %META
+       %upv "NeedsHackRef" true
+       %upv "ZoneType" 'Any'
+       %upv "base wnd class" 'CWnd'
+       %upv "finished dfm" true
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+       %upv "resizeable" false
+       %upv "restrict form def" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+       U$ '4AA9032A002B' /* Monitoring */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ 'C02C69F1F8D8' /* MonitoringsMain$Def */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4AA919040176' /* PrimMonitoringsMain */
+      ; // %INHERITS
+      %LINKS
+        SUMMONED <<uses>> "2126BF9F8AFF"
+         %UID '2126BF9F8AFF'
+         %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+        ; // 2126BF9F8AFF
+      ; // %LINKS
+      %OPERATIONS
+        SUMMONED PRIVATE FINAL <<ini>> Ini_Reg_Class
+         %UID '7DE84C1ACFF7'
+         %SUMMARY 'Регистрация MonitoringsMain' ;
+         %META
+          %upv "ifndef" 'NoScripts'
+         ; // %META
+        ; // Ini_Reg_Class
+        SUMMONED PRIVATE FINAL <<ini>> Ini_FormFactory_MonitoringsMain$Def
+         %UID '14FDCD5D4A1E'
+         %SUMMARY 'Регистрация фабрики формы MonitoringsMain' ;
+        ; // Ini_FormFactory_MonitoringsMain$Def
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        SUMMONED <<VCMFormDefinition>> MonitoringsMain$Def
+         %UID 'C02C69F1F8D8'
+         %SUMMARY 'Идентификатор формы MonitoringsMain' ;
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+         %CHILDREN
+          
+           SUMMONED <<Constants>> MonitoringsMainIDs
+            %UID 'AEDE99EEC64F'
+            %META
+             %upv "spell names" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '4790C3B8021E' /* VCM */
+            ; // %TOBEINCLUDED
+            %ATTRIBUTES
+              SUMMONED <<Attribute>> fm_MonitoringsMainForm
+               %UID 'A23ECB5FED28'
+               %SUMMARY 'Идентификатор формы TMonitoringsMainForm' ;
+               %TARGET U$ '4FFC30A800DF' /* TvcmFormDescriptor */
+               %VALUE '(rFormID : (rName : ''MonitoringsMainForm''; rID : 0); rFactory : nil)'
+               %META
+                %upv "AutoInc" false
+                %upv "forced type" 'none'
+                %upv "is define" false
+               ; // %META
+               %TOBEINCLUDED
+                U$ '4790C3B8021E' /* VCM */
+               ; // %TOBEINCLUDED
+              ; // fm_MonitoringsMainForm
+            ; // %ATTRIBUTES
+           ; // MonitoringsMainIDs
+         ; // %CHILDREN
+        ; // MonitoringsMain$Def
+      ; // %CHILDREN
+     ; // MonitoringsMain
+     SUMMONED <<Constants>> LCImplMonitoringTitle
+      %UID '1CA0263DA7A0'
+      %SUMMARY 'Локализуемые строки MonitoringTitle' ;
+      %META
+       %upv "elements prefix" 'str'
+       %upv "spell names" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        SUMMONED <<Attribute>> MonitoringTitle
+         %UID '02B481441F7A'
+         %SUMMARY '''ГАРАНТ аэро''' ;
+         %TARGET U$ '4B3B3728004C' /* Tl3StringIDEx */
+         %VALUE '(rS : -1; rLocalized : false; rKey : ''MonitoringTitle''; rValue : ''ГАРАНТ аэро'')'
+         %META
+          %upv "AutoInc" false
+          %upv "forced type" 'none'
+          %upv "is define" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+        ; // MonitoringTitle
+      ; // %ATTRIBUTES
+     ; // LCImplMonitoringTitle
+     SUMMONED FINAL <<ScriptKeywordsPack>> MonitoringsMainKeywordsPack
+      %UID 'ED33546FFF82'
+      %SUMMARY 'Набор слов словаря для доступа к экземплярам контролов формы MonitoringsMain' ;
+      %META
+       %upv "ifndef" 'NoScripts'
+       %upv "needs script" 'undefined'
+       %upv "no class name" 'undefined'
+       %upv "no hands" false
+       %upv "no_pop" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '490838AA02D0' /* Nemesis */
+       U$ '4AA9032A002B' /* Monitoring */
+       U$ '547CC9D40158' /* VT$Panels */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+       U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4F7C2E78015C' /* MonitoringsMain */
+      ; // %INHERITS
+      %LINKS
+        SUMMONED <<uses>> "E1F3B2ABF931"
+         %UID 'E1F3B2ABF931'
+         %TARGET U$ '55153C2C036F' /* TypeInfoExt */
+        ; // E1F3B2ABF931
+        SUMMONED <<injects>> "A57CFBB4AD10"
+         %UID 'A57CFBB4AD10'
+         %TARGET U$ '4F7C2E78015C' /* MonitoringsMain */
+        ; // A57CFBB4AD10
+        SUMMONED <<uses>> "F9DD98B86F1E"
+         %UID 'F9DD98B86F1E'
+         %TARGET U$ '5527F8330362' /* TtfwTypeRegistrator */
+        ; // F9DD98B86F1E
+      ; // %LINKS
+      %ATTRIBUTES
+        SUMMONED FINAL <<readonly>> StatusBar
+         %UID 'A9BD2CAAE508'
+         %SUMMARY 'Контрол StatusBar формы TMonitoringsMainForm' ;
+         %TARGET U$ '4E15A08E030D' /* TnscStatusBar */
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.StatusBar'
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '490838AA02D0' /* Nemesis */
+         ; // %TOBEINCLUDED
+        ; // StatusBar
+        SUMMONED FINAL <<readonly>> ClientZone
+         %UID 'C3F6FFBA5313'
+         %SUMMARY 'Контрол ClientZone формы TMonitoringsMainForm' ;
+         %TARGET U$ '4A7961A701CF' /* TvtPanel */
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.ClientZone'
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '547CC9D40158' /* VT$Panels */
+         ; // %TOBEINCLUDED
+        ; // ClientZone
+        SUMMONED FINAL <<readonly>> MainZone
+         %UID '0FE4AB9BC788'
+         %SUMMARY 'Контрол MainZone формы TMonitoringsMainForm' ;
+         %TARGET U$ '4A7AD11C028B' /* TvtProportionalPanel */
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.MainZone'
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '547CC9D40158' /* VT$Panels */
+         ; // %TOBEINCLUDED
+        ; // MainZone
+        SUMMONED FINAL <<readonly>> ParentZonePanel
+         %UID '0CCD851C3764'
+         %SUMMARY 'Контрол ParentZonePanel формы TMonitoringsMainForm' ;
+         %TARGET U$ '4A7961A701CF' /* TvtPanel */
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.ParentZonePanel'
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '547CC9D40158' /* VT$Panels */
+         ; // %TOBEINCLUDED
+        ; // ParentZonePanel
+        SUMMONED FINAL <<readonly>> ChildZonePanel
+         %UID '01EC8C217163'
+         %SUMMARY 'Контрол ChildZonePanel формы TMonitoringsMainForm' ;
+         %TARGET U$ '4A7961300264' /* TvtSizeablePanel */
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.ChildZonePanel'
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '547CC9D40158' /* VT$Panels */
+         ; // %TOBEINCLUDED
+        ; // ChildZonePanel
+        SUMMONED FINAL <<readonly>> BaseSearchPanel
+         %UID '862840A41245'
+         %SUMMARY 'Контрол BaseSearchPanel формы TMonitoringsMainForm' ;
+         %TARGET U$ '4A7961A701CF' /* TvtPanel */
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.BaseSearchPanel'
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '547CC9D40158' /* VT$Panels */
+         ; // %TOBEINCLUDED
+        ; // BaseSearchPanel
+        SUMMONED FINAL <<readonly>> LeftNavigator
+         %UID '39F076DC3F74'
+         %SUMMARY 'Контрол LeftNavigator формы TMonitoringsMainForm' ;
+         %TARGET U$ '499ABF3D031B' /* TnscNavigator */
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.LeftNavigator'
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '490838AA02D0' /* Nemesis */
+         ; // %TOBEINCLUDED
+        ; // LeftNavigator
+        SUMMONED FINAL <<readonly>> RightNavigator
+         %UID 'CA42EF3F9C72'
+         %SUMMARY 'Контрол RightNavigator формы TMonitoringsMainForm' ;
+         %TARGET U$ '499ABF3D031B' /* TnscNavigator */
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.RightNavigator'
+          %upv "ifdef" 'HasRightNavigator'
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '490838AA02D0' /* Nemesis */
+         ; // %TOBEINCLUDED
+        ; // RightNavigator
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        SUMMONED FINAL <<keyword>> StatusBar$D23D1A3F9267
+         %UID 'D23D1A3F9267'
+         %SUMMARY 'Контрол StatusBar формы TMonitoringsMainForm' ;
+         %TARGET U$ '4E15A08E030D' /* TnscStatusBar */
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.StatusBar'
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '490838AA02D0' /* Nemesis */
+         ; // %TOBEINCLUDED
+        ; // StatusBar$D23D1A3F9267
+        SUMMONED FINAL <<keyword>> ClientZone$5F9FB58CFC74
+         %UID '5F9FB58CFC74'
+         %SUMMARY 'Контрол ClientZone формы TMonitoringsMainForm' ;
+         %TARGET U$ '4A7961A701CF' /* TvtPanel */
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.ClientZone'
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '547CC9D40158' /* VT$Panels */
+         ; // %TOBEINCLUDED
+        ; // ClientZone$5F9FB58CFC74
+        SUMMONED FINAL <<keyword>> MainZone$D3654D12D66F
+         %UID 'D3654D12D66F'
+         %SUMMARY 'Контрол MainZone формы TMonitoringsMainForm' ;
+         %TARGET U$ '4A7AD11C028B' /* TvtProportionalPanel */
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.MainZone'
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '547CC9D40158' /* VT$Panels */
+         ; // %TOBEINCLUDED
+        ; // MainZone$D3654D12D66F
+        SUMMONED FINAL <<keyword>> ParentZonePanel$8576B5D35339
+         %UID '8576B5D35339'
+         %SUMMARY 'Контрол ParentZonePanel формы TMonitoringsMainForm' ;
+         %TARGET U$ '4A7961A701CF' /* TvtPanel */
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.ParentZonePanel'
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '547CC9D40158' /* VT$Panels */
+         ; // %TOBEINCLUDED
+        ; // ParentZonePanel$8576B5D35339
+        SUMMONED FINAL <<keyword>> ChildZonePanel$52204492F41F
+         %UID '52204492F41F'
+         %SUMMARY 'Контрол ChildZonePanel формы TMonitoringsMainForm' ;
+         %TARGET U$ '4A7961300264' /* TvtSizeablePanel */
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.ChildZonePanel'
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '547CC9D40158' /* VT$Panels */
+         ; // %TOBEINCLUDED
+        ; // ChildZonePanel$52204492F41F
+        SUMMONED FINAL <<keyword>> BaseSearchPanel$AF1A97D657B8
+         %UID 'AF1A97D657B8'
+         %SUMMARY 'Контрол BaseSearchPanel формы TMonitoringsMainForm' ;
+         %TARGET U$ '4A7961A701CF' /* TvtPanel */
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.BaseSearchPanel'
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '547CC9D40158' /* VT$Panels */
+         ; // %TOBEINCLUDED
+        ; // BaseSearchPanel$AF1A97D657B8
+        SUMMONED FINAL <<keyword>> LeftNavigator$70690A84D1EB
+         %UID '70690A84D1EB'
+         %SUMMARY 'Контрол LeftNavigator формы TMonitoringsMainForm' ;
+         %TARGET U$ '499ABF3D031B' /* TnscNavigator */
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.LeftNavigator'
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '490838AA02D0' /* Nemesis */
+         ; // %TOBEINCLUDED
+        ; // LeftNavigator$70690A84D1EB
+        SUMMONED FINAL <<keyword>> RightNavigator$4EFAE2E58DA7
+         %UID '4EFAE2E58DA7'
+         %SUMMARY 'Контрол RightNavigator формы TMonitoringsMainForm' ;
+         %TARGET U$ '499ABF3D031B' /* TnscNavigator */
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.RightNavigator'
+          %upv "bind params" 'undefined'
+          %upv "ifdef" 'HasRightNavigator'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '490838AA02D0' /* Nemesis */
+         ; // %TOBEINCLUDED
+        ; // RightNavigator$4EFAE2E58DA7
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TtfwContext
+         %UID '591BA1F9DE8F'
+         %SUMMARY 'Регистрация типа TtfwContext' ;
+        ; // Reg_TtfwContext
+        SUMMONED PRIVATE FINAL <<ini>> Reg_MonitoringsMain
+         %UID '7F9A72D78BAB'
+         %SUMMARY 'Регистрация типа MonitoringsMain' ;
+        ; // Reg_MonitoringsMain
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TnscStatusBar
+         %UID 'D57DAE5EBBB1'
+         %SUMMARY 'Регистрация типа TnscStatusBar' ;
+        ; // Reg_TnscStatusBar
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TvtPanel
+         %UID 'BF0D8D3A5374'
+         %SUMMARY 'Регистрация типа TvtPanel' ;
+        ; // Reg_TvtPanel
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TvtProportionalPanel
+         %UID 'AB2FA5857E08'
+         %SUMMARY 'Регистрация типа TvtProportionalPanel' ;
+        ; // Reg_TvtProportionalPanel
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TvtSizeablePanel
+         %UID '716467C59F40'
+         %SUMMARY 'Регистрация типа TvtSizeablePanel' ;
+        ; // Reg_TvtSizeablePanel
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TnscNavigator
+         %UID 'A0B5D0B7F269'
+         %SUMMARY 'Регистрация типа TnscNavigator' ;
+        ; // Reg_TnscNavigator
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_Form_MonitoringsMain"
+         %UID 'B0D3CFD6A5B0'
+         %SUMMARY 'Слово словаря для идентификатора формы MonitoringsMain'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'''aControl'' форма::MonitoringsMain TryFocus ASSERT'#13#10'{code}' ;
+         %META
+          %upv "NameForScript" 'форма::MonitoringsMain'
+          %upv "ifndef" 'NoScripts'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '508527F30183' /* TtfwControlString */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '4DDFD2EA0116' /* GetString */
+         ; // %OVERRIDES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '75B37732A064'
+            %SUMMARY 'Регистрация Tkw_Form_MonitoringsMain' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "Tkw_Form_MonitoringsMain"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_MonitoringsMain_Control_StatusBar"
+         %UID '316064C7D78A'
+         %SUMMARY 'Слово словаря для идентификатора контрола StatusBar'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::StatusBar TryFocus ASSERT'#13#10'{code}' ;
+         %META
+          %upv "NameForScript" 'контрол::StatusBar'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '508527F30183' /* TtfwControlString */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '4DDFD2EA0116' /* GetString */
+          U$ '52A086150180' /* RegisterInEngine */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "A4AE2FB39822"
+            %UID 'A4AE2FB39822'
+            %TARGET U$ '4E15A08E030D' /* TnscStatusBar */
+           ; // A4AE2FB39822
+           SUMMONED <<uses>> "655DCB02CB1E"
+            %UID '655DCB02CB1E'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 655DCB02CB1E
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID 'B432B8BDD3EE'
+            %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_StatusBar' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "Tkw_MonitoringsMain_Control_StatusBar"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_MonitoringsMain_Control_StatusBar_Push"
+         %UID '4C036AED963F'
+         %SUMMARY 'Слово словаря для контрола StatusBar'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::StatusBar:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+         %META
+          %upv "NameForScript" 'контрол::StatusBar:push'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4F2141AD0203' /* "byname_control_push" */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '4DAEEDE10285' /* DoDoIt */
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "061E6F61C8E9"
+            %UID '061E6F61C8E9'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 061E6F61C8E9
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '85814D586F7D'
+            %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_StatusBar_Push' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "Tkw_MonitoringsMain_Control_StatusBar_Push"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_MonitoringsMain_Control_ClientZone"
+         %UID '9EA55C0FD677'
+         %SUMMARY 'Слово словаря для идентификатора контрола ClientZone'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ClientZone TryFocus ASSERT'#13#10'{code}' ;
+         %META
+          %upv "NameForScript" 'контрол::ClientZone'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '508527F30183' /* TtfwControlString */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '4DDFD2EA0116' /* GetString */
+          U$ '52A086150180' /* RegisterInEngine */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "20A0056A89D3"
+            %UID '20A0056A89D3'
+            %TARGET U$ '4A7961A701CF' /* TvtPanel */
+           ; // 20A0056A89D3
+           SUMMONED <<uses>> "5F22E05B5FEC"
+            %UID '5F22E05B5FEC'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 5F22E05B5FEC
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '38639607B500'
+            %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_ClientZone' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "Tkw_MonitoringsMain_Control_ClientZone"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_MonitoringsMain_Control_ClientZone_Push"
+         %UID '8EA5A22D1155'
+         %SUMMARY 'Слово словаря для контрола ClientZone'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ClientZone:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+         %META
+          %upv "NameForScript" 'контрол::ClientZone:push'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4F2141AD0203' /* "byname_control_push" */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '4DAEEDE10285' /* DoDoIt */
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "EF8B57F3F293"
+            %UID 'EF8B57F3F293'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // EF8B57F3F293
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '6B4E7CFA49E1'
+            %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_ClientZone_Push' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "Tkw_MonitoringsMain_Control_ClientZone_Push"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_MonitoringsMain_Control_MainZone"
+         %UID '765E81224A01'
+         %SUMMARY 'Слово словаря для идентификатора контрола MainZone'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::MainZone TryFocus ASSERT'#13#10'{code}' ;
+         %META
+          %upv "NameForScript" 'контрол::MainZone'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '508527F30183' /* TtfwControlString */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '4DDFD2EA0116' /* GetString */
+          U$ '52A086150180' /* RegisterInEngine */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "0F35D28D8B53"
+            %UID '0F35D28D8B53'
+            %TARGET U$ '4A7AD11C028B' /* TvtProportionalPanel */
+           ; // 0F35D28D8B53
+           SUMMONED <<uses>> "5C0CE7103DA7"
+            %UID '5C0CE7103DA7'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 5C0CE7103DA7
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID 'BD26EC31101E'
+            %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_MainZone' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "Tkw_MonitoringsMain_Control_MainZone"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_MonitoringsMain_Control_MainZone_Push"
+         %UID 'DA6B495B8E07'
+         %SUMMARY 'Слово словаря для контрола MainZone'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::MainZone:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+         %META
+          %upv "NameForScript" 'контрол::MainZone:push'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4F2141AD0203' /* "byname_control_push" */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '4DAEEDE10285' /* DoDoIt */
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "04015D75B8A9"
+            %UID '04015D75B8A9'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 04015D75B8A9
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '2A6961DB501A'
+            %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_MainZone_Push' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "Tkw_MonitoringsMain_Control_MainZone_Push"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_MonitoringsMain_Control_ParentZonePanel"
+         %UID 'A3BCD85EFE5D'
+         %SUMMARY 'Слово словаря для идентификатора контрола ParentZonePanel'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ParentZonePanel TryFocus ASSERT'#13#10'{code}' ;
+         %META
+          %upv "NameForScript" 'контрол::ParentZonePanel'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '508527F30183' /* TtfwControlString */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '4DDFD2EA0116' /* GetString */
+          U$ '52A086150180' /* RegisterInEngine */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "D1ED7042DD76"
+            %UID 'D1ED7042DD76'
+            %TARGET U$ '4A7961A701CF' /* TvtPanel */
+           ; // D1ED7042DD76
+           SUMMONED <<uses>> "3686504FD3CE"
+            %UID '3686504FD3CE'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 3686504FD3CE
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID 'F55FE67362B0'
+            %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_ParentZonePanel' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "Tkw_MonitoringsMain_Control_ParentZonePanel"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_MonitoringsMain_Control_ParentZonePanel_Push"
+         %UID '470C255C1280'
+         %SUMMARY 'Слово словаря для контрола ParentZonePanel'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ParentZonePanel:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+         %META
+          %upv "NameForScript" 'контрол::ParentZonePanel:push'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4F2141AD0203' /* "byname_control_push" */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '4DAEEDE10285' /* DoDoIt */
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "41711FA85906"
+            %UID '41711FA85906'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 41711FA85906
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '7264A9748BD3'
+            %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_ParentZonePanel_Push' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "Tkw_MonitoringsMain_Control_ParentZonePanel_Push"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_MonitoringsMain_Control_ChildZonePanel"
+         %UID 'A6AB0E00A47C'
+         %SUMMARY 'Слово словаря для идентификатора контрола ChildZonePanel'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ChildZonePanel TryFocus ASSERT'#13#10'{code}' ;
+         %META
+          %upv "NameForScript" 'контрол::ChildZonePanel'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '508527F30183' /* TtfwControlString */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '4DDFD2EA0116' /* GetString */
+          U$ '52A086150180' /* RegisterInEngine */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "FA30251A0E46"
+            %UID 'FA30251A0E46'
+            %TARGET U$ '4A7961300264' /* TvtSizeablePanel */
+           ; // FA30251A0E46
+           SUMMONED <<uses>> "A58B372ED588"
+            %UID 'A58B372ED588'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // A58B372ED588
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '7B9ECD6D1A7A'
+            %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_ChildZonePanel' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "Tkw_MonitoringsMain_Control_ChildZonePanel"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_MonitoringsMain_Control_ChildZonePanel_Push"
+         %UID '65B854BE4D29'
+         %SUMMARY 'Слово словаря для контрола ChildZonePanel'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::ChildZonePanel:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+         %META
+          %upv "NameForScript" 'контрол::ChildZonePanel:push'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4F2141AD0203' /* "byname_control_push" */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '4DAEEDE10285' /* DoDoIt */
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "CE75C944E913"
+            %UID 'CE75C944E913'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // CE75C944E913
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '01570BD5DCA0'
+            %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_ChildZonePanel_Push' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "Tkw_MonitoringsMain_Control_ChildZonePanel_Push"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_MonitoringsMain_Control_BaseSearchPanel"
+         %UID 'A5889E612903'
+         %SUMMARY 'Слово словаря для идентификатора контрола BaseSearchPanel'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::BaseSearchPanel TryFocus ASSERT'#13#10'{code}' ;
+         %META
+          %upv "NameForScript" 'контрол::BaseSearchPanel'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '508527F30183' /* TtfwControlString */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '4DDFD2EA0116' /* GetString */
+          U$ '52A086150180' /* RegisterInEngine */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "393F0EB2AA5E"
+            %UID '393F0EB2AA5E'
+            %TARGET U$ '4A7961A701CF' /* TvtPanel */
+           ; // 393F0EB2AA5E
+           SUMMONED <<uses>> "9AC2E151AED2"
+            %UID '9AC2E151AED2'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 9AC2E151AED2
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID 'BD899F48F162'
+            %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_BaseSearchPanel' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "Tkw_MonitoringsMain_Control_BaseSearchPanel"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_MonitoringsMain_Control_BaseSearchPanel_Push"
+         %UID '897FF1B160A5'
+         %SUMMARY 'Слово словаря для контрола BaseSearchPanel'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::BaseSearchPanel:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+         %META
+          %upv "NameForScript" 'контрол::BaseSearchPanel:push'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4F2141AD0203' /* "byname_control_push" */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '4DAEEDE10285' /* DoDoIt */
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "8099D1B32804"
+            %UID '8099D1B32804'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 8099D1B32804
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID 'F5E71ED11C22'
+            %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_BaseSearchPanel_Push' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "Tkw_MonitoringsMain_Control_BaseSearchPanel_Push"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_MonitoringsMain_Control_LeftNavigator"
+         %UID '4499FD73873B'
+         %SUMMARY 'Слово словаря для идентификатора контрола LeftNavigator'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::LeftNavigator TryFocus ASSERT'#13#10'{code}' ;
+         %META
+          %upv "NameForScript" 'контрол::LeftNavigator'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '508527F30183' /* TtfwControlString */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '4DDFD2EA0116' /* GetString */
+          U$ '52A086150180' /* RegisterInEngine */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "0CF546F6DAF6"
+            %UID '0CF546F6DAF6'
+            %TARGET U$ '499ABF3D031B' /* TnscNavigator */
+           ; // 0CF546F6DAF6
+           SUMMONED <<uses>> "4D0D897093AC"
+            %UID '4D0D897093AC'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 4D0D897093AC
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID 'C8165FC95580'
+            %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_LeftNavigator' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "Tkw_MonitoringsMain_Control_LeftNavigator"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_MonitoringsMain_Control_LeftNavigator_Push"
+         %UID '0F416FA0FB28'
+         %SUMMARY 'Слово словаря для контрола LeftNavigator'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::LeftNavigator:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+         %META
+          %upv "NameForScript" 'контрол::LeftNavigator:push'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4F2141AD0203' /* "byname_control_push" */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '4DAEEDE10285' /* DoDoIt */
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "C3F1541E9994"
+            %UID 'C3F1541E9994'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // C3F1541E9994
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID 'D7CFC24720FF'
+            %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_LeftNavigator_Push' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "Tkw_MonitoringsMain_Control_LeftNavigator_Push"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_MonitoringsMain_Control_RightNavigator"
+         %UID '87474E831116'
+         %SUMMARY 'Слово словаря для идентификатора контрола RightNavigator'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::RightNavigator TryFocus ASSERT'#13#10'{code}' ;
+         %META
+          %upv "NameForScript" 'контрол::RightNavigator'
+          %upv "ifdef" 'HasRightNavigator'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '508527F30183' /* TtfwControlString */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '4DDFD2EA0116' /* GetString */
+          U$ '52A086150180' /* RegisterInEngine */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "D51BCA91DEB7"
+            %UID 'D51BCA91DEB7'
+            %TARGET U$ '499ABF3D031B' /* TnscNavigator */
+           ; // D51BCA91DEB7
+           SUMMONED <<uses>> "66A5F66C4E5E"
+            %UID '66A5F66C4E5E'
+            %TARGET U$ '561F9F9400BC' /* TtfwClassRef */
+           ; // 66A5F66C4E5E
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '440C4A26759B'
+            %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_RightNavigator' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "Tkw_MonitoringsMain_Control_RightNavigator"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "Tkw_MonitoringsMain_Control_RightNavigator_Push"
+         %UID 'A63382FBE37E'
+         %SUMMARY 'Слово словаря для контрола RightNavigator'#13#10'----'#13#10'*Пример использования*:'#13#10'{code}'#13#10'контрол::RightNavigator:push pop:control:SetFocus ASSERT'#13#10'{code}' ;
+         %META
+          %upv "NameForScript" 'контрол::RightNavigator:push'
+          %upv "ifdef" 'HasRightNavigator'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4F2141AD0203' /* "byname_control_push" */
+         ; // %INHERITS
+         %OVERRIDES
+          U$ '4DAEEDE10285' /* DoDoIt */
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "58B96E25F562"
+            %UID '58B96E25F562'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 58B96E25F562
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '555A9CDDF3B6'
+            %SUMMARY 'Регистрация Tkw_MonitoringsMain_Control_RightNavigator_Push' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "Tkw_MonitoringsMain_Control_RightNavigator_Push"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "MonitoringsMainForm_StatusBar"
+         %UID '74561386DA27'
+         %SUMMARY 'Слово скрипта .TMonitoringsMainForm.StatusBar'#13#10'{panel}Контрол StatusBar формы TMonitoringsMainForm{panel}'#13#10'*Тип результата:* TnscStatusBar'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TnscStatusBar'#13#10' aMonitoringsMainForm .TMonitoringsMainForm.StatusBar >>> l_TnscStatusBar'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.StatusBar'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '490838AA02D0' /* Nemesis */
+          U$ '4AA9032A002B' /* Monitoring */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '5619169603BE' /* TtfwPropertyLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '52D00B00031A' /* SetValuePrim */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "B2EAB7B36DED"
+            %UID 'B2EAB7B36DED'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // B2EAB7B36DED
+           SUMMONED <<uses>> "F7DE6A7795B2"
+            %UID 'F7DE6A7795B2'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // F7DE6A7795B2
+           SUMMONED <<uses>> "628D6C13418E"
+            %UID '628D6C13418E'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 628D6C13418E
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> StatusBar
+            %UID 'CD17D1A09864'
+            %SUMMARY 'Реализация слова скрипта .TMonitoringsMainForm.StatusBar' ;
+            %TARGET U$ '4E15A08E030D' /* TnscStatusBar */
+            %TOBEINCLUDED
+             U$ '490838AA02D0' /* Nemesis */
+             U$ '4AA9032A002B' /* Monitoring */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID 'D3B5F227EDB2'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aMonitoringsMainForm
+               %UID 'D3B5F227EDB3'
+               %TARGET U$ '4F7C2E78015C' /* MonitoringsMain */
+               %TOBEINCLUDED
+                U$ '4AA9032A002B' /* Monitoring */
+               ; // %TOBEINCLUDED
+              ; // aMonitoringsMainForm
+            ; // %PARAMETERS
+           ; // StatusBar
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID 'A61B89C18258'
+            %SUMMARY 'Регистрация MonitoringsMainForm_StatusBar' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "MonitoringsMainForm_StatusBar"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "MonitoringsMainForm_ClientZone"
+         %UID '67275B119336'
+         %SUMMARY 'Слово скрипта .TMonitoringsMainForm.ClientZone'#13#10'{panel}Контрол ClientZone формы TMonitoringsMainForm{panel}'#13#10'*Тип результата:* TvtPanel'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TvtPanel'#13#10' aMonitoringsMainForm .TMonitoringsMainForm.ClientZone >>> l_TvtPanel'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.ClientZone'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4AA9032A002B' /* Monitoring */
+          U$ '547CC9D40158' /* VT$Panels */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '5619169603BE' /* TtfwPropertyLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '52D00B00031A' /* SetValuePrim */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "6C09B5AE32F6"
+            %UID '6C09B5AE32F6'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 6C09B5AE32F6
+           SUMMONED <<uses>> "0CD1AE4B532C"
+            %UID '0CD1AE4B532C'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // 0CD1AE4B532C
+           SUMMONED <<uses>> "369A1967EC80"
+            %UID '369A1967EC80'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 369A1967EC80
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> ClientZone
+            %UID '6FA7F60149FC'
+            %SUMMARY 'Реализация слова скрипта .TMonitoringsMainForm.ClientZone' ;
+            %TARGET U$ '4A7961A701CF' /* TvtPanel */
+            %TOBEINCLUDED
+             U$ '4AA9032A002B' /* Monitoring */
+             U$ '547CC9D40158' /* VT$Panels */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID '2DB6A31A02B3'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aMonitoringsMainForm
+               %UID '2DB6A31A02B4'
+               %TARGET U$ '4F7C2E78015C' /* MonitoringsMain */
+               %TOBEINCLUDED
+                U$ '4AA9032A002B' /* Monitoring */
+               ; // %TOBEINCLUDED
+              ; // aMonitoringsMainForm
+            ; // %PARAMETERS
+           ; // ClientZone
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID 'DA48CB37C6BD'
+            %SUMMARY 'Регистрация MonitoringsMainForm_ClientZone' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "MonitoringsMainForm_ClientZone"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "MonitoringsMainForm_MainZone"
+         %UID 'FB177BDCBB79'
+         %SUMMARY 'Слово скрипта .TMonitoringsMainForm.MainZone'#13#10'{panel}Контрол MainZone формы TMonitoringsMainForm{panel}'#13#10'*Тип результата:* TvtProportionalPanel'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TvtProportionalPanel'#13#10' aMonitoringsMainForm .TMonitoringsMainForm.MainZone >>> l_TvtProportionalPanel'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.MainZone'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4AA9032A002B' /* Monitoring */
+          U$ '547CC9D40158' /* VT$Panels */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '5619169603BE' /* TtfwPropertyLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '52D00B00031A' /* SetValuePrim */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "E44A94DFD1F2"
+            %UID 'E44A94DFD1F2'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // E44A94DFD1F2
+           SUMMONED <<uses>> "CAF79A339241"
+            %UID 'CAF79A339241'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // CAF79A339241
+           SUMMONED <<uses>> "3B22830471FA"
+            %UID '3B22830471FA'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 3B22830471FA
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> MainZone
+            %UID 'F9F28A3E58E6'
+            %SUMMARY 'Реализация слова скрипта .TMonitoringsMainForm.MainZone' ;
+            %TARGET U$ '4A7AD11C028B' /* TvtProportionalPanel */
+            %TOBEINCLUDED
+             U$ '4AA9032A002B' /* Monitoring */
+             U$ '547CC9D40158' /* VT$Panels */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID '7938711D8B03'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aMonitoringsMainForm
+               %UID '7938711D8B04'
+               %TARGET U$ '4F7C2E78015C' /* MonitoringsMain */
+               %TOBEINCLUDED
+                U$ '4AA9032A002B' /* Monitoring */
+               ; // %TOBEINCLUDED
+              ; // aMonitoringsMainForm
+            ; // %PARAMETERS
+           ; // MainZone
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '270904124683'
+            %SUMMARY 'Регистрация MonitoringsMainForm_MainZone' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "MonitoringsMainForm_MainZone"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "MonitoringsMainForm_ParentZonePanel"
+         %UID 'F9BD5754D88D'
+         %SUMMARY 'Слово скрипта .TMonitoringsMainForm.ParentZonePanel'#13#10'{panel}Контрол ParentZonePanel формы TMonitoringsMainForm{panel}'#13#10'*Тип результата:* TvtPanel'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TvtPanel'#13#10' aMonitoringsMainForm .TMonitoringsMainForm.ParentZonePanel >>> l_TvtPanel'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.ParentZonePanel'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4AA9032A002B' /* Monitoring */
+          U$ '547CC9D40158' /* VT$Panels */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '5619169603BE' /* TtfwPropertyLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '52D00B00031A' /* SetValuePrim */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "B2704FBFF8D5"
+            %UID 'B2704FBFF8D5'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // B2704FBFF8D5
+           SUMMONED <<uses>> "455767124536"
+            %UID '455767124536'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // 455767124536
+           SUMMONED <<uses>> "0F95B52C45CB"
+            %UID '0F95B52C45CB'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 0F95B52C45CB
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> ParentZonePanel
+            %UID '4F149155C44B'
+            %SUMMARY 'Реализация слова скрипта .TMonitoringsMainForm.ParentZonePanel' ;
+            %TARGET U$ '4A7961A701CF' /* TvtPanel */
+            %TOBEINCLUDED
+             U$ '4AA9032A002B' /* Monitoring */
+             U$ '547CC9D40158' /* VT$Panels */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID '761C6210F64E'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aMonitoringsMainForm
+               %UID '761C6210F64F'
+               %TARGET U$ '4F7C2E78015C' /* MonitoringsMain */
+               %TOBEINCLUDED
+                U$ '4AA9032A002B' /* Monitoring */
+               ; // %TOBEINCLUDED
+              ; // aMonitoringsMainForm
+            ; // %PARAMETERS
+           ; // ParentZonePanel
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '0353D83FC0A1'
+            %SUMMARY 'Регистрация MonitoringsMainForm_ParentZonePanel' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "MonitoringsMainForm_ParentZonePanel"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "MonitoringsMainForm_ChildZonePanel"
+         %UID 'B530B36B6E25'
+         %SUMMARY 'Слово скрипта .TMonitoringsMainForm.ChildZonePanel'#13#10'{panel}Контрол ChildZonePanel формы TMonitoringsMainForm{panel}'#13#10'*Тип результата:* TvtSizeablePanel'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TvtSizeablePanel'#13#10' aMonitoringsMainForm .TMonitoringsMainForm.ChildZonePanel >>> l_TvtSizeablePanel'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.ChildZonePanel'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4AA9032A002B' /* Monitoring */
+          U$ '547CC9D40158' /* VT$Panels */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '5619169603BE' /* TtfwPropertyLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '52D00B00031A' /* SetValuePrim */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "1D92B604D858"
+            %UID '1D92B604D858'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 1D92B604D858
+           SUMMONED <<uses>> "6D8266AA2A41"
+            %UID '6D8266AA2A41'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // 6D8266AA2A41
+           SUMMONED <<uses>> "9C73D3D861F5"
+            %UID '9C73D3D861F5'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 9C73D3D861F5
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> ChildZonePanel
+            %UID '3831ABA283C2'
+            %SUMMARY 'Реализация слова скрипта .TMonitoringsMainForm.ChildZonePanel' ;
+            %TARGET U$ '4A7961300264' /* TvtSizeablePanel */
+            %TOBEINCLUDED
+             U$ '4AA9032A002B' /* Monitoring */
+             U$ '547CC9D40158' /* VT$Panels */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID '34F42F0A1EBE'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aMonitoringsMainForm
+               %UID '34F42F0A1EBF'
+               %TARGET U$ '4F7C2E78015C' /* MonitoringsMain */
+               %TOBEINCLUDED
+                U$ '4AA9032A002B' /* Monitoring */
+               ; // %TOBEINCLUDED
+              ; // aMonitoringsMainForm
+            ; // %PARAMETERS
+           ; // ChildZonePanel
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '80201F478842'
+            %SUMMARY 'Регистрация MonitoringsMainForm_ChildZonePanel' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "MonitoringsMainForm_ChildZonePanel"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "MonitoringsMainForm_BaseSearchPanel"
+         %UID '01806529867E'
+         %SUMMARY 'Слово скрипта .TMonitoringsMainForm.BaseSearchPanel'#13#10'{panel}Контрол BaseSearchPanel формы TMonitoringsMainForm{panel}'#13#10'*Тип результата:* TvtPanel'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TvtPanel'#13#10' aMonitoringsMainForm .TMonitoringsMainForm.BaseSearchPanel >>> l_TvtPanel'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.BaseSearchPanel'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4AA9032A002B' /* Monitoring */
+          U$ '547CC9D40158' /* VT$Panels */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '5619169603BE' /* TtfwPropertyLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '52D00B00031A' /* SetValuePrim */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "213D8729BFAB"
+            %UID '213D8729BFAB'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 213D8729BFAB
+           SUMMONED <<uses>> "134E24138037"
+            %UID '134E24138037'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // 134E24138037
+           SUMMONED <<uses>> "1BF56628812D"
+            %UID '1BF56628812D'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 1BF56628812D
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> BaseSearchPanel
+            %UID '72A41DCEECB1'
+            %SUMMARY 'Реализация слова скрипта .TMonitoringsMainForm.BaseSearchPanel' ;
+            %TARGET U$ '4A7961A701CF' /* TvtPanel */
+            %TOBEINCLUDED
+             U$ '4AA9032A002B' /* Monitoring */
+             U$ '547CC9D40158' /* VT$Panels */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID 'CE8B7FDFBCFB'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aMonitoringsMainForm
+               %UID 'CE8B7FDFBCFC'
+               %TARGET U$ '4F7C2E78015C' /* MonitoringsMain */
+               %TOBEINCLUDED
+                U$ '4AA9032A002B' /* Monitoring */
+               ; // %TOBEINCLUDED
+              ; // aMonitoringsMainForm
+            ; // %PARAMETERS
+           ; // BaseSearchPanel
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '6F177ECC6ED1'
+            %SUMMARY 'Регистрация MonitoringsMainForm_BaseSearchPanel' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "MonitoringsMainForm_BaseSearchPanel"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "MonitoringsMainForm_LeftNavigator"
+         %UID 'B2F985D76D09'
+         %SUMMARY 'Слово скрипта .TMonitoringsMainForm.LeftNavigator'#13#10'{panel}Контрол LeftNavigator формы TMonitoringsMainForm{panel}'#13#10'*Тип результата:* TnscNavigator'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TnscNavigator'#13#10' aMonitoringsMainForm .TMonitoringsMainForm.LeftNavigator >>> l_TnscNavigator'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.LeftNavigator'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '490838AA02D0' /* Nemesis */
+          U$ '4AA9032A002B' /* Monitoring */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '5619169603BE' /* TtfwPropertyLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '52D00B00031A' /* SetValuePrim */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "C224CAE66821"
+            %UID 'C224CAE66821'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // C224CAE66821
+           SUMMONED <<uses>> "7C58ADA11C9C"
+            %UID '7C58ADA11C9C'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // 7C58ADA11C9C
+           SUMMONED <<uses>> "0A4A86F8D72C"
+            %UID '0A4A86F8D72C'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 0A4A86F8D72C
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> LeftNavigator
+            %UID 'E6DE2A6C9CE6'
+            %SUMMARY 'Реализация слова скрипта .TMonitoringsMainForm.LeftNavigator' ;
+            %TARGET U$ '499ABF3D031B' /* TnscNavigator */
+            %TOBEINCLUDED
+             U$ '490838AA02D0' /* Nemesis */
+             U$ '4AA9032A002B' /* Monitoring */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID '28DFEF89A082'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aMonitoringsMainForm
+               %UID '28DFEF89A083'
+               %TARGET U$ '4F7C2E78015C' /* MonitoringsMain */
+               %TOBEINCLUDED
+                U$ '4AA9032A002B' /* Monitoring */
+               ; // %TOBEINCLUDED
+              ; // aMonitoringsMainForm
+            ; // %PARAMETERS
+           ; // LeftNavigator
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID 'BF30A0F6629B'
+            %SUMMARY 'Регистрация MonitoringsMainForm_LeftNavigator' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "MonitoringsMainForm_LeftNavigator"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "MonitoringsMainForm_RightNavigator"
+         %UID 'F9DA87AC99B7'
+         %SUMMARY 'Слово скрипта .TMonitoringsMainForm.RightNavigator'#13#10'{panel}Контрол RightNavigator формы TMonitoringsMainForm{panel}'#13#10'*Тип результата:* TnscNavigator'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TnscNavigator'#13#10' aMonitoringsMainForm .TMonitoringsMainForm.RightNavigator >>> l_TnscNavigator'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" '.TMonitoringsMainForm.RightNavigator'
+          %upv "ifdef" 'HasRightNavigator'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '490838AA02D0' /* Nemesis */
+          U$ '4AA9032A002B' /* Monitoring */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '5619169603BE' /* TtfwPropertyLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '52D00B00031A' /* SetValuePrim */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "D83B7E7A6556"
+            %UID 'D83B7E7A6556'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // D83B7E7A6556
+           SUMMONED <<uses>> "B2765F91F5B4"
+            %UID 'B2765F91F5B4'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // B2765F91F5B4
+           SUMMONED <<uses>> "44E0E39ADF27"
+            %UID '44E0E39ADF27'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 44E0E39ADF27
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> RightNavigator
+            %UID 'FCF0556B863F'
+            %SUMMARY 'Реализация слова скрипта .TMonitoringsMainForm.RightNavigator' ;
+            %TARGET U$ '499ABF3D031B' /* TnscNavigator */
+            %TOBEINCLUDED
+             U$ '490838AA02D0' /* Nemesis */
+             U$ '4AA9032A002B' /* Monitoring */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID '732565F9B63F'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aMonitoringsMainForm
+               %UID '732565F9B640'
+               %TARGET U$ '4F7C2E78015C' /* MonitoringsMain */
+               %TOBEINCLUDED
+                U$ '4AA9032A002B' /* Monitoring */
+               ; // %TOBEINCLUDED
+              ; // aMonitoringsMainForm
+            ; // %PARAMETERS
+           ; // RightNavigator
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '0F82E0AC5C7D'
+            %SUMMARY 'Регистрация MonitoringsMainForm_RightNavigator' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "MonitoringsMainForm_RightNavigator"
+      ; // %CHILDREN
+     ; // MonitoringsMainKeywordsPack
+     SUMMONED <<Typedef>> TvcmApplicationRef
+      %UID '5F742ACC56BA'
+      %SUMMARY 'Ссылка на приложение для DesignTime редакторов' ;
+      %TOBEINCLUDED
+       U$ '4AA9032A002B' /* Monitoring */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4AA9038C0387' /* Monitorings */
+      ; // %INHERITS
+     ; // TvcmApplicationRef
+   ; // %CHILDREN
+  ; // Monitorings
+ ; // %CHILDREN
+; // Monitoring

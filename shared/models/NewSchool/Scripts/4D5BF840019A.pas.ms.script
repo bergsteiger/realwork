@@ -1,0 +1,194 @@
+// OVP 4D5BF840019A Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D5BF840019A
+
+FORWARD ME_4D5BF8930032
+
+FORWARD ME_4D5BF8FB02E3
+
+: ME_4D5BF9240280
+ CONST UID '4D5BF9240280'
+ CONST Name 'anOther'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4D5BF8930032 // Tl3ProtoObjectComparable
+ ;
+
+ref; // ME_4D5BF9240280 anOther
+
+: ME_4D5BF91C02CF
+ CONST UID '4D5BF91C02CF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4D5BF8FB02E3 // CompareWith
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   @ ( ME_4D5BF9240280 // anOther
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4D5BF91C02CF DoIt
+
+: ME_4D5BF8FB02E3
+ CONST UID '4D5BF8FB02E3'
+ CONST Name 'CompareWith'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4D5BF8930032 // Tl3ProtoObjectComparable
+ ;
+ : Operations
+   @ ( ME_4D5BF91C02CF // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4D5BF8FB02E3 CompareWith
+
+: ME_4D5BF8930032
+ CONST UID '4D5BF8930032'
+ CONST Name 'Tl3ProtoObjectComparable'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D5BF840019A // OVP
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4D5BF8FB02E3 // CompareWith
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '16.02.2011 19:17'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ProtoObjectComparable.pas'
+
+ref; // ME_4D5BF8930032 Tl3ProtoObjectComparable
+
+FORWARD ME_4D5BF8B60011
+
+: ME_4D5BF8DF038D
+ CONST UID '4D5BF8DF038D'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4D5BF8B60011 // Tl3ProtoObjectRefSortableList
+ ;
+ : Target ME_4D5BF8930032 // Tl3ProtoObjectComparable
+ ;
+
+ref; // ME_4D5BF8DF038D ItemType
+
+: ME_47B2C42A0163_ME_4D5BF8B60011
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_4D5BF8B60011 // Tl3ProtoObjectRefSortableList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_4D5BF8B60011 AssignItem
+
+: ME_47B99D4503A2_ME_4D5BF8B60011
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_4D5BF8B60011 // Tl3ProtoObjectRefSortableList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47B99D4503A2_ME_4D5BF8B60011 CompareExistingItems
+
+: ME_4D5BF8B60011
+ CONST UID '4D5BF8B60011'
+ CONST Name 'Tl3ProtoObjectRefSortableList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4D5BF840019A // OVP
+ ;
+ : Inherits
+   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+ WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4D5BF8DF038D // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Implemented
+   @ ( ME_47B2C42A0163_ME_4D5BF8B60011 // AssignItem
+ ME_47B99D4503A2_ME_4D5BF8B60011 // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '16.02.2011 19:18'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ProtoObjectRefSortableList.pas'
+
+ref; // ME_4D5BF8B60011 Tl3ProtoObjectRefSortableList
+
+: ME_4D5BF840019A
+ CONST UID '4D5BF840019A'
+ CONST Name 'OVP'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ ;
+ : Children
+   @ ( ME_4D5BF8930032 // Tl3ProtoObjectComparable
+ ME_4D5BF8B60011 // Tl3ProtoObjectRefSortableList
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4D5BF840019A.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4D5BF840019A.pas.ms.script.runner'
+
+ref; // ME_4D5BF840019A OVP

@@ -1,0 +1,488 @@
+// TncsClientTransporter 544A0A0D0239 SimpleClass Class
+
+FORWARD ME_544A0A0D0239
+
+FORWARD ME_544DF67C0075
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_544DF69502E9
+ CONST UID '544DF69502E9'
+ CONST Name 'c_ClientConnectTimeout'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '10 * 1000'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_544DF69502E9 c_ClientConnectTimeout
+
+: ME_544DF6C40248
+ CONST UID '544DF6C40248'
+ CONST Name 'c_ClientReadTimeout'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value '{$IFDEF CsDebug} 1000 * 1000 {$ELSE} 10 * 1000 {$ENDIF}'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_544DF6C40248 c_ClientReadTimeout
+
+: ME_544DF67C0075
+ CONST UID '544DF67C0075'
+ CONST Name 'TimeoutConsts'
+ CONST Class 'Class'
+ CONST Stereotype 'Constants'
+ %SUMMARY 'В миллисек' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_544DF69502E9 // c_ClientConnectTimeout
+ ME_544DF6C40248 // c_ClientReadTimeout
+ ]
+ ; // Attributes
+ CONST "spell names" false
+
+ @SELF
+; // ME_544DF67C0075 TimeoutConsts
+
+INCLUDE '5460A4DB018A.pas.ms.script'
+
+FORWARD ME_549163F102D4
+
+INCLUDE '545229E7037D.pas.ms.script'
+
+: ME_549164000118
+ CONST UID '549164000118'
+ CONST Name ''
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_54522A0E031D // TncsTCPClient
+ ;
+
+ @SELF
+; // ME_549164000118 
+
+: ME_549163F102D4
+ CONST UID '549163F102D4'
+ CONST Name 'TncsClientArray'
+ CONST Class 'Class'
+ CONST Stereotype 'Vector'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_5490036B0204 // TncsSocketKind
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_549164000118 // 
+ ]
+ ; // Attributes
+ CONST "array type" 'dynamic'
+
+ @SELF
+; // ME_549163F102D4 TncsClientArray
+
+INCLUDE '544A09EE005F.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+: ME_544A21B400E4
+ CONST UID '544A21B400E4'
+ CONST Name 'f_TCPClients'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_549163F102D4 // TncsClientArray
+ ;
+
+ @SELF
+; // ME_544A21B400E4 f_TCPClients
+
+FORWARD ME_54522FCE0023
+
+: ME_3909291F76B7
+ CONST UID '3909291F76B7'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода TransportConnected' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_3909291F76B7 DoIt
+
+: ME_54522FCE0023
+ CONST UID '54522FCE0023'
+ CONST Name 'TransportConnected'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_3909291F76B7 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54522FCE0023 TransportConnected
+
+FORWARD ME_545B400202AF
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_D863C5CBBD66
+ CONST UID 'D863C5CBBD66'
+ CONST Name 'ASender'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_D863C5CBBD66 ASender
+
+: ME_EF59D01D3EBB
+ CONST UID 'EF59D01D3EBB'
+ CONST Name 'AStatus'
+ CONST Class 'Parameter'
+ CONST Stereotype 'const'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_EF59D01D3EBB AStatus
+
+: ME_3F41A35723E2
+ CONST UID '3F41A35723E2'
+ CONST Name 'AStatusText'
+ CONST Class 'Parameter'
+ CONST Stereotype 'const'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_3F41A35723E2 AStatusText
+
+: ME_2055A706176C
+ CONST UID '2055A706176C'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_D863C5CBBD66 // ASender
+ ME_EF59D01D3EBB // AStatus
+ ME_3F41A35723E2 // AStatusText
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_2055A706176C DoIt
+
+: ME_545B400202AF
+ CONST UID '545B400202AF'
+ CONST Name 'SendTransportStatus'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_2055A706176C // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_545B400202AF SendTransportStatus
+
+FORWARD ME_5465A71E02F2
+
+: ME_1F56C9FD2405
+ CONST UID '1F56C9FD2405'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода Create' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_1F56C9FD2405 DoIt
+
+: ME_5465A71E02F2
+ CONST UID '5465A71E02F2'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_1F56C9FD2405 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5465A71E02F2 Create
+
+FORWARD ME_5465A72C00CA
+
+: ME_13EBD7486226
+ CONST UID '13EBD7486226'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура фабрики TncsClientTransporter.Make' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_5465A598039E // IncsClientTransporter
+ ;
+
+ @SELF
+; // ME_13EBD7486226 DoIt
+
+: ME_5465A72C00CA
+ CONST UID '5465A72C00CA'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'Factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_5465A71E02F2 // Create
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_5465A598039E // IncsClientTransporter
+ ]
+ ; // Implements
+ : Operations
+   [ ME_13EBD7486226 // DoIt
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_544A1FD802E9 // Connect
+ ME_544A1FF00062 // Disconnect
+ ME_5464B4E900DA // Send
+ ME_5464B52F02D5 // WaitForReply
+ ME_5465AB2B00CA // Connected
+ ME_546608F101DE // ClientID
+ ME_5486B96A0025 // Processing
+ ME_548FEF4F002E // SessionID
+ ]
+ ; // Implemented
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_5465A72C00CA Make
+
+FORWARD ME_5491684203A6
+
+: ME_FB30AC3AC458
+ CONST UID 'FB30AC3AC458'
+ CONST Name 'ASender'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4807745602C8 // TObject
+ ;
+
+ @SELF
+; // ME_FB30AC3AC458 ASender
+
+: ME_6E33F82F498B
+ CONST UID '6E33F82F498B'
+ CONST Name 'AStatus'
+ CONST Class 'Parameter'
+ CONST Stereotype 'const'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+
+ @SELF
+; // ME_6E33F82F498B AStatus
+
+: ME_6C359CD56226
+ CONST UID '6C359CD56226'
+ CONST Name 'AStatusText'
+ CONST Class 'Parameter'
+ CONST Stereotype 'const'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_6C359CD56226 AStatusText
+
+: ME_E19EF1C54335
+ CONST UID 'E19EF1C54335'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_FB30AC3AC458 // ASender
+ ME_6E33F82F498B // AStatus
+ ME_6C359CD56226 // AStatusText
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_E19EF1C54335 DoIt
+
+: ME_5491684203A6
+ CONST UID '5491684203A6'
+ CONST Name 'ReceiveTransportStatus'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_E19EF1C54335 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5491684203A6 ReceiveTransportStatus
+
+FORWARD ME_549279980264
+
+: ME_2AABD500F271
+ CONST UID '2AABD500F271'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода BeforeSendHandshake' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_2AABD500F271 DoIt
+
+: ME_549279980264
+ CONST UID '549279980264'
+ CONST Name 'BeforeSendHandshake'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_2AABD500F271 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_549279980264 BeforeSendHandshake
+
+FORWARD ME_549279B300D5
+
+: ME_8B5B641F41AF
+ CONST UID '8B5B641F41AF'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода BeforeReceiveHandshake' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_8B5B641F41AF DoIt
+
+: ME_549279B300D5
+ CONST UID '549279B300D5'
+ CONST Name 'BeforeReceiveHandshake'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_8B5B641F41AF // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_549279B300D5 BeforeReceiveHandshake
+
+: ME_544A0A0D0239
+ CONST UID '544A0A0D0239'
+ CONST Name 'TncsClientTransporter'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_544A09EE005F // TncsTransporter
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_5465A598039E // IncsClientTransporter
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_544A21B400E4 // f_TCPClients
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_54522FCE0023 // TransportConnected
+ ME_545B400202AF // SendTransportStatus
+ ME_5465A71E02F2 // Create
+ ME_5465A72C00CA // Make
+ ME_5491684203A6 // ReceiveTransportStatus
+ ME_549279980264 // BeforeSendHandshake
+ ME_549279B300D5 // BeforeReceiveHandshake
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_544A1FD802E9 // Connect
+ ME_544A1FF00062 // Disconnect
+ ME_5477033C03D0 // HandShake
+ ME_549175C4030A // HandShakeKind
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_47A042E100E2 // InitFields
+ ]
+ ; // Overridden
+ : Children
+   [ ME_549163F102D4 // TncsClientArray
+ ]
+ ; // Children
+ : Constants
+   [ ME_544DF67C0075 // TimeoutConsts
+ ]
+ ; // Constants
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_544A0A0D0239 TncsClientTransporter

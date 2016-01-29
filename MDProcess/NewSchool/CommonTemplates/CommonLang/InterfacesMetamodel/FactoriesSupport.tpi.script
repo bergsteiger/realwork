@@ -1,0 +1,311 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfacesMetamodel/FactoriesSupport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfacesMetamodel::FactoriesSupport
+//
+// набор вспомогательных  методов для генерации фабрик, менеджеров фабрик и т.п
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// для менеджера фабрик дампит реализацию конкретной фабрики, использующей общую память
+//f _fctr_mng_mem_java
+: fctr_mng_mem_java OBJECT IN %S
+//#UC START# *4757B58F02B9*
+//	%f_set_var(USE_IN_SYNCHRO,"%T%f_use_for_synchro_factory()")\
+ [%f] set_var %( 'USE_IN_SYNCHRO' %, %T %f use_for_synchro_factory %( )% )% 
+//	#	synchronized (%f_to_java(%TNMap)_) {
+ out_indent '	synchronized ('
+ [%f] to_java %( %T |N 'Map' )% '_) {'
+//	[{<{}{"%CS"!="nokey"}{%CC}>!=0}#		%T%f_factory_mem_key_name() memKey = new %T%f_factory_mem_key_name() ([{%T%Cx=true}{<{, }{"%CS"!="nokey"}%f_to_java(%CN)>}%T%f_transfomator_name().%f_to_java(%SN_to_id) (<{, }{%CS!=nokey}%CN>)]);[
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %!= 'nokey' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %!= 0 ) then
+ begin
+  out_indent '		'
+  %T %f factory_mem_key_name %( )% ' memKey = new '
+  %T %f factory_mem_key_name %( )% ' ('
+  if ( ( %T ->C |x  ) %==  true ) then
+  begin
+   %T %f transfomator_name %( )% '.'
+   [%f] to_java %( %S |N '_to_id' )% ' ('
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %!= 'nokey' ) then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     %C |N 
+     ++! l_Counter
+    end // if
+   end // for C
+   ')' 
+  end // if
+  else
+  begin
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |S ) %!= 'nokey' ) then
+    begin
+     if ( l_Counter >0 ) then ( ', ' )
+     [%f] to_java %( %C |N )% 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // else
+  ');'
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	%S%f_init_factory_mem_key_java_impl()]
+   %S %f init_factory_mem_key_java_impl %( )% 
+  end // if
+  NOP
+//	#		[{%{USE_IN_SYNCHRO}N=true}{%t_fctr_manager_cache_value(%{INT},"var",%S) res = %f_to_java(%TNMap)_.get (memKey);}%t_ret(%{INT})[{%1N=read-only}ConstWrapper] res = null;
+  out_indent '		'
+  if ( ( ( get_global_var ( 'USE_IN_SYNCHRO' ) |N ) ) %==  true ) then
+  begin
+   [%t] ret %( ( get_global_var ( 'INT' ) ) )% if ( ( %1 |N ) %== 'read-only' ) then
+   begin
+    'ConstWrapper' 
+   end // if
+   ' res = null;'
+//	#		[{%{USE_IN_SYNCHRO}N=false}{%t_fctr_manager_cache_value(%{INT},"type","")}%t_fctr_manager_cache_value(%{INT},"var","")] ref = %f_to_java(%TNMap)_.get (memKey);
+   out_indent '		'
+   if ( ( ( get_global_var ( 'USE_IN_SYNCHRO' ) |N ) ) %==  false ) then
+   begin
+    [%t] fctr_manager_cache_value %( ( get_global_var ( 'INT' ) ) %, 'var"' %, '' )% 
+   end // if
+   else
+   begin
+    [%t] fctr_manager_cache_value %( ( get_global_var ( 'INT' ) ) %, 'type"' %, '' )% 
+   end // else
+   ' ref = '
+   [%f] to_java %( %T |N 'Map' )% '_.get (memKey);'
+//	#		if (ref != null) {
+   out_indent '		if (ref != null) {'
+//	#			res = ref[.%f_cache_postfix(%S,"%1N")].get ();
+   out_indent '			res = ref'
+   if NOT-EMPTY
+   begin
+    '.'
+    [%f] cache_postfix %( %S %, %1 |N )% 
+   end // if
+   NOP
+   '.get ();'
+//	#		}]
+   out_indent '		}' 
+  end // if
+  else
+  begin
+   [%t] fctr_manager_cache_value %( ( get_global_var ( 'INT' ) ) %, 'var"' %, %S )% ' res = '
+   [%f] to_java %( %T |N 'Map' )% '_.get (memKey);' 
+  end // else
+//	#		if (res == null[{%f_is_ro_fctr_exists(%S)=true&%{USE_IN_SYNCHRO}N=false} || res[.%f_cache_postfix(%S,"%1N")] == null]) {
+  out_indent '		if (res == null'
+  if ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true AND 
+    ( ( ( get_global_var ( 'USE_IN_SYNCHRO' ) |N ) ) %==  false  ) ) then
+  begin
+   ' || res'
+   if NOT-EMPTY
+   begin
+    '.'
+    [%f] cache_postfix %( %S %, %1 |N )% 
+   end // if
+   NOP
+   ' == null' 
+  end // if
+  ') {'
+//	%S%f_fctr_mng_factory_mem_java_impl(%S,"%1N")
+  %S %f fctr_mng_factory_mem_java_impl %( %S %, %1 |N )% 
+//	#		}[{%f_is_ro_fctr_exists(%S)=true&%1N=read-write} else if (
+  out_indent '		}'
+  if ( ( [%f] is_ro_fctr_exists %( %S )% ) %==  true AND 
+    ( ( %1 |N ) %== 'read-write'  ) ) then
+  begin
+   ' else if ('
+//	#			[{%{USE_IN_SYNCHRO}N=true}{res != null
+   out_indent '			'
+   if ( ( ( get_global_var ( 'USE_IN_SYNCHRO' ) |N ) ) %==  true ) then
+   begin
+    'ref.isRoFirst == true'
+//	#			&& ref[.%f_cache_postfix(%S,"read-only")] != null
+    out_indent '			&& ref'
+    if NOT-EMPTY
+    begin
+     '.'
+     [%f] cache_postfix %( %S %, 'read-only' )% 
+    end // if
+    NOP
+    ' != null'
+//	#			&& ref[.%f_cache_postfix(%S,"read-only")].get () != null]
+    out_indent '			&& ref'
+    if NOT-EMPTY
+    begin
+     '.'
+     [%f] cache_postfix %( %S %, 'read-only' )% 
+    end // if
+    NOP
+    '.get () != null' 
+   end // if
+   else
+   begin
+    'res != null'
+//	#			&& res[.%f_cache_postfix(%S,"read-only")] != null
+    out_indent '			&& res'
+    if NOT-EMPTY
+    begin
+     '.'
+     [%f] cache_postfix %( %S %, 'read-only' )% 
+    end // if
+    NOP
+    ' != null'
+//	#			&& res.isRoFirst == true}ref.isRoFirst == true
+    out_indent '			&& res.isRoFirst == true' 
+   end // else
+//	#		) {
+   out_indent '		) {'
+//	#			[{%{USE_IN_SYNCHRO}N=true}{res[.%f_cache_postfix(%S,"read-only")].upgrade_rw ();
+   out_indent '			'
+   if ( ( ( get_global_var ( 'USE_IN_SYNCHRO' ) |N ) ) %==  true ) then
+   begin
+    'ref'
+    if NOT-EMPTY
+    begin
+     '.'
+     [%f] cache_postfix %( %S %, 'read-only' )% 
+    end // if
+    NOP
+    '.get ().upgrade_rw ();'
+//	#			ref.isRoFirst = false;]
+    out_indent '			ref.isRoFirst = false;' 
+   end // if
+   else
+   begin
+    'res'
+    if NOT-EMPTY
+    begin
+     '.'
+     [%f] cache_postfix %( %S %, 'read-only' )% 
+    end // if
+    NOP
+    '.upgrade_rw ();'
+//	#			res.isRoFirst = false;}ref[.%f_cache_postfix(%S,"read-only")].get ().upgrade_rw ();
+    out_indent '			res.isRoFirst = false;' 
+   end // else
+//	#		}]
+   out_indent '		}' 
+  end // if
+//	][{<{}{"%CS"!="nokey"}{%CC}>=0}#		%T%f_factory_mem_key_name() memKey = new %T%f_factory_mem_key_name() ();
+ end // if
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %!= 'nokey' ) then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for C
+  l_Counter
+  %== 0 ) then
+ begin
+  out_indent '		'
+  %T %f factory_mem_key_name %( )% ' memKey = new '
+  %T %f factory_mem_key_name %( )% ' ();'
+//	#		%t_ret(%{INT})[{%1N=read-only}ConstWrapper] res = null;
+  out_indent '		'
+  [%t] ret %( ( get_global_var ( 'INT' ) ) )% if ( ( %1 |N ) %== 'read-only' ) then
+  begin
+   'ConstWrapper' 
+  end // if
+  ' res = null;'
+//	%S%f_fctr_mng_factory_mem_create_impl(%S,"%1N")
+  %S %f fctr_mng_factory_mem_create_impl %( %S %, %1 |N )% 
+//	]#		assert (res[{%{USE_IN_SYNCHRO}N=false}[.%f_cache_postfix(%S,"%1N")]] != null);
+ end // if
+ out_indent '		assert (res'
+ if ( ( ( get_global_var ( 'USE_IN_SYNCHRO' ) |N ) ) %==  false ) then
+ begin
+  if NOT-EMPTY
+  begin
+   '.'
+   [%f] cache_postfix %( %S %, %1 |N )% 
+  end // if
+  NOP
+ end // if
+ ' != null);'
+//	#		return [{%{INT}S!=ServerInterface}{%{INT}N[{%1N=read-only}ConstWrapper]._duplicate(res[{%{USE_IN_SYNCHRO}N=false}[.%f_cache_postfix(%S,"%1N")]])}res[{%{USE_IN_SYNCHRO}N=false}[.%f_cache_postfix(%S,"%1N")]]];
+ out_indent '		return '
+ if ( ( ( get_global_var ( 'INT' ) |S ) ) %!= 'ServerInterface' ) then
+ begin
+  'res'
+  if ( ( ( get_global_var ( 'USE_IN_SYNCHRO' ) |N ) ) %==  false ) then
+  begin
+   if NOT-EMPTY
+   begin
+    '.'
+    [%f] cache_postfix %( %S %, %1 |N )% 
+   end // if
+   NOP
+  end // if
+ end // if
+ else
+ begin
+  ( get_global_var ( 'INT' ) |N ) if ( ( %1 |N ) %== 'read-only' ) then
+  begin
+   'ConstWrapper' 
+  end // if
+  '._duplicate(res'
+  if ( ( ( get_global_var ( 'USE_IN_SYNCHRO' ) |N ) ) %==  false ) then
+  begin
+   if NOT-EMPTY
+   begin
+    '.'
+    [%f] cache_postfix %( %S %, %1 |N )% 
+   end // if
+   NOP
+  end // if
+  ')' 
+ end // else
+ ';'
+//	#	}
+ out_indent '	}'
+//	
+//#UC END# *4757B58F02B9*
+; // fctr_mng_mem_java
+
+
+// определяет возможность использования типа в качестве селектора мульти-фабрики
+//t _can_use_for_switch
+<<transformator>> can_use_for_switch OBJECT IN %S
+//#UC START# *47B56F110168*
+//c                                  {}
+//r "%SN"="void":                    {false}
+//r {%f_is_string(%S)=true}:         {true}
+//r "%SM"="Typedef::Class":          {[{%Gx=true}{true}%t_can_use_for_switch(%G)]}
+//r ""="":                           {%t_simple(%S)}
+//#UC END# *47B56F110168*
+; // can_use_for_switch
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

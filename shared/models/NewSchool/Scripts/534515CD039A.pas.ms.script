@@ -1,0 +1,54 @@
+// l3VariantListPrim 534515CD039A Impurity Class
+
+INCLUDE '47B5786C033A.pas.ms.script'
+
+INCLUDE '47A74A5F0123.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+FORWARD ME_534515CD039A
+
+INCLUDE '53317D14019D.pas.ms.script'
+
+: ME_534515FA0363
+ CONST UID '534515FA0363'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_532031160122 // Tl3Variant
+ ;
+
+ @SELF
+; // ME_534515FA0363 ItemType
+
+: ME_534515CD039A
+ CONST UID '534515CD039A'
+ CONST Name 'l3VariantListPrim'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47B5786C033A // l3RefList
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_534515FA0363 // ItemType
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_47B07CF403D0 // IsSameItems
+ ME_47B935AF0066 // FillItem
+ ME_47B94A5C006E // FreeItem
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_534515CD039A l3VariantListPrim

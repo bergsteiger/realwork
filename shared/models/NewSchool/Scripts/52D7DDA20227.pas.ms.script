@@ -1,0 +1,48 @@
+// FINALLY 52D7DDA20227 ScriptKeyword Class
+
+INCLUDE '52D7DD7A0120.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_52D7DDA20227
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_784523215751
+ CONST UID '784523215751'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация FINALLY' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_784523215751 Ini_Reg
+
+: ME_52D7DDA20227
+ CONST UID '52D7DDA20227'
+ CONST Name 'FINALLY'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_52D7DD7A0120 // MedianBacket
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_784523215751 // Ini_Reg
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_52D7DDA20227 FINALLY

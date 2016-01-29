@@ -1,0 +1,153 @@
+// Tl3BaseRefInterfacedList 4A6D66010286 SimpleClass Class
+
+FORWARD ME_4A6D66010286
+
+INCLUDE '47D810610398.pas.ms.script'
+
+FORWARD ME_4A6D66E40383
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+: ME_5302171B0200
+ CONST UID '5302171B0200'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'ref'
+ : Target ME_49E7754802A9 // Tl3ProtoObject
+ ;
+
+ @SELF
+; // ME_5302171B0200 ItemType
+
+: ME_4A6D66E40383
+ CONST UID '4A6D66E40383'
+ CONST GUID '08465E92-C901-4CD1-81C0-9927BCCA72F1'
+ CONST Name 'Il3CBaseList'
+ CONST Class 'Class'
+ CONST Stereotype 'Facet'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Implements
+   [ ME_47D821AE00EF // Ml3List
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_5302171B0200 // ItemType
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_47D8233603DD // First
+ ME_47D823570315 // Last
+ ME_47D8248802AD // Items
+ ME_47E381E203D2 // Empty
+ ME_4BB08B8902F2 // Count
+ ]
+ ; // Implemented
+
+ @SELF
+; // ME_4A6D66E40383 Il3CBaseList
+
+: ME_5301DE090155
+ CONST UID '5301DE090155'
+ CONST Name 'l3Items_NeedsSort'
+ CONST Class 'Class'
+ CONST Stereotype 'Define'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_5301DE090155 l3Items_NeedsSort
+
+INCLUDE '47B99E920196.pas.ms.script'
+
+INCLUDE '4A54DD4E036F.pas.ms.script'
+
+INCLUDE '47A74A5F0123.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+: ME_5302170703BF
+ CONST UID '5302170703BF'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_49E7754802A9 // Tl3ProtoObject
+ ;
+
+ @SELF
+; // ME_5302170703BF ItemType
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_4A6D69E702C5
+ CONST UID '4A6D69E702C5'
+ CONST Name 'MakeI'
+ CONST Class 'Operation'
+ CONST Stereotype 'factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_4A6D69E702C5 MakeI
+
+: ME_4A6D66010286
+ CONST UID '4A6D66010286'
+ CONST Name 'Tl3BaseRefInterfacedList'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Список Tl3Base с интерфейсным представлением' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47B99E920196 // l3UncomparabeObjectRefList
+ ME_4A54DD4E036F // Tl3ProtoDataContainer
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_4A6D66E40383 // Il3CBaseList
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_5302170703BF // ItemType
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_4A6D69E702C5 // MakeI
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_47B2C42A0163 // AssignItem
+ ME_47B99D4503A2 // CompareExistingItems
+ ME_4BB08B8902F2 // Count
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_47A042E100E2 // InitFields
+ ]
+ ; // Overridden
+ : Children
+   [ ME_4A6D66E40383 // Il3CBaseList
+ ME_5301DE090155 // l3Items_NeedsSort
+ ]
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '27.07.2009 12:32'
+
+ @SELF
+; // ME_4A6D66010286 Tl3BaseRefInterfacedList

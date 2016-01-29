@@ -1,0 +1,1231 @@
+// m3StorageBlock 5411C54C0194 UtilityPack Class
+
+FORWARD ME_5411C54C0194
+
+FORWARD ME_5411C58501E2
+
+: ME_544F7C6800E1
+ CONST UID '544F7C6800E1'
+ CONST Name 'Tm3StorageBlockHeaderData'
+ CONST Class 'Class'
+ CONST Stereotype 'Struct'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST "need UC" true
+ CONST "packed" true
+
+ @SELF
+; // ME_544F7C6800E1 Tm3StorageBlockHeaderData
+
+FORWARD ME_5417EB380014
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_5417EB560316
+ CONST UID '5417EB560316'
+ CONST Name 'm3ClusterSize'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value 256
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_5417EB560316 m3ClusterSize
+
+: ME_5417EB380014
+ CONST UID '5417EB380014'
+ CONST Name 'Defaults'
+ CONST Class 'Class'
+ CONST Stereotype 'Constants'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_5417EB560316 // m3ClusterSize
+ ]
+ ; // Attributes
+ CONST "spell names" false
+
+ @SELF
+; // ME_5417EB380014 Defaults
+
+FORWARD ME_5411C56D039C
+
+: ME_544F7C8A00CD
+ CONST UID '544F7C8A00CD'
+ CONST Name 'rData'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_544F7C6800E1 // Tm3StorageBlockHeaderData
+ ;
+
+ @SELF
+; // ME_544F7C8A00CD rData
+
+: ME_5411C56D039C
+ CONST UID '5411C56D039C'
+ CONST Name 'Tm3StorageBlockHeader'
+ CONST Class 'Class'
+ CONST Stereotype 'Struct'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_544F7C8A00CD // rData
+ ]
+ ; // Attributes
+ CONST "need UC" true
+ CONST "packed" true
+
+ @SELF
+; // ME_5411C56D039C Tm3StorageBlockHeader
+
+FORWARD ME_5450E35203B6
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_5450E36B01CD
+ CONST UID '5450E36B01CD'
+ CONST Name 'rForRead'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_5450E36B01CD rForRead
+
+INCLUDE '543F867602DA.pas.ms.script'
+
+: ME_5450E37E034C
+ CONST UID '5450E37E034C'
+ CONST Name 'rRegion'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_543F8693032B // Tm3FileRegion
+ ;
+
+ @SELF
+; // ME_5450E37E034C rRegion
+
+FORWARD ME_5450E3910297
+
+: ME_5450E3AD0090
+ CONST UID '5450E3AD0090'
+ CONST Name 'aForRead'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_5450E3AD0090 aForRead
+
+: ME_5450E3AD00BB
+ CONST UID '5450E3AD00BB'
+ CONST Name 'aRegion'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_543F8693032B // Tm3FileRegion
+ ;
+
+ @SELF
+; // ME_5450E3AD00BB aRegion
+
+: ME_5450E39B01D2
+ CONST UID '5450E39B01D2'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_5450E3AD0090 // aForRead
+ ME_5450E3AD00BB // aRegion
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5450E39B01D2 DoIt
+
+: ME_5450E3910297
+ CONST UID '5450E3910297'
+ CONST Name 'C'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5450E39B01D2 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5450E3910297 C
+
+: ME_5450E35203B6
+ CONST UID '5450E35203B6'
+ CONST Name 'Tm3LockedRegion'
+ CONST Class 'Class'
+ CONST Stereotype 'Struct'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_5450E36B01CD // rForRead
+ ME_5450E37E034C // rRegion
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_5450E3910297 // C
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5450E35203B6 Tm3LockedRegion
+
+: ME_5446596801F4
+ CONST UID '5446596801F4'
+ CONST Name 'Rm3StorageBlock'
+ CONST Class 'Class'
+ CONST Stereotype 'Typedef'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_5411C58501E2 // Tm3StorageBlock
+ ]
+ ; // Inherits
+ CONST "isClassRef" true
+
+ @SELF
+; // ME_5446596801F4 Rm3StorageBlock
+
+INCLUDE '4AE5CA2D0034.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+: ME_5411C5A1028D
+ CONST UID '5411C5A1028D'
+ CONST Name 'rHeader'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_5411C56D039C // Tm3StorageBlockHeader
+ ;
+
+ @SELF
+; // ME_5411C5A1028D rHeader
+
+: ME_5413151C00C9
+ CONST UID '5413151C00C9'
+ CONST Name 'f_BufferModified'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_5413151C00C9 f_BufferModified
+
+: ME_541315350008
+ CONST UID '541315350008'
+ CONST Name 'Position'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_47208C70028B // Int64
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_541315350008 Position
+
+: ME_541315490039
+ CONST UID '541315490039'
+ CONST Name 'f_Body'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_51DAD86D0324 // PANSIChar
+ ;
+
+ @SELF
+; // ME_541315490039 f_Body
+
+INCLUDE '47AB1FDE03E4.pas.ms.script'
+
+: ME_541315DC004F
+ CONST UID '541315DC004F'
+ CONST Name 'm3TOCBuffers'
+ CONST Class 'Attribute'
+ CONST Stereotype 'static'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_541315C10016 // Pl3MemoryChain
+ ;
+
+ @SELF
+; // ME_541315DC004F m3TOCBuffers
+
+INCLUDE '543F7EF202C6.pas.ms.script'
+
+: ME_5444F8B60202
+ CONST UID '5444F8B60202'
+ CONST Name 'f_Manager'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_543F7EF202C6 // Tm3RootStreamManagerPrimPrim
+ ;
+
+ @SELF
+; // ME_5444F8B60202 f_Manager
+
+INCLUDE '4773DED9004C.pas.ms.script'
+
+: ME_5444FFA90064
+ CONST UID '5444FFA90064'
+ CONST Name 'Name'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_4773DED9004C // Tl3_String
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_5444FFA90064 Name
+
+INCLUDE '54084CDE023E.pas.ms.script'
+
+: ME_54451D8F014F
+ CONST UID '54451D8F014F'
+ CONST Name 'f_HeaderData'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_54084CDE023E // Tm3StoreHeaderDataPrim
+ ;
+
+ @SELF
+; // ME_54451D8F014F f_HeaderData
+
+: ME_54465DF101EB
+ CONST UID '54465DF101EB'
+ CONST Name 'f_IsReadOnly'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_54465DF101EB f_IsReadOnly
+
+: ME_544671390087
+ CONST UID '544671390087'
+ CONST Name 'Index'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_47208C70028B // Int64
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_544671390087 Index
+
+: ME_544681BB00EC
+ CONST UID '544681BB00EC'
+ CONST Name 'f_PrevBlock'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_5411C58501E2 // Tm3StorageBlock
+ ;
+
+ @SELF
+; // ME_544681BB00EC f_PrevBlock
+
+: ME_54476EC30198
+ CONST UID '54476EC30198'
+ CONST Name 'f_Offset'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_47208C70028B // Int64
+ ;
+
+ @SELF
+; // ME_54476EC30198 f_Offset
+
+: ME_5448EBF902BB
+ CONST UID '5448EBF902BB'
+ CONST Name 'NextPosition'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_47208C70028B // Int64
+ ;
+ CONST "pm" true
+
+ @SELF
+; // ME_5448EBF902BB NextPosition
+
+: ME_544F7C9A020E
+ CONST UID '544F7C9A020E'
+ CONST Name 'rHeaderCompare'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_544F7C6800E1 // Tm3StorageBlockHeaderData
+ ;
+
+ @SELF
+; // ME_544F7C9A020E rHeaderCompare
+
+: ME_EE764C81E77F
+ CONST UID 'EE764C81E77F'
+ CONST Name 'f_Position'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Position' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_47208C70028B // Int64
+ ;
+
+ @SELF
+; // ME_EE764C81E77F f_Position
+
+: ME_E1538E9D87A5
+ CONST UID 'E1538E9D87A5'
+ CONST Name 'f_Name'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Name' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_4773DED9004C // Tl3_String
+ ;
+
+ @SELF
+; // ME_E1538E9D87A5 f_Name
+
+: ME_08A48BD63132
+ CONST UID '08A48BD63132'
+ CONST Name 'f_Index'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства Index' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_47208C70028B // Int64
+ ;
+
+ @SELF
+; // ME_08A48BD63132 f_Index
+
+FORWARD ME_5413163101BA
+
+: ME_54451DB60016
+ CONST UID '54451DB60016'
+ CONST Name 'aHeaderData'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_54084CDE023E // Tm3StoreHeaderDataPrim
+ ;
+
+ @SELF
+; // ME_54451DB60016 aHeaderData
+
+: ME_5413163C0391
+ CONST UID '5413163C0391'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_54451DB60016 // aHeaderData
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5413163C0391 DoIt
+
+: ME_5413163101BA
+ CONST UID '5413163101BA'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5413163C0391 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5413163101BA Create
+
+FORWARD ME_5444F8D6030E
+
+: ME_5444F8DF0090
+ CONST UID '5444F8DF0090'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_5444F8DF0090 DoIt
+
+: ME_5444F8D6030E
+ CONST UID '5444F8D6030E'
+ CONST Name 'Save'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5444F8DF0090 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5444F8D6030E Save
+
+FORWARD ME_54450FC60393
+
+: ME_54450FD702CA
+ CONST UID '54450FD702CA'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_54450FD702CA DoIt
+
+: ME_54450FC60393
+ CONST UID '54450FC60393'
+ CONST Name 'Modified'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54450FD702CA // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54450FC60393 Modified
+
+FORWARD ME_54464CDE02A7
+
+: ME_54464CE7018A
+ CONST UID '54464CE7018A'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_54464CE7018A DoIt
+
+: ME_54464CDE02A7
+ CONST UID '54464CDE02A7'
+ CONST Name 'Load'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54464CE7018A // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54464CDE02A7 Load
+
+FORWARD ME_544775240322
+
+: ME_544779C100A6
+ CONST UID '544779C100A6'
+ CONST Name 'aForRead'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_544779C100A6 aForRead
+
+: ME_54477532025E
+ CONST UID '54477532025E'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_5450E35203B6 // Tm3LockedRegion
+ ;
+ : Parameters
+   [ ME_544779C100A6 // aForRead
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54477532025E DoIt
+
+: ME_544775240322
+ CONST UID '544775240322'
+ CONST Name 'LockData'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54477532025E // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_544775240322 LockData
+
+FORWARD ME_544775440281
+
+: ME_544A1F5102DA
+ CONST UID '544A1F5102DA'
+ CONST Name 'aPrevRegion'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_5450E35203B6 // Tm3LockedRegion
+ ;
+
+ @SELF
+; // ME_544A1F5102DA aPrevRegion
+
+: ME_544775500290
+ CONST UID '544775500290'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_544A1F5102DA // aPrevRegion
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_544775500290 DoIt
+
+: ME_544775440281
+ CONST UID '544775440281'
+ CONST Name 'UnlockData'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_544775500290 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_544775440281 UnlockData
+
+FORWARD ME_5447879403DD
+
+: ME_544787A90097
+ CONST UID '544787A90097'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_5411C58501E2 // Tm3StorageBlock
+ ;
+
+ @SELF
+; // ME_544787A90097 DoIt
+
+: ME_5447879403DD
+ CONST UID '5447879403DD'
+ CONST Name 'CreatePrev'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_544787A90097 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5447879403DD CreatePrev
+
+FORWARD ME_544A1524017E
+
+: ME_544A153000A7
+ CONST UID '544A153000A7'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_51DAD86D0324 // PANSIChar
+ ;
+
+ @SELF
+; // ME_544A153000A7 DoIt
+
+: ME_544A1524017E
+ CONST UID '544A1524017E'
+ CONST Name 'CheckBody'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_544A153000A7 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_544A1524017E CheckBody
+
+FORWARD ME_544A6E4A021A
+
+: ME_544A6E5E0264
+ CONST UID '544A6E5E0264'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_544A6E5E0264 DoIt
+
+: ME_544A6E4A021A
+ CONST UID '544A6E4A021A'
+ CONST Name 'HeaderModified'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_544A6E5E0264 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_544A6E4A021A HeaderModified
+
+FORWARD ME_544F498B01DC
+
+: ME_544F49C00188
+ CONST UID '544F49C00188'
+ CONST Name 'aBuffer'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_51DAD86D0324 // PANSIChar
+ ;
+
+ @SELF
+; // ME_544F49C00188 aBuffer
+
+: ME_544F49C001CD
+ CONST UID '544F49C001CD'
+ CONST Name 'aSizeToRead'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_544F49C001CD aSizeToRead
+
+: ME_544F499B0162
+ CONST UID '544F499B0162'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_544F49C00188 // aBuffer
+ ME_544F49C001CD // aSizeToRead
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_544F499B0162 DoIt
+
+: ME_544F498B01DC
+ CONST UID '544F498B01DC'
+ CONST Name 'Read'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_544F499B0162 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_544F498B01DC Read
+
+FORWARD ME_544F49CF014E
+
+: ME_544F49F300D7
+ CONST UID '544F49F300D7'
+ CONST Name 'aBuffer'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_51DAD86D0324 // PANSIChar
+ ;
+
+ @SELF
+; // ME_544F49F300D7 aBuffer
+
+: ME_544F49F30105
+ CONST UID '544F49F30105'
+ CONST Name 'aSizeToWrite'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_544F49F30105 aSizeToWrite
+
+: ME_544F49DB037D
+ CONST UID '544F49DB037D'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_544F49F300D7 // aBuffer
+ ME_544F49F30105 // aSizeToWrite
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_544F49DB037D DoIt
+
+: ME_544F49CF014E
+ CONST UID '544F49CF014E'
+ CONST Name 'Write'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_544F49DB037D // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_544F49CF014E Write
+
+FORWARD ME_544F51F9003F
+
+: ME_544F52030126
+ CONST UID '544F52030126'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_544F52030126 DoIt
+
+: ME_544F51F9003F
+ CONST UID '544F51F9003F'
+ CONST Name 'IsFull'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_544F52030126 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_544F51F9003F IsFull
+
+FORWARD ME_54465535030A
+
+: ME_5446554402AB
+ CONST UID '5446554402AB'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_5411C58501E2 // Tm3StorageBlock
+ ;
+
+ @SELF
+; // ME_5446554402AB DoIt
+
+: ME_54465535030A
+ CONST UID '54465535030A'
+ CONST Name 'CreateNext'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5446554402AB // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54465535030A CreateNext
+
+FORWARD ME_5446556801C7
+
+: ME_544655D703E1
+ CONST UID '544655D703E1'
+ CONST Name 'aManager'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_543F7EF202C6 // Tm3RootStreamManagerPrimPrim
+ ;
+
+ @SELF
+; // ME_544655D703E1 aManager
+
+: ME_544655D80021
+ CONST UID '544655D80021'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4773DED9004C // Tl3_String
+ ;
+
+ @SELF
+; // ME_544655D80021 aName
+
+: ME_54465E120126
+ CONST UID '54465E120126'
+ CONST Name 'aReadOnly'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_54465E120126 aReadOnly
+
+: ME_544655D800A0
+ CONST UID '544655D800A0'
+ CONST Name 'aPosition'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47208C70028B // Int64
+ ;
+
+ @SELF
+; // ME_544655D800A0 aPosition
+
+: ME_544681B10377
+ CONST UID '544681B10377'
+ CONST Name 'aPrevBlock'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_5411C58501E2 // Tm3StorageBlock
+ ;
+
+ @SELF
+; // ME_544681B10377 aPrevBlock
+
+: ME_5446715E024C
+ CONST UID '5446715E024C'
+ CONST Name 'anIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47208C70028B // Int64
+ ;
+
+ @SELF
+; // ME_5446715E024C anIndex
+
+: ME_5446559E01DC
+ CONST UID '5446559E01DC'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_544655D703E1 // aManager
+ ME_544655D80021 // aName
+ ME_54465E120126 // aReadOnly
+ ME_544655D800A0 // aPosition
+ ME_544681B10377 // aPrevBlock
+ ME_5446715E024C // anIndex
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5446559E01DC DoIt
+
+: ME_5446556801C7
+ CONST UID '5446556801C7'
+ CONST Name 'CreatePrim'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5446559E01DC // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5446556801C7 CreatePrim
+
+FORWARD ME_5450F5B9010F
+
+: ME_5450F5D6004B
+ CONST UID '5450F5D6004B'
+ CONST Name 'aPosition'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47208C70028B // Int64
+ ;
+
+ @SELF
+; // ME_5450F5D6004B aPosition
+
+: ME_5450F5CC000F
+ CONST UID '5450F5CC000F'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_5450F5D6004B // aPosition
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_5450F5CC000F DoIt
+
+: ME_5450F5B9010F
+ CONST UID '5450F5B9010F'
+ CONST Name 'SetPositionInStream'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_5450F5CC000F // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_5450F5B9010F SetPositionInStream
+
+: ME_5413162303A4
+ CONST UID '5413162303A4'
+ CONST Name 'ini'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_5413162303A4 ini
+
+: ME_5411C58501E2
+ CONST UID '5411C58501E2'
+ CONST Name 'Tm3StorageBlock'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4AE5CA2D0034 // Tl3CProtoObject
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_5411C5A1028D // rHeader
+ ME_5413151C00C9 // f_BufferModified
+ ME_541315350008 // Position
+ ME_541315490039 // f_Body
+ ME_541315DC004F // m3TOCBuffers
+ ME_5444F8B60202 // f_Manager
+ ME_5444FFA90064 // Name
+ ME_54451D8F014F // f_HeaderData
+ ME_54465DF101EB // f_IsReadOnly
+ ME_544671390087 // Index
+ ME_544681BB00EC // f_PrevBlock
+ ME_54476EC30198 // f_Offset
+ ME_5448EBF902BB // NextPosition
+ ME_544F7C9A020E // rHeaderCompare
+ ME_EE764C81E77F // f_Position
+ ME_E1538E9D87A5 // f_Name
+ ME_08A48BD63132 // f_Index
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_5413163101BA // Create
+ ME_5444F8D6030E // Save
+ ME_54450FC60393 // Modified
+ ME_54464CDE02A7 // Load
+ ME_544775240322 // LockData
+ ME_544775440281 // UnlockData
+ ME_5447879403DD // CreatePrev
+ ME_544A1524017E // CheckBody
+ ME_544A6E4A021A // HeaderModified
+ ME_544F498B01DC // Read
+ ME_544F49CF014E // Write
+ ME_544F51F9003F // IsFull
+ ME_54465535030A // CreateNext
+ ME_5446556801C7 // CreatePrim
+ ME_5450F5B9010F // SetPositionInStream
+ ME_5413162303A4 // ini
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ : Children
+   [ ME_544F7C6800E1 // Tm3StorageBlockHeaderData
+ ME_5411C56D039C // Tm3StorageBlockHeader
+ ME_5450E35203B6 // Tm3LockedRegion
+ ME_5446596801F4 // Rm3StorageBlock
+ ]
+ ; // Children
+ : Constants
+   [ ME_5417EB380014 // Defaults
+ ]
+ ; // Constants
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5411C58501E2 Tm3StorageBlock
+
+: ME_5411C54C0194
+ CONST UID '5411C54C0194'
+ CONST Name 'm3StorageBlock'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_5411C58501E2 // Tm3StorageBlock
+ ]
+ ; // Children
+ CONST "no hands" false
+
+ @SELF
+; // ME_5411C54C0194 m3StorageBlock

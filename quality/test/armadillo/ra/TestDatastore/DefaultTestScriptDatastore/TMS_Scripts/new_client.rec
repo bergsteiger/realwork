@@ -1,0 +1,19 @@
+'Заведение нового клиента. Имя берем из датапула
+'$Include "Datapool222.sbh"
+
+Sub Main
+    Dim Result As Long
+    Dim ClientName As String
+    ClientName$ = GetValue222$    
+    
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    GenericObject Click, "Text=Клиенты", "Coords=10,17"
+    
+    Window SetContext, "Caption=Внесение информации о новом клиенте", ""
+    InputKeys ClientName$+"{TAB}{TAB}{DOWN}{TAB}{DOWN}{TAB}{TAB}3"
+    InputKeys "{TAB}wr{TAB}{DOWN}{ENTER}"
+    
+    Window SetContext, "Caption=АРМ регионального партнера компании ""Гарант""", ""
+    MenuIDSelect 21
+
+End Sub

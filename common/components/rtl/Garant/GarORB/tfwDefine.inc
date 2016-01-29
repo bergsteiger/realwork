@@ -1,0 +1,1 @@
+{$Include afwDefine.inc}

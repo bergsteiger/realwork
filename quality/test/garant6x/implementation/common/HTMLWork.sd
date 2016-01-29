@@ -1,0 +1,287 @@
+uses common;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function HTMLConv(
+  str : String
+) : String;
+begin
+  try
+    Result := str;
+    Result := StringReplace(Result, '"', '&quot;', 1 or 2);
+    Result := StringReplace(Result, '<', '&lt;', 1 or 2);
+    Result := StringReplace(Result, '>', '&gt;', 1 or 2);   
+  except
+    Log.Message('HTMLConv: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+function HTMLDocument(
+  const title : String;
+  const body : String;
+  const headAdd : String = '';
+  const paramString : String = ''
+) : String;
+begin
+  try
+    Result := 
+     '<html>' + EndOfLine + '<head>' + EndOfLine +
+     headAdd + EndOfLine +
+     '<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=Windows-1251">' + EndOfLine +
+     '<title>' +
+     title + '</title></head>' + EndOfLine + '<body>' + EndOfLine + 
+     body + EndOfLine + '</body></html>';    
+  except
+    Log.Message('HTMLDocument' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;  
+  end;
+end;
+
+function HTMLParagraph(
+  const paraText : String; // содержимое параграфа
+  const paramString : String = ''
+) : String;
+  var
+    align, title : String;
+    paramList : OleVariant;
+begin
+  try
+    paramList := ParseParamString(paramString);
+    align := GetParam(paramList, 'Align', '');
+    if (align <> '') then
+      align := ' align="' + HTMLConv(align) + '"';
+      
+    title := GetParam(paramList, 'Title', '');
+    if (title <> '') then
+      title := ' title="' + HTMLConv(title) + '"';
+        
+    Result := '<p' + align + title + '>' + paraText + '</p>';
+  except
+    Log.Message('HTMLParagraph' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;  
+  end;
+end;
+
+function HTMLHyperLink(
+  const text : String; // текст ссылки
+  const href : String; // адрес ссылки
+  const paramString : String = ''
+) : String;
+  var
+
+    title : String;
+    paramList : OleVariant;
+begin
+  try
+    paramList := ParseParamString(paramString);
+    title := GetParam(paramList, 'Title', '');  if (title <> '') then title := ' title="' + HTMLConv(title) + '"';
+        
+    Result := '<a href="' + href + '"' + title + '>' + text + '</a>';
+  except
+    Log.Message('HTMLHyperLink' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;  
+  end;
+end;
+
+function HTMLImage(
+  const src : String; // адрес рисунка
+  const paramString : String = ''
+) : String;
+  var
+    align, alt, height, width, border, hspace, vspace  : String;
+    paramList : OleVariant;
+begin
+  try
+    paramList := ParseParamString(paramString);
+    alt := GetParam(paramList, 'Alt', '');  if (alt <> '') then alt := ' alt="' + HTMLConv(alt) + '"';
+    align := GetParam(paramList, 'Align', '');  if (align <> '') then align := ' align="' + HTMLConv(align) + '"';
+    border := GetParam(paramList, 'Border', '');  if (border <> '') then border := ' border=' + border;
+    height := GetParam(paramList, 'Height', '');  if (height <> '') then height := ' height=' + height;
+    width := GetParam(paramList, 'Width', '');  if (width <> '') then width := ' width=' + width;
+    hspace := GetParam(paramList, 'HSpace', '');  if (hspace <> '') then hspace := ' hspace=' + hspace;
+    vspace := GetParam(paramList, 'VSpace', '');  if (vspace <> '') then vspace := ' vspace=' + vspace;        
+    
+    Result := '<img src="' + src + '"' + alt + align + border + height + width + hspace + vspace  + '>';
+  except
+    Log.Message('HTMLImage' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;  
+  end;
+end;
+
+function HTMLTable(
+  const tableRows : String; // строки таблицы
+  const paramString : String = ''
+) : String;
+  var
+    align, cellspacing, cellpadding, width, border : String;
+    paramList : OleVariant;
+begin
+  try
+    paramList := ParseParamString(paramString);
+    align := GetParam(paramList, 'Align', '');
+    if (align <> '') then align := ' align="' + HTMLConv(align) + '"';
+    
+    cellspacing := GetParam(paramList, 'CellSpacing', '');
+    if (cellspacing <> '') then cellspacing := ' cellspacing=' + cellspacing;
+    
+    cellpadding := GetParam(paramList, 'CellPadding', '');
+    if (cellpadding <> '') then cellpadding := ' cellpadding=' + cellpadding;
+    
+    width := GetParam(paramList, 'Width', '');
+    if (width <> '') then width := ' width=' + width;
+    
+    border := GetParam(paramList, 'Border', '');
+    if (border <> '') then border := ' border=' + border;
+
+
+    Result := '<table' + align + cellspacing + cellpadding + width + border + '>' + EndOfLine + tableRows + EndOfLine + '</table>';
+  except
+    Log.Message('HTMLTable' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;  
+  end;
+end;
+
+function HTMLTableTR(
+  const tableTD : String; // ячейки таблицы
+  const paramString : String = ''
+) : String;
+  var
+    align, valign, bgcolor, id, class1 : String;
+    paramList : OleVariant;
+begin
+  try
+
+    paramList := ParseParamString(paramString);
+    align := GetParam(paramList, 'Align', '');
+    if (align <> '') then
+      align := ' align="' + HTMLConv(align) + '"';
+      
+    valign := GetParam(paramList, 'VAlign', '');
+    if (valign <> '') then 
+      valign := ' valign=' + valign;
+      
+    bgcolor := GetParam(paramList, 'BGColor', '');
+    if (bgcolor <> '') then 
+      bgcolor := ' bgcolor="' + bgcolor + '"';
+      
+    id := GetParam(paramList, 'ID', '');
+    if (id <> '') then 
+      id := ' id="' + id + '"';
+      
+    class1 := GetParam(paramList, 'Class', '');
+    if (class1 <> '') then 
+      class1 := ' class="' + class1 + '"';
+     
+    Result := '<tr' + bgcolor + align + valign + id + class1 + '>' + EndOfLine + tableTD + EndOfLine + '</tr>';
+  except
+    Log.Message('HTMLTableTR' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;  
+  end;
+end;
+
+function HTMLTableTD(
+  const text : String; // содержимое ячейки
+  const paramString : String = '';
+  title : String = ''
+) : String;
+  var
+    bgcolor,align, valign, height, colspan, rowspan, tag, width : String;
+    paramList : OleVariant;
+    isHeader : boolean;
+begin
+  try
+    paramList := ParseParamString(paramString);
+    align   := GetParam(paramList, 'Align', '');
+    if (align <> '') then
+      align := ' align="' + HTMLConv(align) + '"';
+      
+    valign  := GetParam(paramList, 'VAlign', '');
+    if (valign <> '') then
+      valign := ' valign=' + valign;
+      
+    height  := GetParam(paramList, 'Height', '');
+    if (height <> '') then
+      height := ' height=' + height;
+      
+    colspan := GetParam(paramList, 'Colspan', '');
+    if (colspan <> '') then
+      colspan := ' colspan=' + colspan;
+      
+    rowspan := GetParam(paramList, 'Rowspan', '');
+    if (rowspan <> '') then
+      rowspan := ' rowspan=' + rowspan;
+      
+    if (title <> '') then
+      title := ' title="' + HTMLConv(title) + '"';
+    
+    width := GetParam(paramList, 'Width', '');
+    if (width <> '') then
+      width := ' width=' + width;
+    
+    bgcolor := GetParam(paramList, 'BGColor', '');
+    if (bgcolor <> '') then
+      bgcolor := ' bgcolor="' + bgcolor + '"';
+    
+    isHeader := VarToBool(GetParam(paramList, 'IsHeader', 'false'));   
+    if isHeader then tag := 'th' else tag := 'td';
+
+    Result := '<' + tag + bgcolor + align + valign + height + width + colspan + rowspan + title +  '>' + text + '</' + tag + '>';
+  except
+    Log.Message('HTMLTableTD' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;  
+  end;
+end;
+
+function HTMLText(
+  const text : String; // текст
+  const paramString : String = ''
+) : String;
+  var
+    headerN, fontColor, fontSize : String;
+    paramList : OleVariant;
+    isItalic, isBold, isStrikeThrough, isUnderLine, isPreformatted : boolean;
+begin
+  try
+    Result := HTMLConv(text);
+    
+    paramList := ParseParamString(paramString);
+    
+    fontColor := GetParam(paramList, 'FontColor', '');  if (fontColor <> '') then fontColor := ' color=' + fontColor + '';
+    fontSize := GetParam(paramList, 'FontSize', '');  if (fontSize <> '') then fontSize := ' size=' + fontSize + '';
+    if (fontColor <> '') OR (fontSize <> '') then
+      Result := '<font' + fontColor + fontSize + '>' + Result + '</font>';
+    
+    headerN   := GetParam(paramList, 'HeaderN', '');
+    if (headerN <> '') then
+      Result := '<H' + headerN + '>' + Result + '</H' + headerN + '>';
+    
+    isItalic := VarToBool(GetParam(paramList, 'isItalic', 'false'));
+    if isItalic then
+      Result := '<i>' + Result + '</i>';
+
+    isBold := VarToBool(GetParam(paramList, 'IsBold', 'false'));
+    if isBold then
+      Result := '<b>' + Result + '</b>';
+
+    isStrikeThrough := VarToBool(GetParam(paramList, 'IsStrikeThrough', 'false'));
+    if isStrikeThrough then
+      Result := '<s>' + Result + '</s>';
+
+    isUnderLine := VarToBool(GetParam(paramList, 'IsUnderLine', 'false'));
+    if isUnderLine then
+      Result := '<u>' + Result + '</u>';
+    
+    isPreformatted := VarToBool(GetParam(paramList, 'IsPreformatted', 'false'));
+    if isPreformatted then
+      Result := '<pre>' + Result + '</pre>';
+  except
+    Log.Message('HTMLText' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+

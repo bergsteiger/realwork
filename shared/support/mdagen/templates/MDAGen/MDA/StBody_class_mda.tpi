@@ -1,0 +1,18 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+%f _mda_IsStBody
+/ override
+//#UC START# *46AA02AF0249IsStBody*
+	true
+//#UC END# *46AA02AF0249IsStBody*
+
++ mda
+/ Генератор шаблонов MDA.
+//#UC START# *46AA02AF0249*
+/	[\n<{}\n= %f_mda_St(%G%P)>]\
+	[\n<{\n}\n/\%f _%oN>\n\n]\
+	[\n<{\n}\n\%f _%ON\n/ override\n%U[{%ON}\n]>]\
+	[\n<{\n}{%CS=include}%CX>]\
+	[{<{}{%CS=include}{C}>=0}%f_mda_OutExclude(%P)]\
+	[\n<{\n}{%CC=Operation}%CX>]
+//#UC END# *46AA02AF0249*

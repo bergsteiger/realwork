@@ -1,0 +1,69 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/garantPIL/implementation/component/cpp/garantCore/project/T_CSAdapter.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<AdapterTarget::Category>> garantCore::CSAdapter
+//
+// DLL контекстного морфологического поиска
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (T_CSAdapter) : project_generic_core, project_subsystem_windows {
+	sharedname = CSAdapter
+	after += Core
+	libs  += Core
+	
+
+	after += ContextSearch
+	libs  += ContextSearch
+	after += DB
+	libs  += DB
+	after += DBExt
+	libs  += DBExt
+	after += GCI
+	after += GCI_tie
+	libs  += GCI
+	libs  += GCI_tie
+	after += GCL
+	libs  += GCL
+	after += Morpho
+	libs  += Morpho
+	after += SearchAdapterLib
+	libs  += SearchAdapterLib
+
+	//#UC START# *4ED8F7A7013C_CUSTOM_DEPENDENSES*
+	after += zlib
+	libs  += zlib
+
+	after += boost_thread
+	libs += boost_thread
+
+	macros += USE_CPP_ZIP
+	//#UC END# *4ED8F7A7013C_CUSTOM_DEPENDENSES*
+	includes += ../../
+
+	Header_Files {
+		Std_Headers {
+			./../CSAdapter/CSAdapter.h
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../CSAdapter/CSAdapter.cpp
+		}
+	}
+	
+	Resource_Files {
+		
+		
+		
+		//#UC START# *4ED8F7A7013C_RESOURCE_FILES*
+		W:/garantPIL/implementation/Projects/resources/CSAdapter.rc
+		W:/garantPIL/implementation/Projects/resources/CSAdapter.rch
+		//#UC END# *4ED8F7A7013C_RESOURCE_FILES*
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

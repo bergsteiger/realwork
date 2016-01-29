@@ -1,0 +1,235 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DelphiSpecific/DelphiLang/ClassInner/Factory.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::DelphiSpecific::DelphiLang::ClassInner::Factory
+//
+// Фабричный метод
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Factory::Class
+implementation @ <<Factory>>
+//? Фабричный метод
+//= method::Class
+//= FactoryMixIn::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +
+// - типы видимости
+//a f
+// - тип абстракции
+//Y code_factory.gif
+//L code_factory
+// Параметры визуализации
+//$ C 0,255,255
+//$ l 0,0,255
+//$ f 0,0,255
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[method::Class]f_wiki_up_print()[{"%S{check nil}"!="%S{!check nil}"}%f_up_prefix(%S) *check nil* = *%S{check nil}* - Проверять, что первый параметр nil и не создавать объекта
+ call-inherited:: 'method' wiki_up_print %( )%
+ if ( ( %S get_up ( 'check nil' ) ) %!= ( %S get_up_def ( 'check nil' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *check nil* = *'
+  %S get_up ( 'check nil' ) '* - Проверять, что первый параметр nil и не создавать объекта'
+//	][{"%S{need As}"!="%S{!need As}"}%f_up_prefix(%S) *need As* = *%S{need As}* - Определяет, что нужно приводить класс к интерфейсу через As
+ end // if
+ if ( ( %S get_up ( 'need As' ) ) %!= ( %S get_up_def ( 'need As' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *need As* = *'
+  %S get_up ( 'need As' ) '* - Определяет, что нужно приводить класс к интерфейсу через As'
+//	][{"%S{need AfterCreate}"!="%S{!need AfterCreate}"}%f_up_prefix(%S) *need AfterCreate* = *%S{need AfterCreate}*
+ end // if
+ if ( ( %S get_up ( 'need AfterCreate' ) ) %!= ( %S get_up_def ( 'need AfterCreate' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *need AfterCreate* = *'
+  %S get_up ( 'need AfterCreate' ) '*'
+//	][{"%S{need Aggregate}"!="%S{!need Aggregate}"}%f_up_prefix(%S) *need Aggregate* = *%S{need Aggregate}*
+ end // if
+ if ( ( %S get_up ( 'need Aggregate' ) ) %!= ( %S get_up_def ( 'need Aggregate' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *need Aggregate* = *'
+  %S get_up ( 'need Aggregate' ) '*'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+; // wiki_up_print
+
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor4AE0263A0260*
+//	%S%[inherited]\
+ inherited
+//	<{}{%G#f_IsConstructor()=true|%G{is static}=true}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%G
+ begin
+  OBJECT IN %G
+  if ( ( %G %?f IsConstructor %( )% ) %==  true OR 
+   ( ( %G get_up ( 'is static' ) ) %==  true  ) ) then
+  begin
+//	%G<{}{%CC=Operation}\
+   %G
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%C
+    begin
+     OBJECT IN %C
+     if ( ( %C |C ) %== 'Operation' ) then
+     begin
+//	%C%f_copy_element(%CU_%1U,%1U,,%CN,true,Op_Instance)\
+      %C %f copy_element %( %C |U '_'
+      %1 |U %, %1 |U %, '' %, %C |N %, true %, 'Op_Instance' )% 
+//	[{%1%Rx=true}\
+      if ( ( %1 ->R |x  ) %==  true ) then
+      begin
+//	%{Op_Instance}%f_set_target(%1%RU)\
+       ( get_global_var ( 'Op_Instance' ) %f set_target %( %1 ->R |U  )% ) 
+//	]\
+      end // if
+//	%{Op_Instance}%f_set_documentation(Сигнатура фабрики %1%PN.%1N)\
+      ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Сигнатура фабрики '
+      %1 ->P |N  '.'
+      %1 |N )% ) 
+//	%{Op_Instance}%f_set_abstraction_type(final)\
+      ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
+      ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	%f_cycle_break(%S)\
+      [%f] cycle_break %( %S )% 
+//	>\
+
+      ++! l_Counter
+     end // if
+    end // for C
+
+   ) // bind
+ //	>
+
+   ++! l_Counter
+  end // if
+ end // for G
+//#UC END# *4B2A19E3038Bfor4AE0263A0260*
+; // DoSpell
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _IsFactory
+: IsFactory OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4AE026A90143for4AE0263A0260*
+//	true
+ true
+//#UC END# *4AE026A90143for4AE0263A0260*
+; // IsFactory
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит тело метода
+// 
+// Modification = get|set|area|areareaf|o|r|f
+//%f _pas_MethodBodyPrim
+: pas_MethodBodyPrim OBJECT IN %S
+// параметры: Implementator: void = %1, Modification: void = %2, RealizeType: a-string = %3, aOverrider: MDAClass = %4
+//#UC START# *494BB3A201A2for4AE0263A0260*
+//	%S%f_OutFactoryBody(%1,%2)
+ %S %f OutFactoryBody %( %1 %, %2 )% 
+//#UC END# *494BB3A201A2for4AE0263A0260*
+; // pas_MethodBodyPrim
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа результата функции
+//%f _pas_ResultTypeName
+: pas_ResultTypeName OBJECT IN %S
+// параметры: Modification: void = %1
+//#UC START# *494BDD190361for4AE0263A0260*
+//@ %SU
+//	[{%Rx=true}{\
+ if ( ( %R |x ) %==  true ) then
+ begin
+//	%f_pas_TypeName(%R)\
+  [%f] pas_TypeName %( %R )% 
+//	]
+ end // if
+ else
+ begin
+//	%S%f_OutFactoryResult()\
+  %S %f OutFactoryResult %( )% 
+//	}\
+ end // else
+//#UC END# *494BDD190361for4AE0263A0260*
+; // pas_ResultTypeName
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: Factory::Class::Operation
+end. // <<Factory>>
+
+implementation @ :: <<Factory>> <<Operation>> ;
+//= method::Class::Operation
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _IsMakeSingleChild
+; // st_space_key
+
+: IsMakeSingleChild OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4CC01C0D0010for4CC01C720055*
+//	%P%f_IsMakeSingleChild()
+ %P %f IsMakeSingleChild %( )% 
+//#UC END# *4CC01C0D0010for4CC01C720055*
+; // IsMakeSingleChild
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Нужна ли фабрике формы агрегация
+//%f _NeedAggregate
+: NeedAggregate OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4CC02B360368for4CC01C720055*
+//	%P%f_NeedAggregate()
+ %P %f NeedAggregate %( )% 
+//#UC END# *4CC02B360368for4CC01C720055*
+; // NeedAggregate
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<Factory>> <<Operation>> ;
+

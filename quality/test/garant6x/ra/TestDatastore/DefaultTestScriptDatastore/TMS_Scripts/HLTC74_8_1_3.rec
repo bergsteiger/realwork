@@ -1,0 +1,145 @@
+'$Include "global.sbl"
+
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+    Dim FolderName1$,FolderName2$,BookMark$,ListName$
+    Dim NewComment$
+    FolderName1="Empty Folder"
+    BookMark="Новая закладка"
+    ListName="Новый запрос"
+    Dim BookFolder$,QueryFolder$,ListFolder,FilterFolder$
+    BookFolder="Папка с закладкой"
+    QueryFolder="Папка с запросом"
+    ListFolder="Папка со списком"
+    FilterFolder="Папка с фильтром"
+    call CreateFolder("Мои документы",BookFolder)
+    call OpenDocByNum(650000)
+    'сохраняем заклдаку на документ
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    RichEdit Click, "ObjectIndex=1", "Coords=36,12"
+    call Click_AddBookmark
+    call SaveDlg("Мои документы\"+BookFolder,BookMark)
+    ''''''''''''
+    'сохраняем список
+    call CreateFolder("Мои документы",ListFolder)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    InputKeys "{F7}"
+    GenericObject Click, "Class=TComboBoxQS;ClassIndex=11", "Coords=5,8"
+    InputKeys "^{ENTER}"
+    
+    Window SetContext, "Caption=ГАРАНТ;Class=#32770", ""
+    'PushButton Click, "Text=Да"
+    InputKeys "{ENTER}"
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    ListBox Click, "ObjectIndex=4", "Coords=9,14"
+    
+    call Click_SaveAs
+    call SaveDlg("Мои документы\"+ListFolder,ListName)  
+    '''''''''''''''''''''
+    'сохраняем запрос
+    call CreateFolder("Мои документы",QueryFolder)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    InputKeys "{F7}"
+    GenericObject Click, "Class=TComboBoxQS;ClassIndex=11", "Coords=11,10"
+    call Click_FindSaveAs
+    call SaveDlg("Мои документы\"+QueryFolder,ListName)
+    '''''''''
+    call CreateFolder("Мои документы",FilterFolder)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    InputKeys "{F7}"
+    GenericObject Click, "Class=TComboBoxQS;ClassIndex=11", "Coords=11,10"
+    call Click_FindSaveAs
+    call SaveDlg("Мои документы\"+FilterFolder,ListName)
+    '''''''''''''''''''''''''''''
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=16,141"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=17,15"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=17,15"
+    ListBox Click, "ObjectIndex=1", "Coords=149,11"
+    
+    call Position_Internal("CurrentFocus","Мои документы\"+FilterFolder+"\"+ListName)
+    InputKeys "{APPS}"
+    Window SetContext, "CurrentWindow", ""
+    InputKeys "{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{DOWN}{ENTER}"
+    'InputKeys "{APPS}"
+    'PopupMenuIDSelect 171
+  '''''''''''''''''''''''''' 
+    
+     Window SetContext, "Caption={ГАРАНТ*}", ""
+  
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=30,7"
+    
+    Window SetContext, "Class=TvtPopupWindow", ""
+    ComboBox Click, "ObjectIndex=1", "Coords=30,9"
+    
+    Window SetContext, "Class=TSubTree", "Activate=0"
+    Window Click, "", "Coords=32,56"
+    
+  
+  ''' 
+  
+    '''''''''''''''''''''''''''''''''''
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=10,149"
+    
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=17,15"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=17,15"
+    ListBox Click, "ObjectIndex=1", "Coords=47,6" 
+    InputKeys "{HOME}"
+    SQASuspendLogOutput
+    if Position_Internal("CurrentFocus","Мои документы\"+FilterFolder,1)<>0 then
+        SQAResumeLogOutput
+        SQALogMessage sqaPass, "Дерево отфильтровалось", "Найдена папка: "+"Мои документы\"+FilterFolder
+    end if
+    InputKeys "{HOME}"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=17,15"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=17,15"
+    SQASuspendLogOutput
+    if Position_Internal("CurrentFocus","Мои документы\"+ListFolder,1)<>0 then
+        SQAResumeLogOutput
+        SQALogMessage sqaFail, "Ошибка! дерево не отфильтровалось", "Найдена папка: "+"Мои документы\"+QueryFolder
+    end if
+    ListBox Click, "ObjectIndex=1", "Coords=47,6" 
+    InputKeys "{HOME}"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=17,15"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=17,15"
+    SQASuspendLogOutput
+    if Position_Internal("CurrentFocus","Мои документы\"+BookFolder,1)<>0 then
+        SQAResumeLogOutput       
+        SQALogMessage sqaFail, "Ошибка! дерево не отфильтровалось", "Найдена папка: "+"Мои документы\"+ListFolder
+    end if
+    ListBox Click, "ObjectIndex=1", "Coords=47,6" 
+    InputKeys "{HOME}"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=17,15"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=17,15"
+    SQASuspendLogOutput
+    if Position_Internal("CurrentFocus","Мои документы\"+QueryFolder,1)<>0 then
+        SQAResumeLogOutput
+        SQALogMessage sqaPass, "Дерево отфильтровалось", "Найдена папка: "+"Мои документы\"+BookFolder
+    end if
+    SQAResumeLogOutput
+    
+     Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=5,130"
+    call Click_SetFiltertoDef
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=9,18"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=9,18"
+   ' ListBox Click, "ObjectIndex=1", "Coords=46,11"
+   
+    call DeleteFolder("Мои документы\"+FilterFolder,1)
+    call DeleteFolder("Мои документы\"+BookFolder,1)
+    call DeleteFolder("Мои документы\"+QueryFolder,1)
+    call DeleteFolder("Мои документы\"+ListFolder,1)
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    'Toolbar Click, "ObjectIndex=84;VisualText=Файл", "Coords=8,14"
+    MenuIdSelect 12
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=8,40"
+    
+  
+End Sub

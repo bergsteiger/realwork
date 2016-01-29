@@ -1,0 +1,204 @@
+// TpgUserManager 5629FC88034B SimpleClass Class
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '5432518A0316.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+FORWARD ME_5629FC88034B
+
+: ME_562DCE66007D
+ CONST UID '562DCE66007D'
+ CONST Name 'f_Factory'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_554C78BD038C // IdaTableQueryFactory
+ ;
+
+ @SELF
+; // ME_562DCE66007D f_Factory
+
+: ME_562DDF8F0159
+ CONST UID '562DDF8F0159'
+ CONST Name 'f_PasswordQuery'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_5549C4060117 // IdaQuery
+ ;
+
+ @SELF
+; // ME_562DDF8F0159 f_PasswordQuery
+
+: ME_562DDF9B03BF
+ CONST UID '562DDF9B03BF'
+ CONST Name 'f_UserFlagsQuery'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_5549C4060117 // IdaQuery
+ ;
+
+ @SELF
+; // ME_562DDF9B03BF f_UserFlagsQuery
+
+FORWARD ME_562A074E0321
+
+: ME_562DCE95018B
+ CONST UID '562DCE95018B'
+ CONST Name 'aFactory'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_554C78BD038C // IdaTableQueryFactory
+ ;
+
+ @SELF
+; // ME_562DCE95018B aFactory
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_562DCE7401DE
+ CONST UID '562DCE7401DE'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_562DCE95018B // aFactory
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_562DCE7401DE DoIt
+
+: ME_562A074E0321
+ CONST UID '562A074E0321'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_562DCE7401DE // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_562A074E0321 Create
+
+FORWARD ME_562A075C01C6
+
+: ME_75D60AA49404
+ CONST UID '75D60AA49404'
+ CONST Name 'aFactory'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_554C78BD038C // IdaTableQueryFactory
+ ;
+
+ @SELF
+; // ME_75D60AA49404 aFactory
+
+: ME_248A9DAE86FB
+ CONST UID '248A9DAE86FB'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура фабрики TpgUserManager.Make' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_5628D14000F6 // IdaUserManager
+ ;
+ : Parameters
+   [ ME_75D60AA49404 // aFactory
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_248A9DAE86FB DoIt
+
+: ME_562A075C01C6
+ CONST UID '562A075C01C6'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'Factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_562A074E0321 // Create
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_5628D14000F6 // IdaUserManager
+ ]
+ ; // Implements
+ : Operations
+   [ ME_248A9DAE86FB // DoIt
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_5628D14D0151 // CheckPassword
+ ]
+ ; // Implemented
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_562A075C01C6 Make
+
+: ME_5629FC88034B
+ CONST UID '5629FC88034B'
+ CONST Name 'TpgUserManager'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_5628D14000F6 // IdaUserManager
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_562DCE66007D // f_Factory
+ ME_562DDF8F0159 // f_PasswordQuery
+ ME_562DDF9B03BF // f_UserFlagsQuery
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_562A074E0321 // Create
+ ME_562A075C01C6 // Make
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_5628D14D0151 // CheckPassword
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5629FC88034B TpgUserManager

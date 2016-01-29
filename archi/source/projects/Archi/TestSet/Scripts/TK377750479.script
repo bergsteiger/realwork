@@ -1,0 +1,44 @@
+USES
+	QuickTestsUtils.script	
+;
+
+OBJECT VAR g_Editor  
+
+PROCEDURE "Курсор мыши в конец выделения"	 
+	 INTEGER VAR X
+	 INTEGER VAR Y  
+	 g_Editor pop:editor:CursorCoordsToScreen >>> Y >>> X
+	 -10 +! X
+	 -30 +! Y
+	 X Y mouse:SetCursorPosition
+	 100 SLEEP
+	 "Обработать сообщения"
+;
+
+
+PROCEDURE "Кликнуть мышью по выделению в редакторе"
+	"Курсор мыши в конец выделения"
+	"Клик левой кнопкой мыши"
+	"Обработать сообщения"
+;
+
+PROCEDURE "Поиск"
+    'Ctrl+F' key
+	'Советское' emitstring
+	"Обработать сообщения"
+	3 раз ( "Контрол по имени {(acTextSearchDlgFindBtn)}" pop:Control:Click )  
+;
+
+Тест TK377750479
+	Параметры: ( "Документ для тестированя выделения после поиска" 
+				 "Восстанавливать позицию мыши" 
+				 "Проверка текста выделения"
+				)
+	Выполнить (
+		focused:control:push >>> g_Editor
+		"Поиск"
+		"Кликнуть мышью по выделению в редакторе"
+	)
+;
+
+TK377750479

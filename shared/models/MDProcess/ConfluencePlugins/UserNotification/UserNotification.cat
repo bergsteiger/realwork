@@ -1,0 +1,4252 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "UserNotification"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/UserNotification|48414B78012E
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"debug tie log"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"finished"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"is namespace"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"need UC"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"no hands"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"weak"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19027414332"))
+    quid       	"48414B78012E"
+    documentation 	
+|для поддержки фичи "привлечь внимание"
+    
+    stereotype 	"Interfaces"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"484677F100E2"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.coreImpl"
+	    quidu      	"4649E1A40231")
+	(object Visibility_Relationship
+	    quid       	"491BCA340256"
+	    supplier   	"Logical View::MDProcess::ConfluencePlugins::ConfluencePluginsDAO"
+	    quidu      	"47BC007801F0")
+	(object Visibility_Relationship
+	    quid       	"499575670259"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.pages"
+	    quidu      	"4614919300FA")
+	(object Visibility_Relationship
+	    quid       	"499BFE8602B8"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.mail"
+	    quidu      	"48C90C3D024E")
+	(object Visibility_Relationship
+	    quid       	"499BFE9E003E"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.user"
+	    quidu      	"4614A1C20186"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "UserNotificationService"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/UserNotification/UserNotificationService.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/UserNotification/UserNotificationServiceFactoryManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/UserNotification/UserNotificationService|48414BFC0288
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*48414BFC0288_484151A10017_48415155036D_BODY*"
+		    value      	(value Text 
+|//#UC START# *48414BFC0288_484151A10017_48415155036D_BODY*¤		//#UC END# *48414BFC0288_484151A10017_48415155036D_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039224400"))
+	    quid       	"48414BFC0288"
+	    documentation 	
+|Предназначен для работы со списком контентов (документов или комментариев), требующих внимание пользователей.
+|- поместить контент в список пользователя(-лей)
+|- отдать текущий список контентов для мониторинга заданного пользователя
+|- апдейтить список контентов, на основе событий изменения/просмотра контента
+	    
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "create"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*484151A10017_484151A10017_48415155036D_BODY*"
+			    value      	(value Text 
+|//#UC START# *484151A10017_484151A10017_48415155036D_BODY*¤		//#UC END# *484151A10017_484151A10017_48415155036D_BODY*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011074300"))
+		    quid       	"484151A10017"
+		    documentation 	"получить экземпляр (не должна быть кэшированной!)"
+		    stereotype 	"factory"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "save_or_update_user_notification"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4843E36301E7_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *4843E36301E7_48415155036D*¤		UserWarningRequest uwRequest = null;¤		if (typeNotification == SYSTEM_TYPE)¤			uwRequest = null;¤		else {¤			uwRequest = getUserWarningRequestFromSet(userNotificationsSet, user);¤		}¤		¤		try {¤			uwRequest = doSaveOrUpdateUserNotification(notify, user, typeNotification, uwRequest, parent);¤			if(uwRequest == null)¤				return null;¤			String userNotSender = user;¤			if(user.equals(notify.getSender())){¤				userNotSender = "";¤			}	¤			resetReadStateForNotifications(notify.getContent(), notify.getWarningPlace(), Arrays.asList(userNotSender));¤		} catch (HibernateException he) {¤			Logs.LOG_E("UserNotificationManagerImpl::saveOrUpdateUserNotification - " + he);¤			return null;¤		}¤		getEmailGateway().send();¤		return uwRequest;¤		//#UC END# *4843E36301E7_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"48463CC00132")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011074671"))
+		    quid       	"4843E36301E7"
+		    documentation 	"помещает контент требующий внимания в список пользователя."
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "notify"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4843E47D00CF")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011074987"))
+			    quid       	"4843E4AF02AE"
+			    type       	"UserNotification"
+			    quidu      	"4843E47D00CF")
+			(object Parameter "user"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011075394"))
+			    quid       	"4843E4370332"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "user_notifications_set"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"491ACD170202")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011075754"))
+			    quid       	"491D38F9027C"
+			    type       	"UserWarningNotifications"
+			    quidu      	"491ACD170202")
+			(object Parameter "typeNotification"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD5402AE")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011076122"))
+			    quid       	"491BE72602EB"
+			    type       	"short"
+			    quidu      	"3DBFFD5402AE")
+			(object Parameter "parent"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"491ACAED01D3")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011076525"))
+			    quid       	"491D3E780082"
+			    type       	"UserWarning"
+			    quidu      	"491ACAED01D3"))
+		    result     	"UserWarningRequest"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"48463CC00132")
+		(object Operation "has_notification_for_content"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*48B53E9A03D4_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *48B53E9A03D4_48415155036D*¤		try {¤			Session session = getSession();¤			int count = ((Integer) session.iterate("select count(*) from UserWarningRequest as uwr"¤					+ " where uwr.user=\"" + user + "\""¤					+ " and uwr.warningPlace.id=" + contentId).next()).intValue();¤			return (count > 0);¤		} catch (HibernateException e) {¤			Logs.LOG_SEX(e);¤			return false;¤		}¤		//#UC END# *48B53E9A03D4_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011076955"))
+		    quid       	"48B53E9A03D4"
+		    documentation 	"проверяет для заданного юзера, что указанный контент включен в список его слежения (безотносительно следит он за ним, или нет)"
+		    parameters 	(list Parameters
+			(object Parameter "content_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011077286"))
+			    quid       	"48B53FA20281"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205")
+			(object Parameter "user"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011078017"))
+			    quid       	"48B53FA202B1"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE100240")
+		(object Operation "delete_notifications_in_page"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*48B6958002CC_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *48B6958002CC_48415155036D*¤		try {¤			Session session = getSession();¤			Query q = session.createQuery("from UserWarningRequest as uwr where uwr.warningPlace.id=:pageId)");¤			q.setLong("pageId", abstractPage.getId());¤			¤			deleteUserWarningRequests(q.list());¤		}¤		catch (HibernateException e) {¤			Logs.LOG_SEX(e);¤		}¤		//#UC END# *48B6958002CC_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011078461"))
+		    quid       	"48B6958002CC"
+		    documentation 	"документация отсутствует"
+		    parameters 	(list Parameters
+			(object Parameter "abstract_page"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4741B69000F0")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011078785"))
+			    quid       	"4995768D028F"
+			    type       	"AbstractPage"
+			    quidu      	"4741B69000F0"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "delete_notification_in_comment"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*48B7989F0009_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *48B7989F0009_48415155036D*¤		try {¤			Session session = getSession();¤			Query q = session.createQuery("from UserWarningRequest as uwr where uwr.warningPlace=\"" + commentId + "\"");¤			deleteUserWarning(q.list());¤			deleteUserWarningRequests(q.list());¤		}¤		catch (HibernateException e) {¤			Logs.LOG_SEX(e);¤		}¤		//#UC END# *48B7989F0009_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011079320"))
+		    quid       	"48B7989F0009"
+		    documentation 	"документация отсутствует"
+		    parameters 	(list Parameters
+			(object Parameter "comment_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011079665"))
+			    quid       	"48B798EF03B1"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "get_personal_user_notification_list"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*48C0E8F1016D_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *48C0E8F1016D_48415155036D*¤		Map<Long, UserNotification> sortMap = MultiValueMap.decorate(new TreeMap<Long, UserNotification>());¤		try {¤			Session session = getSession();¤			Criteria uwrQuery = session.createCriteria(UserWarningRequest.class);¤			uwrQuery.add(Expression.eq("user", user));¤			boolean flag = false;¤			if (needNofityMonitoring == NeedNotifyMonitoring.FALSE) {¤				uwrQuery.add(Expression.eq("needMonitoring", false));¤			} else if (needNofityMonitoring == NeedNotifyMonitoring.TRUE) {¤				uwrQuery.add(Expression.eq("needMonitoring", true));¤				flag = true;¤			}¤			List<UserWarningRequest> uwrs = uwrQuery.list();¤			¤			Query udQuery = session.createQuery(¤				"select ud from UnreadDiscussion as ud, UserWarningRequest as uwr"¤				+ " where ud.entityId = uwr.content.id"¤				+ " and uwr.user=\"" + user + "\""¤				+ " and uwr.needMonitoring=" + flag ¤			);¤¤			List<UnreadDiscussion> unreadDiscussions = udQuery.list();¤			¤			Collection<Long> uwrIds = CollectionUtils.collect(uwrs, new UserWarningRequestIdCollector());¤			List<UserWarningRequestTimeTask> uwtt = getUserWarningRequestTimeTasks(uwrIds);¤			for (UserWarningRequest uwr : uwrs) {¤				long dateValue = getLastModificationDate(uwr);¤				for (UnreadDiscussion ud : unreadDiscussions) {¤					if (uwr.getId() == ud.getEntityId()) {¤						dateValue = getLastCommentModificationDate(ud);¤						break;¤					}¤				}¤				¤				final UserWarningRequestTimeTask uwrtt = findUserWarningRequestTimeTask(uwtt, uwr.getId());¤				if (needNofityMonitoring == NeedNotifyMonitoring.TRUE¤						|| (uwrtt == null || uwrtt.getStartDate() < new Date().getTime())) {¤					final UserNotification userNotification = createUserNotification(uwr, uwrtt);¤					sortMap.put(dateValue, userNotification);¤				}¤			}¤	¤			List<UserNotification> result = new LinkedList<UserNotification>(sortMap.values());¤			if (sortType == NotificationSortType.DATE_DESC) {¤				Collections.reverse(result);¤			}¤			return result;¤		} catch (HibernateException e) {¤			Logs.LOG_SEX(e);¤		}¤		return Collections.emptyList();¤		¤		//#UC END# *48C0E8F1016D_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4843E546011A")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011080115"))
+		    quid       	"48C0E8F1016D"
+		    documentation 	"отсортированный персонализированный список нотификаций"
+		    parameters 	(list Parameters
+			(object Parameter "user"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011080447"))
+			    quid       	"48C0E90501B5"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "need_nofity_monitoring"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"49AF7AA20139")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011080810"))
+			    quid       	"49AF7B24021C"
+			    type       	"NeedNotifyMonitoring"
+			    quidu      	"49AF7AA20139")
+			(object Parameter "sort_type"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"48C0E78A0369")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011081286"))
+			    quid       	"48C0E90501FE"
+			    type       	"NotificationSortType"
+			    quidu      	"48C0E78A0369"))
+		    result     	"UserNotificationList"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"4843E546011A")
+		(object Operation "process_time_scheduled_user_notifications"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*48F5EA4B004F_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *48F5EA4B004F_48415155036D*¤		Transaction tx = null;¤		try {¤			// need isolated, new session¤			Session session = getSession(true);¤			¤			long now = new Date().getTime();¤			List<UserWarningRequestTimeTask> tasks = getActualUserWarningRequestTimeTasks(now);¤			¤			tx = session.beginTransaction();¤			for (UserWarningRequestTimeTask task : tasks) {¤				if (task.isReady()) {¤					task.setLastSendDate(now);¤					session.update(task);¤					¤					UserWarningRequest uwr = task.getWarningRequest();¤					if (uwr.getNeedMonitoring() == false) {¤ 						uwr.setNeedMonitoring(true);¤						if (uwr.getParent() == null) {¤							// Workaround of ununderstood hibernate bug: if we try to update uwr without¤	 						// explicit setting parent property it will be lost (become null)¤	 						// in case we are updating UserWarningRequest at the first time.¤	 						// Because of unknown reason parent property is always null¤	 						// at the first update.¤							¤							List<UserWarning> parentList = session.createQuery(¤								"select uwr.parent from UserWarningRequest as uwr where uwr.id=" + task.getWarningRequest().getId() + "'").list();¤							if (parentList.size() > 0) {¤								uwr.setParent(parentList.get(0));¤							}¤						}¤						session.update(uwr);¤					}¤					resetReadStateForNotifications(uwr.getContent(), uwr.getWarningPlace(), uwr.getUser());¤					addNotificationForUser(uwr);¤				}¤			}¤			// need explicit flushing and transaction commiting to forse ¤			// writing updated data to the DB¤			session.flush(); ¤			tx.commit();¤			¤			getEmailGateway().send();¤		} catch (HibernateException e) {¤			Logs.LOG_E("UserNotificationManagerImpl::processTimeScheduledUserNotifications - " + e);¤			if (tx != null) {¤				try {¤					tx.rollback();¤				} catch (HibernateException e1) {¤					Logs.LOG_SEX(e1);¤				}¤			}¤		}¤		//#UC END# *48F5EA4B004F_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011081714"))
+		    quid       	"48F5EA4B004F"
+		    documentation 	"опрашивает все актуальные запланированные задания на нотификации и посылает их"
+		    stereotype 	"chg"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "save_or_update_users_notification"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*48F5FB45039F_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *48F5FB45039F_48415155036D*¤		Set<UserWarningRequest> userWarningNotifications = new HashSet<UserWarningRequest>();¤		try {¤			UserWarningRequest uwRequest = null;¤			for (String userName : usesr) {¤				if (typeNotification == SYSTEM_TYPE)¤					uwRequest = null;¤				else {¤					uwRequest = getUserWarningRequestFromSet(userNotificationsSet, userName);¤				}¤¤				uwRequest = doSaveOrUpdateUserNotification(notify, userName, typeNotification, uwRequest,¤															parent);¤				if (uwRequest == null)¤					return null;¤				userWarningNotifications.add(uwRequest);¤			}¤			boolean flagRemoveUser = true;¤			if (userNotificationsSet != null) {¤				for (UserWarningRequest uwr : userNotificationsSet) {¤					flagRemoveUser = true;¤					for (String userName : usesr) {¤						if (uwr.getUser().equals(userName))¤							flagRemoveUser = false;¤					}¤					if (flagRemoveUser == true)¤						deleteNotificationForUserInMacro(uwr.getUser(), parent.getId());¤				}¤			}¤		} catch (HibernateException he) {¤			Logs.LOG_E("UserNotificationManagerImpl::saveOrUpdateUserNotification - " + he);¤			return null;¤		}¤		getEmailGateway().send();¤¤		return userWarningNotifications;¤		//#UC END# *48F5FB45039F_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"491ACD170202")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011082089"))
+		    quid       	"48F5FB45039F"
+		    documentation 	"помещает контент требующий внимания в список пользователей."
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "notify"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4843E47D00CF")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011082404"))
+			    quid       	"48F5FB5E03D1"
+			    type       	"UserNotification"
+			    quidu      	"4843E47D00CF")
+			(object Parameter "usesr"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"48F5FAEB0352")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011082764"))
+			    quid       	"48F5FB5F0033"
+			    type       	"UserNotificationUserNameList"
+			    quidu      	"48F5FAEB0352")
+			(object Parameter "user_notifications_set"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"491ACD170202")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011083153"))
+			    quid       	"491D390B0140"
+			    type       	"UserWarningNotifications"
+			    quidu      	"491ACD170202")
+			(object Parameter "typeNotification"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD5402AE")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011083520"))
+			    quid       	"491BE6DE03B8"
+			    type       	"short"
+			    quidu      	"3DBFFD5402AE")
+			(object Parameter "parent"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"491ACAED01D3")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011083915"))
+			    quid       	"491D3E88000F"
+			    type       	"UserWarning"
+			    quidu      	"491ACAED01D3"))
+		    result     	"UserWarningNotifications"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"491ACD170202")
+		(object Operation "save_or_update_user_notifications_macro"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*491BC8070362_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *491BC8070362_48415155036D*¤		UserWarning uw = null;¤		try {¤			Session session = getSession();¤			Query q = session.createQuery("from UserWarning as uwr where uwr.id=" + id);¤			List<UserWarning> res = q.list();¤			if (res.size() != 0)¤				uw = res.get(0);¤¤			if (uw == null) {¤				uw = new UserWarning();¤				uw.setId(id);¤			}¤¤			uw.setUsersNotificationString(userNamesForMacro);¤			uw.setUserWarningNotifications(userNotifications);¤			uw = doSaveOrUpdateNotificationMacro(uw);¤		} catch (HibernateException he) {¤			Logs.LOG_E("UserNotificationManagerImpl::saveOrUpdateUserNotification - " + he);¤			return null;¤		}¤		return uw;¤		//#UC END# *491BC8070362_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"491ACAED01D3")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011084343"))
+		    quid       	"491BC8070362"
+		    documentation 	"документация отсутствует"
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011084651"))
+			    quid       	"491BD8680165"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205")
+			(object Parameter "user_notifications"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"491ACD170202")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011085042"))
+			    quid       	"491BC8C70190"
+			    type       	"UserWarningNotifications"
+			    quidu      	"491ACD170202")
+			(object Parameter "userNamesForMacro"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011085407"))
+			    quid       	"492132250287"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"UserWarning"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"491ACAED01D3")
+		(object Operation "get_macros_notify_parameters"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*491BFCED03B1_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *491BFCED03B1_48415155036D*¤		UserWarning uw = null;¤		try {¤			Session session = getSession();¤			Query q = session.createQuery("from UserWarning where id=\"" + macrosId + "\"");¤			List<UserWarning> res = q.list();¤			if(res.size() >= 1){¤				uw = res.get(0);¤			}	¤			else return null;¤		}¤		catch (HibernateException e) {¤			Logs.LOG_SEX(e);¤		}¤		return uw;¤		//#UC END# *491BFCED03B1_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"491ACAED01D3")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011085837"))
+		    quid       	"491BFCED03B1"
+		    documentation 	"документация отсутствует"
+		    parameters 	(list Parameters
+			(object Parameter "macros_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011086144"))
+			    quid       	"491BFD4401EC"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205"))
+		    result     	"UserWarning"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"491ACAED01D3")
+		(object Operation "get_notification_timer_task"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*491C2EC502A3_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *491C2EC502A3_48415155036D*¤		UserWarningRequestTimeTask timeTask = null;¤		try {¤			Query q = getSession().createQuery("from UserWarningRequestTimeTask as uwrtt " + ¤					"where uwrtt.id=" + idNotification);¤			List<UserWarningRequestTimeTask> res = q.list();¤			if(res.size() != 0){¤				timeTask = res.get(0);¤			}	¤		}¤		catch (HibernateException e) {¤			Logs.LOG_SEX(e);¤		}¤		return timeTask;¤		//#UC END# *491C2EC502A3_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"48F5A9670056")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011086551"))
+		    quid       	"491C2EC502A3"
+		    documentation 	"документация отсутствует"
+		    parameters 	(list Parameters
+			(object Parameter "id_notification"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011086871"))
+			    quid       	"491C2F040008"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205"))
+		    result     	"UserWarningRequestTimeTask"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"48F5A9670056")
+		(object Operation "delete_notification_macro"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*491C4A110301_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *491C4A110301_48415155036D*¤		try {¤			Session session = getSession();¤			Query q = session.createQuery("from UserWarning as uw where uw.id=" + idNotifyMacro);¤¤			List<UserWarning> uwrToDelete = q.list();¤			if (uwrToDelete.size() != 0) {¤				final UserWarning uw = uwrToDelete.get(0);¤				deleteUserWarningRequests(uw.getUserWarningNotifications());¤				session.delete(uw);¤			}¤		} catch (HibernateException e) {¤			Logs.LOG_SEX(e);¤		}¤		//#UC END# *491C4A110301_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011087284"))
+		    quid       	"491C4A110301"
+		    documentation 	"удаление макроса из бд"
+		    parameters 	(list Parameters
+			(object Parameter "id_notify_macro"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011087580"))
+			    quid       	"491C4A59009B"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "delete_notification_for_user_in_macro"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*491D43840042_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *491D43840042_48415155036D*¤		try {¤			Session session = getSession();¤			Query q = session.createQuery("from UserWarningRequest as uwr where uwr.user=\"" + user + "\"" + " and uwr.parent.id=\"" + idMacro + "\"");¤			deleteUserWarningRequests(q.list());¤		}¤		catch (HibernateException e) {¤			Logs.LOG_SEX(e);¤		}¤		//#UC END# *491D43840042_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011088013"))
+		    quid       	"491D43840042"
+		    documentation 	"документация отсутствует"
+		    parameters 	(list Parameters
+			(object Parameter "user"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011088310"))
+			    quid       	"491D43C90286"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "id_macro"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011088669"))
+			    quid       	"491D43C90302"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "move_user_warning"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*494A631D009D_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *494A631D009D_48415155036D*¤		Long id = null;¤		Comment comment = ContainerManager.Factory.get().getCommentManager().getComment(newWarningPlace);¤		AbstractPage abstractPage = ContainerManager.Factory.get().getPageManager().getAbstractPage(newContent);¤		Matcher m = null;¤		if(comment != null){¤			m = getMatcher(name, comment.getContent());¤		}¤		else if(abstractPage != null){¤			m = getMatcher(name, abstractPage.getContent());¤		}¤		while(m != null && m.find()){¤			id = Long.valueOf(m.group(1));¤			try {¤				Session session = getSession();¤				UserWarning uw = (UserWarning)session.load(UserWarning.class, id);¤				for (UserWarningRequest uwr : uw.getUserWarningNotifications()) {¤					if (comment != null) {¤						uwr.setWarningPlace(comment);¤						uwr.setContent(abstractPage);¤					} else {¤						uwr.setWarningPlace(abstractPage);¤						uwr.setContent(abstractPage);					¤					}¤				}¤			} catch (Exception e) {¤				Logs.LOG_SEX(e);¤			}¤		}¤		//#UC END# *494A631D009D_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011089115"))
+		    quid       	"494A631D009D"
+		    documentation 	"перемещает нотификацию в новое место"
+		    parameters 	(list Parameters
+			(object Parameter "name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011089432"))
+			    quid       	"4A1A5DB301F9"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "new_warning_place"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011089802"))
+			    quid       	"494A637F011A"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205")
+			(object Parameter "new_content"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011090160"))
+			    quid       	"494A637F0185"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "delete_notifications_in_page_and_comments"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*499571060324_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *499571060324_48415155036D*¤		¤		List<Long> contentIds = new ArrayList<Long>();¤		contentIds.add(abstractPage.getId());¤		contentIds.addAll(CollectionUtils.collect(abstractPage.getComments(), new EntityObjectToIdTransformer()));¤		¤		try {¤			Session session = getSession();¤			Query q = session¤					.createQuery("from UserWarningRequest as uwr where uwr.warningPlace.id in (:contentIds)");¤			q.setParameterList("contentIds", contentIds);¤			¤			deleteUserWarning(q.list());¤			deleteUserWarningRequests(q.list());¤		} catch (HibernateException e) {¤			Logs.LOG_SEX(e);¤		}¤		¤		//#UC END# *499571060324_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011090573"))
+		    quid       	"499571060324"
+		    documentation 	"удаляет все нотификации из страницы и ее комментариев"
+		    parameters 	(list Parameters
+			(object Parameter "abstract_page"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4741B69000F0")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011090908"))
+			    quid       	"499576940168"
+			    type       	"AbstractPage"
+			    quidu      	"4741B69000F0"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "delete_notification_macroses_from_page_and_comments"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49957DE80377_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *49957DE80377_48415155036D*¤		for (Comment comment : (List<Comment>) abstractPage.getComments()) {¤			deleteNotificationMacroses(comment.getContent());¤		}¤		deleteNotificationMacroses(abstractPage.getContent());¤		//#UC END# *49957DE80377_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011091320"))
+		    quid       	"49957DE80377"
+		    documentation 	"ищет макросы нотификации в контенте заданной старницы и ее комментариев, в случае нахождения удаляет их объектные представления из БД"
+		    parameters 	(list Parameters
+			(object Parameter "abstract_page"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4741B69000F0")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011091621"))
+			    quid       	"499588FC0152"
+			    type       	"AbstractPage"
+			    quidu      	"4741B69000F0"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "delete_notification_macroses"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49958A17007D_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *49958A17007D_48415155036D*¤		String aContent = content;¤		String name="id=(\\d+)";¤¤		Matcher m = getMatcher(name, aContent);¤		long id;¤		while(m != null && m.find()){¤			id = Long.valueOf(m.group(1));¤			deleteNotificationMacro(id);¤		}¤		¤		//#UC END# *49958A17007D_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011092046"))
+		    quid       	"49958A17007D"
+		    documentation 	"ищет макросы нотификации в заданном контенте, в случае нахождения удаляет их объектные представления из БД"
+		    parameters 	(list Parameters
+			(object Parameter "content"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011092345"))
+			    quid       	"49958A27026A"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "create_notification_email"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*499BFDF002C2_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *499BFDF002C2_48415155036D*¤		String adress  = GlobalHelper.getPageUrl(page, userName);¤¤		if (focusedComment != null) {¤			adress = adress + "&focusedCommentId=" + focusedComment.getId() + "#comment-"¤					+ focusedComment.getId();¤		}¤¤		UserAccessor ua = ContainerManager.Factory.get().getUserAccessor();¤		User user = ua.getUser(userName);¤		User sender = ua.getUser(senderName);¤		¤		String body = "Добрый день, " + user.getFullName() + "!" + "<br>" + sender.getFullName()¤				+ " просит Вас обратить внимание на '" + page.getDisplayTitle() + "' (адрес в MDC: <a href=\""¤				+ adress + "\">" + adress + "</a>)";¤		if (StringUtils.isNotBlank(title)) {¤			body = body + ", говоря: " + title;¤		}¤		body = body¤				+ ".<br><br>Данное сообщение было отправлено автоматически, поэтому, пожалуйста, не отвечайте на него."¤				+ "<br><br>С уважением,\nсистема \"MDC\"";¤		String subj = "Обратите внимание (" + sender.getFullName() + ")";¤		String email = user.getEmail();¤		return getEmailGateway().createEmail(subj, body, email);¤		//#UC END# *499BFDF002C2_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"48C90C630052")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011092788"))
+		    quid       	"499BFDF002C2"
+		    documentation 	"создает стандартное почтовое сообщение для нотификации"
+		    parameters 	(list Parameters
+			(object Parameter "page"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4741B69000F0")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011093091"))
+			    quid       	"499BFE4801BF"
+			    type       	"AbstractPage"
+			    quidu      	"4741B69000F0")
+			(object Parameter "user_name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011093455"))
+			    quid       	"499C097E0399"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "sender_name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011093828"))
+			    quid       	"499C097F003E"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "focused_comment"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"499BFEE4029D")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011094185"))
+			    quid       	"499BFE48034A"
+			    type       	"Comment"
+			    quidu      	"499BFEE4029D")
+			(object Parameter "title"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011094542"))
+			    quid       	"499BFE4803CA"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"Email"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"48C90C630052")
+		(object Operation "get_personal_user_notification_list_for_pu"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*49BF88CB038F_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *49BF88CB038F_48415155036D*¤		Map<Long, NotifyForPuData> sortMap = MultiValueMap.decorate(new TreeMap<Long, NotifyForPuData>());¤		PreparedStatement ps = null;¤		ResultSet rs = null;¤		List<NotifyForPuData> nfp = null;¤		try {¤			String queryString = getPersonalUserNotificationListForPuQuery (user);¤			ps = getSession().connection().prepareStatement(queryString);¤			rs = ps.executeQuery();¤			¤			if(rs != null){¤				while(rs.next() != false){¤					long id_notify = rs.getLong(1);¤					String titleNotify = rs.getString(2);¤					long id_content_notify = rs.getLong(3);¤					long id_warning_place_notify = rs.getLong(4);¤					long start_date_notify = rs.getLong(5);¤					Timestamp timestampDateLastCommentNotify = rs.getTimestamp(6);¤					Date date_last_comment_notify = null;¤					if(timestampDateLastCommentNotify != null){¤						date_last_comment_notify = new Date(timestampDateLastCommentNotify.getTime());¤					}¤					long id_last_comment_notify = rs.getLong(7);¤					String author_last_comment_notify = rs.getString(8);¤					int count_comments_notify = rs.getInt(9);¤					long id_first_comment_notify = rs.getLong(10);¤					String author_first_comment_notify = rs.getString(11);¤					Timestamp timestampDateFirstCommentNotify = rs.getTimestamp(12);¤					Date date_first_comment_notify =null;¤					if(timestampDateFirstCommentNotify != null){¤						date_first_comment_notify = new Date(timestampDateFirstCommentNotify.getTime());¤					}¤					long id_comments_notify = rs.getLong(13);¤					Timestamp timestampPostingDate = rs.getTimestamp(14);¤					Date posting_date = null;¤					if(timestampPostingDate != null){¤						posting_date = new Date(timestampPostingDate.getTime());¤					}¤					String unread_document_name= rs.getString(15);¤					boolean is_document_read = false;¤					if(unread_document_name == null){¤						is_document_read = true;¤					}¤					String sender = rs.getString(16);¤					NotifyForPuData nfpd = new NotifyForPuData(id_notify, titleNotify, id_content_notify,¤							id_warning_place_notify, start_date_notify, date_last_comment_notify, author_last_comment_notify, id_last_comment_notify, count_comments_notify, ¤							id_first_comment_notify, author_first_comment_notify, date_first_comment_notify, id_comments_notify, 0, posting_date, is_document_read, sender);¤					¤					if(posting_date != null){¤						sortMap.put(posting_date.getTime(), nfpd);¤					}¤				}¤	¤				nfp = new LinkedList<NotifyForPuData>(sortMap.values());¤¤				if (sortType == NotificationSortType.DATE_DESC) {¤					Collections.reverse(nfp);¤				}¤			}¤			return nfp;¤		}catch(Exception ex){¤			Logs.LOG_W(ex.getMessage());¤		}¤		¤		return Collections.emptyList();¤		//#UC END# *49BF88CB038F_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"49C7773F02EC")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011094998"))
+		    quid       	"49BF88CB038F"
+		    documentation 	"получить список нотификаций для заданного пользователя"
+		    parameters 	(list Parameters
+			(object Parameter "user"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011095308"))
+			    quid       	"49BF89B3017B"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "sort_type"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"48C0E78A0369")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011095682"))
+			    quid       	"49BF89B3021B"
+			    type       	"NotificationSortType"
+			    quidu      	"48C0E78A0369"))
+		    result     	"NotifyForPuList"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"49C7773F02EC")
+		(object Operation "has_content_notify_from_content_and_parameters"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4A1A4FE90374_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *4A1A4FE90374_48415155036D*¤		Matcher m = getMatcher(name, contentText);¤		return m.find();¤		//#UC END# *4A1A4FE90374_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011096098"))
+		    quid       	"4A1A4FE90374"
+		    documentation 	"определяет содержится ли нотификация с данными параметрами в комментарии или на странице"
+		    parameters 	(list Parameters
+			(object Parameter "name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011096408"))
+			    quid       	"4A1A575300E4"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "contentText"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011096791"))
+			    quid       	"4A1A5A2002F3"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE100240")
+		(object Operation "get_notify_macro_string"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4A1A56070103_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *4A1A56070103_48415155036D*¤		return "{notify:" + name + "}";¤		//#UC END# *4A1A56070103_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011097210"))
+		    quid       	"4A1A56070103"
+		    documentation 	"получает строку {notify: *}, где * - параметры"
+		    parameters 	(list Parameters
+			(object Parameter "name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011097530"))
+			    quid       	"4A1A56850326"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"string"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE240068")
+		(object Operation "get_id_notify_from_matcher"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4A1A7E520379_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *4A1A7E520379_48415155036D*¤		Matcher m = getMatcher("id=(\\d+)", contentText);¤		if(m.find()){¤			return Long.valueOf(m.group(1));¤		}¤		else return 0;¤		//#UC END# *4A1A7E520379_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011097941"))
+		    quid       	"4A1A7E520379"
+		    documentation 	"получает id нотификации из строки {notify:id=...}"
+		    parameters 	(list Parameters
+			(object Parameter "content_text"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011098244"))
+			    quid       	"4A1A7EE0004C"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"long long"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFD860205")
+		(object Operation "get_personal_user_notification"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4AB201C500BF_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *4AB201C500BF_48415155036D*¤		try {¤			UserWarning uw = getMacrosNotifyParameters(macroId);¤			if (uw == null) {¤				return null;¤			}¤			for (UserWarningRequest uwr : uw.getUserWarningNotifications()) {¤				if (userName.equals(uwr.getUser())) {¤					List<UserWarningRequestTimeTask> uwrtt =¤							getUserWarningRequestTimeTasks(Arrays.asList(uwr.getId()));¤					return createUserNotification(uwr, uwrtt.size() > 0 ? uwrtt.get(0) : null);¤				}¤			}¤		} catch (Exception e) {¤			Logs.LOG_SEX(e);¤		}¤		return null;¤		//#UC END# *4AB201C500BF_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4843E47D00CF")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011098688"))
+		    quid       	"4AB201C500BF"
+		    documentation 	"возвращает обертку над нотификацией пользователя по идентификатору макроса, если пользователь не оповещался с помощью данного макроса - null"
+		    parameters 	(list Parameters
+			(object Parameter "user_name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011098999"))
+			    quid       	"4AB2024F023D"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "macro_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011099353"))
+			    quid       	"4AB201E5021C"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205"))
+		    result     	"UserNotification"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"4843E47D00CF")
+		(object Operation "has_any_notification_for_content"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4AB23CFB03D9_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *4AB23CFB03D9_48415155036D*¤		try {¤			Session session = getSession();¤			Query q = session.createQuery("select count(*) from UserWarningRequest as uwr"¤					+ " where uwr.user=:userName"¤					+ " and uwr.needMonitoring=:needMonitoring"¤					+ " and uwr.content.id=:contentId");¤			q.setString("userName", userName).setBoolean("needMonitoring", monitoring).setLong("contentId", contentId);¤			return (Integer) (q.iterate().next()) > 0;¤		} catch (HibernateException e) {¤			Logs.LOG_SEX(e);¤			return false;¤		}¤		//#UC END# *4AB23CFB03D9_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011099778"))
+		    quid       	"4AB23CFB03D9"
+		    documentation 	"проверяет для заданного юзера, что на указанной странице\\новости есть или в теле или в комментариях для него есть нотификации"
+		    parameters 	(list Parameters
+			(object Parameter "content_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011100082"))
+			    quid       	"4AB23D4D0187"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205")
+			(object Parameter "user_name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011100464"))
+			    quid       	"4AB23D4D01E2"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "monitoring"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE100240")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011100825"))
+			    quid       	"4AB23D4D023F"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240"))
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DBFFE100240")
+		(object Operation "get_user_notify"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"48463CC00132")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4B069E7D023C_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *4B069E7D023C_48415155036D*¤		try {¤			UserWarningRequest uwr = null;¤			Session session = getSession();¤			Query q = session.createQuery("from UserWarningRequest as uwr where uwr.id=" + id);¤			List<UserWarningRequest> res = q.list();¤			if (res.size() != 0)¤				uwr = res.get(0);¤			return uwr;¤		} catch (HibernateException e) {¤			Logs.LOG_SEX(e);¤			return null;¤		}¤		//#UC END# *4B069E7D023C_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011101241"))
+		    quid       	"4B069E7D023C"
+		    documentation 	"получить нотификацию по id"
+		    parameters 	(list Parameters
+			(object Parameter "id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011101558"))
+			    quid       	"4B069F560027"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205"))
+		    result     	"UserWarningRequest"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"48463CC00132")
+		(object Operation "get_users_by_surname"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4B0BC1290261")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"java:*4B0BBD700146_48415155036D*"
+			    value      	(value Text 
+|//#UC START# *4B0BBD700146_48415155036D*¤		try {¤			Session session = getSession();¤			Query q = session.createQuery("from DefaultHibernateUser as us"¤					+ " where us.fullName like '" + surname + "%'");¤			List<User> res = q.list();¤			return res;¤		} catch (HibernateException e) {¤			Logs.LOG_SEX(e);¤			return null;¤		}¤		//#UC END# *4B0BBD700146_48415155036D*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011101977"))
+		    quid       	"4B0BBD700146"
+		    documentation 	"получить список пользователей по фамилии"
+		    parameters 	(list Parameters
+			(object Parameter "surname"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011102280"))
+			    quid       	"4B0BBDAD00B2"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    result     	"UsersBySurnameList"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"4B0BC1290261"))
+	    language   	"MDA Generator")
+	(object Class "UserNotification"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/UserNotification/UserNotification.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4843E47D00CF_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4843E47D00CF_CUSTOM_IMPORT*¤//#UC END# *4843E47D00CF_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4843E47D00CF_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4843E47D00CF_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4843E47D00CF_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4843E47D00CF_4843E4B503DD_CTOR_BODY*"
+		    value      	(value Text 
+|//#UC START# *4843E47D00CF_4843E4B503DD_CTOR_BODY*¤		setTitle(title);¤		setContent(content);¤		setWarningPlace(warningPlace);¤		setNeedMonitoring(needMonitoring);¤		setIdNotify(idNotify);¤		setSender(sender);¤		setDate(date);¤		//#UC END# *4843E47D00CF_4843E4B503DD_CTOR_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/UserNotification/UserNotification|4843E47D00CF
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4843E47D00CF_48A521510345_CTOR_BODY*"
+		    value      	(value Text 
+|//#UC START# *4843E47D00CF_48A521510345_CTOR_BODY*¤		setTitle(title);¤		setContent(content);¤		setWarningPlace(warningPlace);¤		setNeedMonitoring(needMonitoring);¤		setSender(sender);¤		setDate(date);¤		//#UC END# *4843E47D00CF_48A521510345_CTOR_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need copy ctor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"Need init ctor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"finished"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"force usage"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need dctor"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"packed"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4843E47D00CF*"
+		    value      	(value Text 
+|//#UC START# *4843E47D00CF*¤	¤	public boolean isTimeNotification () {¤		final long now = new Date().getTime();¤		return (getCycle() > 0 || getCycle() == 0 && getStartDate() > now)¤				&& (getEndDate() == 0 || getEndDate() > now);¤	}¤	¤	//#UC END# *4843E47D00CF*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19027368091"))
+	    quid       	"4843E47D00CF"
+	    documentation 	"пользовательская нотификация"
+	    stereotype 	"Struct"
+	    operations 	(list Operations
+		(object Operation "new_ctor_op"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011107682"))
+		    quid       	"4843E4B503DD"
+		    documentation 	"конструктор: title - заголовок, id - идентификатор контента"
+		    stereotype 	"ctor"
+		    parameters 	(list Parameters
+			(object Parameter "title"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011107990"))
+			    quid       	"48A520260258"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "content"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"477266B002D6")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011108370"))
+			    quid       	"48A52026027E"
+			    type       	"ContentEntityObject"
+			    quidu      	"477266B002D6")
+			(object Parameter "warning_place"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"477266B002D6")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011108739"))
+			    quid       	"48A5202602A1"
+			    type       	"ContentEntityObject"
+			    quidu      	"477266B002D6")
+			(object Parameter "need_monitoring"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE100240")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011109097"))
+			    quid       	"48A5202602C4"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240")
+			(object Parameter "id_notify"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011109469"))
+			    quid       	"48A5202602E9"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205")
+			(object Parameter "sender"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011109837"))
+			    quid       	"4B0A852C005B"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "date"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4616256D0399")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011110215"))
+			    quid       	"4B9618A10130"
+			    type       	"time"
+			    quidu      	"4616256D0399"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "new_ctor_op"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011110631"))
+		    quid       	"48A521510345"
+		    stereotype 	"ctor"
+		    parameters 	(list Parameters
+			(object Parameter "title"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011110938"))
+			    quid       	"48A5215E007E"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "content"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"477266B002D6")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011111337"))
+			    quid       	"48A5215E00AC"
+			    type       	"ContentEntityObject"
+			    quidu      	"477266B002D6")
+			(object Parameter "warning_place"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"477266B002D6")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011111700"))
+			    quid       	"48A5215E00DB"
+			    type       	"ContentEntityObject"
+			    quidu      	"477266B002D6")
+			(object Parameter "need_monitoring"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE100240")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011112061"))
+			    quid       	"48A5215E0106"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240")
+			(object Parameter "sender"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011112435"))
+			    quid       	"4B0A851F02FF"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "date"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4616256D0399")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011112798"))
+			    quid       	"4B9618B001DC"
+			    type       	"time"
+			    quidu      	"4616256D0399"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "title"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011103504"))
+		    quid       	"4843E4FC03D6"
+		    documentation 	"заголовок нотфикации, по которым она будет показана на ПУ"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "need_monitoring"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011103874"))
+		    quid       	"48A2D544039B"
+		    documentation 	"документация отсутствует"
+		    type       	"boolean"
+		    quidu      	"3DBFFE100240"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "id_notify"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011104236"))
+		    quid       	"48A51FF002E3"
+		    documentation 	"документация отсутствует"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "start_date"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011104644"))
+		    quid       	"48F585B302B4"
+		    documentation 	"документация отсутствует"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "end_date"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011105012"))
+		    quid       	"48F585C2033E"
+		    documentation 	"документация отсутствует"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "cycle"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011105374"))
+		    quid       	"48F585CE022C"
+		    documentation 	"документация отсутствует"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "last_send_date"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011105745"))
+		    quid       	"4ACDA0D10033"
+		    documentation 	"дата последней отправки"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "sender"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011106111"))
+		    quid       	"4B0A84F10126"
+		    documentation 	"отправитель"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "date"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4616256D0399")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011106487"))
+		    quid       	"4B9618000027"
+		    documentation 	"дата нотификации"
+		    type       	"time"
+		    quidu      	"4616256D0399"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "UserNotificationList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19011113452"))
+	    quid       	"4843E546011A"
+	    documentation 	"список"
+	    stereotype 	"List"
+	    language   	"MDA Generator")
+	(object Class "NotificationSortType"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/UserNotification/NotificationSortType.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19011114473"))
+	    quid       	"48C0E78A0369"
+	    documentation 	"задает тип сортировки пользовательских нотификаций"
+	    stereotype 	"Enum"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "DATE_ASC"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011114740"))
+		    quid       	"48C0E84B030D"
+		    documentation 	"документация отсутствует"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "DATE_DESC"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011115127"))
+		    quid       	"48C0E8E10068"
+		    documentation 	"документация отсутствует"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "UserNotificationUserNameList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19011115696"))
+	    quid       	"48F5FAEB0352"
+	    documentation 	"документация отсутствует"
+	    stereotype 	"List"
+	    language   	"MDA Generator")
+	(object Class "NeedNotifyMonitoring"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/UserNotification/NeedNotifyMonitoring.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19011116666"))
+	    quid       	"49AF7AA20139"
+	    documentation 	"определяет фильтрацию нотификаций по признаку слежения"
+	    stereotype 	"Enum"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "TRUE"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011116934"))
+		    quid       	"49AF7AF603E3"
+		    documentation 	"true"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "FALSE"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011117322"))
+		    quid       	"49AF7B0103E4"
+		    documentation 	"false"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "ALL"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011117683"))
+		    quid       	"49AF7B0803D1"
+		    documentation 	"all"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "NotifyForPuData"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/UserNotification/NotifyForPuData.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BF8C030364_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *49BF8C030364_CUSTOM_IMPORT*¤//#UC END# *49BF8C030364_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BF8C030364_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *49BF8C030364_CUSTOM_CLASS_DEFINITION*¤//#UC END# *49BF8C030364_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*49BF8C030364_49BF94EA00EA_CTOR_BODY*"
+		    value      	(value Text 
+|//#UC START# *49BF8C030364_49BF94EA00EA_CTOR_BODY*¤		setIdUnreadCommentsNotify(unreadCommentsId);¤		setIdFirstUnreadCommentNotify(firstComment);¤		setCountUnreadCommentsNotify(count);¤		setLastCommentIdNotify(lastComment);¤		setWarningPlaceNotify(warningPlace);¤		setContentidNotify(contentid);¤		setTitleNotify(titleNotify);¤		setIdNotify(idNotify);¤		setAuthorLastComment(authorLastComment);¤		setDateLastComment(dateLastComment);¤		setDateFirstUnreadComment(dateFirstUnreadComment);¤		setAuthorFirstUnreadComment(authorFirstUnreadComment);¤		setStartDateNotify(startDateNotify);¤		setUnreadDocumentId(unreadDocumentId);¤		setPostingDate(postingDate);¤		setIsDocumentRead(isDocumentRead);¤		setSender(sender);¤		//#UC END# *49BF8C030364_49BF94EA00EA_CTOR_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Модель проекта "MDProcess"/ConfluencePlugins/UserNotification/NotifyForPuData|49BF8C030364
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19027385813"))
+	    quid       	"49BF8C030364"
+	    documentation 	"отображение нотификации на ПУ у ее получателя"
+	    stereotype 	"Struct"
+	    operations 	(list Operations
+		(object Operation "constr"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011123837"))
+		    quid       	"49BF94EA00EA"
+		    stereotype 	"ctor"
+		    parameters 	(list Parameters
+			(object Parameter "id_notify"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011124153"))
+			    quid       	"49BF9571027F"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205")
+			(object Parameter "title_notify"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011124511"))
+			    quid       	"49BF957102B7"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "contentid"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011124897"))
+			    quid       	"49BF957102ED"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205")
+			(object Parameter "warning_place"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011125261"))
+			    quid       	"49BF9571031E"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205")
+			(object Parameter "start_date_notify"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011125622"))
+			    quid       	"49C37FFC020B"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205")
+			(object Parameter "date_last_comment"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4616256D0399")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011125994"))
+			    quid       	"49BFA97501F7"
+			    type       	"time"
+			    quidu      	"4616256D0399")
+			(object Parameter "author_last_comment"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011126352"))
+			    quid       	"49C3778B01D0"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "last_comment"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011126717"))
+			    quid       	"49BF95710350"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205")
+			(object Parameter "count"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD7002C2")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011127125"))
+			    quid       	"49BF95710382"
+			    type       	"long"
+			    quidu      	"3DBFFD7002C2")
+			(object Parameter "first_comment"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011127495"))
+			    quid       	"49BF957103B5"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205")
+			(object Parameter "author_first_unread_comment"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011127873"))
+			    quid       	"49C37958023D"
+			    type       	"string"
+			    quidu      	"3DBFFE240068")
+			(object Parameter "date_first_unread_comment"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4616256D0399")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011128237"))
+			    quid       	"49C3798201B2"
+			    type       	"time"
+			    quidu      	"4616256D0399")
+			(object Parameter "unread_comments_id"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011128598"))
+			    quid       	"49BF95720000"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205")
+			(object Parameter "unreadDocumentId"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFD860205")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"19011128980"))
+			    quid       	"49C396DF004C"
+			    type       	"long long"
+			    quidu      	"3DBFFD860205")
+			(object Parameter "posting_date"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"12855115766")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"4616256D0399"))
+			    quid       	"4DA2C0FA0106"
+			    type       	"time"
+			    quidu      	"4616256D0399")
+			(object Parameter "is_document_read"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"12855237261")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE100240"))
+			    quid       	"4DA2C0FA018F"
+			    type       	"boolean"
+			    quidu      	"3DBFFE100240")
+			(object Parameter "sender"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ElementCreationOrder"
+				    value      	"28821431725")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"ResolvedTypeGuid"
+				    value      	"3DBFFE240068"))
+			    quid       	"4DA2FF54037A"
+			    type       	"string"
+			    quidu      	"3DBFFE240068"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "id_notify"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011118632"))
+		    quid       	"49BF8C5B03B5"
+		    documentation 	"id нотификации"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "title_notify"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011119018"))
+		    quid       	"49BF8C86009F"
+		    documentation 	"заголовок нотификации"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "contentid_notify"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011119377"))
+		    quid       	"49BF8C9D01D2"
+		    documentation 	"id страницы"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "warning_place_notify"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011119741"))
+		    quid       	"49BF8CC000B2"
+		    documentation 	"место нотификации (страница, коммент)"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "last_comment_id_notify"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011120124"))
+		    quid       	"49BF8CD6033C"
+		    documentation 	"id последнего комментария нотификации"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "count_unread_comments_notify"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD7002C2")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011120492"))
+		    quid       	"49BF8DD9009F"
+		    documentation 	"количество непрочитанных комментариев на странице с нотификацией"
+		    type       	"long"
+		    quidu      	"3DBFFD7002C2"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "id_first_unread_comment_notify"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011120856"))
+		    quid       	"49BF8E070121"
+		    documentation 	"id первого непрочитанного комментария на странице с нотификацией"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "id_unread_comments_notify"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011121259"))
+		    quid       	"49BF8E360116"
+		    documentation 	"id непрочитанных комментариев"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "date_last_comment"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4616256D0399")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011121620"))
+		    quid       	"49BFA93802E6"
+		    documentation 	"дата последнего комментария"
+		    type       	"time"
+		    quidu      	"4616256D0399"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "author_last_comment"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011121993"))
+		    quid       	"49C37756022C"
+		    documentation 	"автор последнего комментария"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "author_first_unread_comment"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011122353"))
+		    quid       	"49C3792D0393"
+		    documentation 	"автор последнего непрочитанного комментария"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "date_first_unread_comment"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4616256D0399")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011122713"))
+		    quid       	"49C3795D028B"
+		    documentation 	"дата первого непрочитанного комментария"
+		    type       	"time"
+		    quidu      	"4616256D0399"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "start_date_notify"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011123088"))
+		    quid       	"49C37FB90083"
+		    documentation 	"начальная дата показа нотификации у получателей"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "unreadDocumentId"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFD860205")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011123444"))
+		    quid       	"49C396810367"
+		    documentation 	"id непрочитанного документа"
+		    type       	"long long"
+		    quidu      	"3DBFFD860205"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "posting_date"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"12698493699")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"4616256D0399"))
+		    quid       	"4DA2C05D02AF"
+		    documentation 	"дата контента, на который поставлена нотификация"
+		    type       	"time"
+		    quidu      	"4616256D0399"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "is_document_read"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"12743434571")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE100240"))
+		    quid       	"4DA2C08A026C"
+		    documentation 	"прочитан ли документ"
+		    type       	"boolean"
+		    quidu      	"3DBFFE100240"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "sender"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"28826983563")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"final")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"3DBFFE240068"))
+		    quid       	"4DA2FF5A0227"
+		    documentation 	"посылатель"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "NotifyForPuList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19011129621"))
+	    quid       	"49C7773F02EC"
+	    documentation 	"список нотификаций для пользователя, отображаемых на пу"
+	    stereotype 	"List"
+	    language   	"MDA Generator")
+	(object Class "UsersBySurnameList"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19011130643"))
+	    quid       	"4B0BC1290261"
+	    documentation 	"список пользователей по фамилии"
+	    stereotype 	"List"
+	    language   	"MDA Generator")
+	(object Association "$UNNAMED$0"
+	    quid       	"4843EA8200ED"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$1"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011113876"))
+		    quid       	"4843EA8202B1"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::UserNotification::UserNotification"
+		    quidu      	"4843E47D00CF"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$2"
+		    quid       	"4843EA8202B3"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::UserNotification::UserNotificationList"
+		    quidu      	"4843E546011A"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$3"
+	    quid       	"484677890002"
+	    roles      	(list role_list
+		(object Role "content"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011106887"))
+		    quid       	"484677890263"
+		    documentation 	"контент страницы"
+		    label      	"content"
+		    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.coreImpl::ContentEntityObject"
+		    quidu      	"477266B002D6"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$4"
+		    quid       	"484677890272"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::UserNotification::UserNotification"
+		    quidu      	"4843E47D00CF"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$5"
+	    quid       	"48A2BCA6022B"
+	    roles      	(list role_list
+		(object Role "warning_place"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011107292"))
+		    quid       	"48A2BCA70250"
+		    documentation 	"контент, на который нужно обратить внимание"
+		    label      	"warning_place"
+		    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.coreImpl::ContentEntityObject"
+		    quidu      	"477266B002D6"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$6"
+		    quid       	"48A2BCA7025A"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::UserNotification::UserNotification"
+		    quidu      	"4843E47D00CF"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$7"
+	    quid       	"48F5FB0F00FE"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$8"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011116100"))
+		    quid       	"48F5FB0F02ED"
+		    supplier   	"Logical View::Primitives::string"
+		    quidu      	"3DBFFE240068"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$9"
+		    quid       	"48F5FB100058"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::UserNotification::UserNotificationUserNameList"
+		    quidu      	"48F5FAEB0352"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$10"
+	    quid       	"49C7778F031C"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$11"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011130063"))
+		    quid       	"49C7779001C4"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::UserNotification::NotifyForPuData"
+		    quidu      	"49BF8C030364"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$12"
+		    quid       	"49C7779001C6"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::UserNotification::NotifyForPuList"
+		    quidu      	"49C7773F02EC"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$13"
+	    quid       	"4B0BC17902FB"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$14"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19011131062"))
+		    quid       	"4B0BC17B0386"
+		    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.user::User"
+		    quidu      	"4614A1DF031C"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$15"
+		    quid       	"4B0BC17B038C"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::UserNotification::UsersBySurnameList"
+		    quidu      	"4B0BC1290261"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"48414BF500BF"
+	    title      	"Main"
+	    zoom       	80
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	678
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::UserNotification::UserNotificationList" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(555, 180)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(363, 152)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	384
+			justify    	0
+			label      	"UserNotificationList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(363, 102)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	384
+			justify    	0
+			label      	"<<List>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"4843E546011A"
+		    width      	402
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::ConfluenceSupport::com.atlassian.confluence.coreImpl::ContentEntityObject" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1317, 171)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(841, 139)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	952
+			justify    	0
+			label      	"ContentEntityObject")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(841, 89)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	952
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"477266B002D6"
+		    width      	970
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::ConfluenceSupport::com.atlassian.confluence.coreImpl::ContentEntityObject" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2271, 174)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1795, 142)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	952
+			justify    	0
+			label      	"ContentEntityObject")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(1795, 92)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	952
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"477266B002D6"
+		    width      	970
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::UserNotification::UserNotification" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1698, 897)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(8, 581)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	3380
+			justify    	0
+			label      	"• UserNotification")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(8, 531)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	3380
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13821680
+		    quidu      	"4843E47D00CF"
+		    compartment 	(object Compartment
+			Parent_View 	@4
+			location   	(8, 643)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	12
+			max_width  	3321
+			justify    	1)
+		    width      	3398
+		    height     	756
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$0" @5
+		    location   	(897, 394)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4843EA8200ED"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$1" @6
+			    Parent_View 	@5
+			    location   	(141, 214)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4843EA8202B1"
+			    client     	@5
+			    supplier   	@4
+			    vertices   	(list Points
+				(897, 394)
+				(1096, 518))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$2" @7
+			    Parent_View 	@5
+			    location   	(141, 214)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4843EA8202B3"
+			    client     	@5
+			    supplier   	@1
+			    vertices   	(list Points
+				(897, 394)
+				(699, 270))
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$3" @8
+		    location   	(1432, 391)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"484677890002"
+		    roleview_list 	(list RoleViews
+			(object RoleView "content" @9
+			    Parent_View 	@8
+			    location   	(913, -197)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @10
+				Parent_View 	@9
+				location   	(1384, 413)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	259
+				justify    	0
+				label      	"+content"
+				pctDist    	0.027777
+				height     	54
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"484677890263"
+			    client     	@8
+			    supplier   	@2
+			    vertices   	(list Points
+				(1432, 391)
+				(1365, 265))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$4" @11
+			    Parent_View 	@8
+			    location   	(913, -197)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"484677890272"
+			    client     	@8
+			    supplier   	@4
+			    vertices   	(list Points
+				(1432, 391)
+				(1499, 518))
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$5" @12
+		    location   	(2094, 393)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"48A2BCA6022B"
+		    roleview_list 	(list RoleViews
+			(object RoleView "warning_place" @13
+			    Parent_View 	@12
+			    location   	(1338, -177)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @14
+				Parent_View 	@13
+				location   	(2024, 378)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	456
+				justify    	0
+				label      	"+warning_place"
+				pctDist    	-0.206501
+				height     	65
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"48A2BCA70250"
+			    client     	@12
+			    supplier   	@3
+			    vertices   	(list Points
+				(2094, 393)
+				(2193, 268))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$6" @15
+			    Parent_View 	@12
+			    location   	(1338, -177)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"48A2BCA7025A"
+			    client     	@12
+			    supplier   	@4
+			    vertices   	(list Points
+				(2094, 393)
+				(1995, 518))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::UserNotification::NotificationSortType" @16
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(3702, 942)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@16
+			location   	(3504, 883)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	396
+			justify    	0
+			label      	"NotificationSortType")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@16
+			location   	(3504, 833)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	396
+			justify    	0
+			label      	"<<Enum>>")
+		    icon_style 	"Label"
+		    fill_color 	13821680
+		    quidu      	"48C0E78A0369"
+		    compartment 	(object Compartment
+			Parent_View 	@16
+			location   	(3504, 945)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	296
+			justify    	1)
+		    width      	414
+		    height     	242
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Primitives::string" @17
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(3648, 261)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	TRUE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@17
+			location   	(3562, 215)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	172
+			justify    	0
+			label      	"string")
+		    icon_style 	"None"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"3DBFFE240068"
+		    width      	190
+		    height     	117
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::UserNotification::UserNotificationUserNameList" @18
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(3684, 612)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@18
+			location   	(3399, 581)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	570
+			justify    	0
+			label      	"UserNotificationUserNameList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@18
+			location   	(3399, 531)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	570
+			justify    	0
+			label      	"<<List>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"48F5FAEB0352"
+		    width      	588
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$7" @19
+		    location   	(3663, 418)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"48F5FB0F00FE"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$8" @20
+			    Parent_View 	@19
+			    location   	(855, -1313)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"48F5FB0F02ED"
+			    client     	@19
+			    supplier   	@17
+			    vertices   	(list Points
+				(3663, 418)
+				(3653, 319))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$9" @21
+			    Parent_View 	@19
+			    location   	(855, -1313)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"48F5FB100058"
+			    client     	@19
+			    supplier   	@18
+			    vertices   	(list Points
+				(3663, 418)
+				(3674, 518))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::external::ConfluenceSupport::com.atlassian.confluence.pages::Comment" @22
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2910, 123)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@22
+			location   	(2909, 231)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	226
+			justify    	0
+			label      	"Comment")
+		    icon       	"Interface"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"499BFEE4029D"
+		    width      	58
+		    height     	58
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::UserNotification::NeedNotifyMonitoring" @23
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(600, 1401)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@23
+			location   	(386, 1315)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	428
+			justify    	0
+			label      	"NeedNotifyMonitoring")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@23
+			location   	(386, 1265)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	428
+			justify    	0
+			label      	"<<Enum>>")
+		    icon_style 	"Label"
+		    fill_color 	13821680
+		    quidu      	"49AF7AA20139"
+		    compartment 	(object Compartment
+			Parent_View 	@23
+			location   	(386, 1377)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	3
+			max_width  	187
+			justify    	1)
+		    width      	446
+		    height     	296
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::UserNotification::NotifyForPuData" @24
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(4305, 4089)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@24
+			location   	(10, 3595)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	8590
+			justify    	0
+			label      	"• NotifyForPuData")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@24
+			location   	(10, 3545)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	8590
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13821680
+		    quidu      	"49BF8C030364"
+		    compartment 	(object Compartment
+			Parent_View 	@24
+			location   	(10, 3657)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	19
+			max_width  	8425
+			justify    	1)
+		    width      	8608
+		    height     	1112
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::UserNotification::NotifyForPuList" @25
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(423, 3225)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@25
+			location   	(267, 3194)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	312
+			justify    	0
+			label      	"NotifyForPuList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@25
+			location   	(267, 3144)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	312
+			justify    	0
+			label      	"<<List>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"49C7773F02EC"
+		    width      	330
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$10" @26
+		    location   	(1198, 3396)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"49C7778F031C"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$11" @27
+			    Parent_View 	@26
+			    location   	(691, 303)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"49C7779001C4"
+			    client     	@26
+			    supplier   	@24
+			    vertices   	(list Points
+				(1198, 3396)
+				(1815, 3532))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$12" @28
+			    Parent_View 	@26
+			    location   	(691, 303)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"49C7779001C6"
+			    client     	@26
+			    supplier   	@25
+			    vertices   	(list Points
+				(1198, 3396)
+				(588, 3260))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::UserNotification::UserNotificationService" @29
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2382, 2283)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@29
+			location   	(178, 1559)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	4408
+			justify    	0
+			label      	"UserNotificationService")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@29
+			location   	(178, 1509)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	4408
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"48414BFC0288"
+		    compartment 	(object Compartment
+			Parent_View 	@29
+			location   	(178, 1621)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	27
+			max_width  	4406
+			justify    	1)
+		    width      	4426
+		    height     	1572
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::ConfluenceSupport::com.atlassian.user::User" @30
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2664, 3273)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@30
+			location   	(2491, 3246)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	346
+			justify    	0
+			label      	"• User")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@30
+			location   	(2491, 3196)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	346
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"4614A1DF031C"
+		    width      	364
+		    height     	178
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::UserNotification::UsersBySurnameList" @31
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1899, 3297)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@31
+			location   	(1692, 3266)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	414
+			justify    	0
+			label      	"UsersBySurnameList")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@31
+			location   	(1692, 3216)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	414
+			justify    	0
+			label      	"<<List>>")
+		    icon_style 	"Label"
+		    fill_color 	15787730
+		    quidu      	"4B0BC1290261"
+		    width      	432
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$13" @32
+		    location   	(2298, 3283)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4B0BC17902FB"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$14" @33
+			    Parent_View 	@32
+			    location   	(414, -14)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4B0BC17B0386"
+			    client     	@32
+			    supplier   	@30
+			    vertices   	(list Points
+				(2298, 3283)
+				(2481, 3278))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$15" @34
+			    Parent_View 	@32
+			    location   	(414, -14)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"4B0BC17B038C"
+			    client     	@32
+			    supplier   	@31
+			    vertices   	(list Points
+				(2298, 3283)
+				(2115, 3289))
+			    line_style 	0)))))))

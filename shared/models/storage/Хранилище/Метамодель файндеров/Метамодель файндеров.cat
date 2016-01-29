@@ -1,0 +1,1277 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Метамодель файндеров"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Метамодель файндеров|4874B36701EF
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki"))
+    quid       	"4874B36701EF"
+    documentation 	"Описывает правила определения файндеров ханимых объектов."
+    stereotype 	"Features"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4874B3B502D9"
+	    supplier   	"Logical View::Storage::Хранилище::Проблемы выборки объектов"
+	    quidu      	"486B6CBC010E")
+	(object Visibility_Relationship
+	    quid       	"488CDDD800D6"
+	    supplier   	"Logical View::Storage::Хранилище::Сложность разработки"
+	    quidu      	"488CA4890330"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "Файндер как структурированный статический запрос"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Метамодель файндеров/Файндер как структурированный статический запрос|4874B3D201D0
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4874B3D201D0"
+	    documentation 	"Файндер (Сущности) представляет собой интерфейсную функцию, через которую осуществляется поиск экземпляров Сущностей по некоторым заданным критериям. Статичнось и структурированность запроса в том, что список параметров известен заранее и жестко отражен в интерфейсе функции. От вызова к вызову, меняются лишь конкретные значения этих параметров."
+	    stereotype 	"Feature"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"4874B86001C2"
+		    supplier   	"Logical View::Storage::Хранилище::Проблемы выборки объектов::Поиск перебором по атрибутам"
+		    quidu      	"4858F86F00CD"))
+	    language   	"MDA Generator"
+	    nestedClasses 	(list nestedClasses
+		(object Class "Файндер Сущности с автоматическим мапингом"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Метамодель файндеров/Файндер как структурированный статический запрос/Файндер Сущности с автоматическим мапингом|4874CF140352
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"4874CF140352"
+		    documentation 	"Реализация файндера полностью генериться с модели. В качестве аргументов (поисковыых критериев) файндера могут использоваться только атрибуты сущности. Для автоматического связывания с файндером Состояния (реально выполняющего работу по поиску) используется правило совпадения сигнатур."
+		    stereotype 	"Feature"
+		    realized_interfaces 	(list realize_rel_list
+			(object Realize_Relationship
+			    quid       	"488CDD690056"
+			    supplier   	"Logical View::Storage::Хранилище::Сложность разработки::Смешение слоев представления::Рутинное связывание различных слоев"
+			    quidu      	"488CC6A70334")))
+		(object Class "Файндер Сущности с ручным мапингом"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Метамодель файндеров/Файндер как структурированный статический запрос/Файндер Сущности с ручным мапингом|4874CF4B03B5
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"4874CF4B03B5"
+		    documentation 	"Позволяет определить Файндер с дополнительной бизнес-логикой. В качестве аргументов (поисковыых критериев) могут использоваться любые типы. Для связывания с файндером Состояния (реально выполняющего работу по поиску) генерируется секция пользовательского кода, в которой необходимо выполнить трансформацию параметров и собствено связывание, которые и определят специфику бизнес логики."
+		    stereotype 	"Feature"
+		    realized_interfaces 	(list realize_rel_list
+			(object Realize_Relationship
+			    quid       	"4874D32A0173"
+			    supplier   	"Logical View::Storage::Хранилище::Проблемы выборки объектов::Семантическое несоответствие критеря и атрибута"
+			    quidu      	"488CB35C01DB")))
+		(object Class "Понятие Файндера Состояния"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Метамодель файндеров/Файндер как структурированный статический запрос/Понятие Файндера Состояния|4874CFAD029C
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"4874CFAD029C"
+		    documentation 	
+|Понятие "Файндер Состояния" аналогично понятию "Файндер Сущности", оно вводится на Состоянии и предназначено для поиска экземпляров Состояний.
+		    
+		    stereotype 	"Feature"
+		    realized_interfaces 	(list realize_rel_list
+			(object Realize_Relationship
+			    quid       	"488CDD64022D"
+			    supplier   	"Logical View::Storage::Хранилище::Сложность разработки::Смешение слоев представления"
+			    quidu      	"488CC5940044")))))
+	(object Class "Структурированные параметры файндеров"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Метамодель файндеров/Структурированные параметры файндеров|4875CA4B011E
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4875CA4B011E"
+	    documentation 	"Позволяют задать не только  тип и конкретное значение параметра, но и множество дополнительных ограничений или расширений, таких как диапазоны, отрезки, похожость и т.д. модифицирующих параметр."
+	    stereotype 	"Feature"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"4875CAA50253"
+		    supplier   	"Logical View::Storage::Хранилище::Проблемы выборки объектов::Позднее обнаружение ошибок в запросе"
+		    quidu      	"485912CA0176"))
+	    language   	"MDA Generator"
+	    nestedClasses 	(list nestedClasses
+		(object Class "Файндер по множественным атрибутам"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Метамодель файндеров/Структурированные параметры файндеров/Файндер по множественным атрибутам|4875F83D017E
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"4875F83D017E"
+		    documentation 	"Задание в структурированном параметре файндера операций над множествами, типа <Set1> 'IN' <Set2> и т.п."
+		    stereotype 	"Feature"
+		    realized_interfaces 	(list realize_rel_list
+			(object Realize_Relationship
+			    quid       	"488CDF47031D"
+			    supplier   	"Logical View::Storage::Хранилище::Проблемы выборки объектов::Поиск перебором по атрибутам::Поиск перебром по множественым атрибутам"
+			    quidu      	"488CDEA902A6"))))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4874B3C301E8"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	258
+	    origin_y   	185
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Метамодель файндеров::Файндер как структурированный статический запрос" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1587, 159)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(1064, 138)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1046
+			justify    	0
+			label      	"Файндер как структурированный статический запрос")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(1064, 88)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1046
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    line_color 	7885055
+		    fill_color 	11531715
+		    quidu      	"4874B3D201D0"
+		    width      	1064
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Метамодель файндеров::Структурированные параметры файндеров" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1515, 702)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1070, 681)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	890
+			justify    	0
+			label      	"Структурированные параметры файндеров")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1070, 631)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	890
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    line_color 	7885055
+		    fill_color 	11531715
+		    quidu      	"4875CA4B011E"
+		    width      	908
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы выборки объектов::Позднее обнаружение ошибок в запросе" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(438, 708)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(10, 676)
+			nlines     	1
+			max_width  	856
+			justify    	0
+			label      	"Позднее обнаружение ошибок в запросе")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(10, 626)
+			anchor     	10
+			nlines     	1
+			max_width  	856
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"485912CA0176"
+		    width      	874
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @4
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4875CAA50253"
+		    client     	@2
+		    supplier   	@3
+		    vertices   	(list Points
+			(1060, 704)
+			(875, 705))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы выборки объектов::Поиск перебором по атрибутам" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(504, 171)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(158, 139)
+			nlines     	1
+			max_width  	692
+			justify    	0
+			label      	"Поиск перебором по атрибутам")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(158, 89)
+			anchor     	10
+			nlines     	1
+			max_width  	692
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"4858F86F00CD"
+		    width      	710
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @6
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4874B86001C2"
+		    client     	@1
+		    supplier   	@5
+		    vertices   	(list Points
+			(1054, 164)
+			(859, 166))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Работа клиента::Поиск сущностей" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1326, 381)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(1325, 523)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	651
+			justify    	0
+			label      	"Поиск сущностей")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48E2262B0185"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @8
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48E2266401EF"
+		    client     	@7
+		    supplier   	@1
+		    vertices   	(list Points
+			(1394, 319)
+			(1488, 242))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Работа с моделью::Определение файндера" @9
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1839, 384)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@9
+			location   	(1838, 526)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	651
+			justify    	0
+			label      	"Определение файндера")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48E2257702CF"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @10
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48E225D00333"
+		    client     	@9
+		    supplier   	@1
+		    vertices   	(list Points
+			(1765, 321)
+			(1680, 242))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Работа клиента::Задание условий поиска" @11
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1521, 963)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@11
+			location   	(1520, 1105)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	651
+			justify    	0
+			label      	"Задание условий поиска")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48E3AACF01E5"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @12
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48E3AAE402AC"
+		    client     	@11
+		    supplier   	@2
+		    vertices   	(list Points
+			(1517, 901)
+			(1516, 785))
+		    line_style 	0)))
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ClassUID"
+		    value      	"4875CA4B011E"))
+	    quid       	"488CB53701CF"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Метамодель файндеров::Структурированные параметры файндеров::Файндер по множественным атрибутам" @13
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1893, 219)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@13
+			location   	(1464, 187)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	858
+			justify    	0
+			label      	"Файндер по множественным атрибутам")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@13
+			location   	(1464, 136)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	858
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    fill_color 	11531715
+		    quidu      	"4875F83D017E"
+		    width      	876
+		    height     	190
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы выборки объектов::Поиск перебором по атрибутам::Поиск перебром по множественым атрибутам" @14
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(600, 204)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@14
+			location   	(130, 172)
+			nlines     	1
+			max_width  	940
+			justify    	0
+			label      	"Поиск перебром по множественым атрибутам")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@14
+			location   	(130, 121)
+			anchor     	10
+			nlines     	1
+			max_width  	940
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"488CDEA902A6"
+		    width      	958
+		    height     	190
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @15
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"488CDF47031D"
+		    client     	@13
+		    supplier   	@14
+		    vertices   	(list Points
+			(1454, 213)
+			(1079, 208))
+		    line_style 	0)))
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ClassUID"
+		    value      	"4874B3D201D0"))
+	    quid       	"488CDD0E0208"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	1873
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Метамодель файндеров::Файндер как структурированный статический запрос::Файндер Сущности с ручным мапингом" @16
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1803, 1071)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@16
+			location   	(1341, 1039)
+			fill_color 	16777215
+			nlines     	1
+			max_width  	924
+			justify    	0
+			label      	"Файндер Сущности с ручным мапингом")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@16
+			location   	(1341, 989)
+			fill_color 	16777215
+			anchor     	10
+			nlines     	1
+			max_width  	924
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    fill_color 	11531715
+		    quidu      	"4874CF4B03B5"
+		    width      	942
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы выборки объектов::Семантическое несоответствие критеря и атрибута" @17
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(588, 1071)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@17
+			location   	(70, 1039)
+			nlines     	1
+			max_width  	1036
+			justify    	0
+			label      	"Семантическое несоответствие критеря и атрибута")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@17
+			location   	(70, 989)
+			anchor     	10
+			nlines     	1
+			max_width  	1036
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"488CB35C01DB"
+		    width      	1054
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Метамодель файндеров::Файндер как структурированный статический запрос::Понятие Файндера Состояния" @18
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1755, 165)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@18
+			location   	(1293, 133)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	924
+			justify    	0
+			label      	"Понятие Файндера Состояния")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@18
+			location   	(1293, 83)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	924
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    fill_color 	11531715
+		    quidu      	"4874CFAD029C"
+		    width      	942
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Метамодель файндеров::Файндер как структурированный статический запрос::Файндер Сущности с автоматическим мапингом" @19
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1833, 852)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@19
+			location   	(1333, 820)
+			fill_color 	16777215
+			nlines     	1
+			max_width  	1000
+			justify    	0
+			label      	"Файндер Сущности с автоматическим мапингом")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@19
+			location   	(1333, 770)
+			fill_color 	16777215
+			anchor     	10
+			nlines     	1
+			max_width  	1000
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    fill_color 	11531715
+		    quidu      	"4874CF140352"
+		    width      	1018
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @20
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4874D32A0173"
+		    client     	@16
+		    supplier   	@17
+		    vertices   	(list Points
+			(1331, 1071)
+			(1115, 1071))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Сложность разработки::Смешение слоев представления::Рутинное связывание различных слоев" @21
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(696, 852)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@21
+			location   	(291, 820)
+			nlines     	1
+			max_width  	810
+			justify    	0
+			label      	"Рутинное связывание различных слоев")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@21
+			location   	(291, 770)
+			anchor     	10
+			nlines     	1
+			max_width  	810
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"488CC6A70334"
+		    width      	828
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Сложность разработки::Смешение слоев представления" @22
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(693, 165)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@22
+			location   	(337, 133)
+			nlines     	1
+			max_width  	712
+			justify    	0
+			label      	"Смешение слоев представления")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@22
+			location   	(337, 83)
+			anchor     	10
+			nlines     	1
+			max_width  	712
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"488CC5940044"
+		    width      	730
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @23
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"488CDD64022D"
+		    client     	@18
+		    supplier   	@22
+		    vertices   	(list Points
+			(1283, 165)
+			(1058, 165))
+		    line_style 	0)
+		(object RealizeView "" @24
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"488CDD690056"
+		    client     	@19
+		    supplier   	@21
+		    vertices   	(list Points
+			(1323, 852)
+			(1110, 852))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::РеализациЯ::Реализация ручного файндера" @25
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1812, 1347)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@25
+			location   	(1811, 1489)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	651
+			justify    	0
+			label      	"Реализация ручного файндера")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48E3A8640080"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @26
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48E3AF980048"
+		    client     	@25
+		    supplier   	@16
+		    vertices   	(list Points
+			(1808, 1284)
+			(1805, 1165))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Внутренние детали фреймоврка::Автоматическое связывание файндеров" @27
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2448, 423)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@27
+			location   	(2447, 565)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	761
+			justify    	0
+			label      	"Автоматическое связывание файндеров")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48E3A8DD0343"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Внутренние детали фреймоврка::Индексация полей для поиска" @28
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1734, 423)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@28
+			location   	(1733, 565)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	651
+			justify    	0
+			label      	"Индексация полей для поиска")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48E3AA3E03A7"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @29
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48E3AA53009A"
+		    client     	@28
+		    supplier   	@18
+		    vertices   	(list Points
+			(1736, 361)
+			(1746, 259))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Работа с моделью::Определение файндера Состояния" @30
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1056, 423)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@30
+			location   	(1055, 565)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	651
+			justify    	0
+			label      	"Определение файндера Состояния")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48E3A9A903B8"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @31
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48E3A9DB0295"
+		    client     	@30
+		    supplier   	@18
+		    vertices   	(list Points
+			(1168, 378)
+			(1497, 259))
+		    line_style 	0)
+		(object RealizeView "" @32
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48E3A9050318"
+		    client     	@27
+		    supplier   	@19
+		    vertices   	(list Points
+			(2352, 483)
+			(1964, 757))
+		    line_style 	0)
+		(object RealizeView "" @33
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48E3AA360315"
+		    client     	@27
+		    supplier   	@18
+		    vertices   	(list Points
+			(2334, 378)
+			(2008, 259))
+		    line_style 	0)))))

@@ -1,0 +1,94 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/TestModel/project/T_NewComTarget.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<ComTarget::Category>> TestModel::NewComTarget
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (T_NewComTarget) : project_generic_core_corba, project_subsystem_windows {
+	sharedname = NewComTarget
+	
+	includes += ../../
+	
+	after += Core
+	libs  += Core
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+	after += CoreSrv
+	libs  += CoreSrv
+
+	after += NewLibrary
+	libs  += NewLibrary
+	after += BasicTests
+	libs  += BasicTests
+	after += SubTestLibrary
+	libs  += SubTestLibrary
+	after += SubServerLibrary_cs
+	libs  += SubServerLibrary_cs
+	after += NewServerLibrary_cs
+	libs  += NewServerLibrary_cs
+	after += NewServerLibrary
+	libs  += NewServerLibrary
+	after += BasicTests
+	libs  += BasicTests
+	after += SubTestLibrary
+	libs  += SubTestLibrary
+	after += SubServerLibrary_cs
+	libs  += SubServerLibrary_cs
+	after += NewTestLibrary
+	libs  += NewTestLibrary
+	after += BasicTests
+	libs  += BasicTests
+	after += SubTestLibrary
+	libs  += SubTestLibrary
+	after += SubServerLibrary_cs
+	libs  += SubServerLibrary_cs
+
+
+	//#UC START# *49AECD1A0248_CUSTOM_DEPENDENSES*
+	//#UC END# *49AECD1A0248_CUSTOM_DEPENDENSES*
+
+	Header_Files {
+		Std_Headers {
+			./../NewComTarget/Resource.h
+			./../NewComTarget/NewComTarget.h
+		}
+	
+	}			
+
+	Source_Files {
+		AAAFix {
+			w:/shared/Core/fix/__ace_inc.cpp
+		}
+		
+		Std_Sources {
+			./../NewComTarget/NewComTarget.cpp
+		}
+				
+	}
+	
+	Resource_Files {
+		Std_Resources {
+			./NewComTarget.def
+		}
+		
+		./../NewComTarget/NewComTarget_vi.rc
+		./../NewComTarget/NewComTarget_vi.rch
+		
+		NewComInterfaces {
+			./../BasicTests/NewComInterfaces/NewComInterfaces.rgs
+		}
+		
+		./../NewComTarget/NewComTarget.rc
+		./../NewComTarget/NewComTarget.rc2
+		
+		./../BasicTests/NewViews/NewResource.rc
+		//#UC START# *49AECD1A0248CUSTOM_RESOURCE*
+		//#UC END# *49AECD1A0248CUSTOM_RESOURCE*
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

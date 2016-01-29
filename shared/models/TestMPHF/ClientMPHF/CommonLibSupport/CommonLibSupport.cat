@@ -1,0 +1,376 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "CommonLibSupport"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Ëàáîðàòîðèÿ,key:LAB,guid:49897DFE0071/Home/Ìîäåëü ïðîåêòà "RandomAlg"/BasicTest/CommonLibSupport|498982FE00F2
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki"))
+    quid       	"498982FE00F2"
+    documentation 	"îáùàÿ ïîääåðæêà"
+    stereotype 	"LibSupport"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4989833A0073"
+	    supplier   	"Logical View::RandomAlg::ClientMPHF::MPHFAPI"
+	    quidu      	"49897F1303C5")
+	(object Visibility_Relationship
+	    quid       	"499593800358"
+	    supplier   	"Logical View::RandomAlg::Random::Generators"
+	    quidu      	"49958ACD021D"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "EntryPoint"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (cpp)"
+		    value      	"w:/labs/RandomAlg/BasicTest/EntryPoint.cpp")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (cpp)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (h)"
+		    value      	"w:/labs/RandomAlg/BasicTest/EntryPoint.h")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (h)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Ëàáîðàòîðèÿ,key:LAB,guid:49897DFE0071/Home/Ìîäåëü ïðîåêòà "RandomAlg"/BasicTest/CommonLibSupport/EntryPoint|4989831C0296
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4989831C0296*"
+		    value      	(value Text 
+|//#UC START# *4989831C0296*¤		LOG_D (("Hello world, this is EntryPoint!"));¤		::Core::GDS::HiResCounter mytimer;¤		std::set <unsigned long> hash_id_set1;¤		std::set <unsigned long> hash_id_set2;¤		ClientMPHF::MPHFAPI::Image img (0, 0);¤¤		Memory pwss0 = get_WorkingSetSize ();¤		LOG_I (("WorkingSetSize pwss0 = %d bytes", pwss0.WorkingSetSize));¤¤		Core::Aptr<Random::Types::KeySet> key_set_ptr = Random::Generators::UniqGenFactory::get().make_key_set ("ssid10240.mem");¤		const Random::Types::KeySet& key_set = *key_set_ptr;¤		LOG_I (("key_set.size () = %d", key_set.size ()));¤¤		Memory pwss1 = get_WorkingSetSize (); // pwss1 - pwss0 = approx. key_set memory space¤		LOG_I (("WorkingSetSize pwss1 = %d bytes", pwss1.WorkingSetSize));¤¤		Memory pwss1h1 = 0;¤		Memory pwss1h2 = 0;¤¤		Memory pwss1g = 0;¤		{¤		double sec1 = mytimer.get_seconds ();¤		ClientMPHF::MPHFAPI::MPHP_var hash_func = ClientMPHF::MPHFAPI::MPHPFactory::generate (key_set);¤		double sec2 = mytimer.get_seconds ();¤		img.size = hash_func->get_image ().size;¤		img.ptr = new char [img.size];¤		memcpy (img.ptr, hash_func->get_image ().ptr, img.size);¤		LOG_I (("hash_func generated, copied, img.size = %d, calculate hash_id", img.size));¤		double sec3 = mytimer.get_seconds ();¤		for (Random::Types::KeySet::const_iterator it = key_set.begin (); it != key_set.end (); ++it) {¤			unsigned long hash_id = hash_func->hash (*it);¤		}¤		double sec4 = mytimer.get_seconds ();¤¤		pwss1g = get_WorkingSetSize (); // pwss1g - pwss1 - img.size = approx. generate+calculate memory space¤		LOG_I (("WorkingSetSize pwss1g = %d bytes", pwss1g.WorkingSetSize));¤¤		LOG_I (("done. hash_func generate = %4.4f sec, calculate = %4.4f sec, number of keys = %d", sec2-sec1, sec4-sec3, key_set.size ()));¤		LOG_I (("-- generate speed = %4.4f id/sec", double (key_set.size ())/(sec2-sec1)));¤		LOG_I (("-- calculate speed = %4.4f id/sec", double (key_set.size ())/(sec4-sec3)));¤¤		pwss1h1 = get_WorkingSetSize (); ¤		LOG_I (("WorkingSetSize pwss1h1 = %d bytes", pwss1h1.WorkingSetSize));¤¤		for (Random::Types::KeySet::const_iterator it = key_set.begin (); it != key_set.end (); ++it) {¤			unsigned long hash_id = hash_func->hash (*it);¤			hash_id_set1.insert (hash_id);¤		}¤¤		pwss1h2 = get_WorkingSetSize (); // pwss1h2 - pwss1h1 = approx. hash_id_set1 memory space¤		LOG_I (("WorkingSetSize pwss1h2 = %d bytes", pwss1h2.WorkingSetSize));¤¤		}¤		Memory pwss1l = get_WorkingSetSize ();¤		Memory pwss1l2 = 0;¤		LOG_I (("WorkingSetSize pwss1l = %d bytes", pwss1l.WorkingSetSize));¤¤		{¤		double sec5 = mytimer.get_seconds ();¤		ClientMPHF::MPHFAPI::MPHP_var hash_func = ClientMPHF::MPHFAPI::MPHPFactory::load (img);¤		double sec6 = mytimer.get_seconds ();¤		LOG_I (("hash_func loaded, calculate hash_id"));¤		double sec7 = mytimer.get_seconds ();¤		for (Random::Types::KeySet::const_iterator it = key_set.begin (); it != key_set.end (); ++it) {¤			unsigned long hash_id = hash_func->hash (*it);¤		}¤		double sec8 = mytimer.get_seconds ();¤¤		pwss1l2 = get_WorkingSetSize (); // pwss1l2 - pwss1l = approx. load+calculate memory space¤		LOG_I (("WorkingSetSize pwss1l2 = %d bytes", pwss1l2.WorkingSetSize));¤¤		LOG_I (("done. hash_func load = %4.4f sec, calculate = %4.4f sec, number of keys = %d", sec6-sec5, sec8-sec7, key_set.size ()));¤		LOG_I (("-- load speed = %4.4f id/sec", double (key_set.size ())/(sec6-sec5)));¤		LOG_I (("-- calculate speed = %4.4f id/sec", double (key_set.size ())/(sec8-sec7)));¤		for (Random::Types::KeySet::const_iterator it = key_set.begin (); it != key_set.end (); ++it) {¤			unsigned long hash_id = hash_func->hash (*it);¤			hash_id_set2.insert (hash_id);¤		}¤		unsigned long hash_id_out = hash_func->hash (1757ULL);¤		LOG_I (("id out of range, 1757ULL, hash = %d", hash_id_out));¤		}¤		LOG_I (("check: hash_id_set1.size () = %d, hash_id_set2.size () = %d", hash_id_set1.size (), hash_id_set2.size ()));¤		LOG_I (("detailed compare hash_id_set1 hash_id_set2"));¤		std::set <unsigned long>::const_iterator it1 = hash_id_set1.begin ();¤		std::set <unsigned long>::const_iterator it2 = hash_id_set2.begin ();¤		long long prev1 = -1;¤		long long prev2 = -1;¤		while ((it1 != hash_id_set1.end ()) && (it2 != hash_id_set2.end ())) {¤			if (*it1 != *it2) {¤				LOG_E (("*it1 != *it2: %d != %d", *it1, it2));¤			}¤			if ((prev1 > -1) && (prev2 > -1)) {¤				long long delta1 = (long long) *it1 - prev1;¤				long long delta2 = (long long) *it2 - prev2;¤				if (delta1 != 1) {¤					LOG_E (("delta1 != 1"));¤				}¤				if (delta2 != 1) {¤					LOG_E (("delta2 != 1"));¤				}¤			} else {¤				LOG_I (("hash_id_set1,2 first elem (*it1, *it2) = (%d, %d)", *it1, *it2));¤			}¤			prev1 = *it1;¤			prev2 = *it2;¤			++it1;¤			++it2;¤		}¤		if (it1 != hash_id_set1.end ()) {¤			LOG_E (("it1 != hash_id_set1.end ()"));¤		}¤		if (it2 != hash_id_set2.end ()) {¤			LOG_E (("it2 != hash_id_set2.end ()"));¤		}¤		LOG_I (("hash_id_set1,2 last elem (prev1, prev2) = (%Q, %Q)", prev1, prev2));¤¤		Memory pwss2 = get_WorkingSetSize ();¤		LOG_I (("WorkingSetSize pwss2 = %d bytes", pwss2.WorkingSetSize));¤¤		double bits_id = 8.0*double (img.size)/key_set.size ();¤		LOG_I (("-- image bits/id = %4.4f", bits_id));¤		double gc_bits_id = 8.0*double (pwss1g.WorkingSetSize-pwss1.WorkingSetSize-img.size)/key_set.size ();¤		double gc_bits_id_v = 8.0*double (pwss1g.PagefileUsage-pwss1.PagefileUsage-img.size)/key_set.size ();¤		LOG_I (("-- generate+calculate bits/id = %4.4f (virtual mem = %4.4f)", gc_bits_id, gc_bits_id_v));¤		double lc_bits_id = 8.0*double (pwss1l2.WorkingSetSize-pwss1l.WorkingSetSize)/key_set.size ();¤		double lc_bits_id_v = 8.0*double (pwss1l2.PagefileUsage-pwss1l.PagefileUsage)/key_set.size ();¤		LOG_I (("-- load+calculate bits/id = %4.4f (virtual mem = %4.4f)", lc_bits_id, lc_bits_id_v));¤		// (pwss2 - pwss1) = memory after key_set, (pwss1h2 - pwss1h1) = memory space hash_id_set1=hash_id_set12¤		double stdset_bits_id = 8.0*double (pwss1h2.WorkingSetSize - pwss1h1.WorkingSetSize)/key_set.size ();¤		double stdset_bits_id_v = 8.0*double (pwss1h2.PagefileUsage - pwss1h1.PagefileUsage)/key_set.size ();¤		LOG_I (("-- std::set bits/id = %4.4f (virtual mem = %4.4f)", stdset_bits_id, stdset_bits_id_v));¤¤		double stdset_keyset_bits_id = 8.0*double (pwss1.WorkingSetSize-pwss0.WorkingSetSize)/key_set.size ();¤		double stdset_keyset_bits_id_v = 8.0*double (pwss1.PagefileUsage-pwss0.PagefileUsage)/key_set.size ();¤		double pure_keyset_bits_id = 8.0*double (sizeof (Random::Types::Key));¤		LOG_I (("-- pure keyset bits/id = %4.4f", pure_keyset_bits_id));¤		LOG_I (("-- std::set keyset bits/id = %4.4f (virtual mem = %4.4f)", stdset_keyset_bits_id, stdset_keyset_bits_id_v));¤¤		Memory test_pwss0 = get_WorkingSetSize ();¤		char* test_ptr = new char [8*1024*1024];¤		Memory test_pwss1 = get_WorkingSetSize ();¤		LOG_I (("delta .WorkingSetSize = %d, .PagefileUsage = %d", test_pwss1.WorkingSetSize - test_pwss0.WorkingSetSize, test_pwss1.PagefileUsage - test_pwss0.PagefileUsage));¤		char* test_ptr2 = new char [1*1024*1024];¤		Memory test_pwss2 = get_WorkingSetSize ();¤		LOG_I (("delta .WorkingSetSize = %d, .PagefileUsage = %d", test_pwss2.WorkingSetSize - test_pwss1.WorkingSetSize, test_pwss2.PagefileUsage - test_pwss1.PagefileUsage));¤¤		LOG_I (("done."));¤		//#UC END# *4989831C0296*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4989831C0296_FINI*"
+		    value      	(value Text 
+|//#UC START# *4989831C0296_FINI*¤	//#UC END# *4989831C0296_FINI*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4989831C0296_HANDLE_CONTROl*"
+		    value      	(value Text 
+|//#UC START# *4989831C0296_HANDLE_CONTROl*¤	//TODO: write your code for handle Ctrl-C¤	//#UC END# *4989831C0296_HANDLE_CONTROl*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"need UC"
+		    value      	"true")
+		(object Attribute
+		    tool       	"MDA Generator User Properties"
+		    name       	"type"
+		    value      	"server\\stand alone")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4989831C0296_CUSTOM_INCLUDES*"
+		    value      	(value Text 
+|//#UC START# *4989831C0296_CUSTOM_INCLUDES*¤#include "shared/Core/GDS/StopWatch.h"¤#include <set>¤//#UC END# *4989831C0296_CUSTOM_INCLUDES*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*4989831C0296_CUSTOM_BODY*"
+		    value      	(value Text 
+|//#UC START# *4989831C0296_CUSTOM_BODY*¤¤struct Memory {¤	size_t WorkingSetSize;¤	size_t PagefileUsage;¤	Memory (size_t w, size_t p): WorkingSetSize (w), PagefileUsage (p) {}¤	Memory (int n): WorkingSetSize (n), PagefileUsage (n) {}¤};¤¤Memory get_WorkingSetSize () {¤	return 0; // should use GCL::os::ResourseUsageInfo functions¤	/*¤    HANDLE process_handle;¤    PROCESS_MEMORY_COUNTERS memory_counters;¤¤	DWORD process_id = ::GetCurrentProcessId ();¤¤	process_handle = ::OpenProcess (PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, process_id);¤	if (!process_handle) {¤        return 0;¤	}¤¤	if (!::GetProcessMemoryInfo (process_handle, &memory_counters, sizeof (memory_counters))) {¤        return 0;¤	}¤¤	MEMORYSTATUSEX ms;¤	ms.dwLength = sizeof (ms);¤	if (!::GlobalMemoryStatusEx (&ms)) {¤		return 0;¤	}¤¤	//info.current_usage = memory_counters.WorkingSetSize;¤	//size_t result = (size_t) memory_counters.PeakWorkingSetSize;¤	LOG_I (("*** ms.ullAvailVirtual = %Q", ms.ullAvailVirtual));¤	Memory result = Memory (memory_counters.WorkingSetSize, size_t (-1) - (size_t) ms.ullAvailVirtual); ¤	//Memory result = Memory (memory_counters.WorkingSetSize, memory_counters.QuotaPagedPoolUsage + memory_counters.QuotaNonPagedPoolUsage); ¤	//info.vm_usage =  memory_counters.PagefileUsage;¤	//info.page_fault_count = memory_counters.PageFaultCount;¤¤	::CloseHandle (process_handle);¤	return result;¤	*/¤}¤//#UC END# *4989831C0296_CUSTOM_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4989831C0296_CUSTOM_INCLUDES*"
+		    value      	"//#UC START# *4989831C0296_CUSTOM_INCLUDES*¤//#UC END# *4989831C0296_CUSTOM_INCLUDES*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"h:*4989831C0296*"
+		    value      	"//#UC START# *4989831C0296*¤//#UC END# *4989831C0296*"))
+	    quid       	"4989831C0296"
+	    documentation 	"òî÷êà âõîäà"
+	    stereotype 	"LibExecutor"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"498983430084"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::RandomAlg::ClientMPHF::MPHFAPI::MPHP"
+		    quidu      	"49897F40018A")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4993DFA302E9"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::RandomAlg::Random::Generators::UniqGen"
+		    quidu      	"4993DD5201C0"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4989831403CB"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::RandomAlg::BasicTest::CommonLibSupport::EntryPoint" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(498, 522)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(327, 494)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	342
+			justify    	0
+			label      	"• EntryPoint")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(327, 444)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	340
+			justify    	0
+			label      	"<<LibExecutor>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"4989831C0296"
+		    width      	360
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::RandomAlg::ClientMPHF::MPHFAPI::MPHP" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(288, 126)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(152, 94)
+			nlines     	1
+			max_width  	272
+			justify    	0
+			label      	"• MPHP")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(152, 44)
+			anchor     	10
+			nlines     	1
+			max_width  	269
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"49897F40018A"
+		    width      	290
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @3
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @4
+			Parent_View 	@3
+			location   	(327, 361)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.501030
+			height     	76
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"498983430084"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(448, 431)
+			(337, 220))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::RandomAlg::Random::Generators::UniqGen" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(651, 144)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(512, 112)
+			nlines     	1
+			max_width  	278
+			justify    	0
+			label      	"UniqGen")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(512, 62)
+			anchor     	10
+			nlines     	1
+			max_width  	278
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"4993DD5201C0"
+		    width      	296
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @6
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @7
+			Parent_View 	@6
+			location   	(697, 351)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.655205
+			height     	121
+			orientation 	1)
+		    line_color 	3342489
+		    quidu      	"4993DFA302E9"
+		    client     	@1
+		    supplier   	@5
+		    vertices   	(list Points
+			(533, 431)
+			(612, 238))
+		    line_style 	0)))))

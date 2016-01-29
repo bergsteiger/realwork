@@ -1,0 +1,45 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+   'Window SetContext, "Caption={ГАРАНТ*}", ""
+     
+   Dim QueryName$
+   QueryName=SaveQuery
+   call LoadQueryAsFilter("Мои документы\"+QueryName)
+   
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+   GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=7,140"
+   Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+   ListBox Click, "ObjectIndex=1", "Coords=36,13"
+   if Position_by_Text("CurrentFocus",QueryName)<>0 then
+        SQALogMessage sqaPass, "Элемент создался", "Элемент с именем """+QueryName+""" создался"
+        InputKeys "{DELETE}"
+        Window SetContext, "Caption=ГАРАНТ;Class=#32770", ""
+        InputKeys "{ENTER}"   
+   else
+        SQALogMessage sqaFail, "Элемент не создался", "Элемент с именем """+QueryName+""" не создался"
+   end if
+    
+
+   
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=13,120"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=32,13"
+    
+    Window SetContext, "Class=TvtPopupWindow", ""
+    ComboBox Click, "ObjectIndex=1", "Coords=58,11"
+    
+    Window SetContext, "Class=TSubTree", "Activate=0"
+    Window Click, "", "Coords=54,7"
+   
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+   'GenericObject Click, "Class=TvcmToolbar;ClassIndex=5", "Coords=15,14"
+   Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+   MenuIDSelect 12
+   GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=6,36"
+   
+End Sub

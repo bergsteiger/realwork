@@ -1,0 +1,462 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "SecuritySrvComm"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"is namespace"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"need UC"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (idl)"
+	    value      	"w:/shared/CoreSrv/SecuritySrvComm/SecuritySrvComm.idl")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (cpp)"
+	    value      	"")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (h)"
+	    value      	"w:/shared/CoreSrv/SecuritySrvComm/SecuritySrvComm.h")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (java)"
+	    value      	""))
+    quid       	"45ED249A025B"
+    stereotype 	"ServerInterface"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "AccessDenied"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"41556377-F476-4E0F-9BD7-40FD46A14430")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	""))
+	    quid       	"45E6961A0280"
+	    stereotype 	"Exception"
+	    language   	"MDA Generator")
+	(object Class "UserID"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"45ED25100047"
+	    documentation 	"Идентификатор пользователя уникальный в пространстве идентификаторов определемом конкретной реализацией Авторизатора"
+	    stereotype 	"Typedef"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"45ED26660095"
+		    supplier   	"Logical View::Primitives::unsigned long"
+		    quidu      	"3DBFFDE101CA"))
+	    language   	"MDA Generator")
+	(object Class "SessionInterceptor"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	""))
+	    quid       	"45F54A7A0280"
+	    documentation 	"Общий калбек-интерфейс для пользовательских обработчиков создания и удаления сессий."
+	    stereotype 	"ServerFacet"
+	    operations 	(list Operations
+		(object Operation "after_session_created"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"45F54ACA0280"
+		    documentation 	"Вызывается послке того как была созданна новая сессия. "
+		    parameters 	(list Parameters
+			(object Parameter "sid"
+			    quid       	"45F54C26002E"
+			    type       	"SessionID"
+			    quidu      	"45E6942F01D4")
+			(object Parameter "uid"
+			    quid       	"45F54B3E01B5"
+			    type       	"UserID"
+			    quidu      	"45ED25100047"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "before_session_delete"
+		    quid       	"45F54BD8036B"
+		    documentation 	"Вызывается до того как сессия будет уничтожена"
+		    parameters 	(list Parameters
+			(object Parameter "sid"
+			    quid       	"45F54C2A00FA"
+			    type       	"SessionID"
+			    quidu      	"45E6942F01D4")
+			(object Parameter "uid"
+			    quid       	"45F54BE8001F"
+			    type       	"UserID"
+			    quidu      	"45ED25100047"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "SessionID"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"45E6942F01D4"
+	    documentation 	"Идентификатор сессии"
+	    stereotype 	"Typedef"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"45E694BC033C"
+		    supplier   	"Logical View::Primitives::unsigned long"
+		    quidu      	"3DBFFDE101CA"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"45ED24AE0018"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::shared::CoreSrv::SecuritySrvComm::AccessDenied" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(310, 713)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(152, 685)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	316
+			justify    	0
+			label      	"AccessDenied")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(152, 635)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	313
+			justify    	0
+			label      	"<<Exception>>")
+		    icon_style 	"Label"
+		    fill_color 	9869055
+		    quidu      	"45E6961A0280"
+		    width      	334
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::CoreSrv::SecuritySrvComm::UserID" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(867, 186)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(745, 170)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	244
+			justify    	0
+			label      	"UserID")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(745, 120)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	244
+			justify    	0
+			label      	"<<Typedef>>")
+		    icon_style 	"Label"
+		    fill_color 	15792890
+		    quidu      	"45ED25100047"
+		    width      	262
+		    height     	157
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Primitives::unsigned long" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(309, 186)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	TRUE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(140, 146)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	338
+			justify    	0
+			label      	"unsigned long")
+		    icon_style 	"None"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"3DBFFDE101CA"
+		    width      	356
+		    height     	105
+		    autoResize 	TRUE)
+		(object InheritView "" @4
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"45ED26660095"
+		    client     	@2
+		    supplier   	@3
+		    vertices   	(list Points
+			(735, 186)
+			(487, 186))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::shared::CoreSrv::SecuritySrvComm::SessionInterceptor" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1612, 279)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1115, 195)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	994
+			justify    	0
+			label      	"SessionInterceptor")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(1115, 145)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	994
+			justify    	0
+			label      	"<<ServerFacet>>")
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"45F54A7A0280"
+		    compartment 	(object Compartment
+			Parent_View 	@5
+			location   	(1115, 256)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Label"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	3
+			max_width  	1000
+			justify    	1)
+		    width      	1012
+		    height     	292
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Primitives::unsigned long" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(309, 402)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	TRUE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(140, 362)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	338
+			justify    	0
+			label      	"unsigned long")
+		    icon_style 	"None"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"3DBFFDE101CA"
+		    width      	356
+		    height     	105
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::CoreSrv::SecuritySrvComm::SessionID" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(867, 402)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(745, 386)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	244
+			justify    	0
+			label      	"SessionID")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(745, 336)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	244
+			justify    	0
+			label      	"<<Typedef>>")
+		    icon_style 	"Label"
+		    fill_color 	15792890
+		    quidu      	"45E6942F01D4"
+		    width      	262
+		    height     	157
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @8
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"45E694BC033C"
+		    client     	@7
+		    supplier   	@6
+		    vertices   	(list Points
+			(735, 402)
+			(487, 402))
+		    line_style 	0)))))

@@ -1,0 +1,478 @@
+<<Library>> Dlg
+ %UID '4DE803840174'
+ %DOCUMENTATION 'Сюда складываем диалоги или заглушки от них'
+ %DEPENDS
+  U$ '467A75D90346' /* VT */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4E1F0EB100C4' /* ScriptEngine */
+  U$ '4E202B8C01A0' /* MetaForms */
+  U$ '4F8D735200EE' /* Frames */
+  U$ '54ECA252008F' /* ScriptEngine$Everest */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '467A75D90346' /* VT */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4E1F0EB100C4' /* ScriptEngine */
+  U$ '4E202B8C01A0' /* MetaForms */
+  U$ '4F8D735200EE' /* Frames */
+  U$ '54ECA252008F' /* ScriptEngine$Everest */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Unit>> ChildWindow
+   %UID '4E202A4A01B6'
+   %DOCUMENTATION 'Диалоговые окна, ведущие себя как дочерние (открываются в главном окне).'
+   %DEPENDS
+    U$ '476BF10A0280' /* l3Tree_TLB */
+    U$ '47F485150151' /* vtCommon */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4E1C0134031B' /* MixIns */
+    U$ '4E202BD501B7' /* BaseForms */
+    U$ '4F8D7381019D' /* Frames */
+   ; // %DEPENDS
+   %META
+    %upv "finished" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '467A75D90346' /* VT */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4E202B8C01A0' /* MetaForms */
+    U$ '4F8D735200EE' /* Frames */
+    U$ '54ECA252008F' /* ScriptEngine$Everest */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> InsDWin
+      %UID '4E202A8502E6'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4E202B8C01A0' /* MetaForms */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        FINAL <<method>> GetInsTextNode
+         %UID '4E202ADD0180'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> Doit
+            %UID '4E202D3A0356'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<inout>> anInsText
+               %UID '4E202D480123'
+               %TARGET U$ '3DBFFE240068' /* string */
+              ; // anInsText
+            ; // %PARAMETERS
+           ; // Doit
+         ; // %OPERATIONS
+        ; // GetInsTextNode
+        FINAL <<method>> GetInsText
+         %UID '4E202AEC00C0'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4E202D8503E2'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4790D09A0378' /* L3 */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<inout>> aNode
+               %UID '4E202DC901C3'
+               %TARGET U$ '476BF22B03E1' /* Il3Node */
+               %TOBEINCLUDED
+                U$ '4790D09A0378' /* L3 */
+               ; // %TOBEINCLUDED
+              ; // aNode
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // GetInsText
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<SimpleClass>> TInsertTextDictForm
+         %UID '4E202ABC005B'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E202B8C01A0' /* MetaForms */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4E202C090145' /* TDictMetaForm */
+         ; // %INHERITS
+        ; // TInsertTextDictForm
+      ; // %CHILDREN
+     ; // InsDWin
+     FINAL <<UtilityPack>> VMailWin
+      %UID '4F0C221F03C1'
+      %DOCUMENTATION 'Почтовое окно.'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '467A75D90346' /* VT */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<SimpleClass>> TViewMailWin
+         %UID '4F0C222F0080'
+         %DOCUMENTATION 'Почтовое окно.'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '467A75D90346' /* VT */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4F0C239A01E1' /* TvtForm */
+         ; // %INHERITS
+         %OPERATIONS
+           FINAL <<method>> SetMessage
+            %UID '4F0C225A02DD'
+            %DOCUMENTATION '0 - This, 1 - Prev, 2 - Next'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %OPERATIONS
+              PRIVATE FINAL <<Operation>> DoIt
+               %UID '4F0C2275025F'
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+               %PARAMETERS
+                 <<in>> Value
+                  %UID '4F0C22E10276'
+                  %TARGET U$ '4DE60F5E00A6' /* LongInt */
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Value
+                 <<in>> Mode
+                  %UID '4F0C22E10295'
+                  %TARGET U$ '476130E5023C' /* Byte */
+                  %VALUE 0
+                  %TOBEINCLUDED
+                   U$ '469F3E37025A' /* Rtl */
+                  ; // %TOBEINCLUDED
+                 ; // Mode
+               ; // %PARAMETERS
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // SetMessage
+         ; // %OPERATIONS
+        ; // TViewMailWin
+      ; // %CHILDREN
+     ; // VMailWin
+     FINAL <<UtilityPack>> SrchWin
+      %UID '4F8D5E560101'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %CHILDREN
+       
+        <<SimpleClass>> TSearchWin
+         %UID '4F8D5E6B0120'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %LINKS
+           <<uses>> "4F8D742F024C"
+            %UID '4F8D742F024C'
+            %TARGET U$ '4F8D73AD0139' /* TDocumentList */
+           ; // 4F8D742F024C
+         ; // %LINKS
+        ; // TSearchWin
+      ; // %CHILDREN
+     ; // SrchWin
+     FINAL <<UtilityPack>> MailWin
+      %UID '4F8FEB5201C5'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %CHILDREN
+       
+        <<SimpleClass>> TSendMailWin
+         %UID '4F8FEB600171'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TSendMailWin
+      ; // %CHILDREN
+     ; // MailWin
+   ; // %CHILDREN
+  ; // ChildWindow
+  <<Unit>> Wizards
+   %UID '4E4B61B000D4'
+   %DEPENDS
+    U$ '4E202BD501B7' /* BaseForms */
+   ; // %DEPENDS
+   %META
+    %upv "finished" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '4E202B8C01A0' /* MetaForms */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> D_WizChangeDoc
+      %UID '4E4B61CC0291'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E202B8C01A0' /* MetaForms */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<SimpleClass>> TChangeDocWizardDlg
+         %UID '4E4B61E40216'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E202B8C01A0' /* MetaForms */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4E4B62A40251' /* TBottomBtnDlg */
+         ; // %INHERITS
+        ; // TChangeDocWizardDlg
+      ; // %CHILDREN
+     ; // D_WizChangeDoc
+     FINAL <<UtilityPack>> D_WizIzm
+      %UID '4E4B61FC00CF'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E202B8C01A0' /* MetaForms */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<SimpleClass>> TIzmWizardDlg
+         %UID '4E4B6214019B'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E202B8C01A0' /* MetaForms */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4E4B6244039A' /* TTabBBtnDlg */
+         ; // %INHERITS
+        ; // TIzmWizardDlg
+      ; // %CHILDREN
+     ; // D_WizIzm
+   ; // %CHILDREN
+  ; // Wizards
+  <<Unit>> Dialogs
+   %UID '4ECB871B0028'
+   %DEPENDS
+    U$ '4E202BD501B7' /* BaseForms */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4E202B8C01A0' /* MetaForms */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> d_GetContents
+      %UID '4ECB874E0247'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E202B8C01A0' /* MetaForms */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        FINAL <<method>> RequestContents
+         %UID '4ECB87E20367'
+         %META
+          %upv "finished" false
+         ; // %META
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID 'E50C4DBEC7FB'
+            %DOCUMENTATION 'Сигнатура метода RequestContents'
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // RequestContents
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<SimpleClass>> TContentsEditDlg
+         %UID '4ECB8780011A'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E202B8C01A0' /* MetaForms */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4E4B62A40251' /* TBottomBtnDlg */
+         ; // %INHERITS
+        ; // TContentsEditDlg
+      ; // %CHILDREN
+     ; // d_GetContents
+     FINAL <<UtilityPack>> D_Srch
+      %UID '4F8D26D303CB'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E202B8C01A0' /* MetaForms */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<SimpleClass>> TDocSearchDlg
+         %UID '4F8D26E9004F'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E202B8C01A0' /* MetaForms */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4E4B62A40251' /* TBottomBtnDlg */
+         ; // %INHERITS
+         %OPERATIONS
+           FINAL <<method>> Execute
+            %UID '4F8D273401A2'
+            %OPERATIONS
+              SUMMONED FINAL <<Operation>> DoIt
+               %UID 'AA57ECFCD11D'
+               %DOCUMENTATION 'Сигнатура метода Execute'
+              ; // DoIt
+            ; // %OPERATIONS
+           ; // Execute
+         ; // %OPERATIONS
+        ; // TDocSearchDlg
+      ; // %CHILDREN
+     ; // D_Srch
+     FINAL <<UtilityPack>> D_SchRes
+      %UID '4F8D5C7802F6'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %CHILDREN
+       
+        <<SimpleClass>> TSearchResultDlg
+         %UID '4F8D5C85024B'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TSearchResultDlg
+      ; // %CHILDREN
+     ; // D_SchRes
+     FINAL <<UtilityPack>> D_GetNum
+      %UID '4F910CF600C9'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %CHILDREN
+       
+        <<SimpleClass>> TGetNumberDlg
+         %UID '4F910D0303E7'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TGetNumberDlg
+      ; // %CHILDREN
+     ; // D_GetNum
+     FINAL <<UtilityPack>> D_NameEd
+      %UID '50163EBB0377'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4E202B8C01A0' /* MetaForms */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<SimpleClass>> TNameEditDlg
+         %UID '50163ED103BF'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4E202B8C01A0' /* MetaForms */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '4E4B62A40251' /* TBottomBtnDlg */
+         ; // %INHERITS
+        ; // TNameEditDlg
+      ; // %CHILDREN
+     ; // D_NameEd
+     FINAL <<UtilityPack>> D_ShowInfo
+      %UID '53EC88D6039A'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+     ; // D_ShowInfo
+   ; // %CHILDREN
+  ; // Dialogs
+ ; // %CHILDREN
+; // Dlg

@@ -1,0 +1,595 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "HRView"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/HRChange/HRView|4B1D049A0078
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (vm)"
+	    value      	"")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	"")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19036689507"))
+    quid       	"4B1D049A0078"
+    documentation 	"îòîáðàæåíèå ñóùíîñòåé áèáëèîòåêè â web"
+    stereotype 	"HtmlUnit"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "createdepartment-form-data"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/HRChange/HRView/createdepartment-form-data|4B1D04D302BB
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/HRChange/HRView/createdepartment-form-data.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*4B1D04D302BB_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*4B1D04D302BB_CUSTOM_CONTENT*¤¤#requireResource("confluence.web.resources:jquery_with_plugins")¤¤#set ($availableUsers			   = $hrHelper.hrManager.availableUsers)¤¤<script type="text/javascript" language="JavaScript">¤¤¤AJS.toInit(function() {¤	var JQ = jQuery;¤	JQ.each(['departmentWorkers', 'fullName'], function(i, val) {¤		updateValue(val);¤	});¤	JQ.each(['leaders', 'fullName'], function(i, val) {¤		updateValue(val);¤	});¤});¤¤function toggleSelector(sel) {¤	var $ = jQuery;¤	¤	var div = $('#' + sel + '_div')[0];¤	var editLink = $('#' + sel + '_edit_link')[0];¤	if(div.style.display == 'none') {¤		div.style.display = '';¤		editLink.style.display = 'none';¤	} else {¤		div.style.display = 'none';¤		editLink.style.display = '';¤		¤		updateValue(sel);¤	}¤	return false;¤}¤¤function updateValue(sel) {¤	var $ = jQuery;¤	¤	var ctrl = $('#' + sel)[0];¤	var valueCtrl  = $('#' + sel + '_val')[0];¤	¤	if(ctrl.tagName == 'INPUT') {¤		$(valueCtrl).html($(ctrl).val());¤	} else if(ctrl.tagName == 'SELECT') {¤		var res = '';¤		$('#' + sel + ' :selected').each(function(i, selected) {¤    		if($(selected).text() != ''){¤				var checked = "";¤				if($('#enabled_on_leave').attr("checked") == true){¤					checked = "checked value='true'";¤				}else{¤					checked = " value='false'";¤				}¤				¤    			if(i > 0) {¤					res += ', ';¤				}¤				if(sel == 'leaders'){¤					res += "<input type='hidden' id='departmentLeaders' name='departmentLeaders' value='" + $(ctrl).val() + "'/>" + $(selected).text() + ",";¤					res += "<input type='hidden' id='leadersOnLeave' name='leadersOnLeave' value='" + $('#enabled_on_leave').attr("checked") + "'/>";¤					res += " $garHelper.getText('createdepartment.on.leave'):" + "<input type='checkbox' id='" +$(ctrl).val()+"_enabled_on_leave' name='enabled_on_leave' " + checked + " disabled='true'>";¤					if($('#deputy_' + sel + ' :selected').text() == ''){¤						res += "<input type='hidden' id='departmentDeputyLeaders' name='departmentDeputyLeaders' value=''/>";¤						res += " $garHelper.getText('createdepartment.deputy'): $garHelper.getText('no.name')";¤					}else{¤						res += "<input type='hidden' id='departmentDeputyLeaders' name='departmentDeputyLeaders' value='" + $('#deputy_' + sel + ' :selected').val() + "'/>";¤						res += " $garHelper.getText('createdepartment.deputy'): " + $('#deputy_' + sel + ' :selected').text();¤					}¤					¤					res += "  <span id='" +$(ctrl).val()+"_departmentLeader_removed' class='inline-control-link fontSizeTiny' onClick=removeLeader('" + $(ctrl).val() + "')>$garHelper.getText('remove.name.caps')</span>";¤¤					var divElement = document.createElement('div');¤					divElement.id=$(ctrl).val() + "_div";¤					divElement.innerHTML=res;¤					$(valueCtrl).append(divElement);¤					res = "";¤					clear();¤				¤				}else{¤					res += $(selected).text();¤				}¤			}¤		});¤		if(res != ''){¤			$(valueCtrl).html(res);¤		}¤	}¤}¤function clear(){¤	document.getElementById('leaders').selectedIndex = 0;¤	document.getElementById('deputy_leaders').selectedIndex = 0;¤	document.getElementById('enabled_on_leave').checked = false;¤}¤¤function removeLeader(id){¤	document.getElementById(id+'_div').remove();¤}¤</script>¤¤<div class="formtitle gar-top-formtitle gar-formtitle">$garHelper.getText('createdepartment.properties')</div>¤¤<div class="gar-editpanel">¤	<span>$garHelper.getText('createdepartment.fullname'):</span>¤	<span id="fullName_selector" onclick="toggleSelector('fullName')">¤	    <span id="fullName_val"></span>¤	    <span id="fullName_edit_link" class="inline-control-link fontSizeTiny">$garHelper.getText('edit.name.caps')</span>¤	</span>¤	<div id="fullName_div" class="gar-editpanel-background" style="display:none">		¤		<table>¤			<tr>¤				<td nowrap><div class="formtitle gar-formtitle">$garHelper.getText('createdepartment.change.fullname')</div></td>¤				<td></td>¤				<td></td>¤				<td nowrap></td>¤			</tr>¤			<tr>¤				<td align="right" nowrap>$garHelper.getText('createdepartment.choose.fullname'):</td>¤				<td align="left">¤					<input id="fullName" name="fullName" value="$fullName"/>¤				</td>¤				<td align="left">¤					<input type=button value="$garHelper.getText('done.word')" onClick="toggleSelector('fullName')"/>¤				</td>¤			</tr>¤		</table>¤	</div>¤</div>¤¤<div class="gar-editpanel">¤	<span>$garHelper.getText('createdepartment.workers'):</span>¤	<span id="departmentWorkers_selector" onclick="toggleSelector('departmentWorkers')">¤	    <span id="departmentWorkers_val"></span>¤	    <span id="departmentWorkers_edit_link" class="inline-control-link fontSizeTiny">$garHelper.getText('edit.name.caps')</span>¤	</span>¤	<div id="departmentWorkers_div" class="gar-editpanel-background" style="display:none">		¤		<table>¤			<tr>¤				<td nowrap><div class="formtitle gar-formtitle">$garHelper.getText('createdepartment.change.workers')</div></td>¤				<td></td>¤				<td></td>¤				<td nowrap></td>¤			</tr>¤			<tr>¤				<td align="right" nowrap>$garHelper.getText('createdepartment.choose.workers'):</td>¤				<td align="left">¤					<select id="departmentWorkers" name="departmentWorkers" multiple="multiple" size="5">¤						#foreach($user in $availableUsers)¤							#set($worker = $hrHelper.getWorker($user.name))¤							<option value="$user.name"#if($departmentWorkers.contains($user.name) == true) selected#end>$hrHelper.getWorkerFullNameWithDepartment($worker)</option>¤						#end¤					</select> ¤				</td>¤				<td align="left">¤					<input type=button value="$garHelper.getText('done.word')" onClick="toggleSelector('departmentWorkers')"/>¤				</td>¤			</tr>¤		</table>¤	</div>¤</div>¤¤<div class="gar-editpanel">¤	<div id="leaders_selector" onclick="toggleSelector('leaders')">¤		<span>$garHelper.getText('createdepartment.leaders'):</span>¤	    <span id="leaders_edit_link" class="inline-control-link fontSizeTiny">$garHelper.getText('add.word.caps')</span>¤	</div>¤	    <span id="leaders_val"></span>¤	<div id="leaders_div" class="gar-editpanel-background" style="display:none">		¤		<table>¤			<tr>¤				<td nowrap><div class="formtitle gar-formtitle">$garHelper.getText('createdepartment.create.new.leader')</div></td>¤				<td></td>¤			</tr>¤			<tr>¤				<td nowrap>¤					$garHelper.getText('createdepartment.choose.leader'):¤				¤					<select id="leaders" name="leaders">¤						<option value=""></option>¤						#foreach($user in $availableUsers)¤							#set($leader = $hrHelper.getLeader($user.name))¤							<option value="$user.name">$hrHelper.getLeaderFullNameWithDepartment($leader)</option>¤						#end¤					</select> ¤				</td>¤				<td nowrap>¤					$garHelper.getText('createdepartment.on.leave'):¤					<input type="checkbox" id="enabled_on_leave" name="enabled_on_leave" value="true">¤				</td>¤				</tr>¤				<tr>¤					<td>¤					$garHelper.getText('createdepartment.choose.deputy.leader'):¤¤					<select id="deputy_leaders" name="deputy_leaders">¤						<option value=""></option>¤						#foreach($user in $availableUsers)¤							<option value="$user.name">$user.fullName</option>¤						#end¤					</select>¤					</td> ¤					<td></td>¤				</tr>¤				<tr>¤					<td>¤					<input type=button value="$garHelper.getText('done.word')" onClick="toggleSelector('leaders')"/>¤					</td>¤					<td></td>¤				</tr>¤			</tr>¤		</table>¤	</div>¤</div>¤##UC_END*4B1D04D302BB_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039339508"))
+	    quid       	"4B1D04D302BB"
+	    documentation 	"ñîäåðæèò control'û è êëèåíòñêóþ ëîãèêó ïî ðàáîòå ñ ñîñòàâîì îòäåëîâ"
+	    stereotype 	"VM"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"3645564623")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"4D9D5EFA032F"
+		    stereotype 	"include"
+		    supplier   	"Logical View::MDProcess::HRChange::HRView::create-and-edit-leader"
+		    quidu      	"4D9D5EB4026F"))
+	    language   	"MDA Generator")
+	(object Class "spaceconfig_hr"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/HRChange/HRView/spaceconfig_hr.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/HRChange/HRView/spaceconfig_hr|4B1DF66303CA
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*4B1DF66303CA_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*4B1DF66303CA_CUSTOM_CONTENT*¤¤#requireResource("confluence.web.resources:jquery_with_plugins")¤¤#set($hrSpace = false)¤#set($hrSpace = $HRManager.hrSpace)¤#set($enabled = false)¤#if($hrSpace)¤	#set($enabled = $hrSpace.key == $action.key)¤#end¤¤<script language="JavaScript">¤¤function toggleSave () {¤	var $ = jQuery; ¤	¤	var requestURL  = "$req.contextPath/ru/garant/MDProcess/HRChange/HRSupport/HRXPlugin/HRXPackage/hrspaceconfigsave.action";¤¤	$('#space_hr_config_form').ajaxSubmit({¤		url : requestURL,¤		beforeSubmit : function() {¤			$('#space_config_hr').html("$garHelper.getText('spaceconfig.saving')...");¤		},¤		success : function(responseText, statusText) { ¤			if(responseText == "success") {¤				$('#space_config_hr').html("$garHelper.getText('spaceconfigmdk.save.complete')");¤			} else {¤				$('#space_config_hr').html("$garHelper.getText('spaceconfigmdk.error.while.saving.setting')");¤			}¤		}¤	});¤}¤¤</script>¤¤<html>¤	<head>¤		<title>$garHelper.getText('settings.hr.space')</title>¤	</head>¤	¤#applyDecorator("root")¤	#decoratorParam("helper" $action.helper)¤	#decoratorParam("context" "space-administration")¤	#decoratorParam("mode"  "view-space-administration")¤			¤#applyDecorator ("root")¤	#decoratorParam ("context" "spaceadminpanel")¤	#decoratorParam ("selection" $action.selection)¤	#decoratorParam ("title" $action.getActionName($action.getClass().getName()))¤	#decoratorParam ("selectedTab" "admin")¤	#decoratorParam("helper" $action.helper)	¤¤<form id="space_hr_config_form"><div id="space_config_hr" style="padding-top: 0px;">¤	<table id="configTable" cellpadding=0 cellspacing=0>¤		<tr>¤    		<td colspan="2" style="padding-bottom:10px">¤    			<div>¤    				<span class="formtitle" style="font-size:10pt;">$garHelper.getText('spaceconfighr.enabled'):</span>¤    				<input id="enabled" name="enabled" value="true" type="checkbox" #if(${enabled})checked="true"#end "/>¤					<br/>¤					#if($hrSpace && !$enabled)¤						<span class="smalltext">$garHelper.getText('spaceconfighr.warning', [$hrSpace.name])</span>¤					#end¤    			</div>¤    		</td>¤		</tr>¤		<tr>¤			<td colspan="2">¤				<table width="100%" style="min-width: 206px">¤					<tr>¤						<td width="99%" align="right">¤							<input type=button value="$garHelper.getText('add.name')" onClick="toggleSave();"/>&nbsp;&nbsp;¤							<input type=button value="$garHelper.getText('cancel.name')" onClick="location.replace('${req.contextPath}/spaces/spaceadmin.action?key=$action.key');"/>¤						</td>¤						<td></td>¤					</tr>¤				</table>¤			</td>¤		</tr>¤	</table>¤	¤	<input name="key" type="hidden" value="$action.key"/>¤	¤</div><form>¤#end¤#end¤</html>¤¤##UC_END*4B1DF66303CA_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039359569"))
+	    quid       	"4B1DF66303CA"
+	    documentation 	"ôîðìà ðåäàêòèðîâàíèÿ íàñòðîåê HR ñïåéñà"
+	    stereotype 	"VM"
+	    language   	"MDA Generator")
+	(object Class "createdepartment-form"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/HRChange/HRView/createdepartment-form.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/HRChange/HRView/createdepartment-form|4B1E2B350320
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*4B1E2B350320_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*4B1E2B350320_CUSTOM_CONTENT*¤¤#bodytag ("Component" "template='content-editor.vm'" "theme='custom'")¤    #param ("formName" "createpageform")¤    #param ("formAction" "docreate${entityType}.action")¤    #param ("contentType" $contentType)¤    #param ("useContentPermissions" true)¤    #param ("useTemplate" true)¤    #param ("useLocationEditor" false)¤    #param ("useDatePicker" false)¤    #param ("mode" "create")¤    #param ("useContentLabels" false)¤    #param ("defaultContentTitle" $action.getText("untitled.${entityType}.title"))¤	¤	#param ("entityType" $entityType)¤	#param ("entityTemplatePath" "/HRChange/HRView/createdepartment-form-data.vm")¤#end¤¤##UC_END*4B1E2B350320_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039337254"))
+	    quid       	"4B1E2B350320"
+	    documentation 	"ñïåöèôè÷íûå íàñòðîéêè ñòàíäàðòíîãî âèäà ñîçäàíèÿ ñòðàíèöû äëÿ îòäåëà"
+	    stereotype 	"VM"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19022381488"))
+		    quid       	"4B263C000285"
+		    stereotype 	"include"
+		    supplier   	"Logical View::MDProcess::HRChange::HRView::createdepartment-form-data"
+		    quidu      	"4B1D04D302BB"))
+	    language   	"MDA Generator")
+	(object Class "editdepartment"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/HRChange/HRView/editdepartment|4B274C190262
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/HRChange/HRView/editdepartment.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*4B274C190262_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*4B274C190262_CUSTOM_CONTENT*¤¤#requireResource("confluence.web.resources:jquery_with_plugins")¤#includeJavascript('/includes/js/edit-entity.js')¤¤<script type="text/javascript" language="JavaScript">¤¤var editPanelPrefixes = ['fullName', 'workers', 'leaders', 'leadersOnLeave', 'departmentDeputyLeaders'];¤var actionUrl = "$req.contextPath/ru/garant/MDProcess/HRChange/HRSupport/HRXPlugin/HRXPackage/editdepartment.action";¤var entityId = $department.id;¤var pageSavingFailed = '$garHelper.getText("saving.the.page.failed")';¤¤</script>¤¤#set ($availableUsers			   = $hrHelper.hrManager.availableUsers)¤#set ($canEdit 					   = $hrHelper.hrPermissionManager.canEdit($department.page, $action.remoteUser.name))¤¤<div id="msgAboutChanging" style="display:none"></div>¤¤<div id="msgValidateFailed" class="error gar-validation-message" style="display:none"></div>¤¤<form id="editPropertiesPanel" class="gar-property-panel">¤	<div class="gar-property-sub-panel">¤		##<span class="formtitle gar-formtitle">$department.name</span>¤		¤		<div class="gar-editpanel">¤        	<span>$garHelper.getText('editdepartment.fullname'): $!department.fullName</span>¤        	#if ($canEdit)¤            <span id="fullName_edit_link" class="inline-control-link fontSizeTiny">$garHelper.getText('edit.name.caps')</span>¤        	#end¤        	<div id="fullName_div" class="gar-editpanel-background" style="display:none">¤        		<table style="width: 100%;">¤        			<tr>¤        				<td nowrap style="width:65%" colspan="2"><div class="formtitle gar-formtitle">$garHelper.getText('editdepartment.change.fullname')</div></td>¤        				<td nowrap style="width:30%"></td>¤        				<td style="width:5%" align="right"><a id="fullName_close_link" href="#"><img border=0 width=8 height=8 src="$req.contextPath/images/icons/del_16.gif"/></a></td>¤        			</tr>¤        			<tr>¤        				<td align="right" nowrap style="width:30%">$garHelper.getText('editdepartment.choose.fullname'):</td>¤        				<td align="left" style="width:50%">¤        					<input id="fullName_val" name="fullName_val" type="text" style="width:99%" maxlength="255"/>¤        				</td>¤        				<td align="left">¤        					<input type="button" value="$garHelper.getText('done.word')" id="fullName_button_done"/>¤        					<span id="fullName_progress" style="display: none; height: 16px;"><img alt="Wait Image" border=0 align="absmiddle" src="/images/icons/wait.gif"></span>¤        				</td>¤        			</tr>¤        		</table>	¤        	</div>¤		</div>¤		¤		<div class="gar-editpanel">¤        	<span>$garHelper.getText('editdepartment.workers'): $hrHelper.getDepartmentWorkersAsString($department)</span>¤        	#if ($canEdit)¤   	    	<span id="workers_edit_link" class="inline-control-link fontSizeTiny">$garHelper.getText('edit.name.caps')</span>¤        	#end¤        	<div id="workers_div" class="gar-editpanel-background" style="display:none">¤        		<table style="width: 100%;">¤        			<tr>¤        				<td nowrap style="width:65%" colspan="2"><div class="formtitle gar-formtitle">$garHelper.getText('editdepartment.change.workers')</div></td>¤        				<td nowrap style="width:30%"></td>¤        				<td style="width:5%" align="right"><a id="workers_close_link" href="#"><img border=0 width=8 height=8 src="$req.contextPath/images/icons/del_16.gif"/></a></td>¤        			</tr>¤        			<tr>¤        				<td align="right" nowrap style="width:30%">$garHelper.getText('editdepartment.choose.workers'):</td>¤        				<td align="left" style="width:50%">¤        					<select id="workers_val" name="workers_val" multiple="multiple" size="5">¤        						#foreach($user in $availableUsers)¤        							#set($worker = $hrHelper.getWorker($user.name))¤        							<option value="$user.name"#if($hrHelper.containsWorker($department, $user.name) == true) selected#end>$hrHelper.getWorkerFullNameWithDepartment($worker)</option>¤        						#end¤							</select> ¤        				</td>¤        				<td align="left">¤        					<input type="button" value="$garHelper.getText('done.word')" id="workers_button_done"/>¤        					<span id="workers_progress" style="display: none; height: 16px;"><img alt="Wait Image" border=0 align="absmiddle" src="/images/icons/wait.gif"></span>¤        				</td>¤        			</tr>¤        		</table>	¤        	</div>¤		</div>¤#parse ("/HRChange/HRView/create-and-edit-leader.vm")¤</form>¤¤##UC_END*4B274C190262_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19039362914"))
+	    quid       	"4B274C190262"
+	    documentation 	"ôîðìà ðåäàêòèðîâàíèÿ îòäåëà"
+	    stereotype 	"VM"
+	    language   	"MDA Generator")
+	(object Class "create-and-edit-leader"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"3575361108")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/HRChange/HRView/create-and-edit-leader.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/HRChange/HRView/create-and-edit-leader|4D9D5EB4026F
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*4D9D5EB4026F_CUSTOM_CONTENT*"
+		    value      	
+|##UC_BEGIN*4D9D5EB4026F_CUSTOM_CONTENT*¤<script type="text/javascript" language="JavaScript">¤var removeURL = "$req.contextPath/ru/garant/MDProcess/HRChange/HRSupport/HRXPlugin/HRXPackage/removedepartmentleader.action";¤var editURL = "$req.contextPath/ru/garant/MDProcess/HRChange/HRSupport/HRXPlugin/HRXPackage/editdepartmentleader.action";¤¤function removeLeaderItem(prefix) {¤	if(ajaxMutex) {¤		return;¤	}¤	ajaxMutex = true;¤	¤	showProgressImage(true, prefix+'_remove');¤	var params = "entityId=" + entityId + "&leaders=" + prefix;¤	jQuery.ajax({¤		url: removeURL,¤		data: params,¤		type: "POST",¤		success: function(data) {¤			ajaxMutex = false;¤			window.location.reload(true);¤		},¤		error: function () {¤			ajaxMutex = false;¤			¤			alert(pageSavingFailed);¤			window.location.reload(true);¤			return;¤		}¤	});¤}¤¤function saveEdit(prefix) {¤	if(ajaxMutex) {¤		return;¤	}¤	ajaxMutex = true;¤	var $ = jQuery;¤	showProgressImage(true, prefix+'_remove');¤	var deputy = $('#' + prefix + '_edit_departmentDeputyLeaders_val :selected');¤	var onLeave =  $('#' + prefix + '_edit_leadersOnLeave_val');¤	var params = "entityId=" + entityId + "&leaders=" + prefix;¤	if(deputy != null){¤		params += "&departmentDeputyLeaders=" + $('#' + prefix + '_edit_departmentDeputyLeaders_val :selected').val();¤	}¤	if(onLeave != null){¤	 	params += "&leadersOnLeave=" + $('#' + prefix + '_edit_leadersOnLeave_val').attr("checked");¤	}¤	¤	jQuery.ajax({¤		url: editURL,¤		data: params,¤		type: "POST",¤		success: function(data) {¤			ajaxMutex = false;¤			window.location.reload(true);¤		},¤		error: function () {¤			ajaxMutex = false;¤			¤			alert(pageSavingFailed);¤			window.location.reload(true);¤			return;¤		}¤	});¤}¤¤function editLeader(id){¤	document.getElementById(id+'_edit_leaders_div').style.display='';¤	document.getElementById(id+'_leader_edit_link').style.display='none';¤}¤¤function closeDiv(id){¤	document.getElementById(id + '_edit_leaders_div').style.display='none';¤	document.getElementById(id + '_leader_edit_link').style.display='';¤}¤¤</script>¤#set ($canEdit = $hrHelper.hrPermissionManager.canEdit($department.page, $action.remoteUser.name))¤¤<div class="gar-editpanel">¤	<span>$garHelper.getText('createdepartment.leaders'):</span>¤#if($canEdit)¤	<span id="leaders_selector">¤	    <span id="leaders_edit_link" class="inline-control-link fontSizeTiny">$garHelper.getText('add.word.caps')</span>¤	</span>¤#end¤	<div id="department_leaders_val">¤		#foreach($leader in $hrHelper.getLeaders($department.id))¤		<div id='${leader.name}_div'>¤			#set($deputy = $garUserHelper.getUserFullNameByName($leader.deputy))¤			$garUserHelper.getUserFullNameByName($leader.name),¤			$garHelper.getText('createdepartment.on.leave'):<input type='checkbox' id='${leader.name}_enabled_on_leave' name='enabled_on_leave' #if($leader.onLeave == "true")checked#end value='true' disabled="true">¤			$garHelper.getText('createdepartment.deputy'): #if($deputy != '')$deputy#else $garHelper.getText('no.name') #end¤			#if($canEdit)¤			<span id="${leader.name}_leader_edit_link" class='inline-control-link fontSizeTiny' onClick=editLeader('${leader.name}')>$garHelper.getText('edit.name.caps')</span>¤			<span id="${leader.name}_leader_remove_link" class='inline-control-link fontSizeTiny' onClick=removeLeaderItem('${leader.name}')>$garHelper.getText('remove.name.caps')</span>¤			<span id="leader_remove_progress" style="display: none; height: 16px;"><img alt="Wait Image" border=0 align="absmiddle" src="/images/icons/wait.gif"></span>¤			#end¤		¤			<div id="${leader.name}_edit_leaders_div" class="gar-editpanel-background" style="display:none">		¤				<table>¤					<tr><td nowrap><div class="formtitle gar-formtitle">$garHelper.getText('createdepartment.change.leaders')</div></td><td></td>¤					</tr>¤					<tr>¤						<td nowrap>$garHelper.getText('createdepartment.choose.leader'):¤							<select id="${leader.name}_edit_leaders_val" name="${leader.name}_edit_leaders_val">¤								<option value=""></option>¤								#foreach($user in $availableUsers)¤									#set($lead = $hrHelper.getLeader($user.name))¤									<option #if(${leader.name} == $user.name) selected #end value="$user.name">$hrHelper.getLeaderFullNameWithDepartment($lead)</option>¤								#end¤						</select> ¤					</td>¤					<td nowrap id="${leader.name}_edit_leadersOnLeave_div">$garHelper.getText('createdepartment.on.leave'):<input type="checkbox" id="${leader.name}_edit_leadersOnLeave_val" name="edit_leadersOnLeave_val" value="true"  #if(${leader.onLeave} == "true") checked #end /></td>¤					</tr>¤					<tr>¤						<td id="${leader.name}_edit_departmentDeputyLeaders_div">$garHelper.getText('createdepartment.choose.deputy.leader'):¤						<select id="${leader.name}_edit_departmentDeputyLeaders_val" name="${leader.name}_edit_departmentDeputyLeaders_val">¤							<option value=""></option>¤							#foreach($user in $availableUsers)¤								<option #if(${leader.deputy} == $user.name) selected #end value="$user.name">$user.fullName</option>¤							#end¤						</select>¤						</td> ¤						<td></td>¤					</tr>¤					<tr>¤						<td>¤							<input type=button id="${leader.name}_edit_leaders_button_done" onClick="saveEdit('${leader.name}');" value="$garHelper.getText('done.word')"/>¤							<input type=button id="${leader.name}_edit_leaders_button_cancel" onClick="closeDiv('${leader.name}');" value="$garHelper.getText('cancel.name')"/>¤   							<span id="${leader.name}_edit_leaders_progress" style="display: none; height: 16px;"><img alt="Wait Image" border=0 align="absmiddle" src="/images/icons/wait.gif"></span>¤						</td>¤						<td></td>¤					</tr>¤				</tr>¤			</table>¤		</div>¤		</div>¤		¤		</div>¤		#end¤	</div>¤	¤	<div id="leaders_div" class="gar-editpanel-background" style="display:none">		¤		<table>¤			<tr><td nowrap><div class="formtitle gar-formtitle">$garHelper.getText('createdepartment.create.new.leader')</div></td><td></td>¤			</tr>¤			<tr>¤				<td nowrap>$garHelper.getText('createdepartment.choose.leader'):¤					<select id="leaders_val" name="leaders_val">¤						<option value=""></option>¤						#foreach($user in $availableUsers)¤							#set($leader = $hrHelper.getLeader($user.name))¤							<option value="$user.name">$hrHelper.getLeaderFullNameWithDepartment($leader)</option>¤						#end¤					</select> ¤				</td>¤				<td nowrap id="leadersOnLeave_div">$garHelper.getText('createdepartment.on.leave'):<input type="checkbox" id="leadersOnLeave_val" name="leadersOnLeave_val" value="true"></td>¤				</tr>¤				<tr>¤					<td id="departmentDeputyLeaders_div">$garHelper.getText('createdepartment.choose.deputy.leader'):¤					<select id="departmentDeputyLeaders_val" name="departmentDeputyLeaders_val">¤						<option value=""></option>¤						#foreach($user in $availableUsers)¤							<option value="$user.name">$user.fullName</option>¤						#end¤					</select>¤					</td> ¤					<td></td>¤				</tr>¤				<tr>¤					<td>¤						<input type=button id="leaders_button_done" value="$garHelper.getText('done.word')"/>¤   						<span id="leaders_progress" style="display: none; height: 16px;"><img alt="Wait Image" border=0 align="absmiddle" src="/images/icons/wait.gif"></span>¤					</td>¤					<td></td>¤				</tr>¤			</tr>¤		</table>¤	</div>¤</div>¤##UC_END*4D9D5EB4026F_CUSTOM_CONTENT*
+		    ))
+	    quid       	"4D9D5EB4026F"
+	    documentation 	"ðàáîòà ñ ðóêîâîäèòåëÿìè è èõ çàìåñòèòåëÿìè"
+	    stereotype 	"VM"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4B1D04D0030A"
+	    title      	"Main"
+	    zoom       	80
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::HRChange::HRView::createdepartment-form-data" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1077, 291)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(805, 254)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	544
+			justify    	0
+			label      	"createdepartment-form-data")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(805, 209)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	544
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"4B1D04D302BB"
+		    width      	562
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::HRChange::HRView::spaceconfig_hr" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(387, 249)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(234, 214)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	306
+			justify    	0
+			label      	"spaceconfig_hr")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(234, 169)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	306
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"4B1DF66303CA"
+		    width      	324
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::HRChange::HRView::createdepartment-form" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(492, 873)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(271, 836)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	442
+			justify    	0
+			label      	"createdepartment-form")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(271, 791)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	442
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"4B1E2B350320"
+		    width      	460
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @4
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @5
+			Parent_View 	@4
+			location   	(698, 498)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<include>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4B263C000285"
+		    client     	@3
+		    supplier   	@1
+		    vertices   	(list Points
+			(584, 779)
+			(980, 384))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::HRChange::HRView::editdepartment" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(780, 1437)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(627, 1400)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	306
+			justify    	0
+			label      	"editdepartment")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(627, 1355)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	306
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"4B274C190262"
+		    width      	324
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::HRChange::HRView::create-and-edit-leader" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1950, 672)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(1725, 635)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"create-and-edit-leader")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(1725, 590)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"4D9D5EB4026F"
+		    width      	468
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @8
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @9
+			Parent_View 	@8
+			location   	(1561, 372)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<include>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4D9D5EFA032F"
+		    client     	@1
+		    supplier   	@7
+		    vertices   	(list Points
+			(1291, 384)
+			(1736, 578))
+		    line_style 	0)))))

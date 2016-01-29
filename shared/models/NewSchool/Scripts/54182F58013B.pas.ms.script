@@ -1,0 +1,128 @@
+// Tm3NewStorageStream 54182F58013B SimpleClass Class
+
+INCLUDE '5448F0A40180.pas.ms.script'
+
+FORWARD ME_54182F58013B
+
+FORWARD ME_544910F10203
+
+INCLUDE '4720862F0238.pas.ms.script'
+
+: ME_5449113A0307
+ CONST UID '5449113A0307'
+ CONST Name 'anAccess'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47208653003B // Tm3StoreAccess
+ ;
+
+ @SELF
+; // ME_5449113A0307 anAccess
+
+INCLUDE '4773DED9004C.pas.ms.script'
+
+: ME_5449113A033B
+ CONST UID '5449113A033B'
+ CONST Name 'aName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4773DED9004C // Tl3_String
+ ;
+
+ @SELF
+; // ME_5449113A033B aName
+
+INCLUDE '543FBAC30068.pas.ms.script'
+
+: ME_5449113A0365
+ CONST UID '5449113A0365'
+ CONST Name 'aManager'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_543FBAC30068 // Tm3RootStreamManagerPrim
+ ;
+
+ @SELF
+; // ME_5449113A0365 aManager
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_5449113A039B
+ CONST UID '5449113A039B'
+ CONST Name 'aPosition'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_47208C70028B // Int64
+ ;
+
+ @SELF
+; // ME_5449113A039B aPosition
+
+INCLUDE '46A0E6C5023A.pas.ms.script'
+
+: ME_544911010282
+ CONST UID '544911010282'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A5AFF103CA // IStream
+ ;
+ : Parameters
+   [ ME_5449113A0307 // anAccess
+ ME_5449113A033B // aName
+ ME_5449113A0365 // aManager
+ ME_5449113A039B // aPosition
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_544911010282 DoIt
+
+: ME_544910F10203
+ CONST UID '544910F10203'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_544911010282 // DoIt
+ ]
+ ; // Operations
+ CONST "is static" true
+
+ @SELF
+; // ME_544910F10203 Make
+
+: ME_54182F58013B
+ CONST UID '54182F58013B'
+ CONST Name 'Tm3NewStorageStream'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_5448F0A40180 // Tm3NewStorageStreamPrim
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_544910F10203 // Make
+ ]
+ ; // Operations
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_54182F58013B Tm3NewStorageStream

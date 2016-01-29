@@ -1,0 +1,175 @@
+// ddTableConvTypes 4E0D98F50163 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E0D98F50163
+
+FORWARD ME_4E0D96DC0288
+
+: ME_4E0D96EC0174
+ CONST UID '4E0D96EC0174'
+ CONST Name 'csGraphic'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E0D96DC0288 // TddCellSeparator
+ ;
+
+ref; // ME_4E0D96EC0174 csGraphic
+
+: ME_4E0D96FA0305
+ CONST UID '4E0D96FA0305'
+ CONST Name 'csParagraph'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E0D96DC0288 // TddCellSeparator
+ ;
+
+ref; // ME_4E0D96FA0305 csParagraph
+
+: ME_4E0D970200EE
+ CONST UID '4E0D970200EE'
+ CONST Name 'csTab'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E0D96DC0288 // TddCellSeparator
+ ;
+
+ref; // ME_4E0D970200EE csTab
+
+: ME_4E0D970803BE
+ CONST UID '4E0D970803BE'
+ CONST Name 'csSemicolon'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E0D96DC0288 // TddCellSeparator
+ ;
+
+ref; // ME_4E0D970803BE csSemicolon
+
+: ME_4E0D970F0374
+ CONST UID '4E0D970F0374'
+ CONST Name 'csSpace'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E0D96DC0288 // TddCellSeparator
+ ;
+
+ref; // ME_4E0D970F0374 csSpace
+
+: ME_4E0D97160126
+ CONST UID '4E0D97160126'
+ CONST Name 'csOther'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E0D96DC0288 // TddCellSeparator
+ ;
+
+ref; // ME_4E0D97160126 csOther
+
+: ME_4E0D96DC0288
+ CONST UID '4E0D96DC0288'
+ CONST Name 'TddCellSeparator'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E0D98F50163 // ddTableConvTypes
+ ;
+ : Attributes
+   @ ( ME_4E0D96EC0174 // csGraphic
+ ME_4E0D96FA0305 // csParagraph
+ ME_4E0D970200EE // csTab
+ ME_4E0D970803BE // csSemicolon
+ ME_4E0D970F0374 // csSpace
+ ME_4E0D97160126 // csOther
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4E0D96DC0288 TddCellSeparator
+
+FORWARD ME_4E0D97220074
+
+: ME_4E0D972B0278
+ CONST UID '4E0D972B0278'
+ CONST Name 'afEqual'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E0D97220074 // TddAutoFitBehavior
+ ;
+
+ref; // ME_4E0D972B0278 afEqual
+
+: ME_4E0D9732006C
+ CONST UID '4E0D9732006C'
+ CONST Name 'afContent'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4E0D97220074 // TddAutoFitBehavior
+ ;
+
+ref; // ME_4E0D9732006C afContent
+
+: ME_4E0D97220074
+ CONST UID '4E0D97220074'
+ CONST Name 'TddAutoFitBehavior'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E0D98F50163 // ddTableConvTypes
+ ;
+ : Attributes
+   @ ( ME_4E0D972B0278 // afEqual
+ ME_4E0D9732006C // afContent
+ ) .SequenceCode.It
+ ; // Attributes
+
+ref; // ME_4E0D97220074 TddAutoFitBehavior
+
+: ME_4E0D98F50163
+ CONST UID '4E0D98F50163'
+ CONST Name 'ddTableConvTypes'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
+ ;
+ : Children
+   @ ( ME_4E0D96DC0288 // TddCellSeparator
+ ME_4E0D97220074 // TddAutoFitBehavior
+ ) .SequenceCode.It
+ ; // Children
+ CONST "defines" 'ddDefine.inc'
+ CONST "is namespace" true
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\dd\ddTableConvTypes.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E0D98F50163.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E0D98F50163.pas.ms.script.runner'
+
+ref; // ME_4E0D98F50163 ddTableConvTypes

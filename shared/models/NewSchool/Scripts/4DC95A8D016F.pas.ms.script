@@ -1,0 +1,78 @@
+// l3ParserInterfaces 4DC95A8D016F UtilityPack Class
+
+FORWARD ME_4DC95A8D016F
+
+FORWARD ME_4DC95AB20023
+
+FORWARD ME_4DC95AF703B8
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_52F0FA170076
+ CONST UID '52F0FA170076'
+ CONST Name 'aName'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+
+ @SELF
+; // ME_52F0FA170076 aName
+
+INCLUDE '53317D14019D.pas.ms.script'
+
+: ME_4DC95AF703B8
+ CONST UID '4DC95AF703B8'
+ CONST Name 'KeywordByName'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'lnk'
+ : Target ME_47A8693601A1 // Tl3PrimString
+ ;
+ : Attributes
+   [ ME_52F0FA170076 // aName
+ ]
+ ; // Attributes
+ CONST "pm" false
+
+ @SELF
+; // ME_4DC95AF703B8 KeywordByName
+
+: ME_4DC95AB20023
+ CONST UID '4DC95AB20023'
+ CONST GUID '6B7313C8-EC12-43A4-9B0C-89C07EED8DA7'
+ CONST Name 'Il3KeywordFinder'
+ CONST Class 'Class'
+ CONST Stereotype 'Facet'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_4DC95AF703B8 // KeywordByName
+ ]
+ ; // Attributes
+
+ @SELF
+; // ME_4DC95AB20023 Il3KeywordFinder
+
+: ME_4DC95A8D016F
+ CONST UID '4DC95A8D016F'
+ CONST Name 'l3ParserInterfaces'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_4DC95AB20023 // Il3KeywordFinder
+ ]
+ ; // Children
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "no hands" true
+ CONST "started" '10.05.2011 19:32'
+
+ @SELF
+; // ME_4DC95A8D016F l3ParserInterfaces

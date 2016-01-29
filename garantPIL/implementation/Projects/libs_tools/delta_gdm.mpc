@@ -1,0 +1,21 @@
+project (delta_gdm) : project-common-defines-tools, project-common-includes, project_generic_core { // does not inherit delta_base
+	staticname = delta_gdm
+	sharedname = delta_gdm
+
+	macros -= UPDATE_FACE
+	macros -= INSTLL_CIB
+
+	includes += ./../../component/cpp/libs/gctx/src
+
+	Header_Files {
+		./../../component/cpp/libs/delta/src/delt_ver.h
+		./../../component/cpp/libs/delta/src/deltadef.h
+		./../../component/cpp/libs/delta/src/dhr_ver.h
+		./../../component/cpp/libs/delta/src/dhreader.h
+	}
+
+	Source_Files {
+		./../../component/cpp/libs/delta/src/dhreader.cpp
+	}
+}
+

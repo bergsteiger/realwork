@@ -1,0 +1,166 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/EVDTemplates/Data Definition/Packages/EVD.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$ForDelphi::EVDTemplates::Data Definition::Packages::EVD
+//
+// Пакет EVD-схем
+// ---
+// Пакет таблиц с описанием EVD тегов.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: EVD::Category
+implementation @ <<EVD>>
+//? Пакет EVD-схем
+//? Пакет таблиц с описанием EVD тегов.
+//> TagTable::Class
+//> Wrapper::Class
+//> WrapperPack::Class
+//> TagImplementator::Class
+//> InterfaceFactory::Class
+//> InterfaceFactoryPack::Class
+//> SimpleClass::Class
+//> UtilityPack::Class
+
+//= WikiPackageImpl::Category
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_evd_data_def.gif
+//L code_evd_data_def
+// Параметры визуализации
+//$ C 127,255,212
+//$ L 0,0,0
+//$ l 127,255,212
+//$ F 0,0,0
+//$ f 127,255,212
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа WikiPackageImpl::Category
+// Определяет, что пакет должен генериться в документации в секцию "Схемы данных"
+//%f _data_scheme_package
+; // st_space_key
+
+: data_scheme_package OBJECT IN %S
+//#UC START# *485789C102E3for48491CCA01C3*
+//	true
+ true
+//#UC END# *485789C102E3for48491CCA01C3*
+; // data_scheme_package
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor48491CCA01C3*
+//#UC END# *470F15B800CBfor48491CCA01C3*
+; // impl.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor48491CCA01C3*
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *470F1571031Cfor48491CCA01C3*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for48491CCA01C3*
+//#UC END# *477398E501C0for48491CCA01C3*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for48491CCA01C3*
+//#UC END# *55B8D28B0157for48491CCA01C3*
+; // rc.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for48491CCA01C3*
+//#UC END# *55B8D2F80145for48491CCA01C3*
+; // rc.script.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for48491CCA01C3*
+//#UC END# *55B8DD9C0301for48491CCA01C3*
+; // res.cmd.pas
+
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
+//+ spell
+<<generator>> spell OBJECT IN %S
+//#UC START# *4A41A13D03D5for48491CCA01C3*
+//	%S%f_DoSpell()\
+ %S %f DoSpell %( )% 
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4A41A13D03D5for48491CCA01C3*
+; // spell
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<EVD>>
+

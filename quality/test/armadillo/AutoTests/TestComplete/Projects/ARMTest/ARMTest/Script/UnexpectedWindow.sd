@@ -1,0 +1,32 @@
+uses
+  calc,
+  list,
+  func,
+  change,
+  Maps,
+  Clicks,
+  Search,
+  Menu,
+  make,
+  common;
+  
+// вызывается при нежданном окне, если AV, перезапускает АРМ
+
+procedure GeneralEvents_OnUnexpectedWindow(Sender; Window; LogParams);
+begin
+  Log.Picture(window, 'Обнаружено неизвестное окно - ' + Window.WndCaption);
+  if StringCompare('Access violation*', Sys.Process('Armadillo').Window('#32770', 'Автоматизированное рабочее место регионального партнера 3.0.0', 1).Window('Static', 'Access violation*', -1).WndCaption)
+    then                                
+      begin              
+        Log.Picture(window, 'Access violation');
+        KillARM;
+        delay(5000);
+        StartingARM;
+      end;
+end;
+
+
+procedure GeneralEvents_OnUnexpected;
+begin
+  Log.Picture(Sys.Process('Armadillo').VCLObject('frmMain'), 'Обнаружено неизвестное окно - ' + Window.WndCaption);
+end;

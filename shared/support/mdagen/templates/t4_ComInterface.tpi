@@ -1,0 +1,73 @@
+//////////////////////////////////////////////////////////////////////////////////
+// ComInterface (class)
+//////////////////////////////////////////////////////////////////////////////////
+
+: ComInterface::Class
+? COM-интерфейс
+< *::Category, *::Class
+$ C 215,215,255
+$ l 10,10,255
+$ f 10,10,255
+p ThreadingModel=Apartment|Free|Both ? определяет потоковую модель. Возможные значения: "Both" - указывает на то, что класс может выполняться как в МТА, так и в STA, "Free" - указывает, что класс может выполняться только в МТА, "Apartment" - указывает, что класс может выполняться только в STA. Отсутствие ThreadingModel означает, что класс может выполняться только в главном STA. Главный STA определяется как первый STA, который должен быть инициализирован в процессе
+L code_com_interface
+Y t4_com_interface.gif
+
+%f _wiki_up_print
+	* Потоковая модель: %S{ThreadingModel}
+
+%f _wiki_up_add_gen
+
+%t _constraint
+c                              {}
+r {<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}:	{%SS не используется ни одним прецедентом}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= Servant::Class;wiki
+
++ odl
+	#\[
+	#	object
+	#	, uuid (%SG)
+	#	, dual
+	#	, helpstring("%SN Interface")
+	#	, pointer_default(unique)
+	#\]
+	#interface %SN : [{}{IDispatch}<{, }%f_type(%G)>] {
+	%U[
+	]
+	#};	
+	#\[
+	#	uuid (%f_str_conv("%SG","%8s-%4s-%4s-%2s%2s-%2s%2s%2s%2s%2s%2s","%8s-%4s-%4s-%2s%2s-%2s%2s%2s%2s%2s")99)
+	#	, helpstring ("Co%SN Class")
+	#\]
+	#coclass Co%SN {
+	#	\[default\] interface %SN;
+	#};\n
+
+t _thread_model
+c	{}
+r "%S{ThreadingModel}"="Apartment":	{ATL::CComSingleThreadModel}
+r "%S{ThreadingModel}"="Free":	        {ATL::CComMultiThreadModel}
+r "%S{ThreadingModel}"="Both":	        {ATL::CComMultiThreadModel}
+
+: ComInterface::Class::Attribute
+= Interface::Class::Attribute
+
+: ComInterface::Class::Operation
+= Interface::Class::Operation
+
+: ComInterface::Class::chg::Operation
+= Interface::Class::chg::Operation
+
+: ComInterface::Class::Operation::Parameter
+= Interface::Class::Operation::Parameter
+
+: ComInterface::Class::friend::ClassDependency
+= Interface::Class::friend::ClassDependency
+
+: ComInterface::Class::readonly::Attribute
+= Interface::Class::readonly::Attribute
+
+: ComInterface::Class::writeonly::Attribute
+= Interface::Class::writeonly::Attribute

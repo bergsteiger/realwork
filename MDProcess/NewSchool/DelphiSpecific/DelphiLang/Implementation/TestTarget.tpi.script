@@ -1,0 +1,177 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DelphiSpecific/DelphiLang/Implementation/TestTarget.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$ForDelphi::DelphiSpecific::DelphiLang::Implementation::TestTarget
+//
+// Тестовый модуль
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: TestTarget::Category
+implementation @ <<TestTarget>>
+//? Тестовый модуль
+//> TestResults::Class
+//> SimpleClass::Class
+
+//= ExeTarget::Category
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_test_target.gif
+//L code_test_target
+// Параметры визуализации
+//$ C 222,126,208
+//$ l 56,142,142
+//$ f 56,142,142
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p is insider test:b=false ? Определяет, что тесты встраиваются внутрь приложения
+//p no scripts:tribool=undefined ? В тесты не надо включать скриптовую машину
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{is insider test}"!="%S{!is insider test}"}%f_up_prefix(%S) *is insider test* = *%S{is insider test}* - Определяет, что тесты встраиваются внутрь приложения
+ ?inherited
+ if ( ( %S get_up ( 'is insider test' ) ) %!= ( %S get_up_def ( 'is insider test' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *is insider test* = *'
+  %S get_up ( 'is insider test' ) '* - Определяет, что тесты встраиваются внутрь приложения'
+//	][{"%S{no scripts}"!="%S{!no scripts}"}%f_up_prefix(%S) *no scripts* = *%S{no scripts}* - В тесты не надо включать скриптовую машину
+ end // if
+ if ( ( %S get_up ( 'no scripts' ) ) %!= ( %S get_up_def ( 'no scripts' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *no scripts* = *'
+  %S get_up ( 'no scripts' ) '* - В тесты не надо включать скриптовую машину'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+//%f _DoSpell
+; // wiki_up_print
+
+: DoSpell OBJECT IN %S
+//#UC START# *4B2A19E3038Bfor4B4CAE4F00E4*
+//	%S%[inherited]\
+ inherited
+//	[{%S{isRelease}!=true&%SS!=VCMTestTarget&%S{need UC in project}!=true}\
+ if ( ( %S get_up ( 'isRelease' ) ) %!=  true AND 
+   ( ( %S |S ) %!= 'VCMTestTarget'  ) AND 
+   ( ( %S get_up ( 'need UC in project' ) ) %!=  true  ) ) then
+ begin
+//	%P%f_add_category(%SU_Release,%SS,Release%SN,Release_Instance)\
+  %P %f add_category %( %S |U '_Release' %, %S |S %, 'Release'
+  %S |N %, 'Release_Instance' )% 
+//	%{Release_Instance}%f_set_up(isRelease,true)\
+  ( get_global_var ( 'Release_Instance' ) %f set_up %( 'isRelease' %, true )% ) 
+//	%{Release_Instance}%f_set_up(defines,%S{defines})\
+  ( get_global_var ( 'Release_Instance' ) %f set_up %( 'defines' %, %S get_up ( 'defines' ) )% ) 
+//	%{Release_Instance}%f_set_documentation(%SD (релизный вариант))\
+  ( get_global_var ( 'Release_Instance' ) %f set_documentation %( %S |D ' (релизный вариант)' )% ) 
+//	<{}{%DS=TestLibrary}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%D
+  begin
+   OBJECT IN %D
+   if ( ( %D |S ) %== 'TestLibrary' ) then
+   begin
+//	%f_addCDep(%{Release_Instance},%D)\
+    [%f] addCDep %( ( get_global_var ( 'Release_Instance' ) ) %, %D )% 
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for D
+
+
+//	<{}{%CS=TestResults}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |S ) %== 'TestResults' ) then
+   begin
+//	%{Release_Instance}%f_add_class(%CU_Release,%CS,Release%CN,TestResults_Inst)\
+    ( get_global_var ( 'Release_Instance' ) %f add_class %( %C |U '_Release' %, %C |S %, 'Release'
+    %C |N %, 'TestResults_Inst' )% ) 
+//	%{TestResults_Inst}%f_set_documentation(%CD (релизный вариант))\
+    ( get_global_var ( 'TestResults_Inst' ) %f set_documentation %( %C |D ' (релизный вариант)' )% ) 
+//	%C<{}{}{%O}\
+    %C
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%O
+     begin
+      OBJECT IN %O
+      if true then
+      begin
+//	%{TestResults_Inst}%f_add_override(%OU)\
+       ( get_global_var ( 'TestResults_Inst' ) %f add_override %( %O |U )% ) 
+//	>\
+
+       ++! l_Counter
+      end // if
+     end // for O
+
+    ) // bind
+ //	>\
+
+    ++! l_Counter
+   end // if
+  end // for C
+
+
+//	]
+ end // if
+//#UC END# *4B2A19E3038Bfor4B4CAE4F00E4*
+; // DoSpell
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Путь к модулю
+//%f _pas_UnitPath
+: pas_UnitPath OBJECT IN %S
+//#UC START# *4948C3290020for4B4CAE4F00E4*
+//	%S%[inherited]
+ inherited
+//#UC END# *4948C3290020for4B4CAE4F00E4*
+; // pas_UnitPath
+
+
+// перекрытие базового стереотипа ExeTarget::Category
+// Определяет является ли приложение тестом
+//%f _IsTest
+: IsTest OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4B2A46060306for4B4CAE4F00E4*
+//	true
+ true
+//#UC END# *4B2A46060306for4B4CAE4F00E4*
+; // IsTest
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<TestTarget>>
+

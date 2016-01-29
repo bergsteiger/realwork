@@ -1,0 +1,1047 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/Testing/Elements/TestClass.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::Testing::Elements::TestClass
+//
+// Тестовый класс
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: TestClass::Class
+implementation @ <<TestClass>>
+//? Тестовый класс
+//> SimpleClass::Class
+
+//= WikiImplClass::Class
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +-
+// - типы видимости
+//a f
+// - тип абстракции
+//Y code_test_class.gif
+//L code_test_class
+// Параметры визуализации
+//$ C 238,255,191
+//$ l 9,138,80
+//$ f 9,138,80
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p is friend:b=false ? Определяет, что данный тестовый класс является "другом" к описываемому классу реализации
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{is friend}"!="%S{!is friend}"}%f_up_prefix(%S) *is friend* = *%S{is friend}* - Определяет, что данный тестовый класс является "другом" к описываемому классу реализации
+ ?inherited
+ if ( ( %S get_up ( 'is friend' ) ) %!= ( %S get_up_def ( 'is friend' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *is friend* = *'
+  %S get_up ( 'is friend' ) '* - Определяет, что данный тестовый класс является "другом" к описываемому классу реализации'
+//	]
+ end // if
+
+// Эффективный тип элемента с учётом "is friend"
+//%f _EffectiveType
+; // wiki_up_print
+
+: EffectiveType OBJECT IN %S
+//#UC START# *49A575360335for499972740320*
+//	%f_pas_TypeName(%G)[{%S{is friend}=true}Friend]
+ [%f] pas_TypeName %( %G )% if ( ( %S get_up ( 'is friend' ) ) %==  true ) then
+ begin
+  'Friend' 
+ end // if
+//#UC END# *49A575360335for499972740320*
+; // EffectiveType
+
+
+// Генерируем "ворота" для вызова из TC
+//%f _pas_OutTCGates
+: pas_OutTCGates OBJECT IN %S
+//#UC START# *4BC43DB603A9for499972740320*
+//	<%C#f_pas_OutTCGates()>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C %?f pas_OutTCGates %( )% 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4BC43DB603A9for499972740320*
+; // pas_OutTCGates
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for499972740320*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for499972740320*
+; // constraint
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент производит файл (Unit)
+//%f _IsUnitFileProducer
+: IsUnitFileProducer OBJECT IN %S
+//#UC START# *4947EC0F0380for499972740320*
+//	true
+ true
+//#UC END# *4947EC0F0380for499972740320*
+; // IsUnitFileProducer
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Добавляет файлы необходимые элементу с точки зрения метамодели
+//%f _pas_ImplUses
+: pas_ImplUses OBJECT IN %S
+//#UC START# *4948EB2601FAfor499972740320*
+//	%S%[inherited]\
+ inherited
+//	%f_pas_PutToUses("Variants")\
+ [%f] pas_PutToUses %( 'Variants' )% 
+//	%f_pas_PutToUses("ActiveX")\
+ [%f] pas_PutToUses %( 'ActiveX' )% 
+//	%f_pas_PutToUses("tc5OpenAppClasses")\
+ [%f] pas_PutToUses %( 'tc5OpenAppClasses' )% 
+//	%f_pas_PutToUses("tc5PublicInfo")\
+ [%f] pas_PutToUses %( 'tc5PublicInfo' )% 
+//	%f_pas_PutToUses("tc6OpenAppClasses")\
+ [%f] pas_PutToUses %( 'tc6OpenAppClasses' )% 
+//	%f_pas_PutToUses("tc6PublicInfo")
+ [%f] pas_PutToUses %( 'tc6PublicInfo' )% 
+//#UC END# *4948EB2601FAfor499972740320*
+; // pas_ImplUses
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит секции инициализации
+//%f _pas_OutIni
+: pas_OutIni OBJECT IN %S
+//#UC START# *4B3886890063for499972740320*
+//	%S%[inherited]\
+ inherited
+//	\n  _RegisterPublicInformation5;
+ #13#10'  _RegisterPublicInformation5;'
+//	  _RegisterPublicInformation6;
+ '  _RegisterPublicInformation6;'
+//#UC END# *4B3886890063for499972740320*
+; // pas_OutIni
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя типа
+//%f _pas_TypeName
+: pas_TypeName OBJECT IN %S
+//#UC START# *4947F8AD02A1for499972740320*
+//	%f_N(%S)
+ [%f] N %( %S )% 
+//#UC END# *4947F8AD02A1for499972740320*
+; // pas_TypeName
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя модуля в котором содержится элемент
+//%f _pas_UnitName
+: pas_UnitName OBJECT IN %S
+//#UC START# *4948065C01DFfor499972740320*
+//	%f_cut_prefix(%f_N(%S),T)_p
+ [%f] cut_prefix %( [%f] N %( %S )% %, 'T' )% '_p'
+//#UC END# *4948065C01DFfor499972740320*
+; // pas_UnitName
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor499972740320*
+//	[{%S{is friend}=true}%f_pas_OpenType(%S)\
+ if ( ( %S get_up ( 'is friend' ) ) %==  true ) then
+ begin
+  [%f] pas_OpenType %( %S )% 
+//	 %S%f_EffectiveType() = class(%f_pas_TypeName(%G))
+  ' '
+  %S %f EffectiveType %( )% ' = class('
+  [%f] pas_TypeName %( %G )% ')'
+//	 end;//%S%f_EffectiveType()\n]\
+  ' end;//'
+  %S %f EffectiveType %( )% #13#10 
+ end // if
+//	<{}{"%CO"=""}%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |O ) %== '' ) then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *470F15B800CBfor499972740320*
+; // impl.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor499972740320*
+//O [{%S{finished}!=true}NOT_FINISHED_]%f_pas_UnitFileName(%S)
+//R  
+//P
+//	%f_pas_OpenUnitInterface(%S)\
+ [%f] pas_OpenUnitInterface %( %S )% 
+//	%f_pas_OpenUnitImplementation(%S)\
+ [%f] pas_OpenUnitImplementation %( %S )% 
+//	%f_pas_Uses(%S)\
+ [%f] pas_Uses %( %S )% 
+//	%f_pas_UsesInImpl(%S)\
+ [%f] pas_UsesInImpl %( %S )% 
+//	%f_pas_CloseUses(%S)\
+ [%f] pas_CloseUses %( %S )% 
+//	%f_with_gen_id(impl.pas,%SX)\
+ [%f] with_gen_id %( 'impl.pas' %, %S |X )% 
+//	%S%f_pas_OutTCGates()\
+ %S %f pas_OutTCGates %( )% 
+//	[%f_with_gen_id(intf2.pas,%SX)\
+ if NOT-EMPTY
+ begin
+  [%f] with_gen_id %( 'intf2.pas' %, %S |X )% 
+//	%f_with_gen_id(intf3.pas,%SX)\
+  [%f] with_gen_id %( 'intf3.pas' %, %S |X )% 
+//	]\
+ end // if
+ NOP
+//	%f_pas_CloseUnit(%S)\
+ [%f] pas_CloseUnit %( %S )% 
+//	<{}{"%CO"!=""}%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C |O ) %!= '' ) then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *470F1571031Cfor499972740320*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for499972740320*
+//	[\n\nprocedure _RegisterPublicInformation5;
+ if NOT-EMPTY
+ begin
+  #13#10#13#10'procedure _RegisterPublicInformation5;'
+//	begin
+  'begin'
+//	[ <{\n }{}%CX>]
+  if NOT-EMPTY
+  begin
+   ' '
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( #13#10' ' )
+     %C |X 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+//	end;]
+  'end;' 
+ end // if
+ NOP
+//#UC END# *477398E501C0for499972740320*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for499972740320*
+//#UC END# *55B8D28B0157for499972740320*
+; // rc.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for499972740320*
+//#UC END# *55B8D2F80145for499972740320*
+; // rc.script.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for499972740320*
+//#UC END# *55B8DD9C0301for499972740320*
+; // res.cmd.pas
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for499972740320*
+//	[\n\nprocedure _RegisterPublicInformation6;
+ if NOT-EMPTY
+ begin
+  #13#10#13#10'procedure _RegisterPublicInformation6;'
+//	begin
+  'begin'
+//	[ <{\n }{}%CX>]
+  if NOT-EMPTY
+  begin
+   ' '
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if true then
+    begin
+     if ( l_Counter >0 ) then ( #13#10' ' )
+     %C |X 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+//	end;]
+  'end;' 
+ end // if
+ NOP
+//#UC END# *4774D2A20372for499972740320*
+; // intf3.pas
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: TestClass::Class::property::Attribute
+end. // <<TestClass>>
+
+implementation @ :: <<TestClass>> <<property>> ;
+//? Свойство
+//= ClassInner::MDAGenerator
+
+// Параметры стереотипа
+//v +
+// - типы видимости
+//a f
+// - тип абстракции
+//Y code_property.gif
+//L code_property
+//l l
+// - возможные типы связи атрибута
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что это свойство.
+//%f _IsProp
+; // st_space_key
+
+: IsProp OBJECT IN %S
+//#UC START# *493D2D510282for4999824C0371*
+//	true
+ true
+//#UC END# *493D2D510282for4999824C0371*
+; // IsProp
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// документация отсутствует
+//%f _pas_AttrIndexes
+: pas_AttrIndexes OBJECT IN %S
+//#UC START# *49998CA903A8for4999824C0371*
+//	Self: %P%f_EffectiveType()\
+ 'Self: '
+ %P %f EffectiveType %( )% 
+//	[; %S%[inherited]]
+ if NOT-EMPTY
+ begin
+  '; '
+  inherited
+ end // if
+ NOP
+//#UC END# *49998CA903A8for4999824C0371*
+; // pas_AttrIndexes
+
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor4999824C0371*
+//	attr
+ 'attr'
+//#UC END# *4705CBD6003Efor4999824C0371*
+; // wiki_child_kind
+
+
+// Вложенные стереотипы
+//: TestClass::Class::property::Attribute::Attribute
+end. // :: <<TestClass>> <<property>> ;
+
+implementation @ :: <<TestClass>> <<property>> Attribute ;
+//? Ключ свойства
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+//Y code_attr_key.gif
+//L code_attr_key
+//l l
+// - возможные типы связи атрибута
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+
+//: TestClass::Class::readonly::Attribute
+; // st_space_key
+
+end. // :: <<TestClass>> <<property>> Attribute ;
+
+implementation @ :: <<TestClass>> <<readonly>> ;
+//? Readonly-свойство
+//= TestClass::Class::property::Attribute
+
+// Параметры стереотипа
+//Y code_readonly_attr.gif
+//L code_readonly_attr
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент это readonly-свойство
+//%f _IsReadOnlyProp
+; // st_space_key
+
+: IsReadOnlyProp OBJECT IN %S
+//#UC START# *4948F9190291for499982880154*
+//	true
+ true
+//#UC END# *4948F9190291for499982880154*
+; // IsReadOnlyProp
+
+
+// Вложенные стереотипы
+//: TestClass::Class::readonly::Attribute::Attribute
+end. // :: <<TestClass>> <<readonly>> ;
+
+implementation @ :: <<TestClass>> <<readonly>> Attribute ;
+//= TestClass::Class::property::Attribute::Attribute
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for499AA86B0322*
+//#UC END# *46E6D4BB0339for499AA86B0322*
+; // wiki
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor499AA86B0322*
+//#UC END# *470F1571031Cfor499AA86B0322*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor499AA86B0322*
+//#UC END# *470F15B800CBfor499AA86B0322*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for499AA86B0322*
+//#UC END# *477398E501C0for499AA86B0322*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for499AA86B0322*
+//#UC END# *55B8D28B0157for499AA86B0322*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for499AA86B0322*
+//#UC END# *55B8D2F80145for499AA86B0322*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for499AA86B0322*
+//#UC END# *55B8DD9C0301for499AA86B0322*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for499AA86B0322*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for499AA86B0322*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor499AA86B0322*
+//#UC END# *4705CBD6003Efor499AA86B0322*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for499AA86B0322*
+//#UC END# *470484D50138for499AA86B0322*
+; // wiki_up_add_gen
+
+
+
+//: TestClass::Class::writeonly::Attribute
+end. // :: <<TestClass>> <<readonly>> Attribute ;
+
+implementation @ :: <<TestClass>> <<writeonly>> ;
+//? Writeonly-свойство
+//= TestClass::Class::property::Attribute
+
+// Параметры стереотипа
+//Y code_writeonly_attr.gif
+//L code_writeonly_attr
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Определяет, что элемент это writeonly-свойство
+//%f _IsWriteOnlyProp
+; // st_space_key
+
+: IsWriteOnlyProp OBJECT IN %S
+//#UC START# *4948F93D038Afor499982B000C6*
+//	true
+ true
+//#UC END# *4948F93D038Afor499982B000C6*
+; // IsWriteOnlyProp
+
+
+// Вложенные стереотипы
+//: TestClass::Class::writeonly::Attribute::Attribute
+end. // :: <<TestClass>> <<writeonly>> ;
+
+implementation @ :: <<TestClass>> <<writeonly>> Attribute ;
+//= TestClass::Class::property::Attribute::Attribute
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for499AA881023B*
+//#UC END# *46E6D4BB0339for499AA881023B*
+; // wiki
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor499AA881023B*
+//#UC END# *470F1571031Cfor499AA881023B*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor499AA881023B*
+//#UC END# *470F15B800CBfor499AA881023B*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for499AA881023B*
+//#UC END# *477398E501C0for499AA881023B*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for499AA881023B*
+//#UC END# *55B8D28B0157for499AA881023B*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for499AA881023B*
+//#UC END# *55B8D2F80145for499AA881023B*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for499AA881023B*
+//#UC END# *55B8DD9C0301for499AA881023B*
+; // res.cmd.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for499AA881023B*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for499AA881023B*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor499AA881023B*
+//#UC END# *4705CBD6003Efor499AA881023B*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for499AA881023B*
+//#UC END# *470484D50138for499AA881023B*
+; // wiki_up_add_gen
+
+
+
+//: TestClass::Class::uses::ClassDependency
+end. // :: <<TestClass>> <<writeonly>> Attribute ;
+
+implementation @ :: <<TestClass>> <<uses>> ;
+//? использование объекта
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+//Y code_dep_uses.gif
+//L code_dep_uses
+
+// Генераторы
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor49998E19015C*
+//#UC END# *470F1571031Cfor49998E19015C*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor49998E19015C*
+//#UC END# *470F15B800CBfor49998E19015C*
+; // impl.pas
+
+
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for49998E19015C*
+//#UC END# *477398E501C0for49998E19015C*
+; // intf2.pas
+
+
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for49998E19015C*
+//#UC END# *55B8D28B0157for49998E19015C*
+; // rc.pas
+
+
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for49998E19015C*
+//#UC END# *55B8D2F80145for49998E19015C*
+; // rc.script.pas
+
+
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for49998E19015C*
+//#UC END# *55B8DD9C0301for49998E19015C*
+; // res.cmd.pas
+
+
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for49998E19015C*
+//#UC END# *46E6D4BB0339for49998E19015C*
+; // wiki
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for49998E19015C*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for49998E19015C*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor49998E19015C*
+//	uses
+ 'uses'
+//#UC END# *4705CBD6003Efor49998E19015C*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for49998E19015C*
+//#UC END# *470484D50138for49998E19015C*
+; // wiki_up_add_gen
+
+
+//: TestClass::Class::Operation
+end. // :: <<TestClass>> <<uses>> ;
+
+implementation @ :: <<TestClass>> <<Operation>> ;
+//? Метод
+//= ClassInner::MDAGenerator
+
+// Параметры стереотипа
+//v +
+// - типы видимости
+//a f
+// - тип абстракции
+//Y code_method.gif
+//L code_method
+//T 
+// - может не иметь "цели" (типа/результата)
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа ClassInner::MDAGenerator
+// Генерируем "ворота" для вызова из TC
+//%f _pas_CallTCGates
+; // st_space_key
+
+: pas_CallTCGates OBJECT IN %S
+// параметры: TCNum: long = %1
+//#UC START# *499C111002ACfor499AD56602D7*
+//	%f_pas_OpenMethodImplementation(%S,%P)\
+ [%f] pas_OpenMethodImplementation %( %S %, %P )% 
+//	procedure %f_pas_FullMethodName(%S,%P)_Pub%1N(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
+ 'procedure '
+ [%f] pas_FullMethodName %( %S %, %P )% '_Pub'
+ %1 |N '(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;'
+//	begin
+ 'begin'
+//	 Assert(Instance is %f_pas_TypeName(%P%G));
+ ' Assert(Instance is '
+ [%f] pas_TypeName %( %P ->G  )% ');'
+//	 try
+ ' try'
+//	  [{"%f_pas_TypeName(%T)"!=""}Value := ]%t_pas_ToVariant(%T,%1)(\
+ '  '
+ if ( ( [%f] pas_TypeName %( %T )% ) %!= '' ) then
+ begin
+  'Value := ' 
+ end // if
+ [%t] pas_ToVariant %( %T %, %1 )% '('
+//	%f_pas_FullMethodName(%S,%P)(%P%f_EffectiveType()(Instance)\
+ [%f] pas_FullMethodName %( %S %, %P )% '('
+ %P %f EffectiveType %( )% '(Instance)'
+//	[, %S%f_pas_CallParams()])\
+ if NOT-EMPTY
+ begin
+  ', '
+  %S %f pas_CallParams %( )% 
+ end // if
+ NOP
+ ')'
+//	);
+ ');'
+//	 except
+ ' except'
+//	  // - гасим исключения\
+ '  // - гасим исключения'
+//	[{"%f_pas_TypeName(%T)"!=""}\n  Value := Unassigned;]
+ if ( ( [%f] pas_TypeName %( %T )% ) %!= '' ) then
+ begin
+  #13#10'  Value := Unassigned;' 
+ end // if
+//	 end;//try..except
+ ' end;//try..except'
+//	end;
+ 'end;'
+//#UC END# *499C111002ACfor499AD56602D7*
+; // pas_CallTCGates
+
+
+// перекрытие базового стереотипа ClassInner::MDAGenerator
+// Выводит регистрацию в TestComplete
+//%f _pas_RegisterInTC
+: pas_RegisterInTC OBJECT IN %S
+//#UC START# *499AD180009Ffor499AD56602D7*
+//	tc%1NPublicInfo._RegisterMethod(%f_pas_TypeName(%P%G), tc%1NOpenAppClasses.mtInvoke, '%SN', [{"%f_pas_TypeName(%T)"!=""}{nil}TypeInfo(%f_pas_TypeName(%T))],\
+ 'tc'
+ %1 |N 'PublicInfo._RegisterMethod('
+ [%f] pas_TypeName %( %P ->G  )% ', tc'
+ %1 |N 'OpenAppClasses.mtInvoke, '''
+ %S |N ''', '
+ if ( ( [%f] pas_TypeName %( %T )% ) %!= '' ) then
+ begin
+  'TypeInfo('
+  [%f] pas_TypeName %( %T )% ')' 
+ end // if
+ else
+ begin
+  'nil' 
+ end // else
+ ','
+//	 \[<{, }TypeInfo(%f_pas_TypeName(%C%T))>\], \[<{, }'%CN'>\], %f_pas_FullMethodName(%S,%P)_Pub%1N);
+ ' ['
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   if ( l_Counter >0 ) then ( ', ' )
+   'TypeInfo('
+   [%f] pas_TypeName %( %C ->T  )% ')' 
+   ++! l_Counter
+  end // if
+ end // for C
+ '], ['
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   if ( l_Counter >0 ) then ( ', ' )
+   ''''
+   %C |N '''' 
+   ++! l_Counter
+  end // if
+ end // for C
+ '], '
+ [%f] pas_FullMethodName %( %S %, %P )% '_Pub'
+ %1 |N ');'
+//#UC END# *499AD180009Ffor499AD56602D7*
+; // pas_RegisterInTC
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Параметры операции
+//%f _pas_Params
+: pas_Params OBJECT IN %S
+// параметры: Modification: void = %1
+//#UC START# *494BDCF3030Efor499AD56602D7*
+//	Self: %P%f_EffectiveType()\
+ 'Self: '
+ %P %f EffectiveType %( )% 
+//	[; %S%[inherited]]
+ if NOT-EMPTY
+ begin
+  '; '
+  inherited
+ end // if
+ NOP
+//#UC END# *494BDCF3030Efor499AD56602D7*
+; // pas_Params
+
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor499AD56602D7*
+//	method
+ 'method'
+//#UC END# *4705CBD6003Efor499AD56602D7*
+; // wiki_child_kind
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // :: <<TestClass>> <<Operation>> ;
+

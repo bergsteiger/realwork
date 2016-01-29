@@ -1,0 +1,48 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{5B184010-500B-4A6C-91F9-1C17EAB0F3AA}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="gtRaveExpD12.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="DCLgtRaveExpD12.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="gtRaveExpD12">
+			<MSBuild Projects="gtRaveExpD12.dproj"/>
+		</Target>
+		<Target Name="gtRaveExpD12:Clean">
+			<MSBuild Targets="Clean" Projects="gtRaveExpD12.dproj"/>
+		</Target>
+		<Target Name="gtRaveExpD12:Make">
+			<MSBuild Targets="Make" Projects="gtRaveExpD12.dproj"/>
+		</Target>
+		<Target Name="DCLgtRaveExpD12">
+			<MSBuild Projects="DCLgtRaveExpD12.dproj"/>
+		</Target>
+		<Target Name="DCLgtRaveExpD12:Clean">
+			<MSBuild Targets="Clean" Projects="DCLgtRaveExpD12.dproj"/>
+		</Target>
+		<Target Name="DCLgtRaveExpD12:Make">
+			<MSBuild Targets="Make" Projects="DCLgtRaveExpD12.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="gtRaveExpD12;DCLgtRaveExpD12"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="gtRaveExpD12:Clean;DCLgtRaveExpD12:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="gtRaveExpD12:Make;DCLgtRaveExpD12:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

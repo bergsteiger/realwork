@@ -1,0 +1,360 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/COM/ComServant.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::COM::ComServant
+//
+// COM-сервант
+// ---
+// Реализация COM-интерфейса
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: ComServant::Class
+implementation @ <<ComServant>>
+//? COM-сервант
+//? Реализация COM-интерфейса
+//= Servant::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p Is ActiveX:b=false ? флаг определяет является ли COM-объект ActiveX контролом
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{Is ActiveX}"!="%S{!Is ActiveX}"}%f_up_prefix(%S) *Is ActiveX* = *%S{Is ActiveX}* - флаг определяет является ли COM-объект ActiveX контролом
+ ?inherited
+ if ( ( %S get_up ( 'Is ActiveX' ) ) %!= ( %S get_up_def ( 'Is ActiveX' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *Is ActiveX* = *'
+  %S get_up ( 'Is ActiveX' ) '* - флаг определяет является ли COM-объект ActiveX контролом'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Servant::Class
+// выводит список наследования
+//%f _base_class_decl
+; // wiki_up_print
+
+: base_class_decl OBJECT IN %S
+//#UC START# *47145120007Dfor471740DE003E*
+//	public ATL::CComObjectRootEx\<<{}{%RS=ComInterface}%R%t_thread_model()>\>
+ 'public ATL::CComObjectRootEx<'
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if ( ( %R |S ) %== 'ComInterface' ) then
+  begin
+   %R %t thread_model %( )% 
+   ++! l_Counter
+  end // if
+ end // for R
+ '>'
+//		, public ATL::CComCoClass\<%SN, &CLSID_Co%RN\>
+ '	, public ATL::CComCoClass<'
+ %S |N ', &CLSID_Co'
+ %R |N '>'
+//		, public ISupportErrorInfo
+ '	, public ISupportErrorInfo'
+//		, public ATL::IDispatchImpl\<%RN, &IID_%RN, &LIBID_%R%PNLib\>[{%S{Is ActiveX}=true}
+ '	, public ATL::IDispatchImpl<'
+ %R |N ', &IID_'
+ %R |N ', &LIBID_'
+ %R ->P |N  'Lib>'
+ if ( ( %S get_up ( 'Is ActiveX' ) ) %==  true ) then
+ begin
+  #13#10
+
+//		, public ATL::CComControl\<%SN\>		
+  '	, public ATL::CComControl<'
+  %S |N '>		'
+//		, public ATL::ISpecifyPropertyPagesImpl\<%SN\>
+  '	, public ATL::ISpecifyPropertyPagesImpl<'
+  %S |N '>'
+//		, public ATL::IPersistStreamInitImpl\<%SN\>
+  '	, public ATL::IPersistStreamInitImpl<'
+  %S |N '>'
+//		, public ATL::IOleControlImpl\<%SN\>
+  '	, public ATL::IOleControlImpl<'
+  %S |N '>'
+//		, public ATL::IOleObjectImpl\<%SN\>
+  '	, public ATL::IOleObjectImpl<'
+  %S |N '>'
+//		, public ATL::IOleInPlaceActiveObjectImpl\<%SN\>
+  '	, public ATL::IOleInPlaceActiveObjectImpl<'
+  %S |N '>'
+//		, public ATL::IViewObjectExImpl\<%SN\>
+  '	, public ATL::IViewObjectExImpl<'
+  %S |N '>'
+//		, public ATL::IOleInPlaceObjectWindowlessImpl\<%SN\>
+  '	, public ATL::IOleInPlaceObjectWindowlessImpl<'
+  %S |N '>'
+//		, public ATL::IProvideClassInfo2Impl\<&CLSID_Co%RN, NULL\>		
+  '	, public ATL::IProvideClassInfo2Impl<&CLSID_Co'
+  %R |N ', NULL>		'
+//		, public ATL::IObjectSafetyImpl\<%SN, INTERFACESAFE_FOR_UNTRUSTED_CALLER\>][{"<{}{}{%GC}>"!="0"}\n\t, ]
+  '	, public ATL::IObjectSafetyImpl<'
+  %S |N ', INTERFACESAFE_FOR_UNTRUSTED_CALLER>' 
+ end // if
+ if ( 
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if true then
+   begin
+
+    ++! l_Counter
+   end // if
+  end // for G
+  l_Counter
+  %!= 0 ) then
+ begin
+  #13#10#9', ' 
+ end // if
+
+//#UC END# *47145120007Dfor471740DE003E*
+; // base_class_decl
+
+
+// перекрытие базового стереотипа Servant::Class
+// генерация списка включений в заколовочный файл серванта
+//%f _h_includes
+: h_includes OBJECT IN %S
+//#UC START# *471451A001B5for471740DE003E*
+//	\#include "shared/Core/fix/win_afx.h"	
+ '#include "shared/Core/fix/win_afx.h"	'
+//	<\#include %f_dump_include_path(%wL,%w)
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%w
+ begin
+  OBJECT IN %w
+  if true then
+  begin
+   '#include '
+   [%f] dump_include_path %( %w |L %, %w )% 
+//	>%U[{_PRE_CUSTOM_INCLUDES}
+
+   ++! l_Counter
+  end // if
+ end // for w
+ %Usersection (
+  '_PRE_CUSTOM_INCLUDES' 
+ )
+ (
+  #13#10
+
+//	]
+
+ ) // Usersection
+ //	%f_set_var(ODL_PATH,"%f_with_gen_id(odl,%R%PL)")\
+ [%f] set_var %( 'ODL_PATH' %, [%f] with_gen_id %( 'odl' %, %R ->P |L  )% )% 
+//	[{"%{ODL_PATH}N"!=""}\#include %f_dump_include_path(%f_delsubstr_from_end(%{ODL_PATH}N,4)_i.h,%R%P)
+ if ( ( ( get_global_var ( 'ODL_PATH' ) |N ) ) %!= '' ) then
+ begin
+  '#include '
+  [%f] dump_include_path %( [%f] delsubstr_from_end %( ( get_global_var ( 'ODL_PATH' ) |N ) %, 4 )% '_i.h' %, %R ->P  )% 
+//	]%P%P<{}{%aM=ComTarget::Category}{Sp}\#include %f_dump_include_path(%f_with_gen_id(h,%aL),%a)>
+ end // if
+ %P ->P
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%ap
+  begin
+   OBJECT IN %a
+   if ( ( %a |M ) %== 'ComTarget::Category' ) then
+   begin
+    '#include '
+    [%f] dump_include_path %( [%f] with_gen_id %( 'h' %, %a |L )% %, %a )% 
+    ++! l_Counter
+   end // if
+  end // for a
+
+ ) // bind
+  //#UC END# *471451A001B5for471740DE003E*
+; // h_includes
+
+
+// перекрытие базового стереотипа Servant::Class
+// выводит forward-определение
+//%f _self_forward
+: self_forward OBJECT IN %S
+//#UC START# *4714514F00DAfor471740DE003E*
+//#UC END# *4714514F00DAfor471740DE003E*
+; // self_forward
+
+
+// перекрытие базового стереотипа Servant::Class
+// генерация дополнительного кода
+//%f _servant_content
+: servant_content OBJECT IN %S
+//#UC START# *4714518703A9for471740DE003E*
+//	//////////////////////////////////////////////////////////////////////////////////////////
+ '//////////////////////////////////////////////////////////////////////////////////////////'
+//	// ComServant declaration
+ '// ComServant declaration'
+//	public:
+ 'public:'
+//		%U[{REGISTRY_RESOURCEID}
+ '	'
+ %Usersection (
+  'REGISTRY_RESOURCEID' 
+ )
+ (
+  #13#10
+
+//		DECLARE_REGISTRY_RESOURCEID("%SU")
+  '	DECLARE_REGISTRY_RESOURCEID("'
+  %S |U ')'
+//		]
+  '	' 
+ ) // Usersection
+ //		DECLARE_PROTECT_FINAL_CONSTRUCT()
+ '	DECLARE_PROTECT_FINAL_CONSTRUCT()'
+//		
+ '	'
+//		BEGIN_COM_MAP(%SN)
+ '	BEGIN_COM_MAP('
+ %S |N ')'
+//			COM_INTERFACE_ENTRY(%RN)
+ '		COM_INTERFACE_ENTRY('
+ %R |N ')'
+//			COM_INTERFACE_ENTRY(IDispatch)
+ '		COM_INTERFACE_ENTRY(IDispatch)'
+//			COM_INTERFACE_ENTRY(ISupportErrorInfo)[{%S{Is ActiveX}=true}
+ '		COM_INTERFACE_ENTRY(ISupportErrorInfo)'
+ if ( ( %S get_up ( 'Is ActiveX' ) ) %==  true ) then
+ begin
+  #13#10
+
+//			COM_INTERFACE_ENTRY(IViewObject)
+  '		COM_INTERFACE_ENTRY(IViewObject)'
+//			COM_INTERFACE_ENTRY(IViewObject2)
+  '		COM_INTERFACE_ENTRY(IViewObject2)'
+//			COM_INTERFACE_ENTRY(IViewObjectEx)
+  '		COM_INTERFACE_ENTRY(IViewObjectEx)'
+//			COM_INTERFACE_ENTRY(ISpecifyPropertyPages)
+  '		COM_INTERFACE_ENTRY(ISpecifyPropertyPages)'
+//			COM_INTERFACE_ENTRY2(IOleWindow, IOleInPlaceObjectWindowless)
+  '		COM_INTERFACE_ENTRY2(IOleWindow, IOleInPlaceObjectWindowless)'
+//			COM_INTERFACE_ENTRY(IOleInPlaceObject)
+  '		COM_INTERFACE_ENTRY(IOleInPlaceObject)'
+//			COM_INTERFACE_ENTRY(IOleInPlaceObjectWindowless)
+  '		COM_INTERFACE_ENTRY(IOleInPlaceObjectWindowless)'
+//			COM_INTERFACE_ENTRY(IOleInPlaceActiveObject)
+  '		COM_INTERFACE_ENTRY(IOleInPlaceActiveObject)'
+//			COM_INTERFACE_ENTRY(IOleControl)
+  '		COM_INTERFACE_ENTRY(IOleControl)'
+//			COM_INTERFACE_ENTRY(IOleObject)
+  '		COM_INTERFACE_ENTRY(IOleObject)'
+//			COM_INTERFACE_ENTRY(IPersistStreamInit)
+  '		COM_INTERFACE_ENTRY(IPersistStreamInit)'
+//			COM_INTERFACE_ENTRY2(IPersist, IPersistStreamInit)
+  '		COM_INTERFACE_ENTRY2(IPersist, IPersistStreamInit)'
+//			COM_INTERFACE_ENTRY(IProvideClassInfo)
+  '		COM_INTERFACE_ENTRY(IProvideClassInfo)'
+//			COM_INTERFACE_ENTRY(IProvideClassInfo2)
+  '		COM_INTERFACE_ENTRY(IProvideClassInfo2)'
+//			COM_INTERFACE_ENTRY(IObjectSafety)
+  '		COM_INTERFACE_ENTRY(IObjectSafety)'
+//			]
+  '		' 
+ end // if
+//		END_COM_MAP()
+ '	END_COM_MAP()'
+//		[{%S{Is ActiveX}=true}
+ '	'
+ if ( ( %S get_up ( 'Is ActiveX' ) ) %==  true ) then
+ begin
+  #13#10
+
+//		BEGIN_PROP_MAP(%SN)
+  '	BEGIN_PROP_MAP('
+  %S |N ')'
+//			PROP_DATA_ENTRY("_cx", m_sizeExtent.cx, VT_UI4)
+  '		PROP_DATA_ENTRY("_cx", m_sizeExtent.cx, VT_UI4)'
+//			PROP_DATA_ENTRY("_cy", m_sizeExtent.cy, VT_UI4)
+  '		PROP_DATA_ENTRY("_cy", m_sizeExtent.cy, VT_UI4)'
+//		END_PROP_MAP()
+  '	END_PROP_MAP()'
+//		
+  '	'
+//		BEGIN_MSG_MAP(%SN)
+  '	BEGIN_MSG_MAP('
+  %S |N ')'
+//			%U[{MSG_MAP}
+  '		'
+  %Usersection (
+   'MSG_MAP' 
+  )
+  (
+   #13#10
+
+//			]
+   '		' 
+  ) // Usersection
+ //		END_MSG_MAP()
+  '	END_MSG_MAP()'
+//		]
+  '	' 
+ end // if
+//		// ISupportsErrorInfo
+ '	// ISupportsErrorInfo'
+//		STDMETHOD(InterfaceSupportsErrorInfo)(REFIID riid) {
+ '	STDMETHOD(InterfaceSupportsErrorInfo)(REFIID riid) {'
+//			return S_FALSE;
+ '		return S_FALSE;'
+//		}
+ '	}'
+//#UC END# *4714518703A9for471740DE003E*
+; // servant_content
+
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for471740DE003E*
+//c                                                      {}
+//r "%rx"="false":                                       {%SS must implement at least one ComInterface}
+//r {<{}{"%RM"!="ComInterface::Class"}{C}>!=0}:          {%SS can implement ComInterfaces only (need to use generalization)}
+//r {"<{}{"%GM"="ComInterface::Class"}{C}>"!="0"}:       {%SS can't be inherited from ComInterface (need to use realization)}
+//r <{}{}{%RC}>!=0&<{}{}{%RC}>!=1:                       {%SS can't directly implement more then one ComInterface}
+//#UC END# *4704C0E30186for471740DE003E*
+; // constraint
+
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for471740DE003E*
+//#UC END# *470484D50138for471740DE003E*
+; // wiki_up_add_gen
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<ComServant>>
+

@@ -1,0 +1,124 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/ImplementationTypes/Deallocator.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::ImplementationTypes::Deallocator
+//
+// Авто-деаллокатор
+// ---
+// Авто-деаллокатор с независимым счетчиком ссылок. Работает аналогично Box но для объектов с
+// собственным счетчиком ссылок. Может использоваться для локального подсчета сслок с последующим
+// вызовом специфическоого деаллокатора. Например для инстанцирования контейнеров интерфейсов или
+// эмуляции агригации интерфейсов. Тип Deallocator'а определяется связью наследования.
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Deallocator::Class
+implementation @ <<Deallocator>>
+//? Авто-деаллокатор
+//? Авто-деаллокатор с независимым счетчиком ссылок. Работает аналогично Box но для объектов с собственным счетчиком ссылок. Может использоваться для локального подсчета сслок с последующим вызовом специфическоого деаллокатора. Например для инстанцирования контейнеров интерфейсов или эмуляции агригации интерфейсов. Тип Deallocator'а определяется связью наследования.
+//< *::Class,*::Category
+
+//= WikiImplClass::Class
+//= C++ интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v +#-
+// - типы видимости
+//Y code_deallocator.gif
+//L code_deallocator
+// Параметры визуализации
+//$ C 255,210,255
+//$ l 155,5,155
+//$ f 155,5,155
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for471DE4B30222*
+//c                              {}
+//r "%t_refcounted(%G)"="false": {%SS can used only for RefCounted objects (like Interfaces,  Servants, or SimplClass with RefCount)}
+//r "%Cx"="true":                {%SS cant have any operations or attributes}
+//r %Rx=true:                    {%SS cant realize any other objects}
+//r {%S{force usage}=false&%ax=false}: {%SS ни кем не используется}
+//#UC END# *4704C0E30186for471DE4B30222*
+; // constraint
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor471DE4B30222*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	[#%S%f_open_ifdef()
+ if NOT-EMPTY
+ begin
+  out_indent %S %f open_ifdef %( )% 
+//	]#struct %SNDeallocator {
+ end // if
+ NOP
+ out_indent 'struct '
+ %S |N 'Deallocator {'
+//	#	static void destroy (%t_arg(%G,"inout") content) {
+ out_indent '	static void destroy ('
+ [%t] arg %( %G %, 'inout' )% ' content) {'
+//	#	%U[
+ out_indent '	'
+ %Usersection (
+
+ )
+ (
+  #13#10
+
+//	#		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION); 
+  out_indent '		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION); '
+//	#	]
+  out_indent '	' 
+ ) // Usersection
+ //	#	}
+ out_indent '	}'
+//	#};
+ out_indent '};'
+//	#typedef ::Core::Box\<%f_type(%G), %SNDeallocator, true\> %SN;[
+ out_indent 'typedef ::Core::Box<'
+ [%f] type %( %G )% ', '
+ %S |N 'Deallocator, true> '
+ %S |N ';'
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	#%S%f_close_ifdef()]
+  out_indent %S %f close_ifdef %( )% 
+ end // if
+ NOP
+//#UC END# *47022C88029Ffor471DE4B30222*
+; // h
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<Deallocator>>
+

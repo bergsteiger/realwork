@@ -1,0 +1,74 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{8ab8bb02-da7e-4d75-8c4c-c8c8d0ff6b9c}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Projects Include="Compression\gtCompressionD11.dproj" />
+    <Projects Include="Filters\gtFiltersD11.dproj" />
+    <Projects Include="PDFCrypt\gtCryptD11.dproj" />
+    <Projects Include="PDFFontProcessor\gtFontD11.dproj" />
+    <Projects Include="Rtl\gtRtlD11.dproj" />
+  </ItemGroup>
+  <ProjectExtensions>
+    <Borland.Personality>Default.Personality</Borland.Personality>
+    <Borland.ProjectType />
+    <BorlandProject>
+  <BorlandProject xmlns=""> <Default.Personality> </Default.Personality> </BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Target Name="gtRtlD11">
+    <MSBuild Projects="Rtl\gtRtlD11.dproj" Targets="" />
+  </Target>
+  <Target Name="gtRtlD11:Clean">
+    <MSBuild Projects="Rtl\gtRtlD11.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="gtRtlD11:Make">
+    <MSBuild Projects="Rtl\gtRtlD11.dproj" Targets="Make" />
+  </Target>
+  <Target Name="gtCompressionD11">
+    <MSBuild Projects="Compression\gtCompressionD11.dproj" Targets="" />
+  </Target>
+  <Target Name="gtCompressionD11:Clean">
+    <MSBuild Projects="Compression\gtCompressionD11.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="gtCompressionD11:Make">
+    <MSBuild Projects="Compression\gtCompressionD11.dproj" Targets="Make" />
+  </Target>
+  <Target Name="gtFiltersD11">
+    <MSBuild Projects="Filters\gtFiltersD11.dproj" Targets="" />
+  </Target>
+  <Target Name="gtFiltersD11:Clean">
+    <MSBuild Projects="Filters\gtFiltersD11.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="gtFiltersD11:Make">
+    <MSBuild Projects="Filters\gtFiltersD11.dproj" Targets="Make" />
+  </Target>
+  <Target Name="gtCryptD11">
+    <MSBuild Projects="PDFCrypt\gtCryptD11.dproj" Targets="" />
+  </Target>
+  <Target Name="gtCryptD11:Clean">
+    <MSBuild Projects="PDFCrypt\gtCryptD11.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="gtCryptD11:Make">
+    <MSBuild Projects="PDFCrypt\gtCryptD11.dproj" Targets="Make" />
+  </Target>
+  <Target Name="gtFontD11">
+    <MSBuild Projects="PDFFontProcessor\gtFontD11.dproj" Targets="" />
+  </Target>
+  <Target Name="gtFontD11:Clean">
+    <MSBuild Projects="PDFFontProcessor\gtFontD11.dproj" Targets="Clean" />
+  </Target>
+  <Target Name="gtFontD11:Make">
+    <MSBuild Projects="PDFFontProcessor\gtFontD11.dproj" Targets="Make" />
+  </Target>
+  <Target Name="Build">
+    <CallTarget Targets="gtRtlD11;gtCompressionD11;gtFiltersD11;gtCryptD11;gtFontD11" />
+  </Target>
+  <Target Name="Clean">
+    <CallTarget Targets="gtRtlD11:Clean;gtCompressionD11:Clean;gtFiltersD11:Clean;gtCryptD11:Clean;gtFontD11:Clean" />
+  </Target>
+  <Target Name="Make">
+    <CallTarget Targets="gtRtlD11:Make;gtCompressionD11:Make;gtFiltersD11:Make;gtCryptD11:Make;gtFontD11:Make" />
+  </Target>
+  <Import Condition="Exists('$(MSBuildBinPath)\Borland.Group.Targets')" Project="$(MSBuildBinPath)\Borland.Group.Targets" />
+</Project>

@@ -1,0 +1,78 @@
+// TtfwFilteredArrayView 52E6752A0047 SimpleClass Class
+
+FORWARD ME_52E6752A0047
+
+INCLUDE '52E666BC0270.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+FORWARD ME_52EA87C200D8
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_CB43E4DD6D05
+ CONST UID 'CB43E4DD6D05'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TtfwFilterLambda' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_CB43E4DD6D05 Ini_Reg_Class
+
+: ME_52EA87C200D8
+ CONST UID '52EA87C200D8'
+ CONST Name 'TtfwFilterLambda'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_52EA8AD102B0 // TtfwTwoLambdas
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_CB43E4DD6D05 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_52EA87C200D8 TtfwFilterLambda
+
+: ME_52E6752A0047
+ CONST UID '52E6752A0047'
+ CONST Name 'TtfwFilteredArrayView'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_52E666BC0270 // TtfwLambdedArrayView
+ ]
+ ; // Inherits
+ : Implemented
+   [ ME_52EA8EE702FA // TwoLabdasClass
+ ]
+ ; // Implemented
+ : Children
+   [ ME_52EA87C200D8 // TtfwFilterLambda
+ ]
+ ; // Children
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_52E6752A0047 TtfwFilteredArrayView

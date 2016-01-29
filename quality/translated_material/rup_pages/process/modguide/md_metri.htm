@@ -1,0 +1,1441 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!-- saved from url=(0022)http://internet.e-mail -->
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<meta http-equiv="Content-Language" content="ru">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="Microsoft Border" content="rb">
+<title>Руководящие принципы: Метрики</title>
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+</head>
+
+<body>
+<a href="_md_metri.htm">Оригинал этой страницы (RUP-2001) смотрите здесь!</a>
+
+<FONT FACE="Times New Roman"><H2><a name="Top"></a><a name="XE_metrics__guidelines_for"></a><a name="Top">Руководящие принципы: Метрики</a></H2>
+<H3>Разделы</H3>
+
+<UL>
+</FONT><LI><A HREF="#Principles"><FONT FACE="Times New Roman">Принципы</FONT></A> </LI>
+<LI><A HREF="#A Taxonomy of Metrics"><FONT FACE="Times New Roman">Классификация Метрик</FONT></A> </LI>
+<LI><a HREF="#A Small Set of Metrics"><FONT FACE="Times New Roman">Малый набор Метрик</FONT></a> </LI>
+<LI><a HREF="#A Complete Metrics Set"><FONT FACE="Times New Roman">Полный набор Метрик</FONT></a> </LI>
+
+<UL>
+<LI><FONT FACE="Times New Roman"><a href="#What should be measured?">Что должно быть измерено?</a></FONT> </LI>
+<LI><a HREF="#The Process"><FONT FACE="Times New Roman">Процесс</FONT></a> </LI>
+<LI><A HREF="#The Product"><FONT FACE="Times New Roman">Продукт</FONT></A> </LI>
+<LI><A HREF="#The Project"><FONT FACE="Times New Roman">Проект</FONT></A> </LI>
+<LI><A HREF="#The Resources"><FONT FACE="Times New Roman">Ресурсы</FONT></A> </LI></UL>
+</UL>
+
+<FONT FACE="Times New Roman"><H3><A NAME="XE_metrics__principles"></a><A NAME="Principles"></A>Принципы</FONT><A HREF="#Top"><IMG SRC="../../images/top.gif" BORDER=0 WIDTH=25 HEIGHT=20 ALT="To top of page"></A></H3>
+
+<UL>
+<FONT FACE="Times New Roman"><LI>Метрика должна быть простой, объективной, легко собираться, легко интерпретироваться, и исключать возможность многозначного понимания.</FONT> </LI>
+<FONT FACE="Times New Roman"><LI>Сбор Метрик должен быть автоматизированным и неагрессивным, то есть, не сталкиваться с действиями разработчиков.</FONT> </LI>
+<FONT FACE="Times New Roman"><LI>Метрика должна вносить вклад в оценку качества на ранних стадиях срока службы, когда усилия, направленные на улучшение качества программного обеспечения эффективны.</FONT> </LI>
+<FONT FACE="Times New Roman"><LI>Абсолютные значения Метрик и тенденции (тренды) должны активно использоваться персоналом управления и техническим персоналом для связанного продвижения и качества в последовательном формате.</FONT> </LI>
+<FONT FACE="Times New Roman"><LI>Выбор минимального или более обширного набора Метрик будет зависеть от характеристик проекта и контекста: если проект большой или имеет строгую безопасность или требования к надежности и развитию, и команды по оценке хорошо осведомлены относительно Метрик, то может быть полезно собирать и анализировать технические Метрики. Контракт может требовать, чтобы определенные Метрики были собраны, или организация может пытаться повысить свою квалификацию в специфических областях процесса. Не существует простого ответа, чтобы учесть все обстоятельства, Менеджер Проекта должен выбрать, что соответствует, когда осуществлен План Измерения Метрик. Программа метрик, хотя и должна быть чувствительна к ошибкам, но в то же время должна быть простой.</FONT> </LI></UL>
+
+<FONT FACE="Times New Roman"><H3><a NAME="XE_metrics__taxonomy_of"></a><a name="A Taxonomy of Metrics"></a>Классификация Метрик</FONT><A HREF="#Top"><IMG SRC="../../images/top.gif" BORDER=0 WIDTH=25 HEIGHT=20 ALT="To top of page"></A></H3>
+<FONT FACE="Times New Roman"><P>Метрики для некоторых аспектов проекта, включают:</FONT> </P>
+
+<UL>
+<FONT FACE="Times New Roman"><LI>Прогресс в единицах размера и сложности.</FONT> </LI>
+<FONT FACE="Times New Roman"><LI>Стабильность в единицах уровня изменений в требованиях или выполнении, размере, или сложности.</FONT> </LI>
+<FONT FACE="Times New Roman"><LI>Модульность в элементах масштаба изменений.</FONT> </LI>
+<FONT FACE="Times New Roman"><LI>Качество в элементах количества и типа ошибок.</FONT> </LI>
+<FONT FACE="Times New Roman"><LI>Завершенность в элементах частоты ошибок.</FONT> </LI>
+<FONT FACE="Times New Roman"><LI>Ресурсы в единицах расхода проекта по сравнению с запланированным расходом</FONT> </LI></UL>
+
+<FONT FACE="Times New Roman"><P>Важны <B>тенденции </B>(тренды), и несколько более важен контроль, чем любой абсолютный показатель во определенное время.</P>
+<P><div align="center"></FONT>
+<P ALIGN="CENTER"><CENTER><TABLE BORDER CELLSPACING=1 CELLPADDING=2 WIDTH=530>
+<TR><TD WIDTH="22%" VALIGN="MIDDLE">
+<P><B><FONT FACE="Times New Roman">Метрика</FONT></B></TD>
+<TD WIDTH="27%" VALIGN="MIDDLE">
+<B><FONT FACE="Times New Roman"><P>Цель</FONT></B></TD>
+<TD WIDTH="69%" VALIGN="MIDDLE">
+<B><FONT FACE="Times New Roman"><P>Пример измерения/перспективы</FONT></B></TD>
+</TR>
+<TR><TD WIDTH="22%" VALIGN="MIDDLE">
+<B><FONT FACE="Times New Roman"><P>Прогресс</FONT></B></TD>
+<TD WIDTH="27%" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Планирование итерации<BR>
+Завершенность</FONT></TD>
+<TD WIDTH="69%" VALIGN="MIDDLE">
+
+<UL>
+<FONT FACE="Times New Roman"><LI>Количество классов </LI>
+</FONT><LI>SLOC </LI>
+<FONT FACE="Times New Roman"><LI>Функциональные точки </LI>
+<LI>Сценарии </LI>
+<LI>Случаи тестов </LI></UL>
+
+<P>Эти Метрики могут также быть собраны по классам и по совокупности </P>
+
+<UL>
+<LI>Количество доработок за итерацию (количество классов) </LI></UL>
+
+</FONT><PRE> </PRE></TD>
+</TR>
+<TR><TD WIDTH="22%" VALIGN="MIDDLE">
+<B><FONT FACE="Times New Roman"><P>Стабильность</FONT></B></TD>
+<TD WIDTH="27%" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Сближение</FONT></TD>
+<TD WIDTH="69%" VALIGN="MIDDLE">
+
+<UL>
+<FONT FACE="Times New Roman"><LI>Количество и типы изменений (дефект в сравнении с улучшением; согласование в сравнении с реализацией) </LI></UL>
+
+<P>Эта Метрика также может быть собрана по итерации и совокупности </P>
+
+<UL>
+<LI>Количество доработок за итерацию </LI></UL>
+
+</FONT><PRE> </PRE></TD>
+</TR>
+<TR><TD WIDTH="22%" VALIGN="MIDDLE">
+<B><FONT FACE="Times New Roman"><P>Применимость</FONT></B></TD>
+<TD WIDTH="27%" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Сближение<BR>
+"Доработки" программного обеспечения</FONT></TD>
+<TD WIDTH="69%" VALIGN="MIDDLE">
+
+<UL>
+<FONT FACE="Times New Roman"><LI>Средний человеко-час/изменение </LI></UL>
+
+<P>Эта Метрика также может быть собрана по итерации и совокупности</FONT></TD>
+</TR>
+<TR><TD WIDTH="22%" VALIGN="MIDDLE">
+<B><FONT FACE="Times New Roman"><P>Модульность</FONT></B></TD>
+<TD WIDTH="27%" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Сближение<BR>
+"Отходы" программного обеспечения</FONT></TD>
+<TD WIDTH="69%" VALIGN="MIDDLE">
+
+<UL>
+<FONT FACE="Times New Roman"><LI>Количество модификаций классы/категории за изменение </LI></UL>
+
+<P>Эта Метрика также может быть собрана по итерации</FONT></TD>
+</TR>
+<TR><TD WIDTH="22%" VALIGN="MIDDLE">
+<B><FONT FACE="Times New Roman"><P>Качество</FONT></B></TD>
+<TD WIDTH="27%" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Планирование итерации<BR>
+Индикатор доработок<BR>
+Критерии выпуска</FONT></TD>
+<TD WIDTH="69%" VALIGN="MIDDLE">
+
+<UL>
+<FONT FACE="Times New Roman"><LI>Количество ошибок </LI>
+<LI>Уровень обнаружения дефектов </LI>
+<LI>Плотность дефектов </LI>
+<LI>Глубина наследования </LI>
+<LI>Сцепление классов </LI>
+<LI>Размер интерфейса (число операций) </LI>
+<LI>Число отвергнутых методов </LI>
+<LI>Размер метода </LI></UL>
+
+<P>Эти Метрики могут также быть собраны по классам и по совокупности</FONT></TD>
+</TR>
+<TR><TD WIDTH="22%" VALIGN="MIDDLE">
+<B><FONT FACE="Times New Roman"><P>Готовность</FONT></B></TD>
+<TD WIDTH="27%" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Тест охват/адекватность<BR>
+Ошибкоустойчивость для использования</FONT></TD>
+<TD WIDTH="69%" VALIGN="MIDDLE">
+
+<UL>
+<FONT FACE="Times New Roman"><LI>Тест часы/отказ и тип отказа </LI></UL>
+
+<P>Эта Метрика также может быть собрана по итерации и совокупности</FONT></TD>
+</TR>
+<TR><TD WIDTH="22%" VALIGN="MIDDLE">
+<B><FONT FACE="Times New Roman"><P>Профиль затрат</FONT></B></TD>
+<TD WIDTH="27%" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Финансовая интуиция<BR>
+Планированный против фактического</FONT></TD>
+<TD WIDTH="69%" VALIGN="MIDDLE">
+
+<UL>
+<FONT FACE="Times New Roman"><LI>Человеко-день/класс </LI>
+<LI>Рабочее время персонала за месяц&nbsp; </LI>
+<LI>% израсходованного бюджета </LI></UL>
+
+</FONT><PRE> </PRE></TD>
+</TR>
+</TABLE>
+</CENTER>
+
+<P ALIGN="CENTER"></div>
+<FONT FACE="Times New Roman"><H3><a NAME="XE_metrics__small_set_of_metrics"></a>
+<a name="A Small Set of Metrics">Малый набор Метрик</a></FONT><A HREF="#Top"><IMG SRC="../../images/top.gif" BORDER=0 WIDTH=25 HEIGHT=20 ALT="To top of page"></A></H3>
+<FONT FACE="Times New Roman"><P>Этот пример взят из </FONT><EM>Software Project Management, a Unified framework </EM>[<A HREF="../referenc.htm#ROY98">ROY98</A><FONT FACE="Times New Roman">]. Он представляет собой минимальный набор Метрик необходимых с точки зрения Project Management. Более расширенный набор Вы можете найти в </FONT><A HREF="#A Complete Metrics Set"><FONT FACE="Times New Roman">Полный набор Метрик</FONT></A><FONT FACE="Times New Roman">, который также включает некоторые OO(объектно-ориентированые) специфичные технические Метрики, которые широко распространены&nbsp; и вносят вклад в качество продукта.</P>
+<H4>Метрики и Простые Метрики</H4>
+<div align="center" style="width: 512; height: 501"></FONT>
+<CENTER><TABLE BORDER="1" CELLSPACING=1 CELLPADDING=2 WIDTH=467>
+<TR><TD WIDTH="300" VALIGN="MIDDLE">
+<P><FONT FACE="Times New Roman">Общий SLOC (Source Lines of Code)</FONT></TD>
+<TD WIDTH="450" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>SLOCt = Общий размер кода</FONT></TD>
+</TR>
+<TR><TD WIDTH="300" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>SLOC в течение конфигурации&nbsp;<BR>
+контроль</FONT></TD>
+<TD WIDTH="450" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>SLOCc = текущая базовая строка</FONT></TD>
+</TR>
+<TR><TD WIDTH="300" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Критическая неисправность</FONT></TD>
+<TD WIDTH="450" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>SCO0 = количество типов 0 SCO (Software Change Orders)</FONT></TD>
+</TR>
+<TR><TD WIDTH="300" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Стандартные дефекты</FONT></TD>
+<TD WIDTH="450" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>SCO1 = количество типов 1 SCO</FONT></TD>
+</TR>
+<TR><TD WIDTH="300" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Запросы на исправление</FONT></TD>
+<TD WIDTH="450" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>SCO2 = количество типов 2 SCO</FONT></TD>
+</TR>
+<TR><TD WIDTH="300" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Новые возможности</FONT></TD>
+<TD WIDTH="450" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>SCO3 = количество типов 3 SCO</FONT></TD>
+</TR>
+<TR><TD WIDTH="300" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Количество SCO</FONT></TD>
+<TD WIDTH="450" VALIGN="MIDDLE">
+<P>N = SCO0 + SCO1 + SCO2</TD>
+</TR>
+<TR><TD WIDTH="300" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Открытые доработки (повреждение)</FONT></TD>
+<TD WIDTH="450" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>B = совокупность дефектных SLOC, связанных с&nbsp;
+SCO1 and SCO2</FONT></TD>
+</TR>
+<TR><TD WIDTH="300" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Закрытые доработки(затруднительные ситуации)</FONT></TD>
+<TD WIDTH="450" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>F = совокупный установленный SLOC</FONT></TD>
+</TR>
+<TR><TD WIDTH="300" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Усилия по доработке</FONT></TD>
+<TD WIDTH="450" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>E = общее усилие, израсходованное на фиксацию типа 0/1/2 SCO</FONT></TD>
+</TR>
+<TR><TD WIDTH="300" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Время использования</FONT></TD>
+<TD WIDTH="450" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>UT&nbsp; (всеобщее время) = часы, которые данная базовая строка работала под реалистическими&nbsp; сценариями использования</FONT></TD>
+</TR>
+</TABLE>
+</CENTER></div>
+<FONT FACE="Times New Roman"><H4>Метрики качества для конечного продукта</H4>
+<P>Из этого малого набора Метрик может быть получено несколько более интересных Метрик:</P>
+<div align="center"></FONT>
+<CENTER><TABLE BORDER="1" CELLSPACING=1 CELLPADDING=2 WIDTH=490>
+<TR><TD WIDTH="143" VALIGN="MIDDLE">
+<P><FONT FACE="Times New Roman">Отношение брака</FONT></TD>
+<TD WIDTH="327" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>B/SLOCt, процент бракованных продуктов&nbsp;</FONT></TD>
+</TR>
+<TR><TD WIDTH="143" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Отношение доработок</FONT></TD>
+<TD WIDTH="327" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>E/Общее усилие, процент на усилия по доработке</FONT></TD>
+</TR>
+<TR><TD WIDTH="143" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Модульность </P>
+</FONT><PRE> </PRE></TD>
+<TD WIDTH="327" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>B/N, средняя поломка за SCO</FONT></TD>
+</TR>
+<TR><TD WIDTH="143" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Применимость </P>
+</FONT><PRE> </PRE></TD>
+<TD WIDTH="327" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>E/N, среднее усилия за SCO</FONT></TD>
+</TR>
+<TR><TD WIDTH="143" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Готовность </P>
+</FONT><PRE> </PRE></TD>
+<TD WIDTH="327" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>UT/(SCO0 + SCO1), Среднее время между дефектами</FONT></TD>
+</TR>
+<TR><TD WIDTH="143" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Эксплутационная надежность </P>
+</FONT><PRE> </PRE></TD>
+<TD WIDTH="327" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>(Отношение брака)/(отношение доработок), продуктивность технического обслуживания</FONT></TD>
+</TR>
+</TABLE>
+</CENTER></div>
+<FONT FACE="Times New Roman"><H4>Индикаторы в в прогрессе&nbsp;</H4>
+<div align="center"></FONT>
+<CENTER><TABLE BORDER="1" CELLSPACING=1 CELLPADDING=2 WIDTH=497>
+<TR><TD WIDTH="167" VALIGN="MIDDLE">
+<P><FONT FACE="Times New Roman">Стабильность доработок</FONT></TD>
+<TD WIDTH="310" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>B - F, поломки против затруднительных ситуаций с течением временем</FONT></TD>
+</TR>
+<TR><TD WIDTH="167" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Незавершенные доработки&nbsp;</FONT></TD>
+<TD WIDTH="310" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>(B-F)/SLOCc, текущая открытая доработка</FONT></TD>
+</TR>
+<TR><TD WIDTH="167" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Тренд модульности</FONT></TD>
+<TD WIDTH="310" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Модульность с течением времени</FONT></TD>
+</TR>
+<TR><TD WIDTH="167" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Тренд применимости</FONT></TD>
+<TD WIDTH="310" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Применимость с течением времени</FONT></TD>
+</TR>
+<TR><TD WIDTH="167" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Тренд готовности</FONT></TD>
+<TD WIDTH="310" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Готовность с течением времени</FONT></TD>
+</TR>
+</TABLE>
+</CENTER></div>
+<FONT FACE="Times New Roman"><H3><a name="A Complete Metrics Set"></a> <a NAME="A_Complete_Metrics_Set">Полный набор Метрик</a></FONT><A HREF="#Top"><IMG SRC="../../images/top.gif" BORDER=0 WIDTH=25 HEIGHT=20 ALT="To top of page"></A></H3>
+<FONT FACE="Times New Roman"><H4>&nbsp; <a name="What should be measured?"></a>
+Что должно быть измерено?</FONT><a HREF="#Top"><IMG SRC="../../images/top.gif" BORDER=0 WIDTH=25 HEIGHT=20 ALT="To top of page"></a></H4>
+<FONT FACE="Times New Roman"><P>Должны быть измерены:</P>
+
+<UL>
+
+<UL>
+<BLOCKQUOTE>
+</blockquote>
+<LI>Процесс - последовательность действий, направленных на изготовление программного обеспечения (и других продуктов);</FONT> </LI>
+<FONT FACE="Times New Roman"><BLOCKQUOTE>
+</blockquote>
+<LI>Продукт – продукт процесса, включая программное обеспечение, документы и модели;</FONT> </LI>
+<FONT FACE="Times New Roman"><BLOCKQUOTE>
+</blockquote>
+<LI>Проект - все количество проектных ресурсов, действий и продуктов;</FONT> </LI>
+<FONT FACE="Times New Roman"><BLOCKQUOTE>
+</blockquote>
+<LI>Ресурсы - люди, методы и инструменты, время, усилия и бюджет, доступные для проекта.</FONT> </LI></UL>
+</UL>
+
+<FONT FACE="Times New Roman"><H4>&nbsp;<a NAME="The Process">Процесс</a></FONT><A HREF="#Top"><IMG SRC="../../images/top.gif" BORDER=0 WIDTH=25 HEIGHT=20 ALT="To top of page"></A></H4>
+<FONT FACE="Times New Roman"><P>Чтобы полностью охарактеризовать процесс, должны быть сделаны измерения на самом низком уровне формально запланированной деятельности. Действия будут запланированы Менеджером Проекта, использующим начальный набор оценок. В течение всего времени должна вестись запись должна тогда всех фактических значений и любых обновленных оценок, которые были сделаны.</P>
+<div align="center"></FONT>
+<CENTER><TABLE BORDER="1" CELLSPACING=1 WIDTH=498>
+<TR><TD WIDTH="217" VALIGN="MIDDLE">
+<P ALIGN="CENTER"><FONT FACE="Times New Roman"><STRONG>Метрики</STRONG></FONT></TD>
+<TD WIDTH="265" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><STRONG><P ALIGN="CENTER">Комментарии</STRONG></FONT></TD>
+</TR>
+<TR><TD WIDTH="217" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Продолжительность</FONT></TD>
+<TD WIDTH="265" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Время, затраченное на действие</FONT></TD>
+</TR>
+<TR><TD WIDTH="217" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Усилие</FONT></TD>
+<TD WIDTH="265" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Единицы усилий персонала (персонало-часы, персонало-дни, ...)</FONT></TD>
+</TR>
+<TR><TD WIDTH="217" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Продукция</FONT></TD>
+<TD WIDTH="265" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Продукты и их размер и количество (заметьте, что должны быть включены дефекты как продукты испытательной деятельности)</FONT></TD>
+</TR>
+<TR><TD WIDTH="217" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Использование среды разработки программного обеспечения</FONT></TD>
+<TD WIDTH="265" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>ЦПУ, хранение, инструменты программного обеспечения, оборудование (автоматизированные рабочие места, PC), предметы повседневного спроса. Обратите внимание, что они могут быть собраны для проекта Специалистом по Cреде Разработки программного обеспечения (</FONT><FONT COLOR="#ff0000">SEEA</FONT>).</TD>
+</TR>
+<TR><TD WIDTH="217" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Дефекты, уровень обнаружения, уровень корректировки.</FONT></TD>
+<TD WIDTH="265" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Общее время восстановления/усилия и общий брак/доработка (где это может быть измерено) также должны быть собраны; возможно их получение из информации, собранной относительно дефектов (предполагаемых как артефакты).</FONT></TD>
+</TR>
+<TR><TD WIDTH="217" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Смена запросов, уровень&nbsp; несоответствия, уровень отходов.</FONT></TD>
+<TD WIDTH="265" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Комментарии аналогичны метрике время/усилие</FONT></TD>
+</TR>
+<TR><TD WIDTH="217" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Другие случаи, которые могут иметь отношение к этим Метрикаам (текст свободной формы )</FONT></TD>
+<TD WIDTH="265" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Это Метрика, в которой отображается событие, влияющее на процесс.</FONT></TD>
+</TR>
+<TR><TD WIDTH="217" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Количество персонала, профиль (на протяжении времени) и характеристики</FONT></TD>
+<TD WIDTH="265" VALIGN="MIDDLE">
+<PRE> </PRE></TD>
+</TR>
+<TR><TD WIDTH="217" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Текучесть персонала</FONT></TD>
+<TD WIDTH="265" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Удобная Метрика, которая может объяснить в конечном обзоре, почему процесс шел&nbsp; особенно хорошо или плохо.</FONT></TD>
+</TR>
+<TR><TD WIDTH="217" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Приложение усилий</FONT></TD>
+<TD WIDTH="265" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Путь, которым осуществлялось усилие при выполнении запланированных действий (относительно которого формально записывается&nbsp; время для управления счетом издержек) может помочь объяснить различия в производительности: в качестве примера, укажем некоторые подклассы приложения усилий: </P>
+
+<UL>
+<LI>обучение </LI>
+<LI>ознакомление </LI>
+<LI>управление (руководством группой, например) </LI>
+<LI>администрация </LI>
+<LI>исследование </LI>
+<LI>производственная работа - полезно вести ее запись по артефактам, и пытаться разделить время на 'обдумывание' и время захвата, особенно для документов. Это должно помочь Менеджеру проекта понять, насколько много занимает процесс документации в конструкторском времени . </LI>
+<LI>потерянное время </LI>
+<LI>встречи </LI>
+<LI>проверки, критические анализы, обзоры – подготовка и встречные усилия (некоторые из них будут разделять действия и направленные на них время и усилия, против специфического действия обзора) </LI></UL>
+
+</FONT><PRE> </PRE></TD>
+</TR>
+<TR><TD WIDTH="217" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Проверки, критические анализы, обзоры (в течение действия - не отдельно от запланированных обзоров)</FONT></TD>
+<TD WIDTH="265" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Записывайте их количество, продолжительность и количество возникших проблем</FONT></TD>
+</TR>
+<TR><TD WIDTH="217" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Отклонения Процесса (возникшие из-за несогласованности, требующие изменения проекта)</FONT></TD>
+<TD WIDTH="265" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Записывайте их число и серьезность. Это - индикатор, что может требоваться больше образования, что процесс неправильно используется, или что процесс был неверно сконфигурирован</FONT></TD>
+</TR>
+<TR><TD WIDTH="217" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Проблемы процесса (возникшие как дефекты процесса, требующие изменения <B>процесса</B></FONT>)</TD>
+<TD WIDTH="265" VALIGN="MIDDLE">
+<FONT FACE="Times New Roman"><P>Записывайте их число и серьезность. Это будет являться полезной информацией в конечных обзорах и послужит важной обратной связью для Специалиста по Процессу Разработки Программного Обеспечения
+(SEPA).</FONT></TD>
+</TR>
+</TABLE>
+</CENTER></div>
+<P>&nbsp;</P>
+
+<h4><a name="The Product">Продукт</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p>Продукты в Rational Unified Process&nbsp; - <a href="../artifact/ovu_arts.htm">артефакты</a>,
+и представляют собой документы, модели или
+элементы моделей. Модели - коллекции
+аналогичных предметов (элементов моделей),
+так что рекомендованные Метрики
+представлены здесь вместе с моделями, к
+которым они относятся: обычно очевидно,
+если Метрика использует модель как целое,
+или как элемент. Объяснительный текст
+представлен там, где это не очевидно.</p>
+<h3>Характеристики артефакта</h3>
+<p>В общем, характеристики, измерение
+которых нас интересует следующие:</p>
+<blockquote>
+  <ul>
+    <li><strong>Размер - </strong>единица измерения
+      числа элементов в модели,
+      продолжительности, объема или массы
+      некоторых элементов</li>
+    <li><strong>Качество</strong>
+      <ul>
+        <li>Дефекты - признаки того, что продукты
+          не выполняются как обусловлено или не
+          согласуются со спецификацией, или
+          имеют другие нежелательные
+          характеристики</li>
+        <li>Сложность - <font FACE="Times New Roman" COLOR="#000000">мера
+          запутанности структуры или алгоритма:
+          чем больше сложность, тем сложнее
+          структура для понимания и изменения, и
+          это свидетельствует о том, что сложные
+          структуры с большей вероятностью
+          будут терпеть неудачу</font></li>
+        <li><font face="Times New Roman" color="#000000">Взаимосвязь
+          - мера того, как сильно элементы
+          системы связаны</font>&nbsp;</li>
+        <li><font face="Times New Roman" color="#000000">Единство -
+          мера того, как хорошо элемент или
+          компонент соответствует требованию
+          наличия единственной, четкой цели</font></li>
+        <li>Простота - уровень, до которого
+          операции или методы класса могут быть
+          составлены из других компонентов
+          предлагаемых классом</li>
+      </ul>
+    </li>
+    <li><strong>Законченность</strong> - мера степени
+      до которой продукты соответствуют
+      требованиям (установленных и
+      подразумевавшихся - Менеджер Проекта
+      должен стараться достичь как
+      можно большего результата, чтобы
+      ограничить риск невыполненных ожиданий).
+      Мы здесь не делали различия между <i>достаточным
+      </i>и <i>полным</i>.</li>
+    <li><strong>Отслеживаемость - </strong>признак
+      того, что требования на одном уровне
+      удовлетворяются артефактами более
+      низкого уровня, и, рассматривая это с
+      другой стороны, артефакт на любом уровне
+      имеет смысл для существования.</font></li>
+    <li><strong>Изменчивость - </strong><font FACE="Times New Roman" COLOR="#000000">степень
+      замен или изменений в артефакте из-за
+      дефектов или изменяющихся требований</font></li>
+    <li><strong>Усилие </strong><font FACE="Times New Roman" COLOR="#000000">-
+      мера объема работ (штатно-временные
+      единицы) необходимого для производства
+      артефакта</font></li>
+  </ul>
+</blockquote>
+<p><font FACE="Times New Roman" COLOR="#000000">Не все из этих
+характеристик используются для всех
+артефактов: существенные характеристики
+детально разобраны для отдельных артефактов
+в следующих таблицах. Где несколько
+Метрик расположены напротив
+характеристики, все потенциально интересны,
+потому что они дают полное описание
+характеристики с нескольких точек зрения.
+Например, при рассмотрении отслеживаемости
+Прецедентов, в конечном счете все
+должны быть прослеживаемы для (проверенной)
+модели выполнения: тем временем, это&nbsp; все
+будет интересным Менеджеру Проекта, чтобы
+знать, сколько Прецедентов могут
+быть прослежены для Модели Анализа, как
+меры прогресса.</font></p>
+<h3>Документы</h3>
+<p>Рекомендуемые Метрики относятся ко
+всем документам Rational Unified Process.</p>
+<div align="center"><center>
+
+<table border="1" width="85%">
+  <tr>
+    <td width="50%">
+    <p align="center"><strong>Характеристика</strong></td>
+    <td width="50%">
+    <p align="center"><strong>Метрики</strong></td>
+  </tr>
+  <tr>
+    <td width="50%">Размер</td>
+    <td width="50%">Подсчет страниц</td>
+  </tr>
+  <tr>
+    <td width="50%">Усилие</td>
+    <td width="50%">Штатно-временные показатели для
+      производства, изменения и
+      восстановления</td>
+  </tr>
+  <tr>
+    <td width="50%">Изменчивость</td>
+    <td width="50%">Число изменений, дефектов,
+      открытых, закрытых; изменение страниц</td>
+  </tr>
+  <tr>
+    <td width="50%">Качество</td>
+    <td width="50%">Измеряется непосредственно
+      через подсчет дефектов</td>
+  </tr>
+  <tr>
+    <td width="50%"><em>Завершенность</em></td>
+    <td width="50%"><em>Измеряется косвенно: мнение
+      строится на основании обзора</em></td>
+  </tr>
+  <tr>
+    <td width="50%"><em>Отслеживаемость</em></td>
+    <td width="50%"><em>Измеряется косвенно: мнение
+      строится на основании обзора</em></td>
+  </tr>
+</table>
+</center></div>
+
+<h3>Модели</h3>
+<h4>Требования</h4>
+<blockquote>
+  <p><a href="../artifact/ar_rattr.htm">Требуемые Атрибуты</a></p>
+  <p>Это - фактически, элемент модели.</p>
+  <div align="center"><center>
+
+  <table border="1" width="85%">
+    <tr>
+      <td width="19%" align="center"><strong>Характеристика</strong></td>
+      <td width="81%" align="center"><strong>Метрики</strong></td>
+    </tr>
+    <tr>
+      <td width="19%">Размер</td>
+      <td width="81%">
+      <ul>
+        <li>общее число требований (= Nu+Nd+Ni+Nt)</li>
+        <li>число, которое должно быть
+          прослежено для прецедентов ( =
+          Nu)</li>
+        <li>число, которое должно быть
+          прослежено только для плана,
+          реализации, теста ( = Nd)</li>
+        <li>число, которое должно быть
+          прослежено только для реализации,
+          теста ( = Ni)</li>
+        <li>число, которое должно быть
+          прослежено только для теста ( = Nt)</li>
+      </ul>
+      <p>Заметьте, что эти требования разделов
+      делятся на те, которые будут
+      смоделированы&nbsp; Прецедентами&nbsp; и на те, которые не
+      будут смоделированы. Предполагается,
+      что отслеживание Прецедента будет рассчитано для требований
+      определенных для Прецедентов,
+      для плана отслеживания, реализации и
+      теста</td>
+    </tr>
+    <tr>
+      <td width="19%">Усилие</td>
+      <td width="81%">
+      <ul>
+        <li>Штатно-временные показатели (для
+          производства, изменения и
+          восстановления в отдельности)</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Изменчивость</td>
+      <td width="81%">
+      <ul>
+        <li>Число дефектов и запросов на
+          изменение (открытых, закрытых)</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Качество</td>
+      <td width="81%">
+      <ul>
+        <li>Дефекты &#8211; число дефектов, по
+          серьезности, открытых, закрытых</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Отслеживаемость</td>
+      <td width="81%">
+      <ul>
+        <li><a name="Requirements-to-UC Traceability">Требования-к-Верхнему
+          Регистру Отслеживаемости </a>= Отслеживаемый для Модели
+          Прецедента/Nu</li>
+        <li><a name="Design Traceability in Requirements Attributes">Отслеживаемость
+          Плана</a><a name="Design Traceability in Requirements Attributes">
+          </a>= Отслеживаемый для Модели Плана/Nd</li>
+        <li><a name="Implementation Traceability in Requirements Attributes">&nbsp;Отслеживаемость
+          Реализации</a> = Отслеживаемый для
+          Модели Реализации/(Nd+Ni)</li>
+        <li><a name="Test Traceability in Requirements Attributes">Отслеживаемость
+          Теста</a><a name="Test Traceability in Requirements Attributes"> </a>=
+          Отслеживаемый для Модели Теста/(Nd+Ni+Nt)</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+  </table>
+  </center></div>
+
+</blockquote>
+<blockquote>
+  <p><a href="../artifact/ar_ucmod.htm"><font size="3">Модель
+  Прецедента</font></a></p>
+</blockquote>
+<blockquote>
+  <div align="center"><center>
+
+  <table border="1" width="85%">
+    <tr>
+      <td width="19%" align="center"><strong>Характеристика</strong></td>
+      <td width="81%" align="center"><strong>Метрики</strong></td>
+    </tr>
+    <tr>
+      <td width="19%">Размер</td>
+      <td width="81%">
+      <ul>
+        <li>Число Прецедентов</li>
+        <li>Число Пакетов Прецедентов</li>
+        <li>Отчетный уровень Прецедентов (смотри
+          официальный документ<i>,</i> &quot;Оценка
+          усилий и размера основанная на
+          прецедентах&quot;&nbsp; от&nbsp; Центра
+          Ресурсов)</li>
+        <li>Число сценариев, общее и на прецедент</li>
+        <li>Число актеров</li>
+        <li>Продолжительность Прецедентов (Например,
+          страницы обработки событий)</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Усилие</td>
+      <td width="81%">
+      <ul>
+        <li>Штатно-временные единицы (с
+          производством, изменением и
+          восстановлением по отдельности)</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Изменчивость</td>
+      <td width="81%">
+      <ul>
+        <li>Число дефектов и запросов на
+          изменение (открытых, закрытых)</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Качество</td>
+      <td width="81%">
+      <ul>
+        <li>Сообщенная сложность (0-5, по аналогии
+          с Конструктивной Стоимостной Моделью [<a href="../referenc.htm#BOE81">BOE81</a>],
+          на&nbsp; уровне класса; диапазон
+          сложности уже на более высоких
+          уровнях обобщения - смотри официальный
+          документ, &quot;Оценка усилий и размера
+          основанная на прецедентах&quot;&nbsp;
+          от&nbsp; Центра Ресурсов)</li>
+        <li>Дефекты &#8211; число дефектов, по
+          серьезности, открытые, закрытые</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Завершенность</td>
+      <td width="81%">
+      <ul>
+        <li>Завершенные прецеденты (рассмотренные
+          и в управлении конфигурацией без выдающихся
+          дефектов)/определенные прецеденты (или
+          оцениваемое число прецедентов)</li>
+        <li><a href="#Requirements-to-UC Traceability">Требования-к-Верхнему
+          регистру </a> Отслеживаемости (для Атрибутов
+          Требований)</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Отслеживаемость</td>
+      <td width="81%">
+      <ul>
+        <li><a name="Analysis Traceability in Use case model">Анализ</a>
+          <ul>
+            <li>Сценарии, реализованные в модели
+              анализа/общее число сценариев</li>
+          </ul>
+        </li>
+        <li><a name="Design traceability in Use case model">Проект</a>
+          <ul>
+            <li>Сценарии, реализованные в модели
+              проекта/общее число сценариев</li>
+          </ul>
+        </li>
+        <li><a name="Implementation traceability in Use Case Model">Реализация</a>
+          <ul>
+            <li>Сценарии, воплощенные в модели
+              реализации/общее число сценариев</li>
+          </ul>
+        </li>
+        <li><a name="Test Traceability in Use Case model">Тест</a>
+          <ul>
+            <li>Сценарии, реализованные в модели (тест
+              - установках) /общее число сценариев</li>
+          </ul>
+        </li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+  </table>
+  </center></div>
+
+</blockquote>
+<h4>Проект</h4>
+<blockquote>
+  <p><a href="../artifact/ar_amdl.htm">Модель Анализа</a></p>
+  <div align="center"><center>
+
+  <table border="1" width="85%">
+    <tr>
+      <td width="19%" align="center"><strong>Характеристика</strong></td>
+      <td width="81%" align="center" colspan="2"><strong>Метрики</strong></td>
+    </tr>
+    <tr>
+      <td width="19%">Размер</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Число классов</li>
+        <li>Число подсистем</li>
+        <li>Число подсистем к подсистемам&#8230;</li>
+        <li>Число пакетов</li>
+        <li>Методов на класс, внутренних, внешних</li>
+        <li>Атрибутов на класс, внутренних,
+          внешних</li>
+        <li>Глубина дерева наследования</li>
+        <li>Число дочерних записей</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Усилие</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Штатно-временные единицы (с
+          производством, изменением и
+          восстановлением по отдельности)</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Изменчивость</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Число дефектов и запросов на
+          изменение (открытых, закрытых)</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%" rowspan="4">Качество</td>
+      <td width="28%">Сложность</td>
+      <td width="53%">
+      <ul>
+        <li>Ответов на Класс(RFC): могут быть
+          трудности в вычислении, так как
+          необходим полный набор&nbsp; диаграмм
+          итерации.</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="28%">Связь</td>
+      <td width="53%">
+      <ul>
+        <li>Число дочерних записей</li>
+        <li>Связь между объектами (нагрузочный
+          множитель класса по выходу )</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="28%">Единство</td>
+      <td width="53%">
+      <ul>
+        <li>Число дочерних записей</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="28%">Дефекты</td>
+      <td width="53%">
+      <ul>
+        <li>Число дефектов, по серьезности,
+          открытых, закрытых</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Завершенность</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Число завершенных классов/число
+          оцененных (определенных) классов</li>
+        <li><a href="#Analysis Traceability in Use case model">Отслеживаемость
+          анализа</a> (в модели Прецедента)</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Отслеживаемость</td>
+      <td width="81%" colspan="2">Не применима - модель
+        анализа становится моделью проекта.</td>
+    </tr>
+  </table>
+  </center></div>
+
+</blockquote>
+<p>Здесь мы видим некоторые Объектно-ориентированные
+специфические технические Метрики,
+которые могут быть неизвестны - глубина
+дерева наследования, число дочерних
+записей, число ответов на класс, связь между
+объектами,&nbsp; и так далее. Для получения
+информации о деталях значений и истории
+этих Метрик смотри [<a href="../referenc.htm#HEND96">HEND96</a>].
+Некоторые из этих Метрик были впервые
+предложены Chidamber и Kemerer (смотри &quot;Набор
+Метрик для объектно-ориентированного
+проекта&quot;, Институт инженеров по
+электронике и электротехнике (IEEE) Издание по
+разработке Программного обеспечения,
+20(6), 1994), но мы применяем их здесь как
+предполагалось в [<a href="../referenc.htm#HEND96">HEND96</a>] и
+предпочитаем определение LCOM (недостаток
+единства в методах) представленное в этой
+работе.</p>
+<blockquote>
+  <p><a href="../artifact/ar_desmd.htm">Модель Проекта</a></p>
+  <div align="center"><center>
+
+  <table border="1" width="85%">
+    <tr>
+      <td width="19%" align="center"><strong>Характеристика</strong></td>
+      <td width="81%" align="center" colspan="2"><strong>Метрики</strong></td>
+    </tr>
+    <tr>
+      <td width="19%">Размер</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Число классов</li>
+        <li>Число подсистем проектов</li>
+        <li>Число подсистем к подсистемам&#8230;</li>
+        <li>Число пакетов</li>
+        <li>Методов на класс, внутренних, внешних</li>
+        <li>Атрибутов на класс, внутренних, внешних</li>
+        <li>Глубина дерева наследования</li>
+        <li>Число дочерних записей</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Усилие</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Штатно-временные единицы (с
+          производством, изменением и
+          восстановлением по отдельности)</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Изменчивость</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Число дефектов и запросов на
+          изменение (открытых, закрытых)</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%" rowspan="4">Качество</td>
+      <td width="20%">Сложность</td>
+      <td width="61%">
+      <ul>
+        <li>Ответов на Класс(RFC): могут быть
+          трудности в вычислении, так как
+          необходим полный набор&nbsp; диаграмм
+          итерации.</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="20%">Связь</td>
+      <td width="61%">
+      <ul>
+        <li>Число дочерних записей</li>
+        <li>Связь между объектами (нагрузочный
+          множитель класса по выходу )</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="20%">Единство</td>
+      <td width="61%">
+      <ul>
+        <li>Число дочерних записей</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="20%">Дефекты</td>
+      <td width="61%">
+      <ul>
+        <li>Число дефектов, по серьезности,
+          открытых, закрытых</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Завершенность</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Число завершенных классов/число
+          оцененных (определенных) классов</li>
+        <li><a href="#Analysis Traceability in Use case model">Отслеживаемость
+          анализа</a> (в модели Прецендента)</li>
+        <li><a href="#Design Traceability in Requirements Attributes">Отслеживаемость
+          проекта</a> (в Атрибутах Требований)</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Отслеживаемость</td>
+      <td width="81%" colspan="2">Число классов в Модели
+        Реализации/число классов</td>
+    </tr>
+  </table>
+  </center></div>
+
+</blockquote>
+<h4>Реализация</h4>
+<blockquote>
+  <p><a href="../artifact/ar_impmd.htm">Модель Реализации</a></p>
+  <div align="center"><center>
+
+  <table border="1" width="85%">
+    <tr>
+      <td width="19%" align="center"><strong>Характеристика</strong></td>
+      <td width="81%" align="center" colspan="2"><strong>Метрики</strong></td>
+    </tr>
+    <tr>
+      <td width="19%">Размер</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Число классов</li>
+        <li>Число компонентов</li>
+        <li>Число подсистем реализации</li>
+        <li>Число подсистем к подсистемам &#8230;</li>
+        <li>Число пакетов</li>
+        <li>Методов на класс, внутренних, внешних</li>
+        <li>Атрибутов на класс, внутренних,
+          внешних</li>
+        <li>Размер методов*</li>
+        <li>Размер атрибутов*</li>
+        <li>Глубина дерева наследования</li>
+        <li>Число дочерних записей</li>
+        <li>Оцененный размер* в завершении</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Усилие</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Штатно-временные единицы (с
+          производством, изменением и
+          восстановлением по отдельности)</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Изменчивость</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Число дефектов и запросов на
+          изменение (открытых, закрытых)</li>
+        <li>Поломка* на каждое корректированное
+          или совершенное изменение, оцененное (до
+          затруднительного положения) и актуальное
+          (на момент закрытия)</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%" rowspan="4">Качество</td>
+      <td width="20%">Сложность</td>
+      <td width="61%">
+      <ul>
+        <li>Ответ на Класс (RFC)</li>
+        <li>Цикломатическая сложность методов**</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="20%">Связь</td>
+      <td width="61%">
+      <ul>
+        <li>Число дочерних записей</li>
+        <li>Связь между объектами (нагрузочный
+          множитель класса по выходу )</li>
+        <li>Связь Передачи сообщений (MPC)***</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="20%">Единство</td>
+      <td width="61%">
+      <ul>
+        <li>Число дочерних записей</li>
+        <li>Недостаток единства в методах (LCOM)</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="20%">Дефекты</td>
+      <td width="61%">
+      <ul>
+        <li>Число дефектов, по серьезности,
+          открытых, закрытых</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%">Завершенность</td>
+      <td width="81%" colspan="2">
+      <ul>
+        <li>Число тестированных единиц Классов/Число
+          классов в проектной модели&nbsp;</li>
+        <li>Число интегрированных классов/Число
+          классов в проектной модели&nbsp;</li>
+        <li><a href="#Implementation traceability in Use Case Model">Отслеживаемость
+          реализации</a> (в Модели Прецедента)</li>
+        <li><a href="#Implementation Traceability in Requirements Attributes">Отслежитваемость
+          Реализации</a> (в Атрибутах Требований)</li>
+        <li><a href="#Traceability in Test model">Отслежваемость
+          Тест модели</a> умноженная&nbsp; <a href="#Completeness in Test model">Завершенностью
+          Теста</a></li>
+        <li>Активная интеграция и время
+          тестирования системы ( накопленная в
+          процессе теста), то есть время работы с
+          системой (используется для полной
+          калькуляции)</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+  </table>
+  </center></div>
+
+</blockquote>
+<p>* Некоторые методы измерения размера кода
+должны быть выбраны и затем последовательно
+применены, например, некомментированные,
+непустые. Обсуждение Метрик и
+приложение &quot;строк кода&quot;, как
+Метрика, смотри [<a href="../referenc.htm#ROY98">ROY98</a>].
+Также смотри ту же ссылку для
+определения &quot;сбоя&quot;.</p>
+<p>** Использование цикломатической
+сложности не является универсально
+приемлемой - в частности когда относится к
+методам классов. Обсуждение этой
+Метрики смотри [<a href="../referenc.htm#HEND96">HEND96</a>].</p>
+<p>*** Впервые Li and Henry, &quot;Объектно-ориентированные
+Метрики, которые прогнозируют
+эксплутационную надежность&quot;, J. Systems and Software, 23(2), 1993,
+и также описано в [<a href="../referenc.htm#HEND96">HEND96</a>].</p>
+<h4>Тест</h4>
+<blockquote>
+  <p><a href="../artifact/ar_tstmd.htm">Тест-Модель</a></p>
+  <div align="center"><center>
+
+  <table border="1" width="85%" height="238">
+    <tr>
+      <td width="19%" align="center" height="19"><strong>Характеристика</strong></td>
+      <td width="81%" align="center" height="19"><strong>Метрики</strong></td>
+    </tr>
+    <tr>
+      <td width="19%" height="19">Размер</td>
+      <td width="81%" height="19">
+      <ul>
+        <li>Число Тест-Установок, Тест-процедур,
+          Тест-сценариев</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%" height="38">Усилие</td>
+      <td width="81%" height="38">
+      <ul>
+        <li>Штатно-временные единицы (с
+          производством, изменением и
+          восстановлением по отдельности) для
+          производства тест-установок,&nbsp; и т.д.</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%" height="19">Изменчивость</td>
+      <td width="81%" height="19">
+      <ul>
+        <li>Число дефектов и запросов на
+          изменение (открытых, закрытых) - в
+          отношении к Тест-модели</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%" height="57">Качество</td>
+      <td width="81%" height="57">
+      <ul>
+        <li>Дефекты - число дефектов по
+          серьезности, открытых, закрытых (это -
+          дефекты, возникшие непосредственно в
+          связи с тест-моделью,&nbsp; а не дефекты,
+          вызванные тестирующей командой в
+          связи с другим программным
+          обеспечением)</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%" height="57"><a name="Completeness in Test model">Завершенность</a></td>
+      <td width="81%" height="57">
+      <ul>
+        <li>Число записанных тест-установок/число
+          оцененных тест-установок</li>
+        <li><a href="#Test Traceability in Use Case model">Отслеживаемость
+          теста</a> (в модели Прецедента)</li>
+        <li><a href="#Test Traceability in Requirements Attributes">Отслеживаемость
+          теста</a> (в Атрибутах Требований)</li>
+        <li>Масштабы кода</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%" height="19"><a name="Traceability in Test model">Отслеживаемость</a></td>
+      <td width="81%" height="19">
+      <ul>
+        <li>Число Тест-установок, рассмотренных как
+          удачные, в&nbsp; Итоговом отчете о
+          Тестировании/Число Тест-установок</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+  </table>
+  </center></div>
+
+</blockquote>
+<h4>Управление</h4>
+<blockquote>
+  <p>Модель Изменений (это воображаемая
+  модель для последовательного
+  представления - Метрики будут собраны&nbsp;
+  с любой системы, используемой для
+  управления Запросами на Изменение)</p>
+  <div align="center"><center>
+
+  <table border="1" width="85%" height="238">
+    <tr>
+      <td width="19%" align="center" height="19"><strong>Характеристика</strong></td>
+      <td width="81%" align="center" height="19"><strong>Метрики</strong></td>
+    </tr>
+    <tr>
+      <td width="19%" height="19">Размер</td>
+      <td width="81%" height="19">
+      <ul>
+        <li>Число дефектов, запросов на
+          изменение по серьезности и статусу,&nbsp;
+          также сгруппированные по числу
+          будущих изменений, числу адаптивных
+          изменений&nbsp; и числу корректирующих
+          изменений.</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%" height="38">Усилие</td>
+      <td width="81%" height="38">
+      <ul>
+        <li>Усилия по исправлению дефектов,
+          усилия по реализации изменений в
+          штатно-временных единицах</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%" height="19">Изменчивость</td>
+      <td width="81%" height="19">
+      <ul>
+        <li>Поломка (оцененная, актуальная)
+          подмножества модели реализации.</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="19%" height="57">Завершенность</td>
+      <td width="81%" height="57">
+      <ul>
+        <li>Число исследованных дефектов/число&nbsp;
+          спрогнозированных дефектов (если
+          используется модель надежности)</li>
+      </ul>
+      <pre> </pre>
+      </td>
+    </tr>
+  </table>
+  </center></div>
+
+</blockquote>
+<blockquote>
+  <p><a href="../artifact/ar_sdp.htm">План Проекта</a> (раздел 4.2
+  Плана Разработки Программного
+  Обеспечения)</p>
+  <p>Это измерения, которые получены при применении
+  Методов Выполненной Стоимости для
+  управления проектом; вместе они
+  называются Критерии Системы Контроля Цена/План
+  (C/SCSC). Включают:</p>
+  <blockquote>
+    <ul>
+      <li>BCWS - Затраты Бюджета на Запланированную
+        Работу&nbsp;</li>
+      <li>BCWP - Затраты Бюджета на Выполненные
+        Работы</li>
+      <li>ACWP - Фактическая Стоимость
+        Выполненных Работ</li>
+      <li>BAC - Бюджет в Завершении</li>
+      <li>EAC - Оценка в Завершении</li>
+      <li>CBB - Контрактная Бюджетная База</li>
+      <li>LRE - Последняя Проверенная Оценка (EAC)</li>
+    </ul>
+  </blockquote>
+  <p>и производные факторы для отклонения от
+  нормальных затрат, дисперсии внутри
+  графика и т.д. Дискуссию по поводу
+  применения метода выполненной стоимости в
+  управлении проектом программного
+  обеспечения смотри [<a href="../referenc.htm#ROY98">ROY98</a>].</p>
+</blockquote>
+<h4><a name="The Project">Проект</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p><font FACE="Times New Roman" COLOR="#000000">Проект должен
+быть охарактеризован в таких терминах как
+тип, размер, сложность и формальность (хотя
+тип, размер и сложность обычно определяют
+формальность), потому что эти аспекты
+обуславливают ожидаемый результат
+относительно различных порогов для более
+низких уровней измерений. Другие
+ограничения должны быть охвачены
+контрактом (или спецификациями). </font>Метрики
+полученные от процесса, продукта и
+источников должны охватывать все уровни
+Метрик проекта<font FACE="Times New Roman" COLOR="#000000">.
+Тип и область проекта могут быть записаны с
+использованием текстового описания,
+убеждаясь, что оно достаточно детальное,
+чтобы точно характеризовать проект. Учитывайте
+размер проекта по стоимости, усилию,
+продолжительности, размеру кода, который
+будет разработан, установленным
+функциональным точкам. Сложность проекта
+может быть описана - несколько субъективно -
+с помощью размещения проекта на диаграмме,
+показывая технические сложности и тяжесть
+управления относительно других
+законченных проектов. </font> [<a href="../referenc.htm#ROY98">ROY98</a>]<font FACE="Times New Roman" COLOR="#000000">,
+Такая диаграмма отображена на рисунке 14-1</font><font face="Times New Roman" color="#000000">.</font></p>
+<p>Производные Метрики описанные в [<a href="../referenc.htm#ROY98">ROY98</a>],
+<font FACE="Times New Roman" COLOR="#000000">которые являются
+главными индикаторами Менеджера Проекта,
+могут быть получены из Метрик,
+собранных для артефакта и процесса. Вот они:</font>
+<ul>
+  <li><b>Модульность</b> = средняя величина поломок
+    (NCNB*) на совершенные или корректирующие
+    изменения в модели реализации</li>
+  <li><b>Применимость</b> = среднее число усилий&nbsp;
+    на совершенные или корректирующие
+    изменения в модели реализации</li>
+  <li><b>Завершенность</b> = время активного
+    теста/число корректирующих изменений</li>
+  <li><b>Эксплутационная надежность</b> =
+    Поддержание Производительности/Развитие
+    Производительности = [реальные
+    совокупные трудности/совокупные усилия
+    для для совершенных и корректирующих изменений]/[оцененное
+    число NCNB в завершении/оцененные усилия
+    производства в завершении]</li>
+  <li><b>Стабильность доработок</b> = совокупные
+    трудности накопленных поломок</li>
+  <li><b>Невыполненные доработки </b>= [совокупные
+    трудности накопленных поломок]/тестированная
+    единица NCNB&nbsp;</li>
+</ul>
+<p>* NCNB некомментируемый, непустой размер
+кода.</p>
+<p><font FACE="Times New Roman" COLOR="#000000">Прогресс должен
+исходить из проектного плана, который
+определен в использовании Метрик
+завершения продукта - со специфическим
+весом (от перспективы выполненной
+стоимости), придаваемом производству
+рабочего программного обеспечения.&nbsp;</font></p>
+<p>В оценочной модели, такой как
+Конструктивная Стоимостная Модель (как
+используется смотри [<a href="../referenc.htm#BOE81">BOE81</a>]),
+должны быть зарегистрированы различные
+шкалы факторов и формирователей цен. Это
+реально формирует точно разработанную
+характеристику проекта.</p>
+  <h4><a name="The Resources">Ресурсы</a><a href="#Top"><img src="../../images/top.gif" alt="To top of page" border="0" width="26" height="20"></a></h4>
+<p><font face="Times New Roman" color="#000000">Единицы, которые
+должны быть измерены, включают людей (опыт,
+навыки, цена, интенсивность труда), методы и
+инструментарий (в терминах эффекта на
+производительность и качество, стоимость),
+время, усилие, бюджет (использованные
+ресурсы, сохранение ресурсов).</font></p>
+<p>Профиль штата должен регистрироваться&nbsp;
+через какое-то время, отображая тип (аналитик,
+проектировщик,&nbsp; и т.д.), уровень (который подразумевает
+цену) и команду, к которой принадлежит. Как
+реальный, так и запланированный товар
+должен быть зарегистрирован.</p>
+<p>И снова, Конструктивная Стоимостная
+Модель требует характеристики опыта&nbsp; и
+производительности персонала, и среды
+разработки программного обеспечения, и, как
+правило, границ, в которых поддерживать эти
+Метрики.</p>
+<p>Расходная, бюджетная и плановая
+информация будет поступать из Плана
+Проекта.</p>
+<br>
+<p><font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2000 Rational Software Corporation</small></small></a></font>
+
+</body>
+

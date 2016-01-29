@@ -1,0 +1,46 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DelphiSpecific/DelphiLang/Scripting/SupressNextImmediateHolder.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAAbstractClass::Class>> MDProcess$ForDelphi::DelphiSpecific::DelphiLang::Scripting::SupressNextImmediateHolder
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: SupressNextImmediateHolder::Class
+implementation @ <<SupressNextImmediateHolder>>
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p SupressNextImmediate=None|No|Yes|Force ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	[{"%S{SupressNextImmediate}"!="%S{!SupressNextImmediate}"}%f_up_prefix(%S) *SupressNextImmediate* = *%S{SupressNextImmediate}*
+ if ( ( %S get_up ( 'SupressNextImmediate' ) ) %!= ( %S get_up_def ( 'SupressNextImmediate' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *SupressNextImmediate* = *'
+  %S get_up ( 'SupressNextImmediate' ) '*'
+//	]
+ end // if
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // wiki_up_print
+
+end. // <<SupressNextImmediateHolder>>
+

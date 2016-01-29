@@ -1,0 +1,485 @@
+<<MDALibrary>> VCMSubsystemLayer
+ %UID '492E952D02A0'
+ %SUMMARY 'Уровень подсистем VCM' ;
+ %DEPENDS
+  U$ '46E13A3C030D' /* Meta */
+  U$ '46E801C00348' /* Core */
+  U$ '47022A100167' /* CommonLang */
+  U$ '47287F7D02CE' /* RequirementsLib */
+  U$ '4729C41D032C' /* DelphiLang */
+  U$ '4773963E021D' /* AllGenerators */
+  U$ '484918A30320' /* "Data Definition" */
+  U$ '499970DC01D0' /* Testing */
+  U$ '4B5F4952010E' /* VCMModelLayer */
+  U$ '4B62DE6100ED' /* VCMCore */
+  U$ '4B62E29801AA' /* VCMControllersLayer */
+  U$ '4B62EC84020F' /* VCMViewInterfacesLayer */
+  U$ '4B62F01802BC' /* VCMViewImplementationLayer */
+ ; // %DEPENDS
+ %TOBEINCLUDED
+  U$ '46E13A3C030D' /* Meta */
+  U$ '46E801C00348' /* Core */
+  U$ '47022A100167' /* CommonLang */
+  U$ '47287F7D02CE' /* RequirementsLib */
+  U$ '4729C41D032C' /* DelphiLang */
+  U$ '4773963E021D' /* AllGenerators */
+  U$ '484918A30320' /* "Data Definition" */
+  U$ '499970DC01D0' /* Testing */
+  U$ '4B5F4952010E' /* VCMModelLayer */
+  U$ '4B62DE6100ED' /* VCMCore */
+  U$ '4B62E29801AA' /* VCMControllersLayer */
+  U$ '4B62EC84020F' /* VCMViewInterfacesLayer */
+  U$ '4B62F01802BC' /* VCMViewImplementationLayer */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<MDALayer>> ApplicationLevel
+   %UID '4A95178301AC'
+   %DEPENDS
+    U$ '470EF980003E' /* ImplementationTypes */
+    U$ '470EF9BF0138' /* InterfaceTypes */
+    U$ '4729C4880157' /* Interface */
+    U$ '473A7FCA0203' /* Implementation */
+    U$ '4936A16E0294' /* "Delphi Specific" */
+    U$ '4947E25703A8' /* FormsPack */
+    U$ '4A95156202EB' /* MixIns */
+    U$ '4B5F322B004D' /* VCMForms */
+    U$ '4B5F324E0023' /* FinalVCMForms */
+    U$ '4B62F51F0182' /* VCMUserInteraction */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '47022A100167' /* CommonLang */
+    U$ '4729C41D032C' /* DelphiLang */
+    U$ '484918A30320' /* "Data Definition" */
+    U$ '492E952D02A0' /* VCMSubsystemLayer */
+    U$ '4B62EC84020F' /* VCMViewInterfacesLayer */
+    U$ '4B62F01802BC' /* VCMViewImplementationLayer */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<MDAClass>> VCMMainForm
+      %UID '4958D0210219'
+      %SUMMARY 'Главная форма' ;
+      %TOBEINCLUDED
+       U$ '4B62EC84020F' /* VCMViewInterfacesLayer */
+       U$ '4B62F01802BC' /* VCMViewImplementationLayer */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4A76CBA302A2' /* ModuleOpRecall */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4947FD1201CE' /* VCMContainer */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4A76CC1902FE' /* OutRecallIntf */
+       U$ '4A76CC1D010D' /* OutRecallImpl */
+       U$ '4A9CF892039A' /* RecallToIntfUses */
+       U$ '4A9CF8A30296' /* RecallToImplUses */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4948E5B60391' /* pas_DefaultAncestor */
+       U$ '4948EB2601FA' /* pas_ImplUses */
+       U$ '4948F2EE0334' /* pas_IntfUses */
+       U$ '494B856502EC' /* pas_OutOverridesIntf */
+       U$ '494B86B5014B' /* pas_OutOverridesImpl */
+       U$ '498AFB440035' /* pas_HackRef */
+      ; // %OVERRIDES
+      %LINKS
+       <<include>> "4FFC6AA30380"
+        %UID '4FFC6AA30380'
+        %TARGET U$ '4BD853F50147' /* VCMFormDefinition */
+       ; // 4FFC6AA30380
+      ; // %LINKS
+      %OPERATIONS
+       BOOLEAN FUNCTION IsVCMMainForm OBJECT IN %S
+        %UID '4A95302C02FF'
+        %TARGET U$ '3DBFFE100240' /* boolean */
+       ; // IsVCMMainForm
+      ; // %OPERATIONS
+     ; // VCMMainForm
+     [EXPORT] <<VCMMainForm>>
+     <<MDAClass>> VCMApplication
+      %UID '4958D0CD0287'
+      %SUMMARY 'Приложение VCM' ;
+      %META
+       %upv "abstraction type" 'fa'
+       %upv "inherite constraints" false
+       %upv "personal label" 'code_exe_target'
+       %upv "visualization bg color" 10025880
+       %upv "visualization f-font color" 21760
+       %upv "visualization f-line color" 21760
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4729C41D032C' /* DelphiLang */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '481EC6BD016B' /* SimpleClass */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4947F8AD02A1' /* pas_TypeName */
+       U$ '4948065C01DF' /* pas_UnitName */
+       U$ '4948C3290020' /* pas_UnitPath */
+       U$ '4948E5B60391' /* pas_DefaultAncestor */
+       U$ '4948EB2601FA' /* pas_ImplUses */
+       U$ '4948F2EE0334' /* pas_IntfUses */
+       U$ '494B856502EC' /* pas_OutOverridesIntf */
+       U$ '494B86B5014B' /* pas_OutOverridesImpl */
+       U$ '49F5795900EC' /* dfm */
+       U$ '4A9293AE02DC' /* pas_BeforeClassEnd */
+       U$ '4B2A19E3038B' /* DoSpell */
+      ; // %OVERRIDES
+      %LINKS
+       <<include>> "4958D0F30108"
+        %UID '4958D0F30108'
+        %TARGET U$ '4958D0210219' /* VCMMainForm */
+       ; // 4958D0F30108
+       <<include>> "4AA7B8630362"
+        %UID '4AA7B8630362'
+        %TARGET U$ '49CB43D403C5' /* method */
+       ; // 4AA7B8630362
+       <<include>> "4AA7BA250318"
+        %UID '4AA7BA250318'
+        %TARGET U$ '481EC6BD016B' /* SimpleClass */
+       ; // 4AA7BA250318
+       <<include>> "4AB3658D02AF"
+        %UID '4AB3658D02AF'
+        %TARGET U$ '470F198F0000' /* Enum */
+       ; // 4AB3658D02AF
+       <<include>> "4AB3659A0125"
+        %UID '4AB3659A0125'
+        %TARGET U$ '470F144E000F' /* Typedef */
+       ; // 4AB3659A0125
+       <<include>> "4AB365A4026E"
+        %UID '4AB365A4026E'
+        %TARGET U$ '470F33CD0242' /* Struct */
+       ; // 4AB365A4026E
+       <<include>> "4BB316CF0039"
+        %UID '4BB316CF0039'
+        %TARGET U$ '4B386A11030E' /* LocalConst */
+       ; // 4BB316CF0039
+       <<include>> "4BB317C30106"
+        %UID '4BB317C30106'
+        %TARGET U$ '4721B0380203' /* Range */
+       ; // 4BB317C30106
+       <<include>> "4BB317D10103"
+        %UID '4BB317D10103'
+        %TARGET U$ '4721B14D00AB' /* SetConst */
+       ; // 4BB317D10103
+       <<include>> "4BB317DE021F"
+        %UID '4BB317DE021F'
+        %TARGET U$ '4739862802BF' /* StaticObject */
+       ; // 4BB317DE021F
+       <<include>> "4BB317ED001A"
+        %UID '4BB317ED001A'
+        %TARGET U$ '4B7EBC4002E1' /* Define */
+       ; // 4BB317ED001A
+       <<include>> "4BB317F500FC"
+        %UID '4BB317F500FC'
+        %TARGET U$ '4721B1C60157' /* SetOf */
+       ; // 4BB317F500FC
+       <<include>> "4BB317FF031A"
+        %UID '4BB317FF031A'
+        %TARGET U$ '4B7ECBCF0091' /* Undef */
+       ; // 4BB317FF031A
+       <<include>> "4BB31AD9009B"
+        %UID '4BB31AD9009B'
+        %TARGET U$ '470F16EE0242' /* Constants */
+       ; // 4BB31AD9009B
+       <<include>> "4BB31AE400D8"
+        %UID '4BB31AE400D8'
+        %TARGET U$ '47FDE8610215' /* ConstantArray */
+       ; // 4BB31AE400D8
+       <<include>> "4F7DAFF30300"
+        %UID '4F7DAFF30300'
+        %TARGET U$ '4F7DAF6E007D' /* VCMFinalMainForm */
+       ; // 4F7DAFF30300
+       <<include>> "54DB6BF8005B"
+        %UID '54DB6BF8005B'
+        %TARGET U$ '4F2C0D86003E' /* ScriptKeyword */
+       ; // 54DB6BF8005B
+       <<include>> "55229179013D"
+        %UID '55229179013D'
+        %TARGET U$ '4F2C15C90252' /* ScriptKeywordsPack */
+       ; // 55229179013D
+      ; // %LINKS
+      %OPERATIONS
+       BOOLEAN FUNCTION IsVCMApplication OBJECT IN %S
+        %UID '4A9255FB0137'
+        %SUMMARY 'Является ли элемент приложением VCM' ;
+        %TARGET U$ '3DBFFE100240' /* boolean */
+       ; // IsVCMApplication
+      ; // %OPERATIONS
+     ; // VCMApplication
+     [EXPORT] <<VCMApplication>>
+     <<MDAClass>> VCMFinalMainForm
+      %UID '4F7DAF6E007D'
+      %META
+       %upv "abstraction type" 'f'
+       %upv "visability type" '-+'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '492E952D02A0' /* VCMSubsystemLayer */
+       U$ '4B62EC84020F' /* VCMViewInterfacesLayer */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4958D0210219' /* VCMMainForm */
+       U$ '4B5F276900DE' /* FormNamePrefixHolder */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4B5F28CD00A9' /* IsVCMFinalForm */
+      ; // %OVERRIDES
+     ; // VCMFinalMainForm
+     [EXPORT] <<VCMFinalMainForm>>
+   ; // %CHILDREN
+  ; // ApplicationLevel
+  <<MDALayer>> SubsystemLevel
+   %UID '492E958E03AF'
+   %SUMMARY 'нет документации' ;
+   %DEPENDS
+    U$ '46E80398003B' /* "Abstract" */
+    U$ '470EF980003E' /* ImplementationTypes */
+    U$ '470EF9BF0138' /* InterfaceTypes */
+    U$ '470F01500290' /* Containers */
+    U$ '4729C4880157' /* Interface */
+    U$ '4732AE850271' /* Redefinitions */
+    U$ '473A7FCA0203' /* Implementation */
+    U$ '4773984F02AA' /* DelphiGens */
+    U$ '492EC605004C' /* ControllersImplementation */
+    U$ '4947E25703A8' /* FormsPack */
+    U$ '49CB456E025C' /* ClassInner */
+    U$ '4A95178301AC' /* ApplicationLevel */
+    U$ '4B5DE69600AD' /* FormOperations */
+    U$ '4B5F24920336' /* CustomForms */
+    U$ '4B5F322B004D' /* VCMForms */
+    U$ '4B62DE9C006C' /* StandardLikePackages */
+    U$ '4B62E09600D1' /* ModelPackages */
+    U$ '4B62E3510166' /* ControllersImplementationPackages */
+    U$ '4B62F51F0182' /* VCMUserInteraction */
+    U$ '4B62F77B031E' /* VCMFormsPackages */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '46E801C00348' /* Core */
+    U$ '47022A100167' /* CommonLang */
+    U$ '4729C41D032C' /* DelphiLang */
+    U$ '4773963E021D' /* AllGenerators */
+    U$ '492E952D02A0' /* VCMSubsystemLayer */
+    U$ '4B5F4952010E' /* VCMModelLayer */
+    U$ '4B62DE6100ED' /* VCMCore */
+    U$ '4B62E29801AA' /* VCMControllersLayer */
+    U$ '4B62EC84020F' /* VCMViewInterfacesLayer */
+    U$ '4B62F01802BC' /* VCMViewImplementationLayer */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<MDACategory>> VCMControllers
+      %UID '492E95D1017C'
+      %SUMMARY 'Библиотека содержащая бизнес объекты (контроллеры логики прецедентов)' ;
+      %META
+       %upv "abstraction type" 'ra'
+       %upv "personal label" 'code_vcm_controllers'
+       %upv "visualization bg color" 12623485
+       %upv "visualization f-font color" 16711808
+       %upv "visualization f-line color" 16711808
+       %upv "visualization font color" 0
+       %upv "visualization line color" 0
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B62DE6100ED' /* VCMCore */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4947E36801B6' /* VCMLibrary */
+      ; // %INHERITS
+      %LINKS
+       <<include>> "492E971C0056"
+        %UID '492E971C0056'
+        %TARGET U$ '492E96FD00A7' /* ControllerInterfaces */
+       ; // 492E971C0056
+       <<include>> "492E97690228"
+        %UID '492E97690228'
+        %TARGET U$ '492E97410321' /* ControllerUnit */
+       ; // 492E97690228
+      ; // %LINKS
+     ; // VCMControllers
+     [EXPORT] <<VCMControllers>>
+     <<MDACategory>> VCMViews
+      %UID '4947E343031C'
+      %SUMMARY 'Библиотека, содержащая объекты представления' ;
+      %META
+       %upv "personal label" 'code_vcm_views'
+       %upv "visualization bg color" 16033019
+       %upv "visualization f-font color" 12731311
+       %upv "visualization f-line color" 2124031
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B62DE6100ED' /* VCMCore */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4947E36801B6' /* VCMLibrary */
+      ; // %INHERITS
+      %LINKS
+       <<include>> "4947E7C30383"
+        %UID '4947E7C30383'
+        %TARGET U$ '4947E799017D' /* VCMForms */
+       ; // 4947E7C30383
+       <<include>> "4948C3980324"
+        %UID '4948C3980324'
+        %TARGET U$ '4948C382021A' /* VCMModule */
+       ; // 4948C3980324
+       <<include>> "494F7F53034E"
+        %UID '494F7F53034E'
+        %TARGET U$ '494F7EF903BC' /* VCMControls */
+       ; // 494F7F53034E
+       <<include>> "4958D0FA0185"
+        %UID '4958D0FA0185'
+        %TARGET U$ '4958D0CD0287' /* VCMApplication */
+       ; // 4958D0FA0185
+      ; // %LINKS
+     ; // VCMViews
+     [EXPORT] <<VCMViews>>
+     <<MDACategory>> VCMSubsystem
+      %UID '4953E0360081'
+      %SUMMARY 'Подсистема' ;
+      %META
+       %upv "abstraction type" 'af'
+       %upv "personal label" 'code_vcm_subsystem'
+       %upv "visualization bg color" 10025880
+       %upv "visualization f-font color" 3329330
+       %upv "visualization f-line color" 3329330
+      ; // %META
+      %TOBEINCLUDED
+       U$ '46E801C00348' /* Core */
+       U$ '4773963E021D' /* AllGenerators */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '470F151302FD' /* "Delphi интерфейсы и реализация" */
+       U$ '484E3DDD01F0' /* ModelSerialize */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '471738DF00DA' /* WikiPackageImpl */
+      ; // %INHERITS
+      %REALIZES
+       U$ '470F1571031C' /* intf.pas */
+       U$ '470F15B800CB' /* impl.pas */
+       U$ '477398E501C0' /* intf2.pas */
+       U$ '4F368B80039E' /* forth_structure */
+       U$ '55B8D28B0157' /* rc.pas */
+       U$ '55B8D2F80145' /* rc.script.pas */
+       U$ '55B8DD9C0301' /* res.cmd.pas */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4948065C01DF' /* pas_UnitName */
+       U$ '49F5795900EC' /* dfm */
+       U$ '4A41A13D03D5' /* spell */
+      ; // %OVERRIDES
+      %LINKS
+       <<include>> "4953E0530157"
+        %UID '4953E0530157'
+        %TARGET U$ '492E95D1017C' /* VCMControllers */
+       ; // 4953E0530157
+       <<include>> "4953E05C032F"
+        %UID '4953E05C032F'
+        %TARGET U$ '4947E343031C' /* VCMViews */
+       ; // 4953E05C032F
+       <<include>> "4953E06B0271"
+        %UID '4953E06B0271'
+        %TARGET U$ '484915CD0184' /* Library */
+       ; // 4953E06B0271
+       <<include>> "4A95240600C5"
+        %UID '4A95240600C5'
+        %TARGET U$ '498AFF8101F5' /* VCMFormsPack */
+       ; // 4A95240600C5
+      ; // %LINKS
+      %ATTRIBUTES
+       <<string>> defines
+        %UID '4954C5E702CB'
+        %SUMMARY 'определяет файл с условиями компиляции' ;
+       ; // defines
+       <<string>> vendor
+        %UID '4954C610010C'
+        %SUMMARY 'определяет префикс разработчика' ;
+       ; // vendor
+      ; // %ATTRIBUTES
+      %OPERATIONS
+       BOOLEAN FUNCTION IsVCMSubsystem OBJECT IN %S
+        %UID '4A9699C803A3'
+        %TARGET U$ '3DBFFE100240' /* boolean */
+       ; // IsVCMSubsystem
+       <<Operation>> pas_OutUnitFile OBJECT IN %S
+        %UID '4AA8B17E0178'
+       ; // pas_OutUnitFile
+      ; // %OPERATIONS
+     ; // VCMSubsystem
+     [EXPORT] <<VCMSubsystem>>
+   ; // %CHILDREN
+  ; // SubsystemLevel
+  <<MDALayer>> UseCases
+   %UID '4A951CD702C9'
+   %DEPENDS
+    U$ '470335E60290' /* Requirements */
+    U$ '492E958E03AF' /* SubsystemLevel */
+    U$ '4947E25703A8' /* FormsPack */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '47287F7D02CE' /* RequirementsLib */
+    U$ '492E952D02A0' /* VCMSubsystemLayer */
+    U$ '4B62F01802BC' /* VCMViewImplementationLayer */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<MDACategory>> VCMUseCase
+      %UID '4A891EB000DB'
+      %SUMMARY 'Реализация прецедента' ;
+      %META
+       %upv "abstraction type" 'fa'
+       %upv "personal label" 'code_vcm_usecase'
+       %upv "visualization bg color" 12510975
+       %upv "visualization f-font color" 1989310
+       %upv "visualization f-line color" 1989310
+      ; // %META
+      %TOBEINCLUDED
+       U$ '492E952D02A0' /* VCMSubsystemLayer */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4953E0360081' /* VCMSubsystem */
+      ; // %INHERITS
+      %LINKS
+       <<include>> "4A951D7E01C3"
+        %UID '4A951D7E01C3'
+        %TARGET U$ '4A951D4900CF' /* VCMUseCaseRealization */
+       ; // 4A951D7E01C3
+       <<include>> "4A9524170370"
+        %UID '4A9524170370'
+        %TARGET U$ '498AFF8101F5' /* VCMFormsPack */
+       ; // 4A9524170370
+       <<include>> "4E31231802D0"
+        %UID '4E31231802D0'
+        %TARGET U$ '47047244009C' /* Requirements */
+       ; // 4E31231802D0
+      ; // %LINKS
+     ; // VCMUseCase
+     [EXPORT] <<VCMUseCase>>
+     <<MDAClass>> VCMUseCaseRealization
+      %UID '4A951D4900CF'
+      %SUMMARY 'Реализация прецедента' ;
+      %META
+       %upv "abstraction type" 'fra'
+       %upv "personal label" 'code_vcm_usecase_realization'
+       %upv "visualization bg color" 12510975
+       %upv "visualization f-font color" 1989310
+       %upv "visualization f-line color" 1989310
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B62F01802BC' /* VCMViewImplementationLayer */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '498AFF8101F5' /* VCMFormsPack */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '4704C0E30186' /* constraint */
+      ; // %OVERRIDES
+     ; // VCMUseCaseRealization
+     [EXPORT] <<VCMUseCaseRealization>>
+   ; // %CHILDREN
+  ; // UseCases
+ ; // %CHILDREN
+; // VCMSubsystemLayer

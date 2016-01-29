@@ -1,0 +1,1268 @@
+<<Library>> Logging
+ %UID '55B62380030A'
+ %DEPENDS
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FBA70343' /* l3Interfaces */
+  U$ '4677FF4B0036' /* Data */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47E9EEC60260' /* Model */
+  U$ '490838AA02D0' /* Nemesis */
+  U$ '4DAF19F600C5' /* tfwScriptingInterfaces */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '54B90AC6014B' /* StringUtils */
+  U$ '54F5AAED0073' /* L3$Visual */
+  U$ '5527F81C020E' /* TypesRegistration */
+  U$ '55BA28CE0290' /* tfwScriptingTypes */
+  U$ '55CCADD2013D' /* ClassLikeMapping */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FF4B0036' /* Data */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47E9EEC60260' /* Model */
+  U$ '490838AA02D0' /* Nemesis */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+  U$ '54F5AAED0073' /* L3$Visual */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Interfaces>> LoggingWrapperInterfaces
+   %UID '55B75E6E034C'
+   %DEPENDS
+    U$ '456EA56002BF' /* BaseTypes */
+    U$ '45ED58CF03E6' /* Logging */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %META
+    %upv "author" 'Костицын'
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '55B62380030A' /* Logging */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<Facet>> InsLogEventData
+      %UID '55B75F160131'
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        ABSTRACT <<Operation>> AddDate
+         %UID '55B75F7202BE'
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aData
+            %UID '55B75F7E01A5'
+            %TARGET U$ '456EA6F00109' /* Date */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aData
+         ; // %PARAMETERS
+        ; // AddDate
+        ABSTRACT <<Operation>> AddObject
+         %UID '55B75FA00176'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aData
+            %UID '55B75FA70163'
+            %TARGET U$ '46A451250363' /* IUnknown */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aData
+         ; // %PARAMETERS
+        ; // AddObject
+        ABSTRACT <<Operation>> AddString
+         %UID '55B75FBE02BE'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aData
+            %UID '55B75FC500F7'
+            %TARGET U$ '54B6A0D8000C' /* PAnsiChar */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aData
+         ; // %PARAMETERS
+        ; // AddString
+        ABSTRACT <<Operation>> AddULong
+         %UID '55B75FD7031E'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aData
+            %UID '55B75FDC0256'
+            %TARGET U$ '48FD996601CE' /* Longword */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // aData
+         ; // %PARAMETERS
+        ; // AddULong
+        ABSTRACT <<Operation>> AsString
+         %UID '55BA030300BA'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // AsString
+        ABSTRACT <<Operation>> AsLogEventData
+         %UID '55B76037036D'
+         %TARGET U$ '45ED59730069' /* LogEventData */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // AsLogEventData
+      ; // %OPERATIONS
+     ; // InsLogEventData
+     <<Facet>> InsLogManager
+      %UID '55B75FED02BC'
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '55B62380030A' /* Logging */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        ABSTRACT <<Operation>> AddEvent
+         %UID '55B760550256'
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+          U$ '55B62380030A' /* Logging */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aLogEvent
+            %UID '55B7607F011C'
+            %TARGET U$ '45ED58FF0201' /* LogEvent */
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+           ; // aLogEvent
+           <<in>> aData
+            %UID '55B7607F0130'
+            %TARGET U$ '55B75F160131' /* InsLogEventData */
+            %TOBEINCLUDED
+             U$ '55B62380030A' /* Logging */
+            ; // %TOBEINCLUDED
+           ; // aData
+         ; // %PARAMETERS
+        ; // AddEvent
+      ; // %OPERATIONS
+     ; // InsLogManager
+   ; // %CHILDREN
+  ; // LoggingWrapperInterfaces
+  <<Unit>> LoggingTestService
+   %UID '55B9FF5B03CB'
+   %DEPENDS
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47E21C730035' /* l3VCLExtensions */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+    U$ '54F5AAED0073' /* L3$Visual */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TnsLoggingTestService
+      %UID '55B9FFCB020F'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+       %upv "singleton" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47BC391D0259' /* Tl3SimpleObject */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '47A042E100E2' /* InitFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "55BA01F10098"
+         %UID '55BA01F10098'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 55BA01F10098
+        <<uses>> "55BA3EBD0365"
+         %UID '55BA3EBD0365'
+         %TARGET U$ '48721F730220' /* Tl3Strings */
+        ; // 55BA3EBD0365
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Listening
+         %UID '55BA00AC0098'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_Listening
+        PRIVATE <<Attribute>> f_LogRecords
+         %UID '55BA014E01C9'
+         %TARGET U$ '46A4756D00CC' /* Il3StringsEx */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // f_LogRecords
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<method>> StartListening
+         %UID '55BA00C202EE'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID 'BA4C60D72D6E'
+            %SUMMARY 'Сигнатура метода StartListening' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // StartListening
+        FINAL <<method>> StopListening
+         %UID '55BA00CE00C0'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID '7CF8B3B82622'
+            %SUMMARY 'Сигнатура метода StopListening' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // StopListening
+        FINAL <<method>> GetLogStrings
+         %UID '55BA01020317'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '55BA0115020A'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // GetLogStrings
+        FINAL <<method>> AddLogString
+         %UID '55BA022F011C'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '55BA023A02B6'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aString
+               %UID '55BA02410356'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aString
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // AddLogString
+        SUMMONED FINAL <<static>> Exists
+         %UID '2F40567A3E87'
+         %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Exists
+      ; // %OPERATIONS
+     ; // TnsLoggingTestService
+   ; // %CHILDREN
+  ; // LoggingTestService
+  <<Unit>> LoggingWrapper
+   %UID '55B760A803D5'
+   %DEPENDS
+    U$ '45ED58CF03E6' /* Logging */
+    U$ '4767743E00E5' /* TypInfo */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '48F747EC0073' /* Common */
+    U$ '4AB0997B00A2' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '55B75E6E034C' /* LoggingWrapperInterfaces */
+    U$ '55B9FF5B03CB' /* LoggingTestService */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677FF4B0036' /* Data */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '55B62380030A' /* Logging */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TnsLogEventData
+      %UID '55B760CE036A'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '55B62380030A' /* Logging */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '55B75F160131' /* InsLogEventData */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47BC391D0259' /* Tl3SimpleObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '55B75F7202BE' /* AddDate */
+       U$ '55B75FA00176' /* AddObject */
+       U$ '55B75FBE02BE' /* AddString */
+       U$ '55B75FD7031E' /* AddULong */
+       U$ '55B76037036D' /* AsLogEventData */
+       U$ '55BA030300BA' /* AsString */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '47A042E100E2' /* InitFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "55B763030114"
+         %UID '55B763030114'
+         %TARGET U$ '48FF556602BA' /* DataAdapter */
+        ; // 55B763030114
+        <<uses>> "55BA42300179"
+         %UID '55BA42300179'
+         %TARGET U$ '47F9CF5500D1' /* bsConvert */
+        ; // 55BA42300179
+        <<uses>> "55BA424F004C"
+         %UID '55BA424F004C'
+         %TARGET U$ '48D391C60190' /* DateUtils */
+        ; // 55BA424F004C
+        <<uses>> "55BA4261002A"
+         %UID '55BA4261002A'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 55BA4261002A
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_LogEventData
+         %UID '55B7617303D0'
+         %TARGET U$ '45ED59730069' /* LogEventData */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // f_LogEventData
+        PRIVATE <<Attribute>> f_AsString
+         %UID '55BA02D20145'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_AsString
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Factory>> Make
+         %UID '55B7632500F2'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '55B62380030A' /* Logging */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '55B79FCC034E'
+            %TARGET U$ '55B75F160131' /* InsLogEventData */
+            %TOBEINCLUDED
+             U$ '55B62380030A' /* Logging */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Make
+        PRIVATE FINAL <<method>> ToLog
+         %UID '55BA419F0230'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '55BA41B8021F'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aData
+               %UID '55BA41C400CB'
+               %TARGET U$ '476136D3010B' /* String */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aData
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // ToLog
+      ; // %OPERATIONS
+     ; // TnsLogEventData
+     <<SimpleClass>> TnsLogManager
+      %UID '55B761180244'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+       %upv "singleton" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '55B62380030A' /* Logging */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '55B75FED02BC' /* InsLogManager */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47BC391D0259' /* Tl3SimpleObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '55B760550256' /* AddEvent */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+       U$ '47A042E100E2' /* InitFields */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "55B763090209"
+         %UID '55B763090209'
+         %TARGET U$ '48FF556602BA' /* DataAdapter */
+        ; // 55B763090209
+        <<uses>> "55BA028801C2"
+         %UID '55BA028801C2'
+         %TARGET U$ '55B9FFCB020F' /* TnsLoggingTestService */
+        ; // 55BA028801C2
+        <<uses>> "55BA64D602DC"
+         %UID '55BA64D602DC'
+         %TARGET U$ '4767749802D1' /* PTypeInfo */
+        ; // 55BA64D602DC
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_LogManager
+         %UID '55B761D70223'
+         %TARGET U$ '45ED59950191' /* LogManager */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // f_LogManager
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        SUMMONED FINAL <<static>> Exists
+         %UID '997A64BF8453'
+         %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Exists
+      ; // %OPERATIONS
+     ; // TnsLogManager
+   ; // %CHILDREN
+  ; // LoggingWrapper
+  <<Unit>> Logging
+   %UID '4B0A60DF01F2'
+   %DEPENDS
+    U$ '45ED58CF03E6' /* Logging */
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47F2170002B2' /* nsTypes */
+    U$ '48F747EC0073' /* Common */
+    U$ '490838E10313' /* nscNewInterfaces */
+    U$ '49913F2C020C' /* LoggingInterfaces */
+    U$ '49F02FDF02B9' /* ContextFilter */
+    U$ '4AB0997B00A2' /* Common */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '54B90AC6014B' /* StringUtils */
+    U$ '55B75E6E034C' /* LoggingWrapperInterfaces */
+    U$ '55B760A803D5' /* LoggingWrapper */
+    U$ '55B9FF5B03CB' /* LoggingTestService */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677FF4B0036' /* Data */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '47E9EEC60260' /* Model */
+    U$ '490838AA02D0' /* Nemesis */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+    U$ '55B62380030A' /* Logging */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     ABSTRACT <<Impurity>> nsLogEvent
+      %UID '55B8907D0158'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %LINKS
+        <<uses>> "55B890A502E5"
+         %UID '55B890A502E5'
+         %TARGET U$ '55B760CE036A' /* TnsLogEventData */
+        ; // 55B890A502E5
+        <<uses>> "55B890B201C2"
+         %UID '55B890B201C2'
+         %TARGET U$ '55B761180244' /* TnsLogManager */
+        ; // 55B890B201C2
+        <<uses>> "55B890B5025F"
+         %UID '55B890B5025F'
+         %TARGET U$ '45ED58FF0201' /* LogEvent */
+        ; // 55B890B5025F
+        <<uses>> "55B8C7830190"
+         %UID '55B8C7830190'
+         %TARGET U$ '55B75F160131' /* InsLogEventData */
+        ; // 55B8C7830190
+      ; // %LINKS
+     ; // nsLogEvent
+     <<SimpleClass>> TInsDefferedEventList
+      %UID '4B139EC502DF'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '47E9EEC60260' /* Model */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47B57D830369' /* l3InterfaceRefList */
+       U$ '47BC3A07027F' /* Tl3SimpleDataContainer */
+      ; // %INHERITS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> ItemType
+         %UID '4B139F1B011E'
+         %TARGET U$ '4B0FA5B8011B' /* InsDefferedEvent */
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+        ; // ItemType
+      ; // %ATTRIBUTES
+     ; // TInsDefferedEventList
+     <<SimpleClass>> TnsPrimCachedEventsProcessor
+      %UID '4B139F5C025B'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '47E9EEC60260' /* Model */
+       U$ '55B62380030A' /* Logging */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4B139E41024C' /* InsCachedEventsProcessor */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47BC391D0259' /* Tl3SimpleObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4B139E6B00C1' /* RegisterEvent */
+       U$ '4B139E860009' /* RequestWriteCache */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4B13C3CE01DF"
+         %UID '4B13C3CE01DF'
+         %TARGET U$ '48D391C60190' /* DateUtils */
+        ; // 4B13C3CE01DF
+        <<uses>> "4B13C4600153"
+         %UID '4B13C4600153'
+         %TARGET U$ '47877EB202FB' /* SysUtils */
+        ; // 4B13C4600153
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_List
+         %UID '4B139F8600C1'
+         %TARGET U$ '4B139EC502DF' /* TInsDefferedEventList */
+         %TOBEINCLUDED
+          U$ '55B62380030A' /* Logging */
+         ; // %TOBEINCLUDED
+        ; // f_List
+        PRIVATE <<Attribute>> f_CacheWasWritten
+         %UID '4B13A96B0315'
+         %TARGET U$ '47272C8B0128' /* TDateTime */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_CacheWasWritten
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PRIVATE FINAL <<Operation>> Notify
+         %UID '4B139F9D008C'
+        ; // Notify
+        PROTECTED FINAL <<ctor>> Create
+         %UID '4B139FDA0182'
+        ; // Create
+        FINAL <<factory>> Make
+         %UID '4B139FFD02C0'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+        ; // Make
+      ; // %OPERATIONS
+     ; // TnsPrimCachedEventsProcessor
+     <<SimpleClass>> TnsCachedEventsProcessor
+      %UID '4B139FB1009B'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+       %upv "singleton" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '47E9EEC60260' /* Model */
+       U$ '55B62380030A' /* Logging */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4B139F5C025B' /* TnsPrimCachedEventsProcessor */
+      ; // %INHERITS
+      %OPERATIONS
+        FINAL <<factory>> Make
+         %UID '4B13A8A20263'
+         %TARGET U$ '4B139E41024C' /* InsCachedEventsProcessor */
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '47E9EEC60260' /* Model */
+         ; // %TOBEINCLUDED
+        ; // Make
+        SUMMONED FINAL <<static>> Exists
+         %UID '6BBB76B016CC'
+         %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Exists
+      ; // %OPERATIONS
+     ; // TnsCachedEventsProcessor
+     ABSTRACT <<SimpleClass>> TnsLogEvent
+      %UID '4B0A6109010C'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '4790D09A0378' /* L3 */
+       U$ '55B62380030A' /* Logging */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '55B8907D0158' /* nsLogEvent */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47BC391D0259' /* Tl3SimpleObject */
+      ; // %INHERITS
+      %OPERATIONS
+        PROTECTED FINAL <<static>> MakeParamsList
+         %UID '4B0A61540153'
+         %TARGET U$ '55B75F160131' /* InsLogEventData */
+         %TOBEINCLUDED
+          U$ '55B62380030A' /* Logging */
+         ; // %TOBEINCLUDED
+        ; // MakeParamsList
+        PROTECTED FINAL <<static>> GetLogger
+         %UID '4B0A65A302E7'
+         %TARGET U$ '55B75FED02BC' /* InsLogManager */
+         %TOBEINCLUDED
+          U$ '55B62380030A' /* Logging */
+         ; // %TOBEINCLUDED
+        ; // GetLogger
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<Typedef>> InsLogEventData
+         %UID '55BA5B18031D'
+         %TOBEINCLUDED
+          U$ '55B62380030A' /* Logging */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '55B75F160131' /* InsLogEventData */
+         ; // %INHERITS
+         %REALIZES
+          U$ '55B75F7202BE' /* AddDate */
+          U$ '55B75FA00176' /* AddObject */
+          U$ '55B75FBE02BE' /* AddString */
+          U$ '55B75FD7031E' /* AddULong */
+          U$ '55B76037036D' /* AsLogEventData */
+          U$ '55BA030300BA' /* AsString */
+         ; // %REALIZES
+        ; // InsLogEventData
+        <<Typedef>> TLogEvent
+         %UID '55BA5B4D0262'
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '45ED58FF0201' /* LogEvent */
+         ; // %INHERITS
+        ; // TLogEvent
+      ; // %CHILDREN
+     ; // TnsLogEvent
+     ABSTRACT <<SimpleClass>> TnsPrimCachedEvent
+      %UID '4B13A069037A'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '47E9EEC60260' /* Model */
+       U$ '55B62380030A' /* Logging */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4B0FA5B8011B' /* InsDefferedEvent */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4B0A6109010C' /* TnsLogEvent */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4B0FA5CB0254' /* FireLog */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "4B13A22001E4"
+         %UID '4B13A22001E4'
+         %TARGET U$ '4B139FB1009B' /* TnsCachedEventsProcessor */
+        ; // 4B13A22001E4
+      ; // %LINKS
+      %OPERATIONS
+        PROTECTED ABSTRACT <<Operation>> DoFireLog
+         %UID '4B13A1F202D9'
+        ; // DoFireLog
+        PROTECTED FINAL <<Operation>> RequestWrite
+         %UID '4B13A22E0048'
+        ; // RequestWrite
+        FINAL <<ctor>> Create
+         %UID '4B13AB74036B'
+        ; // Create
+      ; // %OPERATIONS
+     ; // TnsPrimCachedEvent
+     <<SimpleClass>> TnsContextFilterEventDataList
+      %UID '4B1662CC011E'
+      %META
+       %upv "author" 'Лукьянец Р.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+       U$ '55B62380030A' /* Logging */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4A54DD4E036F' /* Tl3ProtoDataContainer */
+       U$ '4B223DB5024B' /* l3RecordWithEQList */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47B2C42A0163' /* AssignItem */
+       U$ '47B99D4503A2' /* CompareExistingItems */
+      ; // %REALIZES
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> ItemType
+         %UID '4B16638B0079'
+         %TARGET U$ '4B16636E01DF' /* TnsContextFilterData */
+         %TOBEINCLUDED
+          U$ '55B62380030A' /* Logging */
+         ; // %TOBEINCLUDED
+        ; // ItemType
+      ; // %ATTRIBUTES
+      %CHILDREN
+       
+        <<StaticObject>> TnsContextFilterData
+         %UID '4B16636E01DF'
+         %META
+          %upv "not treat as record for XE4" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+          U$ '55B62380030A' /* Logging */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           FINAL <<Attribute>> rHandle
+            %UID '4B1663B700EE'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // rHandle
+           FINAL <<Attribute>> rContext
+            %UID '4B1663DD0063'
+            %TARGET U$ '46780DA40383' /* Il3CString */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // rContext
+         ; // %ATTRIBUTES
+         %OPERATIONS
+           FINAL <<ctor>> C
+            %UID '4B1663ED0181'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aHandle
+               %UID '4B16640302C5'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aHandle
+              <<in>> aContext
+               %UID '4B16640302E4'
+               %TARGET U$ '46780DA40383' /* Il3CString */
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // aContext
+            ; // %PARAMETERS
+           ; // C
+           FINAL <<Operation>> EQ
+            %UID '4B16641C031A'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '55B62380030A' /* Logging */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aB
+               %UID '4B1664300164'
+               %TARGET U$ '4B16636E01DF' /* TnsContextFilterData */
+               %TOBEINCLUDED
+                U$ '55B62380030A' /* Logging */
+               ; // %TOBEINCLUDED
+              ; // aB
+            ; // %PARAMETERS
+           ; // EQ
+         ; // %OPERATIONS
+        ; // TnsContextFilterData
+      ; // %CHILDREN
+     ; // TnsContextFilterEventDataList
+     FINAL <<SimpleClass>> TnsContextFilterEventListener
+      %UID '4B1660B9000D'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+       %upv "singleton" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '490838AA02D0' /* Nemesis */
+       U$ '55B62380030A' /* Logging */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '490839920096' /* InscContextFilterListener */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4B0A6109010C' /* TnsLogEvent */
+      ; // %INHERITS
+      %REALIZES
+       U$ '490839BA0073' /* ContextCanBeChanged */
+       U$ '4B165B44032D' /* FilterRemoving */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '479731C50290' /* Cleanup */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "4B166460002D"
+         %UID '4B166460002D'
+         %TARGET U$ '49F0314802E7' /* TnscContextFilter */
+        ; // 4B166460002D
+        <<uses>> "4B16761E0252"
+         %UID '4B16761E0252'
+         %TARGET U$ '45ED58FF0201' /* LogEvent */
+        ; // 4B16761E0252
+        <<uses>> "4B16766100BE"
+         %UID '4B16766100BE'
+         %TARGET U$ '47878E0E0191' /* l3String */
+        ; // 4B16766100BE
+        <<uses>> "4B16767B020B"
+         %UID '4B16767B020B'
+         %TARGET U$ '4ADC58F703CF' /* FreeAndNil */
+        ; // 4B16767B020B
+        <<uses>> "4B1679740371"
+         %UID '4B1679740371'
+         %TARGET U$ '4AAF9718001D' /* nsAStr */
+        ; // 4B1679740371
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_List
+         %UID '4B1662ED031B'
+         %TARGET U$ '4B1662CC011E' /* TnsContextFilterEventDataList */
+         %TOBEINCLUDED
+          U$ '55B62380030A' /* Logging */
+         ; // %TOBEINCLUDED
+        ; // f_List
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<ctor>> Create
+         %UID '4B1661450093'
+        ; // Create
+        SUMMONED FINAL <<static>> Exists
+         %UID '40F644E1F78B'
+         %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Exists
+      ; // %OPERATIONS
+     ; // TnsContextFilterEventListener
+     ABSTRACT <<SimpleClass>> TnsCounterEvent
+      %UID '4B13A1A2000F'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '55B62380030A' /* Logging */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4B13A069037A' /* TnsPrimCachedEvent */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4B13A1F202D9' /* DoFireLog */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "55B7A79003BD"
+         %UID '55B7A79003BD'
+         %TARGET U$ '55B75F160131' /* InsLogEventData */
+        ; // 55B7A79003BD
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Counter
+         %UID '4B13A1D40309'
+         %TARGET U$ '46A618AF0053' /* Cardinal */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // f_Counter
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PROTECTED ABSTRACT <<Operation>> EventID
+         %UID '4B13A26203DB'
+         %TARGET U$ '45ED58FF0201' /* LogEvent */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // EventID
+        FINAL <<Operation>> Log
+         %UID '4B13A5F10200'
+        ; // Log
+      ; // %OPERATIONS
+     ; // TnsCounterEvent
+   ; // %CHILDREN
+  ; // Logging
+  <<ScriptKeywords>> LoggingWords
+   %UID '55B75D820337'
+   %DEPENDS
+    U$ '4767743E00E5' /* TypInfo */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4B0A60DF01F2' /* Logging */
+    U$ '4DAF19F600C5' /* tfwScriptingInterfaces */
+    U$ '5527F81C020E' /* TypesRegistration */
+    U$ '55B9FF5B03CB' /* LoggingTestService */
+    U$ '55BA28CE0290' /* tfwScriptingTypes */
+    U$ '55CCADD2013D' /* ClassLikeMapping */
+   ; // %DEPENDS
+   %META
+    %upv "ifndef" 'NoScripts'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '54CF97B10370' /* ScriptEngine$Core */
+    U$ '55B62380030A' /* Logging */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<ScriptKeywordsPack>> LoggingWordsPack
+      %UID '55B75D980276'
+      %META
+       %upv "author" 'Костицын'
+       %upv "ifndef" 'NoScripts'
+       %upv "needs script" 'undefined'
+       %upv "no class name" 'undefined'
+       %upv "no hands" false
+       %upv "no_pop" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "55BA026201A4"
+         %UID '55BA026201A4'
+         %TARGET U$ '55B9FFCB020F' /* TnsLoggingTestService */
+        ; // 55BA026201A4
+        <<injects>> "55BA0271031A"
+         %UID '55BA0271031A'
+         %TARGET U$ '55B9FFCB020F' /* TnsLoggingTestService */
+        ; // 55BA0271031A
+        SUMMONED <<uses>> "3610CEC90F91"
+         %UID '3610CEC90F91'
+         %TARGET U$ '55153C2C036F' /* TypeInfoExt */
+        ; // 3610CEC90F91
+        SUMMONED <<uses>> "AEDD7F920897"
+         %UID 'AEDD7F920897'
+         %TARGET U$ '5527F8330362' /* TtfwTypeRegistrator */
+        ; // AEDD7F920897
+      ; // %LINKS
+      %OPERATIONS
+        FINAL <<globalkeyword>> logging_StartListening
+         %UID '55B75DC003BF'
+        ; // logging_StartListening
+        FINAL <<globalkeyword>> logging_FinishListening
+         %UID '55B75DD7013D'
+        ; // logging_FinishListening
+        FINAL <<globalkeyword>> logging_GetLogRecords
+         %UID '55B75E0E039F'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // logging_GetLogRecords
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TtfwContext
+         %UID 'ED0C5EEBDCF9'
+         %SUMMARY 'Регистрация типа TtfwContext' ;
+        ; // Reg_TtfwContext
+        SUMMONED PRIVATE FINAL <<ini>> Reg_String
+         %UID '27D13676FA49'
+         %SUMMARY 'Регистрация типа String' ;
+        ; // Reg_String
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "logging_StartListening"
+         %UID '66D69322DA0D'
+         %SUMMARY 'Слово скрипта logging:StartListening'#13#10'*Пример:*'#13#10'{code}'#13#10' logging:StartListening'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'logging:StartListening'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '561BAC4B0005' /* TtfwGlobalKeyWord */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "F46E58770BC7"
+            %UID 'F46E58770BC7'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // F46E58770BC7
+           SUMMONED <<uses>> "41E3004C10FC"
+            %UID '41E3004C10FC'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // 41E3004C10FC
+           SUMMONED <<uses>> "218BE94724A8"
+            %UID '218BE94724A8'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 218BE94724A8
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID 'BEA3EEE5146A'
+            %SUMMARY 'Регистрация logging_StartListening' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "logging_StartListening"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "logging_FinishListening"
+         %UID '961A18770456'
+         %SUMMARY 'Слово скрипта logging:FinishListening'#13#10'*Пример:*'#13#10'{code}'#13#10' logging:FinishListening'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'logging:FinishListening'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '561BAC4B0005' /* TtfwGlobalKeyWord */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "5347FB57266C"
+            %UID '5347FB57266C'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 5347FB57266C
+           SUMMONED <<uses>> "98FDCAA99FE6"
+            %UID '98FDCAA99FE6'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // 98FDCAA99FE6
+           SUMMONED <<uses>> "1DCAC9AEC59C"
+            %UID '1DCAC9AEC59C'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 1DCAC9AEC59C
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '3C979AD66A04'
+            %SUMMARY 'Регистрация logging_FinishListening' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "logging_FinishListening"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "logging_GetLogRecords"
+         %UID '4FDD3D4A4771'
+         %SUMMARY 'Слово скрипта logging:GetLogRecords'#13#10'*Тип результата:* String'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_String'#13#10' logging:GetLogRecords >>> l_String'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'logging:GetLogRecords'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '561BAC4B0005' /* TtfwGlobalKeyWord */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "33FAF4134BFD"
+            %UID '33FAF4134BFD'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 33FAF4134BFD
+           SUMMONED <<uses>> "B05276724B8F"
+            %UID 'B05276724B8F'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // B05276724B8F
+           SUMMONED <<uses>> "BCFF64EE7EE6"
+            %UID 'BCFF64EE7EE6'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // BCFF64EE7EE6
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> logging_GetLogRecords
+            %UID 'E7318C288828'
+            %SUMMARY 'Реализация слова скрипта logging:GetLogRecords' ;
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID '5F69D7060AED'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+            ; // %PARAMETERS
+           ; // logging_GetLogRecords
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '37AF56FCC9C0'
+            %SUMMARY 'Регистрация logging_GetLogRecords' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "logging_GetLogRecords"
+      ; // %CHILDREN
+     ; // LoggingWordsPack
+   ; // %CHILDREN
+  ; // LoggingWords
+ ; // %CHILDREN
+; // Logging

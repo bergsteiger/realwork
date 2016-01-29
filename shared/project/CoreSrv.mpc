@@ -1,0 +1,171 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/shared/project/CoreSrv.mpc"
+// дополнительные файлы проектов (mpc)
+// Generated from UML model, root element: <<ServerLibrary::Category>> shared::CoreSrv
+//
+// Клиент-серверное ядро, набор базовых вспомогательных функциий и типов для работы с CORBA, а так
+// же клиент-сервная часть фреймворка GCM2
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (CoreSrv) : project_generic_core_corba {
+	staticname = CoreSrv
+
+	includes += ../../
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	after += Core
+	libs  += Core
+
+	Header_Files {
+		Std_Headers {
+			./../CoreSrv/ServerLibHome.h
+		}
+	
+		EvenComm_i {
+			./../CoreSrv/impl/EvenComm_i/EventChannelManagerImpl.h
+			./../CoreSrv/impl/EvenComm_i/EventChannelManagerImpl_factory.h
+		}
+	
+		Root {
+			./../CoreSrv/Root/Root.h
+			./../CoreSrv/Root/ServerSettings.h
+		}
+	
+		Root_i {
+			./../CoreSrv/impl/Root_i/Root_i.h
+			./../CoreSrv/impl/Root_i/ConfigurationSrv_i.h
+			./../CoreSrv/impl/Root_i/ConfigurationSrv_i_factory.h
+			./../CoreSrv/impl/Root_i/CorbaExecuterBase.h
+			./../CoreSrv/impl/Root_i/CorbaLibHomeBase.h
+			./../CoreSrv/impl/Root_i/CorbaLibHomeManager.h
+			./../CoreSrv/impl/Root_i/CorbaLibHomeManager_factory.h
+		}
+	
+		Security {
+			./../CoreSrv/Security/Security.h
+			./../CoreSrv/Security/SecurityFactories.h
+		}
+	
+		SecurityComm {
+			./../CoreSrv/SecurityComm/SecurityComm.h
+			./../CoreSrv/SecurityComm/SecurityCommFactories.h
+		}
+	
+		Security_i {
+			./../CoreSrv/impl/Security_i/SessionManager_i.h
+			./../CoreSrv/impl/Security_i/SessionManager_i_factory.h
+			./../CoreSrv/impl/Security_i/Session_i.h
+			./../CoreSrv/impl/Security_i/Session_i_factory.h
+		}
+	
+		Utils {
+			./../CoreSrv/Utils/ORB.h
+			./../CoreSrv/Utils/corba_object_op.h
+			./../CoreSrv/Utils/cos_naming_op.h
+		}
+	
+		interceptors {
+		}
+	
+		sys {
+			./../CoreSrv/sys/Exception.h
+			./../CoreSrv/sys/Logs.h
+			./../CoreSrv/sys/RefCountServantBase.h
+			./../CoreSrv/sys/std_inc.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		EvenComm_i {
+		}
+	
+		Root {
+		}
+	
+		Root_i {
+		}
+	
+		Security {
+		}
+	
+		SecurityComm {
+		}
+	
+		Security_i {
+		}
+	
+		Utils {
+			./../CoreSrv/Utils/cos_naming_op.i.h
+		}
+	
+		interceptors {
+		}
+	
+		sys {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../CoreSrv/ServerLibHome.cpp
+		}
+	
+		EvenComm_i {
+			./../CoreSrv/impl/EvenComm_i/EventChannelManagerImpl.cpp
+			./../CoreSrv/impl/EvenComm_i/EventChannelManagerImpl_factory.cpp
+		}
+	
+		Root {
+			./../CoreSrv/Root/ServerSettings.cpp
+		}
+	
+		Root_i {
+			./../CoreSrv/impl/Root_i/ConfigurationSrv_i.cpp
+			./../CoreSrv/impl/Root_i/ConfigurationSrv_i_factory.cpp
+			./../CoreSrv/impl/Root_i/CorbaExecuterBase.cpp
+			./../CoreSrv/impl/Root_i/CorbaLibHomeBase.cpp
+			./../CoreSrv/impl/Root_i/CorbaLibHomeManager.cpp
+			./../CoreSrv/impl/Root_i/CorbaLibHomeManager_factory.cpp
+		}
+	
+		Security {
+			./../CoreSrv/Security/Security.cpp
+			./../CoreSrv/Security/SecurityFactories.cpp
+		}
+	
+		SecurityComm {
+			./../CoreSrv/SecurityComm/SecurityComm.cpp
+			./../CoreSrv/SecurityComm/SecurityCommFactories.cpp
+		}
+	
+		Security_i {
+			./../CoreSrv/impl/Security_i/SessionManager_i.cpp
+			./../CoreSrv/impl/Security_i/SessionManager_i_factory.cpp
+			./../CoreSrv/impl/Security_i/Session_i.cpp
+			./../CoreSrv/impl/Security_i/Session_i_factory.cpp
+		}
+	
+		Utils {
+			./../CoreSrv/Utils/ORB.cpp
+			./../CoreSrv/Utils/corba_object_op.cpp
+		}
+	
+		interceptors {
+		}
+	
+		sys {
+			./../CoreSrv/sys/Exception.cpp
+			./../CoreSrv/sys/Logs.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

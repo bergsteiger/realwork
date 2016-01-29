@@ -1,0 +1,1678 @@
+// CodeBranchingWords 5284E8850019 ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5284E8850019
+
+FORWARD ME_5284E8BD02CB
+
+FORWARD ME_4F51EC180118
+
+: ME_5E036D244A9D
+ CONST UID '5E036D244A9D'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация RULES' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F51EC180118 // RULES
+ ;
+
+ref; // ME_5E036D244A9D Ini_Reg
+
+FORWARD ME_4F51EC380222
+
+: ME_4F51EC4E0133
+ CONST UID '4F51EC4E0133'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F51EC180118 // RULES
+ ;
+ : Target ME_4F51EC380222 // TkwCompiledRules
+ ;
+
+ref; // ME_4F51EC4E0133 
+
+: ME_52D7AE530364
+ CONST UID '52D7AE530364'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F51EC180118 // RULES
+ ;
+ : Target WL 'ME_52D6AC5402E7' '4DAEEA14018A.pas.ms.script' // StandardProcedureCloseBracket
+ ;
+
+ref; // ME_52D7AE530364 
+
+: ME_4DB6C99F026E_ME_4F51EC180118
+ CONST UID '4DB6C99F026E'
+ CONST Name 'EndBracket'
+ : Original WL 'ME_4DB6C99F026E' '54F079B5035C.pas.ms.script' // EndBracket
+ ;
+ : Implementor ME_4F51EC180118 // RULES
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DB6C99F026E_ME_4F51EC180118 EndBracket
+
+: ME_4DB0614603C8_ME_4F51EC180118
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_4F51EC180118 // RULES
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_4F51EC180118 GetWordNameForRegister
+
+: ME_4DBAEE0D028D_ME_4F51EC180118
+ CONST UID '4DBAEE0D028D'
+ CONST Name 'CompiledWordClass'
+ : Original WL 'ME_4DBAEE0D028D' '54F079B5035C.pas.ms.script' // CompiledWordClass
+ ;
+ : Implementor ME_4F51EC180118 // RULES
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DBAEE0D028D_ME_4F51EC180118 CompiledWordClass
+
+: ME_4F51EC180118
+ CONST UID '4F51EC180118'
+ CONST Name 'RULES'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Аналог CASE и трансформаторов в MDP. Если условие выполняется, то выполняется следующий за ним оператор и осуществляется выход' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5284E8BD02CB // CodeBranchingPack
+ ;
+ : Inherits
+   @ ( WL 'ME_4DBAEF29031F' '54F079B5035C.pas.ms.script' // TtfwBeginLikeWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_5E036D244A9D // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DB6C99F026E_ME_4F51EC180118 // EndBracket
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_4F51EC180118 // GetWordNameForRegister
+ ME_4DBAEE0D028D_ME_4F51EC180118 // CompiledWordClass
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4F51EC4E0133 // 
+ ME_52D7AE530364 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwRULES.pas'
+ CONST extprop:pas:TypeName 'TkwRULES'
+
+ref; // ME_4F51EC180118 RULES
+
+FORWARD ME_5284E9670258
+
+: ME_5284E97C020E
+ CONST UID '5284E97C020E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5284E8BD02CB // CodeBranchingPack
+ ;
+ : Target ME_5284E9670258 // if_else
+ ;
+
+ref; // ME_5284E97C020E 
+
+FORWARD ME_5284F739012F
+
+: ME_5284F7490075
+ CONST UID '5284F7490075'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5284E8BD02CB // CodeBranchingPack
+ ;
+ : Target ME_5284F739012F // else
+ ;
+
+ref; // ME_5284F7490075 
+
+FORWARD ME_4DBAEE8103DB
+
+: ME_52D691A603DE
+ CONST UID '52D691A603DE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5284E8BD02CB // CodeBranchingPack
+ ;
+ : Target ME_4DBAEE8103DB // CASE
+ ;
+
+ref; // ME_52D691A603DE 
+
+FORWARD ME_4DBAF3D60039
+
+: ME_52D691B5027E
+ CONST UID '52D691B5027E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5284E8BD02CB // CodeBranchingPack
+ ;
+ : Target ME_4DBAF3D60039 // DEFAULT
+ ;
+
+ref; // ME_52D691B5027E 
+
+FORWARD ME_4DBAE64F02F7
+
+: ME_52D693380394
+ CONST UID '52D693380394'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5284E8BD02CB // CodeBranchingPack
+ ;
+ : Target ME_4DBAE64F02F7 // RAISE
+ ;
+
+ref; // ME_52D693380394 
+
+FORWARD ME_4DBFBBE603E5
+
+: ME_52D693E80012
+ CONST UID '52D693E80012'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5284E8BD02CB // CodeBranchingPack
+ ;
+ : Target ME_4DBFBBE603E5 // BracketBegin
+ ;
+
+ref; // ME_52D693E80012 
+
+FORWARD ME_4DB9BB8D0388
+
+: ME_52D6947400E2
+ CONST UID '52D6947400E2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5284E8BD02CB // CodeBranchingPack
+ ;
+ : Target ME_4DB9BB8D0388 // BEGIN
+ ;
+
+ref; // ME_52D6947400E2 
+
+: ME_F0E36790F338
+ CONST UID 'F0E36790F338'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5284E8BD02CB // CodeBranchingPack
+ ;
+ : Target WL 'ME_55153C2C036F' '55BA28CE0290.pas.ms.script' // TypeInfoExt
+ ;
+
+ref; // ME_F0E36790F338 
+
+: ME_5284E8BD02CB
+ CONST UID '5284E8BD02CB'
+ CONST Name 'CodeBranchingPack'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeywordsPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5284E8850019 // CodeBranchingWords
+ ;
+ : Children
+   @ ( ME_4F51EC180118 // RULES
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_5284E97C020E // 
+ ME_5284F7490075 // 
+ ME_52D691A603DE // 
+ ME_52D691B5027E // 
+ ME_52D693380394 // 
+ ME_52D693E80012 // 
+ ME_52D6947400E2 // 
+ ME_F0E36790F338 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\CodeBranchingPack.pas'
+
+ref; // ME_5284E8BD02CB CodeBranchingPack
+
+FORWARD ME_5284E9510053
+
+: ME_53DB836902FC
+ CONST UID '53DB836902FC'
+ CONST Name 'Condition'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_5284E9510053 // TkwCompiledIfElse
+ ;
+ : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_53DB836902FC Condition
+
+: ME_FF07292C0AC1
+ CONST UID 'FF07292C0AC1'
+ CONST Name 'f_Condition'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Condition' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_5284E9510053 // TkwCompiledIfElse
+ ;
+ : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ ;
+
+ref; // ME_FF07292C0AC1 f_Condition
+
+FORWARD ME_5284EED900B6
+
+: ME_5284EF0D0154
+ CONST UID '5284EF0D0154'
+ CONST Name 'aCondition'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ ;
+
+ref; // ME_5284EF0D0154 aCondition
+
+: ME_5284EF0D0178
+ CONST UID '5284EF0D0178'
+ CONST Name 'anIf'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ ;
+
+ref; // ME_5284EF0D0178 anIf
+
+: ME_5284EF0D0195
+ CONST UID '5284EF0D0195'
+ CONST Name 'anElse'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ ;
+
+ref; // ME_5284EF0D0195 anElse
+
+: ME_55645CB400A3
+ CONST UID '55645CB400A3'
+ CONST Name 'aCtx'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
+ ;
+
+ref; // ME_55645CB400A3 aCtx
+
+: ME_5284EEEA0300
+ CONST UID '5284EEEA0300'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5284EED900B6 // Create
+ ;
+ : Parameters
+   @ ( ME_5284EF0D0154 // aCondition
+ ME_5284EF0D0178 // anIf
+ ME_5284EF0D0195 // anElse
+ ME_55645CB400A3 // aCtx
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5284EEEA0300 DoIt
+
+: ME_5284EED900B6
+ CONST UID '5284EED900B6'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5284E9510053 // TkwCompiledIfElse
+ ;
+ : Operations
+   @ ( ME_5284EEEA0300 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5284EED900B6 Create
+
+FORWARD ME_5284FE8F025F
+
+: ME_5284FEA6033F
+ CONST UID '5284FEA6033F'
+ CONST Name 'anElse'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DAEED140007' '4DAF19F600C5.pas.ms.script' // TtfwWord
+ ;
+
+ref; // ME_5284FEA6033F anElse
+
+: ME_5284FE9B01CD
+ CONST UID '5284FE9B01CD'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5284FE8F025F // SetElse
+ ;
+ : Parameters
+   @ ( ME_5284FEA6033F // anElse
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_5284FE9B01CD DoIt
+
+: ME_5284FE8F025F
+ CONST UID '5284FE8F025F'
+ CONST Name 'SetElse'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5284E9510053 // TkwCompiledIfElse
+ ;
+ : Operations
+   @ ( ME_5284FE9B01CD // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_5284FE8F025F SetElse
+
+: ME_69F5D85E7DF0
+ CONST UID '69F5D85E7DF0'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TkwCompiledIfElse' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5284E9510053 // TkwCompiledIfElse
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_69F5D85E7DF0 Ini_Reg_Class
+
+: ME_5284EF5701BA
+ CONST UID '5284EF5701BA'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5284E9510053 // TkwCompiledIfElse
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_5284EF5701BA 
+
+: ME_55E842A30109
+ CONST UID '55E842A30109'
+ CONST Class class_Dependency
+ : Stereotype st_injects::Dependency ;
+ : Parent ME_5284E9510053 // TkwCompiledIfElse
+ ;
+ : Target WL 'ME_550C25D70182' '4F37B7E60283.pas.ms.script' // WordsRTTIPack
+ ;
+ CONST "injects as" 'interface'
+
+ref; // ME_55E842A30109 
+
+: ME_479731C50290_ME_5284E9510053
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_5284E9510053 // TkwCompiledIfElse
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_5284E9510053 Cleanup
+
+: ME_4DAEEDE10285_ME_5284E9510053
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_5284E9510053 // TkwCompiledIfElse
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DAEEDE10285_ME_5284E9510053 DoDoIt
+
+: ME_5284E9510053
+ CONST UID '5284E9510053'
+ CONST Name 'TkwCompiledIfElse'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5284E8850019 // CodeBranchingWords
+ ;
+ : Inherits
+   @ ( WL 'ME_4DB6EE250251' '4DAEEA14018A.pas.ms.script' // TkwCompiledIF
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_53DB836902FC // Condition
+ ME_FF07292C0AC1 // f_Condition
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_5284EED900B6 // Create
+ ME_5284FE8F025F // SetElse
+ ME_69F5D85E7DF0 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_479731C50290_ME_5284E9510053 // Cleanup
+ ME_4DAEEDE10285_ME_5284E9510053 // DoDoIt
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_5284EF5701BA // 
+ ME_55E842A30109 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCompiledIfElse.pas'
+
+ref; // ME_5284E9510053 TkwCompiledIfElse
+
+: ME_649A93DE0953
+ CONST UID '649A93DE0953'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация if_else' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5284E9670258 // if_else
+ ;
+
+ref; // ME_649A93DE0953 Ini_Reg
+
+: ME_5284E976015D
+ CONST UID '5284E976015D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5284E9670258 // if_else
+ ;
+ : Target ME_5284E9510053 // TkwCompiledIfElse
+ ;
+
+ref; // ME_5284E976015D 
+
+: ME_52DFE53B006E
+ CONST UID '52DFE53B006E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5284E9670258 // if_else
+ ;
+ : Target WL 'ME_52DFE4E403E7' '54F079B5035C.pas.ms.script' // TkwTemporaryCompiledCode
+ ;
+
+ref; // ME_52DFE53B006E 
+
+: ME_4DCBD67C0362_ME_5284E9670258
+ CONST UID '4DCBD67C0362'
+ CONST Name 'CompiledWorkerClass'
+ : Original WL 'ME_4DCBD67C0362' '54F079B5035C.pas.ms.script' // CompiledWorkerClass
+ ;
+ : Implementor ME_5284E9670258 // if_else
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DCBD67C0362_ME_5284E9670258 CompiledWorkerClass
+
+: ME_4DB0614603C8_ME_5284E9670258
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_5284E9670258 // if_else
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_5284E9670258 GetWordNameForRegister
+
+: ME_4DB9B446039A_ME_5284E9670258
+ CONST UID '4DB9B446039A'
+ CONST Name 'AfterWordMaxCount'
+ : Original WL 'ME_4DB9B446039A' '54F079B5035C.pas.ms.script' // AfterWordMaxCount
+ ;
+ : Implementor ME_5284E9670258 // if_else
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB9B446039A_ME_5284E9670258 AfterWordMaxCount
+
+: ME_4DBAEE0D028D_ME_5284E9670258
+ CONST UID '4DBAEE0D028D'
+ CONST Name 'CompiledWordClass'
+ : Original WL 'ME_4DBAEE0D028D' '54F079B5035C.pas.ms.script' // CompiledWordClass
+ ;
+ : Implementor ME_5284E9670258 // if_else
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DBAEE0D028D_ME_5284E9670258 CompiledWordClass
+
+: ME_5284D8180211_ME_5284E9670258
+ CONST UID '5284D8180211'
+ CONST Name 'MakeCompiledWordWorker'
+ : Original WL 'ME_5284D8180211' '54F079B5035C.pas.ms.script' // MakeCompiledWordWorker
+ ;
+ : Implementor ME_5284E9670258 // if_else
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5284D8180211_ME_5284E9670258 MakeCompiledWordWorker
+
+: ME_5284E9670258
+ CONST UID '5284E9670258'
+ CONST Name 'if_else'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5284E8850019 // CodeBranchingWords
+ ;
+ : Inherits
+   @ ( WL 'ME_4DCBD489023A' '54F079B5035C.pas.ms.script' // TtfwWordWorker
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_649A93DE0953 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DCBD67C0362_ME_5284E9670258 // CompiledWorkerClass
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_5284E9670258 // GetWordNameForRegister
+ ME_4DB9B446039A_ME_5284E9670258 // AfterWordMaxCount
+ ME_4DBAEE0D028D_ME_5284E9670258 // CompiledWordClass
+ ME_5284D8180211_ME_5284E9670258 // MakeCompiledWordWorker
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_5284E976015D // 
+ ME_52DFE53B006E // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" 'if'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwIfElse.pas'
+ CONST extprop:pas:TypeName 'TkwIfElse'
+
+ref; // ME_5284E9670258 if_else
+
+: ME_A49B0017C9E5
+ CONST UID 'A49B0017C9E5'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация else' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_5284F739012F // else
+ ;
+
+ref; // ME_A49B0017C9E5 Ini_Reg
+
+: ME_5284FCD300FC
+ CONST UID '5284FCD300FC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5284F739012F // else
+ ;
+ : Target WL 'ME_4DB6CA4F010D' '54F079B5035C.pas.ms.script' // TkwCompiledWord
+ ;
+
+ref; // ME_5284FCD300FC 
+
+: ME_5284FCD602BB
+ CONST UID '5284FCD602BB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5284F739012F // else
+ ;
+ : Target ME_5284E9510053 // TkwCompiledIfElse
+ ;
+
+ref; // ME_5284FCD602BB 
+
+: ME_4DCBD67C0362_ME_5284F739012F
+ CONST UID '4DCBD67C0362'
+ CONST Name 'CompiledWorkerClass'
+ : Original WL 'ME_4DCBD67C0362' '54F079B5035C.pas.ms.script' // CompiledWorkerClass
+ ;
+ : Implementor ME_5284F739012F // else
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DCBD67C0362_ME_5284F739012F CompiledWorkerClass
+
+: ME_4DB0614603C8_ME_5284F739012F
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_5284F739012F // else
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_5284F739012F GetWordNameForRegister
+
+: ME_4DB9B446039A_ME_5284F739012F
+ CONST UID '4DB9B446039A'
+ CONST Name 'AfterWordMaxCount'
+ : Original WL 'ME_4DB9B446039A' '54F079B5035C.pas.ms.script' // AfterWordMaxCount
+ ;
+ : Implementor ME_5284F739012F // else
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB9B446039A_ME_5284F739012F AfterWordMaxCount
+
+: ME_4DB9BBD6024F_ME_5284F739012F
+ CONST UID '4DB9BBD6024F'
+ CONST Name 'DoCompiledWord'
+ : Original WL 'ME_4DB9BBD6024F' '54F079B5035C.pas.ms.script' // DoCompiledWord
+ ;
+ : Implementor ME_5284F739012F // else
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB9BBD6024F_ME_5284F739012F DoCompiledWord
+
+: ME_5284D8180211_ME_5284F739012F
+ CONST UID '5284D8180211'
+ CONST Name 'MakeCompiledWordWorker'
+ : Original WL 'ME_5284D8180211' '54F079B5035C.pas.ms.script' // MakeCompiledWordWorker
+ ;
+ : Implementor ME_5284F739012F // else
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_5284D8180211_ME_5284F739012F MakeCompiledWordWorker
+
+: ME_5284F739012F
+ CONST UID '5284F739012F'
+ CONST Name 'else'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5284E8850019 // CodeBranchingWords
+ ;
+ : Inherits
+   @ ( WL 'ME_4DCBD489023A' '54F079B5035C.pas.ms.script' // TtfwWordWorker
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_A49B0017C9E5 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DCBD67C0362_ME_5284F739012F // CompiledWorkerClass
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_5284F739012F // GetWordNameForRegister
+ ME_4DB9B446039A_ME_5284F739012F // AfterWordMaxCount
+ ME_4DB9BBD6024F_ME_5284F739012F // DoCompiledWord
+ ME_5284D8180211_ME_5284F739012F // MakeCompiledWordWorker
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_5284FCD300FC // 
+ ME_5284FCD602BB // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwElse.pas'
+ CONST extprop:pas:TypeName 'TkwElse'
+
+ref; // ME_5284F739012F else
+
+: ME_5A6B4DDB0CFA
+ CONST UID '5A6B4DDB0CFA'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация CASE' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DBAEE8103DB // CASE
+ ;
+
+ref; // ME_5A6B4DDB0CFA Ini_Reg
+
+: ME_53DFBF4E03D0
+ CONST UID '53DFBF4E03D0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DBAEE8103DB // CASE
+ ;
+ : Target WL 'ME_52D7B71F01DC' '4DAEEA14018A.pas.ms.script' // END
+ ;
+
+ref; // ME_53DFBF4E03D0 
+
+FORWARD ME_4DBAEEEC00CF
+
+: ME_55B62CB50138
+ CONST UID '55B62CB50138'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DBAEE8103DB // CASE
+ ;
+ : Target ME_4DBAEEEC00CF // TkwCompiledCase
+ ;
+
+ref; // ME_55B62CB50138 
+
+: ME_4DB6C99F026E_ME_4DBAEE8103DB
+ CONST UID '4DB6C99F026E'
+ CONST Name 'EndBracket'
+ : Original WL 'ME_4DB6C99F026E' '54F079B5035C.pas.ms.script' // EndBracket
+ ;
+ : Implementor ME_4DBAEE8103DB // CASE
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DB6C99F026E_ME_4DBAEE8103DB EndBracket
+
+: ME_4DB0614603C8_ME_4DBAEE8103DB
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_4DBAEE8103DB // CASE
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_4DBAEE8103DB GetWordNameForRegister
+
+: ME_4DBAEE0D028D_ME_4DBAEE8103DB
+ CONST UID '4DBAEE0D028D'
+ CONST Name 'CompiledWordClass'
+ : Original WL 'ME_4DBAEE0D028D' '54F079B5035C.pas.ms.script' // CompiledWordClass
+ ;
+ : Implementor ME_4DBAEE8103DB // CASE
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DBAEE0D028D_ME_4DBAEE8103DB CompiledWordClass
+
+: ME_4DBAEE8103DB
+ CONST UID '4DBAEE8103DB'
+ CONST Name 'CASE'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Аналог Case из Delphi'#13#10'{code}'#13#10' CASE'#13#10'  1 ( 1 . )'#13#10'  2 ( 2 . )'#13#10'  DEFAULT ( ''else'' . )'#13#10' ENDCASE'#13#10'{code}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5284E8850019 // CodeBranchingWords
+ ;
+ : Inherits
+   @ ( WL 'ME_4DBAEF29031F' '54F079B5035C.pas.ms.script' // TtfwBeginLikeWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_5A6B4DDB0CFA // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DB6C99F026E_ME_4DBAEE8103DB // EndBracket
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_4DBAEE8103DB // GetWordNameForRegister
+ ME_4DBAEE0D028D_ME_4DBAEE8103DB // CompiledWordClass
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_53DFBF4E03D0 // 
+ ME_55B62CB50138 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '29.04.2011 21:00'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCASE.pas'
+ CONST extprop:pas:TypeName 'TkwCASE'
+
+ref; // ME_4DBAEE8103DB CASE
+
+: ME_820CB21C3362
+ CONST UID '820CB21C3362'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TkwCompiledCase' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DBAEEEC00CF // TkwCompiledCase
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_820CB21C3362 Ini_Reg_Class
+
+: ME_53DFBB0303E7
+ CONST UID '53DFBB0303E7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DBAEEEC00CF // TkwCompiledCase
+ ;
+ : Target WL 'ME_508528D10384' '4F3E3F5F0160.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_53DFBB0303E7 
+
+: ME_4DAEEDE10285_ME_4DBAEEEC00CF
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_4DBAEEEC00CF // TkwCompiledCase
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_4DBAEEEC00CF DoDoIt
+
+: ME_4DBAEEEC00CF
+ CONST UID '4DBAEEEC00CF'
+ CONST Name 'TkwCompiledCase'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5284E8850019 // CodeBranchingWords
+ ;
+ : Inherits
+   @ ( WL 'ME_52D55D7B0178' '54F079B5035C.pas.ms.script' // TkwRuntimeWordWithCode
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_820CB21C3362 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_4DBAEEEC00CF // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Dependencies
+   @ ( ME_53DFBB0303E7 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '29.04.2011 21:01'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCompiledCase.pas'
+
+ref; // ME_4DBAEEEC00CF TkwCompiledCase
+
+: ME_0C36A52A2CA7
+ CONST UID '0C36A52A2CA7'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация DEFAULT' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DBAF3D60039 // DEFAULT
+ ;
+
+ref; // ME_0C36A52A2CA7 Ini_Reg
+
+: ME_4DAEEDE10285_ME_4DBAF3D60039
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_4DBAF3D60039 // DEFAULT
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_4DBAF3D60039 DoDoIt
+
+: ME_4DB0614603C8_ME_4DBAF3D60039
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_4DBAF3D60039 // DEFAULT
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_4DBAF3D60039 GetWordNameForRegister
+
+: ME_4DBAF4630154_ME_4DBAF3D60039
+ CONST UID '4DBAF4630154'
+ CONST Name 'IsDefaultBranch'
+ : Original WL 'ME_4DBAF4630154' '4DAF19F600C5.pas.ms.script' // IsDefaultBranch
+ ;
+ : Implementor ME_4DBAF3D60039 // DEFAULT
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DBAF4630154_ME_4DBAF3D60039 IsDefaultBranch
+
+: ME_4DBAF3D60039
+ CONST UID '4DBAF3D60039'
+ CONST Name 'DEFAULT'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Внутреннее слово для определения ветки по умолчанию в скомпилированном Case. Не предназначено для прямого вызова.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5284E8850019 // CodeBranchingWords
+ ;
+ : Inherits
+   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_0C36A52A2CA7 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_4DBAF3D60039 // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_4DBAF3D60039 // GetWordNameForRegister
+ ME_4DBAF4630154_ME_4DBAF3D60039 // IsDefaultBranch
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '29.04.2011 21:23'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwDEFAULT.pas'
+ CONST extprop:pas:TypeName 'TkwDEFAULT'
+
+ref; // ME_4DBAF3D60039 DEFAULT
+
+: ME_60C693AE0DA5
+ CONST UID '60C693AE0DA5'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация RAISE' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DBAE64F02F7 // RAISE
+ ;
+
+ref; // ME_60C693AE0DA5 Ini_Reg
+
+: ME_4DBAE6930072
+ CONST UID '4DBAE6930072'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DBAE64F02F7 // RAISE
+ ;
+ : Target WL 'ME_4787A405013D' '4AB0C3C60310.pas.ms.script' // Exception
+ ;
+
+ref; // ME_4DBAE6930072 
+
+: ME_4DAEEDE10285_ME_4DBAE64F02F7
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_4DBAE64F02F7 // RAISE
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_4DBAE64F02F7 DoDoIt
+
+: ME_4DB0614603C8_ME_4DBAE64F02F7
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_4DBAE64F02F7 // RAISE
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_4DBAE64F02F7 GetWordNameForRegister
+
+: ME_4DBAE64F02F7
+ CONST UID '4DBAE64F02F7'
+ CONST Name 'RAISE'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Зарезервированное слово RAISE. Аналогично raise из Delphi. Если не было исключения, то генерируется EtfwScriptException.'#13#10'Пример:'#13#10'{code}'#13#10'TRY'#13#10' ''Тестовое исключение'' RAISE'#13#10'EXCEPT'#13#10' true >>> WasException'#13#10'END'#13#10'{code}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5284E8850019 // CodeBranchingWords
+ ;
+ : Inherits
+   @ ( WL 'ME_53EDC0E701BC' '4F3E3F5F0160.pas.ms.script' // TtfwRegisterableWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_60C693AE0DA5 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_4DBAE64F02F7 // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_4DBAE64F02F7 // GetWordNameForRegister
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_4DBAE6930072 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '29.04.2011 20:25'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwRAISE.pas'
+ CONST extprop:pas:TypeName 'TkwRAISE'
+
+ref; // ME_4DBAE64F02F7 RAISE
+
+: ME_20C57DE533EE
+ CONST UID '20C57DE533EE'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация BracketBegin' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DBFBBE603E5 // BracketBegin
+ ;
+
+ref; // ME_20C57DE533EE Ini_Reg
+
+FORWARD ME_52D7B7360146
+
+: ME_52D7B74D014B
+ CONST UID '52D7B74D014B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DBFBBE603E5 // BracketBegin
+ ;
+ : Target ME_52D7B7360146 // BracketEnd
+ ;
+
+ref; // ME_52D7B74D014B 
+
+FORWARD ME_560937350073
+
+: ME_5609374403BB
+ CONST UID '5609374403BB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DBFBBE603E5 // BracketBegin
+ ;
+ : Target ME_560937350073 // TkwTypedBeginLikeCompiledCode
+ ;
+
+ref; // ME_5609374403BB 
+
+: ME_4DB6C99F026E_ME_4DBFBBE603E5
+ CONST UID '4DB6C99F026E'
+ CONST Name 'EndBracket'
+ : Original WL 'ME_4DB6C99F026E' '54F079B5035C.pas.ms.script' // EndBracket
+ ;
+ : Implementor ME_4DBFBBE603E5 // BracketBegin
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DB6C99F026E_ME_4DBFBBE603E5 EndBracket
+
+: ME_4DB0614603C8_ME_4DBFBBE603E5
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_4DBFBBE603E5 // BracketBegin
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_4DBFBBE603E5 GetWordNameForRegister
+
+: ME_4DBAEE0D028D_ME_4DBFBBE603E5
+ CONST UID '4DBAEE0D028D'
+ CONST Name 'CompiledWordClass'
+ : Original WL 'ME_4DBAEE0D028D' '54F079B5035C.pas.ms.script' // CompiledWordClass
+ ;
+ : Implementor ME_4DBFBBE603E5 // BracketBegin
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DBAEE0D028D_ME_4DBFBBE603E5 CompiledWordClass
+
+: ME_560941240035_ME_4DBFBBE603E5
+ CONST UID '560941240035'
+ CONST Name 'CheckWordInfoOnCompile'
+ : Original WL 'ME_560941240035' '54F079B5035C.pas.ms.script' // CheckWordInfoOnCompile
+ ;
+ : Implementor ME_4DBFBBE603E5 // BracketBegin
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_560941240035_ME_4DBFBBE603E5 CheckWordInfoOnCompile
+
+: ME_4DBFBBE603E5
+ CONST UID '4DBFBBE603E5'
+ CONST Name 'BracketBegin'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Поддержка скобок. '#13#10'Пример:'#13#10'{code}'#13#10' 10 LOOP ( ''Hello'' . )'#13#10'{code}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5284E8850019 // CodeBranchingWords
+ ;
+ : Inherits
+   @ ( WL 'ME_4DBAEF29031F' '54F079B5035C.pas.ms.script' // TtfwBeginLikeWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_20C57DE533EE // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DB6C99F026E_ME_4DBFBBE603E5 // EndBracket
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_4DBFBBE603E5 // GetWordNameForRegister
+ ME_4DBAEE0D028D_ME_4DBFBBE603E5 // CompiledWordClass
+ ME_560941240035_ME_4DBFBBE603E5 // CheckWordInfoOnCompile
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_52D7B74D014B // 
+ ME_5609374403BB // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "NameForScript" '('
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '03.05.2011 12:25'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwBracketBegin.pas'
+ CONST extprop:pas:TypeName 'TkwBracketBegin'
+
+ref; // ME_4DBFBBE603E5 BracketBegin
+
+: ME_1CE63AE81D08
+ CONST UID '1CE63AE81D08'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация BEGIN' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4DB9BB8D0388 // BEGIN
+ ;
+
+ref; // ME_1CE63AE81D08 Ini_Reg
+
+: ME_52D7B72B004C
+ CONST UID '52D7B72B004C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DB9BB8D0388 // BEGIN
+ ;
+ : Target WL 'ME_52D7B71F01DC' '4DAEEA14018A.pas.ms.script' // END
+ ;
+
+ref; // ME_52D7B72B004C 
+
+: ME_4DB6C99F026E_ME_4DB9BB8D0388
+ CONST UID '4DB6C99F026E'
+ CONST Name 'EndBracket'
+ : Original WL 'ME_4DB6C99F026E' '54F079B5035C.pas.ms.script' // EndBracket
+ ;
+ : Implementor ME_4DB9BB8D0388 // BEGIN
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DB6C99F026E_ME_4DB9BB8D0388 EndBracket
+
+: ME_4DB0614603C8_ME_4DB9BB8D0388
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_4DB9BB8D0388 // BEGIN
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_4DB9BB8D0388 GetWordNameForRegister
+
+: ME_4DB9BB8D0388
+ CONST UID '4DB9BB8D0388'
+ CONST Name 'BEGIN'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Поддержка скобок BEGIN END в стиле Паскаля.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5284E8850019 // CodeBranchingWords
+ ;
+ : Inherits
+   @ ( WL 'ME_4DBAEF29031F' '54F079B5035C.pas.ms.script' // TtfwBeginLikeWord
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_1CE63AE81D08 // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DB6C99F026E_ME_4DB9BB8D0388 // EndBracket
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_4DB9BB8D0388 // GetWordNameForRegister
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_52D7B72B004C // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '28.04.2011 23:10'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwBEGIN.pas'
+ CONST extprop:pas:TypeName 'TkwBEGIN'
+
+ref; // ME_4DB9BB8D0388 BEGIN
+
+: ME_299B6A93683A
+ CONST UID '299B6A93683A'
+ CONST Name 'Ini_Reg'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация BracketEnd' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52D7B7360146 // BracketEnd
+ ;
+
+ref; // ME_299B6A93683A Ini_Reg
+
+: ME_4DB0614603C8_ME_52D7B7360146
+ CONST UID '4DB0614603C8'
+ CONST Name 'GetWordNameForRegister'
+ : Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.pas.ms.script' // GetWordNameForRegister
+ ;
+ : Implementor ME_52D7B7360146 // BracketEnd
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DB0614603C8_ME_52D7B7360146 GetWordNameForRegister
+
+: ME_52D7B7360146
+ CONST UID '52D7B7360146'
+ CONST Name 'BracketEnd'
+ CONST Class class_Class
+ : Stereotype st_ScriptKeyword ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5284E8850019 // CodeBranchingWords
+ ;
+ : Inherits
+   @ ( WL 'ME_52D6AC0F0186' '54F079B5035C.pas.ms.script' // CloseBracket
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_299B6A93683A // Ini_Reg
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4DB0614603C8_ME_52D7B7360146 // GetWordNameForRegister
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "NameForScript" ')'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwBracketEnd.pas'
+ CONST extprop:pas:TypeName 'TkwBracketEnd'
+
+ref; // ME_52D7B7360146 BracketEnd
+
+: ME_9AF136DCE36C
+ CONST UID '9AF136DCE36C'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TkwCompiledRules' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4F51EC380222 // TkwCompiledRules
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_9AF136DCE36C Ini_Reg_Class
+
+: ME_53DF7BD000AF
+ CONST UID '53DF7BD000AF'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4F51EC380222 // TkwCompiledRules
+ ;
+ : Target WL 'ME_508528D10384' '4F3E3F5F0160.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_53DF7BD000AF 
+
+: ME_4DAEEDE10285_ME_4F51EC380222
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_4F51EC380222 // TkwCompiledRules
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4DAEEDE10285_ME_4F51EC380222 DoDoIt
+
+: ME_4F51EC380222
+ CONST UID '4F51EC380222'
+ CONST Name 'TkwCompiledRules'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5284E8850019 // CodeBranchingWords
+ ;
+ : Inherits
+   @ ( WL 'ME_52D55D7B0178' '54F079B5035C.pas.ms.script' // TkwRuntimeWordWithCode
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_9AF136DCE36C // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_4DAEEDE10285_ME_4F51EC380222 // DoDoIt
+ ) .SequenceCode.It
+ ; // Implemented
+ : Dependencies
+   @ ( ME_53DF7BD000AF // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCompiledRules.pas'
+
+ref; // ME_4F51EC380222 TkwCompiledRules
+
+: ME_560937D401EF
+ CONST UID '560937D401EF'
+ CONST Name 'f_WordInfo'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_560937350073 // TkwTypedBeginLikeCompiledCode
+ ;
+ : Target WL 'ME_559D504A0081' '4DAF19F600C5.pas.ms.script' // TtfwWordInfo
+ ;
+
+ref; // ME_560937D401EF f_WordInfo
+
+: ME_D51F7A353542
+ CONST UID 'D51F7A353542'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TkwTypedBeginLikeCompiledCode' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_560937350073 // TkwTypedBeginLikeCompiledCode
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_D51F7A353542 Ini_Reg_Class
+
+: ME_560D0DDE03CE
+ CONST UID '560D0DDE03CE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_560937350073 // TkwTypedBeginLikeCompiledCode
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_560D0DDE03CE 
+
+: ME_4DAEEDE10285_ME_560937350073
+ CONST UID '4DAEEDE10285'
+ CONST Name 'DoDoIt'
+ : Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.pas.ms.script' // DoDoIt
+ ;
+ : Implementor ME_560937350073 // TkwTypedBeginLikeCompiledCode
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DAEEDE10285_ME_560937350073 DoDoIt
+
+: ME_52CFC11603C8_ME_560937350073
+ CONST UID '52CFC11603C8'
+ CONST Name 'ResultTypeInfo'
+ : Original WL 'ME_52CFC11603C8' '4DAF19F600C5.pas.ms.script' // ResultTypeInfo
+ ;
+ : Implementor ME_560937350073 // TkwTypedBeginLikeCompiledCode
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "pm" true
+ref; // ME_52CFC11603C8_ME_560937350073 ResultTypeInfo
+
+: ME_52EA6A2C0111_ME_560937350073
+ CONST UID '52EA6A2C0111'
+ CONST Name 'SetResultTypeInfo'
+ : Original WL 'ME_52EA6A2C0111' '4DAF19F600C5.pas.ms.script' // SetResultTypeInfo
+ ;
+ : Implementor ME_560937350073 // TkwTypedBeginLikeCompiledCode
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_52EA6A2C0111_ME_560937350073 SetResultTypeInfo
+
+: ME_560937350073
+ CONST UID '560937350073'
+ CONST Name 'TkwTypedBeginLikeCompiledCode'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5284E8850019 // CodeBranchingWords
+ ;
+ : Inherits
+   @ ( WL 'ME_52DFF03B0030' '54F079B5035C.pas.ms.script' // TkwBeginLikeCompiledCode
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_560937D401EF // f_WordInfo
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_D51F7A353542 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4DAEEDE10285_ME_560937350073 // DoDoIt
+ ME_52CFC11603C8_ME_560937350073 // ResultTypeInfo
+ ME_52EA6A2C0111_ME_560937350073 // SetResultTypeInfo
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_560D0DDE03CE // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwTypedBeginLikeCompiledCode.pas'
+
+ref; // ME_560937350073 TkwTypedBeginLikeCompiledCode
+
+: ME_5284E8850019
+ CONST UID '5284E8850019'
+ CONST Name 'CodeBranchingWords'
+ CONST Class class_Category
+ : Stereotype st_ScriptKeywords ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.pas.ms.script' // ScriptEngine
+ ;
+ : Children
+   @ ( ME_5284E8BD02CB // CodeBranchingPack
+ ME_5284E9510053 // TkwCompiledIfElse
+ ME_5284E9670258 // if_else
+ ME_5284F739012F // else
+ ME_4DBAEE8103DB // CASE
+ ME_4DBAEEEC00CF // TkwCompiledCase
+ ME_4DBAF3D60039 // DEFAULT
+ ME_4DBAE64F02F7 // RAISE
+ ME_4DBFBBE603E5 // BracketBegin
+ ME_4DB9BB8D0388 // BEGIN
+ ME_52D7B7360146 // BracketEnd
+ ME_4F51EC380222 // TkwCompiledRules
+ ME_560937350073 // TkwTypedBeginLikeCompiledCode
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4DAEEA14018A' '4DAEEA14018A.pas.ms.script' // Scripting Axiomatics
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.pas.ms.script' // tfwScriptingInterfaces
+ WL 'ME_4F37B7E60283' '4F37B7E60283.pas.ms.script' // Words RTTI
+ WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
+ WL 'ME_54F079B5035C' '54F079B5035C.pas.ms.script' // CompiledWords
+ WL 'ME_55BA28CE0290' '55BA28CE0290.pas.ms.script' // tfwScriptingTypes
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "ifndef" 'NoScripts'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5284E8850019.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5284E8850019.pas.ms.script.runner'
+
+ref; // ME_5284E8850019 CodeBranchingWords

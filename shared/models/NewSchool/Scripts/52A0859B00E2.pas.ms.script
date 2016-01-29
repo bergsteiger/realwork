@@ -1,0 +1,215 @@
+// Buttons 52A0859B00E2 Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52A0859B00E2
+
+FORWARD ME_52A085A703D4
+
+FORWARD ME_52A085CE03AC
+
+FORWARD ME_52A08AF5004B
+
+: ME_52A08AFE012F
+ CONST UID '52A08AFE012F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52A08AF5004B // HackCheck
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_52A08AFE012F DoIt
+
+: ME_52A08AF5004B
+ CONST UID '52A08AF5004B'
+ CONST Name 'HackCheck'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_52A085CE03AC // TevCustomButton
+ ;
+ : Operations
+   @ ( ME_52A08AFE012F // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_52A08AF5004B HackCheck
+
+: ME_5CF33A8AB61C
+ CONST UID '5CF33A8AB61C'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TevCustomButton' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52A085CE03AC // TevCustomButton
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_5CF33A8AB61C Ini_Reg_Class
+
+: ME_D47D21CB61E9
+ CONST UID 'D47D21CB61E9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52A085CE03AC // TevCustomButton
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_D47D21CB61E9 
+
+: ME_52A085CE03AC
+ CONST UID '52A085CE03AC'
+ CONST Name 'TevCustomButton'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52A085A703D4 // TevButton
+ ;
+ : Inherits
+   @ ( WL 'ME_4F69EF8C027C' '4C43E8750153.pas.ms.script' // TCustomToolbarButton97
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_52A08AF5004B // HackCheck
+ ME_5CF33A8AB61C // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_D47D21CB61E9 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "base wnd class" 'CWnd'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_52A085CE03AC TevCustomButton
+
+: ME_52A08684012E
+ CONST UID '52A08684012E'
+ CONST Name 'TevCustomButtonActionLink'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52A085A703D4 // TevButton
+ ;
+ : Inherits
+   @ ( WL 'ME_52A087450138' '4C43E8750153.pas.ms.script' // TToolbarButton97ActionLink
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_52A08684012E TevCustomButtonActionLink
+
+: ME_21D2749BD720
+ CONST UID '21D2749BD720'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TevButton' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52A085A703D4 // TevButton
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_21D2749BD720 Ini_Reg_Class
+
+: ME_7AF4ED7ED8FE
+ CONST UID '7AF4ED7ED8FE'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_52A085A703D4 // TevButton
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_7AF4ED7ED8FE 
+
+: ME_52A085A703D4
+ CONST UID '52A085A703D4'
+ CONST Name 'TevButton'
+ CONST Class class_Class
+ : Stereotype st_GuiControl ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52A0859B00E2 // Buttons
+ ;
+ : Inherits
+   @ ( ME_52A085CE03AC // TevCustomButton
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_21D2749BD720 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_52A085CE03AC // TevCustomButton
+ ME_52A08684012E // TevCustomButtonActionLink
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_7AF4ED7ED8FE // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "base wnd class" 'CWnd'
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evButton.pas'
+
+ref; // ME_52A085A703D4 TevButton
+
+: ME_52A0859B00E2
+ CONST UID '52A0859B00E2'
+ CONST Name 'Buttons'
+ CONST Class class_Category
+ : Stereotype st_Views ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_52B04B1E00CD' '52B04B1E00CD.pas.ms.script' // Everest$Visual
+ ;
+ : Children
+   @ ( ME_52A085A703D4 // TevButton
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4C43E8750153' '4C43E8750153.pas.ms.script' // Buttons
+ WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\52A0859B00E2.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\52A0859B00E2.pas.ms.script.runner'
+
+ref; // ME_52A0859B00E2 Buttons

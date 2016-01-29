@@ -1,0 +1,100 @@
+// PipeIn 5199EF4C0227 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5199EF4C0227
+
+FORWARD ME_5199EF87030A
+
+: ME_5199EFF70361
+ CONST UID '5199EFF70361'
+ CONST Name 'TddImportPipe'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5199EF87030A // ddImportPipe
+ ;
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_5199EFF70361 TddImportPipe
+
+: ME_5199EF87030A
+ CONST UID '5199EF87030A'
+ CONST Name 'ddImportPipe'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5199EF4C0227 // PipeIn
+ ;
+ : Children
+   @ ( ME_5199EFF70361 // TddImportPipe
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\dd\PipeIn\NOT_FINISHED_ddImportPipe.pas'
+
+ref; // ME_5199EF87030A ddImportPipe
+
+: ME_519C8DFA0223
+ CONST UID '519C8DFA0223'
+ CONST Name 'TddFileIterator'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5199EF4C0227 // PipeIn
+ ;
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\dd\PipeIn\NOT_FINISHED_ddFileIterator.pas'
+
+ref; // ME_519C8DFA0223 TddFileIterator
+
+: ME_5199EF4C0227
+ CONST UID '5199EF4C0227'
+ CONST Name 'PipeIn'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
+ ;
+ : Children
+   @ ( ME_5199EF87030A // ddImportPipe
+ ME_519C8DFA0223 // TddFileIterator
+ ) .SequenceCode.It
+ ; // Children
+ CONST "path prefix" '/PipeIn'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5199EF4C0227.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5199EF4C0227.pas.ms.script.runner'
+
+ref; // ME_5199EF4C0227 PipeIn

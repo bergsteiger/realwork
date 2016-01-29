@@ -1,0 +1,812 @@
+// ItfwParserWordsPack 559BC65F0292 ScriptKeywordsPack Class
+
+FORWARD ME_559BC65F0292
+
+INCLUDE '55CCAE000335.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_9FCC7CEF0219
+
+: ME_9F1EC95DCB91
+ CONST UID '9F1EC95DCB91'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_9F1EC95DCB91 aCtx
+
+INCLUDE '52EF72190220.pas.ms.script'
+
+: ME_9F1EC95DCB92
+ CONST UID '9F1EC95DCB92'
+ CONST Name 'aParser'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_52EF723E02D9 // ItfwParser
+ ;
+
+ @SELF
+; // ME_9F1EC95DCB92 aParser
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_F35D5ECD9EFB
+ CONST UID 'F35D5ECD9EFB'
+ CONST Name 'NextToken'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:Parser:NextToken' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_9F1EC95DCB91 // aCtx
+ ME_9F1EC95DCB92 // aParser
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_F35D5ECD9EFB NextToken
+
+: ME_9C210613A7C2
+ CONST UID '9C210613A7C2'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_Parser_NextToken' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_9C210613A7C2 Ini_Reg
+
+: ME_9FCC7CEF0219
+ CONST UID '9FCC7CEF0219'
+ CONST Name 'pop_Parser_NextToken'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:Parser:NextToken'#13#10'*Пример:*'#13#10'{code}'#13#10' aParser pop:Parser:NextToken'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_F35D5ECD9EFB // NextToken
+ ME_9C210613A7C2 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:Parser:NextToken'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_9FCC7CEF0219 pop_Parser_NextToken
+
+FORWARD ME_391DC30DE773
+
+: ME_3FFC3F512D21
+ CONST UID '3FFC3F512D21'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_3FFC3F512D21 aCtx
+
+: ME_3FFC3F512D22
+ CONST UID '3FFC3F512D22'
+ CONST Name 'aParser'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_52EF723E02D9 // ItfwParser
+ ;
+
+ @SELF
+; // ME_3FFC3F512D22 aParser
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_B4F2C24959BB
+ CONST UID 'B4F2C24959BB'
+ CONST Name 'TokenLongString'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:Parser:TokenLongString' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+ : Parameters
+   [ ME_3FFC3F512D21 // aCtx
+ ME_3FFC3F512D22 // aParser
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_B4F2C24959BB TokenLongString
+
+: ME_B781FDE905BC
+ CONST UID 'B781FDE905BC'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_Parser_TokenLongString' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_B781FDE905BC Ini_Reg
+
+: ME_391DC30DE773
+ CONST UID '391DC30DE773'
+ CONST Name 'pop_Parser_TokenLongString'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:Parser:TokenLongString'#13#10'*Тип результата:* Il3CString'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_Il3CString'#13#10' aParser pop:Parser:TokenLongString >>> l_Il3CString'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_B4F2C24959BB // TokenLongString
+ ME_B781FDE905BC // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:Parser:TokenLongString'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_391DC30DE773 pop_Parser_TokenLongString
+
+FORWARD ME_37FA824BDEEE
+
+: ME_E51CB620D0EF
+ CONST UID 'E51CB620D0EF'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_E51CB620D0EF aCtx
+
+: ME_E51CB620D0F0
+ CONST UID 'E51CB620D0F0'
+ CONST Name 'aParser'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_52EF723E02D9 // ItfwParser
+ ;
+
+ @SELF
+; // ME_E51CB620D0F0 aParser
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_9C93DFBF7BED
+ CONST UID '9C93DFBF7BED'
+ CONST Name 'TokenInt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:Parser:TokenInt' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_E51CB620D0EF // aCtx
+ ME_E51CB620D0F0 // aParser
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_9C93DFBF7BED TokenInt
+
+: ME_8A695EFD5AF3
+ CONST UID '8A695EFD5AF3'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_Parser_TokenInt' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_8A695EFD5AF3 Ini_Reg
+
+: ME_37FA824BDEEE
+ CONST UID '37FA824BDEEE'
+ CONST Name 'pop_Parser_TokenInt'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:Parser:TokenInt'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aParser pop:Parser:TokenInt >>> l_Integer'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_9C93DFBF7BED // TokenInt
+ ME_8A695EFD5AF3 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:Parser:TokenInt'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_37FA824BDEEE pop_Parser_TokenInt
+
+FORWARD ME_77621D03947E
+
+: ME_3E318C22AC09
+ CONST UID '3E318C22AC09'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_3E318C22AC09 aCtx
+
+: ME_3E318C22AC0A
+ CONST UID '3E318C22AC0A'
+ CONST Name 'aParser'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_52EF723E02D9 // ItfwParser
+ ;
+
+ @SELF
+; // ME_3E318C22AC0A aParser
+
+: ME_6F6E961268B2
+ CONST UID '6F6E961268B2'
+ CONST Name 'FileName'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:Parser:FileName' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+ : Parameters
+   [ ME_3E318C22AC09 // aCtx
+ ME_3E318C22AC0A // aParser
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_6F6E961268B2 FileName
+
+: ME_BB2B92CD8580
+ CONST UID 'BB2B92CD8580'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_Parser_FileName' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_BB2B92CD8580 Ini_Reg
+
+: ME_77621D03947E
+ CONST UID '77621D03947E'
+ CONST Name 'pop_Parser_FileName'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:Parser:FileName'#13#10'*Тип результата:* String'#13#10'*Пример:*'#13#10'{code}'#13#10'STRING VAR l_String'#13#10' aParser pop:Parser:FileName >>> l_String'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_6F6E961268B2 // FileName
+ ME_BB2B92CD8580 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:Parser:FileName'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_77621D03947E pop_Parser_FileName
+
+FORWARD ME_5CF115AC9203
+
+: ME_6213F98B08BC
+ CONST UID '6213F98B08BC'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_6213F98B08BC aCtx
+
+: ME_6213F98B08BD
+ CONST UID '6213F98B08BD'
+ CONST Name 'aParser'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_52EF723E02D9 // ItfwParser
+ ;
+
+ @SELF
+; // ME_6213F98B08BD aParser
+
+INCLUDE '4C1B475101C5.pas.ms.script'
+
+: ME_31C292E4C39C
+ CONST UID '31C292E4C39C'
+ CONST Name 'TokenType'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:Parser:TokenType' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_52EF740F00AE // Tl3TokenType
+ ;
+ : Parameters
+   [ ME_6213F98B08BC // aCtx
+ ME_6213F98B08BD // aParser
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_31C292E4C39C TokenType
+
+: ME_661F26C8254A
+ CONST UID '661F26C8254A'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_Parser_TokenType' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_661F26C8254A Ini_Reg
+
+: ME_5CF115AC9203
+ CONST UID '5CF115AC9203'
+ CONST Name 'pop_Parser_TokenType'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:Parser:TokenType'#13#10'*Тип результата:* Tl3TokenType'#13#10'*Пример:*'#13#10'{code}'#13#10'Tl3TokenType VAR l_Tl3TokenType'#13#10' aParser pop:Parser:TokenType >>> l_Tl3TokenType'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_31C292E4C39C // TokenType
+ ME_661F26C8254A // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:Parser:TokenType'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5CF115AC9203 pop_Parser_TokenType
+
+FORWARD ME_F99E43E0E32C
+
+: ME_BCB1277451F3
+ CONST UID 'BCB1277451F3'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_BCB1277451F3 aCtx
+
+: ME_BCB1277451F4
+ CONST UID 'BCB1277451F4'
+ CONST Name 'aParser'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_52EF723E02D9 // ItfwParser
+ ;
+
+ @SELF
+; // ME_BCB1277451F4 aParser
+
+: ME_3C60D351E591
+ CONST UID '3C60D351E591'
+ CONST Name 'SourceLine'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта pop:Parser:SourceLine' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_BCB1277451F3 // aCtx
+ ME_BCB1277451F4 // aParser
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_3C60D351E591 SourceLine
+
+: ME_975531EB68F1
+ CONST UID '975531EB68F1'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация pop_Parser_SourceLine' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_975531EB68F1 Ini_Reg
+
+: ME_F99E43E0E32C
+ CONST UID 'F99E43E0E32C'
+ CONST Name 'pop_Parser_SourceLine'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта pop:Parser:SourceLine'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aParser pop:Parser:SourceLine >>> l_Integer'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_3C60D351E591 // SourceLine
+ ME_975531EB68F1 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'pop:Parser:SourceLine'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_F99E43E0E32C pop_Parser_SourceLine
+
+: ME_559BC69A029A
+ CONST UID '559BC69A029A'
+ CONST Name 'NextToken'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ @SELF
+; // ME_559BC69A029A NextToken
+
+: ME_559BC6B30190
+ CONST UID '559BC6B30190'
+ CONST Name 'TokenLongString'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46780DA40383 // Il3CString
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ @SELF
+; // ME_559BC6B30190 TokenLongString
+
+: ME_559BC6C7036A
+ CONST UID '559BC6C7036A'
+ CONST Name 'TokenInt'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ @SELF
+; // ME_559BC6C7036A TokenInt
+
+: ME_559BC6DD03DC
+ CONST UID '559BC6DD03DC'
+ CONST Name 'FileName'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ @SELF
+; // ME_559BC6DD03DC FileName
+
+: ME_559BC727038D
+ CONST UID '559BC727038D'
+ CONST Name 'TokenType'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_52EF740F00AE // Tl3TokenType
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ @SELF
+; // ME_559BC727038D TokenType
+
+: ME_559BC7420372
+ CONST UID '559BC7420372'
+ CONST Name 'SourceLine'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ @SELF
+; // ME_559BC7420372 SourceLine
+
+: ME_99D3F311D181
+ CONST UID '99D3F311D181'
+ CONST Name 'Reg_TtfwContext'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_99D3F311D181 Reg_TtfwContext
+
+: ME_40559CA85233
+ CONST UID '40559CA85233'
+ CONST Name 'Reg_ItfwParser'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа ItfwParser' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_40559CA85233 Reg_ItfwParser
+
+: ME_D0ED08567B4B
+ CONST UID 'D0ED08567B4B'
+ CONST Name 'Reg_Il3CString'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа Il3CString' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_D0ED08567B4B Reg_Il3CString
+
+: ME_F2ED23BD28B5
+ CONST UID 'F2ED23BD28B5'
+ CONST Name 'Reg_Integer'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа Integer' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_F2ED23BD28B5 Reg_Integer
+
+: ME_9F4A7E79F885
+ CONST UID '9F4A7E79F885'
+ CONST Name 'Reg_String'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа String' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_9F4A7E79F885 Reg_String
+
+: ME_7158E04965D6
+ CONST UID '7158E04965D6'
+ CONST Name 'Reg_Tl3TokenType'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа Tl3TokenType' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_7158E04965D6 Reg_Tl3TokenType
+
+: ME_559BC65F0292
+ CONST UID '559BC65F0292'
+ CONST Name 'ItfwParserWordsPack'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeywordsPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_52EF723E02D9 // ItfwParser
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_559BC69A029A // NextToken
+ ME_559BC6B30190 // TokenLongString
+ ME_559BC6C7036A // TokenInt
+ ME_559BC6DD03DC // FileName
+ ME_559BC727038D // TokenType
+ ME_559BC7420372 // SourceLine
+ ME_99D3F311D181 // Reg_TtfwContext
+ ME_40559CA85233 // Reg_ItfwParser
+ ME_D0ED08567B4B // Reg_Il3CString
+ ME_F2ED23BD28B5 // Reg_Integer
+ ME_9F4A7E79F885 // Reg_String
+ ME_7158E04965D6 // Reg_Tl3TokenType
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_52EF733F022F // NextToken
+ ME_52EF735A02FF // TokenLongString
+ ME_52EF739503A9 // TokenInt
+ ME_52EF73A9014A // FileName
+ ME_52EF73DE037D // TokenType
+ ME_52EF7C8E027A // SourceLine
+ ]
+ ; // Implemented
+ : Children
+   [ ME_9FCC7CEF0219 // pop_Parser_NextToken
+ ME_391DC30DE773 // pop_Parser_TokenLongString
+ ME_37FA824BDEEE // pop_Parser_TokenInt
+ ME_77621D03947E // pop_Parser_FileName
+ ME_5CF115AC9203 // pop_Parser_TokenType
+ ME_F99E43E0E32C // pop_Parser_SourceLine
+ ]
+ ; // Children
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+
+ @SELF
+; // ME_559BC65F0292 ItfwParserWordsPack

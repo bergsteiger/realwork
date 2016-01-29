@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\EC Software\HelpAndManual6\HELPMAN.EXE" D:\MANUAL(CVS)\archi\source\DOCUMENTATION\FAQ.hmxz /tsk=FAQ_Task:FAQ.AdminGuide /tsk=FAQ.AdminGuide_!DAILY

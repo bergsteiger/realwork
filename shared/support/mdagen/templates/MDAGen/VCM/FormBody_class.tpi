@@ -1,0 +1,53 @@
+//////////////////////////////////////////////////////////////////////////////////
+// VCMFormBody
+//////////////////////////////////////////////////////////////////////////////////
+
+: VCMFormBody::Class
+? Форма VCM
+? Форма VCM.
+
+= VCMClass::Class
+
+< *::Class, *::Category
+
+/ параметры визуализации
+$ S
+$ s
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+/ Генератор в wiki.
+= VCMClass::Class;wiki
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+%f _vcm_pas_GetOperationHandlersImplementation
+/ override
+//#UC START# *46B871B9026EGetOperationHandlersImplementation*
+	<{}{%R%f_vcm_pas_IsEntityBody()=true}%R%P%f_vcm_pas_GetOperationHandlersImplementation(%1N)>\
+	[\n<{\n}{%R%f_vcm_pas_IsOperation()=true}%R%f_vcm_pas_GetOperationHandlersImplementation(%1N)>]
+//#UC END# *46B871B9026EGetOperationHandlersImplementation*
+
+%f _vcm_pas_GetOperationHandlersInterface
+/ override
+//#UC START# *46B871B9026EGetOperationHandlersInterface*
+	<{}{%R%f_vcm_pas_IsEntityBody()=true}%R%P%f_vcm_pas_GetOperationHandlersInterface()>\
+	[\n<{\n}{%R%f_vcm_pas_IsOperation()=true}%R%f_vcm_pas_GetOperationHandlersInterface()>]
+//#UC END# *46B871B9026EGetOperationHandlersInterface*
+
+%f _vcm_pas_GetPublishEntityCode
+/ override
+//#UC START# *46B871B9026EGetPublishEntityCode*
+	<{\n }{%R%f_vcm_pas_IsEntityBody()=true}%R%f_vcm_pas_GetPublishEntityCode()>\
+	[\n  <{\n  }{%R%f_vcm_pas_IsOperation()=true}%R%f_vcm_pas_GetPublishEntityCode()>]
+//#UC END# *46B871B9026EGetPublishEntityCode*
+
+%f _vcm_pas_IsFormBody
+/ override
+//#UC START# *46B871B9026EIsFormBody*
+	true
+//#UC END# *46B871B9026EIsFormBody*
+
++ vcm.pas
+/ Генератор VCM.
+= VCMClass::Class;vcm.pas

@@ -1,0 +1,17 @@
+USES
+	QuickTestsUtils.script
+;
+
+Тест ScreenCapture
+	Выполнить (
+		"Делать машиннозависимые эталоны"
+		INTEGER VAR l_Handle
+		"Контрол в фокусе" pop:Control:Handle >>> l_Handle		
+		STRING VAR l_FileName
+		script:FileName '.bmp' sysutils:ChangeFileExt
+		sysutils:ExtractFileName >>> l_FileName		
+		l_FileName 230 230 30 30 l_Handle ScreenShot2FileWithCheck
+	)
+;
+
+ScreenCapture

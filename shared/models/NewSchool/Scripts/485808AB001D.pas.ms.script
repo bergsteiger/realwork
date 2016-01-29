@@ -1,0 +1,126 @@
+// evControlsBlockConst 485808AB001D Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_485808AB001D
+
+FORWARD ME_485808D2028D
+
+: ME_485809060075
+ CONST UID '485809060075'
+ CONST Name 'evControlBlockBefore'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_485808D2028D // ControlsBlockConst
+ ;
+ CONST Value 'l3Inch div 3'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_485809060075 evControlBlockBefore
+
+: ME_4858092901C3
+ CONST UID '4858092901C3'
+ CONST Name 'evControlBlockTop'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_485808D2028D // ControlsBlockConst
+ ;
+ CONST Value 'l3Inch div 32'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4858092901C3 evControlBlockTop
+
+: ME_48580930013B
+ CONST UID '48580930013B'
+ CONST Name 'evControlBlockLeft'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_485808D2028D // ControlsBlockConst
+ ;
+ CONST Value 'l3Inch div 32'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_48580930013B evControlBlockLeft
+
+: ME_4858093901D8
+ CONST UID '4858093901D8'
+ CONST Name 'evControlBlockBtnWidth'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_485808D2028D // ControlsBlockConst
+ ;
+ CONST Value 'l3Inch div 6'
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_4858093901D8 evControlBlockBtnWidth
+
+: ME_485808D2028D
+ CONST UID '485808D2028D'
+ CONST Name 'ControlsBlockConst'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_485808AB001D // evControlsBlockConst
+ ;
+ : Attributes
+   @ ( ME_485809060075 // evControlBlockBefore
+ ME_4858092901C3 // evControlBlockTop
+ ME_48580930013B // evControlBlockLeft
+ ME_4858093901D8 // evControlBlockBtnWidth
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_485808D2028D ControlsBlockConst
+
+: ME_485808AB001D
+ CONST UID '485808AB001D'
+ CONST Name 'evControlsBlockConst'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ ;
+ : Constants
+   @ ( ME_485808D2028D // ControlsBlockConst
+ ) .SequenceCode.It
+ ; // Constants
+ : Depends
+   @ ( WL 'ME_47A1D4C201E8' '47A1D4C201E8.pas.ms.script' // l3Const
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "is namespace" true
+ CONST "no hands" false
+ CONST "started" '17.06.2008 22:53'
+ : Generators
+ @ (
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evControlsBlockConst.pas'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\485808AB001D.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\485808AB001D.pas.ms.script.runner'
+
+ref; // ME_485808AB001D evControlsBlockConst

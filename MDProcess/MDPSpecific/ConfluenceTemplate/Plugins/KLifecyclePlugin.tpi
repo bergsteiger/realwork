@@ -1,0 +1,87 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MDPSpecific/ConfluenceTemplate/Plugins/KLifecyclePlugin.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess::MDPSpecific::ConfluenceTemplate::Plugins::KLifecyclePlugin
+//
+// Плагин-lifecycle
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: KLifecyclePlugin::Class
+? Плагин-lifecycle
+= ClassPluginBase::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+v +#-
+/ - типы видимости
+a raf
+/ - тип абстракции
+Y code_cplugin.gif
+L code_cplugin
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p sequence:s ? последовательность
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{sequence}"!="%S{!sequence}"}%f_up_prefix(%S) *sequence* = *%S{sequence}* - последовательность
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа ClassPluginBase::Class
+// генерация иерархии наследования конкретного плагина
+%f _java_base_class_decl
+//#UC START# *4704D85102BFfor4705CFBC00CB*
+	%f_java_base(%S)[{%Rx=true}{ implements},] LifecycleItem
+//#UC END# *4704D85102BFfor4705CFBC00CB*
+
+// перекрытие базового стереотипа ClassPluginBase::Class
+// генерация импорта классов необходимых конкретному плагину
+%f _java_servant_import_self
+//#UC START# *4704D854007Dfor4705CFBC00CB*
+	import com.atlassian.config.lifecycle.LifecycleItem;
+	import com.atlassian.config.lifecycle.LifecycleContext;
+//#UC END# *4704D854007Dfor4705CFBC00CB*
+
+// перекрытие базового стереотипа ClassPluginBase::Class
+// генерация специфического контента (методы, операции) плагина
+%f _servant_content_java
+//#UC START# *4704D85602FDfor4705CFBC00CB*
+	#	public void startup (LifecycleContext context) throws Exception {
+	#		%U[{_STARTUP_IMPLEMETATION}
+	#		]
+	#	}
+	
+	#	public void shutdown (LifecycleContext context) throws Exception {
+	#		%U[{_SHUTDOWN_IMPLEMETATION}
+	#		]
+	#	}
+//#UC END# *4704D85602FDfor4705CFBC00CB*
+
+// перекрытие базового стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for4705CFBC00CB*
+c        {}
+r "%S{sequence}"="": {Error priority property can't be empty}
+r ""="": {}
+//#UC END# *4704C0E30186for4705CFBC00CB*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

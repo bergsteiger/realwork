@@ -1,0 +1,355 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MetaTemplate/Meta/Elements/MDAUtilityPack.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::MetaTemplate::Meta::Elements::MDAUtilityPack
+//
+// Набор-функций
+// ---
+// Набор общих функций и трансформаторов не привязанных к стереотипу
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: MDAUtilityPack::Class
+implementation @ <<MDAUtilityPack>>
+//? Набор-функций
+//? Набор общих функций и трансформаторов не привязанных к стереотипу
+//< *::Class,*::Category
+
+//= Мета-MDA::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//Y code_mda_utility_pack.gif
+//L code_mda_utility_pack
+// Параметры визуализации
+//$ C 220,235,250
+//$ l 75,170,245
+//$ f 75,170,245
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for46E6CEA300A8*
+//c	{}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for46E6CEA300A8*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor46E6CEA300A8*
+//#UC END# *4705CBD6003Efor46E6CEA300A8*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for46E6CEA300A8*
+//#UC END# *470484D50138for46E6CEA300A8*
+; // wiki_up_add_gen
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for46E6CEA300A8*
+//C /%SN:%SU
+//O %SN
+//S %SN
+//	%f_wiki_header(%S)
+ [%f] wiki_header %( %S )% 
+//	[h2. Модель[
+ if NOT-EMPTY
+ begin
+  'h2. Модель'
+  if NOT-EMPTY
+  begin
+   #13#10
+
+
+
+//	{note}Дополнительные свойства:
+   '{note}Дополнительные свойства:'
+//	%S#f_wiki_up_print(){note}]][
+   %S %?f wiki_up_print %( )% '{note}' 
+  end // if
+  NOP
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	
+  #13#10
+
+//	h2. Состав элемента[
+  'h2. Состав элемента'
+  if NOT-EMPTY
+  begin
+   #13#10
+
+//	
+   #13#10
+
+//	_Методы:_<{}{%CC=Operation}
+   '_Методы:_'
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%C
+   begin
+    OBJECT IN %C
+    if ( ( %C |C ) %== 'Operation' ) then
+    begin
+     #13#10
+
+//	%f_k_method_dump(%C)>]]<%CX>
+     [%f] k_method_dump %( %C )% 
+     ++! l_Counter
+    end // if
+   end // for C
+  end // if
+  NOP
+ end // if
+ NOP
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//	%f_wiki_footer(%S)
+ [%f] wiki_footer %( %S )% 
+//#UC END# *46E6D4BB0339for46E6CEA300A8*
+; // wiki
+
+
+// реализация абстрактного стереотипа Мета-MDA::MDAGenerator
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for46E6CEA300A8*
+//P
+//O %SN.tpi
+//	%f_header(%S)
+ [%f] header %( %S )% 
+//	
+//	<%CX
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+//	
+   #13#10
+
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for C
+//	%f_footer(%S)
+ [%f] footer %( %S )% 
+
+//#UC END# *46E28D830109for46E6CEA300A8*
+; // mda
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+//: MDAUtilityPack::Class::Operation
+end. // <<MDAUtilityPack>>
+
+implementation @ :: <<MDAUtilityPack>> <<Operation>> ;
+//? Общая функция
+//? Пользовательская функция не привязанная к стереотипу - доступна из любого места шаблонов
+// Параметры стереотипа
+//Y code_mda_op_function.gif
+//L code_mda_op_function
+//T 
+// - может не иметь "цели" (типа/результата)
+
+// Генераторы
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for46E6CEE102CB*
+// = MDAGenerator::Class::Operation
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	f _%SN\
+ 'f _'
+ %S |N 
+//	[
+ if NOT-EMPTY
+ begin
+  #13#10
+
+//	// параметры: <{, }%CN: %C%TN = \%%Cn>]\
+  '// параметры: '
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    %C |N ': '
+    %C ->T |N  ' = %'
+    %C |n 
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+//	[{%TN!=void}
+ if ( ( %T |N ) %!= 'void' ) then
+ begin
+  #13#10
+
+//	// возвращаемый результат: %TN]
+  '// возвращаемый результат: '
+  %T |N 
+ end // if
+//	%U[
+ %Usersection (
+
+ )
+ (
+  #13#10
+
+//	]
+
+ ) // Usersection
+ //#UC END# *46E28D830109for46E6CEE102CB*
+; // mda
+
+
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for46E6CEE102CB*
+//#UC END# *46E6D4BB0339for46E6CEE102CB*
+; // wiki
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+//: MDAUtilityPack::Class::transformator::Operation
+; // st_space_key
+
+end. // :: <<MDAUtilityPack>> <<Operation>> ;
+
+implementation @ :: <<MDAUtilityPack>> <<transformator>> ;
+//? Общий трансформатор
+//? Пользовательский трансформатор не привязанный к стереотипу - доступен из любого места шаблонов
+// Параметры стереотипа
+//Y code_mda_op_transformator.gif
+//L code_mda_op_transformator
+//T 
+// - может не иметь "цели" (типа/результата)
+
+// Пользовательские свойства
+//p is redefinition:b=false ? признак того, что трансформатор является доопределение существующего, т.е к значениям существующего трансформатора добавятся значения данного
+
+// Генераторы
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for46E81A760106*
+//	%f_docs(%S)\
+ [%f] docs %( %S )% 
+//	t _%SN[{%S{is redefinition}=true} (redefinition)]
+ 't _'
+ %S |N if ( ( %S get_up ( 'is redefinition' ) ) %==  true ) then
+ begin
+  ' (redefinition)' 
+ end // if
+//	%U[
+ %Usersection (
+
+ )
+ (
+  #13#10
+
+//	c           {}
+  'c           {}'
+//	r {""=""}:  {}
+  'r {'' ='' }:  {}'
+//	]
+
+ ) // Usersection
+ //#UC END# *46E28D830109for46E81A760106*
+; // mda
+
+
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for46E81A760106*
+//#UC END# *46E6D4BB0339for46E81A760106*
+; // wiki
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	[{"%S{is redefinition}"!="%S{!is redefinition}"}%f_up_prefix(%S) *is redefinition* = *%S{is redefinition}* - признак того, что трансформатор является доопределение существующего, т.е к значениям существующего трансформатора добавятся значения данного
+ if ( ( %S get_up ( 'is redefinition' ) ) %!= ( %S get_up_def ( 'is redefinition' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *is redefinition* = *'
+  %S get_up ( 'is redefinition' ) '* - признак того, что трансформатор является доопределение существующего, т.е к значениям существующего трансформатора добавятся значения данного'
+//	]
+ end // if
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // wiki_up_print
+
+end. // :: <<MDAUtilityPack>> <<transformator>> ;
+

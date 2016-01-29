@@ -1,0 +1,1 @@
+call ie "http://www.moikrug.ru"

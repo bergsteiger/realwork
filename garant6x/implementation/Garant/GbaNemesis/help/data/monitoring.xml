@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<application title="ГАРАНТ Платформа F1" exename="F1Prime.run" versionmajor="6" versionminor="2" release="0" build="2680">
+ <menu>
+  <menuitem title="Файл">
+  </menuitem>
+  <menuitem title="Правка">
+  </menuitem>
+  <menuitem title="Вид">
+  </menuitem>
+  <menuitem title="Поиск">
+  </menuitem>
+  <menuitem title="Документы">
+  </menuitem>
+  <menuitem title="Анализ">
+  </menuitem>
+  <menuitem title="Окна">
+  </menuitem>
+  <menuitem title="Справка">
+  </menuitem>
+ </menu>
+ <modules>
+  <module title="Гарант Платформа F1" id="nsEmptyMainWindow">
+   <forms>
+    <form title="Гарант Платформа F1" id="nsEmptyMainWindow" container="1">
+     <usertypes>
+      <usertype title="Главное окно" id="utEmptyMainWindow">
+      </usertype>
+     </usertypes>
+     <controls>
+      <control title="" id="fMainZone">
+      </control>
+      <control title="" id="fParentZone">
+      </control>
+      <control title="" id="fChildZone">
+      </control>
+      <control title="" id="fRightNavigator">
+      </control>
+      <control title="" id="fLeftNavigator">
+      </control>
+      <control title="" id="StatusBar">
+      </control>
+      <control title="" id="name_vcmMainToolbarPanel">
+      </control>
+      <control title="Главное окно" id="tbnsEmptyMainWindowTop">
+      </control>
+     </controls>
+     <entities>
+      <entity title="Окна" id="enCommon" hint="Окна" longhint="Окна" description="Окна">
+       <operations>
+        <operation title="Выход" id="opExit" hint="Выход" longhint="Выход" description="opExit" vcm_ooShowInMainMenu="1" operationtype="vcm_otButton" groupid="1000" category="Файл">
+        </operation>
+       </operations>
+      </entity>
+      <entity title="Строка состояния" id="enStatusBar" hint="Строка состояния" longhint="Строка состояния" description="Строка состояния">
+       <operations>
+       </operations>
+      </entity>
+      <entity title="Панели навигатора" id="enNavigator" hint="Панели навигатора" longhint="Панели навигатора" description="Панели навигатора">
+       <operations>
+        <operation title="Спрятать левый навигатор" id="opSetLeftFloat" hint="Спрятать левый навигатор" longhint="Спрятать левый навигатор" description="opSetLeftFloat" operationtype="vcm_otButton" groupid="300" category="Окна">
+        </operation>
+        <operation title="Спрятать правый навигатор" id="opSetRightFloat" hint="Спрятать правый навигатор" longhint="Спрятать правый навигатор" description="opSetRightFloat" operationtype="vcm_otButton" groupid="310" category="Окна">
+        </operation>
+       </operations>
+      </entity>
+      <entity title="Переключатель закладок" id="Switcher" hint="Переключатель закладок" longhint="Переключатель закладок" description="Переключатель закладок">
+       <operations>
+       </operations>
+      </entity>
+      <entity title="Справка" id="enHelp" hint="Справка" longhint="Справка" description="Справка">
+       <operations>
+        <operation title="Содержание" id="opHelpTopics" hint="Содержание" longhint="Содержание" description="opHelpTopics" vcm_ooShowInMainMenu="1" operationtype="vcm_otButton" groupid="200" category="Справка">
+        </operation>
+       </operations>
+      </entity>
+     </entities>
+    </form>
+   </forms>
+  </module>
+  <module title="Настройка системы" id="vcm_dmToolbarMenu" hint="Настройка системы" longhint="Настройка системы" description="Настройка системы">
+   <operations>
+    <operation title="Настройка..." id="opCustomize" hint="Настройка..." longhint="Настройка..." description="opCustomize" operationtype="vcm_otButton" category="Настройка системы">
+    </operation>
+    <operation title="Большие иконки" id="opLargeIcons" hint="Большие иконки" longhint="Большие иконки" description="opLargeIcons" operationtype="vcm_otButton" category="Настройка системы">
+    </operation>
+    <operation title="Закрепить панели инструментов" id="opFasten" hint="Закрепить панели инструментов" longhint="Закрепить панели инструментов" description="opFasten" operationtype="vcm_otButton" category="Настройка системы">
+    </operation>
+   </operations>
+   <forms>
+    <form title="Настройка панелей инструментов" id="vcmCustomizeToolsForm" container="0">
+     <usertypes>
+      <usertype title="Настройка панелей инструментов" id="vcmCustomizeToolsForm">
+      </usertype>
+     </usertypes>
+     <controls>
+      <control title="" id="TopPanel">
+      </control>
+      <control title="" id="SingleTopPanel">
+      </control>
+      <control title="" id="edToolbars">
+      </control>
+      <control title="" id="MultipleTopPanel">
+      </control>
+      <control title="" id="cbObject">
+      </control>
+      <control title="" id="BottomPanel">
+      </control>
+      <control title="Восстановить" id="ResetToDefaultButton">
+      </control>
+      <control title="Ок" id="btOk">
+      </control>
+      <control title="Отмена" id="btCancel">
+      </control>
+      <control title="Восстановить все" id="ResetAllToDefaultButton">
+      </control>
+      <control title="Применить" id="btApply">
+      </control>
+      <control title="" id="PageControl">
+      </control>
+      <control title="Панели инструментов" id="ToolBarsTabSheet">
+      </control>
+      <control title="" id="pnToolbar">
+      </control>
+      <control title="" id="cbToolBar">
+      </control>
+      <control title="Добавить" id="btAdd">
+      </control>
+      <control title="" id="CenterPanel">
+      </control>
+      <control title="" id="RemoveBitBtn">
+      </control>
+      <control title="" id="AddBitBtn">
+      </control>
+      <control title=" Отображать " id="WhotShowRadioGroup">
+      </control>
+      <control title="" id="DownBitBtn">
+      </control>
+      <control title="" id="UpBitBtn">
+      </control>
+      <control title="" id="pnToolbarProps">
+      </control>
+      <control title="Показывать только не размещенные" id="chkShowMisplaced">
+      </control>
+      <control title="крупный" id="IconSizeComboBox">
+      </control>
+      <control title="Быстрый вызов" id="ShortCutsTabSheet">
+      </control>
+      <control title="" id="lwShortCuts">
+      </control>
+      <control title="" id="ShortCutEdit">
+      </control>
+      <control title="Удалить" id="RemoveButton">
+      </control>
+      <control title="Добавить" id="AddButton">
+      </control>
+      <control title="Очистить" id="ClearShortcutButton">
+      </control>
+      <control title="Дополнительные настройки" id="MiscTabSheet">
+      </control>
+      <control title=" Размер кнопок " id="rgGlyphSize">
+      </control>
+      <control title=" Цветность изображений " id="rgGlyphColor">
+      </control>
+      <control title="" id="">
+      </control>
+      <control title="" id="">
+      </control>
+      <control title="" id="">
+      </control>
+     </controls>
+    </form>
+   </forms>
+  </module>
+  <module title="mo_CommonPost" id="mo_CommonPost" hint="mo_CommonPost" longhint="mo_CommonPost" description="mo_CommonPost">
+   <operations>
+   </operations>
+   <forms>
+    <form title="Моя новостная лента" id="enPostingsList" container="0">
+     <usertypes>
+      <usertype title="Моя новостная лента" id="MyPostingList" icon="145.bmp">
+      </usertype>
+     </usertypes>
+     <controls>
+      <control title="" id="tvPostings">
+      </control>
+     </controls>
+     <entities>
+      <entity title="Панель новостей" id="PostingToolBar" hint="Панель новостей" longhint="Панель новостей" description="Панель новостей">
+       <operations>
+        <operation title="Новая индивидуальная лента" id="ptNewTheme" hint="Новая индивидуальная лента" longhint="Новая индивидуальная лента" description="ptNewTheme" icon="146.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" operationtype="vcm_otButton" category="Панель новостей">
+        </operation>
+        <operation title="Редактировать тему рассылки" id="ptEditPosting" hint="Редактировать тему рассылки" longhint="Редактировать тему рассылки" description="ptEditPosting" icon="143.bmp" vcm_ooShowInContextMenu="1" operationtype="vcm_otButton" category="Панель новостей">
+        </operation>
+        <operation title="Удалить тему рассылки" id="ptDeletePosting" hint="Удалить тему рассылки" longhint="Удалить тему рассылки" description="ptDeletePosting" icon="5.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" operationtype="vcm_otButton" category="Панель новостей">
+        </operation>
+        <operation title="Экспортировать индивидуальные настройки в файл" id="SavePostList" hint="Экспортировать индивидуальные настройки в файл" longhint="Экспортировать индивидуальные настройки в файл" description="SavePostList" icon="22.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInMainMenu="1" operationtype="vcm_otButton" category="Файл">
+        </operation>
+       </operations>
+      </entity>
+      <entity title="Обновление" id="enSystem" hint="Обновление" longhint="Обновление" description="Обновление">
+       <operations>
+       </operations>
+      </entity>
+     </entities>
+    </form>
+    <form title="" id="cfSaveLoad" container="1">
+     <usertypes>
+      <usertype title="Поиск: По реквизитам" id="slqtAttribute">
+      </usertype>
+      <usertype title="Поиск: По ситуации" id="slqtKW">
+      </usertype>
+      <usertype title="Поиск: По реквизитам (5.x)" id="slqtOldAttribute">
+      </usertype>
+      <usertype title="Поиск: По ситуации (5.x)" id="slqtOldKW">
+      </usertype>
+      <usertype title="Поиск: По источнику опубликования" id="slqtPublishSource">
+      </usertype>
+      <usertype title="Карточка Фильтров" id="slqtFilters">
+      </usertype>
+      <usertype title="Поиск: Построение обзора законодательства" id="slqtLegistationReview">
+      </usertype>
+      <usertype title="Настройка индивидуальной ленты новостей" id="slqtPostingOrder">
+      </usertype>
+     </usertypes>
+     <controls>
+      <control title="ParentZone" id="ParentZone">
+      </control>
+     </controls>
+     <entities>
+      <entity title="Файл" id="enFile" hint="Файл" longhint="Файл" description="Файл">
+       <operations>
+        <operation title="Сохранить в Мои документы..." id="opSaveToFolder" hint="Сохранить в Мои документы..." longhint="Сохранить в Мои документы..." description="opSaveToFolder" icon="35.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInMainMenu="1" shortcut="Ctrl+F11" operationtype="vcm_otButtonCombo" groupid="120" category="Файл">
+         <excludeusertypes>
+          <usertype index="5" id="slqtFilters">
+          </usertype>
+          <usertype index="7" id="slqtPostingOrder">
+          </usertype>
+         </excludeusertypes>
+        </operation>
+        <operation title="Выбрать из Моих документов..." id="opLoadFromFolder" hint="Выбрать из Моих документов..." longhint="Выбрать из Моих документов..." description="opLoadFromFolder" icon="36.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInMainMenu="1" shortcut="Shift+F11" operationtype="vcm_otButton" groupid="130" category="Файл">
+         <excludeusertypes>
+          <usertype index="5" id="slqtFilters">
+          </usertype>
+          <usertype index="7" id="slqtPostingOrder">
+          </usertype>
+         </excludeusertypes>
+        </operation>
+       </operations>
+      </entity>
+      <entity title="Выбор действия" id="enResult" hint="Выбор действия" longhint="Выбор действия" description="Выбор действия">
+       <operations>
+        <operation title="Ок" id="opOkExt" hint="Ок" longhint="Ок" description="opOkExt" icon="27.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInChildMenu="1" shortcut="Ctrl+Enter" operationtype="vcm_otTextButton" category="Выбор действия">
+         <excludeusertypes>
+          <usertype index="5" id="slqtFilters">
+          </usertype>
+          <usertype index="7" id="slqtPostingOrder">
+          </usertype>
+         </excludeusertypes>
+        </operation>
+        <operation title="Сохранить" id="opSave" hint="Сохранить" longhint="Сохранить" description="opSave" icon="22.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInChildMenu="1" operationtype="vcm_otTextButton" category="Завершение работы">
+         <excludeusertypes>
+          <usertype index="0" id="slqtAttribute">
+          </usertype>
+          <usertype index="1" id="slqtKW">
+          </usertype>
+          <usertype index="2" id="slqtOldAttribute">
+          </usertype>
+          <usertype index="3" id="slqtOldKW">
+          </usertype>
+          <usertype index="4" id="slqtPublishSource">
+          </usertype>
+          <usertype index="6" id="slqtLegistationReview">
+          </usertype>
+         </excludeusertypes>
+        </operation>
+        <operation title="Отмена" id="opCancel" hint="Отмена" longhint="Отмена" description="opCancel" icon="26.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInChildMenu="1" shortcut="Esc" operationtype="vcm_otTextButton" category="Выбор действия">
+         <excludeusertypes>
+          <usertype index="7" id="slqtPostingOrder">
+          </usertype>
+         </excludeusertypes>
+        </operation>
+        <operation title="Очистить" id="opClearAll" hint="Очистить" longhint="Очистить" description="opClearAll" icon="32.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInChildMenu="1" shortcut="Ctrl+Del" operationtype="vcm_otTextButton" category="Завершение работы">
+        </operation>
+       </operations>
+      </entity>
+      <entity title="Запрос" id="enQuery" hint="Запрос" longhint="Запрос" description="Запрос">
+       <operations>
+        <operation title="История запросов" id="opGetOldQuery" hint="История запросов" longhint="История запросов" description="opGetOldQuery" icon="73.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInChildMenu="1" operationtype="vcm_otButtonCombo" category="Запрос">
+         <excludeusertypes>
+          <usertype index="5" id="slqtFilters">
+          </usertype>
+          <usertype index="7" id="slqtPostingOrder">
+          </usertype>
+         </excludeusertypes>
+        </operation>
+        <operation title="Тип поиска" id="opSearchType" hint="Тип поиска" longhint="Тип поиска" description="opSearchType" icon="2.bmp" vcm_ooShowInChildToolbar="1" operationtype="vcm_otCombo" category="Запрос">
+         <excludeusertypes>
+          <usertype index="1" id="slqtKW">
+          </usertype>
+          <usertype index="3" id="slqtOldKW">
+          </usertype>
+          <usertype index="5" id="slqtFilters">
+          </usertype>
+          <usertype index="6" id="slqtLegistationReview">
+          </usertype>
+          <usertype index="7" id="slqtPostingOrder">
+          </usertype>
+         </excludeusertypes>
+        </operation>
+        <operation title="Ситуации первого уровня" id="opShowTopLevelFrmAct" hint="Открыть вкладку &quot;Ситуации первого уровня&quot;" longhint="Открыть вкладку &quot;Ситуации первого уровня&quot;" description="opShowTopLevelFrmAct" icon="29.bmp" vcm_ooShowInChildToolbar="1" operationtype="vcm_otCheck" category="Запрос">
+         <excludeusertypes>
+          <usertype index="0" id="slqtAttribute">
+          </usertype>
+          <usertype index="2" id="slqtOldAttribute">
+          </usertype>
+          <usertype index="3" id="slqtOldKW">
+          </usertype>
+          <usertype index="4" id="slqtPublishSource">
+          </usertype>
+          <usertype index="5" id="slqtFilters">
+          </usertype>
+          <usertype index="6" id="slqtLegistationReview">
+          </usertype>
+          <usertype index="7" id="slqtPostingOrder">
+          </usertype>
+         </excludeusertypes>
+        </operation>
+       </operations>
+      </entity>
+      <entity title="Логические операции" id="enLogicOperation" hint="Логические операции" longhint="Логические операции" description="Логические операции">
+       <operations>
+        <operation title="ИЛИ" id="opLogicOr" hint="ИЛИ" longhint="ИЛИ" description="opLogicOr" icon="37.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInChildMenu="1" operationtype="vcm_otCheck" category="enLogicOperation">
+         <excludeusertypes>
+          <usertype index="0" id="slqtAttribute">
+          </usertype>
+          <usertype index="1" id="slqtKW">
+          </usertype>
+          <usertype index="2" id="slqtOldAttribute">
+          </usertype>
+          <usertype index="4" id="slqtPublishSource">
+          </usertype>
+          <usertype index="5" id="slqtFilters">
+          </usertype>
+          <usertype index="6" id="slqtLegistationReview">
+          </usertype>
+          <usertype index="7" id="slqtPostingOrder">
+          </usertype>
+         </excludeusertypes>
+        </operation>
+       </operations>
+      </entity>
+     </entities>
+    </form>
+    <form title="Выбор значений древовидного атрибута" id="efTreeAttributeSelect" container="0">
+     <usertypes>
+      <usertype title="Поиск: Выбор реквизита" id="astNone">
+      </usertype>
+      <usertype title="Ситуации второго уровня" id="astOneLevel">
+      </usertype>
+      <usertype title="Ситуации первого уровня" id="astFirstLevel">
+      </usertype>
+     </usertypes>
+     <controls>
+      <control title="" id="AttributeTree">
+      </control>
+     </controls>
+     <entities>
+      <entity title="Правка" id="enEdit" hint="Правка" longhint="Правка" description="Правка">
+       <operations>
+        <operation title="Удалить" id="opDelete" hint="Удалить выделенные элементы" longhint="Удалить выделенные элементы" description="opDelete" icon="5.bmp" vcm_ooShowInContextMenu="1" shortcut="Del" operationtype="vcm_otButton" groupid="220" category="Правка">
+        </operation>
+       </operations>
+      </entity>
+      <entity title="Дерево атрибутов" id="enAttributeTree" hint="Дерево атрибутов" longhint="Дерево атрибутов" description="Дерево атрибутов">
+       <operations>
+       </operations>
+      </entity>
+      <entity title="Контекстная фильтрация" id="enContextParams" hint="Контекстная фильтрация" longhint="Контекстная фильтрация" description="Контекстная фильтрация">
+       <operations>
+        <operation title="Контекстный фильтр" id="opEdit" hint="Контекстный фильтр" longhint="Контекстный фильтр" description="opEdit" vcm_ooShowInChildToolbar="1" operationtype="vcm_otTyper" category="Контекстная фильтрация">
+        </operation>
+        <operation title="Включить контекстный фильтр" id="opTurnOn" hint="Включить контекстный фильтр" longhint="Включить контекстный фильтр" description="opTurnOn" icon="77.bmp" vcm_ooShowInChildToolbar="1" operationtype="vcm_otCheck" category="Контекстная фильтрация">
+        </operation>
+        <operation title="Положение контекста" id="opWordPosition" hint="Положение контекста" longhint="Положение контекста" description="opWordPosition" vcm_ooShowInChildToolbar="1" operationtype="vcm_otCombo" category="Контекстная фильтрация">
+        </operation>
+        <operation title="Порядок слов" id="opWordOrder" hint="Порядок слов" longhint="Порядок слов" description="opWordOrder" icon="133.bmp" vcm_ooShowInChildToolbar="1" operationtype="vcm_otCombo" category="Контекстная фильтрация">
+        </operation>
+        <operation title="Область поиска" id="opTreeLevelDist" hint="Область поиска" longhint="Область поиска" description="opTreeLevelDist" icon="64.bmp" vcm_ooShowInChildToolbar="1" operationtype="vcm_otCombo" category="Контекстная фильтрация">
+        </operation>
+       </operations>
+       <controls>
+        <control id="efTreeAttributeSelect">
+        </control>
+        <control id="cpTree">
+        </control>
+       </controls>
+      </entity>
+      <entity title="Атрибут" id="enAttribute" hint="Атрибут" longhint="Атрибут" description="Атрибут">
+       <operations>
+        <operation title="ИЛИ" id="opLogicOr" hint="ИЛИ" longhint="ИЛИ" description="opLogicOr" icon="37.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInChildMenu="1" shortcut="Ins" operationtype="vcm_otCheck" category="Атрибут">
+        </operation>
+        <operation title="И" id="opLogicAnd" hint="И" longhint="И" description="opLogicAnd" icon="38.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInChildMenu="1" operationtype="vcm_otCheck" category="Атрибут">
+        </operation>
+        <operation title="КРОМЕ" id="opLogicNot" hint="КРОМЕ" longhint="КРОМЕ" description="opLogicNot" icon="39.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInChildMenu="1" operationtype="vcm_otCheck" category="Атрибут">
+        </operation>
+        <operation title="Действие по умолчанию" id="opDefaultAction" hint="Действие по умолчанию" longhint="Действие по умолчанию" description="opDefaultAction" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" vcm_ooShowInMainMenu="1" vcm_ooShowInChildMenu="1" operationtype="vcm_otShortCut" category="Файл">
+        </operation>
+        <operation title="ИЛИ (shortcut)" id="opLogicOrShortcut" hint="ИЛИ (shortcut)" longhint="ИЛИ (shortcut)" description="opLogicOrShortcut" vcm_ooShowInContextMenu="1" operationtype="vcm_otButton" category="Атрибут">
+        </operation>
+       </operations>
+      </entity>
+      <entity title="Выделенные элементы" id="enSelection" hint="Выделенные элементы" longhint="Выделенные элементы" description="Выделенные элементы">
+       <operations>
+        <operation title="Очистить условия" id="opDropSelection" hint="Очистить условия" longhint="Очистить условия" description="opDropSelection" icon="31.bmp" vcm_ooShowInContextMenu="1" operationtype="vcm_otButton" category="Выделенные элементы">
+        </operation>
+       </operations>
+      </entity>
+      <entity title="Папка" id="enFolder" hint="Папка" longhint="Папка" description="Папка">
+       <operations>
+        <operation title="Развернуть" id="opExpand" hint="Развернуть" longhint="Развернуть" description="opExpand" vcm_ooShowInContextMenu="1" vcm_ooShowInChildMenu="1" operationtype="vcm_otButton" category="Папка">
+         <excludeusertypes>
+          <usertype index="1" id="astOneLevel">
+          </usertype>
+          <usertype index="2" id="astFirstLevel">
+          </usertype>
+         </excludeusertypes>
+        </operation>
+        <operation title="Свернуть" id="opCollapse" hint="Свернуть" longhint="Свернуть" description="opCollapse" vcm_ooShowInContextMenu="1" vcm_ooShowInChildMenu="1" operationtype="vcm_otButton" category="Папка">
+         <excludeusertypes>
+          <usertype index="1" id="astOneLevel">
+          </usertype>
+          <usertype index="2" id="astFirstLevel">
+          </usertype>
+         </excludeusertypes>
+        </operation>
+        <operation title="Сместиться к первому выбранному" id="opFindFirstSelected" hint="Сместиться к первому выбранному" longhint="Сместиться к первому выбранному" description="opFindFirstSelected" vcm_ooShowInContextMenu="1" operationtype="vcm_otButton" category="Папка">
+         <excludeusertypes>
+          <usertype index="1" id="astOneLevel">
+          </usertype>
+         </excludeusertypes>
+        </operation>
+       </operations>
+      </entity>
+     </entities>
+    </form>
+    <form title="Дата" id="en_DefineSearchDate" container="0">
+     <usertypes>
+      <usertype title="Дата" id="en_DefineSearchDate">
+      </usertype>
+     </usertypes>
+     <controls>
+      <control title="" id="Panel1">
+      </control>
+      <control title="  .  .    " id="dD1EqD2">
+      </control>
+      <control title="Точная дата:" id="rbEq">
+      </control>
+      <control title="Интервал дат:" id="rbInt">
+      </control>
+      <control title="Раньше:" id="rbD2Only">
+      </control>
+      <control title="  .  .    " id="dD1Only">
+      </control>
+      <control title="  .  .    " id="dD2Only">
+      </control>
+      <control title="  .  .    " id="dD1">
+      </control>
+      <control title="Позже:" id="rbD1Only">
+      </control>
+      <control title="  .  .    " id="dD2">
+      </control>
+     </controls>
+     <entities>
+      <entity title="Завершение работы" id="enResult" hint="Завершение работы" longhint="Завершение работы" description="Завершение работы">
+       <operations>
+        <operation title="Ок" id="opOk" hint="Ok" longhint="Ok" description="opOk" icon="27.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" shortcut="Enter" operationtype="vcm_otTextButton" category="Выбор действия">
+        </operation>
+        <operation title="Отмена" id="opCancel" hint="Отмена" longhint="Отмена" description="opCancel" icon="26.bmp" vcm_ooShowInChildToolbar="1" vcm_ooShowInContextMenu="1" shortcut="Esc" operationtype="vcm_otTextButton" category="Выбор действия">
+        </operation>
+       </operations>
+      </entity>
+     </entities>
+    </form>
+    <form title="" id="efPreviewForm" container="0">
+     <usertypes>
+      <usertype title="Предварительный просмотр печати" id="utPrintPreview">
+      </usertype>
+     </usertypes>
+     <controls>
+      <control title="" id="PreviewPanel">
+      </control>
+     </controls>
+     <entities>
+      <entity title="Файл" id="enFile" hint="Файл" longhint="Файл" description="Файл">
+       <operations>
+        <operation title="Печать" id="opPrint" hint="Печать" longhint="Печать" description="opPrint" icon="3.bmp" vcm_ooShowInChildToolbar="1" operationtype="vcm_otButton" category="Файл">
+        </operation>
+        <operation title="Печать..." id="opPrintDialog" hint="Печать..." longhint="Печать..." description="opPrintDialog" icon="3.bmp" vcm_ooShowInMainMenu="1" shortcut="Ctrl+P" operationtype="vcm_otButton" groupid="200" category="Файл">
+        </operation>
+       </operations>
+       <controls>
+        <control id="PreviewPanel">
+        </control>
+       </controls>
+      </entity>
+      <entity title="Выбор действия" id="enResult" hint="Выбор действия" longhint="Выбор действия" description="Выбор действия">
+       <operations>
+        <operation title="Ок" id="opOk" hint="Ok" longhint="Ok" description="opOk" icon="27.bmp" vcm_ooShowInChildToolbar="1" shortcut="Enter" operationtype="vcm_otTextButton" category="Выбор действия">
+        </operation>
+        <operation title="Отмена" id="opCancel" hint="Отмена" longhint="Отмена" description="opCancel" icon="26.bmp" vcm_ooShowInChildToolbar="1" shortcut="Esc" operationtype="vcm_otTextButton" category="Выбор действия">
+        </operation>
+       </operations>
+      </entity>
+     </entities>
+    </form>
+    <form title="Предупреждение" id="enShutdown" container="0">
+     <usertypes>
+      <usertype title="Предупреждение о закрытии приложения" id="sftNone">
+      </usertype>
+     </usertypes>
+     <controls>
+      <control title="" id="evPanel1">
+      </control>
+      <control title="" id="LeftPanel">
+      </control>
+      <control title="" id="pnlBottom">
+      </control>
+      <control title="Выход" id="CloseButton">
+      </control>
+     </controls>
+     <entities>
+     </entities>
+    </form>
+    <form title="Информация" id="enLongProcessMessage" container="0">
+     <usertypes>
+      <usertype title="Длительная операция" id="umNone">
+      </usertype>
+     </usertypes>
+     <controls>
+      <control title="" id="ClientPanel">
+      </control>
+      <control title="" id="BottomPanel">
+      </control>
+      <control title="" id="LeftPanel">
+      </control>
+      <control title="" id="ButtonPanel">
+      </control>
+      <control title="Выход" id="btnExit">
+      </control>
+     </controls>
+     <entities>
+     </entities>
+    </form>
+    <form title="Поиск по реквизитам" id="en_AttributeSearch" container="0">
+     <usertypes>
+      <usertype title="Поиск по реквизитам" id="utqfAttributeSearch">
+      </usertype>
+      <usertype title="Создание индивидуальной ленты" id="utqfPostingOrder">
+      </usertype>
+      <usertype title="Построение аналитического обзора" id="utqfLegistationReview">
+      </usertype>
+     </usertypes>
+     <controls>
+     </controls>
+     <entities>
+      <entity title="Поиск" id="enSearchParameters" hint="Поиск" longhint="Поиск" description="Поиск">
+       <operations>
+       </operations>
+      </entity>
+      <entity title="Правка" id="enEdit" hint="Правка" longhint="Правка" description="Правка">
+       <operations>
+        <operation title="Вставить" id="opPaste" hint="Вставить" longhint="Вставить" description="opPaste" icon="10.bmp" vcm_ooShowInContextMenu="1" vcm_ooShowInMainMenu="1" shortcut="Ctrl+V" operationtype="vcm_otButton" groupid="210" category="Правка">
+        </operation>
+        <operation title="Копировать" id="opCopy" hint="Копировать выделенные элементы в буфер обмена" longhint="Копировать выделенные элементы в буфер обмена" description="opCopy" icon="9.bmp" vcm_ooShowInContextMenu="1" vcm_ooShowInMainMenu="1" shortcut="Ctrl+C" operationtype="vcm_otButton" groupid="200" category="Правка">
+        </operation>
+        <operation title="Удалить" id="opDelete" hint="Удалить выделенные элементы" longhint="Удалить выделенные элементы" description="opDelete" icon="5.bmp" vcm_ooShowInContextMenu="1" vcm_ooShowInMainMenu="1" shortcut="Del" operationtype="vcm_otButton" groupid="220" category="Правка">
+        </operation>
+        <operation title="Вырезать" id="opCut" hint="Вырезать" longhint="Вырезать" description="opCut" icon="8.bmp" vcm_ooShowInContextMenu="1" shortcut="Ctrl+X" operationtype="vcm_otButton" category="Правка">
+        </operation>
+       </operations>
+      </entity>
+      <entity title="Операции карточки" id="enCardOperations" hint="Операции карточки" longhint="Операции карточки" description="Операции карточки">
+       <operations>
+        <operation title="Развернуть\Свернуть" id="opExpandCollapse" hint="Развернуть\Свернуть" longhint="Развернуть\Свернуть" description="opExpandCollapse" vcm_ooShowInContextMenu="1" operationtype="vcm_otButton" category="Операции карточки">
+        </operation>
+        <operation title="Удалить все" id="opDeleteAll" hint="Удалить все" longhint="Удалить все" description="opDeleteAll" icon="32.bmp" vcm_ooShowInContextMenu="1" operationtype="vcm_otButton" category="Операции карточки">
+        </operation>
+        <operation title="Добавить новый" id="opCreateAttr" hint="Добавить новый" longhint="Добавить новый" description="opCreateAttr" icon="58.bmp" vcm_ooShowInContextMenu="1" shortcut="Shift+Enter" operationtype="vcm_otButton" category="Операции карточки">
+        </operation>
+        <operation title="Выбрать реквизиты" id="opOpenTreeSelection" hint="Выбрать реквизиты" longhint="Выбрать реквизиты" description="opOpenTreeSelection" icon="57.bmp" vcm_ooShowInContextMenu="1" operationtype="vcm_otButton" category="Операции карточки">
+        </operation>
+       </operations>
+      </entity>
+      <entity title="Завершение работы" id="enSystem" hint="Завершение работы" longhint="Завершение работы" description="Завершение работы">
+       <operations>
+       </operations>
+      </entity>
+     </entities>
+    </form>
+   </forms>
+  </module>
+ </modules>
+</application>

@@ -1,0 +1,353 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/Target/TargetSupport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::Target::TargetSupport
+//
+// вспомогательный функция для генерации целей сборки
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// генерит определения фабрик для рутового интерфейса DLL
+// язык - pas
+f _spec_root_factory_method
+//#UC START# *4715BACB01F4*
+	[{"%SM"="Interface::Class"&"%Sa"!="abstract"}<{}{"%f_need_to_export(%C)"="true"}{Sn}		procedure %f_to_borland(%CN)%f_to_borland(%SN) (
+				[%f_inc_operation_params(%C);
+				][{"%CS"="multi factory"&%C{transparent multy}=false}const aKey: PAnsiChar;
+				]%t_arg(%S,"out")
+			); stdcall; overload;
+	
+	>%f_set_var(INT,S)<{}{"%ga"="abstract"}{Sn}%g<{}{"%f_need_to_export(%C)"="true"}{Sn}		procedure %f_to_borland(%CN)%f_to_borland(%{INT}N) (
+				[%f_inc_operation_params(%C);
+				][{"%CS"="multi factory"&%C{transparent multy}=false}const aKey: PAnsiChar;
+				]%t_arg(%{INT},"out")
+			); stdcall; overload;
+	
+	>>][{%t_is_container(%S)=true&%t_tied_elem(%S)=true&<{}{%P#f_IsInterfaces()=true}{%PC}>!=0}		procedure Make%f_to_borland(%SN) (%t_arg(%S,"out")); stdcall;
+	
+	]
+//#UC END# *4715BACB01F4*
+
+// генерит определения фабрик доступных в DLL
+// язык - pas
+f _spec_dll_factory_method
+//#UC START# *4715BAD9003E*
+	[{"%SM"="Interface::Class"&"%Sa"!="abstract"}<{}{"%f_need_to_export(%C)"="true"}{Sn}		function %f_to_borland(%CN)%f_to_borland(%SN) ([
+				%f_inc_operation_params(%C)][{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"};]
+				const aKey: PAnsiChar]
+			) : %f_type(%S); overload;
+	
+	>%f_set_var(INT,S)<{}{"%ga"="abstract"}{Sn}%g<{}{"%f_need_to_export(%C)"="true"}{Sn}		function %f_to_borland(%CN)%f_to_borland(%{INT}N) ([
+				%f_inc_operation_params(%C)][{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"};]
+				const aKey: PAnsiChar]
+			) : %f_type(%{INT}); overload;
+	
+	>>][{%t_is_container(%S)=true&%t_tied_elem(%S)=true&<{}{%P#f_IsInterfaces()=true}{%PC}>!=0}		function Make%f_to_borland(%SN) () : %f_type(%S);
+	
+	]
+//#UC END# *4715BAD9003E*
+
+// генерит реализацию фабричных методов доступных из DLL
+// язык - pas
+f _spec_dll_factory_method_impl
+//#UC START# *4715BAE002FD*
+	[{"%SM"="Interface::Class"&"%Sa"!="abstract"}<{}{"%f_need_to_export(%C)"="true"}	function T%{DLL}NDll.%f_to_borland(%CN)%f_to_borland(%SN) ([
+			%f_inc_operation_params(%C)][{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"};]
+			const aKey: PAnsiChar]
+		) : %f_type(%S);
+		var
+			aRes: %f_type(%S);
+		begin
+			GetRoot().%f_to_borland(%CN)%f_to_borland(%SN)(%C<a%f_to_borland(%CN), >[{"%CS"="multi factory"&%C{transparent multy}=false}aKey, ]aRes);
+			Result := aRes;
+		end;
+	
+	>%f_set_var(INT,S)<{}{"%ga"="abstract"}%g<{}{"%f_need_to_export(%C)"="true"}	function T%{DLL}NDll.%f_to_borland(%CN)%f_to_borland(%{INT}N) ([
+			%f_inc_operation_params(%C)][{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"};]
+			const aKey: PAnsiChar]
+		) : %f_type(%{INT});
+		var
+			aRes: %f_type(%{INT});
+		begin
+			GetRoot().%f_to_borland(%CN)%f_to_borland(%{INT}N)(%C<a%f_to_borland(%CN), >[{"%CS"="multi factory"&%C{transparent multy}=false}aKey, ]aRes);
+			Result := aRes;
+		end;
+	
+	>>][{%t_is_container(%S)=true&%t_tied_elem(%S)=true&<{}{%P#f_IsInterfaces()=true}{%PC}>!=0}	function T%{DLL}NDll.Make%f_to_borland(%SN) () : %f_type(%S);
+		var
+			aRes: %f_type(%S);
+		begin
+			GetRoot().Make%f_to_borland(%SN)(aRes);
+			Result := aRes;
+		end;
+	
+	]
+//#UC END# *4715BAE002FD*
+
+// перечисление параметров операций
+f _inc_operation_params
+//#UC START# *4715BAE90186*
+	<{;\n\t\t\t}%f_arg_full_decl(%C)>
+//#UC END# *4715BAE90186*
+
+// генерация фабричных методов для TIE-обёртки
+f _spec_tie_factory_method
+//#UC START# *4715BAF003C8*
+	[{"%SM"="Interface::Class"&"%Sa"!="abstract"}<{}{"%f_need_to_export(%C)"="true"}{Sn}	virtual void _stdcall %CN_%f_to_omg(%SN)_%CU ([{}{\n\t\t}%f_dll_cpp_params_h(%C)	, ][{"%CS"="multi factory"&%C{transparent multy}=false}const char* key\n\t\t, ]%f_type(%S)*& ret_
+		) {
+			_DLL_TRY
+		%C<{}{"%f_need_tie(%C%T)"="true"}	%f_cpp_ret_holder(%C) %CN_ = 0;
+			%f_type_tie(%C%T)::make_cpp(%CN, %CN_);
+		>	%f_type_tie(%S)::make_tie ([{%Cs=cached|%Cs=const,cached}&]%f_with_gen_id(h,%f_type(%S))Factory::%CN(%C<{, }%CN[{%f_need_tie(%C%T)=true}_]>[{"%f_need_tie(%C%T)"="true"}_][{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"}, ]key]), ret_[{%Cs=cached|%Cs=const,cached}, true /*addref*/]);
+			_DLL_CATCH
+		}
+	
+	>%f_set_var(INT,S)<{}{"%ga"="abstract"}{Sn}%g<{}{"%f_need_to_export(%C)"="true"}{Sn}	virtual void _stdcall %CN_%f_to_omg(%{INT}N)_%CU ([{}{\n\t\t}%f_dll_cpp_params_h(%C)	, ][{"%CS"="multi factory"&%C{transparent multy}=false}const char* key\n\t\t, ]%f_type(%{INT})*& ret_
+		) {
+			_DLL_TRY
+		%C<{}{"%f_need_tie(%C%T)"="true"}	%f_cpp_ret_holder(%C) %CN_ = 0;
+			%f_type_tie(%C%T)::make_cpp(%CN, %CN_);
+		>	%f_type_tie(%{INT})::make_tie ([{%Cs=cached|%Cs=const,cached}&]%f_with_gen_id(h,%f_type(%{INT}))Factory::%CN(%C<{, }%CN[{"%f_need_tie(%C%T)"="true"}_]>[{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"}, ]key]), ret_[{%Cs=cached|%Cs=const,cached}, true /*addref*/]);
+			_DLL_CATCH
+		}
+	
+	>>][{%t_is_container(%S)=true&%t_tied_elem(%S)=true&<{}{%P#f_IsInterfaces()=true}{%PC}>!=0}	virtual void _stdcall make_%f_to_omg(%SN)_%SU (%f_type(%S)*& ret_) {
+			_DLL_TRY
+			%f_type_tie(%S)::new_tie (new %f_with_gen_id(h,%f_type(%S)) (), ret_);
+			_DLL_CATCH
+		}
+	
+	]
+//#UC END# *4715BAF003C8*
+
+// генерация фабричных методов доступных из библиотеки
+// язык - c++
+f _spec_factory_method
+//#UC START# *4715BAF802BF*
+	[{"%SM"="Interface::Class"&"%Sa"!="abstract"}<{}{"%f_need_to_export(%C)"="true"}	virtual %f_with_gen_id(h,%t_ret(%S,"%Cs")) %CN_%f_to_omg(%SN) (%f_dll_cpp_params_h(%C)[{"%CS"="multi factory"&%C{transparent multy}=false}[{%C%Cx=true}	, ]const char* key[{%C%Cx=true}\t\t]]
+		) {
+			return %f_with_gen_id(h,%f_type(%S))Factory::%CN(%C<{, }%CN>[{"%f_need_tie(%C%T)"="true"}_][{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"}, ]key]);
+		}
+	
+	>%f_set_var(INT,S)<{}{"%ga"="abstract"}%g<{}{"%f_need_to_export(%C)"="true"}	virtual %f_with_gen_id(h,%t_ret(%{INT},"%Cs")) %CN_%f_to_omg(%{INT}N) (%f_dll_cpp_params_h(%C)[{"%CS"="multi factory"&%C{transparent multy}=false}[{%C%Cx=true}	, ]const char* key[{%C%Cx=true}\t\t]]
+		) {
+			return %f_with_gen_id(h,%f_type(%{INT}))Factory::%CN(%C<{, }%CN[{"%f_need_tie(%C%T)"="true"}_]>[{"%CS"="multi factory"&%C{transparent multy}=false}[{"%C%Cx"="true"}, ]key]);
+		}
+	
+	>>]
+//#UC END# *4715BAF802BF*
+
+// определяет можно ли экспортить фабрику из DLL
+// возвращает true ли false
+f _need_to_export
+//#UC START# *4715BAFF031C*
+	[{"%f_is_factory(%S)"="true"&"%SV"="PublicAccess"&"%S{dll export}"="true"}{false}true]
+
+f _interface_need_export
+	[{"%SM"="Interface::Class"&"%Sa"!="abstract"&%f_has_exported_child(%S)=true}{false}true]
+
+f _has_exported_child
+	[{<{}{%f_need_to_export(%C)=true}{C}>!=0|<{}{%ga=abstract&%g<{}{%f_need_to_export(%C)=true}{C}>!=0}{C}>!=0}{false}true]
+//#UC END# *4715BAFF031C*
+
+// определяет содержит ли элемент или его дети (рекурсивно) или пакеты, от которых он завсит
+// исключения
+// возвращает true или false
+f _has_exception
+//#UC START# *4715BB0B0203*
+	[{"<{}{"%AM"="Exception::Class"}{C}>"="0"&"<{}{"%d<{}{"%AM"="Exception::Class"}{%AC}>"!="0"}{%dC}>>"="0"}{true}false]
+//#UC END# *4715BB0B0203*
+
+// проверяет, что COM-таргет не зависит от пакетов, содержащих больше одного пакета COM-интерфейсов
+// (ComInterfaces::Category)
+f _com_constraint
+//#UC START# *4715C7FC0222*
+	%f_set_var(COM_INTERFACE_COUNT,"%f_count_com_interface(%S)")[{"%{COM_INTERFACE_COUNT}N"=""|"%{COM_INTERFACE_COUNT}N"="."}{false}true]
+//#UC END# *4715C7FC0222*
+
+// возвращает пустую строчку, если не найдено ни одного COM- интерфейса в элементых, от которых
+// зависит цель, в противном случае возвращает не пустую строчку
+f _count_com_interface
+//#UC START# *4715C8090203*
+	[<{}{%de=false}{%d}%d<{}{%AM=ComInterfaces::Category}.>>]
+//#UC END# *4715C8090203*
+
+// возвращает true, если используется memory пул, иначе false
+f _use_mem_pool
+//#UC START# *4718989C01C5*
+	[{"<{}{"%A{Servant Pool}"="mem"}{%AC}>"!="0"}{[{"<{}{"%DM"="Library::Category"&"%f_use_mem_pool(%D)"="true"}{%DC}>"!="0"}{false}true]}true]
+//#UC END# *4718989C01C5*
+
+// возвращает true, если используется пул объектов, иначе false
+f _use_obj_pool
+//#UC START# *471898A4001F*
+	[{"<{}{"%A{Servant Pool}"="obj"}{%AC}>"!="0"}{[{"<{}{"%DM"="Library::Category"&"%f_use_obj_pool(%D)"="true"}{%DC}>"!="0"}{false}true]}true]
+//#UC END# *471898A4001F*
+
+// генерация зависимостей для компиляции idl
+f _dump_dep_for_idlcomp
+//#UC START# *475789C20359*
+	<{\n}{%de=false&%dS=ServerLibrary&%d<{}{%f_need_mpc_idl(%C)=true}{C}>!=0}		\<ant antfile="%f_str_replace(%do,%dR,$\{env.JAVA_SOURCE_ROOT\})" target="idlcomp" inheritAll="false"/\>>
+
+f _dump_dep_for_gcomp
+	<{\n}{%d<{}{%AM=Grammar::Class}{C}>!=0}		\<ant antfile="%f_str_replace(%do,%dR,$\{env.JAVA_SOURCE_ROOT\})" target="gcomp" inheritAll="false"/\>>
+//#UC END# *475789C20359*
+
+// генерит зависимости для сборки jar'ов
+f _dump_dep_for_makejar
+//#UC START# *475789CC0108*
+	<{\n}{%de=false&%dS!=Requirements&%dS!=KCustomize}		\<ant antfile="%f_str_replace(%do,%dR,$\{env.JAVA_SOURCE_ROOT\})" target="makejar" inheritAll="false"/\>>
+//#UC END# *475789CC0108*
+
+// поверяет, что параметр уже присутсвует в другом контэйнере
+f _check_duplicate_params
+//#UC START# *48BF989E018B*
+	%f_set_var(IS_EXIST_DUPLICATE,"false")\
+	[{"%1N"="LIB"}{[{"%1N"="TARGET"}<{}{"%AM"="Settings::Class"}{%A}%A<{}{}{%C}%f_add_to_list(CONTROL_LIST,"%f_to_upper("%CN")") >>]}<{}{"%dM"="Library::Category"|"%dM"="ServerLibrary::Category"}{%d}%d<{}{"%AM"="Settings::Class"}{%A}%A<{}{}{%C}%f_add_to_list(CONTROL_LIST,"%f_to_upper("%CN")") >>>]\
+	<{}{"%f_is_empty(CONTROL_LIST)"="false"&"%{IS_EXIST_DUPLICATE}N"="false"}{W}[%f_pop_first_to_var(CONTROL_LIST,EL)[{"%f_exists_in_list(CONTROL_LIST,"%{EL}N")"="true"}%{EL}N%f_set_var(IS_EXIST_DUPLICATE,"true")]]>\
+	%f_clear_list(CONTROL_LIST)
+//#UC END# *48BF989E018B*
+
+// проверяет правильность использования контэйнера настроек
+f _check_settings_existance
+//#UC START# *48BF9E6F00F1*
+	<{}{"%AM"="Settings::Class"}{%A}%AN>
+//#UC END# *48BF9E6F00F1*
+
+// генерит документацию по параметрам используемым в таргете
+f _config_docs
+//#UC START# *48BFA2F6034B*
+	%f_set_var(IS_HEADER_EXIST,"false")[{"%SM"="AdapterTargetUnion::Category"}{\
+	[{"%SM"!="InstallerTarget::Category"}\
+	%f_clear_list(REG_ALL_DEP)%f_clear_list(REG_ALL_DEP_SERVER)%f_reg_all_dep_i(%S)\
+	%f_copy_list(REG_ALL_DEP,REG_ALL_DEP_COPY)%f_clear_list(DEPEND_LIB)\
+	<{}{%f_is_empty(REG_ALL_DEP)=false}{W}%f_pop_first_to_var(REG_ALL_DEP,_RAD_)[{"%{_RAD_}M"!="ServerLibrary::Category"|%f_exists_in_list(REG_ALL_DEP_SERVER,{_RAD_})=true}%f_add_to_list(DEPEND_LIB,{_RAD_})]>\
+	%f_copy_list(REG_ALL_DEP_COPY,REG_ALL_DEP)\
+	<{}{"%aM"="AdapterTargetUnion::Category"}{%a}%f_add_to_list(UNIONS,a)>[{%f_is_empty(UNIONS)=true}{%f_clear_list(UNIONS)}\
+	<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_add_to_list(TARGET,C)%f_add_to_list(TARGET_N,"%f_to_upper("%CN")")>>\
+	%f_set_var(DEP_EXIST,"false")\
+	<{}{%f_is_empty(REG_ALL_DEP)=false}{W}%f_pop_first_to_var(REG_ALL_DEP,_RAD_)[{"%{_RAD_}M"!="ServerLibrary::Category"|%f_exists_in_list(REG_ALL_DEP_SERVER,{_RAD_})=true}%{_RAD_}<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_set_var(DEP_EXIST,"true")>>]>\
+	[{%f_is_empty(TARGET)=false|"%{DEP_EXIST}N"="true"}%f_set_var(IS_HEADER_EXIST,"true")\{info\}Настройки таргета]
+	%f_output_target_param(%S)\
+	[{"%{IS_HEADER_EXIST}N"="true"}\{info\}]%f_clear_list(TARGET)\
+	]]}%f_set_var(LIB_ATTR_EXISTANCE,"false")%f_set_var(TAR_ATTR_EXISTANCE,"false")\
+	<{}{"%dM"="AdapterTarget::Category"}{%d}%d[{<{}{%DS=ServerLibrary}{C}>!=0}%f_set_var(DIRECT_SL,"true")]%d[{<{}{%DS=ServerLibrary}{C}>=0&<{}{%dS=ServerLibrary}{C}>!=0}%f_set_var(INDIRECT_SL,"true")]%d<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_set_var(TAR_ATTR_EXISTANCE,"true")>>%d<{}{"%dM"="Library::Category"|"%dM"="ServerLibrary::Category"&%f_exists_in_list(SL_LIST,"%dU")=false}{%d}%d<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_set_var(LIB_ATTR_EXISTANCE,"true")>>>[{"%{LIB_ATTR_EXISTANCE}N"="true"|"%{TAR_ATTR_EXISTANCE}N"="true"|"%{DIRECT_SL}N"="true"|"%{INDIRECT_SL}N"="true"}%f_add_to_list(TARGETS_DEPEN,d)%f_set_var(TAR_ATTR_EXISTANCE,"false")%f_set_var(LIB_ATTR_EXISTANCE,"false")%f_set_var(DIRECT_SL,"false")%f_set_var(INDIRECT_SL,"false")]>\
+	<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_add_to_list(UNION_ATTR,C)>>\
+	[{%f_is_empty(TARGETS_DEPEN)=false|%f_is_empty(UNION_ATTR)=false}\{info\}Настройки таргета:
+	[{%f_is_empty(UNION_ATTR)=false}h6. %SN:
+	
+	<{}{%f_is_empty(UNION_ATTR)=false}{W}[%f_pop_first_to_var(UNION_ATTR,_UA_)-%{_UA_}N: %{_UA_}%TN [{"%{_UA_}D"!=""} // %{_UA_}D]
+	[{"%{_UA_}I"!=""}= %f_k_text_convert(%{_UA_}I)]
+	]>]<{}{%f_is_empty(TARGETS_DEPEN)=false}{W}[%f_pop_first_to_var(TARGETS_DEPEN,TD)\
+	%f_clear_list(REG_ALL_DEP)%f_clear_list(REG_ALL_DEP_SERVER)%f_reg_all_dep_i(%{TD})\
+	%f_copy_list(REG_ALL_DEP,REG_ALL_DEP_COPY)%f_clear_list(DEPEND_LIB)\
+	<{}{%f_is_empty(REG_ALL_DEP)=false}{W}%f_pop_first_to_var(REG_ALL_DEP,_RAD_)[{"%{_RAD_}M"!="ServerLibrary::Category"|%f_exists_in_list(REG_ALL_DEP_SERVER,{_RAD_})=true}%f_add_to_list(DEPEND_LIB,{_RAD_})]>\
+	%f_copy_list(REG_ALL_DEP_COPY,REG_ALL_DEP)\
+	%{TD}<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_add_to_list(TARGET,C)%f_add_to_list(TARGET_N,"%f_to_upper("%CN")")>>\
+	
+	h6. %{TD}N:
+	
+	%f_output_target_param(%{TD})\
+	%f_clear_list(TARGET)]>{info}]]%f_clear_list(SL_LIST)
+//#UC END# *48BFA2F6034B*
+
+// генерит содержимое файл настроек
+f _config_ini
+//#UC START# *48BFA801001E*
+	[{"%S{CONFIG_UC}"="true"}%U[{_CUSTOM_SECTIONS}\n]
+	]\
+	<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute&%C%f_in_config()=true}{%C}%f_add_to_list(TARGET,C)>>\
+	%f_clear_list(REG_ALL_DEP)%f_clear_list(REG_ALL_DEP_SERVER)%f_reg_all_dep_i(%S)\
+	%f_copy_list(REG_ALL_DEP,REG_LIB_DEPENDENCY)\
+	<{}{%f_is_empty(REG_ALL_DEP)=false}{W}%f_pop_first_to_var(REG_ALL_DEP,_RAD_)[{"%{_RAD_}M"!="ServerLibrary::Category"|%f_exists_in_list(REG_ALL_DEP_SERVER,{_RAD_})=true}%{_RAD_}<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute&%C%f_in_config()=true}{%C}%f_add_to_list(DEPENDENCY,C)>>]>\
+	%f_copy_list(DEPENDENCY,COMMON)\
+	<{}{%f_is_empty(DEPENDENCY)=false}{W}[%f_pop_first_to_var(DEPENDENCY,_DEP_)%f_copy_list(TARGET,TRG_COPY)\
+	<{}{%f_is_empty(TRG_COPY)=false}{W}[%f_pop_first_to_var(TRG_COPY,_TRG_)[{%f_to_upper("%{_DEP_}N")=%f_to_upper("%{_TRG_}N")}\
+	%f_remove_from_list(COMMON,{_DEP_})]]>]>\
+	[{%f_is_empty(COMMON)=false}{%f_set_var(OPTION_EXIST,"false")}%f_set_var(OPTION_EXIST,"true")]\
+	\[Common Params\]
+	[<{}{%f_is_empty(REG_LIB_DEPENDENCY)=false}{W}[%f_pop_first_to_var(REG_LIB_DEPENDENCY,_RLD_)[{%{_RLD_}<{}{"%AM"="Entity::Class"&"%Aa"!="abstract"}{C}>!=0}-%{_RLD_}N_db_path=
+	-%{_RLD_}N_db_name=
+	-%{_RLD_}N_db_open_flags=
+	]]>]\
+	<{}{%f_is_empty(COMMON)=false}{W}[%f_pop_first_to_var(COMMON,_CM_)[{"%{_CM_}I"=""};]-%{_CM_}N=[{"%{_CM_}I"!=""}{%t_config_init_values(%{_CM_}%TN)}%{_CM_}I]]
+	>
+	%f_set_var(NEED_UC,"[{"%S{CONFIG_UC}"="true"}{false}true]")\[%SN Params\]
+	[{"%{OPTION_EXIST}N"="true"}-GPMAdditionalSection=Common Params
+	][{<{}{%DS=ServerLibrary}{C}>!=0}%f_set_var(NEED_UC,"false")\
+	%U[{_CUSTOM_PARAMS}
+	-ORBEndPoint = iiop://localhost:5051
+	;-ORBInitRef = NameService=corbaloc::localhost:5051/NameService
+	]
+	][{<{}{%DS=ServerLibrary}{C}>=0&<{}{%dS=ServerLibrary}{C}>!=0}%f_set_var(NEED_UC,"false")\
+	%U[{_CUSTOM_PARAMS}
+	-ORBInitRef = NameService=corbaloc::localhost:5051/NameService
+	]
+	]\
+	<{}{%f_is_empty(TARGET)=false}{W}[%f_pop_first_to_var(TARGET,_TR_)[{"%{_TR_}I"=""};]-%{_TR_}N=[{"%{_TR_}I"!=""}{%t_config_init_values(%{_TR_}%TN)}%{_TR_}I]]
+	>[{%{NEED_UC}N=true}%U[{_CUSTOM_PARAMS}\n]
+	]%f_clear_list(TARGET)%f_clear_list(DEPENDENCY)%f_clear_list(TRG_COPY)%f_clear_list(COMMON)%f_clear_list(SL_LIST)
+//#UC END# *48BFA801001E*
+
+// генерит файл для записи в реестр пути в файлу настроек
+f _config_reg
+//#UC START# *48BFBBCF01F8*
+	REGEDIT4
+	
+	\[HKEY_LOCAL_MACHINE\\SOFTWARE\\Garant\\%PN\\%SN\]
+	"-GCMConfigFile"="%f_with_gen_id(config,%So)"
+	
+//#UC END# *48BFBBCF01F8*
+
+// не понятно..., какая-то проверка настроек
+f _check_non_overload_member
+//#UC START# *48C63206026E*
+	%f_clear_list(TARGET)%f_clear_list(DEPENDENCY)\
+	<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_add_to_list(TARGET,"%f_to_upper("%CN")")>>\
+	<%d<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_add_to_list(DEPENDENCY,"%f_to_upper("%CN")")>>>\
+	<{}{%f_is_empty(TARGET)=false}{W}[%f_pop_first_to_var(TARGET,_TG_)[{"%f_exists_in_list(DEPENDENCY,"%{_TG_}N")"="false"}%{_TG_}N;]]>\
+	%f_clear_list(TARGET)%f_clear_list(DEPENDENCY)
+//#UC END# *48C63206026E*
+
+// значение параметров по-умалчанию для файла настроек
+t _config_init_values
+//#UC START# *48D257BF029F*
+c	{}
+r {"%SN"="unsigned long"}:     {0}
+r {"%SN"="long"}:              {0}
+r {"%SN"="a-string"}:          {}
+r {"%SN"="string"}:            {}
+r {"%SN"="boolean"}:           {0}
+r {"%SN"="integer"}:           {0}
+r {"%SN"="unsigned integer"}:  {0}
+r {"%SN"="short"}:             {0}
+r {"%SN"="unsigned short"}:    {0}
+//#UC END# *48D257BF029F*
+
+// не совсем понятно, но похоже, что выводит сожержимое файла настроек
+f _output_target_param
+//#UC START# *48F88FC903E3*
+	<{}{%f_is_empty(DEPEND_LIB)=false}{W}%f_pop_first_to_var(DEPEND_LIB,_DEP_LIB_)%f_set_var(FLAG,"false")%{_DEP_LIB_}<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}%f_set_var(FLAG,"true")[{%f_exists_in_list(TARGET_N,"%f_to_upper("%CN")")=true}%f_add_to_list(TARGET_OVERRIDE,%f_to_upper("%CN"))]>>[{"%{FLAG}N"="true"}* Параметры библиотеки %f_k_link(%{_DEP_LIB_}):
+	%{_DEP_LIB_}<{}{"%AM"="Settings::Class"}{%A}%A<{}{%CC=Attribute}{%C}** \\-%CN(%f_k_link_nearest_parent_with_output(%C)): %C%TN [{"%CD"!=""} - %CD][{"%CI"!=""}
+	= %f_k_text_convert(%CI)]
+	>>]>[{%f_is_empty(TARGET)=false}<{}{%f_is_empty(TARGET)=false}{W}[%f_pop_first_to_var(TARGET,_T_)[{%f_exists_in_list(TARGET_OVERRIDE,%f_to_upper("%{_T_}N"))=true}{%f_add_to_list(TARGET_SPEC,{_T_})}%f_add_to_list(TARGET_OVER,{_T_})]]>]\
+	[{%f_is_empty(TARGET_OVER)=false}* Параметры, переопределённые в таргете:
+	<{}{%f_is_empty(TARGET_OVER)=false}{W}[%f_pop_first_to_var(TARGET_OVER,_TO_)** \\-%{_TO_}N(%f_k_link_nearest_parent_with_output(%{_TO_})): %{_TO_}%TN [{"%{_TO_}D"!=""} - %{_TO_}D][{"%{_TO_}I"!=""}
+	= %f_k_text_convert(%{_TO_}I)]]
+	>][{%f_is_empty(TARGET_SPEC)=false}* Параметры, определённые в таргете:
+	<{}{%f_is_empty(TARGET_SPEC)=false}{W}[%f_pop_first_to_var(TARGET_SPEC,_TS_)** \\-%{_TS_}N(%f_k_link_nearest_parent_with_output(%{_TS_})): %{_TS_}%TN [{"%{_TS_}D"!=""} - %{_TS_}D][{"%{_TS_}I"!=""}
+	= %f_k_text_convert(%{_TS_}I)]]
+	>][{%S<{}{%DS=ServerLibrary}{C}>!=0}* Параметры нейм-сервера:
+	** \\-ORBEndPoint: string
+	= %f_k_text_convert("iiop://localhost:5051")
+	][{%S<{}{%DS=ServerLibrary}{C}>=0&%S<{}{%dS=ServerLibrary}{C}>!=0}* Параметры нейм-сервера:
+	** \\-ORBInitRef: string
+	= %f_k_text_convert("NameService=corbaloc::localhost:5051/NameService")
+	]
+//#UC END# *48F88FC903E3*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

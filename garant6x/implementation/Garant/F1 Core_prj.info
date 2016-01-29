@@ -1,0 +1,851 @@
+F1 Core : VCMDomain - Базовые модули оболочки
+version: 1029
+Common : VCMSubsystem - Здесь живёт модуль Common
+ Common$FP : VCMFormsPack - Окна
+   : uses - 
+ F1DocumentProcessingInterfaces : VCMControllers - 
+  DocumentInterfaces : ControllerInterfaces - 
+   IdeDocInfo : Facet - Интерфейс обмена данными для формы "TextForm"
+   IbsDocumentContainer : Facet - Контейнер документа. Обеспечивает отложенное получение документа
+   InsContentsTree : Facet - 
+   MdeDocInfoProvider : ReflectablePureMixIn - 
+   IdeDocInfoProvider : Facet - Поставщик IdeDocInfo
+ UnderControl$Resetter : VCMControllers - 
+  UnderControlInterfaces : ControllerInterfaces - 
+   UnderControlBehaviour : PureMixIn - 
+   IucpUnderControl : ViewAreaController - 
+   TnsDropControlStatus : Enum - 
+   TnsDropControlStatusSet : SetOf - 
+  UnderControlImpl : Unit - 
+   UnderControlBehaviour : Impurity - 
+   ControlStatusUtils : UtilityPack - 
+ F1DocumentProcessing : Library - Работа с очередным "новым" документом. {RequestLink:232100720}
+  BaseDataObject : Unit - 
+   TbsBase : SimpleClass - Базовый класс бизнес слоя
+  DocInfo : Unit - Реализация информации о документе
+   TdeBase : SimpleClass - 
+   TdeDocInfo : SimpleClass - Интерфейс обмена данными для бизнес объекта "TextForm"
+   bsDataContainer : UtilityPack - Модуль содержит реализации контейнеров данных. Получение данных с адаптера
+   может занимать длительное время, поэтому вводятся контейнеры данных, которые
+   возвращают данные по первому требованию
+  F1DocumentContainers : Unit - Контейнеры документа
+   TnsF1DocumentContainerPrim : SimpleClass - Базовый контейнер документа для F1
+   nsDocumentContainer : Impurity - Контейнер документа, работающий с IdeDocInfo
+   TnsF1DocumentContainer : SimpleClass - 
+   TnsIDocumentDataObject : SimpleClass - 
+   TnsDocumentPrintEvent : SimpleClass - 
+   TnsContentsTree : SimpleClass - 
+   TnsMedicContentsTree : SimpleClass - Документ Инфарма. См. [$121166984]
+   TnsSubPrim : SimpleClass - 
+   TnsDocumentContainerSub : SimpleClass - 
+   nsDocumentToolsNew : UtilityPack - 
+   TnsAACDocumentContainerPrim : SimpleClass - 
+   TnsAACDocumentSynchroViewContainer : SimpleClass - 
+   TnsChronologyDocumentContainer : SimpleClass - 
+  DocumentFilters : Unit - 
+   Tf1MultilinkResolver : SimpleClass - 
+ BusinessInterfaces : VCMControllers - Интерфейсы бизнес-логики
+  PrimListInterfaces : Interfaces - 
+   IdeDocumentList : Facet - Интерфейс обмена данными с бизнес объектов формы "enList"
+   IdeDocumentListCR : Facet - Данные для инициализации списока для корреспондентов/респондентов
+  DocumentAndListInterfaces : ControllerInterfaces - Интерфейсы бизнес слоя для работы с документом и списком документов
+   IucpHAFMacroReplacerFactory : ViewAreaController - 
+   IdsBaseContents : ViewAreaController - Простое оглавление
+   IucpFilterInfoFactory : ViewAreaController - 
+   IdsAttributes : ViewAreaController - Интерфейс бизнес объекта формы "AttributesForm"
+   IdeSimpleTree : Facet - 
+   BaseSearchSupportQuery : PureMixIn - 
+   IdsEditions : ViewAreaController - Бизнес объект формы "EditionForm"
+   IdsWarning : ViewAreaController - Бизнес объект формы "WarningForm"
+   IdsContents : ViewAreaController - Бизнес объект формы "ContentsForm"
+   IucbBaseSearchSupportQuery : ViewAreaController - 
+   Contents : PureMixIn - Оглавление
+   InsWarningLocker : UseCaseController - 
+   WarningGenerator : PureMixIn - 
+   DocumentFromList : PureMixIn - 
+   IucbDocumentFromList : ViewAreaController - 
+   IdsBaseDocument : ViewAreaController - Базовый бизнес объект документа.
+   IdsList : ViewAreaController - Базовый список.
+   IdsDocumentList : ViewAreaController - Cписок документов
+   IucbDocumentWithContents : ViewAreaController - 
+   IbsChangeRedactionWorker : Facet - Объект меняющий редакцию документа
+   IsdsGotoPointDataMaker : UseCaseController - 
+   IdsDocument : ViewAreaController - Бизнес объект формы "TextForm"
+   IbsUserCRListInfo : Facet - Информация о пользовательском СКР
+   IbsUserCRListInfoModify : Facet - Информация о пользовательских СКР с возможностью изменения
+   IdBaseDocument : Facet - Данные сборки документа.
+   IdsDocumentWithFlash : ViewAreaController - Flash-ролик
+   InsWarningGenerator : Facet - 
+   IsdsPrimDocument : UseCaseController - 
+   IsdsBaseDocument : UseCaseController - БОС, базовый для прецедентов с документом
+   IsdsEditionsHolder : UseCaseController - 
+   IdsAACContainer : ViewAreaController - Контроллер формы-контейнера, в которую вставляются две половины документа ААК
+  BaseDocumentWithAttributesInterfaces : ControllerInterfaces - 
+   IsdsBaseDocumentWithAttributes : UseCaseController - Документ с атрибутами
+   IdBaseDocumentWithAttributes : Facet - Данные документа с атрибутами.
+  DocInfoInterfaces : ControllerInterfaces - 
+   IbsFlash : UseCaseController - Данные ролика
+   IsdsDocInfo : UseCaseController - 
+   IdDocInfo : Facet - Данные прецедента информация о документе
+  WorkWithDocumentInterfaces : ControllerInterfaces - 
+   IucpBaseSearchSupportQuery : UseCaseController - 
+   IucpDocumentWithContents : UseCaseController - 
+   IsdsDocument : UseCaseController - 
+   IdDocument : Facet - Данные прецедента документ
+   IsdsDocumentWithFlash : UseCaseController - Документ с flash-роликом.
+   IsdsAAC : UseCaseController - Контроллер прецедента "Актуальная аналитика"
+  WorkWithListInterfaces : ControllerInterfaces - 
+   IsdsListPrim : UseCaseController - 
+   IucpNodeForPositioningHolder : UseCaseController - Узел для позиционирования в дереве
+   IbsDataProducer : Facet - Управляет получением данных. Интерефейс поддерживается бизнес объектом прецедента и используются бизнес объектами форм при запросе у них данных. [$6979611]
+   IdsListInfo : ViewAreaController - 
+   IdsListAnalize : ViewAreaController - {RequestLink:274825697}
+   IdsSynchroView : ViewAreaController - Бизнес объект формы "fcSynchroView"
+   TList_SynchroView_Areas : Enum - Типы зон для "БОС синхронного просмотра"
+   IdeDocumentListSet : Facet - Данные для инициализации сборки _TsdsList - список
+   IsdsListNameHolder : UseCaseController - 
+   IsdsList : UseCaseController - Интерфейс сборки "Список"
+   IdList : Facet - Данные прецедента список
+ Filters : Library - 
+  nsFiltersInterfaces : Interfaces - 
+   InsFiltersContainer : Facet - Конейнер фильтров
+   InsFiltersTree : Facet - Дерево фильтров
+   InsFilterNode : Facet - Узел фильтра
+   TnsFiltersType : Enum - 
+   InsFiltersListener : Facet - 
+   InsFilterRootNode : Facet - 
+  FiltersNotification : Unit - 
+   TnsFiltersListenersList : SimpleClass - 
+   TnsFiltersListenersManagerPrim : SimpleClass - 
+   TnsFiltersListenersDrugsManager : SimpleClass - 
+   TnsFiltersListenersDocManager : SimpleClass - 
+  Impl : Unit - 
+   TnsFiltersContainerPrim : SimpleClass - 
+   TnsFiltersContainer : SimpleClass - 
+   TnsFiltersTree : SimpleClass - 
+   TnsFiltersNode : SimpleClass - 
+   TnsFiltersRootNode : SimpleClass - 
+ Common$Lib : Library - Ещё что-то "общее"
+  MainMenuDomainInterfaces : Interfaces - Главное меню
+   InsMainMenuNode : Facet - Элемент дерева простого основного меню
+   InsDocumentNode : Facet - Узел который содержит документ
+   InsQueryNode : Facet - 
+   InsJournalBookmarkNode : Facet - 
+  Folders : Unit - 
+   nsFolderNodes : UtilityPack - 
+  Rubricator : Unit - Структуры данных для рубрикатора
+   TnsNavigatorTreeStruct : SimpleClass - Дерево навигатора с поддержкой сброса кэшированных данных
+   TnsRubricatorCache : SimpleClass - Какой-то кеш, который на самом деле ничего не кеширует, а напрямую ходит к адаптеру
+   NavigatorRes : UtilityPack - 
+  PrimeInterfaces : Interfaces - Интерфейсы для ПРАЙМа
+   InsNewsLineNotifier : Facet - 
+   InsNewsLine : Facet - 
+  DocumentDataObjects : Unit - 
+   TnsSingleAttributeStorable : SimpleClass - 
+   TnsSingleAttributeDataObject : SimpleClass - 
+   TnsSingleAttributeData : SimpleClass - 
+   TnsContentsTreeStorable : SimpleClass - 
+  ns : Unit - 
+   nsSuperComplexDocumentPreview : UtilityPack - 
+   nsDocumentTools : UtilityPack - Утилиты для работы с документом.
+   TnsTreeMultiDocumentPreviewContainer : SimpleClass - 
+   TnsExternalObjectData : SimpleClass - 
+  ComplectInfo : Unit - Структуры данных для работы с информацией о комплекте
+   TnsComplectInfoTreeStruct : SimpleClass - Дерево информации о комплекте
+   TnsComplectInfoNode : SimpleClass - Узел дерева с информацией о комплекте
+   TnsComplectInfoRootNode : SimpleClass - Корневой узел дерева с информацией о комплекте
+   ComplectInfoRes : UtilityPack - 
+  MainMenu : Unit - Структуры данных для основного меню
+   TnsBaseMainMenuTree : SimpleClass - Базовое дерево меню
+   TnsHistoryTree : SimpleClass - Содержит поля и методы общие для деревьев содержащих последние открытые документы и запросы
+   TnsLastOpenDocTree : SimpleClass - Дерево последних открытых документов
+   TnsMainMenuNode : SimpleClass - 
+   TnsDocumentMainMenuNode : SimpleClass - 
+   TnsJournalBookmarkNode : SimpleClass - 
+   TnsQueryNode : SimpleClass - 
+   TnsMainMenu2011Node : SimpleClass - 
+  DocumentContainers : Unit - Контейнеры документов
+   TnsDocAttributeTreeStruct : SimpleClass - 
+   nsEditionNodes : UtilityPack - 
+   TnsEditionTree : SimpleClass - Дерево редакций документа
+   TnsSubImplementation : SimpleClass - 
+   TnsDocumentPartImplementation : SimpleClass - 
+  Dialogs : Unit - 
+   TnsSaveDialog : SimpleClass - 
+   TnsOpenDialog : SimpleClass - 
+  DocumentUtils : Unit - Утилиты работы с документом
+   TbsDocumentMissingMessage : SimpleClass - сообщение которое выдается при открытии документа или ссылки, которой
+       нет в базе (находится в отсутствующих блоках)
+ Business : VCMControllers - Бизнес-логика
+  BaseDocument : ControllerUnit - Бизнес объекты прецедентов с документом
+   dsBaseDocumentPrim : ViewAreaControllerImp - БОФ, базовый для прецедентов с документом. Не определяет конечный интерфейс бизнес-объекта
+   dsBaseContents : ViewAreaControllerImp - Простое оглавление
+   DocumentRes : UtilityPack - 
+   dsBaseDocument : ViewAreaControllerImp - БОФ, базовый для прецедентов с документом. ОПРЕДЕЛЯЕТ конечный интерфейс бизнес-объекта
+   TdsBaseContents : ViewAreaControllerImp - Простое оглавление
+   sdsBaseDocument : UseCaseControllerImp - БОС, базовый для прецедента с документом
+   sdsBaseDocumentWithAttributes : UseCaseControllerImp - Документ с атрибутами
+   TdsAttributes : ViewAreaControllerImp - бизнес объект формы "Информация о документе"
+   TnsDocInfoHAFMacroReplacer : SimpleClass - 
+   dBaseDocument : Impurity - Данные сборки документа
+   TbsUserCRListInfo : SimpleClass - 
+   dBaseDocumentWithAttributes : Impurity - Данные документа с атрибутами
+   dDocInfo : Impurity - 
+   TdeDocumentList : SimpleClass - 
+   TdeListSet : SimpleClass - 
+   TdeDocumentListCR : SimpleClass - 
+   TdBaseDocument : SimpleClass - Данные сборки документа
+   nsEditionsUtils : UtilityPack - 
+   TdeSimpleTree : SimpleClass - 
+   dsBaseContentsRes : UtilityPack - 
+   MsdsBaseDocument : MixInMirror - 
+   nsOpenContents : Impurity - 
+   TnsDocumentLikeStateHolder : SimpleClass - 
+   TnsDataExchangeRealization : SimpleClass - 
+  ListDataObjects : Unit - 
+   TbsListDataObject : SimpleClass - 
+   TnsNodesInterfacedDataObject : SimpleClass - 
+   TnsNodesDataObject : SimpleClass - Объект данных для нод адаптерного дерева.
+   TbsListTreeData : SimpleClass - -
+  ListInterfaces : Interfaces - 
+   TbsLinkType : Enum - Тип ссылки на данные для сборки. Операция модуля использует этот тип для определения какую сборку необходимо создать
+  List : Unit - Сущности списка.
+   ListRes : UtilityPack - Ресурсы списка.
+   TbsListTreeStruct : SimpleClass - Данные дерева списка. Надо отсязаться от IdsList путйм вуртуализации и вернуть исходное дерево в Data/List
+   TnsListHAFMacroReplacer : SimpleClass - 
+   TbsOpenListInfo : SimpleClass - 
+  Document : ControllerUnit - Работа с документом
+   TnsDocumentStreamWrapper : SimpleClass - Обертка работы с потоком для узла адаптера
+   dsDocumentFromList : Impurity - Примесь для документа открытого из списка
+   dsBaseSearchSupportQuery : ViewAreaControllerImp - Примесь, реализующая абстрактный интерфейс BaseSearchSupportQuery
+   TdsEditions : ViewAreaControllerImp - 
+   TdsWarning : ViewAreaControllerImp - 
+   TdsContents : ViewAreaControllerImp - бизнес объект формы ContentsForm
+   dsDocument : ViewAreaControllerImp - Бизнес объект формы "TextForm"
+   TnsINodesClipboardDataObject : SimpleClass - Объект данных со скопированными узлами списка.
+   TnsIListDataObject : SimpleClass - -
+   TdsDocument : ViewAreaControllerImp - Обычный юридический документ, если я правильно всё понимаю (Люлин)
+   dsList : ViewAreaControllerImp - Базовый бизнес объект для формы со списком
+   TnsListPrintEvent : SimpleClass - 
+   TdsSynchroViewWarning : ViewAreaControllerImp - 
+   nsListExceptions : UtilityPack - 
+  ListDataSources : ControllerUnit - БОФ для списков.
+   dsDocumentList : ViewAreaControllerImp - Список документов
+   TdsListInfo : ViewAreaControllerImp - Информация о списке.
+   TdsSynchroView : ViewAreaControllerImp - Бизнес объект формы "fcSynchroView"
+   TdsDocumentList : ViewAreaControllerImp - Список документов
+   TnsAddToListEvent : SimpleClass - 
+   TnsListSortEvent : SimpleClass - 
+   TnsFindContextInListEvent : SimpleClass - 
+  DocumentAndList : ControllerUnit - Прецеденты работы со списком и с документом
+   sdsDocInfo : UseCaseControllerImp - Общий объект сборки для списка и документа
+   TdsChildDocument : ViewAreaControllerImp - 
+   TdsDocumentWithFlash : ViewAreaControllerImp - БОФ документа-схемы
+   TdsAnnotation : ViewAreaControllerImp - Аннотация к документу
+   TdsTranslation : ViewAreaControllerImp - Перевод
+   TdsRelatedDoc : ViewAreaControllerImp - Справка
+   TnsChildDocInfoHAFMacroReplacer : SimpleClass - 
+   TdsDocumentListCR : ViewAreaControllerImp - Список корреспондентов/респондентов
+   TdsChronology : ViewAreaControllerImp - Хронология судебного дела
+ CommonDiction : VCMControllers - Абстрактный словарь
+  CommonDictionInterfaces : ControllerInterfaces - Интерфейсы обобщённого словаря
+   TnsDictionKind : Enum - 
+   IbsCommonDictionListener : Facet - Слушатель событий бизнес объекта формы список словаря
+   IdeCommonDiction : Facet - Данные для сборки словарь
+   IdCommonDiction : Facet - 
+   IdsChild : ViewAreaController - 
+   IdsCommonDiction : ViewAreaController - Обобщённый словарь
+   IsdsCommonDiction : UseCaseController - Обобщенный словарь
+  CommonDiction : ControllerUnit - 
+   dsCommonDiction : ViewAreaControllerImp - Обобщенный словарь
+   sdsCommonDiction : UseCaseControllerImp - Бизнес объект сборки "Обобщенный словарь"
+   TsdsCommonDiction : UseCaseControllerImp - Обобщённый словарь
+   dCommonDiction : Impurity - 
+   TdeCommonDiction : SimpleClass - 
+   TdCommonDiction : SimpleClass - 
+   TdsChild : ViewAreaControllerImp - 
+  DictionInterfacesPrim : ControllerInterfaces - Базовые интерфейсы для работы с Толковым словарём
+   IdsDictionDocument : ViewAreaController - Документ толкового словаря
+ Medic : VCMControllers - 
+  InpharmInterfaces : ControllerInterfaces - 
+   IdsMedicFirmDocument : ViewAreaController - Описание фирмы производителя
+   IdsDrugDocument : ViewAreaController - Препарат
+   IdsInpharmMainMenu : ViewAreaController - 
+   IsdsInpharmMainMenu : UseCaseController - 
+ View : VCMViews - Представление
+  Strange : VCMControls - 
+   Navigator : VCMFacet - 
+   Document$MangleForSpell : VCMFacet - Документ
+   Document : VCMOperations - 
+   NavigatorElement : VCMOperations - 
+   Fake : VCMOperations - http://mdp.garant.ru/pages/viewpage.action?pageId=236719144
+   Redactions : VCMFacet - 
+   INavigator_SetCurrent_Params : Facet - Параметры для операции Navigator.SetCurrent
+   TNavigator_SetCurrent_Params : SimpleClass - Реализация INavigator_SetCurrent_Params
+   Op_Navigator_SetCurrent : SimpleClass - Класс для вызова операции Navigator.SetCurrent
+   IDocument_OpenCorrespondentList_Params : Facet - Параметры для операции Document.OpenCorrespondentList
+   TDocument_OpenCorrespondentList_Params : SimpleClass - Реализация IDocument_OpenCorrespondentList_Params
+   Op_Document_OpenCorrespondentList : SimpleClass - Класс для вызова операции Document.OpenCorrespondentList
+   IDocument_OpenRespondentList_Params : Facet - Параметры для операции Document.OpenRespondentList
+   TDocument_OpenRespondentList_Params : SimpleClass - Реализация IDocument_OpenRespondentList_Params
+   Op_Document_OpenRespondentList : SimpleClass - Класс для вызова операции Document.OpenRespondentList
+   IDocument_AttributesCanBeClosed_Params : Facet - Параметры для операции Document.AttributesCanBeClosed
+   TDocument_AttributesCanBeClosed_Params : SimpleClass - Реализация IDocument_AttributesCanBeClosed_Params
+   Op_Document_AttributesCanBeClosed : SimpleClass - Класс для вызова операции Document.AttributesCanBeClosed
+   IDocument_CommonDocumentOpenNewWindow_Params : Facet - Параметры для операции Document.CommonDocumentOpenNewWindow
+   TDocument_CommonDocumentOpenNewWindow_Params : SimpleClass - Реализация IDocument_CommonDocumentOpenNewWindow_Params
+   Op_Document_CommonDocumentOpenNewWindow : SimpleClass - Класс для вызова операции Document.CommonDocumentOpenNewWindow
+   IDocument_CommonDocumentOpenNewTab_Params : Facet - Параметры для операции Document.CommonDocumentOpenNewTab
+   TDocument_CommonDocumentOpenNewTab_Params : SimpleClass - Реализация IDocument_CommonDocumentOpenNewTab_Params
+   Op_Document_CommonDocumentOpenNewTab : SimpleClass - Класс для вызова операции Document.CommonDocumentOpenNewTab
+   IRedactions_RedactionOnID_Params : Facet - Параметры для операции Redactions.RedactionOnID
+   TRedactions_RedactionOnID_Params : SimpleClass - Реализация IRedactions_RedactionOnID_Params
+   Op_Redactions_RedactionOnID : SimpleClass - Класс для вызова операции Redactions.RedactionOnID
+  Rubricator : VCMControls - 
+   Rubricator : VCMFacet - 
+   IRubricator_SetListRoot_Params : Facet - Параметры для операции Rubricator.SetListRoot
+   TRubricator_SetListRoot_Params : SimpleClass - Реализация IRubricator_SetListRoot_Params
+   Op_Rubricator_SetListRoot : SimpleClass - Класс для вызова операции Rubricator.SetListRoot
+   IRubricator_InitListRoot_Params : Facet - Параметры для операции Rubricator.InitListRoot
+   TRubricator_InitListRoot_Params : SimpleClass - Реализация IRubricator_InitListRoot_Params
+   Op_Rubricator_InitListRoot : SimpleClass - Класс для вызова операции Rubricator.InitListRoot
+   Op_Rubricator_Synchronize : SimpleClass - Класс для вызова операции Rubricator.Synchronize
+   IRubricator_GetRoot_Params : Facet - Параметры для операции Rubricator.GetRoot
+   TRubricator_GetRoot_Params : SimpleClass - Реализация IRubricator_GetRoot_Params
+   Op_Rubricator_GetRoot : SimpleClass - Класс для вызова операции Rubricator.GetRoot
+  FormDefinitions : VCMControls - Описания форм
+   Text : VCMFormDefinition - Текст документа
+   UnderControl : VCMFormDefinition - 
+   Folders : VCMFormDefinition - 
+   Navigator : VCMFormDefinition - 
+   TasksPanel : VCMFormDefinition - 
+   CompInfo : VCMFormDefinition - 
+   Rubricator : VCMFormDefinition - 
+   Diction : VCMFormDefinition - 
+   Warning : VCMFormDefinition - 
+   ListInfo : VCMFormDefinition - 
+   CommonDiction : VCMFormDefinition - 
+   MedicMainMenu : VCMFormDefinition - 
+   MedicFirmList : VCMFormDefinition - 
+   List : VCMFormDefinition - 
+   ConfigurationList : VCMFormDefinition - 
+   MainMenuNew : VCMFormDefinition - 
+   NewBaseSearch : VCMFormDefinition - 
+   Attributes : VCMFormDefinition - 
+   BaseSearchContainer : VCMFormDefinition - 
+   DictionContainer : VCMFormDefinition - 
+   Filters : VCMFormDefinition - 
+   TreeAttributeFirstLevel : VCMFormDefinition - 
+   WarningBaloon : VCMFormDefinition - 
+   NewsLine : VCMFormDefinition - 
+   Redactions : VCMFormDefinition - 
+   SynchroView_WarningBaloon : VCMFormDefinition - 
+   Translation_WarningBaloon : VCMFormDefinition - 
+   UserCR1_WarningBaloon : VCMFormDefinition - 
+   UserCR2_WarningBaloon : VCMFormDefinition - 
+   Contents : VCMFormDefinition - 
+   FoldersTree : VCMFormDefinition - 
+   FoldersElementInfo : VCMFormDefinition - 
+   DocumentWithFlash : VCMFormDefinition - 
+   ConsultationMark : VCMFormDefinition - 
+   MedicListSynchroView : VCMFormDefinition - 
+   SynchroView : VCMFormDefinition - 
+   ListAnalize : VCMFormDefinition - 
+   Tkw_Form_Text_ID : ScriptKeyword - Слово словаря для идентификатора формы Text
+----
+*Пример использования*:
+{code}
+'aControl' форма::Text TryFocus ASSERT
+{code}
+   Tkw_Form_UnderControl_ID : ScriptKeyword - Слово словаря для идентификатора формы UnderControl
+----
+*Пример использования*:
+{code}
+'aControl' форма::UnderControl TryFocus ASSERT
+{code}
+   Tkw_Form_Folders_ID : ScriptKeyword - Слово словаря для идентификатора формы Folders
+----
+*Пример использования*:
+{code}
+'aControl' форма::Folders TryFocus ASSERT
+{code}
+   Tkw_Form_Navigator_ID : ScriptKeyword - Слово словаря для идентификатора формы Navigator
+----
+*Пример использования*:
+{code}
+'aControl' форма::Navigator TryFocus ASSERT
+{code}
+   Tkw_Form_TasksPanel_ID : ScriptKeyword - Слово словаря для идентификатора формы TasksPanel
+----
+*Пример использования*:
+{code}
+'aControl' форма::TasksPanel TryFocus ASSERT
+{code}
+   Tkw_Form_CompInfo_ID : ScriptKeyword - Слово словаря для идентификатора формы CompInfo
+----
+*Пример использования*:
+{code}
+'aControl' форма::CompInfo TryFocus ASSERT
+{code}
+   Tkw_Form_Rubricator_ID : ScriptKeyword - Слово словаря для идентификатора формы Rubricator
+----
+*Пример использования*:
+{code}
+'aControl' форма::Rubricator TryFocus ASSERT
+{code}
+   Tkw_Form_Diction_ID : ScriptKeyword - Слово словаря для идентификатора формы Diction
+----
+*Пример использования*:
+{code}
+'aControl' форма::Diction TryFocus ASSERT
+{code}
+   Tkw_Form_Warning_ID : ScriptKeyword - Слово словаря для идентификатора формы Warning
+----
+*Пример использования*:
+{code}
+'aControl' форма::Warning TryFocus ASSERT
+{code}
+   Tkw_Form_ListInfo_ID : ScriptKeyword - Слово словаря для идентификатора формы ListInfo
+----
+*Пример использования*:
+{code}
+'aControl' форма::ListInfo TryFocus ASSERT
+{code}
+   Tkw_Form_CommonDiction_ID : ScriptKeyword - Слово словаря для идентификатора формы CommonDiction
+----
+*Пример использования*:
+{code}
+'aControl' форма::CommonDiction TryFocus ASSERT
+{code}
+   Tkw_Form_MedicMainMenu_ID : ScriptKeyword - Слово словаря для идентификатора формы MedicMainMenu
+----
+*Пример использования*:
+{code}
+'aControl' форма::MedicMainMenu TryFocus ASSERT
+{code}
+   Tkw_Form_MedicFirmList_ID : ScriptKeyword - Слово словаря для идентификатора формы MedicFirmList
+----
+*Пример использования*:
+{code}
+'aControl' форма::MedicFirmList TryFocus ASSERT
+{code}
+   Tkw_Form_List_ID : ScriptKeyword - Слово словаря для идентификатора формы List
+----
+*Пример использования*:
+{code}
+'aControl' форма::List TryFocus ASSERT
+{code}
+   Tkw_Form_ConfigurationList_ID : ScriptKeyword - Слово словаря для идентификатора формы ConfigurationList
+----
+*Пример использования*:
+{code}
+'aControl' форма::ConfigurationList TryFocus ASSERT
+{code}
+   Tkw_Form_MainMenuNew_ID : ScriptKeyword - Слово словаря для идентификатора формы MainMenuNew
+----
+*Пример использования*:
+{code}
+'aControl' форма::MainMenuNew TryFocus ASSERT
+{code}
+   Tkw_Form_NewBaseSearch_ID : ScriptKeyword - Слово словаря для идентификатора формы NewBaseSearch
+----
+*Пример использования*:
+{code}
+'aControl' форма::NewBaseSearch TryFocus ASSERT
+{code}
+   Tkw_Form_Attributes_ID : ScriptKeyword - Слово словаря для идентификатора формы Attributes
+----
+*Пример использования*:
+{code}
+'aControl' форма::Attributes TryFocus ASSERT
+{code}
+   Tkw_Form_BaseSearchContainer_ID : ScriptKeyword - Слово словаря для идентификатора формы BaseSearchContainer
+----
+*Пример использования*:
+{code}
+'aControl' форма::BaseSearchContainer TryFocus ASSERT
+{code}
+   Tkw_Form_DictionContainer_ID : ScriptKeyword - Слово словаря для идентификатора формы DictionContainer
+----
+*Пример использования*:
+{code}
+'aControl' форма::DictionContainer TryFocus ASSERT
+{code}
+   Tkw_Form_Filters_ID : ScriptKeyword - Слово словаря для идентификатора формы Filters
+----
+*Пример использования*:
+{code}
+'aControl' форма::Filters TryFocus ASSERT
+{code}
+   Tkw_Form_TreeAttributeFirstLevel_ID : ScriptKeyword - Слово словаря для идентификатора формы TreeAttributeFirstLevel
+----
+*Пример использования*:
+{code}
+'aControl' форма::TreeAttributeFirstLevel TryFocus ASSERT
+{code}
+   Tkw_Form_WarningBaloon_ID : ScriptKeyword - Слово словаря для идентификатора формы WarningBaloon
+----
+*Пример использования*:
+{code}
+'aControl' форма::WarningBaloon TryFocus ASSERT
+{code}
+   Tkw_Form_NewsLine_ID : ScriptKeyword - Слово словаря для идентификатора формы NewsLine
+----
+*Пример использования*:
+{code}
+'aControl' форма::NewsLine TryFocus ASSERT
+{code}
+   Tkw_Form_Redactions_ID : ScriptKeyword - Слово словаря для идентификатора формы Redactions
+----
+*Пример использования*:
+{code}
+'aControl' форма::Redactions TryFocus ASSERT
+{code}
+   Tkw_Form_SynchroView_WarningBaloon_ID : ScriptKeyword - Слово словаря для идентификатора формы SynchroView_WarningBaloon
+----
+*Пример использования*:
+{code}
+'aControl' форма::SynchroView_WarningBaloon TryFocus ASSERT
+{code}
+   Tkw_Form_Translation_WarningBaloon_ID : ScriptKeyword - Слово словаря для идентификатора формы Translation_WarningBaloon
+----
+*Пример использования*:
+{code}
+'aControl' форма::Translation_WarningBaloon TryFocus ASSERT
+{code}
+   Tkw_Form_UserCR1_WarningBaloon_ID : ScriptKeyword - Слово словаря для идентификатора формы UserCR1_WarningBaloon
+----
+*Пример использования*:
+{code}
+'aControl' форма::UserCR1_WarningBaloon TryFocus ASSERT
+{code}
+   Tkw_Form_UserCR2_WarningBaloon_ID : ScriptKeyword - Слово словаря для идентификатора формы UserCR2_WarningBaloon
+----
+*Пример использования*:
+{code}
+'aControl' форма::UserCR2_WarningBaloon TryFocus ASSERT
+{code}
+   Tkw_Form_Contents_ID : ScriptKeyword - Слово словаря для идентификатора формы Contents
+----
+*Пример использования*:
+{code}
+'aControl' форма::Contents TryFocus ASSERT
+{code}
+   Tkw_Form_FoldersTree_ID : ScriptKeyword - Слово словаря для идентификатора формы FoldersTree
+----
+*Пример использования*:
+{code}
+'aControl' форма::FoldersTree TryFocus ASSERT
+{code}
+   Tkw_Form_FoldersElementInfo_ID : ScriptKeyword - Слово словаря для идентификатора формы FoldersElementInfo
+----
+*Пример использования*:
+{code}
+'aControl' форма::FoldersElementInfo TryFocus ASSERT
+{code}
+   Tkw_Form_DocumentWithFlash_ID : ScriptKeyword - Слово словаря для идентификатора формы DocumentWithFlash
+----
+*Пример использования*:
+{code}
+'aControl' форма::DocumentWithFlash TryFocus ASSERT
+{code}
+   Tkw_Form_ConsultationMark_ID : ScriptKeyword - Слово словаря для идентификатора формы ConsultationMark
+----
+*Пример использования*:
+{code}
+'aControl' форма::ConsultationMark TryFocus ASSERT
+{code}
+   Tkw_Form_MedicListSynchroView_ID : ScriptKeyword - Слово словаря для идентификатора формы MedicListSynchroView
+----
+*Пример использования*:
+{code}
+'aControl' форма::MedicListSynchroView TryFocus ASSERT
+{code}
+   Tkw_Form_SynchroView_ID : ScriptKeyword - Слово словаря для идентификатора формы SynchroView
+----
+*Пример использования*:
+{code}
+'aControl' форма::SynchroView TryFocus ASSERT
+{code}
+   Tkw_Form_ListAnalize_ID : ScriptKeyword - Слово словаря для идентификатора формы ListAnalize
+----
+*Пример использования*:
+{code}
+'aControl' форма::ListAnalize TryFocus ASSERT
+{code}
+  Common : VCMModule - 
+   FlashUtils : UtilityPack - Утилиты для работы с Flash-схемами
+   BaseDocument : VCMForm - Абстрактное представление базового документа
+   MBaseDocument : MixInMirror - 
+   PrimRememberPassword : VCMForm - Забыли пароль?
+   PrimProgressIndicator : VCMForm - Индикатор прогресса
+   PrimEULA : VCMForm - 
+   PrimNavigator : VCMForm - Меню
+   TnsToMSWordOp : SimpleClass - Экспорт в ворд
+   PrimTasksPanel : VCMForm - 
+   PrimTurnOffTimeMachine : VCMForm - 
+   PrimNavigatorOptions : VCMForm - Меню
+   PrimTurnOffTimeMachineOptions : VCMForm - Выключить Машину времени / Изменить дату
+   PrimCompInfo : VCMForm - Информация о комплекте
+   FiltersUserTypes : VCMForm - 
+   CommonForTextAndFlashAndMedicFirmList : VCMForm - Общие операции для текста, флеш-схем и списков медфирм
+   PrimRegistration : VCMForm - Регистрация
+   NavigatorUtils : UtilityPack - 
+   PrimF1Common : VCMFormsPack - "Общий" только для F1
+   Tkw_Common_opComplectInfo : ScriptKeyword - Слово словаря для вызова операции модуля Common.ComplectInfo (Окна Информация о комплекте)
+   Tkw_Common_opPageSetup : ScriptKeyword - Слово словаря для вызова операции модуля Common.PageSetup (Окна Настройка страницы...)
+   Tkw_Common_opShowEULA : ScriptKeyword - Слово словаря для вызова операции модуля Common.ShowEULA (Окна Условия использования)
+   Tkw_Common_opOpenMainMenuByButton : ScriptKeyword - Слово словаря для вызова операции модуля Common.OpenMainMenuByButton (Окна Основное меню системы ГАРАНТ)
+   Tkw_Common_OpenMainMenuNew : ScriptKeyword - Слово словаря для вызова операции модуля Common.OpenMainMenuNew (Окна Основное меню)
+   Tkw_Common_opTasksPanel : ScriptKeyword - Слово словаря для вызова операции модуля Common.TasksPanel$Op (Окна Панель задач)
+   Tkw_Common_LetterToDevelopers : ScriptKeyword - Слово словаря для вызова операции модуля Common.LetterToDevelopers (Окна Письмо разработчикам)
+   Tkw_Common_opOpenRubricator : ScriptKeyword - Слово словаря для вызова операции модуля Common.OpenRubricator (Окна Правовой навигатор)
+   Tkw_Common_opOpenInformation : ScriptKeyword - Слово словаря для вызова операции модуля Common.OpenInformation (Окна Справочная информация)
+   Tkw_Common_get_navigator : ScriptKeyword - Слово словаря для вызова операции модуля Common.get_navigator$Op (Окна Меню (вкладка))
+   Tkw_Common_opOpenIntranet : ScriptKeyword - Слово словаря для вызова операции модуля Common.OpenIntranet (Окна)
+ MainWindowControllers : VCMControllers - 
+  MainWindowInterfaces : ControllerInterfaces - 
+   IsdsMainWindow : UseCaseController - Основное окно
+Base Operations : VCMSubsystem - Базовые операции. В общем-то аналог F1 Domain, но внутри оболочки
+ View : VCMViews - Представление
+  Editions : VCMControls - Работа с редакциями
+   Document : VCMOperations - Документ
+   Document$ShowChanges : VCMOperations - Документ
+   Document$ViewChangedFragments : VCMOperations - Документ
+   Document$SetPosition : VCMFacet - 
+   Edition : VCMOperations - Редакция
+   Document$GetParaForPositioning : VCMFacet - 
+   IDocument_SetPosition_Params : Facet - Параметры для операции Document.SetPosition
+   TDocument_SetPosition_Params : SimpleClass - Реализация IDocument_SetPosition_Params
+   Op_Document_SetPosition : SimpleClass - Класс для вызова операции Document.SetPosition
+   IDocument_GetParaForPositionning_Params : Facet - Параметры для операции Document.GetParaForPositionning
+   TDocument_GetParaForPositionning_Params : SimpleClass - Реализация IDocument_GetParaForPositionning_Params
+   Op_Document_GetParaForPositionning : SimpleClass - Класс для вызова операции Document.GetParaForPositionning
+  View : VCMControls - Операции влияющие на визальное представление объектов системы
+   Document : VCMOperations - Документ
+  Strange : VCMControls - 
+   Switcher$SetActive : VCMFacet - 
+   Document$ForDiction : VCMFacet - Документ
+   SynchroView : VCMFacet - 
+   List : VCMFacet - 
+   Form : VCMFacet - 
+   ControlCenter : VCMFacet - 
+   ListInfo : VCMFacet - 
+   Filters : VCMFacet - 
+   LocalList : VCMOperations - Список (контекстные операции)
+   TimeMachine : VCMFacet - 
+   Filter : VCMFacet - 
+   Document$FromList : VCMOperations - 
+   Document$ForStatusBar : VCMOperations - Документ
+   Document$FromDocument : VCMOperations - Документ
+   FoldersControl : VCMFacet - Управление папками
+   SavedQuery : VCMOperations - 
+   Filters$ForList : VCMFacet - 
+   Openable : VCMOperations - 
+   HyperLink : VCMOperations - Гиперссылка
+   Document$Position : VCMFacet - 
+   Op_Switcher_BecomeActive : SimpleClass - Класс для вызова операции Switcher.BecomeActive
+   IDocument_FindExplanation_Params : Facet - Параметры для операции Document.FindExplanation
+   TDocument_FindExplanation_Params : SimpleClass - Реализация IDocument_FindExplanation_Params
+   Op_Document_FindExplanation : SimpleClass - Класс для вызова операции Document.FindExplanation
+   ISynchroView_BecomeActive_Params : Facet - Параметры для операции SynchroView.BecomeActive
+   TSynchroView_BecomeActive_Params : SimpleClass - Реализация ISynchroView_BecomeActive_Params
+   Op_SynchroView_BecomeActive : SimpleClass - Класс для вызова операции SynchroView.BecomeActive
+   IList_GetDeList_Params : Facet - Параметры для операции List.GetDeList
+   TList_GetDeList_Params : SimpleClass - Реализация IList_GetDeList_Params
+   Op_List_GetDeList : SimpleClass - Класс для вызова операции List.GetDeList
+   Op_List_SetCurrentVisible : SimpleClass - Класс для вызова операции List.SetCurrentVisible
+   IList_GetDsList_Params : Facet - Параметры для операции List.GetDsList
+   TList_GetDsList_Params : SimpleClass - Реализация IList_GetDsList_Params
+   Op_List_GetDsList : SimpleClass - Класс для вызова операции List.GetDsList
+   Op_Form_RequestClose : SimpleClass - Класс для вызова операции Form.RequestClose
+   Op_ControlCenter_Refresh : SimpleClass - Класс для вызова операции ControlCenter.Refresh
+   Op_ListInfo_BecomeActive : SimpleClass - Класс для вызова операции ListInfo.BecomeActive
+   Op_Filters_DeselectAll : SimpleClass - Класс для вызова операции Filters.DeselectAll
+   Op_TimeMachine_TimeMachineOnOff : SimpleClass - Класс для вызова операции TimeMachine.TimeMachineOnOff
+   Op_TimeMachine_TimeMachineOffAndReset : SimpleClass - Класс для вызова операции TimeMachine.TimeMachineOffAndReset
+   IFilter_ActivateNode_Params : Facet - Параметры для операции Filter.ActivateNode
+   TFilter_ActivateNode_Params : SimpleClass - Реализация IFilter_ActivateNode_Params
+   Op_Filter_ActivateNode : SimpleClass - Класс для вызова операции Filter.ActivateNode
+   IFoldersControl_EditElement_Params : Facet - Параметры для операции FoldersControl.EditElement
+   TFoldersControl_EditElement_Params : SimpleClass - Реализация IFoldersControl_EditElement_Params
+   Op_FoldersControl_EditElement : SimpleClass - Класс для вызова операции FoldersControl.EditElement
+   IFoldersControl_DeleteElement_Params : Facet - Параметры для операции FoldersControl.DeleteElement
+   TFoldersControl_DeleteElement_Params : SimpleClass - Реализация IFoldersControl_DeleteElement_Params
+   Op_FoldersControl_DeleteElement : SimpleClass - Класс для вызова операции FoldersControl.DeleteElement
+   Op_Filters_InternalClear : SimpleClass - Класс для вызова операции Filters.InternalClear
+   IDocument_SetActive_Params : Facet - Параметры для операции Document.SetActive
+   TDocument_SetActive_Params : SimpleClass - Реализация IDocument_SetActive_Params
+   Op_Document_SetActive : SimpleClass - Класс для вызова операции Document.SetActive
+   IDocument_ExportBlock_Params : Facet - Параметры для операции Document.ExportBlock
+   TDocument_ExportBlock_Params : SimpleClass - Реализация IDocument_ExportBlock_Params
+   Op_Document_ExportBlock : SimpleClass - Класс для вызова операции Document.ExportBlock
+   IDocument_GetCurrentPosition_Params : Facet - Параметры для операции Document.GetCurrentPosition
+   TDocument_GetCurrentPosition_Params : SimpleClass - Реализация IDocument_GetCurrentPosition_Params
+   Op_Document_GetCurrentPosition : SimpleClass - Класс для вызова операции Document.GetCurrentPosition
+   IDocument_SelectBlock_Params : Facet - Параметры для операции Document.SelectBlock
+   TDocument_SelectBlock_Params : SimpleClass - Реализация IDocument_SelectBlock_Params
+   Op_Document_SelectBlock : SimpleClass - Класс для вызова операции Document.SelectBlock
+   IDocument_CopyBlock_Params : Facet - Параметры для операции Document.CopyBlock
+   TDocument_CopyBlock_Params : SimpleClass - Реализация IDocument_CopyBlock_Params
+   Op_Document_CopyBlock : SimpleClass - Класс для вызова операции Document.CopyBlock
+   IDocument_PrintBlock_Params : Facet - Параметры для операции Document.PrintBlock
+   TDocument_PrintBlock_Params : SimpleClass - Реализация IDocument_PrintBlock_Params
+   Op_Document_PrintBlock : SimpleClass - Класс для вызова операции Document.PrintBlock
+   IDocument_PrintDialogBlock_Params : Facet - Параметры для операции Document.PrintDialogBlock
+   TDocument_PrintDialogBlock_Params : SimpleClass - Реализация IDocument_PrintDialogBlock_Params
+   Op_Document_PrintDialogBlock : SimpleClass - Класс для вызова операции Document.PrintDialogBlock
+   IDocument_PreviewBlock_Params : Facet - Параметры для операции Document.PreviewBlock
+   TDocument_PreviewBlock_Params : SimpleClass - Реализация IDocument_PreviewBlock_Params
+   Op_Document_PreviewBlock : SimpleClass - Класс для вызова операции Document.PreviewBlock
+   IDocument_ShowRespondentListToPart_Params : Facet - Параметры для операции Document.ShowRespondentListToPart
+   TDocument_ShowRespondentListToPart_Params : SimpleClass - Реализация IDocument_ShowRespondentListToPart_Params
+   Op_Document_ShowRespondentListToPart : SimpleClass - Класс для вызова операции Document.ShowRespondentListToPart
+   IDocument_ShowCorrespondentListToPart_Params : Facet - Параметры для операции Document.ShowCorrespondentListToPart
+   TDocument_ShowCorrespondentListToPart_Params : SimpleClass - Реализация IDocument_ShowCorrespondentListToPart_Params
+   Op_Document_ShowCorrespondentListToPart : SimpleClass - Класс для вызова операции Document.ShowCorrespondentListToPart
+   IDocument_ModifyBookmarkNotify_Params : Facet - Параметры для операции Document.ModifyBookmarkNotify
+   TDocument_ModifyBookmarkNotify_Params : SimpleClass - Реализация IDocument_ModifyBookmarkNotify_Params
+   Op_Document_ModifyBookmarkNotify : SimpleClass - Класс для вызова операции Document.ModifyBookmarkNotify
+   IDocument_AddBookmarkFromContents_Params : Facet - Параметры для операции Document.AddBookmarkFromContents
+   TDocument_AddBookmarkFromContents_Params : SimpleClass - Реализация IDocument_AddBookmarkFromContents_Params
+   Op_Document_AddBookmarkFromContents : SimpleClass - Класс для вызова операции Document.AddBookmarkFromContents
+   Op_Document_OpenNotSureTopic : SimpleClass - Класс для вызова операции Document.OpenNotSureTopic
+   IDocument_GotoPara_Params : Facet - Параметры для операции Document.GotoPara
+   TDocument_GotoPara_Params : SimpleClass - Реализация IDocument_GotoPara_Params
+   Op_Document_GotoPara : SimpleClass - Класс для вызова операции Document.GotoPara
+  NavigationInterfaces : Interfaces - 
+   TbsProcessHyperLinkBehaviour : Enum - 
+   InsOpenDocOnNumberData : Facet - Данные для открытия документа по номеру
+   IbsHyperLinkProcessorHelper : Facet - 
+  Chat : VCMControls - Чат
+   Chat : VCMOperations - Чат
+   Chat$Contacts : VCMOperations - 
+  StatusBar : VCMForms - Работа со статусной строкой
+   StatusBarItems : VCMForm - Базовая форма, публикующая свои операции в статусной строке
+  F1Specific : VCMControls - Операции, специфичные для F1
+   File : VCMOperations - Файл
+  WorkJournalInterfaces : Interfaces - 
+   IbsWorkJournal : Facet - 
+  MainMenu : VCMForms - 
+   PrimMainMenu : VCMForm - Основное меню
+   nsMainMenuNew : UtilityPack - 
+  Common : Unit - 
+   WarningConst : UtilityPack - 
+  ContextSearchInEVDDocument : Unit - 
+   TbsDocumentContextSearcher : SimpleClass - Объект предназначенный для контекстного поиска в документе
+   Tl3ProtoObjectForTie : SimpleClass - 
+   TnsFindIteratorNewFindPositionList : SimpleClass - Фасадная реализация IFindPositionList
+   TnsFindIteratorNew : SimpleClass - Реализация IFindIterator для нового представления документов (без деревьев)
+   TnsFindIteratorNewForAutoreferat : SimpleClass - Реализация IFindIterator для нового представления автореферата
+   TnsFindPositionListList : SimpleClass - Список IFindPositionList
+   TnsFindIteratorNewForDiction : SimpleClass - Реализация IFindIterator для нового представления Толькового словаря. [$245760208]
+   TnsContextListForSearchViaEverestOwnSearcher : SimpleClass - 
+   TnsFoundBlocksList : SimpleClass - Найденные блоки для позиционирования
+   TnsFoundRangeCollector : SimpleClass - 
+   TnsFragmentListForSearchViaEverestOwnSearcher : SimpleClass - 
+  UnderControl : VCMForms - 
+   UnderControlResetter : VCMForm - 
+  Base Forms : VCMForms - Абстрактные формы для поддержки базовых операций
+   DocumentPresentation : VCMForm - Представление документа
+   TextWithComments : VCMForm - 
+   PageControlNotification : Impurity - Класс для будущей реализации InscPageControlNotification
+   BaseSearchPresentation : VCMForm - Реализация представление к которому привязан базовый поиск. Используется для инкапсуляции подписки/отписки
+   Text : VCMForm - Обработка текста
+   BaseTextOperations : VCMForm - Базовые операции с текстом
+   TnsExportToFileEvent : SimpleClass - 
+   TnsExportToWordEvent : SimpleClass - 
+   TnsSendDocumentByEMailEvent : SimpleClass - 
+   TnsDocumentPrintPreviewEvent : SimpleClass - 
+   DocumentBaseSearcher : VCMForm - 
+   TnsSearchInDocumentEvent : SimpleClass - 
+   DocumentUserTypes : VCMForm - Пользовательские типы документа
+   BlockSelector : VCMForm - 
+   FoldersRes : UtilityPack - 
+   nsTextWithCommentsRes : UtilityPack - 
+   AttributesUserTypes : VCMForm - 
+   nsBaseTextOperationsConst : UtilityPack - 
+   WarningUserTypes : VCMForm - 
+   WorkWithRedactions : VCMForm - Работа с редакциями документа
+   BaseSearchPresentationFor296635421 : VCMForm - 
+   BaloonWarningUserTypes : VCMForm - 
+   ListUserTypes : VCMForm - 
+   ContentsUserTypes : VCMForm - 
+   ListInfoUserTypes : VCMForm - 
+   SynchroViewUserTypes : VCMForm - 
+   ListAnalizeUserTypes : VCMForm - 
+   DocumentWithFlashUserTypes : VCMForm - 
+   RedactionsUserTypes : VCMForm - 
+   TnsSearchInDocumentDoneEvent : SimpleClass - 
+   TnsSearchInDocumentNextEvent : SimpleClass - 
+   TnsSearchInDocumentPrevEvent : SimpleClass - 
+  Editions$Forms : VCMForms - 
+   EditionsListCaller : VCMForm - Форма вызывающая список редакций
+  AAC : VCMControls - 
+   AACTextContainer : VCMFacet - 
+   IAACTextContainer_GetVScrollBar_Params : Facet - Параметры для операции AACTextContainer.GetVScrollBar
+   TAACTextContainer_GetVScrollBar_Params : SimpleClass - Реализация IAACTextContainer_GetVScrollBar_Params
+   Op_AACTextContainer_GetVScrollBar : SimpleClass - Класс для вызова операции AACTextContainer.GetVScrollBar
+   IAACTextContainer_SetJumpTo_Params : Facet - Параметры для операции AACTextContainer.SetJumpTo
+   TAACTextContainer_SetJumpTo_Params : SimpleClass - Реализация IAACTextContainer_SetJumpTo_Params
+   Op_AACTextContainer_SetJumpTo : SimpleClass - Класс для вызова операции AACTextContainer.SetJumpTo
+  Navigation : VCMForms - Навигация. Работа с гиперссылками
+   HyperlinkProcessor : VCMForm - Обработчик гиперссылок
+   TbsHyperLinkProcessorPrim : SimpleClass - 
+   HyperlinkProcessorWithOwnLocalLink : VCMForm - Обработчик ссылок с собственной обработкой локальных ссылок (сейчас пустой)
+   TnsOpenDocOnNumberData : SimpleClass - 
+   nsHyperLinkProcessor : UtilityPack - 
+   MHyperlinkProcessor : MixInMirror - 
+   HyperlinkProcessorForDocumentCompare : VCMForm - 
+   HyperlinkOperations : VCMForm - 
+   nsHyperlinkProcessorTypes : UtilityPack - 
+   TbsHyperlinkProcessorContainerMaker : SimpleClass - 
+   TnsOpenDocumentFromLinkEvent : SimpleClass - 
+   TnsTryingToOpenMissingDocumentFromLinkEvent : SimpleClass - 
+ Consultation$Lib : VCMControllers - Консультации
+  ConsultationDomainInterfaces : ControllerInterfaces - 
+   SysDateTime : Typedef - 
+   IbsConsultation : Facet - Консультация. Обертка сделана для удобства работы с удаленной консультацией, при работе с методами которой летит исключение EDeleted
+   EbsConsultationAlreadyConfirmed : Exception - Оплата консультации уже подтверждена/отвергнута
+   EbsConsultationAlreadyMark : Exception - Консультация уже была оценена
+   EbsConsultationWasDeleted : Exception - Консультация была удалена
+   EbsPaymentForbidden : Exception - Платные консультации для пользователя запрещены
+   IdsConsultation : ViewAreaController - БОС консультации
+   IdsConsultationMark : ViewAreaController - БОС оценка консультации
+   IsdsConsultation : UseCaseController - Бизнес объект прецедента "Консультация"
+  ConsultationDomain : Unit - 
+   TbsConsultation : SimpleClass - Бизнес объект прецедента "Консультация"
+ MainWindowControllers$BaseOperations : VCMControllers - 
+  MainWindowControllersRealization : ControllerUnit - 
+   TsdsMainWindow : UseCaseControllerImp - 
+ PrimListAndDocumentControllers : VCMControllers - 
+  PrimListAndDocumentControllersRealization : Unit - 
+   TnsDocumentWarningGenerator : SimpleClass - 
+ PrimListControllers : VCMControllers - 
+  PrimListControllersRealization : ControllerUnit - 
+   nsListWarningGenerator : Impurity - 
+   TnsListWarningGenerator : SimpleClass - 
+ InpharmControllers : VCMControllers - 
+  InpharmMainMenuControllerRealization : ControllerUnit - 
+   TsdsInpharmMainMenu : UseCaseControllerImp - 
+   TdsInpharmMainMenu : ViewAreaControllerImp - 
+Splash : VCMSubsystem - Заставка
+ Splash : Library - Показ сплеш-скрина в отцепленном процессе.
+Клиент - оболочка.
+Сервер - отдельный процесс, показывающий сплеш
+Данные передаются через файл проецируемый в память.
+  SplashTypes : Interfaces - Внутренние типы
+   SplashConstants : Constants - Константы
+   TnsSplashData : Struct - Заголовок файла проецируемого в память
+   PnsSplashData : Typedef - Указатель на заголовок
+  SplashInterfaces : Interfaces - Интерфесы для клиента
+   InsSplashClient : Facet - Невизуальный объект.
+Готовит данные для сервера и запускает его.
+Перед разрушением говорит серверу, что можно уже не показывать сплеш.
+  SplashServerInterfaces : Interfaces - Интерфейсы для сервера
+   InsSplashWaiter : Facet - Объект ожидающий нотификацию о том, что клиент хочет погасить сплеш
+   InsSplashInfo : Facet - Информация с описанием сплеша, который надо показать
+  SplashServer : Unit - Реализация сервера
+   TnsSplashInfo : SimpleClass - Информация о том что показывать
+  SplashClient : Unit - 
+   TnsSplashVisualizer : SimpleClass - 

@@ -1,0 +1,255 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DDT/Metamodel/Elements/DataDef.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess::DDT::Metamodel::Elements::DataDef
+//
+// Пакет данных
+// ---
+// Содержит элементы данных, а также файлы грамматики, в которые эти данные включаются
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: DataDef::Category
+? Пакет данных
+? Содержит элементы данных, а также файлы грамматики, в которые эти данные включаются
+> DataElement::Class
+> Grammar::Class
+> Vector::Class
+> Set::Class
+> List::Class
+> ParserRule::Class
+> LexicalRule::Class
+> BinaryPredicate::Class
+> DataEnum::Class
+
+= WikiPackageImpl::Category
+= DDGenerator::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+v +
+/ - типы видимости
+Y code_data_def.gif
+L code_data_def
+// Параметры визуализации
+$ C 220,150,100
+$ l 200,100,50
+$ f 200,100,50
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// Вызывается для генерации специфических cpp-шников (например хидере реализации хранения)
+%f _specific_cpp_files_list
+//#UC START# *47EA208B0009for4862379B0331*
+//#UC END# *47EA208B0009for4862379B0331*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// Вызывается для генерации специфических хидеров (например хидере реализации хранения)
+%f _specific_h_files_list
+//#UC START# *47EA1ED00157for4862379B0331*
+//#UC END# *47EA1ED00157for4862379B0331*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор файлов реализации C++ (.cpp)
++ cpp
+//#UC START# *47022CB8034Bfor4862379B0331*
+O [{"%f_need_impl_cpp(%S)"="true"}%SN.cpp]
+C /%SN
+S namespace %SN {\n
+s } // namespace %SN\n
+	%f_output_constraint(%S)\
+	[{"%f_need_impl_cpp(%S)"="true"}{<%CX>}\
+	%f_header(%S)
+	%f_std_inc(%S)
+	[%f_dump_includes_cpp(%S)][{%S{need UC}=true}
+	%U[{_CUSTOM_INCLUDE}]]
+	
+	%SPnamespace %SN {
+	
+	<%CX>
+	
+	} //namespace %SN
+	%Sp
+	%f_footer(%S)
+	]
+
+f _dump_includes_cpp
+	%f_clear_list(INCLUDES)\
+	%f_collect_includes_cpp(%S)%f_sort_list(INCLUDES,n)%f_unique_list(INCLUDES)\
+	<{}{%f_is_empty(INCLUDES)=false}{W}[%f_pop_first_to_var(INCLUDES,ITEM)[\#include %{ITEM}N
+	]]>%f_clear_list(INCLUDES)
+
+f _collect_includes_cpp
+	[%f_add_to_list(INCLUDES,"%f_dump_include_path(%f_with_gen_id(h,%SL),%S)")]\
+	[%f_add_to_list(INCLUDES,"%f_dump_include_path(%f_with_gen_id(fctr.h,%SL),%S)")]\
+	[<{}{"%f_with_gen_id(h,%CO)"=""}%C<{}{"%CS"="uses"&"%CC"="Dependency"}[%f_add_to_list(INCLUDES,"%f_dump_include_path(%f_with_gen_id(h,%C%TW),%C%T)")\
+	]>[{%CS=BinaryPredicate}%C<{}{%CC=Attribute&"%CS"!=""}[%f_add_to_list(INCLUDES,"%f_dump_include_path(%f_with_gen_id(h,%C%TW),%C%T)")\
+	]>]>]%f_remove_from_list(INCLUDES,"")
+//#UC END# *47022CB8034Bfor4862379B0331*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor4862379B0331*
+P
+O [{"%f_need_impl_header(%S)"="true"}%SN.h]
+C /%SN
+S namespace %SN {\n
+s } // namespace %SN\n
+	%f_output_constraint(%S)\
+	[{"%f_need_impl_header(%S)"="true"}{<%CX>}\
+	%f_h_header(%S)
+	%f_std_inc(%S)
+	[{"<{}{"%CM"="Set::Class"}{C}>"!="0"}\#include \<set\>
+	][{"<{}{"%CM"="Map::Class"|"%CM"="MultiMap::Class"}{C}>"!="0"}\#include \<map\>
+	][{"<{}{"%CM"="Vector::Class"}{C}>"!="0"}\#include \<vector\>
+	][{"<{}{"%CM"="List::Class"}{C}>"!="0"}\#include \<list\>
+	][{"<{}{"%CM"="HashMap::Class"}{C}>"!="0"}\#include \<hash_map\>
+	][{"<{}{"%CM"="Queue::Class"}{C}>"!="0"}\#include \<queue\>
+	]<{\n}[\#include %f_dump_include_path(%DL,%D)
+	]><{}{%CM=LocalInterface::Class&%f_use_as_srv_type(%C)=true}[\#include "%f_str_replace(%f_with_gen_id(idl,%C%RW),.idl,S.h)"
+	]>
+	[{%S{need UC}=true}%U[{_CUSTOM_INCLUDE}
+	]
+	][
+	%S%f_open_ifdef()]%f_dump_package_fwd(%S)
+	%SPnamespace %SN {
+	
+	<%CX[{"%CO"=""}
+	
+	]>} //namespace %SN
+	%Sp[
+	\#include %f_dump_include_path(%f_with_gen_id(i.h,%SL),%S)]
+	%f_h_footer(%S)
+	]
+
+//#UC END# *47022C88029Ffor4862379B0331*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
++ i.h
+//#UC START# *47022CCF00EAfor4862379B0331*
+//#UC END# *47022CCF00EAfor4862379B0331*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor4862379B0331*
+C /%SN
+P
+	<%CX>
+//#UC END# *470321C1038Afor4862379B0331*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for4862379B0331*
+= fctr.java
+//#UC END# *470321950119for4862379B0331*
+
+// реализация абстрактного стереотипа Грамматика::MDAGenerator
+// Генератор грамматики для ANTLR (целевой язык c++)
++ g.cpp
+//#UC START# *4863819D0383for4862379B0331*
+C /%SN
+P
+	<{}{%CS=Grammar}%CX>
+//#UC END# *4863819D0383for4862379B0331*
+
+// реализация абстрактного стереотипа Грамматика::MDAGenerator
+// Генератор грамматики для ANTLR (целевой язык java)
++ g.java
+//#UC START# *48632D7803AEfor4862379B0331*
+C /%SN
+P
+	<{}{%CS=Grammar}%CX>
+//#UC END# *48632D7803AEfor4862379B0331*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// mpc/mwc файлы проектов (mpc/mwc)
++ mpc
+//#UC START# *47031E41002Efor4862379B0331*
+//#UC END# *47031E41002Efor4862379B0331*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// дополнительные файлы проектов (mpc)
++ mpc2
+//#UC START# *47031E850177for4862379B0331*
+//#UC END# *47031E850177for4862379B0331*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// Файлы ресурсов (rc)
++ rc
+//#UC START# *471442BE033Cfor4862379B0331*
+//#UC END# *471442BE033Cfor4862379B0331*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// файл настроек (.ini)
++ s.ini
+//#UC START# *47031EDE0138for4862379B0331*
+//#UC END# *47031EDE0138for4862379B0331*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// настройки реестра (.reg)
++ s.reg
+//#UC START# *47031EA5002Efor4862379B0331*
+//#UC END# *47031EA5002Efor4862379B0331*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// информация о версии (.rc)
++ vi.rc
+//#UC START# *47031EF6005Dfor4862379B0331*
+//#UC END# *47031EF6005Dfor4862379B0331*
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// информация о версии (.rch)
++ vi.rch
+//#UC START# *47031F13004Efor4862379B0331*
+//#UC END# *47031F13004Efor4862379B0331*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// Генерация файлов для конфигурации и запуска сборки
++ Makejar.launch
+//#UC START# *470322DF03A9for4862379B0331*
+//#UC END# *470322DF03A9for4862379B0331*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генерация файлов для сборки в Ecllipse
++ build.xml
+//#UC START# *47032262037Afor4862379B0331*
+//#UC END# *47032262037Afor4862379B0331*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генерация файла с описанием путей поиска библиотек (CLASSPATH для java)
++ output.classpath
+//#UC START# *470322910119for4862379B0331*
+//#UC END# *470322910119for4862379B0331*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генерация файлов проекта для Ecllipse
++ output.project
+//#UC START# *47032220003Efor4862379B0331*
+//#UC END# *47032220003Efor4862379B0331*
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генератор файлов с описанием плагинов для Confluence
++ output.xml
+//#UC START# *4703223D01A5for4862379B0331*
+//#UC END# *4703223D01A5for4862379B0331*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

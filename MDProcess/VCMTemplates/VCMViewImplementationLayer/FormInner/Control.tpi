@@ -1,0 +1,124 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewImplementationLayer/FormInner/Control.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewImplementationLayer::FormInner::Control
+//
+// Визуальный контрол
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: Control::Class
+? Визуальный контрол
+> Control::Class
+> ControlOverride::Class
+
+= FormInner::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+// Параметры визуализации
+$ C 255,192,203
+$ l 165,42,0
+$ f 165,42,0
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p ControlClass=none|TeeButton|TeeCheckBox|TeeEditor|TeeEditorWithoutOperations|TeeMemoWithEditOperations|TeeRadioButton|TeeTreeView|TElPopupButton|TevMemo|TevQueryCardEditor|TnscComboBox|TnscComboBoxWithPwdChar|TnscComboBoxWithReadOnly|TnscContextFilter|TnscEdit|TnscEditor|TnscHideField|TnscLister|TnscSimpleEditor|TnscTreeComboWithHistoryAndOperations|TnscTreeView|TnscTreeViewHotTruck|TnscTreeViewWithAdapterDragDrop|TvtButton|TvtCheckBox|TvtColorBox|TvtComboBoxQS|TvtDblClickDateEdit|TvtFocusLabel|TvtGradientWaitbar|TvtGroupBox|TvtLabel|TvtLister|TvtScrollBar|TvtSizeablePanel|TvtSplitter|TvtPanel|TvtProportionalPanel|TBevel|TImage|TImageEnView|TPaintBox|TRadioButton|TScrollBox|TvtRadioButton|TComboBox|TvtComboBox|TBitBtn ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	SHD
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{ControlClass}"!="%S{!ControlClass}"}%f_up_prefix(%S) *ControlClass* = *%S{ControlClass}*
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _DoSpell
+//#UC START# *4B2A19E3038Bfor4A794CA201BF*
+	%S%f_CheckG()\
+
+	%S%[inherited]\
+
+	<%C#f_DoSpell()>
+
+f _loc_GetFinished
+	%S{finished}
+
+%f _CheckG
+	[{%S%f_IsOverride()!=true}\
+	[{%Gx!=true}\
+	[{%S{ControlClass}!=none&"%S{ControlClass}"!=""}\
+	%f_find_element(%S{ControlClass},l_Elem)\
+	%S%f_make_accessable(%{l_Elem}U)\
+	%f_addG(%S,%{l_Elem})\
+	]\
+	]\
+	]
+//#UC END# *4B2A19E3038Bfor4A794CA201BF*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит имя владельца метода
+%f _pas_MethodOwnerName
+//#UC START# *49CB3C99034Bfor4A794CA201BF*
+	%P%f_pas_MethodOwnerName(%S)
+//#UC END# *49CB3C99034Bfor4A794CA201BF*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит реализацию методов для свойства
+%f _pas_PropertyMethodImplementation
+//#UC START# *4A7ADF4E0277for4A794CA201BF*
+	[{%S%f_IsOverride()!=true}\
+	%S%[inherited]f_pas_PropertyMethodImplementation(%1,%2,%3)]\
+	<{}{%C#f_IsControl()=true}%C%f_pas_PropertyMethodImplementation(%1,%2,%3)>
+//#UC END# *4A7ADF4E0277for4A794CA201BF*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит интерфейс методов для свойства
+%f _pas_PropertyMethodInterface
+//#UC START# *4A7ADF400052for4A794CA201BF*
+	[{%S%f_IsOverride()!=true}\
+	%S%[inherited]f_pas_PropertyMethodInterface(%1,%2,%3)]\
+	<{}{%C#f_IsControl()=true}[\n%C%f_pas_PropertyMethodInterface(%1,%2,%3)]>
+//#UC END# *4A7ADF400052for4A794CA201BF*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// документация отсутствует
+%f _pas_dump_Property
+//#UC START# *4A7ADFAE0118for4A794CA201BF*
+	[{%S%f_IsOverride()!=true}\
+	%S%[inherited]]\
+	<{}{%C#f_IsControl()=true}[\n%C%f_pas_dump_Property()]>
+//#UC END# *4A7ADFAE0118for4A794CA201BF*
+
+// перекрытие базового стереотипа ClassBase::Class::property::Attribute
+// Выводит поле для свойства
+%f _pas_OutField
+//#UC START# *4A797AC90346for4A794CA201BF*
+	[{%S%f_IsOverride()!=true}\
+	%S%[inherited]]\
+	<[\n%C#f_pas_OutField()]>
+
+%f _SpellField
+	[{%S%f_IsOverride()!=true}\
+	%S%[inherited]]
+//	<[\n%C#f_SpellField()\
+//	]>
+//#UC END# *4A797AC90346for4A794CA201BF*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Исключенные вложенные стереотипы
+~ Control::Class::property::Attribute::Attribute
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

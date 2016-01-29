@@ -1,0 +1,68 @@
+A
+1
+B
+2
+: ParserTokensTest
+STRING OPERATOR VAR A
+INTEGER OPERATOR VAR B
+OPERATOR VAR C
+INTEGER OPERATOR VAR D
+IMMEDIATE OPERATOR X
+^L OPERATOR IN aName
+^ OPERATOR IN aValue
+STRING OPERATOR VAR l_Name
+TkwMain TkwCompiledMain
+: ParserTokensTest
+ STRING VAR A
+ INTEGER VAR B
+ VAR C
+ INTEGER VAR D
+ IMMEDIATE OPERATOR X
+  ^L IN aName
+  ^ IN aValue
+  STRING VAR l_Name
+  aName
+  |N
+  l_Name
+  pop:Word:SetValue
+  'VAR'
+  Ctx:Parser:PushSymbol
+  l_Name
+  Ctx:Parser:PushSymbol
+  aValue
+  '[EXECUTE]'
+  Ctx:Parser:PushSymbol
+  'CompileValue'
+  Ctx:Parser:PushSymbol
+  '>>>'
+  Ctx:Parser:PushSymbol
+  l_Name
+  Ctx:Parser:PushSymbol
+ ; // IMMEDIATE OPERATOR X
+ 
+ 'A'
+ A
+ pop:Word:SetValue
+ 1
+ B
+ pop:Word:SetValue
+ 'B'
+ C
+ pop:Word:SetValue
+ 2
+ D
+ pop:Word:SetValue
+ A
+ .
+ B
+ .
+ C
+ .
+ D
+ .
+ ParserTokensTest
+ axiom:DumpMembers
+ ParserTokensTest
+ DumpElement
+; // : ParserTokensTest
+

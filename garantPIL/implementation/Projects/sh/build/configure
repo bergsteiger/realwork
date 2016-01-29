@@ -1,0 +1,53 @@
+#!/bin/sh
+
+if test "$1" = "" || test "$2" = "" || test "$3" = "" ; then
+echo "Usage: configure never must be run manually. <root_workspace_dir> <root_workspace_name> <mwc.sh>."
+exit
+fi
+
+if test "$MPCXC_SH" = ""; then
+echo "You must export MPCXC_SH env to point to the shell scripts of your Multi Platform Common eXtra Code."
+exit
+fi
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT env to point to the root of your Multi Platform Common eXtra Code."
+exit
+fi
+
+if test "$MPCXC_TARGET" = ""; then
+echo "You must export MPCXC_TARGET env: currently supported: i686-pc-linux-gnu i686-pc-freebsd."
+exit
+fi
+
+full_make_ver=`make -v`
+make_ver=""
+case ${full_make_ver} in
+	*GNU*)
+		make_ver="GNU"
+		;;
+esac
+if test "$make_ver" = "" ; then
+echo "configure: FATAL: make = $full_make_ver not supported."
+exit
+fi	  
+
+tmp_curdir=$PWD
+cd $MPCXC_ROOT
+
+root_workspace_dir=$1
+root_workspace_name=$2
+mwc_sh=$3
+
+echo "configure"
+
+export ACE_ROOT=$MPCXC_ROOT/src
+export TAO_ROOT=$ACE_ROOT/TAO
+
+mwc_global_path=$MPCXC_ROOT/src/garant6x/implementation/Projects/sh/build/$root_workspace_name.global.sh
+
+$MPCXC_SH/$mwc_sh $root_workspace_dir $root_workspace_name $mwc_global_path
+
+cd $tmp_curdir
+
+echo "end."

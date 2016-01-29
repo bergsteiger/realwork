@@ -1,0 +1,783 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// Project
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+: Project::Category
+
+= CoreProject::Category
+
+? Проект
+? Рутовый элемент модели. Определяет основные проекты. Одна модель может определять несколько проектов, определяя связи между ними.
+> ComDLL::Category, Library::Category, ServerLibrary::Category, TestSuite::Category
+> ExeTarget::Category, AdapterTarget::Category, ComTarget::Category
+> Requirements::Category, ConfluencePluginTarget::Category
+> InstallerTarget::Category
+p create project:b=true ? определяет необходимость создания файла проекта (MWC)
+p is namespace:b=false ? определяет является ли проект неймспейсом
+p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+p Full MDP:b=true ? поддержка полного контроля используемости определяемого MDP
+p package prefix=ru.garant ? префикс проекта (используется при генерации java-кода)
+p major version=1 ? Мажорный номер версии
+p minor version=0 ? Минорный номер версии
+p fix version=0 ? Номер багфикса
+p finished:b=true ? определяет что модуль полностью закончен и может генерироваться в код
+p force usage:b=false ? выключает проверку использования элементов
+p check finished:b=true ? проверять ли свойство finished
+p build share:s ? название сетевой папки, куда будет собираться проект
+
+%f _wiki_up_print
+	[{"%S{major version}%S{minor version}%S{fix version}"!=""|}* Версия проекта: _%S{major version}.%S{minor version}.%S{fix version}_
+	][{%S{is namespace}=true}* является неймспейсом 
+	][{%S{Full MDP}=false}* без полной совместимоси с MDP (проверка трассируемости с требованиями отключена)
+	]
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= CoreProject::Category;wiki
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ mpc2
+P
+C /%SN%S{root path suffix}/project
+	<%CX>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ s.reg
+P
+C /%SN%S{root path suffix}/project
+O [{<{}{%t_target(%C)=true}{C}>!=0}init_regestry.reg]
+	REGEDIT4
+	
+	<{}{%t_target(%C)=true}\[HKEY_LOCAL_MACHINE\\SOFTWARE\\Garant\\%SN\\%CN\]
+	"-GCMConfigFile"="%f_with_gen_id(s.ini,%So)"
+	
+	>
+
++ s.ini
+P
+I ;#UC START#
+J ;#UC END#
+C /%SN%S{root path suffix}/project
+O [{<{}{%t_target(%C)=true}{C}>!=0}settings.ini]
+	<{}{%t_target(%C)=true}\[%CN Params\]
+	%U[{_%CU}
+	[{%C<{}{%DS=ServerLibrary}{C}>!=0}\
+	-ORBEndPoint = iiop://localhost:5051
+	;-ORBInitRef = NameService=corbaloc::localhost:5051/NameService
+	][{%C<{}{%DS=ServerLibrary}{C}>=0&%C<{}{%dS=ServerLibrary}{C}>!=0}\
+	-ORBInitRef = NameService=corbaloc::localhost:5051/NameService
+	]]
+	
+	>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ mpc.dll
+= mpc2
+
++ com.def
+= mpc2
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+f _used_by_main
+	[{<{}{%c%PU=%X%MU}{C}>!=0}{false}true]
+
++ mpc
+P
+O [{"%S{create project}"="true"&"%X%MU"="%SU"}%SN.mwc]
+X X:/support/bin/mwc_comp.bat %So
+C /%SN%S{root path suffix}/project
+# t0_header
+	
+	workspace (%SN) {
+	[{%S{need UC}=true}	custom_projects {
+			%U[{_CUSTOM_PRJ}
+			]
+		}
+	]	static_projects {
+			cmdline += -ti lib:msvc90-lib-generic-static
+			cmdline += -static
+			
+			<%d<{}{%t_target(%A)=false&%AN!=Core&%AN!=CoreSrv&%f_used_by_main(%A)=true}{%A}[%Ao
+			][%f_with_gen_id(mpc2,%Ao)
+			][%f_with_gen_id(mpc.dll,%Ao)
+			]>><{}{%t_target(%A)=false&%AN!=Core&%AN!=CoreSrv}{%A}[%Ao
+			][%f_with_gen_id(mpc2,%Ao)
+			][%f_with_gen_id(mpc.dll,%Ao)
+			]>
+			[{%S{need UC}=true}%U[{_STATIC_PRJ}
+			]
+			]w:/shared/project/Core.mpc
+			[{%f_has_tragets_with_server(%S)=true}w:/shared/project/CoreSrv_cs.mpc
+			w:/shared/project/CoreSrv.mpc
+			][{"<{}{"%CM"="TestSuite::Category"}{C}>"!="0"}w:/gtf/project/gtflib.mpc
+			]
+		}
+		<{}{%t_target(%C)=true}{%C}[{%f_is_dll_target(%C)=true}{%f_dump_exe_target(%C)}%f_dump_dll_target(%C)]
+		>[{%S{need UC}=true}
+		%U[{_STD_PRJ}
+		]]<%CX>
+	}
+# t0_footer
+
++ h
+P
+C /%SN%S{root path suffix}
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+	<%CX>
++ java
+P
+C /%SN%S{root path suffix}/java/src/java/%f_str_replace(%S{package prefix},.,/)/%SN
+	<%CX>
+
++ fctr.java
+= java
+
++ vi.rch
+= h
+
++ vi.rc
+= h
+
++ rc
+= h
+
++ output.project
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+P
+C /%SN%S{root path suffix}/java/project
+	<%CX>
+
++ output.classpath
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+= output.project
+
++ build.xml
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+= output.project
+
++ Makejar.launch
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+= output.project
+
++ output.xml
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+P
+C /%SN%S{root path suffix}/java/src/etc
+	<%CX>
+
++ odl
+= h
+
++ com.rgs
+= h
+
++ cpp
+= h
+
++ i.h
+= h
+
++ dll.h
+= h
+
++ dll.cpp
+= h
+
++ fctr.h
+= h
+
++ fctr.cpp
+= h
+
++ pas
+= h
+
+# MDAGen/GTS/Project_cat_intf_pas
+
+/+ mda
+/C %S{root path suffix}/%SN
+/	<%CX>
+
++ dll.pas
+= h
+
++ idl
+= h
+
++ idl_ami
+= h
+
++ xml
+C /%SN%S{root path suffix}
+P
+	<%CX>
+
++ ant.bat
+C /build_scripts/scriptset/%SN
+O [{"%S{create project}"="true"&"%X%MU"="%SU"}%SN.bat]
+	@echo off& setlocal
+	
+	:main
+		:main.begin
+	
+			echo.
+	
+			pushd "\%~dp0"
+				set PROJECT=MDPROCESS
+	
+				set VERSION_MAJOR=%S{major version}
+				set VERSION_MINOR=%S{minor version}
+				set VERSION_BUILD=%SA
+	
+				set CVS_TAG=T_\%PROJECT\%_\%VERSION_MAJOR\%_\%VERSION_MINOR\%
+				set VERSION=\%VERSION_MAJOR\%.\%VERSION_MINOR\%.\%VERSION_BUILD\%
+	
+				set SUBINFO=MAIN-PART
+	
+				set LOGFILE=\%TEMP\%\\\%~nx0.log
+				set LOGFILE=\%LOGFILE:\\\\=\\\%
+	
+				set LOGGER=org.apache.tools.ant.NoBannerLogger
+	
+				set BUILDFILE=\%~0.xml
+				set BUILDFILE=\%BUILDFILE:\\\\=\\\%
+	
+				set BUILDARGS=-buildfile "\%BUILDFILE\%" -logfile "\%LOGFILE\%" -logger "\%LOGGER\%" -nouserlib -Dproperties.delphi.suffix=\%PROJECT\% -Denable-cppFinalBuild=1
+	
+				set BUILD_SHARE=%S{build share}
+				pushd "W:\\"
+					ren "garant6x" "garant6x-UNKNOWN-X.XXX" 1\>nul 2\>&1& ren "garant6x-\%PROJECT\%" "garant6x" 1\>nul 2\>&1
+					ren "garantPIL" "garantPIL-UNKNOWN-X.XXX" 1\>nul 2\>&1& ren "garantPIL-\%PROJECT\%" "garantPIL" 1\>nul 2\>&1
+					ren "%SN" "%SN-UNKNOWN-X.XXX" 1\>nul 2\>&1& ren "%SN-\%PROJECT\%" "%SN" 1\>nul 2\>&1
+					ren "shared"    "shared-UNKNOWN-X.XXX"    1\>nul 2\>&1& ren "shared-\%PROJECT\%"    "shared"    1\>nul 2\>&1
+				popd
+	
+				net use "N:" /delete /y 1\>nul 2\>&1
+				net use "N:" "\\\\10.0.1.155\\\%BUILD_SHARE\%" 1\>nul 2\>&1
+					pushd "N:\\deployment"
+						ren "!daily"           "!daily-UNKNOWN-X.XXX"           1\>nul 2\>&1& ren "!daily-\%PROJECT\%"           "!daily"           1\>nul 2\>&1
+						ren "!daily-installer" "!daily-UNKNOWN-X.XXX-installer" 1\>nul 2\>&1& ren "!daily-\%PROJECT\%-installer" "!daily-installer" 1\>nul 2\>&1
+					popd
+				net use "N:" /delete /y 1\>nul 2\>&1
+	
+				if exist "\%LOGFILE\%" (del /f /q "\%LOGFILE\%" 1\>nul 2\>&1)
+	
+					call "..\\..\\buildmail.bat" "BUILD STARTED \[\%PROJECT\%: \%SUBINFO\%\], CVS TAG \[\%CVS_TAG\%\]: don't use shared build targets while build not ended"
+	
+					call "ant.bat" \%BUILDARGS\% -Dru.garant.extensions.properties.cvs_tag=\%CVS_TAG\% -Dru.garant.extensions.properties.version=\%VERSION\% \%*
+	
+					if errorlevel 1 (
+						call "..\\..\\buildmail.bat" "BUILD FAILURE \[\%PROJECT\%: \%SUBINFO\%\], CVS TAG \[\%CVS_TAG\%\]" "\%LOGFILE\%"
+					) else (
+						call "..\\..\\buildmail.bat" "BUILD SUCCESS \[\%PROJECT\%: \%SUBINFO\%\], CVS TAG \[\%CVS_TAG\%\]" "\%LOGFILE\%"
+					)
+	
+				if exist "\%LOGFILE\%" (del /f /q "\%LOGFILE\%" 1\>nul 2\>&1)
+	
+				net use "N:" /delete /y 1\>nul 2\>&1
+				net use "N:" "\\\\10.0.1.155\\\%BUILD_SHARE\%" 1\>nul 2\>&1
+					pushd "N:\\deployment"
+						ren "!daily-installer" "!daily-\%PROJECT\%-installer" 1\>nul 2\>&1& ren "!daily-UNKNOWN-X.XXX-installer" "!daily-installer" 1\>nul 2\>&1
+						ren "!daily"           "!daily-\%PROJECT\%"           1\>nul 2\>&1& ren "!daily-UNKNOWN-X.XXX"           "!daily"           1\>nul 2\>&1
+					popd
+				net use "N:" /delete /y 1\>nul 2\>&1
+	
+				pushd "W:\\"
+					ren "shared"    "shared-\%PROJECT\%"    1\>nul 2\>&1& ren "shared-UNKNOWN-X.XXX"    "shared"    1\>nul 2\>&1
+					ren "%SN" "%SN-\%PROJECT\%" 1\>nul 2\>&1& ren "%SN-UNKNOWN-X.XXX" "%SN" 1\>nul 2\>&1
+					ren "garantPIL" "garantPIL-\%PROJECT\%" 1\>nul 2\>&1& ren "garantPIL-UNKNOWN-X.XXX" "garantPIL" 1\>nul 2\>&1
+					ren "garant6x" "garant6x-\%PROJECT\%" 1\>nul 2\>&1& ren "garant6x-UNKNOWN-X.XXX" "garant6x" 1\>nul 2\>&1
+				popd
+			popd
+	
+			goto :main.end
+	
+		:main.end
+	
+	@endlocal& exit /b
+
++ ant.xml
+C /build_scripts/scriptset/%SN
+O [{"%S{create project}"="true"&"%X%MU"="%SU"}%SN.bat.xml]
+	\<?xml version = "1.0" encoding = "ISO-8859-1"?\>
+	
+	\<!DOCTYPE ru.garant.extensions SYSTEM "../../ru.garant/extensions.dtd"\>
+	
+	\<project
+		name = "scriptset.%SN"
+		basedir = "."
+		default = "default"
+	\>
+	
+	\<!-- external uses { --\>
+			&ru.garant.extensions.properties.cvsRoot;
+			&ru.garant.extensions.properties.cvsUpdateMaxCyclesCount;
+			&ru.garant.extensions.properties.externalMountPath;
+			&ru.garant.extensions.properties.externalMountRoot;
+			&ru.garant.extensions.properties.signDescription;
+			&ru.garant.extensions.properties.signDescriptionURL;
+			&ru.garant.extensions.properties.signSHA1;
+			&ru.garant.extensions.properties.signTimestampServer;
+			&ru.garant.extensions.properties.wixLibRoot;
+			&ru.garant.extensions.properties.workRootDir;
+			&ru.garant.extensions.scriptdefs.buildCppTarget;
+			&ru.garant.extensions.scriptdefs.buildWixTarget;
+			&ru.garant.extensions.scriptdefs.cleanupCppBuilds;
+			&ru.garant.extensions.scriptdefs.cleanupAllFiles;
+			&ru.garant.extensions.scriptdefs.cleanupCvsByOutput;
+			&ru.garant.extensions.scriptdefs.copyFile;
+			&ru.garant.extensions.scriptdefs.copyDirToDir;
+			&ru.garant.extensions.scriptdefs.copyCppTarget;
+			&ru.garant.extensions.scriptdefs.createFile;
+			&ru.garant.extensions.scriptdefs.removeFile;
+			&ru.garant.extensions.scriptdefs.mountResource;
+			&ru.garant.extensions.scriptdefs.unmountResource;
+			&ru.garant.extensions.scriptdefs.setCvsTagByList;
+			&ru.garant.extensions.scriptdefs.updateCvsByList;
+			&ru.garant.extensions.scriptdefs.signTarget;
+	\<!-- } external uses --\>
+	
+	\<!-- properties { --\>
+		\<property
+			name = "properties.buildOutputMountPath"
+			value = "\\\\10.0.1.155\\%S{build share}"
+		/\>
+	
+		\<property
+			name = "properties.buildOutputMountRoot"
+			value = "N:"
+		/\>
+	
+		\<property
+			name = "properties.buildOutputMountRoot.deploymentCatalog"
+			value = "${properties.buildOutputMountRoot}/deployment"
+		/\>
+	
+		\<property
+			name = "properties.buildRoot"
+			value = "${ru.garant.extensions.properties.workRootDir}/build"
+		/\>
+	
+		\<property
+			name = "properties.buildSuccessFile"
+			value = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/!success"
+		/\>
+	
+		\<property
+			name = "properties.cvsDirsetListForTagging"
+			value = "build_scripts,garant6x,garantPIL,%SN<,%dN>"
+		/\>
+	
+		\<property
+			name = "properties.cvsDirsetListForUpdate"
+			value = "garant6x,garantPIL,%SN<,%dN>"
+		/\>
+	
+		\<property
+			name = "properties.cvsRootDir"
+			value = "${ru.garant.extensions.properties.workRootDir}"
+		/\>
+	
+		\<property
+			name = "properties.externalMountPath"
+			value = "${ru.garant.extensions.properties.externalMountPath}"
+		/\>
+	
+		\<property
+			name = "properties.externalMountRoot"
+			value = "${ru.garant.extensions.properties.externalMountRoot}"
+		/\>
+	
+	\<!-- } properties --\>
+	
+	\<!-- conditions { --\>
+		\<condition property = "disable-buildCppTargets.winNT"\>
+			\<isset property = "disable-buildCppTargets"/\>
+		\</condition\>
+	
+		\<condition property = "disable-buildCppTargets.winNT-garsock"\>
+			\<isset property = "disable-buildCppTargets.winNT"/\>
+		\</condition\>
+	
+		\<condition property = "disable-copyCppOtherFilesToDeploymentCatalog"\>
+			\<isset property = "disable-buildCppTargets"/\>
+		\</condition\>
+	
+		\<condition property = "disable-copyCppTargetsToDeploymentCatalog.winNT-garsock"\>
+			\<isset property = "disable-buildCppTargets.winNT-garsock"/\>
+		\</condition\>
+	
+		\<condition property = "disable-copyWixTargetsToDeploymentCatalog"\>
+			\<isset property = "disable-buildWixTargets"/\>
+		\</condition\>
+	\<!-- } conditions --\>
+	
+	\<!-- targets { --\>
+	
+	\<!-- ********** TARGET buildCppTargets ********** --\>
+		\<target
+			name = "buildCppTargets"
+			depends = "copyCppTargetsToDeploymentCatalog.winNT-garsock,copyCppOtherFilesToDeploymentCatalog"
+			unless = "disable-buildCppTargets"
+		\>
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF buildCppTargets --\>
+		
+	\<!-- ********** TARGET copyCppTargetsToDeploymentCatalog.winNT-garsock ********** --\>
+		\<target
+			name = "copyCppTargetsToDeploymentCatalog.winNT-garsock"
+			depends = "buildCppTargets.winNT-garsock"
+			unless = "disable-copyCppTargetsToDeploymentCatalog.winNT-garsock"
+		\>
+			\<ru.garant.extensions.scriptdefs.mountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+				mount.path = "${properties.buildOutputMountPath}"
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.mountResource
+				mount.root = "${properties.externalMountRoot}"
+				mount.path = "${properties.externalMountPath}/msvc090only-current/winNT+stlport"
+			/\>
+	
+			<{}{%CS=ExeTarget|%CS=ComTarget}\<ru.garant.extensions.scriptdefs.copyCppTarget
+				cpp.target.default.file = "${properties.buildRoot}/bin/Release_Static/%CN[{%CS=ExeTarget}{.dll}.exe]"
+				cpp.target.release.file = "${properties.buildRoot}/bin/Final_Static/%CN[{%CS=ExeTarget}{.dll}.exe]"
+	
+				cpp.target.to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/%CN/%CN[{%CS=ExeTarget}{.dll}.exe]"
+			/\>
+	
+			>\<ru.garant.extensions.scriptdefs.unmountResource
+				mount.root = "${properties.externalMountRoot}"
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.unmountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.cleanupCppBuilds
+			/\>
+	
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF copyCppTargetsToDeploymentCatalog.winNT-garsock --\>
+	
+	\<!-- ********** TARGET buildCppTargets.winNT-garsock ********** --\>
+		\<target
+			name = "buildCppTargets.winNT-garsock"
+			depends = "updateCvs"
+			unless = "disable-buildCppTargets.winNT-garsock"
+		\>
+			\<ru.garant.extensions.scriptdefs.cleanupCppBuilds
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.mountResource
+				mount.root = "${properties.externalMountRoot}"
+				mount.path = "${properties.externalMountPath}/msvc090only-current/winNT+stlport"
+			/\>
+	
+			<{}{%CS=ExeTarget|%CS=ComTarget}\<ru.garant.extensions.scriptdefs.buildCppTarget
+				cpp.target = "T_%CN"
+				cpp.target.project.path = "%SN/project/%SN.sln"
+	
+				cpp.target.default.config = "Release|Win32"
+				cpp.target.release.config = "Final|Win32"
+	
+				cpp.target.root.dir = "${ru.garant.extensions.properties.workRootDir}"
+			/\>
+	
+			>\<ru.garant.extensions.scriptdefs.unmountResource
+				mount.root = "${properties.externalMountRoot}"
+			/\>
+	
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF buildCppTargets.winNT-garsock --\>
+	
+	\<!-- ********** TARGET buildWixTargets ********** --\>
+		\<target
+			name = "buildWixTargets"
+			depends = "signCppTargets"
+			unless = "disable-buildWixTargets"
+		\>
+			\<ru.garant.extensions.scriptdefs.mountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+				mount.path = "${properties.buildOutputMountPath}"
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.mountResource
+				mount.root = "${properties.externalMountRoot}"
+				mount.path = "${properties.externalMountPath}/msvc090only-current/winNT+stlport"
+			/\>
+	
+			<{}{%CS=InstallerTarget}\<ru.garant.extensions.scriptdefs.buildWixTarget
+				wix.target.codepage = "1252"
+				wix.target.language = "en-us"
+				wix.target.project.name = "%CN"
+				wix.target.root.dir = "${ru.garant.extensions.properties.workRootDir}/%SN/%CN"
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.unmountResource
+				mount.root = "${properties.externalMountRoot}"
+			/\>
+	
+			>\<ru.garant.extensions.scriptdefs.unmountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+			/\>
+	
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF buildWixTargets --\>
+		
+	\<!-- ********** TARGET createSuccessFile ********** --\>
+		\<target
+			name = "createSuccessFile"
+	    depends = "setCvsTag"
+		\>
+			\<ru.garant.extensions.scriptdefs.mountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+				mount.path = "${properties.buildOutputMountPath}"
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.createFile
+				file.name = "${properties.buildSuccessFile}"
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.unmountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+			/\>
+	
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF buildWixTargets --\>
+	
+	\<!-- ********** TARGET copyCppOtherFilesToDeploymentCatalog ********** --\>
+		\<target
+			name = "copyCppOtherFilesToDeploymentCatalog"
+			depends = "updateCvs"
+			unless = "disable-copyCppOtherFilesToDeploymentCatalog"
+		\>
+			\<ru.garant.extensions.scriptdefs.mountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+				mount.path = "${properties.buildOutputMountPath}"
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.copyFile
+				file = "${properties.cvsRootDir}/%f_with_gen_id(s.ini,%SL)"
+				to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/%f_with_gen_id(s.ini,%SO)"
+			/\>
+		
+			<{}{%AS=CustomFile}\<ru.garant.extensions.scriptdefs.copyFile
+				file = "${properties.cvsRootDir}/%SN/%A%PN/other/%AN"
+				to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/%A%PN/%AN"
+			/\>
+	
+			>
+			<{}{%AS=CustomDirectory}\<ru.garant.extensions.scriptdefs.copyDirToDir
+				dir = "${properties.cvsRootDir}/[{"%A{source}"=""}{%A{source}}%SN/%A%PN/other/%AN]"
+				to.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily-installer/%SN/%f_dump_path_str(%A)"
+			/\>
+	
+			>\<ru.garant.extensions.scriptdefs.unmountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+			/\>
+	
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF copyCppOtherFilesToDeploymentCatalog --\>
+	
+	\<!-- ********** TARGET copyWixTargetsToDeploymentCatalog ********** --\>
+		\<target
+			name = "copyWixTargetsToDeploymentCatalog"
+			depends = "buildWixTargets"
+			unless = "disable-copyWixTargetsToDeploymentCatalog"
+		\>
+			\<ru.garant.extensions.scriptdefs.mountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+				mount.path = "${properties.buildOutputMountPath}"
+			/\>
+	
+			<{}{%CS=InstallerTarget}\<ru.garant.extensions.scriptdefs.copyFile
+				file = "${properties.cvsRootDir}/%SN/%CN/%CN_en-us.msi"
+				to.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily-installer/%SN/%CN.msi"
+			/\>
+	
+			>\<ru.garant.extensions.scriptdefs.unmountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+			/\>
+	
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF copyWixTargetsToDeploymentCatalog --\>
+	
+	\<!-- ********** TARGET default ********** --\>
+		\<target
+			name = "default"
+			depends = "createSuccessFile,setCvsTag"
+		\>
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF default --\>
+	
+	\<!-- ********** TARGET removeSuccessFile ********** --\>
+		\<target
+			name = "removeSuccessFile"
+		\>
+			\<ru.garant.extensions.scriptdefs.mountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+				mount.path = "${properties.buildOutputMountPath}"
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.removeFile
+				file.name = "${properties.buildSuccessFile}"
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.unmountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+			/\>
+	
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF removeSuccessFile --\>
+	
+	\<!-- ********** TARGET setCvsTag ********** --\>
+		\<target
+			name = "setCvsTag"
+			depends = "removeSuccessFile,copyWixTargetsToDeploymentCatalog"
+			unless = "disable-setCvsTag"
+		\>
+			\<ru.garant.extensions.scriptdefs.mountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+				mount.path = "${properties.buildOutputMountPath}"
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.setCvsTagByList
+				cvs.dirset.list = "${properties.cvsDirsetListForTagging}"
+				cvs.root.dir = "${properties.cvsRootDir}"
+	
+				cvs.tag.file = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/!cvs_tag"
+			/\>
+	
+			\<ru.garant.extensions.scriptdefs.unmountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+			/\>
+	
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF setCvsTag --\>
+	
+	\<!-- ********** TARGET signCppTargets ********** --\>
+		\<target
+			name = "signCppTargets"
+			depends = "buildCppTargets"
+			unless = "disable-signCppTargets"
+		\>
+			\<ru.garant.extensions.scriptdefs.mountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+				mount.path = "${properties.buildOutputMountPath}"
+			/\>
+	
+			<{}{%CS=ExeTarget|%CS=ComTarget}\<ru.garant.extensions.scriptdefs.signTarget
+				sign.target = "%CN[{%CS=ExeTarget}{.dll}.exe]"
+	
+				sign.target.root.dir = "${properties.buildOutputMountRoot.deploymentCatalog}/!daily/%CN"
+			/\>
+	
+			>\<ru.garant.extensions.scriptdefs.unmountResource
+				mount.root = "${properties.buildOutputMountRoot}"
+			/\>
+	
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF signCppTargets --\>
+	
+	\<!-- ********** TARGET updateCvs ********** --\>
+		\<target
+			name = "updateCvs"
+			unless = "disable-updateCvs"
+		\>
+			\<ru.garant.extensions.scriptdefs.updateCvsByList
+				cvs.dirset.list = "${properties.cvsDirsetListForUpdate}"
+				cvs.root.dir = "${properties.cvsRootDir}"
+			/\>
+	
+			\<echo
+				message = "TARGET PASSED"
+			/\>
+		\</target\>
+	\<!-- END OF updateCvs --\>
+	
+	\<!-- } targets --\>
+	
+	\</project\> \<!-- // scriptset.MDProcess --\>
+
+
+f _has_tragets_with_server
+	[{<{}{%f_use_server(%C)=true}{C}>!=0}{false}true]
+
+f _has_tragets_without_server
+	[{<{}{%f_use_server(%C)=false}{C}>!=0}{false}true]
+
+f _is_dll_target
+	[{%SS=ComTarget|%SS=AdapterTarget|%SS=DLL|%SS=ComDLL}{false}true]
+f _dump_exe_target
+	[exe_target_%f_to_lower(%SN) {
+		\tcmdline += -ti dll_exe:msvc90-exe-generic-static
+		[\t%So
+		][\t%f_with_gen_id(mpc2,%So)]
+	\t}]
+
+f _dump_dll_target
+	[dll_target_%f_to_lower(%SN) {
+		\tcmdline += -ti dll:msvc90-dll-generic-static
+		[{%SS=ComTarget}\tcmdline += -value_template link_options+=/def:%f_normolized_path(com.def,S)
+		][\t%So
+		][\t%f_with_gen_id(mpc2,%So)]
+	\t}]
+
+f _dump_src
+	<{}{}%f_with_gen_id(java,%Ao)>
+
++ evd.pas
+C /shared/Delphi
+	<%CX>
+/= h

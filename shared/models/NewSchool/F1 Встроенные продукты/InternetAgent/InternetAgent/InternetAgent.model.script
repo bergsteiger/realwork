@@ -1,0 +1,213 @@
+<<VCMControllers>> InternetAgent
+ %UID '49EC6D0903DD'
+ %SUMMARY '[$124453728]' ;
+ %DEPENDS
+  U$ '4677FBA70343' /* l3Interfaces */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4982BE090383' /* vcmControllers */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '54B90AC6014B' /* StringUtils */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<ControllerInterfaces>> InternetAgentInterfaces
+   %UID '49EC6D9000EE'
+   %SUMMARY 'Интерфейсы для реализации [Интернет-агента|$124453728]' ;
+   %DEPENDS
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %META
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '49EC6D0903DD' /* InternetAgent */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<UseCaseController>> IsdsInternetAgent
+      %UID '49EC6E2B0118'
+      %SUMMARY 'Прецедент работы с Интернет-агентом' ;
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '49EC6D0903DD' /* InternetAgent */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<ViewAreaController>> IdsInternetAgent
+         %UID '49EC6E080148'
+         %SUMMARY 'Область вывода Интернет-агента' ;
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %ATTRIBUTES
+           ABSTRACT LINK <<readonly>> URL
+            %UID '49EDE45A02EB'
+            %TARGET U$ '498849D803A8' /* WideString */
+            %META
+             %upv "pm" false
+            ; // %META
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // URL
+         ; // %ATTRIBUTES
+        ; // IdsInternetAgent
+        ABSTRACT <<Area>> MainViewArea
+         %UID '4A37A70E01DE'
+         %META
+          %upv "Need Has" 'undefined'
+          %upv "is reference" 'undefined'
+          %upv "pm" true
+          %upv "required" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '49EC6D0903DD' /* InternetAgent */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '49EC6E080148' /* IdsInternetAgent */
+         ; // %INHERITS
+         %REALIZES
+          U$ '49EDE45A02EB' /* URL */
+         ; // %REALIZES
+        ; // MainViewArea
+      ; // %CHILDREN
+     ; // IsdsInternetAgent
+   ; // %CHILDREN
+  ; // InternetAgentInterfaces
+  <<ControllerUnit>> InternetAgent
+   %UID '49EC6DB703E5'
+   %SUMMARY 'Реализация [Интернет-агента|$124453728]' ;
+   %DEPENDS
+    U$ '4677FBA70343' /* l3Interfaces */
+    U$ '476BE98C01B8' /* l3Chars */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '4982BE090383' /* vcmControllers */
+    U$ '49EC6D9000EE' /* InternetAgentInterfaces */
+    U$ '54B90AC6014B' /* StringUtils */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '49EC6D0903DD' /* InternetAgent */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<UseCaseControllerImp>> TsdsInternetAgent
+      %UID '49ECA984005F'
+      %SUMMARY 'Реализация прецедента Интернет-агента' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+       U$ '49EC6D0903DD' /* InternetAgent */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '49EC6E2B0118' /* IsdsInternetAgent */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '49415C640079' /* vcmFormSetDataSourceWithoutData */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4A37A70E01DE' /* MainViewArea */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4938F7E702B7' /* ClearAreas */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "49ECA9CC01EF"
+         %UID '49ECA9CC01EF'
+         %TARGET U$ '49ECA9AA0000' /* TdsInternetAgent */
+        ; // 49ECA9CC01EF
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> InitDataType
+         %UID '49EDE4C30059'
+         %TARGET U$ '46780DA40383' /* Il3CString */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // InitDataType
+        SUMMONED PRIVATE ABSTRACT LINK <<impurity_value>> SetType
+         %UID '503DF0BD93FC'
+         %SUMMARY 'Реальный интерфейс контроллера прецедента для TsdsInternetAgent' ;
+         %TARGET U$ '49EC6E2B0118' /* IsdsInternetAgent */
+         %TOBEINCLUDED
+          U$ '49EC6D0903DD' /* InternetAgent */
+         ; // %TOBEINCLUDED
+        ; // SetType
+        SUMMONED PRIVATE <<Attribute>> f_MainViewArea
+         %UID '984DB1509F4C'
+         %SUMMARY 'Поле для области вывода MainViewArea' ;
+         %TARGET U$ '4982B4D00032' /* IvcmViewAreaControllerRef */
+         %TOBEINCLUDED
+          U$ '4790C3B8021E' /* VCM */
+         ; // %TOBEINCLUDED
+        ; // f_MainViewArea
+      ; // %ATTRIBUTES
+     ; // TsdsInternetAgent
+     FINAL <<ViewAreaControllerImp>> TdsInternetAgent
+      %UID '49ECA9AA0000'
+      %SUMMARY 'Реализация области вывода Интернет-агента' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+       U$ '49EC6D0903DD' /* InternetAgent */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '49EC6E080148' /* IdsInternetAgent */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '492ACB4100B2' /* vcmFormDataSource */
+      ; // %INHERITS
+      %REALIZES
+       U$ '49EDE45A02EB' /* URL */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "49EDE54203D9"
+         %UID '49EDE54203D9'
+         %TARGET U$ '47878E0E0191' /* l3String */
+        ; // 49EDE54203D9
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> InitDataType
+         %UID '49ECB02E0088'
+         %TARGET U$ '46780DA40383' /* Il3CString */
+         %TOBEINCLUDED
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+        ; // InitDataType
+      ; // %ATTRIBUTES
+     ; // TdsInternetAgent
+   ; // %CHILDREN
+  ; // InternetAgent
+ ; // %CHILDREN
+; // InternetAgent

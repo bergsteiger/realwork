@@ -1,0 +1,330 @@
+// qfUtils 4E81F8D30392 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E81F8D30392
+
+FORWARD ME_4E81A1D3027D
+
+: ME_4E81A26403DB
+ CONST UID '4E81A26403DB'
+ CONST Name 'f_Model'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4E81A1D3027D // TevReqIterator
+ ;
+ : Target WL 'ME_47CD6F6D031D' '47CD5C7602CD.pas.ms.script' // IevQueryCard
+ ;
+
+ref; // ME_4E81A26403DB f_Model
+
+FORWARD ME_4E81A27A0202
+
+: ME_4E81A28801A1
+ CONST UID '4E81A28801A1'
+ CONST Name 'aModel'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47CD6F6D031D' '47CD5C7602CD.pas.ms.script' // IevQueryCard
+ ;
+
+ref; // ME_4E81A28801A1 aModel
+
+: ME_4E81A2800188
+ CONST UID '4E81A2800188'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E81A27A0202 // Create
+ ;
+ : Parameters
+   @ ( ME_4E81A28801A1 // aModel
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4E81A2800188 DoIt
+
+: ME_4E81A27A0202
+ CONST UID '4E81A27A0202'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E81A1D3027D // TevReqIterator
+ ;
+ : Operations
+   @ ( ME_4E81A2800188 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4E81A27A0202 Create
+
+FORWARD ME_4E81A2A903BA
+
+: ME_28BF7AB50802
+ CONST UID '28BF7AB50802'
+ CONST Name 'aModel'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47CD6F6D031D' '47CD5C7602CD.pas.ms.script' // IevQueryCard
+ ;
+
+ref; // ME_28BF7AB50802 aModel
+
+: ME_8165657CDD57
+ CONST UID '8165657CDD57'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TevReqIterator.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E81A2A903BA // Make
+ ;
+ : Target WL 'ME_4E81A28E00E5' '47CD5C7602CD.pas.ms.script' // IevReqIterator
+ ;
+ : Parameters
+   @ ( ME_28BF7AB50802 // aModel
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_8165657CDD57 DoIt
+
+: ME_4E81A2A903BA
+ CONST UID '4E81A2A903BA'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E81A1D3027D // TevReqIterator
+ ;
+ : Inherits
+   @ ( ME_4E81A27A0202 // Create
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4E81A28E00E5' '47CD5C7602CD.pas.ms.script' // IevReqIterator
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_8165657CDD57 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4E81A2A903BA Make
+
+FORWARD ME_4E820B680303
+
+: ME_4E820B7F00A4
+ CONST UID '4E820B7F00A4'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48E22669037D' '48E225F102A3.pas.ms.script' // TevQueryCardEditor
+ ;
+
+ref; // ME_4E820B7F00A4 anEditor
+
+: ME_4E820B7101C3
+ CONST UID '4E820B7101C3'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E820B680303 // Create$1
+ ;
+ : Parameters
+   @ ( ME_4E820B7F00A4 // anEditor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4E820B7101C3 DoIt
+
+: ME_4E820EBA0117
+ CONST UID '4E820EBA0117'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4E820B680303 // Create$1
+ ;
+ : Target WL 'ME_47C6BA1C0055' '47C5207602D1.pas.ms.script' // InevQueryDocumentContainer
+ ;
+
+ref; // ME_4E820EBA0117 
+
+: ME_4E820B680303
+ CONST UID '4E820B680303'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E81A1D3027D // TevReqIterator
+ ;
+ : Operations
+   @ ( ME_4E820B7101C3 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4E820EBA0117 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_4E820B680303 Create$1
+
+FORWARD ME_4E820B830131
+
+: ME_192C1DA86847
+ CONST UID '192C1DA86847'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48E22669037D' '48E225F102A3.pas.ms.script' // TevQueryCardEditor
+ ;
+
+ref; // ME_192C1DA86847 anEditor
+
+: ME_0343EE11F887
+ CONST UID '0343EE11F887'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TevReqIterator.Make$1' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4E820B830131 // Make$1
+ ;
+ : Target WL 'ME_4E81A28E00E5' '47CD5C7602CD.pas.ms.script' // IevReqIterator
+ ;
+ : Parameters
+   @ ( ME_192C1DA86847 // anEditor
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_0343EE11F887 DoIt
+
+: ME_4E820B830131
+ CONST UID '4E820B830131'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4E81A1D3027D // TevReqIterator
+ ;
+ : Inherits
+   @ ( ME_4E820B680303 // Create$1
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4E81A28E00E5' '47CD5C7602CD.pas.ms.script' // IevReqIterator
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_0343EE11F887 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_4E820B830131 Make$1
+
+: ME_5000565C019C_ME_4E81A1D3027D
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_4E81A1D3027D // TevReqIterator
+ ;
+ref; // ME_5000565C019C_ME_4E81A1D3027D ClearFields
+
+: ME_4E81A1D3027D
+ CONST UID '4E81A1D3027D'
+ CONST Name 'TevReqIterator'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4E81F8D30392 // qfUtils
+ ;
+ : Inherits
+   @ ( WL 'ME_4AE5CA2D0034' '47913B47006E.pas.ms.script' // Tl3CProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4E81A28E00E5' '47CD5C7602CD.pas.ms.script' // IevReqIterator
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_4E81A26403DB // f_Model
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4E81A27A0202 // Create
+ ME_4E81A2A903BA // Make
+ ME_4E820B680303 // Create$1
+ ME_4E820B830131 // Make$1
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_5000565C019C_ME_4E81A1D3027D // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '27.09.2011 14:13'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evReqIterator.pas'
+
+ref; // ME_4E81A1D3027D TevReqIterator
+
+: ME_4E81F8D30392
+ CONST UID '4E81F8D30392'
+ CONST Name 'qfUtils'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ ;
+ : Children
+   @ ( ME_4E81A1D3027D // TevReqIterator
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
+ WL 'ME_47CD5C7602CD' '47CD5C7602CD.pas.ms.script' // evQueryCardInt
+ WL 'ME_48E225F102A3' '48E225F102A3.pas.ms.script' // QueryCard
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4E81F8D30392.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4E81F8D30392.pas.ms.script.runner'
+
+ref; // ME_4E81F8D30392 qfUtils

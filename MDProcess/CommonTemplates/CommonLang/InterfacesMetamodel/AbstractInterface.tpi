@@ -1,0 +1,1319 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfacesMetamodel/AbstractInterface.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfacesMetamodel::AbstractInterface
+//
+// Абстрактный стереотип интерфейса определяет реализацию общих генераторов для итерфейсов
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: AbstractInterface::Class
+? Абстрактный стереотип интерфейса определяет реализацию общих генераторов для итерфейсов
+= WithFactory::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+// генерация дополнительных объявлений для фабрик (C++)
+%f _additional_fctr_def
+//#UC START# *471F2C3D0232for47174CE200AB*
+//#UC END# *471F2C3D0232for47174CE200AB*
+
+// генерация дополнительных объявлений для фабрик (Java)
+%f _additional_fctr_def_java
+//#UC START# *471F2C4302FDfor47174CE200AB*
+//#UC END# *471F2C4302FDfor47174CE200AB*
+
+// возвращает базовый менеджер фабрик (C++)
+%f _base_fctr_mng
+//#UC START# *471F2C4701E4for47174CE200AB*
+//#UC END# *471F2C4701E4for47174CE200AB*
+
+// возвращает базовый менеджер фабрик (Java)
+%f _base_fctr_mng_java
+//#UC START# *471F2C4B008Cfor47174CE200AB*
+//#UC END# *471F2C4B008Cfor47174CE200AB*
+
+// что это ??? (C++)
+%f _publish_self_cpp
+//#UC START# *471F2C4F03B9for47174CE200AB*
+//#UC END# *471F2C4F03B9for47174CE200AB*
+
+// что это?  (C++)
+%f _publish_self_h
+//#UC START# *471F2C52032Cfor47174CE200AB*
+//#UC END# *471F2C52032Cfor47174CE200AB*
+
+// что это?? (Java)
+%f _publish_self_java
+//#UC START# *471F2C56032Cfor47174CE200AB*
+//#UC END# *471F2C56032Cfor47174CE200AB*
+
+// выводит тип селектора мульти фабрики
+%f _dump_switch_type
+//#UC START# *47B137CB000Bfor47174CE200AB*
+/	[{}{[{%GS=Interface|%GS=LocalInterface|%GS=ServerInterface|%GS=Entity}{[{%RS=Interface|%RS=LocalInterface|%RS=ServerInterface}%R%f_dump_switch_type()]}%G%f_dump_switch_type()]}<{}{%CC=Attribute&%CS=factory switch}[{%X{lid}!=java}{%t_convert_to_object_type(%C%T)}%f_type(%C%T)]>]
+	%f_set_var(SWITCH,"")\
+	%S%f_find_switch("SWITCH")\
+	[{%X{lid}!=java}{%t_convert_to_object_type(%{SWITCH}%T)}%f_type(%{SWITCH}%T)]
+
+%f _dump_switch_type_name
+/	[{}{[{%GS=Interface|%GS=LocalInterface|%GS=ServerInterface|%GS=Entity}{[{%RS=Interface|%RS=LocalInterface|%RS=ServerInterface}%R%f_dump_switch_type_name()]}%G%f_dump_switch_type_name()]}<{}{%CC=Attribute&%CS=factory switch}[{%X{lid}!=java}{%t_convert_to_object_type(%C%T)}%C%TN]>]
+	%f_set_var(SWITCH,"")\
+	%S%f_find_switch("SWITCH")\
+	%{SWITCH}%TN
+
+%f _dump_switch_arg_type
+/	[{}{[{%GS=Interface|%GS=LocalInterface|%GS=ServerInterface|%GS=Entity}{[{%RS=Interface|%RS=LocalInterface|%RS=ServerInterface}%R%f_dump_switch_arg_type()]}%G%f_dump_switch_arg_type()]}<{}{%CC=Attribute&%CS=factory switch}[{%X{lid}!=java}{%t_convert_to_object_type(%C%T)}%t_arg(%C%T,"in")]>]
+	%f_set_var(SWITCH,"")\
+	%S%f_find_switch("SWITCH")\
+	[{%X{lid}!=java}{%t_convert_to_object_type(%{SWITCH}%T)}%t_arg(%{SWITCH}%T,"in")]
+//#UC END# *47B137CB000Bfor47174CE200AB*
+
+// Генерация фабричных методов
+%f _dump_factory_operation_h
+//#UC START# *496C411C0053for47174CE200AB*
+	%f_docs(%1)\
+	[#%1%f_open_ifdef()
+	]\
+	[{%1{const_type}=combo}{%f_dump_factory_operation_h_impl(%1)}%f_dump_factory_operation_h_impl(%1,"read-write")
+	
+	%f_dump_factory_operation_h_impl(%1,"read-only","_ro")]\
+	[
+	#%1%f_close_ifdef()]
+//#UC END# *496C411C0053for47174CE200AB*
+
+// Генерация реализации фабричных методов
+%f _additional_fctr_impl
+//#UC START# *496C817B0097for47174CE200AB*
+//#UC END# *496C817B0097for47174CE200AB*
+
+// генерит реализацию фабрики интерфейса
+%f _dump_factory_operation_cpp
+//#UC START# *496D98690096for47174CE200AB*
+	[%1%f_open_ifdef()
+	][{%1{const_type}=combo}{%f_dump_factory_operation_cpp_impl(%1)}%f_dump_factory_operation_cpp_impl(%1,"read-write")
+	
+	%f_dump_factory_operation_cpp_impl(%1,"read-only","_ro")][
+	%1%f_close_ifdef()]
+//#UC END# *496D98690096for47174CE200AB*
+
+// генерит реалиазцию мульти-фабрики интерфейса
+%f _dump_multi_factory_operation_cpp
+//#UC START# *496DB8B70199for47174CE200AB*
+	[%1%f_open_ifdef()
+	][{%1{const_type}=combo}{%f_dump_multi_factory_operation_cpp_impl(%1)}%f_dump_multi_factory_operation_cpp_impl(%1,"read-write")
+	
+	%f_dump_multi_factory_operation_cpp_impl(%1,"read-only","_ro")][
+	%1%f_close_ifdef()]
+//#UC END# *496DB8B70199for47174CE200AB*
+
+// Дополнительные объявления для производных стереотипов
+%f _additional_fctr_mng_declarations
+//#UC START# *496DE7E202F7for47174CE200AB*
+//#UC END# *496DE7E202F7for47174CE200AB*
+
+// Генерация декларации мульти фабрик
+%f _dump_multi_factory_operation_h
+//#UC START# *496EE097022Cfor47174CE200AB*
+	%f_docs(%1)\
+	[#%1%f_open_ifdef()
+	][{%1{const_type}=combo}{%f_dump_multi_factory_operation_h_impl(%1)}%f_dump_multi_factory_operation_h_impl(%1,"read-write")
+	
+	%f_dump_multi_factory_operation_h_impl(%1,"read-only","_ro")][
+	#%1%f_close_ifdef()]
+//#UC END# *496EE097022Cfor47174CE200AB*
+
+// Для дополнитешльной генерации фабрик в менеджере фабрик
+%f _additional_mgr_factory_mehods
+//#UC START# *496EED59015Cfor47174CE200AB*
+//#UC END# *496EED59015Cfor47174CE200AB*
+
+// Реализация дополнительных методов
+%f _additional_mgr_factory_methods_impl
+//#UC START# *496F0DDD00B6for47174CE200AB*
+//#UC END# *496F0DDD00B6for47174CE200AB*
+
+// Дополнительные абстрактные фабрики
+%f _additional_abstract_factories
+//#UC START# *496F4112016Afor47174CE200AB*
+//#UC END# *496F4112016Afor47174CE200AB*
+
+// Дополнительная инициализация конструктора менеджера фабрик
+%f _additional_fctr_mng_ctor_initialization
+//#UC START# *496F4CDE0178for47174CE200AB*
+//#UC END# *496F4CDE0178for47174CE200AB*
+
+// Реализация методов менеджера фабрик.
+%f _fctr_mng_fctr_cpp_impl
+//#UC START# *4978567C01C5for47174CE200AB*
+	%1[%t_ret(%{INT},"[{%{INT}S!=ServerInterface|%S#f_is_exported()=false}%f_factory_target_strereotype(%S,"%3N")]") %{INT}NFactoryManager::%SN%4N (%S%f_factory_params("%3N")) [{%f_realize_srv_interface(%S)=false|%S#f_is_exported()=false}{throw (CORBA::SystemException, CoreSrv::NoActiveFactory[{%f_need_conversion_exception(%S)=true}, Core::Root::ImpossibleConversion]<, %f_type(%E)>)}/*throw (Core::Root::NoActiveFactory[{%f_need_conversion_exception(%S)=true}, Core::Root::ImpossibleConversion]<, %f_type(%E)>)*/] \
+	{[{%f_is_it_cached(%S)=false}
+		if (m_single_active_factory.is_nil()) {
+			throw Core::Root::NoActiveFactory ("%P%P%PN::%P%PN::%PNFactory");
+		}
+		%t_ret(%{INT},"[{%{INT}S!=ServerInterface}%Ss]") ret_ = m_single_active_factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}[{%Cx=true}, ][{%3N=read-only}{false}true]]);
+		GDS_ASSERT_MSG (ret_ != 0, ("%P%P%PN::%P%PN::%PNFactory impl can't return zerro"));
+		[{%{INT}S=ServerInterface&%2N=read-only}{return [{%3N=read-only}{ret_}new %{INT}NConstWrapper (ret_)];}%{INT}NConstWrapper_var wrapper = new %{INT}NConstWrapper (ret_);
+		return wrapper-\>_this ();]
+	][{%TS!=FactoryMemory}[{%f_is_it_cached(%S)=true}[{%Cx=true}
+		GUARD(m_mutex_for_%SN);
+		[{<{}{%CS=cache}{%CC}>!=0}<{}{%CS=cache}%S%f_cache_attr(%C);
+		>%U[{_INIT_CUSTOM_CACHE_ARGS}
+		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+		]
+		]CachedObjectsFor%f_to_borland(%SN)::iterator f = m_cached_objects_for_%SN.find (ObjectCreationIdFor%f_to_borland(%SN)(<{, }{"%CS"!="nokey"}%CN>));
+		if (f == m_cached_objects_for_%SN.end()[{%S{const_type}=combo|%S{const_type}=read-only} || f-\>second[.%f_cache_postfix(%S,"%3N")][{%Ss!=synchro}.ptr()] == 0]) {
+		[{%S{const_type}=combo&%3N=read-only|%S{const_type}=read-only}{	if (m_single_active_factory.is_nil()) {
+				throw Core::Root::NoActiveFactory ("%P%P%PN::%P%PN::%PNFactory");
+			}
+			f = m_cached_objects_for_%SN.insert (
+				CachedObjectsFor%f_to_borland(%SN)::value_type(
+					ObjectCreationIdFor%f_to_borland(%SN)(<{, }{"%CS"!="nokey"}%CN>)
+					, m_single_active_factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}[{%Cx=true}, ][{%3N=read-only}{false}true]])
+/					,[{%S{const_type}!=read-write}{ m_single_active_factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}, [{%1N=read-only}{false}true]])} ComboData[{%Ss=synchro}{Var}Ptr] (m_single_active_factory-\>%SN (<{, }%CN>))]
+				)
+			).first;
+			m_cached_objects_index_for_%SN.insert (
+				CachedObjectsIndexFor%f_to_borland(%SN)::value_type (
+					f-\>second[.%t_cache_postfix(%S,"read-write")][{%f_is_server_type(%{INT})=true}{[{%Ss!=synchro}.in()]}-\>_hash (std::numeric_limits\<CORBA::ULong\>::max ())]
+					, f
+				)
+			);[{%Ss=synchro}
+			return f-\>second[.%f_cache_postfix(%S,"%3N")];]
+		}	if (f == m_cached_objects_for_%SN.end()) {
+				if (m_single_active_factory.is_nil()) {
+					throw Core::Root::NoActiveFactory ("%P%P%PN::%P%PN::%PNFactory");
+				}
+				f = m_cached_objects_for_%SN.insert (
+					CachedObjectsFor%f_to_borland(%SN)::value_type(
+						ObjectCreationIdFor%f_to_borland(%SN)(<{, }{"%CS"!="nokey"}%CN>)
+						, ComboData[{%Ss=synchro}{Var}Ptr] (m_single_active_factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}[{%Cx=true}, ][{%3N=read-only}{false}true]]))
+					)
+				).first;
+				m_cached_objects_index_for_%SN.insert (
+					CachedObjectsIndexFor%f_to_borland(%SN)::value_type (
+						f-\>second[.%t_cache_postfix(%S,"read-write")][{%f_is_server_type(%{INT})=true}{[{%Ss!=synchro}.in()]}-\>_hash (std::numeric_limits\<CORBA::ULong\>::max ())]
+						, f
+					)
+				);
+				[{%{INT}S=ServerInterface&%S#f_is_exported()=true}{f-\>second[.%f_cache_postfix(%S,"read-only")] = new %{INT}NConstWrapper (f-\>second[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in ()]);}%{INT}NConstWrapper_var wrapper = new %{INT}NConstWrapper (f-\>second[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in ()]);
+				f-\>second[.%f_cache_postfix(%S,"read-only")] = wrapper-\>_this ();]
+				f-\>second.is_ro_first = true;[{%Ss=synchro}
+				GDS_ASSERT_MSG (f-\>second[.%f_cache_postfix(%S,"read-only")][{%Ss!=synchro}.in ()] != 0, ("%P%P%PN::%P%PN::%PNFactory impl can't return zerro"));
+				return f-\>second[.%f_cache_postfix(%S,"read-only")];]
+			} else if (f-\>second[.%f_cache_postfix(%S,"read-only")][{%Ss!=synchro}.ptr ()] == 0) {
+				[{%{INT}S=ServerInterface&%S#f_is_exported()=true}{f-\>second[.%f_cache_postfix(%S,"read-only")] = new %{INT}NConstWrapper (
+					%{INT}N::_duplicate (f-\>second[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in ()])
+				);}%{INT}NConstWrapper_var wrapper = new %{INT}NConstWrapper (
+					%{INT}N::_duplicate (f-\>second[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in ()])
+				);
+				f-\>second[.%f_cache_postfix(%S,"read-only")] = wrapper-\>_this ();][{%Ss=synchro}
+				GDS_ASSERT_MSG (f-\>second[.%f_cache_postfix(%S,"read-only")][{%Ss!=synchro}.in ()] != 0, ("%P%P%PN::%P%PN::%PNFactory impl can't return zerro"));
+				return f-\>second[.%f_cache_postfix(%S,"read-only")];]
+			}]
+		}[{%f_is_ro_fctr_exists(%S)=true&%3N=read-write} else if (
+			f != m_cached_objects_for_%SN.end()
+			&& f-\>second[.%f_cache_postfix(%S,"read-only")][{%Ss!=synchro}.ptr ()] != 0
+			&& f-\>second.is_ro_first == true
+		) {
+			f-\>second[.%f_cache_postfix(%S,"read-only")]-\>upgrade_rw ();
+			f-\>second.is_ro_first = false;
+		}]
+		GDS_ASSERT_MSG (f-\>second[.%f_cache_postfix(%S,"%3N")][{%Ss!=synchro}.in ()] != 0, ("%P%P%PN::%P%PN::%PNFactory impl can't return zerro"));
+		return [{[{%{INT}S!=ServerInterface}{[{%S#f_is_exported()!=true}{false}true]}true]=true&%Ss!=synchro}{%{INT}N::_duplicate(f-\>second[.%f_cache_postfix(%S,"%3N")][{%Ss!=synchro}.in ()])}*f-\>second[.%f_cache_postfix(%S,"%3N")]];
+	][{%Cx=false}
+		if (m_cached_object_for_%SN[.%f_cache_postfix(%S,"%3N")][{%Ss!=synchro}.ptr()] == 0) {
+			GUARD(m_mutex_for_%SN);
+			if (m_cached_object_for_%SN[.%f_cache_postfix(%S,"%3N")][{%Ss!=synchro}.ptr()] == 0) {
+			[{%S{const_type}=combo&%3N=read-only|%S{const_type}=read-only}{	if (m_single_active_factory.is_nil()) {
+					throw Core::Root::NoActiveFactory ("%P%P%PN::%P%PN::%PNFactory");
+				}
+				m_cached_object_for_%SN[.%t_cache_postfix(%S,"read-write")] = m_single_active_factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}[{%Cx=true}, ][{%2N=read-only}{false}true]]);
+			}	if (m_cached_object_for_%SN[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.ptr()] == 0) {
+					if (m_single_active_factory.is_nil()) {
+						throw Core::Root::NoActiveFactory ("%P%P%PN::%P%PN::%PNFactory");
+					}
+					m_cached_object_for_%SN[.%t_cache_postfix(%S,"read-write")] = m_single_active_factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}[{%Cx=true}, ][{%3N=read-only}{false}true]]);
+					[{%{INT}S=ServerInterface&%S#f_is_exported()=true}{m_cached_object_for_%SN[.%f_cache_postfix(%S,"read-only")] = new %{INT}NConstWrapper (
+						m_cached_object_for_%SN[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in()]
+					);}%{INT}NConstWrapper_var wrapper = new %{INT}NConstWrapper (
+						m_cached_object_for_%SN[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in()]
+					);
+					m_cached_object_for_%SN[.%f_cache_postfix(%S,"read-only")] = wrapper-\>_this ();][{%f_is_ro_fctr_exists(%S)=true}
+					m_cached_object_for_%SN.is_ro_first = true;]
+				} else {
+					[{%{INT}S=ServerInterface&%S#f_is_exported()=true}{m_cached_object_for_%SN[.%f_cache_postfix(%S,"read-only")] = new %{INT}NConstWrapper (
+						%{INT}N::_duplicate (m_cached_object_for_%SN[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in()])
+					);}%{INT}NConstWrapper_var wrapper = new %{INT}NConstWrapper (
+						%{INT}N::_duplicate (m_cached_object_for_%SN[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in()])
+					);
+					m_cached_object_for_%SN[.%f_cache_postfix(%S,"read-only")] = wrapper-\>_this ();]
+				}
+			]
+				GDS_ASSERT_MSG (m_cached_object_for_%SN[.%f_cache_postfix(%S,"%3N")][{%Ss!=synchro}.ptr()] != 0, ("%P%P%PN::%P%PN::%PNFactory impl can't return zerro"));[{%Ss=synchro}
+				return m_cached_object_for_%SN[.%f_cache_postfix(%S,"%3N")];]
+			}
+		}[{%f_is_ro_fctr_exists(%S)=true&%3N=read-write}
+		if (
+			m_cached_object_for_%SN[.%f_cache_postfix(%S,"read-only")][{%Ss!=synchro}.ptr()] != 0
+			&& m_cached_object_for_%SN.is_ro_first == true
+		) {
+			m_cached_object_for_%SN[.%f_cache_postfix(%S,"read-only")]-\>upgrade_rw ();
+			m_cached_object_for_%SN.is_ro_first = false;
+		}]
+		return [{[{%{INT}S!=ServerInterface}{[{%S#f_is_exported()=true}{true}false]}true]=true&%Ss!=synchro}{%{INT}N::_duplicate(m_cached_object_for_%SN[.%f_cache_postfix(%S,"%3N")][{%Ss!=synchro}.in ()])}*m_cached_object_for_%SN[.%f_cache_postfix(%S,"%3N")]];
+	]]][{%TS=FactoryMemory}
+	%f_fctr_mng_mem_cpp(%S,"%3N")
+	]}]
+//#UC END# *4978567C01C5for47174CE200AB*
+
+// Дополнительные определения в public секции для менеджера фабрик
+%f _additional_mgr_public_declarations
+//#UC START# *4978702C00D9for47174CE200AB*
+//#UC END# *4978702C00D9for47174CE200AB*
+
+// Базовая реализация мультифабрик для менеджера фабрик
+%f _fctr_mng_m_fctr_cpp_impl
+//#UC START# *497870EF0151for47174CE200AB*
+	%1[[{%S{transparent multy}=false|"%S{transparent multy}"=""}\
+////%S{transparent multy}=false
+	%f_set_var(OP_PARAMS,"%S%f_factory_params("%1N")")\
+	%t_ret(%{INT},"[{%{INT}S!=ServerInterface|%S#f_is_exported()=false}%f_factory_target_strereotype(%S,"%3N")]") %{INT}NFactoryManager::%SN%4N ([{"%{OP_PARAMS}N"!=""}%{OP_PARAMS}N, ]%{INT}%f_dump_switch_arg_type() key) [{%f_realize_srv_interface(%S)=false|%S#f_is_exported()=false}{throw (CORBA::SystemException, Core::Root::UnknownFactoryKey[{%f_need_conversion_exception(%S)=true}, Core::Root::ImpossibleConversion]<, %f_type(%E)>)}/*throw (Core::Root::UnknownFactoryKey[{%f_need_conversion_exception(%S)=true}, Core::Root::ImpossibleConversion]<, %f_type(%E)>)*/] {\
+	[{%f_is_it_cached(%S)=false}
+		FactoryMap::iterator f = m_factories_map.find (key);
+		if (f == m_factories_map.end()) {
+			throw Core::Root::UnknownFactoryKey (
+				"%P%P%PN::%P%PN::%PNFactory"
+				, [{%f_need_lexical_cast(%{INT})=true}{key}boost::lexical_cast\<std::string\> (key).c_str ()]
+			);
+		}
+		[{%{INT}S=ServerInterface&%3N=read-only}{return [{%3N=read-only}{f-\>second.factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}[{%Cx=true}, ][{%3N=read-only}{false}true]]);}new %{INT}NConstWrapper (f-\>second.factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}[{%Cx=true}, ][{%3N=read-only}{false}true]]));]}%{INT}NConstWrapper_var wrapper = new %{INT}NConstWrapper (
+			f-\>second.factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}[{%Cx=true}, ]true])
+		);
+		return wrapper-\>_this ();]
+	][{%TS!=FactoryMemory}[{%f_is_it_cached(%S)=true}
+		GUARD(m_mutex_for_%SN);
+		[{<{}{%CS=cache}{%CC}>!=0}<{}{%CS=cache}%S%f_cache_attr(%C);
+		>%U[{_INIT_CUSTOM_CACHE_ARGS}
+		throw Core::Root::MDAGenNotImplemented(GDS_CURRENT_FUNCTION);
+		]
+		]CachedObjectsFor%f_to_borland(%SN)::iterator f = m_cached_objects_for_%SN.find (ObjectCreationIdFor%f_to_borland(%SN)(<{}{"%CS"!="nokey"}%CN, >key));
+		if (f == m_cached_objects_for_%SN.end()[{%S{const_type}=combo|%S{const_type}=read-only} || f-\>second[.%f_cache_postfix(%S,"%3N")][{%Ss!=synchro}.ptr()] == 0]) {
+		[{%S{const_type}=combo&%3N=read-only|%S{const_type}=read-only}{	FactoryMap::iterator f_fct = m_factories_map.find (key);
+			if (f_fct == m_factories_map.end()) {
+				throw Core::Root::UnknownFactoryKey (
+					"%P%P%PN::%P%PN::%PNFactory"
+					, [{%f_need_lexical_cast(%{INT})=true}{key}boost::lexical_cast\<std::string\> (key).c_str ()]
+				);
+			}
+			f = m_cached_objects_for_%SN.insert (
+				CachedObjectsFor%f_to_borland(%SN)::value_type(
+					ObjectCreationIdFor%f_to_borland(%SN)(<{}{"%CS"!="nokey"}%CN, >key)
+					, f_fct-\>second.factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}[{%Cx=true}, ][{%3N=read-only}{false}true]])
+//					,[{%S{const_type}!=read-write}{ f_fct-\>second.factory-\>%SN (<{, }%CN>)} ComboData[{%Ss=synchro}{Var}Ptr] (f_fct-\>second.factory-\>%SN (<{, }%CN>))]
+				)
+			).first;
+			m_cached_objects_index_for_%SN.insert (
+				CachedObjectsIndexFor%f_to_borland(%SN)::value_type (
+					f-\>second[.%t_cache_postfix(%S,"read-write")][{%f_is_server_type(%{INT})=true}{[{%Ss!=synchro}.in()]}-\>_hash (std::numeric_limits\<CORBA::ULong\>::max ())]
+					, f
+				)
+			);[{%Ss=synchro}
+			return f-\>second[.%f_cache_postfix(%S,"%3N")];]
+		}	if (f == m_cached_objects_for_%SN.end()) {
+				FactoryMap::iterator f_fct = m_factories_map.find (key);
+				if (f_fct == m_factories_map.end()) {
+					throw Core::Root::UnknownFactoryKey (
+						"%P%P%PN::%P%PN::%PNFactory"
+						, [{%f_need_lexical_cast(%{INT})=true}{key}boost::lexical_cast\<std::string\> (key).c_str ()]
+						);
+				}
+				f = m_cached_objects_for_%SN.insert (
+					CachedObjectsFor%f_to_borland(%SN)::value_type(
+						ObjectCreationIdFor%f_to_borland(%SN)(<{}{"%CS"!="nokey"}%CN, >key)
+						, ComboData[{%Ss=synchro}{Var}Ptr] (f_fct-\>second.factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}[{%Cx=true}, ][{%3N=read-only}{false}true]]))
+					)
+				).first;
+				m_cached_objects_index_for_%SN.insert (
+					CachedObjectsIndexFor%f_to_borland(%SN)::value_type (
+						f-\>second[.%t_cache_postfix(%S,"read-write")][{%f_is_server_type(%{INT})=true}{[{%Ss!=synchro}.in()]}-\>_hash (std::numeric_limits\<CORBA::ULong\>::max ())]
+						, f
+					)
+				);
+				[{%{INT}S=ServerInterface&%S#f_is_exported()=true}{f-\>second[.%f_cache_postfix(%S,"read-only")] = new %{INT}NConstWrapper (f-\>second[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in ()]);}%{INT}NConstWrapper_var wrapper = new %{INT}NConstWrapper (f-\>second[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in ()]);
+				f-\>second[.%f_cache_postfix(%S,"read-only")] = wrapper-\>_this ();]
+				f-\>second.is_ro_first = true;[{%Ss=synchro}
+				return f-\>second[.%f_cache_postfix(%S,"read-only")];]
+			} else if (f-\>second[.%f_cache_postfix(%S,"read-only")][{%Ss!=synchro}.ptr ()] == 0) {
+				[{%{INT}S=ServerInterface&%S#f_is_exported()=true}{f-\>second[.%f_cache_postfix(%S,"read-only")] = new %{INT}NConstWrapper (
+					%{INT}N::_duplicate (f-\>second[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in ()])
+				);}%{INT}NConstWrapper_var wrapper = new %{INT}NConstWrapper (
+					%{INT}N::_duplicate (f-\>second[.%t_cache_postfix(%S,"read-write")][{%Ss!=synchro}.in ()])
+				);
+				f-\>second[.%f_cache_postfix(%S,"read-only")] = wrapper-\>_this ();][{%Ss=synchro}
+				return f-\>second[.%f_cache_postfix(%S,"read-only")];]
+			}]
+		}[{%f_is_ro_fctr_exists(%S)=true&%3N=read-write} else if (
+			f != m_cached_objects_for_%SN.end()
+			&& f-\>second[.%f_cache_postfix(%S,"read-only")][{%Ss!=synchro}.ptr ()] != 0
+			&& f-\>second.is_ro_first == true
+		) {
+			f-\>second[.%f_cache_postfix(%S,"read-only")]-\>upgrade_rw ();
+			f-\>second.is_ro_first = false;
+		}]
+		GDS_ASSERT_MSG (f-\>second[.%f_cache_postfix(%S,"%3N")][{%Ss!=synchro}.in ()] != 0, ("%P%P%PN::%P%PN::%PNFactory impl can't return zerro"));
+		return [{[{%{INT}S!=ServerInterface}{[{%S#f_is_exported()=true}{true}false]}true]=true&%Ss!=synchro}{%{INT}N::_duplicate(f-\>second[.%f_cache_postfix(%S,"%1N")][{%Ss!=synchro}.in()])}*f-\>second[.%f_cache_postfix(%S,"%3N")]];
+	]][{%TS=FactoryMemory}
+	%f_fctr_mng_mem_cpp(%S,"%3N")
+	]}][{%S{transparent multy}=true}\
+////%S{transparent multy}=true
+	%t_ret(%{INT},"[{%{INT}S!=ServerInterface|%S#f_is_exported()=false}%Ss]") %{INT}NFactoryManager::%SN (%S%f_factory_params("%1N")) [{%f_realize_srv_interface(%S)=false|%S#f_is_exported()=false}{throw (CORBA::SystemException, CoreSrv::NoActiveFactory<, %f_type(%E)>)}/*throw (Core::Root::NoActiveFactory<, %f_type(%E)>)*/] {\
+	[{%f_is_it_cached(%S)=false}
+		Core::Var\<%{INT}NAbstractFactory\> factory;
+		%U[{_CUSTOM_SELECT_FACTORY}
+		]
+		if (factory.is_nil () == true) {
+			throw [{%f_realize_srv_interface(%S)=false|%S#f_is_exported()=false}{CoreSrv::NoActiveFactory ()}Core::Root::NoActiveFactory ("%P%P%PN::%P%PN::%PNFactory")];
+		}
+		
+		return factory-\>%SN (<{, }%CN>);
+	][{%TS!=FactoryMemory}[{%Ss=cached|%Ss=const,cached}
+		GUARD(m_mutex_for_%SN);
+		CachedObjectsFor%f_to_borland(%SN)::iterator f = m_cached_objects_for_%SN.find (ObjectCreationIdFor%f_to_borland(%SN)(<{, }{"%CS"!="nokey"}%CN>));
+		if (f == m_cached_objects_for_%SN.end()) {
+			Core::Var\<%{INT}NAbstractFactory\> factory;
+			%U[{_CUSTOM_SELECT_FACTORY}
+			]
+			if (factory.is_nil () == true) {
+				throw [{%f_realize_srv_interface(%S)=false|%S#f_is_exported()=false}{CoreSrv::NoActiveFactory ()}Core::Root::NoActiveFactory ("%P%P%PN::%P%PN::%PNFactory")];
+			}
+			f = m_cached_objects_for_%SN.insert (
+				CachedObjectsFor%f_to_borland(%SN)::value_type(
+					ObjectCreationIdFor%f_to_borland(%SN)(<{, }{"%CS"!="nokey"}%CN>)
+					, factory-\>%SN (<{, }%CN>[{%f_is_ro_fctr_exists(%S)=true}[{%Cx=true}, ][{%3N=read-only}{false}true]])
+				)
+			).first;
+			m_cached_objects_index_for_%SN.insert (
+				CachedObjectsIndexFor%f_to_borland(%SN)::value_type (
+					f-\>second[.%f_cache_postfix(%S,"read-write")][{%f_is_server_type(%{INT})=true}{[{%Ss!=synchro}.in()]}-\>_hash (std::numeric_limits\<CORBA::ULong\>::max ())], f
+				)
+			);[{%Ss=synchro}
+			return f-\>second;]
+		}
+		GDS_ASSERT_MSG (f-\>second[.%f_cache_postfix(%S,"%3N")][{%Ss!=synchro}.in ()] != 0, ("%P%P%PN::%P%PN::%PNFactory impl can't return zerro"));
+		return [{[{%{INT}S!=ServerInterface}{[{%S#f_is_exported()=true}{true}false]}true]=true&%Ss!=synchro}{%{INT}N::_duplicate(f-\>second[.%f_cache_postfix(%S,"%3N")][{%Ss!=synchro}.in()])}*f-\>second[.%f_cache_postfix(%S,"%3N")]];
+	]][{%TS=FactoryMemory}
+	%f_fctr_mng_mem_cpp(%S,"%3N")
+	]}]]
+
+//#UC END# *497870EF0151for47174CE200AB*
+
+// Используется виртуальное/не виртуальное наследование в зависимости от стереотипа.
+%f _is_virtual_inheritance
+//#UC START# *497AD7C30382for47174CE200AB*
+	virtual
+//#UC END# *497AD7C30382for47174CE200AB*
+
+// выводит имя метода на менеджере фабрик для получения экземпляра менеджера
+%f _fctr_mng_get_instance_name
+//#UC START# *4988233B02FDfor47174CE200AB*
+	%t_language_style("get_instance_do_not_call_by_hand")
+//#UC END# *4988233B02FDfor47174CE200AB*
+
+// находит атрибут-селектор мульти фабрики и записывает его в переменную с заданным идентификатором
+%f _find_switch
+// параметры: var: string = %1
+//#UC START# *499274E601E7for47174CE200AB*
+	[{"%1N"=""}%f_error("_find_switch: Не задан идентификатор переменной")]\
+	%f_set_var(__SWITCH_ARG__,"%1N")\
+	%f_set_var(FOUNDED,"false")\
+	<{}{%CC=Attribute&%CS=factory switch}%f_set_var(%{__SWITCH_ARG__}N,C)%f_set_var(FOUNDED,"true")>\
+	[{%{FOUNDED}N=false}<{}{%ga=abstract}\
+	%g<{}{%CC=Attribute&%CS=factory switch}%f_set_var(%{__SWITCH_ARG__}N,C)%f_set_var(FOUNDED,"true")>\
+	>]\
+	[{%{FOUNDED}N=false&%SS=LocalInterface}<{}{}%R#f_find_switch("%{__SWITCH_ARG__}N")>]
+//#UC END# *499274E601E7for47174CE200AB*
+
+// Генерация умолчального ремувера для сущности
+%f _additional_remover_declaration
+//#UC START# *49A643ED0131for47174CE200AB*
+//#UC END# *49A643ED0131for47174CE200AB*
+
+// Генерит исключения в декларации фабрики
+%f _dump_exceptions
+//#UC START# *49ACD9EC0231for47174CE200AB*
+	[{"%2N"="NEW_LINE"}{ }\n		]/*throw (Core::Root::NoActiveFactory, Core::Root::FactoryManagerWasDestroyed[{%f_need_conversion_exception(%1)=true}, Core::Root::ImpossibleConversion]%1<, %f_type(%E)>)*/[{"%XU"="h"};]
+//#UC END# *49ACD9EC0231for47174CE200AB*
+
+// Дополнительная реализация для менеджера фабрик
+%f _additional_mgr_factory_implementation
+//#UC START# *49B11D7A001Cfor47174CE200AB*
+//#UC END# *49B11D7A001Cfor47174CE200AB*
+
+// Генерит реализацию менеджеоа фабрик
+%f _dump_fctr_mng_impl_cpp
+//#UC START# *49B6246F03B2for47174CE200AB*
+	%f_set_var(INT,S)[{"%f_has_factory_methods(%S)"="true"}{[{%f_has_self_factory_methods(%S)=true}<{}{%CS=FactoryMemory}%CX>]}
+	//////////////////////////////////////////////////////////////////////////////////////
+	// implementation of factory manager methods for %SN
+	bool %SNFactoryManager::s_was_destroyed = false;[{%f_need_const_wrapper(%S)=true}
+	[
+	%f_const_wrapper_operations_cpp(%S)
+	%SNConstWrapper::%SNConstWrapper ([{%SS!=ServerInterface}{%f_full_name(%S)}%SN]* impl)
+		: m_impl (impl), is_rw (false)
+	{
+	}
+	]
+	%SNFactoryManager::ComboDataVar::ComboDataVar ()
+		: rw_data (0), ro_data (0), is_ro_first (false)
+	{
+	}
+	
+	%SNFactoryManager::ComboDataVar::ComboDataVar (%SN* rw_data_)
+		: rw_data (rw_data_), ro_data (0), is_ro_first (false)
+	{
+	}
+	[{<{}{%f_is_factory(%C)=true&%Cs=synchro}{%CC}>!=0}
+	%SNFactoryManager::ComboDataPtr::ComboDataPtr ()
+	: rw_data (0), ro_data (0), is_ro_first (false)
+	{
+	}
+	
+	%SNFactoryManager::ComboDataPtr::ComboDataPtr (%SN* rw_data_)
+	: rw_data (rw_data_), ro_data (0), is_ro_first (false)
+	{
+	}
+	]]
+	
+	%SNFactoryManager::%SNFactoryManager () /*throw (Core::Root::FactoryManagerWasDestroyed)*/
+		: m_has_registred_factories(false)
+	{
+		if (s_was_destroyed == true) {
+			throw Core::Root::FactoryManagerWasDestroyed ();
+		}[
+		%S%f_additional_fctr_mng_ctor_initialization()]<{}{%f_is_factory(%C)=true&%Cs=synchro&%C%TS!=FactoryMemory}[{%C%Cx=true|%CS=multi factory}{
+		[{%C{const_type}=combo|%C{const_type}=read-only}{m_cached_object_for_%CN = 0;}m_cached_object_for_%CN.rw_data = 0;
+		m_cached_object_for_%CN.ro_data = 0;]}]>
+	}
+	
+	%SNFactoryManager::~%SNFactoryManager () {
+		s_was_destroyed = true;
+	}
+	
+	void %SNFactoryManager::register_factory (
+		%SNAbstractFactory* factory, Core::Root::FactoryPriority priority
+	) /*throw (Core::Root::DuplicatedFactoryKey, Core::Root::FactoryManagerWasDestroyed)*/ {
+		if (s_was_destroyed == true) {
+			throw Core::Root::FactoryManagerWasDestroyed ();
+		}
+		Singleton::instance()-\>register_factory_i (factory, priority);[{%SS=LocalInterface}
+		<{}{%f_is_interface(%R)=true&%f_has_factory_methods(%R)=true}%f_type(%R)FactoryManager::register_factory (factory, priority);
+		><{}{%ga=abstract}%g<{}{%f_is_interface(%R)=true&%f_has_factory_methods(%R)=true}%f_type(%R)FactoryManager::register_factory (factory, priority);
+		>>]
+	}[{%S%f_has_multi_factory()=true&%Sa!=abstract}
+	
+	%S%f_dump_fmng_keys_method()]
+	
+	%S%f_publish_self_cpp()\
+	void %SNFactoryManager::register_factory_i (
+		%SNAbstractFactory* factory, Core::Root::FactoryPriority priority
+	) /*throw (Core::Root::DuplicatedFactoryKey)*/ {
+		m_has_registred_factories = true;
+		FactoryMap::iterator f = m_factories_map.find(factory-\>key());
+		if (f != m_factories_map.end() && f-\>second.priority == priority) {
+			throw Core::Root::DuplicatedFactoryKey (
+				"%P%PN::%PN::%SNFactory"
+				, [{%f_need_lexical_cast(%{INT})=true}{factory-\>key()[{%{INT}%f_dump_switch_type_name()=a-string}.c_str ()]}boost::lexical_cast\<std::string\> (factory-\>key()).c_str ()]
+			);
+		}
+		if (f == m_factories_map.end() || f-\>second.priority \<= priority) {
+			m_factories_map\[factory-\>key()\].factory = %SNAbstractFactory::_duplicate(factory);
+			m_factories_map\[factory-\>key()\].priority = priority;
+		}
+		
+		if (!m_single_active_factory || m_single_active_factory_priority \<= priority) {
+			m_single_active_factory = %SNAbstractFactory::_duplicate(factory);
+			m_single_active_factory_priority = priority;
+		}
+	}[{%f_has_synchro_factory(%S)=true}
+	
+	%SNFactoryManager::CacheLocker::CacheLocker () {
+	%f_clear_list(MUTEX_LIST)<{}{%f_is_factory(%C)&%Cs=synchro}[%f_lock_mutex_for_cache_locker(%C)
+	]><{}{%ga=abstract}%g<{}{%f_is_factory(%C)&%Cs=synchro}[%f_lock_mutex_for_cache_locker(%C)
+	]>>
+	}
+	
+	%SNFactoryManager::CacheLocker::~CacheLocker () {
+	%f_clear_list(MUTEX_LIST)<{}{%f_is_factory(%C)&%Cs=synchro}[%f_unlock_mutex_for_cache_locker(%C)
+	]><{}{%ga=abstract}%g<{}{%f_is_factory(%C)&%Cs=synchro}[%f_unlock_mutex_for_cache_locker(%C)
+	]>>
+	}
+	
+	void %SNFactoryManager::clean (%t_arg_cpp(%S,"in") obj) {
+		%SNFactoryManager::Singleton::instance ()-\>clean_i (obj);
+	}
+	
+	void %SNFactoryManager::clean_i (%t_arg_cpp(%S,"in") obj) {
+		//удаляем объект из всех синхро фабрик
+	%f_clear_list(CACHE_LIST)<{}{%f_is_factory(%C)=true&%Cs=synchro}[%f_dump_clean_synchro_cache(%C)
+	]><{}{%ga=abstract}%g<{}{%f_is_factory(%C)=true&%Cs=synchro}[%f_dump_clean_synchro_cache(%C)
+	]>>
+	}
+	]\
+	%f_set_var(INT,S)%f_dump_factories_impl_cpp(%S)[
+	
+	%S%f_additional_mgr_factory_methods_impl()
+	]<{}{%CS=FactoryMemory}%CX>]%S%f_additional_mgr_factory_implementation()
+	]
+//#UC END# *49B6246F03B2for47174CE200AB*
+
+// Генерит определения атрибутов и операций заданных на сущности или интерфейсе.
+%f _dump_methods_decl
+//#UC START# *49B7DFE801D5for47174CE200AB*
+	[#public:<{}{"%f_is_factory(%C)"="false"&%CV=PublicAccess}[
+	%CX
+	]>][#protected:<{}{"%f_is_factory(%C)"="false"&%CV!=PublicAccess}[
+	%CX
+	]>]
+//#UC END# *49B7DFE801D5for47174CE200AB*
+
+// возвращает true, если интерфейс имеет мульти фабрику (либо наследует её от своих абстрактных
+// предков)
+%f _has_multi_factory
+//#UC START# *4B715A9D0094for47174CE200AB*
+	[{%S%f_has_self_multi_factory()=false}{true}\
+	[{<{}{%ga=abstract&%g#f_has_self_multi_factory()=true}{%gC}>=0}{true}\
+	[{%SS=LocalInterface}{false}[{<{}{%R#f_has_self_multi_factory()=true}{%RC}>=0}{true}false]]]]
+
+%f _has_self_multi_factory
+	[{<{}{%f_is_factory(%C)=true&%CS=multi factory}{%CC}>=0}{true}false]
+//#UC END# *4B715A9D0094for47174CE200AB*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
++ fctr.cpp
+//#UC START# *4705C54B01F4for47174CE200AB*
+	%f_set_var(__OPEN_IFDEF_STR__,"%S%f_open_ifdef()")\
+	%f_set_var(IMPL_BODY,"%S%f_dump_fctr_mng_impl_cpp()")\
+	%f_set_var(__CLOSE_IFDEF_STR__,"%S%f_close_ifdef()")\
+	[{"%{IMPL_BODY}N"!=""}[%{__OPEN_IFDEF_STR__}N
+	]%{IMPL_BODY}N[
+	%{__CLOSE_IFDEF_STR__}N
+	]]
+
+f _dump_factories_impl_cpp
+	<{}{"%CS"="factory"}{%C}
+	
+	%C%f_fctr_mng_fctr_cpp()><{}{"%ga"="abstract"}%g<{}{"%CS"="factory"}{%C}
+	
+	%C%f_fctr_mng_fctr_cpp()>><{}{"%CS"="multi factory"}{%C}
+	
+	%C%f_fctr_mng_m_fctr_cpp()><{}{"%ga"="abstract"}%g<{}{"%CS"="multi factory"}{%C}
+	
+	%C%f_fctr_mng_m_fctr_cpp()>><{}{"%CS"="remover"}{%C}
+	
+	%f_fctr_mng_rm_cpp(%C)><{}{"%ga"="abstract"}%g<{}{"%CS"="remover"}{%C}
+	
+	%f_fctr_mng_rm_cpp(%C)>>
+
+f _dump_inherited_factories_cpp
+	[<{}{%f_is_interface(%R)=true}%f_dump_factories_impl_cpp(%R)>]
+
+f _lock_mutex_for_cache_locker
+	[{%f_exists_in_list(MUTEX_LIST,"[{%TS!=FactoryMemory}{m_mutex_for_%f_to_omg(%TN)}m_mutex_for_%SN]")=false}\
+	%f_add_to_list(MUTEX_LIST,"[{%TS!=FactoryMemory}{m_mutex_for_%f_to_omg(%TN)}m_mutex_for_%SN]")\
+		%{INT}NFactoryManager::Singleton::instance ()-\>[{%TS!=FactoryMemory}{m_mutex_for_%f_to_omg(%TN)}m_mutex_for_%SN].acquire ();
+	]
+
+f _unlock_mutex_for_cache_locker
+	[{%f_exists_in_list(MUTEX_LIST,"[{%TS!=FactoryMemory}{m_mutex_for_%f_to_omg(%TN)}m_mutex_for_%SN]")=false}\
+	%f_add_to_list(MUTEX_LIST,"[{%TS!=FactoryMemory}{m_mutex_for_%f_to_omg(%TN)}m_mutex_for_%SN]")\
+		%{INT}NFactoryManager::Singleton::instance ()-\>[{%TS!=FactoryMemory}{m_mutex_for_%f_to_omg(%TN)}m_mutex_for_%SN].release ();
+	]
+
+f _dump_clean_synchro_cache
+	[{%TS!=FactoryMemory}[{%Cx=true|%SS=multi factory}{\
+		if (m_cached_object_for_%SN[.%f_cache_postfix(%S,"read-write")] && m_cached_object_for_%SN[.%f_cache_postfix(%S,"read-write")][{%f_is_server_type(%{INT})=true}{ == obj}-\>_is_equivalent(obj)]) \{
+			[{%S{const_type}=combo|%S{const_type}=read-only}{m_cached_object_for_%SN = 0;}m_cached_object_for_%SN[.%t_cache_postfix(%S,"read-write")] = 0;
+			m_cached_object_for_%SN[.%t_cache_postfix(%S,"read-only")] = 0;]
+		\}}
+		{
+			CachedObjectsIndexFor%f_to_borland(%SN)::iterator it = m_cached_objects_index_for_%SN.find (obj[{%f_is_server_type(%{INT})=true}-\>_hash (std::numeric_limits\<CORBA::ULong\>::max ())]);
+			if (it != m_cached_objects_index_for_%SN.end ()) {
+				m_cached_objects_for_%SN.erase (it-\>second);
+				m_cached_objects_index_for_%SN.erase (it);
+			}
+		}
+	]][{%TS=FactoryMemory&%f_exists_in_list(CACHE_LIST,"%TN")=false}%f_add_to_list(CACHE_LIST,"%TN")
+		{
+			%f_to_borland(%TNIndexMap)::iterator it = m_%f_to_omg(%TN)_index.find (obj[{%f_is_server_type(%{INT})=true}-\>_hash (std::numeric_limits\<CORBA::ULong\>::max ())]);
+			if (it != m_%f_to_omg(%TN)_index.end ()) {
+				m_%f_to_omg(%TN).erase (it-\>second);
+				m_%f_to_omg(%TN)_index.erase (it);
+			}
+		}
+	]
+f _clear_fctr_mng_cache
+		GUARD(m_mutex_for_%SN);
+	[{%Cx=true}{\
+	[{%PS=ServerInterface&%f_has_cached_factory(%P)=true}\
+		CachedObjectDeactivator deactivator;
+		deactivator (m_cached_object_for_%SN);
+	]	m_cached_object_for_%SN = 0;\
+	}[{%PS=ServerInterface&%f_has_cached_factory(%P)=true}
+		CachedObjectDeactivator deactivator;
+		
+		CachedObjectsFor%f_to_borland(%SN)::const_iterator it = m_cached_objects_for_%SN.begin ();
+		CachedObjectsFor%f_to_borland(%SN)::const_iterator it_end = m_cached_objects_for_%SN.end ();
+		
+		for (; it != it_end; ++it) {
+			deactivator (it-\>second);
+		}
+	]	m_cached_objects_for_%SN.clear ();]
+//#UC END# *4705C54B01F4for47174CE200AB*
+
+// реализация абстрактного стереотипа C++ Фабрики::MDAGenerator
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
++ fctr.h
+//#UC START# *4705C5490109for47174CE200AB*
+	%f_set_var(INT,S)[{"%f_has_self_factory_methods(%S)"="true"}%S%f_additional_fctr_mng_declarations()][{"%f_has_factory_methods(%S)"="true"}{[{<{}{%CS=FactoryMemory}{%CC}>!=0}
+	class %SNFactoryManager%S%f_base_fctr_mng() \{
+	<{}{%CS=FactoryMemory}%CX>\};]}
+	[%S%f_open_ifdef()
+	][{%f_need_const_wrapper(%S)=true}////////////////////////////////////////////////////////////////////////////////////
+	// const wrapper for %SN
+	class %SNConstWrapper: 
+		virtual public [{%SS!=ServerInterface}{%f_dump_base_poa(%S)}%SN]
+		, virtual public [{%SS!=ServerInterface}{::CoreSrv::RefCountServantBase}::Core::RefCountObjectBase]
+	{
+	public:
+		%SNConstWrapper ([{%SS!=ServerInterface}{%f_full_name(%S)}%SN]* impl);
+	
+	[private:
+	%f_const_wrapper_operations_h(%S)
+	]private:
+		friend class %SNFactoryManager;
+		%SN_var m_impl;
+		bool is_rw;
+	};
+	
+	typedef ::Core::Var\<%SNConstWrapper\> %SNConstWrapper_var;
+	
+	]////////////////////////////////////////////////////////////////////////////////////
+	// factories definition for %SN
+	
+	class %SNAbstractFactory;
+	
+	/// factory manager for %SN
+	class %SNFactoryManager%S%f_base_fctr_mng() {
+	public:
+		static void register_factory (%SNAbstractFactory* factory, Core::Root::FactoryPriority priority)
+			/*throw (Core::Root::DuplicatedFactoryKey, Core::Root::FactoryManagerWasDestroyed)*/;[{%S%f_has_multi_factory()=true}
+		
+	%f_shift_intend(1)%S%f_dump_fmng_keys_method()%f_shift_intend(-1)][
+		%S%f_additional_mgr_public_declarations()]
+//		
+//		static void unregister_all_factories () /*throw (Core::Root::FactoryManagerWasDestroyed)*/;
+	[<{}{"%CS"="remover"}{%C}
+		%f_dump_factory_manager_remover_h(%C,"static")
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="remover"}{%C}
+		%f_dump_factory_manager_remover_h(%C,"static")
+	>>]
+	%S%f_publish_self_h()\
+	protected:
+		%SNFactoryManager ();
+		
+		~%SNFactoryManager ();
+		
+		void register_factory_i (%SNAbstractFactory* factory, Core::Root::FactoryPriority priority)
+			/*throw (Core::Root::DuplicatedFactoryKey)*/;
+	
+//		void unregister_all_factories_i ();
+//	
+	protected:<{}{"%CS"="factory"}{%C}
+		%C%f_dump_factory_manager_single_factory_h()
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="factory"}{%C}
+		%C%f_dump_factory_manager_single_factory_h()
+	>><{}{"%CS"="multi factory"}{%C}
+		%C%f_dump_factory_manager_multi_factory_h()
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="multi factory"}{%C}
+		%C%f_dump_factory_manager_multi_factory_h()
+	>>[
+	%S%f_additional_mgr_factory_mehods()
+	]<{}{"%CS"="remover"}{%C}
+		%f_dump_factory_manager_remover_h(%C)
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="remover"}{%C}
+		%f_dump_factory_manager_remover_h(%C)
+	>>
+		friend class %SNFactory;
+		typedef ACE_Singleton \<%SNFactoryManager, ACE_SYNCH_RECURSIVE_MUTEX\> Singleton;
+		friend class ACE_Singleton \<%SNFactoryManager, ACE_SYNCH_RECURSIVE_MUTEX\>;
+	
+	private:
+	[{%f_need_const_wrapper(%S)=true}
+		struct ComboDataVar {
+			ComboDataVar ();
+			ComboDataVar (%SN* rw_data_);
+			%SN_var rw_data;
+			[{%SS!=ServerInterface}{%SN_var}Core::Var\<%SNConstWrapper\>] ro_data;
+			bool is_ro_first;
+		};
+	[{<{}{%f_is_factory(%C)=true&%Cs=synchro}{%CC}>!=0}
+		struct ComboDataPtr {
+			ComboDataPtr ();
+			ComboDataPtr (%SN* rw_data_);
+			%SN* rw_data;
+			[{%SS!=ServerInterface}{%SN*}%SNConstWrapper*] ro_data;
+			bool is_ro_first;
+		};
+	]
+	]	static bool s_was_destroyed;
+		
+		bool m_has_registred_factories;
+		
+		struct FactoryData {
+			Core::Var\<%SNAbstractFactory\> factory;
+			short priority;
+		};
+		
+		%f_set_var(SW_TN,"%S%f_dump_switch_type_name()")typedef std::map \<[{"%{SW_TN}N"!=""&"%{SW_TN}N"!="string"}{std::string}%S%f_dump_switch_type()], FactoryData\> FactoryMap;
+		
+		FactoryMap m_factories_map;
+		
+		Core::Var\<%SNAbstractFactory\> m_single_active_factory;
+		
+		short m_single_active_factory_priority;
+	[{%f_has_synchro_factory(%S)=true}
+	public:
+		class CacheLocker {
+		public:
+			CacheLocker ();
+			
+			~CacheLocker ();
+		};
+		
+		static void clean (%t_arg_cpp(%S,"in") obj);
+	
+	protected:
+		void clean_i (%t_arg_cpp(%S,"in") obj);
+	]\
+//	[{%SS=ServerInterface&%f_has_cached_factory(%S)=true}
+//	public:
+//		struct CachedObjectDeactivator {
+//			void operator () (const %SN_var& obj);[{%f_need_const_wrapper(%S)=true}
+//			void operator () (const ComboDataVar& obj);[{%f_is_factory(%C)=true&%Cs=synchro}{%CC}>!=0}
+//			void operator () (const ComboDataPtr& obj);
+//			]]
+//		};
+/	]\
+	<{}{"%CS"="factory"&"%f_is_it_cached(%C)"="true"&%C%TS!=FactoryMemory}{%C}
+	%f_fctr_mng_fctr_h(%C)
+	><{}{"%CS"="multi factory"&"%f_is_it_cached(%C)"="true"&%C%TS!=FactoryMemory}{%C}
+	%f_fctr_mng_m_fctr_h(%C)
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="factory"&"%f_is_it_cached(%C)"="true"&%C%TS!=FactoryMemory}{%C}
+	%f_fctr_mng_fctr_h(%C)
+	>%g<{}{"%CS"="multi factory"&"%f_is_it_cached(%C)"="true"&%C%TS!=FactoryMemory}{%C}
+	%f_fctr_mng_m_fctr_h(%C)
+	>><{}{%ga=abstract}%g<{}{%CS=FactoryMemory}
+	%f_dump_common_mem_cache(%C)
+	>><{}{%CS=FactoryMemory}%CX>};
+	
+	/// abstract factory for %SN
+	%f_set_var(DERIVED,"0")\
+	class %SNAbstractFactory : virtual public Core::IObject[{%SS=LocalInterface}[<{}{%f_has_factory_methods(%R)=true}, virtual public %f_type(%R)AbstractFactory%f_set_var(DERIVED,"1")>\
+	<{}{%ga=abstract}%g<{	, }{%f_has_factory_methods(%R)=true}, virtual public %f_type(%R)AbstractFactory%f_set_var(DERIVED,"1")>>]] {
+		friend class %SNFactoryManager;
+	protected:
+	[{%{DERIVED}N=0}	virtual const [{}{char*}%S%f_dump_switch_type()] key () const = 0;
+	]%f_dump_factories_impl_h(%S)[
+	%S%f_additional_abstract_factories()
+	]};[
+	%S%f_close_ifdef()]]
+
+f _dump_factories_impl_h
+	<{}{"%f_is_factory(%C)"="true"}{%C}
+		%f_dump_abstract_factory_h(%C)
+	>%f_set_var(SELF,S)<{}{"%ga"="abstract"}%g<{}{"%f_is_factory(%C)"="true"}{%C}
+		%f_dump_abstract_factory_h(%C)
+	>>
+
+f _dump_inherited_factories_h
+	[<{}{%f_is_interface(%R)=true}%f_dump_factories_impl_h(%R)>]
+f _has_synchro_factory
+	[{%f_has_synchro_factory_self(%S)=true|<{}{%ga=abstract&%f_has_synchro_factory_self(%g)=true}{%gC}>!=0}{false}true]
+
+f _has_synchro_factory_self
+	[{<{}{%f_is_factory(%C)&%Cs=synchro}{%CC}>!=0}{false}true]
+//#UC END# *4705C5490109for47174CE200AB*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor47174CE200AB*
+O [{%f_has_factory_methods(%S)=true|<{}{%CS=FactoryMemory}{%CC}>!=0}%SNFactoryManager.java]
+	%f_output_constraint(%S)\
+	%f_set_var(INT,S)[{%f_has_factory_methods(%S)=true}{[{<{}{%CS=FactoryMemory}{%CC}>!=0}%f_header(%S)
+	package %f_dump_java_package(%S);
+	
+	%f_dump_std_java_imports(%S)
+	%f_java_core_exceptions(%S)
+	import %f_dump_java_package(%P).%P%P%f_name_prefix()LibHomeFactory;
+	
+	public class %SNFactoryManager%S%f_base_fctr_mng_java() \{
+	<{}{%CS=FactoryMemory}%CX>\};]}%f_header(%S)
+	package %f_dump_java_package(%S);
+	
+	%f_dump_std_java_imports(%S)
+	
+	%f_java_core_exceptions(%S)
+	[<{}{%ga=abstract}%g<{}{%CS=FactoryMemory}[import %f_type(%C%P)FactoryManager.%C%f_factory_mem_key_name();
+	import %f_type(%C%P)FactoryManager.%C%f_factory_mem_key_name()Comparator;
+	]>>]
+	import %f_dump_java_package(%P).%P%P%f_name_prefix()LibHomeFactory;
+	
+	[{%f_need_const_wrapper(%S)=true}////////////////////////////////////////////////////////////////////////////////////
+	// const wrapper for %SN
+	class %SNConstWrapper[{%SS!=ServerInterface}{ extends %SNPOA} implements %SN%f_interface_postfix(%S)] {
+		%SNConstWrapper (%SN impl) {
+			impl_ = [{%f_need_private_def(%S)=true&%SS!=ServerInterface}(%SN%f_interface_postfix(%S))]impl;
+		}
+		
+		public int hashCode () {
+			return impl_.hashCode ();
+		}
+	[%f_const_wrapper_operations_java(%S)
+	]	private %SN[{%SS!=ServerInterface}%f_interface_postfix(%S)] impl_;
+		private boolean isRw_ = false;
+	};
+	
+	]////////////////////////////////////////////////////////////////////////////////////
+	/// factory manager for %SN
+	public class %SNFactoryManager%S%f_base_fctr_mng_java() {
+	<{}{"%CS"="factory"&"%f_is_it_cached(%C)"="true"&%C%TS!=FactoryMemory}{%C}
+	%f_fctr_mng_fctr_java(%C)
+	><{}{"%CS"="multi factory"&"%f_is_it_cached(%C)"="true"&%C%TS!=FactoryMemory}{%C}
+	%f_fctr_mng_m_fctr_java(%C)
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="factory"&"%f_is_it_cached(%C)"="true"&%C%TS!=FactoryMemory}{%C}
+	%f_fctr_mng_fctr_java(%C)
+	>%g<{}{"%CS"="multi factory"&"%f_is_it_cached(%C)"="true"&%C%TS!=FactoryMemory}{%C}
+	%f_fctr_mng_m_fctr_java(%C)
+	>>[{%f_need_const_wrapper(%S)=true}
+		public static class ComboDataVar {
+/			ComboDataVar () {
+/			}
+/			
+			ComboDataVar (%SN rwData) {
+				rwData_ = rwData;
+			}
+			
+			%SN rwData_ = null;
+			[{%SS!=ServerInterface}{%SN}%SNConstWrapper] roData_ = null;
+			boolean isRoFirst = false;
+		};
+	[{<{}{%f_is_factory(%C)=true&%Cs=synchro}{%CC}>!=0}
+		public static class ComboDataPtr {
+/			ComboDataPtr () {
+/			}
+/			
+			ComboDataPtr (java.lang.ref.WeakReference\<%SN\> rwData) {
+				rwData_ = rwData;
+			}
+			
+			java.lang.ref.WeakReference\<%SN\> rwData_ = null;
+			java.lang.ref.WeakReference\<[{%SS!=ServerInterface}{%SN}%SNConstWrapper]\> roData_ = null;
+			boolean isRoFirst = false;
+		};
+	]
+	]
+		// abstract factory for %SN
+	%f_set_var(DERIVED,"0")\
+		public interface %SNAbstractFactory[{%SS=LocalInterface}{ }[{}{ }
+			extends %f_set_var(COMMA,"0")<{	, }{%f_has_factory_methods(%R)=true}%f_set_var(COMMA,"1")%f_type(%R)FactoryManager.%RNAbstractFactory%f_set_var(DERIVED,"1")
+		><{}{%ga=abstract}%g<{	, }{%f_has_factory_methods(%R)=true}[{%{COMMA}N=1}, %f_set_var(COMMA,"0")]%f_type(%R)FactoryManager.%RNAbstractFactory%f_set_var(DERIVED,"1")
+		>>]]{
+	[{%{DERIVED}N=0}		public [{}{String}%S%f_dump_switch_type()] key ();
+	]<{}{"%f_is_factory(%C)"="true"|%C#f_is_factory()=true}{%C}
+	[{%CS!=remover}%C%f_abstract_factory_operation()
+	]>%f_set_var(SELF,S)<{}{"%ga"="abstract"}%g<{}{"%f_is_factory(%C)"="true"|%C#f_is_factory()=true}{%C}
+	[{%CS!=remover}%C%f_abstract_factory_operation()
+	]>>	} //%SNAbstractFactory
+		
+		private static class FactoryData {
+			public FactoryData (%SNAbstractFactory factory, short priority) {
+				factory_ = factory;
+				priority_ = priority;
+			}
+			
+			public %SNAbstractFactory factory_;
+			public short priority_;
+		}
+		private java.util.Map\<[{}{String}%S%f_dump_switch_type()], FactoryData\> factoriesMap_ = new java.util.TreeMap\<[{}{String}%S%f_dump_switch_type()], FactoryData\> ();
+		private %SNAbstractFactory singleActiveFactory_ = null;
+		private short singleActiveFactoryPriority_ = 0;
+		private static %SNFactoryManager sInstance_ = null;
+		private boolean hasRegistredFactories_ = false;
+	
+		public static %SNFactoryManager %S%f_fctr_mng_get_instance_name() () {
+			if (sInstance_ == null) {
+				sInstance_ = new %SNFactoryManager ();
+			}
+			return sInstance_;
+		}
+	
+		public static void registerFactory (%SNAbstractFactory factory, short priority) throws DuplicatedFactoryKey {
+			%SNFactoryManager.%{INT}%f_fctr_mng_get_instance_name()().registerFactoryImpl (factory, priority);[{%SS=LocalInterface}
+			<{}{%f_is_interface(%R)=true&%f_has_factory_methods(%R)=true}%f_type(%R)FactoryManager.registerFactory (factory, priority);
+			><{}{%ga=abstract}%g<{}{%f_is_interface(%R)=true&%f_has_factory_methods(%R)=true}%f_type(%R)FactoryManager.registerFactory (factory, priority);
+			>>]
+		}[{%S%f_has_multi_factory()=true}
+		
+	%f_shift_intend(1)%S%f_dump_fmng_keys_method()%f_shift_intend(-1)]
+	
+	[<{}{%CC=Operation&%CS=remover}{%C}
+	%f_fctr_mng_remover_java(%C)
+	><{}{"%ga"="abstract"}%g<{}{%CC=Operation&%CS=remover}{%C}
+	%f_fctr_mng_remover_java(%C)
+	>>
+	]%S%f_publish_self_java()
+		protected void registerFactoryImpl (%SNAbstractFactory factory, short priority) throws DuplicatedFactoryKey {
+			hasRegistredFactories_ = true;
+			FactoryData factoryData = factoriesMap_.get(factory.key());
+			if (factoryData != null && factoryData.priority_ == priority) {
+				throw new DuplicatedFactoryKey ("%{INT}%P%PN.%PN.%SNFactory ", factory.key().toString ());
+			}
+			if (factoryData == null || factoryData.priority_ \<= priority) {
+				factoriesMap_.put(factory.key(), new FactoryData (factory, priority));
+			}
+			if (singleActiveFactory_ == null || singleActiveFactoryPriority_ \<= priority) {
+				singleActiveFactory_ = factory;
+				singleActiveFactoryPriority_ = priority;
+			}
+		}
+	
+		private %SNFactoryManager () {
+		}
+	[
+	<{}{%CS=FactoryMemory}%CX>
+	]%f_fctr_mng_factory_call_tpl(%S,"factory","\%C\%f_fctr_mng_factory_java()")\
+	%f_fctr_mng_factory_call_tpl(%S,"multi factory","\%C\%f_fctr_mng_factory_java()")\
+	%f_fctr_mng_factory_call_tpl(%S,"remover","\%f_dump_factory_manager_remover_java(\%C)")\
+	%f_fctr_mng_factory_call_tpl(%S,"finder","\%C\%f_fctr_mng_factory_java()")\
+	<{}{%ga=abstract}%g<{}{%CS=FactoryMemory}
+	%f_dump_common_mem_cache_java(%C)
+	>>
+	}
+	%f_footer(%S)
+	]
+
+f _fctr_mng_factory_call_tpl
+	<{}{"%CS"="%1N"}{%C}
+	%f_exec(%2N)
+	><{}{"%ga"="abstract"}%g<{}{"%CS"="%2N"}{%C}
+	%f_exec(%3N)
+	>>
+
+%f _dump_fmng_keys_method
+	[{%XU=fctr.java}#public static java.util.Set\<%S%f_dump_switch_type()\> keys () {
+	#	return %SNFactoryManager.%S%f_fctr_mng_get_instance_name()().factoriesMap_.keySet ();
+	#}][{%XU=fctr.h}#static %SNFactory::KeySet* keys ();][{%XU=fctr.cpp}\
+	%SNFactory::KeySet* %SNFactoryManager::keys () {
+		Core::Aptr\<%SNFactory::KeySet\> keys (new %SNFactory::KeySet (Singleton::instance()-\>m_factories_map.size ()));
+		
+		std::transform (
+			Singleton::instance()-\>m_factories_map.begin ()
+			, Singleton::instance()-\>m_factories_map.end ()
+			, std::back_inserter(*keys)
+			, boost::bind (&FactoryMap::value_type::first, _1)
+		);
+		
+		return keys.forget ();
+	}]
+
+%f _dump_interface_factory_keys_method
+	[{%XU=java}#public static java.util.Set\<%{INT}%f_dump_switch_type()\> keys () {
+	#	return %{INT}NFactoryManager.keys ();
+	#}][{%XU=h}%f_set_var(SWITCH,"")%S%f_find_switch("SWITCH")\
+	#typedef std::vector\<[{%{SWITCH}%TN!=string}{std::string}%f_type(%{SWITCH}%T)]\> KeySet;
+	#
+	#static KeySet* keys ();][{%XU=cpp}%SNFactory::KeySet* %SNFactory::keys () {
+		return %SNFactoryManager::keys ();
+	}]
+//#UC END# *470321C1038Afor47174CE200AB*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: AbstractInterface::Class::factory::Operation
+? Базовый стереотип фабрики
+= InterfaceGeneratorWithJava::MDAGenerator
+
+// Параметры стереотипа
+e g
+/ - возможность использовать исключения
+a a
+/ - тип абстракции
+T 
+/ - может не иметь "цели" (типа/результата)
+A
+/ - стереотипы "цели" (типа/результата)
+
+// Пользовательские свойства
+p dll export:b=true ? определяет что данный метод будет экспортироваться наружу компоненты
+
+// Генераторы
+// генератор реализации фабрик интерфейсов на java (.java)
++ fctr.java
+//#UC START# *470321C1038Afor497483770297*
+//#UC END# *470321C1038Afor497483770297*
+
+// генератор заголовочных файлов для фабрик интерфейсов (.h)
++ fctr.h
+//#UC START# *4705C5490109for497483770297*
+//#UC END# *4705C5490109for497483770297*
+
+// генератор файлов реализации для фабрик интерфейсов (.cpp)
++ fctr.cpp
+//#UC START# *4705C54B01F4for497483770297*
+//#UC END# *4705C54B01F4for497483770297*
+
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor497483770297*
+//#UC END# *47022C88029Ffor497483770297*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for497483770297*
+//#UC END# *470321950119for497483770297*
+
+// С++ TIE-обвязка для DLL (_tie.h)
++ dll.h
+//#UC START# *47032EC4032Cfor497483770297*
+//#UC END# *47032EC4032Cfor497483770297*
+
+// С++ TIE-обвязка для DLL (_tie.cpp)
++ dll.cpp
+//#UC START# *47032ED002DEfor497483770297*
+//#UC END# *47032ED002DEfor497483770297*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{dll export}"!="%S{!dll export}"}%f_up_prefix(%S) *dll export* = *%S{dll export}* - определяет что данный метод будет экспортироваться наружу компоненты
+	]
+
+// Генерит исключения в декларации фабричных методов менеджера фабрик
+%f _dump_exceptions
+//#UC START# *49AD28F50299for497483770297*
+	[{%f_realize_srv_interface(%S)=false|%S#f_is_exported()=false}{throw (CORBA::SystemException, CoreSrv::NoActiveFactory[{%f_need_conversion_exception(%S)=true}, Core::Root::ImpossibleConversion]%S<, %f_type(%E)>)}/*throw (Core::Root::NoActiveFactory[{%f_need_conversion_exception(%S)=true}, Core::Root::ImpossibleConversion]%S<, %f_type(%E)>)*/]
+//#UC END# *49AD28F50299for497483770297*
+
+// Формирует список исключений для статических клиентских фабрик
+%f _dump_exceptions_client_fctr
+//#UC START# *49AF75740088for497483770297*
+	[{"%1N"=""}%f_error("Не задан идентифкатор списка")]\
+	%f_clear_list(%1N)\
+	[{%S{transparent multy}=true}{[{%S{transparent multy}=false|"%S{transparent multy}"=""}%f_add_to_list(%1N,"Core::Root::UnknownFactoryKey")]}%f_add_to_list(%1N,"Core::Root::NoActiveFactory")]\
+	%f_add_to_list(%1N,"Core::Root::FactoryManagerWasDestroyed")\
+	[{%f_need_conversion_exception(%S)=true}%f_add_to_list(%1N,"Core::Root::ImpossibleConversion")]\
+	<%f_add_to_list(%1N,"%f_type(%E)")>
+//#UC END# *49AF75740088for497483770297*
+
+// Список исключений для методов менеджера фабрик
+%f _dump_exceptions_multi_fctr_mngr
+//#UC START# *49AE8F4C01ABfor497483770297*
+	[{"%1N"=""}%f_error("Не задан идентифкатор списка")]\
+	[{%f_realize_srv_interface(%S)=false|%S#f_is_exported()=false}{%f_add_to_list(%1N,"CORBA::SystemException")}]\
+	[{%S{transparent multy}=true}{[{%S{transparent multy}=false|"%S{transparent multy}"=""}%f_add_to_list(%1N,"Core::Root::UnknownFactoryKey")]}%f_add_to_list(%1N,"[{%f_realize_srv_interface(%S)=false|%S#f_is_exported()=false}{CoreSrv::NoActiveFactory}Core::Root::NoActiveFactory]")]\
+	[{%f_need_conversion_exception(%S)=true}%f_add_to_list(%1N,"Core::Root::ImpossibleConversion")]\
+	<%f_add_to_list(%1N,"%f_type(%E)")>
+//#UC END# *49AE8F4C01ABfor497483770297*
+
+// генерит объявление мульти фабрики на менеджере фабрик
+%f _dump_factory_manager_multi_factory_h
+//#UC START# *4A93BE2103BAfor497483770297*
+	[{%S{const_type}=combo}{%f_dump_factory_manager_multi_factory_h_impl(%S)}%f_dump_factory_manager_multi_factory_h_impl(%S,"read-write")
+	
+	#%f_dump_factory_manager_multi_factory_h_impl(%S,"read-only","_ro")]
+//#UC END# *4A93BE2103BAfor497483770297*
+
+// генерит объявление фабрики на менеджере фабрик
+%f _dump_factory_manager_single_factory_h
+//#UC START# *4A93BE6D030Afor497483770297*
+	[#%S%f_open_ifdef()
+	][{%S{const_type}=combo}{%f_dump_factory_manager_single_factory_h_impl(%S)}\
+	%f_dump_factory_manager_single_factory_h_impl(%S,"read-write")
+	
+	#%f_dump_factory_manager_single_factory_h_impl(%S,"read-only","_ro")][
+	#%S%f_close_ifdef()]
+//#UC END# *4A93BE6D030Afor497483770297*
+
+// Генерация фабрик
+%f _dump_fctr_cpp_factory_impl
+//#UC START# *498704DD033Cfor497483770297*
+	[{"%1N"!="servant"}[{"%{SERV}{Factory default impl}"!="true"}[%f_str_split(%SD,// )
+	]]%f_dump_fctr_header_cpp_i(%S,"%2N") {
+		[{"%{SERV}{Factory default impl}"="true"}{%f_set_var(CTOR,S)%{CTOR_P}[{true}%U[{%{SERV}U_%{CTOR}U_IMPL}
+		]]}[{"%{SERV}{singleton}"="false"}{return Core::IObject::_duplicate (%{SERV}N::Singleton::instance());}%f_var(%{SERV}) ret = new %{SERV}N (%S<{, }%CN>[{%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}[{%Cx=true}, ]%f_set_var(HAS_MEM_KEY,"1")mem_key]\
+	[{"%f_equal_ctor(%{SERV},%S)"="true"}[{"%S%Cx"="true"|%S%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}, ]%f_set_var(HAS_FCT_ID,"1")%f_dump_factories_id_parent(%{SERV})FactoriesID::%f_to_borland(%SN)()][{%f_is_ro_fctr_exists(%S)=true}[{%{HAS_MEM_KEY}N=1|%{HAS_FCT_ID}N=1|%S%Cx=true}, ]ro_mode]);
+		%{SERV}%f_activate_and_ret()]]
+	}]\
+	[{"%1N"="servant"}%t_ret(%{SERV},"%Ss") %{SERV}NServantFactory::%SN (%S%f_factory_params("%2N","","","servant")[{%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}[{%Cx=true}, ]%t_arg(%T,"inout") mem_key])[ /*throw (<{, }%f_type(%E)>)*/] {
+	[{%Ss!=cached&%Ss!=const,cached}	if (%{SERV}N_factory::s_instance) {
+			return dynamic_cast\<%t_ret(%{SERV})\>(\
+	[{%{INT}S=ServerInterface}LibHomeFactory::get().get_orb_facet().get_root_poa().reference_to_servant (]\
+	%{SERV}N_factory::s_instance-\>%SN (<{, }%CN>)[{%{INT}S=ServerInterface})]);
+		} else {
+			throw Core::Root::NoActiveFactory (%{SERV}["%P%PN::%PN::%SN_factory"]);
+		}
+	]\
+	[{%f_is_it_cached(%S)=true}	try {
+	[{%{INT}S=ServerInterface}{		return dynamic_cast\<%{SERV}N&\> (%f_type(%{INT})Factory::%SN (<{, }%CN>[{%SS=multi factory}[{%S%Cx=true}, ][{}{"%{SERV}N"}%{SERV}#f_key_impl()]]));}\
+			PortableServer::ServantBase_var serv = LibHomeFactory::get().get_orb_facet().get_root_poa().reference_to_servant (
+				&%f_type(%{INT})Factory::%SN (%S<{, }%CN>[{%SS=multi factory}[{%S%Cx=true}, ][{}{"%{SERV}N"}%{SERV}#f_key_impl()]])
+			);
+			return dynamic_cast\<%{SERV}N&\> (*(serv.in ()));]
+		} catch (std::bad_cast& ) {
+			throw Core::Root::NoActiveFactory (%{SERV}["%P%PN::%PN::%SN_factory"]);
+		}
+	]}]
+//#UC END# *498704DD033Cfor497483770297*
+
+// Генерит декларацию конкретных фабрик
+%f _dump_fctr_h_impl
+//#UC START# *49895C3202DFfor497483770297*
+	%f_set_var(HAS_MEM_KEY,"0")\
+	%f_set_var(SRV_FACTORY_OP,"[{"%1N"="servant"}{%t_ret(%{INT})}static %t_ret(%{__SERVANT},"%Ss")] %SN (%S%f_factory_params("%2N","","","servant")[{%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}[{%Cx=true}, ]%f_set_var(HAS_MEM_KEY,"1")%t_arg(%T,"inout") mem_key][{%f_is_ro_fctr_exists(%S)=true}[{%{HAS_MEM_KEY}N=1|%Cx=true}, ]bool ro_mode])[ /*throw (%S<{, }%f_type(%E)>)*/];")\
+	%f_set_var(OP_LEN,"%f_string_length("%{SRV_FACTORY_OP}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{SRV_FACTORY_OP}N}[{"%1N"="servant"}{%t_ret(%{INT})}static %t_ret(%{__SERVANT},"%Ss")] %SN (%S%f_factory_params("%2N","\n\t\t","","servant")[{%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}[{%Cx=true}\n\t\t, ]%t_arg(%T,"inout") mem_key][{%f_is_ro_fctr_exists(%S)=true}[{%{HAS_MEM_KEY}N=1|%Cx=true}\n\t\t, ]bool ro_mode]\n\t)[ /*throw (\n\t\t%S<{\n\t\t, }%f_type(%E)>\n\t)*/];]
+//#UC END# *49895C3202DFfor497483770297*
+
+// Генерит форматированный список исключений для клиентских мультифабрик
+%f _dump_formated_exception_client_list
+//#UC START# *49AF75D50218for497483770297*
+	[{"%1N"=""}%f_error("Не задан идентифкатор списка")]\
+	%f_copy_list(%1N,%1N_COPY)\
+	[{"%3N"="NEW_LINE"&"%XU"="h"}\n#	][{"%3N"!="NEW_LINE"} ]/*throw (<{%2N}{%f_is_empty(%1N_COPY)=false}{W}[%f_pop_first_to_var(%1N_COPY,EX)%{EX}N]>)*/
+//#UC END# *49AF75D50218for497483770297*
+
+// Генерит форматированный список исключений для реализации клиентских
+// фабрик
+%f _dump_formated_exception_client_list_cpp
+//#UC START# *49AFC60A02BEfor497483770297*
+	[{"%1N"=""}%f_error("Не задан идентифкатор списка")]\
+	%f_copy_list(%1N,%1N_COPY)\
+	 /*throw (<{%2N}{%f_is_empty(%1N_COPY)=false}{W}[%f_pop_first_to_var(%1N_COPY,EX)%{EX}N]>)*/
+//#UC END# *49AFC60A02BEfor497483770297*
+
+// Форматированный вывод списка исключений
+%f _dump_formated_exception_list
+//#UC START# *49AE8F900025for497483770297*
+	[{"%1N"=""}%f_error("Не задан идентифкатор списка")]\
+	%f_copy_list(%1N,%1N_COPY)\
+	<{%2N}{%f_is_empty(%1N_COPY)=false}{W}[%f_pop_first_to_var(%1N_COPY,EX)%{EX}N]>
+//#UC END# *49AE8F900025for497483770297*
+
+// генерит список праметров фабрики (при это если нужна, выполняется  конвертация спецификаторов
+// параметров)
+%f _factory_params
+//#UC START# *497963F4033Ffor497483770297*
+	%f_set_var(TYPE,"[{%S{force use const arg}=true&%S{const_type}=combo&%1N=read-only}{read-write}read-only]")\
+	[{"%4N"!="servant"}{%f_set_var(ARGS,"<{%2N, }{}{%C}%t_arg(%C%T,"%t_r_w_param_specificator("%CS","%{TYPE}N")") %t_language_style("%CN")>")}\
+	%f_set_var(ARGS,"<{%2N, }{%CS!=cache}{%C}%t_arg(%C%T,"%t_r_w_param_specificator("%CS","%{TYPE}N")") %t_language_style("%CN")>")]\
+	[{"%{ARGS}N"!=""}%2N%{ARGS}N%3N]
+
+//генерит атрибут для типа кэша
+%f _cache_attr
+	[{%f_check_if_type(%1%T,"string")=false&%f_check_if_type(%1%T,"a-string")=false}{std::string %1N}%f_arg_full_decl(%1)]
+//#UC END# *497963F4033Ffor497483770297*
+
+// Генерит реализацию конструктора для серванта
+%f _fctr_def_impl_cpp_ctor_impl
+//#UC START# *498AEC1101EEfor497483770297*
+	%f_set_var(CTOR,S)\
+	%f_fctr_def_impl_header_cpp_i(%S,"%1N")
+	%{SELF_OP}[{true}%U[{_%{CTOR}U_%{SELF}U_BASE_INIT[{%2N=read-only}_RO]}
+	]
+	{%f_start_func_cpp(%{SELF},"%{SELF}N::%{SELF}N")
+		%U[{_%{CTOR}U_%{SELF}U_BODY[{%2N=read-only}_RO]}
+		]
+	%f_end_func_cpp(%{SELF})}]
+//#UC END# *498AEC1101EEfor497483770297*
+
+// Генерит декларацию конструктора для серванта
+%f _fctr_def_impl_h_impl
+//#UC START# *498AACD601DAfor497483770297*
+	%f_set_var(HAS_MEM_KEY,"0")\
+	%f_set_var(HAS_FCT_ID,"0")\
+	%f_set_var(OPERATION_FACTORY,"%{SELF}N (%S%f_factory_params("%1N","","","servant")[{%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}[{%Cx=true}, ]%f_set_var(HAS_MEM_KEY,"1")%t_arg(%T,"inout") mem_key][{"%f_equal_ctor(%{SELF},%S)"="true"}[{"%S%Cx"="true"|%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}, ]%f_set_var(HAS_FCT_ID,"1")const %f_dump_factories_id_parent(%{SELF})FactoriesID::%f_to_borland(%SN)& factory_id][{%f_is_ro_fctr_exists(%S)=true}[{%{HAS_MEM_KEY}N=1|%{HAS_FCT_ID}N=1|%Cx=true}, ]bool ro_mode]);")\
+	%f_set_var(OP_LEN,"%f_string_length("%{OPERATION_FACTORY}N")")\
+	%f_set_var(NEED_WRAP,"%f_number_cmp("%{OP_LEN}N","120","\>")")\
+	[{%f_true(%{NEED_WRAP})=true&%Cx=true}{%{OPERATION_FACTORY}N}%{SELF}N (%S%f_factory_params("%1N","\n\t\t","","servant")[{%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}[{%Cx=true}, ]%t_arg(%T,"inout") mem_key][{"%f_equal_ctor(%{SELF},%S)"="true"}[{"%S%Cx"="true"|%TS=FactoryMemory&<{}{%CS!=nokey}{%CC}>=0}\n\t\t, ]const %f_dump_factories_id_parent(%{SELF})FactoriesID::%f_to_borland(%SN)& factory_id][{%f_is_ro_fctr_exists(%S)=true}[{%{HAS_MEM_KEY}N=1|%{HAS_FCT_ID}N=1|%Cx=true}, ]bool ro_mode]\n\t);]
+//#UC END# *498AACD601DAfor497483770297*
+
+// генерит определение менеджера фабрик для интерфейса
+%f _fctr_mng_fctr_cpp
+//#UC START# *4A950A3D028Efor497483770297*
+	[%S%f_open_ifdef()
+	][{%S{const_type}=combo}{%{INT}%f_fctr_mng_fctr_cpp_impl(%S,"%S{const_type}")}%{INT}%f_fctr_mng_fctr_cpp_impl(%S,"read-write")
+	
+	%{INT}%f_fctr_mng_fctr_cpp_impl(%S,"read-only","_ro")][
+	%S%f_close_ifdef()]
+//#UC END# *4A950A3D028Efor497483770297*
+
+// генерит релизацию мульти фабрики на менеджере фабрик
+%f _fctr_mng_m_fctr_cpp
+//#UC START# *4A950A8402CBfor497483770297*
+	[{%S{const_type}=combo}{%{INT}%f_fctr_mng_m_fctr_cpp_impl(%S,"%S{const_type}")}%{INT}%f_fctr_mng_m_fctr_cpp_impl(%S,"read-write")
+	
+	%{INT}%f_fctr_mng_m_fctr_cpp_impl(%S,"read-only","_ro")]
+//#UC END# *4A950A8402CBfor497483770297*
+
+// возвращает true, если RW и RO фабрики имеют различные синатуры
+%f _has_two_different_signatures
+//#UC START# *4979643901D3for497483770297*
+	[{%S{force use const arg}=true&%S{const_type}=combo&<{}{}{%C}%t_arg(%C%T,"%t_r_w_param_specificator("%CS","read-write")")>!=<{}{}{%C}%t_arg(%C%T,"%t_r_w_param_specificator("%CS","read-only")")>}{false}true]
+//#UC END# *4979643901D3for497483770297*
+
+// возвращает true, если фабрика кэшированная (в том числе если это синхро-фабрика), иначе - false
+%f _is_cached
+//#UC START# *4A93E7EC0223for497483770297*
+	[{%Ss=cached|%Ss=const,cached|%Ss=synchro}{false}true]
+//#UC END# *4A93E7EC0223for497483770297*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for497483770297*
+c                                                             {}
+r {%S%f_is_cached(%S)=false&<{}{%CS=cache}{%CC}>!=0}:         {Стереотип "cache" может использоваться только для параметров кэшированной фабрики}
+r {""=""}:                                                    {}
+//#UC END# *4704C0E30186for497483770297*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor497483770297*
+	mng
+//#UC END# *4705CBD6003Efor497483770297*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

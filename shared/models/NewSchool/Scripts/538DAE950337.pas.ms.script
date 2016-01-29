@@ -1,0 +1,101 @@
+// Core 538DAE950337 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_538DAE950337
+
+: ME_538DAED40203
+ CONST UID '538DAED40203'
+ CONST Name 'TIdIOHandler'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_538DAE950337 // Core
+ ;
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\Indy\Source\Core\NOT_FINISHED_IdIOHandler.pas'
+
+ref; // ME_538DAED40203 TIdIOHandler
+
+: ME_544A218703D0
+ CONST UID '544A218703D0'
+ CONST Name 'TidTCPClient'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_538DAE950337 // Core
+ ;
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\Indy\Source\Core\NOT_FINISHED_idTCPClient.pas'
+
+ref; // ME_544A218703D0 TidTCPClient
+
+: ME_5405C40303D9
+ CONST UID '5405C40303D9'
+ CONST Name 'IdAssignedNumbers'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_538DAE950337 // Core
+ ;
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\Indy\Source\Core\NOT_FINISHED_IdAssignedNumbers.pas'
+
+ref; // ME_5405C40303D9 IdAssignedNumbers
+
+: ME_538DAE950337
+ CONST UID '538DAE950337'
+ CONST Name 'Core'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_537F460C034E' '537F460C034E.pas.ms.script' // Indy
+ ;
+ : Children
+   @ ( ME_538DAED40203 // TIdIOHandler
+ ME_544A218703D0 // TidTCPClient
+ ME_5405C40303D9 // IdAssignedNumbers
+ ) .SequenceCode.It
+ ; // Children
+ CONST "path prefix" '/Source/Core'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\538DAE950337.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\538DAE950337.pas.ms.script.runner'
+
+ref; // ME_538DAE950337 Core

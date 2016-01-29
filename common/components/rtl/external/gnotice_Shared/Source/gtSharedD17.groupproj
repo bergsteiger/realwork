@@ -1,0 +1,84 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{FA79E9E7-AEAB-47A0-BABE-7E80F8BB204F}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Rtl\gtRtlD17.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="PDFFontProcessor\gtFontD17.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="PDFCrypt\gtCryptD17.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Filters\gtFiltersD17.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Compression\gtCompressionD17.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="gtRtlD17">
+        <MSBuild Projects="Rtl\gtRtlD17.dproj"/>
+    </Target>
+    <Target Name="gtRtlD17:Clean">
+        <MSBuild Projects="Rtl\gtRtlD17.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="gtRtlD17:Make">
+        <MSBuild Projects="Rtl\gtRtlD17.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="gtFontD17">
+        <MSBuild Projects="PDFFontProcessor\gtFontD17.dproj"/>
+    </Target>
+    <Target Name="gtFontD17:Clean">
+        <MSBuild Projects="PDFFontProcessor\gtFontD17.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="gtFontD17:Make">
+        <MSBuild Projects="PDFFontProcessor\gtFontD17.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="gtCryptD17">
+        <MSBuild Projects="PDFCrypt\gtCryptD17.dproj"/>
+    </Target>
+    <Target Name="gtCryptD17:Clean">
+        <MSBuild Projects="PDFCrypt\gtCryptD17.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="gtCryptD17:Make">
+        <MSBuild Projects="PDFCrypt\gtCryptD17.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="gtFiltersD17">
+        <MSBuild Projects="Filters\gtFiltersD17.dproj"/>
+    </Target>
+    <Target Name="gtFiltersD17:Clean">
+        <MSBuild Projects="Filters\gtFiltersD17.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="gtFiltersD17:Make">
+        <MSBuild Projects="Filters\gtFiltersD17.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="gtCompressionD17">
+        <MSBuild Projects="Compression\gtCompressionD17.dproj"/>
+    </Target>
+    <Target Name="gtCompressionD17:Clean">
+        <MSBuild Projects="Compression\gtCompressionD17.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="gtCompressionD17:Make">
+        <MSBuild Projects="Compression\gtCompressionD17.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="gtRtlD17;gtFontD17;gtCryptD17;gtFiltersD17;gtCompressionD17"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="gtRtlD17:Clean;gtFontD17:Clean;gtCryptD17:Clean;gtFiltersD17:Clean;gtCompressionD17:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="gtRtlD17:Make;gtFontD17:Make;gtCryptD17:Make;gtFiltersD17:Make;gtCompressionD17:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

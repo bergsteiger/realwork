@@ -1,0 +1,84 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/garant6x/implementation/Garant/project/NemesisChatImplementation.mpc"
+// дополнительные файлы проектов (mpc)
+// Generated from UML model, root element: <<ServerLibrary::Category>> garant6x::NemesisChatImplementation
+//
+// реализация чата для немезис
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (NemesisChatImplementation) : project_generic_core_corba {
+	staticname = NemesisChatImplementation
+
+	includes += ../../../../
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	after += NemesisChatImplementation_cs
+	libs  += NemesisChatImplementation_cs
+
+	after += ChatLibrary_cs
+	libs  += ChatLibrary_cs
+
+	after += IdlCompilationSet
+	libs  += IdlCompilationSet
+
+	Header_Files {
+		Std_Headers {
+			./../NemesisChatImplementation/ServerLibHome.h
+		}
+	
+		ChatImplementation {
+			./../NemesisChatImplementation/impl/ChatImplementation/ChatImplementation.h
+			./../NemesisChatImplementation/impl/ChatImplementation/ChatImplementationFactories.h
+			./../NemesisChatImplementation/impl/ChatImplementation/ChatManager_i.h
+			./../NemesisChatImplementation/impl/ChatImplementation/ChatManager_i_factory.h
+			./../NemesisChatImplementation/impl/ChatImplementation/MessageManager_i.h
+			./../NemesisChatImplementation/impl/ChatImplementation/MessageManager_i_factory.h
+			./../NemesisChatImplementation/impl/ChatImplementation/ORBFacet_i.h
+			./../NemesisChatImplementation/impl/ChatImplementation/Session_i.h
+			./../NemesisChatImplementation/impl/ChatImplementation/Session_i_factory.h
+			./../NemesisChatImplementation/impl/ChatImplementation/Storage.h
+			./../NemesisChatImplementation/impl/ChatImplementation/StorageStreamOperators.h
+			./../NemesisChatImplementation/impl/ChatImplementation/UserHelper.h
+			./../NemesisChatImplementation/impl/ChatImplementation/UsersListManager_i.h
+			./../NemesisChatImplementation/impl/ChatImplementation/UsersListManager_i_factory.h
+			./../NemesisChatImplementation/impl/ChatImplementation/indexes.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		ChatImplementation {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../NemesisChatImplementation/ServerLibHome.cpp
+		}
+	
+		ChatImplementation {
+			./../NemesisChatImplementation/impl/ChatImplementation/ChatImplementation.cpp
+			./../NemesisChatImplementation/impl/ChatImplementation/ChatImplementationFactories.cpp
+			./../NemesisChatImplementation/impl/ChatImplementation/ChatManager_i.cpp
+			./../NemesisChatImplementation/impl/ChatImplementation/ChatManager_i_factory.cpp
+			./../NemesisChatImplementation/impl/ChatImplementation/MessageManager_i.cpp
+			./../NemesisChatImplementation/impl/ChatImplementation/MessageManager_i_factory.cpp
+			./../NemesisChatImplementation/impl/ChatImplementation/ORBFacet_i.cpp
+			./../NemesisChatImplementation/impl/ChatImplementation/Session_i.cpp
+			./../NemesisChatImplementation/impl/ChatImplementation/Session_i_factory.cpp
+			./../NemesisChatImplementation/impl/ChatImplementation/Storage.cpp
+			./../NemesisChatImplementation/impl/ChatImplementation/UserHelper.cpp
+			./../NemesisChatImplementation/impl/ChatImplementation/UsersListManager_i.cpp
+			./../NemesisChatImplementation/impl/ChatImplementation/UsersListManager_i_factory.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

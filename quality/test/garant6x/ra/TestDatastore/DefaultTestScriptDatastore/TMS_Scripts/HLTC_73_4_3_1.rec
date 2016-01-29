@@ -1,0 +1,38 @@
+'$include "States.sbl"
+'*** Проверка тесткейса № 73.4.3.1 ***
+
+'Начальное состояние:
+'Список полученный по первой ветке классификатора
+'Преавй элемент списка выделен
+
+Sub Main
+    Dim Result As Integer
+    
+    Call NeedState (ST_FIRST_BRANCH)
+    CUR_STATE = ST_NONE_STANDART
+  
+'Кликаем на 4-ый элемент свернутого списка: № 25-ФЗ
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  ListBox DblClick, "ObjectIndex=5", "Coords=116,201"
+  DelayFor(2000) 'Ждем загрузки документа
+  
+'Срвниваем 1-ин экрн
+  RichEdit DblClick, "ObjectIndex=1", "Coords=10,10"
+  InputKeys "^+{Right}"
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=FZ1_25")
+  
+'Возвращаемся в список и делаем клик, но уже по выделенному элементу
+  Toolbar Click, "Text=История", "Coords=11,8"
+  DelayFor(2000) 'Ждем загрузки списка
+  ListBox DblClick, "ObjectIndex=5", "Coords=90,200"
+  DelayFor(3000) 'Ждем загрузки документа
+  RichEdit DblClick, "ObjectIndex=1", "Coords=10,10"
+  InputKeys "^+{Right}"
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=FZ2_25")
+  
+'Возвращаемся в список и выставляем состояние
+  Toolbar Click, "Text=История", "Coords=11,8"
+  DelayFor (2000) 'Ждем загрузки списка
+  InputKeys "{Home}"
+  CUR_STATE = ST_FIRST_BRANCH
+End Sub

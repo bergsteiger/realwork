@@ -1,0 +1,116 @@
+// TeeEditor 495268900201 GuiControl Class
+
+FORWARD ME_495268900201
+
+INCLUDE '4952693000EA.pas.ms.script'
+
+INCLUDE '478CF30500C1.pas.ms.script'
+
+FORWARD ME_4952687202A0
+
+INCLUDE '4912DD020283.pas.ms.script'
+
+: ME_54C231250045
+ CONST UID '54C231250045'
+ CONST Name 'Editor'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_4A8C09B70219 // IeeEditor
+ ;
+ CONST "pm" true
+
+ @SELF
+; // ME_54C231250045 Editor
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_F3978E67AB0C
+ CONST UID 'F3978E67AB0C'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TeeCustomEditor' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_F3978E67AB0C Ini_Reg_Class
+
+: ME_4952687202A0
+ CONST UID '4952687202A0'
+ CONST Name 'TeeCustomEditor'
+ CONST Class 'Class'
+ CONST Stereotype 'GuiControl'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4952693000EA // TeeEditorExport
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_54C231250045 // Editor
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_F3978E67AB0C // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_47D1602000C6 // Create
+ ]
+ ; // Overridden
+ CONST "base wnd class" 'CWnd'
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4952687202A0 TeeCustomEditor
+
+: ME_70607F6F6EFA
+ CONST UID '70607F6F6EFA'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TeeEditor' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_70607F6F6EFA Ini_Reg_Class
+
+: ME_495268900201
+ CONST UID '495268900201'
+ CONST Name 'TeeEditor'
+ CONST Class 'Class'
+ CONST Stereotype 'GuiControl'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4952687202A0 // TeeCustomEditor
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_70607F6F6EFA // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Children
+   [ ME_4952687202A0 // TeeCustomEditor
+ ]
+ ; // Children
+ CONST "base wnd class" 'CWnd'
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_495268900201 TeeEditor

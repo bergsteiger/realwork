@@ -1,0 +1,73 @@
+// Impl 4CA1D154012C Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CA1D154012C
+
+FORWARD ME_4CA1D1660385
+
+: ME_4CA1D17B0245
+ CONST UID '4CA1D17B0245'
+ CONST Name 'TServerGate_Contents_KPage'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4CA1D1660385 // Contents
+ ;
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_4CA1D17B0245 TServerGate_Contents_KPage
+
+: ME_4CA1D1660385
+ CONST UID '4CA1D1660385'
+ CONST Name 'Contents'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4CA1D154012C // Impl
+ ;
+ : Children
+   @ ( ME_4CA1D17B0245 // TServerGate_Contents_KPage
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\ServerGate\NOT_FINISHED_Contents.pas'
+
+ref; // ME_4CA1D1660385 Contents
+
+: ME_4CA1D154012C
+ CONST UID '4CA1D154012C'
+ CONST Name 'Impl'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4CA1BFBC0259' '4CA1BFBC0259.pas.ms.script' // ServerGate
+ ;
+ : Children
+   @ ( ME_4CA1D1660385 // Contents
+ ) .SequenceCode.It
+ ; // Children
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4CA1D154012C.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4CA1D154012C.pas.ms.script.runner'
+
+ref; // ME_4CA1D154012C Impl

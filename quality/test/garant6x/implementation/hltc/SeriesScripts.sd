@@ -1,0 +1,175 @@
+uses common, FileWork, exceptions, requisitepro, commonEventHandlers, settingsWork, RunPrograms;
+
+
+const
+  IS_NOT_ERROR_SERIES = 'Последовательность скриптов не приводит к ошибке';
+  IS_ERROR_SERIES = 'Последовательность скриптов приводит к ошибке';
+  UNEXPECTED_SERIES = 'Последовательность скриптов приводит неожидаемому результату'; 
+{
+DESK: Проверяется: не висит ли оболочка и небыло ли каких-либо окон с ошибками
+ }
+function F1ShellIsLiving : boolean;
+begin
+try
+  result := true;
+except
+
+end;
+end;
+
+
+{
+DESK: Воспроизводится переданная последовательность скриптов, и сообщается, 
+привела ли данная последовательность к ошибке либо нет
+RESULT:
+  IS_NOT_ERROR_SERIES - После выполнения последнего скрипта из заданной последовательности ошибка НЕ повторилась
+  IS_ERROR_SERIES - После выполнения последнего скрипта из заданной последовательности ошибка повторилась  
+  UNEXPECTED_SERIES - Ошибка возника в момент выполнения какого диба из скриптов последовательности, но не последнего
+}
+function ResultSeriesScriptsIsError(
+  seriesScripts : OleVariant //Массив
+): OleVariant;
+var
+  str , unitName:string;
+  i;
+  cur;
+begin
+try  
+  for i := VarArrayLowBound(seriesScripts, 1) to VarArrayHighBound(seriesScripts, 1) do
+  begin
+    //Выставляем нужную конфигурацию                   
+    str := GetSubStr(seriesScripts[i], '', '_Execute');
+    unitName := GetSubStr(str, '', '_');      
+    str := GetConfigurationByName(str);
+    if str = RQ_SHELLCONF_LIGHT then str := CONFIGURATION_LIGHT;
+    Log.AppendFolder('Переключаемся на конфигурацию: ' + str, '', 300, GetLogAttr('YELLOW'));      
+    if NOT SelectConfiguration(str) then Raise('Перед запуском скрипта Не удалось переключить конфигурацию');
+    Log.PopLogFolder();
+    Log.AppendFolder('На ' + IntToStr(i) + '-й(ой) подИтерации выполняется скрипт: ' + seriesScripts[i]); 
+    ErrorUnexpectedWindow('RESET');//Сьрасываем флаг, для дальнейшей проверки UnexpectedWindow
+    Runner.CallMethod(unitName + '.' + seriesScripts[i], cur);
+   //Если не Последний скрипт, тогда проверяем, что оболочка живая и что нет unexceptedWindows, иначе наоборот
+   if  i <> VarArrayHighBound(seriesScripts, 1) then
+   begin   
+    //Проверяем, что оболочка живая(ошибки нет), если нет - то жерня какая то (ошибка вызвалась ещё до последнего скрипта)
+    if NOT (F1ShellIsLiving AND NOT ErrorUnexpectedWindow('GET FLAG'))then 
+    begin
+      result := UNEXPECTED_SERIES;
+      Raise('ОШИБКА при запуске последовательности скриптов обнаружилась ЕЩЁ ДАЖЕ Не на последнем скрипте, а на скрипте: ' + seriesScripts[i]);
+    end;;  
+    end
+    else
+    begin
+    {Проверяем, что оболочка дохлая(либо Av, Corba и т.д.), если да то текущий скрипт обязателен для повторения,
+     иначе исключаем скрипт из последовательности}
+     if (F1ShellIsLiving AND NOT ErrorUnexpectedWindow('GET FLAG')) then 
+      result := IS_NOT_ERROR_SERIES //если ошибка не повторилась
+     else 
+      result := IS_ERROR_SERIES;//если ошибка повторилась         
+    end;      
+    Log.PopLogFolder();
+  end;//for  
+except
+  Log.Message('ResultSeriesScriptsIsError: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  result := UNEXPECTED_SERIES;
+  Raise;
+end;
+end;
+
+{
+DESK: Функция минимизирует последовательность скриптов, приводящих к ошибке, отбрасывая лишние скрипты
+RESULT: Возвращает строку с необходимой(минимизированной) последовательностью скриптов
+}
+function AnalizSeriesScripts(
+  seriesScripts : OleVariant
+): OleVariant;
+var
+  i : integer;
+  tempSeries : OleVatiant;
+  count : integer;
+  login, pass;
+  res;
+  logMsg;
+  logColor;
+begin
+try
+  result := seriesScripts;
+  tempSeries := result;
+  count := 3;
+  login := 'Rykov';
+  pass := login;
+  Log.AppendFolder('В Начале работы перегружаем оболочки\сервера');    
+  if NOT RestartF1Shell(count, Options.Run.TimeOut div 6, login, pass) then  
+    Raise('Не удалось перезагрузить оболочку');
+  Log.PopLogFolder();     
+  i := VarArrayLowBound(result, 1);  
+  while i < VarArrayHighBound(result, 1) do
+  begin
+    Log.AppendFolder('На ' + IntToStr(i) + '-ой итерации обрабатывается последовательность скриптов, с исключением скрипта: ' + tempSeries[i]);
+    DeleteElementFromArray(tempSeries, i);
+    res := ResultSeriesScriptsIsError( tempSeries ); 
+    case res of
+      IS_ERROR_SERIES :
+      begin
+        DeleteElementFromArray(result, i);
+        logMsg := 'В результате анализа данной последовательности скриптов выявлено, что общая ошибка повторяется И БЕЗ текущего скрипта, соответственно считаем его лишним';
+        logColor := 'BLUE';
+      end;
+      IS_NOT_ERROR_SERIES :
+      begin
+        inc(i);
+        logMsg := 'В результате анализа данной последовательности скриптов выявлено, что текущий скрипт необходим для воспроизведения общей ошибки';
+        logColor := 'WHITE';
+      end;
+      UNEXPECTED_SERIES :
+      begin
+        Raise('Произошла непредвиденная ошибка в момент выполнения скрипта');
+        logMsg('В результате анализа данной последовательности скриптов вылезло Исключение, значит какая то херь, надо разбираться');
+        logColor := 'EXCEPTION';
+      end;             
+    end;
+    count := 3;
+    Log.AppendFolder('Выполняем перезапуск оболочки\сервера');
+    login := login + '1';//Для того, что бы каждую последовательность скриптов запускать под новым юзером     
+    if NOT RestartF1Shell(count, Options.Run.TimeOut div 6, login, pass) then  
+      Raise('Не удалось перезагрузить оболочку');
+    Log.PopLogFolder();  
+    tempSeries := result;
+    Log.Message(logMsg, '', 300, GetLogAttr(logColor));
+    Log.PopLogFolder();   
+  end;//while
+except
+  Log.Message('AnalizSeriesScripts: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  result := UNEXPECTED_SERIES;
+  Raise
+end;
+end;
+
+
+procedure HLTC147_test;
+var
+  res;
+  i;
+begin
+  res := AnalizSeriesScripts([
+    'HLTC76_1_1_1_Execute',
+    'HLTC76_1_1_1_Execute',
+    'HLTC73_19_8_5_Execute',    
+    'HLTC74_8_1_2_Execute', 
+    'HLTC147_15_10_1_Execute', 
+    'HLTC199_3_7_Execute', 
+    'HLTC73_19_3_Execute', 
+    'HLTC73_15_1_7_Execute', 
+    'HLTC76_5_2_5_Execute', 
+    'HLTC76_4_6_Execute'
+    
+    {'HLTC76_1_1_1_Execute',
+    'HLTC76_1_1_2_Execute',
+    'HLTC147_1_8_Execute'}
+  ]);
+  for i := VarArrayLowBound(res, 1) to VarArrayHighBound(res, 1) do Log.Message(res[i]);
+  
+  
+  
+end;
+  

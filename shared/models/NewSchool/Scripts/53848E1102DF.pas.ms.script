@@ -1,0 +1,78 @@
+// TddTaskRecord 53848E1102DF SimpleClass Class
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+FORWARD ME_53848E1102DF
+
+INCLUDE '532046D302C2.pas.ms.script'
+
+: ME_53848EB50145
+ CONST UID '53848EB50145'
+ CONST Name 'TaskType'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_532047140237 // TcsTaskType
+ ;
+
+ @SELF
+; // ME_53848EB50145 TaskType
+
+INCLUDE '52FA49C7022C.pas.ms.script'
+
+: ME_53848EED02F5
+ CONST UID '53848EED02F5'
+ CONST Name 'TaskClass'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_53170EB30071 // TddTaskClass
+ ;
+
+ @SELF
+; // ME_53848EED02F5 TaskClass
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_53848EFC0066
+ CONST UID '53848EFC0066'
+ CONST Name 'Description'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_53848EFC0066 Description
+
+: ME_53848E1102DF
+ CONST UID '53848E1102DF'
+ CONST Name 'TddTaskRecord'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_53848EB50145 // TaskType
+ ME_53848EED02F5 // TaskClass
+ ME_53848EFC0066 // Description
+ ]
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_53848E1102DF TddTaskRecord

@@ -1,0 +1,176 @@
+// TncsTaskSendExecutorFactory 5481B39101AF SimpleClass Class
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '5460A4DB018A.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+FORWARD ME_5481B39101AF
+
+INCLUDE '52F8C2AE0042.pas.ms.script'
+
+: ME_54B79E2D03D7
+ CONST UID '54B79E2D03D7'
+ CONST Name 'f_Task'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_52F8C2BF0110 // TddProcessTask
+ ;
+
+ @SELF
+; // ME_54B79E2D03D7 f_Task
+
+FORWARD ME_54B79D23037B
+
+: ME_54B79E0701C3
+ CONST UID '54B79E0701C3'
+ CONST Name 'aTask'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_52F8C2BF0110 // TddProcessTask
+ ;
+
+ @SELF
+; // ME_54B79E0701C3 aTask
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_54B79DEA022F
+ CONST UID '54B79DEA022F'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_54B79E0701C3 // aTask
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_54B79DEA022F DoIt
+
+: ME_54B79D23037B
+ CONST UID '54B79D23037B'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_54B79DEA022F // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54B79D23037B Create
+
+FORWARD ME_54B79D4703CE
+
+: ME_F994F1A8C71C
+ CONST UID 'F994F1A8C71C'
+ CONST Name 'aTask'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_52F8C2BF0110 // TddProcessTask
+ ;
+
+ @SELF
+; // ME_F994F1A8C71C aTask
+
+: ME_E50AED10687F
+ CONST UID 'E50AED10687F'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура фабрики TncsTaskSendExecutorFactory.Make' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_5460829B0384 // IncsMessageExecutorFactory
+ ;
+ : Parameters
+   [ ME_F994F1A8C71C // aTask
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_E50AED10687F DoIt
+
+: ME_54B79D4703CE
+ CONST UID '54B79D4703CE'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'Factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_54B79D23037B // Create
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_5460829B0384 // IncsMessageExecutorFactory
+ ]
+ ; // Implements
+ : Operations
+   [ ME_E50AED10687F // DoIt
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_546082B801F3 // MakeExecutor
+ ]
+ ; // Implemented
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_54B79D4703CE Make
+
+: ME_5481B39101AF
+ CONST UID '5481B39101AF'
+ CONST Name 'TncsTaskSendExecutorFactory'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_5460829B0384 // IncsMessageExecutorFactory
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_54B79E2D03D7 // f_Task
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_54B79D23037B // Create
+ ME_54B79D4703CE // Make
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_546082B801F3 // MakeExecutor
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_5481B39101AF TncsTaskSendExecutorFactory

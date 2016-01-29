@@ -1,0 +1,97 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/BuildTestLib_cs.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<ServerLibrary::Category>> MDProcess::BuildTestLib
+//
+// библиотека реализующая логику сервера запуска тестов ночных сборок
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (BuildTestLib_cs) : project_generic_core_corba, project_compile_idl {
+	staticname = BuildTestLib_cs
+
+	includes += ../../
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	after += GCL
+	libs  += GCL
+
+	after += ServerGate_cs
+	libs  += ServerGate_cs
+
+	after += boost_filesystem boost_system
+	libs  += boost_filesystem boost_system
+
+	IDL_Files (TestPublish) {
+		idlflags += -o ./../BuildTestLib/TestPublish
+		./../BuildTestLib/TestPublish/TestPublish.idl
+	}
+
+	IDL_Files (TestResults) {
+		idlflags += -o ./../BuildTestLib/TestResults
+		./../BuildTestLib/TestResults/TestResults.idl
+	}
+
+	Header_Files {
+		Std_Headers {
+			./../BuildTestLib/LibHome.h
+		}
+	
+		TestPublish {
+			./../BuildTestLib/TestPublish/TestPublish.h
+			./../BuildTestLib/TestPublish/TestPublishC.h
+			./../BuildTestLib/TestPublish/TestPublishS.h
+			./../BuildTestLib/TestPublish/TestPublishFactories.h
+		}
+	
+		TestResults {
+			./../BuildTestLib/TestResults/TestResults.h
+			./../BuildTestLib/TestResults/TestResultsC.h
+			./../BuildTestLib/TestResults/TestResultsS.h
+			./../BuildTestLib/TestResults/TestResultsFactories.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		TestPublish {
+			
+			./../BuildTestLib/TestPublish/TestPublishC.inl
+			./../BuildTestLib/TestPublish/TestPublishS.inl
+		}
+	
+		TestResults {
+			
+			./../BuildTestLib/TestResults/TestResultsC.inl
+			./../BuildTestLib/TestResults/TestResultsS.inl
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../BuildTestLib/LibHome.cpp
+		}
+	
+		TestPublish {
+			./../BuildTestLib/TestPublish/TestPublish.cpp
+			./../BuildTestLib/TestPublish/TestPublishC.cpp
+			./../BuildTestLib/TestPublish/TestPublishS.cpp
+			./../BuildTestLib/TestPublish/TestPublishFactories.cpp
+		}
+	
+		TestResults {
+			./../BuildTestLib/TestResults/TestResults.cpp
+			./../BuildTestLib/TestResults/TestResultsC.cpp
+			./../BuildTestLib/TestResults/TestResultsS.cpp
+			./../BuildTestLib/TestResults/TestResultsFactories.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

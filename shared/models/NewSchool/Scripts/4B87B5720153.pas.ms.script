@@ -1,0 +1,951 @@
+// SubPanel 4B87B5720153 Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B87B5720153
+
+FORWARD ME_4B87DC6C02F7
+
+: ME_4B87DCDD00DF
+ CONST UID '4B87DCDD00DF'
+ CONST Name 'R'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4B87DC6C02F7 // TevSubPanelSub
+ ;
+ : Target WL 'ME_4728974E009E' '472745450206.pas.ms.script' // Tl3Rect
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4B87DCDD00DF R
+
+: ME_4B87DCEA02C7
+ CONST UID '4B87DCEA02C7'
+ CONST Name 'DrawRect'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4B87DC6C02F7 // TevSubPanelSub
+ ;
+ : Target WL 'ME_4728974E009E' '472745450206.pas.ms.script' // Tl3Rect
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4B87DCEA02C7 DrawRect
+
+: ME_4B87DD4A03D5
+ CONST UID '4B87DD4A03D5'
+ CONST Name 'RealSub'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4B87DC6C02F7 // TevSubPanelSub
+ ;
+ : Target WL 'ME_47C6B03200AF' '47C5207602D1.pas.ms.script' // IevSub
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4B87DD4A03D5 RealSub
+
+: ME_4B87E3ED0100
+ CONST UID '4B87E3ED0100'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4B87DC6C02F7 // TevSubPanelSub
+ ;
+ : Target WL 'ME_476F9C3C02F4' '4678193C009C.pas.ms.script' // Tl3Handle
+ ;
+ CONST "needs field" false
+ CONST "pm" true
+
+ref; // ME_4B87E3ED0100 Handle
+
+: ME_32235DD40F14
+ CONST UID '32235DD40F14'
+ CONST Name 'f_R'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства R' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4B87DC6C02F7 // TevSubPanelSub
+ ;
+ : Target WL 'ME_4728974E009E' '472745450206.pas.ms.script' // Tl3Rect
+ ;
+
+ref; // ME_32235DD40F14 f_R
+
+: ME_15613E9F57D3
+ CONST UID '15613E9F57D3'
+ CONST Name 'f_DrawRect'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства DrawRect' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4B87DC6C02F7 // TevSubPanelSub
+ ;
+ : Target WL 'ME_4728974E009E' '472745450206.pas.ms.script' // Tl3Rect
+ ;
+
+ref; // ME_15613E9F57D3 f_DrawRect
+
+: ME_1894B5EFCA7E
+ CONST UID '1894B5EFCA7E'
+ CONST Name 'f_RealSub'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства RealSub' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4B87DC6C02F7 // TevSubPanelSub
+ ;
+ : Target WL 'ME_47C6B03200AF' '47C5207602D1.pas.ms.script' // IevSub
+ ;
+
+ref; // ME_1894B5EFCA7E f_RealSub
+
+FORWARD ME_4B87DD060037
+
+: ME_4B87DD17000D
+ CONST UID '4B87DD17000D'
+ CONST Name 'aRealSub'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C6B03200AF' '47C5207602D1.pas.ms.script' // IevSub
+ ;
+
+ref; // ME_4B87DD17000D aRealSub
+
+: ME_4B87DD110393
+ CONST UID '4B87DD110393'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4B87DD060037 // Create
+ ;
+ : Parameters
+   @ ( ME_4B87DD17000D // aRealSub
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4B87DD110393 DoIt
+
+: ME_4B87DD060037
+ CONST UID '4B87DD060037'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B87DC6C02F7 // TevSubPanelSub
+ ;
+ : Operations
+   @ ( ME_4B87DD110393 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4B87DD060037 Create
+
+: ME_479731C50290_ME_4B87DC6C02F7
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4B87DC6C02F7 // TevSubPanelSub
+ ;
+ref; // ME_479731C50290_ME_4B87DC6C02F7 Cleanup
+
+: ME_5000565C019C_ME_4B87DC6C02F7
+ CONST UID '5000565C019C'
+ CONST Name 'ClearFields'
+ : Original WL 'ME_5000565C019C' '47913B47006E.pas.ms.script' // ClearFields
+ ;
+ : Implementor ME_4B87DC6C02F7 // TevSubPanelSub
+ ;
+ref; // ME_5000565C019C_ME_4B87DC6C02F7 ClearFields
+
+: ME_4B87DC6C02F7
+ CONST UID '4B87DC6C02F7'
+ CONST Name 'TevSubPanelSub'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4B87B5720153 // SubPanel
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4B87DCDD00DF // R
+ ME_4B87DCEA02C7 // DrawRect
+ ME_4B87DD4A03D5 // RealSub
+ ME_4B87E3ED0100 // Handle
+ ME_32235DD40F14 // f_R
+ ME_15613E9F57D3 // f_DrawRect
+ ME_1894B5EFCA7E // f_RealSub
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4B87DD060037 // Create
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_479731C50290_ME_4B87DC6C02F7 // Cleanup
+ ME_5000565C019C_ME_4B87DC6C02F7 // ClearFields
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '26.02.2010 17:36'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evSubPanelSub.pas'
+
+ref; // ME_4B87DC6C02F7 TevSubPanelSub
+
+FORWARD ME_4B87B62502C5
+
+: ME_4B87FFA70163
+ CONST UID '4B87FFA70163'
+ CONST Name 'l3Items_FreeItem_NeedsList'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B87B62502C5 // TevSubPanelSubArrayPrim
+ ;
+
+ref; // ME_4B87FFA70163 l3Items_FreeItem_NeedsList
+
+: ME_4B87B9AA032B
+ CONST UID '4B87B9AA032B'
+ CONST Name 'Owner'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4B87B62502C5 // TevSubPanelSubArrayPrim
+ ;
+ : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_4B87B9AA032B Owner
+
+: ME_4B87C962021E
+ CONST UID '4B87C962021E'
+ CONST Name 'Handle'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4B87B62502C5 // TevSubPanelSubArrayPrim
+ ;
+ : Target WL 'ME_476F9C3C02F4' '4678193C009C.pas.ms.script' // Tl3Handle
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_4B87C962021E Handle
+
+: ME_4B87DE150188
+ CONST UID '4B87DE150188'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4B87B62502C5 // TevSubPanelSubArrayPrim
+ ;
+ : Target ME_4B87DC6C02F7 // TevSubPanelSub
+ ;
+
+ref; // ME_4B87DE150188 ItemType
+
+: ME_FCB9C47B4647
+ CONST UID 'FCB9C47B4647'
+ CONST Name 'f_Owner'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Owner' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4B87B62502C5 // TevSubPanelSubArrayPrim
+ ;
+ : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
+ ;
+
+ref; // ME_FCB9C47B4647 f_Owner
+
+: ME_CF8D5426E01F
+ CONST UID 'CF8D5426E01F'
+ CONST Name 'f_Handle'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Handle' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4B87B62502C5 // TevSubPanelSubArrayPrim
+ ;
+ : Target WL 'ME_476F9C3C02F4' '4678193C009C.pas.ms.script' // Tl3Handle
+ ;
+
+ref; // ME_CF8D5426E01F f_Handle
+
+FORWARD ME_4B87EB47006B
+
+: ME_4B87EB6A00E3
+ CONST UID '4B87EB6A00E3'
+ CONST Name 'anOwner'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
+ ;
+
+ref; // ME_4B87EB6A00E3 anOwner
+
+: ME_4B87EB6A011B
+ CONST UID '4B87EB6A011B'
+ CONST Name 'aHandle'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476F9C3C02F4' '4678193C009C.pas.ms.script' // Tl3Handle
+ ;
+
+ref; // ME_4B87EB6A011B aHandle
+
+: ME_4B87EB650248
+ CONST UID '4B87EB650248'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4B87EB47006B // Create
+ ;
+ : Parameters
+   @ ( ME_4B87EB6A00E3 // anOwner
+ ME_4B87EB6A011B // aHandle
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4B87EB650248 DoIt
+
+: ME_4B87EB47006B
+ CONST UID '4B87EB47006B'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B87B62502C5 // TevSubPanelSubArrayPrim
+ ;
+ : Operations
+   @ ( ME_4B87EB650248 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4B87EB47006B Create
+
+FORWARD ME_4B87BB100265
+
+: ME_4B87BB2003BD
+ CONST UID '4B87BB2003BD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B87B62502C5 // TevSubPanelSubArrayPrim
+ ;
+ : Target ME_4B87BB100265 // evInvalidateRect
+ ;
+
+ref; // ME_4B87BB2003BD 
+
+: ME_47B2C42A0163_ME_4B87B62502C5
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_4B87B62502C5 // TevSubPanelSubArrayPrim
+ ;
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_4B87B62502C5 AssignItem
+
+: ME_47B935AF0066_ME_4B87B62502C5
+ CONST UID '47B935AF0066'
+ CONST Name 'FillItem'
+ : Original WL 'ME_47B935AF0066' '47BB24D30205.pas.ms.script' // FillItem
+ ;
+ : Implementor ME_4B87B62502C5 // TevSubPanelSubArrayPrim
+ ;
+ref; // ME_47B935AF0066_ME_4B87B62502C5 FillItem
+
+: ME_47B94A5C006E_ME_4B87B62502C5
+ CONST UID '47B94A5C006E'
+ CONST Name 'FreeItem'
+ : Original WL 'ME_47B94A5C006E' '47BB24D30205.pas.ms.script' // FreeItem
+ ;
+ : Implementor ME_4B87B62502C5 // TevSubPanelSubArrayPrim
+ ;
+ref; // ME_47B94A5C006E_ME_4B87B62502C5 FreeItem
+
+: ME_47B99D4503A2_ME_4B87B62502C5
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_4B87B62502C5 // TevSubPanelSubArrayPrim
+ ;
+ref; // ME_47B99D4503A2_ME_4B87B62502C5 CompareExistingItems
+
+: ME_47A6FEE600FC_ME_4B87B62502C5
+ CONST UID '47A6FEE600FC'
+ CONST Name 'IsCacheable'
+ : Original WL 'ME_47A6FEE600FC' '47913B47006E.pas.ms.script' // IsCacheable
+ ;
+ : Implementor ME_4B87B62502C5 // TevSubPanelSubArrayPrim
+ ;
+ CONST "ifndef" 'DesignTimeLibrary'
+ref; // ME_47A6FEE600FC_ME_4B87B62502C5 IsCacheable
+
+: ME_4B87B62502C5
+ CONST UID '4B87B62502C5'
+ CONST Name 'TevSubPanelSubArrayPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4B87B5720153 // SubPanel
+ ;
+ : Inherits
+   @ ( WL 'ME_47B5A0AE03CC' '47913B47006E.pas.ms.script' // l3ObjectRefListPrim
+ WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4B87B9AA032B // Owner
+ ME_4B87C962021E // Handle
+ ME_4B87DE150188 // ItemType
+ ME_FCB9C47B4647 // f_Owner
+ ME_CF8D5426E01F // f_Handle
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4B87EB47006B // Create
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_47B2C42A0163_ME_4B87B62502C5 // AssignItem
+ ME_47B935AF0066_ME_4B87B62502C5 // FillItem
+ ME_47B94A5C006E_ME_4B87B62502C5 // FreeItem
+ ME_47B99D4503A2_ME_4B87B62502C5 // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_47A6FEE600FC_ME_4B87B62502C5 // IsCacheable
+ ) .SequenceCode.It
+ ; // Overridden
+ : Children
+   @ ( ME_4B87FFA70163 // l3Items_FreeItem_NeedsList
+ ) .SequenceCode.It
+ ; // Children
+ : Dependencies
+   @ ( ME_4B87BB2003BD // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '26.02.2010 16:55'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evSubPanelSubArrayPrim.pas'
+
+ref; // ME_4B87B62502C5 TevSubPanelSubArrayPrim
+
+: ME_4B87B6A2008E
+ CONST UID '4B87B6A2008E'
+ CONST Name 'TevSubPanelSubArray'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4B87B5720153 // SubPanel
+ ;
+ : Inherits
+   @ ( ME_4B87B62502C5 // TevSubPanelSubArrayPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4B8919220120' '4B8931DC0339.pas.ms.script' // l3ObjectByHandleSearcher
+ ) .SequenceCode.It
+ ; // Implements
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '26.02.2010 16:55'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evSubPanelSubArray.pas'
+
+ref; // ME_4B87B6A2008E TevSubPanelSubArray
+
+FORWARD ME_4B87D2A7029B
+
+: ME_4B87D31B0314
+ CONST UID '4B87D31B0314'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4B87D2A7029B // TevSubPanelSubCollectionPrim
+ ;
+ : Target ME_4B87B6A2008E // TevSubPanelSubArray
+ ;
+
+ref; // ME_4B87D31B0314 ItemType
+
+: ME_4B87D6AA0173
+ CONST UID '4B87D6AA0173'
+ CONST Name 'Owner'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4B87D2A7029B // TevSubPanelSubCollectionPrim
+ ;
+ : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_4B87D6AA0173 Owner
+
+: ME_373BD5A19019
+ CONST UID '373BD5A19019'
+ CONST Name 'f_Owner'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Owner' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4B87D2A7029B // TevSubPanelSubCollectionPrim
+ ;
+ : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
+ ;
+
+ref; // ME_373BD5A19019 f_Owner
+
+FORWARD ME_4B87ECA700CD
+
+: ME_4B87ECC001A8
+ CONST UID '4B87ECC001A8'
+ CONST Name 'anOwner'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47E124E90272' '4799D29F033F.pas.ms.script' // TWinControl
+ ;
+
+ref; // ME_4B87ECC001A8 anOwner
+
+: ME_4B87ECAF026D
+ CONST UID '4B87ECAF026D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4B87ECA700CD // Create
+ ;
+ : Parameters
+   @ ( ME_4B87ECC001A8 // anOwner
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4B87ECAF026D DoIt
+
+: ME_4B87ECA700CD
+ CONST UID '4B87ECA700CD'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B87D2A7029B // TevSubPanelSubCollectionPrim
+ ;
+ : Operations
+   @ ( ME_4B87ECAF026D // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_4B87ECA700CD Create
+
+: ME_47B2C42A0163_ME_4B87D2A7029B
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_4B87D2A7029B // TevSubPanelSubCollectionPrim
+ ;
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_4B87D2A7029B AssignItem
+
+: ME_47B99D4503A2_ME_4B87D2A7029B
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_4B87D2A7029B // TevSubPanelSubCollectionPrim
+ ;
+ref; // ME_47B99D4503A2_ME_4B87D2A7029B CompareExistingItems
+
+: ME_4B87D2A7029B
+ CONST UID '4B87D2A7029B'
+ CONST Name 'TevSubPanelSubCollectionPrim'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4B87B5720153 // SubPanel
+ ;
+ : Inherits
+   @ ( WL 'ME_47B99E920196' '47913B47006E.pas.ms.script' // l3UncomparabeObjectRefList
+ WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4B87D31B0314 // ItemType
+ ME_4B87D6AA0173 // Owner
+ ME_373BD5A19019 // f_Owner
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4B87ECA700CD // Create
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_47B2C42A0163_ME_4B87D2A7029B // AssignItem
+ ME_47B99D4503A2_ME_4B87D2A7029B // CompareExistingItems
+ ) .SequenceCode.It
+ ; // Implemented
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '26.02.2010 16:55'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evSubPanelSubCollectionPrim.pas'
+
+ref; // ME_4B87D2A7029B TevSubPanelSubCollectionPrim
+
+FORWARD ME_4B87D32A0023
+
+FORWARD ME_4B87D6CD02BD
+
+: ME_4B87D6E00047
+ CONST UID '4B87D6E00047'
+ CONST Name 'aHandle'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476F9C3C02F4' '4678193C009C.pas.ms.script' // Tl3Handle
+ ;
+
+ref; // ME_4B87D6E00047 aHandle
+
+: ME_4B87D6D9023B
+ CONST UID '4B87D6D9023B'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4B87D6CD02BD // CheckLayer
+ ;
+ : Target ME_4B87B6A2008E // TevSubPanelSubArray
+ ;
+ : Parameters
+   @ ( ME_4B87D6E00047 // aHandle
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4B87D6D9023B DoIt
+
+: ME_4B87D7E8027A
+ CONST UID '4B87D7E8027A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B87D6CD02BD // CheckLayer
+ ;
+ : Target WL 'ME_4B87D7D701D0' '47913B47006E.pas.ms.script' // l3FreeAndGetRef
+ ;
+
+ref; // ME_4B87D7E8027A 
+
+: ME_4B87EA8F0135
+ CONST UID '4B87EA8F0135'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B87D6CD02BD // CheckLayer
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_4B87EA8F0135 
+
+: ME_4B87D6CD02BD
+ CONST UID '4B87D6CD02BD'
+ CONST Name 'CheckLayer'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B87D32A0023 // TevSubPanelSubCollection
+ ;
+ : Operations
+   @ ( ME_4B87D6D9023B // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_4B87D7E8027A // 
+ ME_4B87EA8F0135 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_4B87D6CD02BD CheckLayer
+
+: ME_4B87D32A0023
+ CONST UID '4B87D32A0023'
+ CONST Name 'TevSubPanelSubCollection'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4B87B5720153 // SubPanel
+ ;
+ : Inherits
+   @ ( ME_4B87D2A7029B // TevSubPanelSubCollectionPrim
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4B8919220120' '4B8931DC0339.pas.ms.script' // l3ObjectByHandleSearcher
+ ) .SequenceCode.It
+ ; // Implements
+ : Operations
+   @ ( ME_4B87D6CD02BD // CheckLayer
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "started" '26.02.2010 16:57'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evSubPanelSubCollection.pas'
+
+ref; // ME_4B87D32A0023 TevSubPanelSubCollection
+
+FORWARD ME_5480995800BA
+
+: ME_548070570346
+ CONST UID '548070570346'
+ CONST Name 'H'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A465F9028C' '4AB0C3F60375.pas.ms.script' // THandle
+ ;
+
+ref; // ME_548070570346 H
+
+: ME_548070570361
+ CONST UID '548070570361'
+ CONST Name 'R'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4728974E009E' '472745450206.pas.ms.script' // Tl3Rect
+ ;
+
+ref; // ME_548070570361 R
+
+: ME_548070550233
+ CONST UID '548070550233'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4B87BB100265 // evInvalidateRect
+ ;
+ : Parameters
+   @ ( ME_548070570346 // H
+ ME_548070570361 // R
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_548070550233 DoIt
+
+: ME_5480709301AC
+ CONST UID '5480709301AC'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4B87BB100265 // evInvalidateRect
+ ;
+ : Target WL 'ME_47D00CC20108' '47C52679006D.pas.ms.script' // nevFacade
+ ;
+
+ref; // ME_5480709301AC 
+
+: ME_4B87BB100265
+ CONST UID '4B87BB100265'
+ CONST Name 'evInvalidateRect'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_5480995800BA // evSubPanelTools
+ ;
+ : Operations
+   @ ( ME_548070550233 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_5480709301AC // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_4B87BB100265 evInvalidateRect
+
+: ME_5480995800BA
+ CONST UID '5480995800BA'
+ CONST Name 'evSubPanelTools'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4B87B5720153 // SubPanel
+ ;
+ : Operations
+   @ ( ME_4B87BB100265 // evInvalidateRect
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Everest\evSubPanelTools.pas'
+
+ref; // ME_5480995800BA evSubPanelTools
+
+: ME_4B87B5720153
+ CONST UID '4B87B5720153'
+ CONST Name 'SubPanel'
+ CONST Class class_Category
+ : Stereotype st_Views ;
+ %SUMMARY 'Работа с панелью Sub''ов' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4797632D0273' '4797632D0273.pas.ms.script' // Everest
+ ;
+ : Children
+   @ ( ME_4B87DC6C02F7 // TevSubPanelSub
+ ME_4B87B62502C5 // TevSubPanelSubArrayPrim
+ ME_4B87B6A2008E // TevSubPanelSubArray
+ ME_4B87D2A7029B // TevSubPanelSubCollectionPrim
+ ME_4B87D32A0023 // TevSubPanelSubCollection
+ ME_5480995800BA // evSubPanelTools
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4678193C009C' '4678193C009C.pas.ms.script' // l3Types
+ WL 'ME_472745450206' '472745450206.pas.ms.script' // l3Units
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
+ WL 'ME_47BB24D30205' '47BB24D30205.pas.ms.script' // Стандартные примеси
+ WL 'ME_47C5207602D1' '47C5207602D1.pas.ms.script' // nevTools
+ WL 'ME_47C52679006D' '47C52679006D.pas.ms.script' // nevUtils
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.pas.ms.script' // Win
+ WL 'ME_4B8931DC0339' '4B8931DC0339.pas.ms.script' // Garbage
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4B87B5720153.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4B87B5720153.pas.ms.script.runner'
+
+ref; // ME_4B87B5720153 SubPanel

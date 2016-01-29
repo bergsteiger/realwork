@@ -1,0 +1,48 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{B635BE77-F86B-464A-A417-7CD32B01EAB5}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="gtXPressExpD14.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="DCLgtXPressExpD14.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="gtXPressExpD14">
+			<MSBuild Projects="gtXPressExpD14.dproj"/>
+		</Target>
+		<Target Name="gtXPressExpD14:Clean">
+			<MSBuild Targets="Clean" Projects="gtXPressExpD14.dproj"/>
+		</Target>
+		<Target Name="gtXPressExpD14:Make">
+			<MSBuild Targets="Make" Projects="gtXPressExpD14.dproj"/>
+		</Target>
+		<Target Name="DCLgtXPressExpD14">
+			<MSBuild Projects="DCLgtXPressExpD14.dproj"/>
+		</Target>
+		<Target Name="DCLgtXPressExpD14:Clean">
+			<MSBuild Targets="Clean" Projects="DCLgtXPressExpD14.dproj"/>
+		</Target>
+		<Target Name="DCLgtXPressExpD14:Make">
+			<MSBuild Targets="Make" Projects="DCLgtXPressExpD14.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="gtXPressExpD14;DCLgtXPressExpD14"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="gtXPressExpD14:Clean;DCLgtXPressExpD14:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="gtXPressExpD14:Make;DCLgtXPressExpD14:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

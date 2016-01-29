@@ -1,0 +1,36 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{509E76C3-A958-494A-B8DE-8DE624DFFA7B}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="PDFCrypt\gtCryptD14.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="gtCryptD14">
+			<MSBuild Projects="PDFCrypt\gtCryptD14.dproj"/>
+		</Target>
+		<Target Name="gtCryptD14:Clean">
+			<MSBuild Targets="Clean" Projects="PDFCrypt\gtCryptD14.dproj"/>
+		</Target>
+		<Target Name="gtCryptD14:Make">
+			<MSBuild Targets="Make" Projects="PDFCrypt\gtCryptD14.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="gtCryptD14"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="gtCryptD14:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="gtCryptD14:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

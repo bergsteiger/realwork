@@ -1,0 +1,627 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MetaTemplate/Meta/Elements/MDASubStereotype.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::MetaTemplate::Meta::Elements::MDASubStereotype
+//
+// Абстрактный стереотип база для всех под-стереотипов
+// 
+// 
+// Финальные под-стереотипы не наследуются (не копируются) потомками
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: MDASubStereotype::Class
+implementation @ <<MDASubStereotype>>
+//? Абстрактный стереотип база для всех под-стереотипов
+//? 
+//? 
+//? Финальные под-стереотипы не наследуются (не копируются) потомками
+//= MDAGenerator::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//a rf
+// - тип абстракции
+// Параметры визуализации
+//$ C 225,255,225
+//$ l 100,250,100
+//$ f 100,250,100
+//d 1
+// - может иметь унаследованную реализацию
+//m t
+// - может быть реализован/иметь перекрытую реализацию
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p unstereotyped:b=false ? Признак того что имя под-сетеротипа нужно игнорировать, т.е. данный элемент отображает неименнованный подстереотип.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{unstereotyped}"!="%S{!unstereotyped}"}%f_up_prefix(%S) *unstereotyped* = *%S{unstereotyped}* - Признак того что имя под-сетеротипа нужно игнорировать, т.е. данный элемент отображает неименнованный подстереотип.
+ ?inherited
+ if ( ( %S get_up ( 'unstereotyped' ) ) %!= ( %S get_up_def ( 'unstereotyped' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *unstereotyped* = *'
+  %S get_up ( 'unstereotyped' ) '* - Признак того что имя под-сетеротипа нужно игнорировать, т.е. данный элемент отображает неименнованный подстереотип.'
+//	]
+ end // if
+
+// генерирует имя подстереотипа на основе (с перфиксов) переданного аргумента родителя
+//%f _sub_st_name
+; // wiki_up_print
+
+: sub_st_name OBJECT IN %S
+//#UC START# *46E7AE3F01E1for46E7ADBC0377*
+//	%1%f_st_name()\
+ %1 %f st_name %( )% 
+////для под-стереотипов, вложенных в другой подстереотип генерим имя родителя
+//	[{%PC=Class&%P%f_st_kind()=sub&%PU!=%1U}%f_sub_st_name_i(%P)]\
+ if ( ( %P |C ) %== 'Class' AND 
+   ( ( %P %f st_kind %( )% ) %== 'sub'  ) AND 
+   ( ( %P |U ) %!= ( %1 |U )  ) ) then
+ begin
+  [%f] sub_st_name_i %( %P )% 
+ end // if
+//	%f_sub_st_name_i(%S)
+ [%f] sub_st_name_i %( %S )% 
+
+////////ищем $ строчке
+//f _sub_st_name_i
+; // sub_st_name
+
+end. // <<MDASubStereotype>>
+
+: sub_st_name_i OBJECT IN %S
+//	[{%S{unstereotyped}!=true}::%f_N(%S)]\
+ if ( ( %S get_up ( 'unstereotyped' ) ) %!=  true ) then
+ begin
+  '::'
+  [%f] N %( %S )% 
+ end // if
+//	[::%S%f_st_class_name()]
+ if NOT-EMPTY
+ begin
+  '::'
+  %S %f st_class_name %( )% 
+ end // if
+ NOP
+//#UC END# *46E7AE3F01E1for46E7ADBC0377*
+; // sub_st_name_i
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа MDAGenerator::Class
+// Алгоритм формирования списка генераторов, которые должны быть определены на стереотипе.
+// Результат "складывается" в список с идентифкатором определяемым параметром list_id.
+//%f _collect_generators
+implementation @ <<MDASubStereotype>>
+: collect_generators OBJECT IN %S
+// параметры: list_id: string = %1
+//#UC START# *499B91DB0171for46E7ADBC0377*
+//	[{"%1N"=""}%f_error("_collect_generators: Не задан идентификатор списка")]\
+ if ( ( %1 |N ) %== '' ) then
+ begin
+  [%f] error %( '_collect_generators: Не задан идентификатор списка' )% 
+ end // if
+//	[{%f_need_collect_parent_generators(%S)=true}%P%f_collect_generators("%1N")\
+ if ( ( [%f] need_collect_parent_generators %( %S )% ) %==  true ) then
+ begin
+  %P %f collect_generators %( %1 |N )% 
+//	%f_clear_list(%1N_ALREADY_DEFINED)\
+  [%f] clear_list %( %1 |N '_ALREADY_DEFINED' )% 
+//	%f_collect_defined_generators(%S,"%1N_ALREADY_DEFINED")\
+  [%f] collect_defined_generators %( %S %, %1 |N '_ALREADY_DEFINED' )% 
+//	<{}{%f_is_empty(%1N_ALREADY_DEFINED)=false}{W}[%f_pop_first_to_var(%1N_ALREADY_DEFINED,_GEN_)%f_remove_from_list(%1N,{_GEN_})]>\
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( %1 |N '_ALREADY_DEFINED' )% ) %==  false ) then
+   begin
+    if NOT-EMPTY
+    begin
+     [%f] pop_first_to_var %( %1 |N '_ALREADY_DEFINED' %, '_GEN_' )% [%f] remove_from_list %( %1 |N %, '{_GEN_}' )% 
+    end // if
+    NOP
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+//	]\
+ end // if
+//	%S%[inherited]f_collect_generators("%1N")
+ call-inherited collect_generators %( %1 |N )%
+
+//f _collect_defined_generators
+; // collect_generators
+
+end. // <<MDASubStereotype>>
+
+: collect_defined_generators OBJECT IN %S
+//	<%R%f_collect_generators("%1N")%f_collect_defined_generators(%R,"%1N")>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%R
+ begin
+  OBJECT IN %R
+  if true then
+  begin
+   %R %f collect_generators %( %1 |N )% [%f] collect_defined_generators %( %R %, %1 |N )% 
+   ++! l_Counter
+  end // if
+ end // for R
+//	<%G%f_collect_generators("%1N")%f_collect_defined_generators(%G,"%1N")>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%G
+ begin
+  OBJECT IN %G
+  if true then
+  begin
+   %G %f collect_generators %( %1 |N )% [%f] collect_defined_generators %( %G %, %1 |N )% 
+   ++! l_Counter
+  end // if
+ end // for G
+
+//если стереотип наследуется от такого же стереотипа, то не собираем
+//генераторы его родителя, т.к в этом случае всё наследование идёт на смарку
+// - тело генераторов обнуляется
+//f _need_collect_parent_generators
+; // collect_defined_generators
+
+: need_collect_parent_generators OBJECT IN %S
+//	[{%Rx=false&%Gx=false}{[{%RS=%SS|%GS=%SS}{true}false]}true]
+ if ( ( %R |x ) %==  false AND 
+   ( ( %G |x ) %==  false  ) ) then
+ begin
+   true 
+ end // if
+ else
+ begin
+  if ( ( %R |S ) %== ( %S |S ) OR 
+    ( ( %G |S ) %== ( %S |S )  ) ) then
+  begin
+    false 
+  end // if
+  else
+  begin
+    true 
+  end // else
+ end // else
+//#UC END# *499B91DB0171for46E7ADBC0377*
+; // need_collect_parent_generators
+
+
+// перекрытие базового стереотипа MDAGenerator::Class
+// возвращает true, если элемент является переопределением уже существующего стереотипа
+//%f _is_redefinition
+implementation @ <<MDASubStereotype>>
+: is_redefinition OBJECT IN %S
+//#UC START# *4986D3AD00DAfor46E7ADBC0377*
+//	[{%S%[inherited]=false}{true}\
+ if ( ( inherited
+)   %==  false ) then
+ begin
+//	<{}{%PC=Class}%f_set_var(PARENT,P)>\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%P
+  begin
+   OBJECT IN %P
+   if ( ( %P |C ) %== 'Class' ) then
+   begin
+    [%f] set_var %( 'PARENT' %, 'P' )% 
+    ++! l_Counter
+   end // if
+  end // for P
+//	[{%{PARENT}%f_is_redefinition()=true}{false}\
+  if ( ( ( get_global_var ( 'PARENT' ) %f is_redefinition %( )% ) ) %==  true ) then
+  begin
+//	%f_clear_list(PARENT_REDEFINITION_TARGTES)\
+   [%f] clear_list %( 'PARENT_REDEFINITION_TARGTES' )% 
+//	%{PARENT}<{}{%f_is_redefinition_for(%S,%R)=true}{%R}%{PARENT_REDEFINITION_TARGTES}%f_add_to_list(R)>\
+   ( get_global_var ( 'PARENT' ) ) 
+   bind ( 
+    OBJECT VAR %S
+    INTEGER VAR l_Counter l_Counter := 0
+    for %S%R
+    begin
+     OBJECT IN %R
+     if ( ( [%f] is_redefinition_for %( %S %, %R )% ) %==  true ) then
+     begin
+      ( get_global_var ( 'PARENT_REDEFINITION_TARGTES' ) %f add_to_list %( 'R' )% ) 
+      ++! l_Counter
+     end // if
+    end // for R
+
+   ) // bind
+//	[{"%{PARENT_REDEFINITION_TARGTES}<{}{}{%C}%C<{}{%CC=%{SELF}C&%C%f_st_name()=%{SELF}%f_st_name()}{%C}.>>"!=""}{false}true]]]
+   if ( ( ( get_global_var ( 'PARENT_REDEFINITION_TARGTES' ) ) 
+    bind ( 
+     OBJECT VAR %S
+     INTEGER VAR l_Counter l_Counter := 0
+     for %S%C
+     begin
+      OBJECT IN %C
+      if true then
+      begin
+       %C
+       bind ( 
+        OBJECT VAR %S
+        INTEGER VAR l_Counter l_Counter := 0
+        for %S%C
+        begin
+         OBJECT IN %C
+         if ( ( %C |C ) %== ( ( get_global_var ( 'SELF' ) |C ) ) AND 
+          ( ( %C %f st_name %( )% ) %== ( ( get_global_var ( 'SELF' ) %f st_name %( )% ) )  ) ) then
+         begin
+          '.' 
+          ++! l_Counter
+         end // if
+        end // for C
+
+       ) // bind
+ 
+       ++! l_Counter
+      end // if
+     end // for C
+
+    ) // bind
+)     %!= '' ) then
+   begin
+     true 
+   end // if
+   else
+   begin
+     false 
+   end // else
+  end // if
+  else
+  begin
+    false 
+  end // else
+ end // if
+ else
+ begin
+   true 
+ end // else
+
+//
+//#UC END# *4986D3AD00DAfor46E7ADBC0377*
+; // is_redefinition
+
+
+// перекрытие базового стереотипа MDAGenerator::Class
+// Возвращает вид стереотипа : main, sub
+//%f _st_kind
+: st_kind OBJECT IN %S
+//#UC START# *47130CC40213for46E7ADBC0377*
+//	sub
+ 'sub'
+//#UC END# *47130CC40213for46E7ADBC0377*
+; // st_kind
+
+
+// перекрытие базового стереотипа MDAGenerator::Class
+// Генерирует полное имя стереотипа
+//%f _st_name
+: st_name OBJECT IN %S
+//#UC START# *46E2BB3103B9for46E7ADBC0377*
+//	%S%f_sub_st_name(%P)
+ %S %f sub_st_name %( %P )% 
+//#UC END# *46E2BB3103B9for46E7ADBC0377*
+; // st_name
+
+
+// перекрытие базового стереотипа Мета-MDA::MDAGenerator
+// Генерация мета-шаблонов
+//+ mda
+<<generator>> mda OBJECT IN %S
+//#UC START# *46E28D830109for46E7ADBC0377*
+//P
+//O [{}]
+//	%f_set_var(SELF,S)\
+ [%f] set_var %( 'SELF' %, 'S' )% 
+//	%f_set_var(SELF_ST_NAME,"%S%f_st_name()")\
+ [%f] set_var %( 'SELF_ST_NAME' %, %S %f st_name %( )% )% 
+//	: %{SELF_ST_NAME}N[{%S{internal}=true}*]\
+ ': '
+ ( get_global_var ( 'SELF_ST_NAME' ) |N ) if ( ( %S get_up ( 'internal' ) ) %==  true ) then
+ begin
+  '*' 
+ end // if
+//	[{%S%f_is_redefinition()=true} (redefinition)]\
+ if ( ( %S %f is_redefinition %( )% ) %==  true ) then
+ begin
+  ' (redefinition)' 
+ end // if
+//	\n\
+ #13#10
+//	[? %f_str_replace(%f_str_replace(%SD,\n---\n,\n),\n,\n? )
+ if NOT-EMPTY
+ begin
+  '? '
+  [%f] str_replace %( [%f] str_replace %( %S |D %, #13#10'---'#13#10 %, #13#10 )% %, #13#10 %, #13#10'? ' )% 
+//	][%S%f_dump_inherit_list()
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  %S %f dump_inherit_list %( )% 
+//	][////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////'
+//	// Основная ветка наследования
+  '// Основная ветка наследования'
+//	%S%f_dump_main_hierarchy()
+  %S %f dump_main_hierarchy %( )% 
+//	
+  #13#10
+
+//	][// Параметры стереотипа
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  '// Параметры стереотипа'
+//	%S%f_define_up()
+  %S %f define_up %( )% 
+//	][// Пользовательские свойства
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  '// Пользовательские свойства'
+//	<{}{%CC=Attribute}{Sn}%CX
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Attribute' ) then
+   begin
+    %C |X 
+//	>
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	]%f_set_var(CONTEXT,S)\
+ end // if
+ NOP
+ [%f] set_var %( 'CONTEXT' %, 'S' )% 
+//	[// Генераторы
+ if NOT-EMPTY
+ begin
+  '// Генераторы'
+
+//подстереотипы должны реализовывать генераторы, реализуемые родителем
+//	%f_clear_list(GENERATORS)\
+  [%f] clear_list %( 'GENERATORS' )% 
+//	%S%f_collect_generators("GENERATORS")\
+  %S %f collect_generators %( 'GENERATORS' )% 
+//	<{}{%f_is_empty(GENERATORS)=false}{W}%f_pop_first_to_var(GENERATORS,GEN)%{GEN}X
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'GENERATORS' )% ) %==  false ) then
+   begin
+    [%f] pop_first_to_var %( 'GENERATORS' %, 'GEN' )% ( get_global_var ( 'GEN' ) |X ) 
+//	
+    #13#10
+
+//	>%f_clear_list(GENERATORS)][// Трансформаторы стереотипа
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+  [%f] clear_list %( 'GENERATORS' )% 
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  '// Трансформаторы стереотипа'
+//	<{\n}{%CC=Operation&%CS=transformator&%Ca!=abstract}{Sn}%CX
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Operation' AND 
+    ( ( %C |S ) %== 'transformator'  ) AND 
+    ( ( %C |a ) %!= 'abstract'  ) ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10 )
+    %C |X 
+//	
+    #13#10
+
+//	>][// Функции стереотипа
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  '// Функции стереотипа'
+//	[\%f _st_space_key
+  if NOT-EMPTY
+  begin
+   '%f _st_space_key'
+//	%f_set_var(SPACE_KEY,"%S{space key}")\
+   [%f] set_var %( 'SPACE_KEY' %, %S get_up ( 'space key' ) )% 
+//	<{}{"%P{space key}"!=""&"%{SPACE_KEY}N"=""}{%Pr}%f_set_var(SPACE_KEY,"%P{space key}")>\
+   INTEGER VAR l_Counter l_Counter := 0
+   for downto %S%P
+   begin
+    OBJECT IN %P
+    if ( ( %P get_up ( 'space key' ) ) %!= '' AND 
+     ( ( ( get_global_var ( 'SPACE_KEY' ) |N ) ) %== ''  ) ) then
+    begin
+     [%f] set_var %( 'SPACE_KEY' %, %P get_up ( 'space key' ) )% 
+     ++! l_Counter
+    end // if
+   end // for P
+//		%{SPACE_KEY}N
+   '	'
+   ( get_global_var ( 'SPACE_KEY' ) |N ) 
+//	
+   #13#10
+
+//	]\
+  end // if
+  NOP
+//	[%f_dump_wiki_up_print(%S)
+  if NOT-EMPTY
+  begin
+   [%f] dump_wiki_up_print %( %S )% 
+//	
+   #13#10
+
+//	]<{\n}{%CC=Operation&"%CS"=""&%Ca!=abstract}{Sn}%CX
+  end // if
+  NOP
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Cn
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Operation' AND 
+    ( ( %C |S ) %== ''  ) AND 
+    ( ( %C |a ) %!= 'abstract'  ) ) then
+   begin
+    if ( l_Counter >0 ) then ( #13#10 )
+    %C |X 
+//	>
+
+    ++! l_Counter
+   end // if
+  end // for C
+//	][////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////'
+//	// Унаследованная реализация
+  '// Унаследованная реализация'
+//	
+  #13#10
+
+//	<{}{%oS!=generator&%oC!=Class}{Sp}// реализация абстрактного стереотипа %o%P%f_st_name()
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%op
+  begin
+   OBJECT IN %o
+   if ( ( %o |S ) %!= 'generator' AND 
+    ( ( %o |C ) %!= 'Class'  ) ) then
+   begin
+    '// реализация абстрактного стереотипа '
+    %o ->P %f st_name %( )%  
+//	%oX
+    %o |X 
+//	
+    #13#10
+
+//	><{}{%OS!=generator&%OC!=Class}{Sp}// перекрытие базового стереотипа %O%P%f_st_name()
+
+    ++! l_Counter
+   end // if
+  end // for o
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%Op
+  begin
+   OBJECT IN %O
+   if ( ( %O |S ) %!= 'generator' AND 
+    ( ( %O |C ) %!= 'Class'  ) ) then
+   begin
+    '// перекрытие базового стереотипа '
+    %O ->P %f st_name %( )%  
+//	%OX
+    %O |X 
+//	
+    #13#10
+
+//	>][// Вложенные стереотипы
+
+    ++! l_Counter
+   end // if
+  end // for O
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  '// Вложенные стереотипы'
+//	<{}{%CC=Class}%CX
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if ( ( %C |C ) %== 'Class' ) then
+   begin
+    %C |X 
+//	>][// Исключенные вложенные стереотипы
+
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+ NOP
+ if NOT-EMPTY
+ begin
+  '// Исключенные вложенные стереотипы'
+//	%S%f_dump_excluded_sub_stereotypes()
+  %S %f dump_excluded_sub_stereotypes %( )% 
+//	
+  #13#10
+
+//	]
+ end // if
+ NOP
+
+//%f _make_st_name_for
+; // mda
+
+: make_st_name_for OBJECT IN %S
+//	%f_str_replace(%1%f_st_name(),%1%P%f_st_name(),%S%f_st_name())
+ [%f] str_replace %( %1 %f st_name %( )% %, %1 ->P %f st_name %( )%  %, %S %f st_name %( )% )% 
+//#UC END# *46E28D830109for46E7ADBC0377*
+; // make_st_name_for
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Исключенные вложенные стереотипы
+//~ MDASubStereotype::Class::Operation
+//~ MDASubStereotype::Class::transformator::Operation
+//~ MDASubStereotype::Class::list::Attribute
+//~ MDASubStereotype::Class::bool::Attribute
+//~ MDASubStereotype::Class::string::Attribute
+//~ MDASubStereotype::Class::file::Attribute
+//~ MDASubStereotype::Class::color::Attribute
+//~ MDASubStereotype::Class::tribool::Attribute
+//~ MDASubStereotype::Class::main hierarchy::ClassDependency
+//~ MDASubStereotype::Class::exclude auto copy::ClassDependency
+//~ MDASubStereotype::Class::text::Attribute
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<MDASubStereotype>>
+

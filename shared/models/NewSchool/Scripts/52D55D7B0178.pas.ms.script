@@ -1,0 +1,58 @@
+// TkwRuntimeWordWithCode 52D55D7B0178 SimpleClass Class
+
+INCLUDE '52D3C5F90029.pas.ms.script'
+
+INCLUDE '55A4E9940396.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+FORWARD ME_52D55D7B0178
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_ADD86373F002
+ CONST UID 'ADD86373F002'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TkwRuntimeWordWithCode' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_ADD86373F002 Ini_Reg_Class
+
+: ME_52D55D7B0178
+ CONST UID '52D55D7B0178'
+ CONST Name 'TkwRuntimeWordWithCode'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'abstract'
+ : Inherits
+   [ ME_52D3C5F90029 // TkwCompiledWordPrim
+ ME_55A4E9940396 // tfwCodeCompiler
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_ADD86373F002 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_52D41C7F027B // GetCode
+ ME_52D56341033B // GetNewWordDefinitor
+ ME_52D5637A031E // GetKeywordFinder
+ ME_52D56A980103 // DoCompileInParameterPopCode
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_52D55D7B0178 TkwRuntimeWordWithCode

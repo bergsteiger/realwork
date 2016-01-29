@@ -1,0 +1,324 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/MDAFormat.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<Library::Category>> MDProcess::MDAFormat
+//
+// Описание формата хранения модели. Модель храниться в 3-х частях:
+// - структурная
+// - описательная
+// - вспомогательная
+// 
+// каждая часть описыватеся собственным форматом, все части собираются в один "рутовый файл"
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (MDAFormat) : project_generic_core, project_compile_g {
+	sharedname = MDAFormat
+	staticname = MDAFormat
+
+	includes += ../../
+
+
+	Grammar_Files (AdditionalPartDef) {
+		gflags += -o ./../MDAFormat/AdditionalPartDef
+		./../MDAFormat/AdditionalPartDef/AdditionalPart.cpp.g >> ./../MDAFormat/AdditionalPartDef/AdditionalPartLexer.hpp ./../MDAFormat/AdditionalPartDef/AdditionalPartLexer.cpp ./../MDAFormat/AdditionalPartDef/AdditionalPartParser.hpp ./../MDAFormat/AdditionalPartDef/AdditionalPartParser.cpp
+
+	}
+	Grammar_Files (ModelPartDef) {
+		gflags += -o ./../MDAFormat/ModelPartDef
+		./../MDAFormat/ModelPartDef/ModelPart.cpp.g >> ./../MDAFormat/ModelPartDef/ModelPartLexer.hpp ./../MDAFormat/ModelPartDef/ModelPartLexer.cpp ./../MDAFormat/ModelPartDef/ModelPartParser.hpp ./../MDAFormat/ModelPartDef/ModelPartParser.cpp
+
+	}
+	Grammar_Files (RootFile) {
+		gflags += -o ./../MDAFormat/RootFile
+		./../MDAFormat/RootFile/ModelRoot.cpp.g >> ./../MDAFormat/RootFile/ModelRootLexer.hpp ./../MDAFormat/RootFile/ModelRootLexer.cpp ./../MDAFormat/RootFile/ModelRootParser.hpp ./../MDAFormat/RootFile/ModelRootParser.cpp
+
+	}
+	Grammar_Files (ViewPartDef) {
+		gflags += -o ./../MDAFormat/ViewPartDef
+		./../MDAFormat/ViewPartDef/ViewPart.cpp.g >> ./../MDAFormat/ViewPartDef/ViewPartLexer.hpp ./../MDAFormat/ViewPartDef/ViewPartLexer.cpp ./../MDAFormat/ViewPartDef/ViewPartParser.hpp ./../MDAFormat/ViewPartDef/ViewPartParser.cpp
+
+	}
+	Header_Files {
+		Std_Headers {
+			./../MDAFormat/LibHome.h
+		}
+	
+		AdditionalPartDef {
+			./../MDAFormat/AdditionalPartDef/AdditionalPartDef.h
+			./../MDAFormat/AdditionalPartDef/AdditionalPart.h
+			./../MDAFormat/AdditionalPartDef/AdditionalPartParser.hpp
+			./../MDAFormat/AdditionalPartDef/AdditionalPartLexer.hpp
+			./../MDAFormat/AdditionalPartDef/AssociationView.h
+			./../MDAFormat/AdditionalPartDef/Attribute.h
+			./../MDAFormat/AdditionalPartDef/AttributeContent.h
+			./../MDAFormat/AdditionalPartDef/Class.h
+			./../MDAFormat/AdditionalPartDef/ClassContent.h
+			./../MDAFormat/AdditionalPartDef/ClassDiagram.h
+			./../MDAFormat/AdditionalPartDef/ClassDiagramContent.h
+			./../MDAFormat/AdditionalPartDef/ClassDiagramView.h
+			./../MDAFormat/AdditionalPartDef/ClassView.h
+			./../MDAFormat/AdditionalPartDef/Dependency.h
+			./../MDAFormat/AdditionalPartDef/InheriteView.h
+			./../MDAFormat/AdditionalPartDef/Message.h
+			./../MDAFormat/AdditionalPartDef/MessageContent.h
+			./../MDAFormat/AdditionalPartDef/MessageView.h
+			./../MDAFormat/AdditionalPartDef/Namespace.h
+			./../MDAFormat/AdditionalPartDef/NoteView.h
+			./../MDAFormat/AdditionalPartDef/ObjectView.h
+			./../MDAFormat/AdditionalPartDef/Operation.h
+			./../MDAFormat/AdditionalPartDef/OperationContent.h
+			./../MDAFormat/AdditionalPartDef/Package.h
+			./../MDAFormat/AdditionalPartDef/PackageContent.h
+			./../MDAFormat/AdditionalPartDef/ParamView.h
+			./../MDAFormat/AdditionalPartDef/Parameter.h
+			./../MDAFormat/AdditionalPartDef/ParameterContent.h
+			./../MDAFormat/AdditionalPartDef/Property.h
+			./../MDAFormat/AdditionalPartDef/RealizeView.h
+			./../MDAFormat/AdditionalPartDef/ReturnMessage.h
+			./../MDAFormat/AdditionalPartDef/ReturnMessageView.h
+			./../MDAFormat/AdditionalPartDef/RootPackage.h
+			./../MDAFormat/AdditionalPartDef/SelfMessage.h
+			./../MDAFormat/AdditionalPartDef/SelfMessageView.h
+			./../MDAFormat/AdditionalPartDef/SequenceDiagram.h
+			./../MDAFormat/AdditionalPartDef/SequenceDiagramContent.h
+			./../MDAFormat/AdditionalPartDef/SequenceDiagramView.h
+			./../MDAFormat/AdditionalPartDef/SequenceStartObject.h
+			./../MDAFormat/AdditionalPartDef/State.h
+			./../MDAFormat/AdditionalPartDef/StateAction.h
+			./../MDAFormat/AdditionalPartDef/StateContent.h
+			./../MDAFormat/AdditionalPartDef/StateDiagram.h
+			./../MDAFormat/AdditionalPartDef/StateDiagramContent.h
+			./../MDAFormat/AdditionalPartDef/StateDiagramView.h
+			./../MDAFormat/AdditionalPartDef/StateView.h
+			./../MDAFormat/AdditionalPartDef/StereotypeView.h
+			./../MDAFormat/AdditionalPartDef/Transition.h
+			./../MDAFormat/AdditionalPartDef/TransitionContent.h
+			./../MDAFormat/AdditionalPartDef/TransitionParamBase.h
+			./../MDAFormat/AdditionalPartDef/TransitionView.h
+			./../MDAFormat/AdditionalPartDef/TransitionViewContent.h
+			./../MDAFormat/AdditionalPartDef/ViewContent.h
+		}
+	
+		LibSupport {
+			./../MDAFormat/Executor.h
+		}
+	
+		ModelPartDef {
+			./../MDAFormat/ModelPartDef/ModelPartDef.h
+			./../MDAFormat/ModelPartDef/Attribute.h
+			./../MDAFormat/ModelPartDef/AttributeContent.h
+			./../MDAFormat/ModelPartDef/Class.h
+			./../MDAFormat/ModelPartDef/ClassContent.h
+			./../MDAFormat/ModelPartDef/Dependency.h
+			./../MDAFormat/ModelPartDef/Message.h
+			./../MDAFormat/ModelPartDef/ModelPart.h
+			./../MDAFormat/ModelPartDef/ModelPartParser.hpp
+			./../MDAFormat/ModelPartDef/ModelPartLexer.hpp
+			./../MDAFormat/ModelPartDef/Namespace.h
+			./../MDAFormat/ModelPartDef/Operation.h
+			./../MDAFormat/ModelPartDef/OperationArgument.h
+			./../MDAFormat/ModelPartDef/Package.h
+			./../MDAFormat/ModelPartDef/ReturnMessage.h
+			./../MDAFormat/ModelPartDef/RootPackage.h
+			./../MDAFormat/ModelPartDef/SelfMessage.h
+			./../MDAFormat/ModelPartDef/SequenceStartObject.h
+			./../MDAFormat/ModelPartDef/State.h
+			./../MDAFormat/ModelPartDef/StateAction.h
+			./../MDAFormat/ModelPartDef/Transition.h
+			./../MDAFormat/ModelPartDef/UserProperty.h
+		}
+	
+		RootFile {
+			./../MDAFormat/RootFile/ModelRoot.h
+			./../MDAFormat/RootFile/ModelRootParser.hpp
+			./../MDAFormat/RootFile/ModelRootLexer.hpp
+		}
+	
+		ViewPartDef {
+			./../MDAFormat/ViewPartDef/ViewPartDef.h
+			./../MDAFormat/ViewPartDef/AssociationView.h
+			./../MDAFormat/ViewPartDef/ClassDef.h
+			./../MDAFormat/ViewPartDef/ClassDiagram.h
+			./../MDAFormat/ViewPartDef/ClassDiagramView.h
+			./../MDAFormat/ViewPartDef/ClassView.h
+			./../MDAFormat/ViewPartDef/DependencyView.h
+			./../MDAFormat/ViewPartDef/InheritView.h
+			./../MDAFormat/ViewPartDef/MessageView.h
+			./../MDAFormat/ViewPartDef/NameView.h
+			./../MDAFormat/ViewPartDef/Namespace.h
+			./../MDAFormat/ViewPartDef/NoteView.h
+			./../MDAFormat/ViewPartDef/ObjectView.h
+			./../MDAFormat/ViewPartDef/PackageDef.h
+			./../MDAFormat/ViewPartDef/PackageView.h
+			./../MDAFormat/ViewPartDef/ParamView.h
+			./../MDAFormat/ViewPartDef/Point.h
+			./../MDAFormat/ViewPartDef/RealizeView.h
+			./../MDAFormat/ViewPartDef/ReturnMessageView.h
+			./../MDAFormat/ViewPartDef/RootPackage.h
+			./../MDAFormat/ViewPartDef/SelfMessageView.h
+			./../MDAFormat/ViewPartDef/SequenceDiagram.h
+			./../MDAFormat/ViewPartDef/SequenceDiagramView.h
+			./../MDAFormat/ViewPartDef/StateDiagram.h
+			./../MDAFormat/ViewPartDef/StateDiagramView.h
+			./../MDAFormat/ViewPartDef/StateView.h
+			./../MDAFormat/ViewPartDef/StereotypeView.h
+			./../MDAFormat/ViewPartDef/TransitionView.h
+			./../MDAFormat/ViewPartDef/ViewPart.h
+			./../MDAFormat/ViewPartDef/ViewPartParser.hpp
+			./../MDAFormat/ViewPartDef/ViewPartLexer.hpp
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		AdditionalPartDef {
+		}
+	
+		LibSupport {
+		}
+	
+		ModelPartDef {
+		}
+	
+		RootFile {
+		}
+	
+		ViewPartDef {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../MDAFormat/LibHome.cpp
+		}
+	
+		AdditionalPartDef {
+			./../MDAFormat/AdditionalPartDef/AdditionalPart.cpp
+			./../MDAFormat/AdditionalPartDef/AdditionalPartParser.cpp
+			./../MDAFormat/AdditionalPartDef/AdditionalPartLexer.cpp
+			./../MDAFormat/AdditionalPartDef/AssociationView.cpp
+			./../MDAFormat/AdditionalPartDef/Attribute.cpp
+			./../MDAFormat/AdditionalPartDef/AttributeContent.cpp
+			./../MDAFormat/AdditionalPartDef/Class.cpp
+			./../MDAFormat/AdditionalPartDef/ClassContent.cpp
+			./../MDAFormat/AdditionalPartDef/ClassDiagram.cpp
+			./../MDAFormat/AdditionalPartDef/ClassDiagramContent.cpp
+			./../MDAFormat/AdditionalPartDef/ClassDiagramView.cpp
+			./../MDAFormat/AdditionalPartDef/ClassView.cpp
+			./../MDAFormat/AdditionalPartDef/Dependency.cpp
+			./../MDAFormat/AdditionalPartDef/InheriteView.cpp
+			./../MDAFormat/AdditionalPartDef/Message.cpp
+			./../MDAFormat/AdditionalPartDef/MessageContent.cpp
+			./../MDAFormat/AdditionalPartDef/MessageView.cpp
+			./../MDAFormat/AdditionalPartDef/Namespace.cpp
+			./../MDAFormat/AdditionalPartDef/NoteView.cpp
+			./../MDAFormat/AdditionalPartDef/ObjectView.cpp
+			./../MDAFormat/AdditionalPartDef/Operation.cpp
+			./../MDAFormat/AdditionalPartDef/OperationContent.cpp
+			./../MDAFormat/AdditionalPartDef/Package.cpp
+			./../MDAFormat/AdditionalPartDef/PackageContent.cpp
+			./../MDAFormat/AdditionalPartDef/ParamView.cpp
+			./../MDAFormat/AdditionalPartDef/Parameter.cpp
+			./../MDAFormat/AdditionalPartDef/ParameterContent.cpp
+			./../MDAFormat/AdditionalPartDef/Property.cpp
+			./../MDAFormat/AdditionalPartDef/RealizeView.cpp
+			./../MDAFormat/AdditionalPartDef/ReturnMessage.cpp
+			./../MDAFormat/AdditionalPartDef/ReturnMessageView.cpp
+			./../MDAFormat/AdditionalPartDef/RootPackage.cpp
+			./../MDAFormat/AdditionalPartDef/SelfMessage.cpp
+			./../MDAFormat/AdditionalPartDef/SelfMessageView.cpp
+			./../MDAFormat/AdditionalPartDef/SequenceDiagram.cpp
+			./../MDAFormat/AdditionalPartDef/SequenceDiagramContent.cpp
+			./../MDAFormat/AdditionalPartDef/SequenceDiagramView.cpp
+			./../MDAFormat/AdditionalPartDef/SequenceStartObject.cpp
+			./../MDAFormat/AdditionalPartDef/State.cpp
+			./../MDAFormat/AdditionalPartDef/StateAction.cpp
+			./../MDAFormat/AdditionalPartDef/StateContent.cpp
+			./../MDAFormat/AdditionalPartDef/StateDiagram.cpp
+			./../MDAFormat/AdditionalPartDef/StateDiagramContent.cpp
+			./../MDAFormat/AdditionalPartDef/StateDiagramView.cpp
+			./../MDAFormat/AdditionalPartDef/StateView.cpp
+			./../MDAFormat/AdditionalPartDef/StereotypeView.cpp
+			./../MDAFormat/AdditionalPartDef/Transition.cpp
+			./../MDAFormat/AdditionalPartDef/TransitionContent.cpp
+			./../MDAFormat/AdditionalPartDef/TransitionParamBase.cpp
+			./../MDAFormat/AdditionalPartDef/TransitionView.cpp
+			./../MDAFormat/AdditionalPartDef/TransitionViewContent.cpp
+			./../MDAFormat/AdditionalPartDef/ViewContent.cpp
+		}
+	
+		LibSupport {
+			./../MDAFormat/Executor.cpp
+		}
+	
+		ModelPartDef {
+			./../MDAFormat/ModelPartDef/Attribute.cpp
+			./../MDAFormat/ModelPartDef/AttributeContent.cpp
+			./../MDAFormat/ModelPartDef/Class.cpp
+			./../MDAFormat/ModelPartDef/ClassContent.cpp
+			./../MDAFormat/ModelPartDef/Dependency.cpp
+			./../MDAFormat/ModelPartDef/Message.cpp
+			./../MDAFormat/ModelPartDef/ModelPart.cpp
+			./../MDAFormat/ModelPartDef/ModelPartParser.cpp
+			./../MDAFormat/ModelPartDef/ModelPartLexer.cpp
+			./../MDAFormat/ModelPartDef/Namespace.cpp
+			./../MDAFormat/ModelPartDef/Operation.cpp
+			./../MDAFormat/ModelPartDef/OperationArgument.cpp
+			./../MDAFormat/ModelPartDef/Package.cpp
+			./../MDAFormat/ModelPartDef/ReturnMessage.cpp
+			./../MDAFormat/ModelPartDef/RootPackage.cpp
+			./../MDAFormat/ModelPartDef/SelfMessage.cpp
+			./../MDAFormat/ModelPartDef/SequenceStartObject.cpp
+			./../MDAFormat/ModelPartDef/State.cpp
+			./../MDAFormat/ModelPartDef/StateAction.cpp
+			./../MDAFormat/ModelPartDef/Transition.cpp
+			./../MDAFormat/ModelPartDef/UserProperty.cpp
+		}
+	
+		RootFile {
+			./../MDAFormat/RootFile/ModelRoot.cpp
+			./../MDAFormat/RootFile/ModelRootParser.cpp
+			./../MDAFormat/RootFile/ModelRootLexer.cpp
+		}
+	
+		ViewPartDef {
+			./../MDAFormat/ViewPartDef/AssociationView.cpp
+			./../MDAFormat/ViewPartDef/ClassDef.cpp
+			./../MDAFormat/ViewPartDef/ClassDiagram.cpp
+			./../MDAFormat/ViewPartDef/ClassDiagramView.cpp
+			./../MDAFormat/ViewPartDef/ClassView.cpp
+			./../MDAFormat/ViewPartDef/DependencyView.cpp
+			./../MDAFormat/ViewPartDef/InheritView.cpp
+			./../MDAFormat/ViewPartDef/MessageView.cpp
+			./../MDAFormat/ViewPartDef/NameView.cpp
+			./../MDAFormat/ViewPartDef/Namespace.cpp
+			./../MDAFormat/ViewPartDef/NoteView.cpp
+			./../MDAFormat/ViewPartDef/ObjectView.cpp
+			./../MDAFormat/ViewPartDef/PackageDef.cpp
+			./../MDAFormat/ViewPartDef/PackageView.cpp
+			./../MDAFormat/ViewPartDef/ParamView.cpp
+			./../MDAFormat/ViewPartDef/Point.cpp
+			./../MDAFormat/ViewPartDef/RealizeView.cpp
+			./../MDAFormat/ViewPartDef/ReturnMessageView.cpp
+			./../MDAFormat/ViewPartDef/RootPackage.cpp
+			./../MDAFormat/ViewPartDef/SelfMessageView.cpp
+			./../MDAFormat/ViewPartDef/SequenceDiagram.cpp
+			./../MDAFormat/ViewPartDef/SequenceDiagramView.cpp
+			./../MDAFormat/ViewPartDef/StateDiagram.cpp
+			./../MDAFormat/ViewPartDef/StateDiagramView.cpp
+			./../MDAFormat/ViewPartDef/StateView.cpp
+			./../MDAFormat/ViewPartDef/StereotypeView.cpp
+			./../MDAFormat/ViewPartDef/TransitionView.cpp
+			./../MDAFormat/ViewPartDef/ViewPart.cpp
+			./../MDAFormat/ViewPartDef/ViewPartParser.cpp
+			./../MDAFormat/ViewPartDef/ViewPartLexer.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,66 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: mpcxc_release_binaries <release_name> <build_conf>"
+echo "Current directory must be your MPCXC_ROOT. Date/Timestamp suffix will be added to <release_name>."
+exit
+fi
+
+cur_dir=`pwd`
+if test "$cur_dir" != "$MPCXC_ROOT" ; then
+echo "Current directory must be your MPCXC_ROOT."
+exit
+fi
+
+echo "mpcxc_release_binaries ..."
+
+target=`$MPCXC_ROOT/src/garant6x/implementation/Projects/sh/build/uname2target.rb`
+
+if test "$target" = "" ; then
+echo "mpcxc_full_rebuild_garant_tools: FATAL: target platform = $taoace_target not supported."
+exit
+fi	  
+
+release_name=$1
+build_conf=$2
+
+echo "Optimize using $build_conf"
+
+if test "$build_conf" != "y" ; then
+target=$target"_"$build_conf
+else
+target=$target"_static"
+fi
+
+echo "target = $target"
+
+taoace_target=$target
+
+export MPCXC_ROOT=$PWD
+future_scripts_path=$MPCXC_ROOT/src/garant6x/implementation/Projects/sh/build
+export MPCXC_SH=$future_scripts_path
+export MPCXC_CONFIG="" # ensure no config
+export MPCXC_TARGET=$target
+
+export TAOACE_MPCXC_ROOT=$MPCXC_ROOT
+export TAOACE_MPCXC_TARGET=$MPCXC_TARGET
+
+rm -rf $MPCXC_ROOT/$release_name/
+mkdir -p $MPCXC_ROOT/$release_name/
+
+if test "$build_conf" = "O3_static" ; then
+echo "copying binaries only"
+find $MPCXC_ROOT/out/$MPCXC_TARGET/bin -type f -exec cp {} $MPCXC_ROOT/$release_name/ \;
+else
+find $MPCXC_ROOT/out/$MPCXC_TARGET/ -type f -exec cp {} $MPCXC_ROOT/$release_name/ \;
+fi
+
+cur_date=`date +%Y_%m_%d_%k_%M_%S`
+archive_name=$release_name"-"$cur_date
+
+find $MPCXC_ROOT/$release_name/ -type f -exec strip -s {} \;
+tar zcf ./$archive_name.tgz ./$release_name/
+rm -rf $MPCXC_ROOT/$release_name/
+
+echo "Output written to $MPCXC_ROOT/$archive_name.tgz"
+echo "end."

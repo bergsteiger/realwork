@@ -1,0 +1,855 @@
+<<Library>> ScriptEngine$F1
+ %UID '54DB83140023'
+ %DEPENDS
+  U$ '467A75D90346' /* VT */
+  U$ '4680E7D50168' /* "Everest Engine" */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '490838AA02D0' /* Nemesis */
+  U$ '4E1F0EB100C4' /* ScriptEngine */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+  U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+ ; // %DEPENDS
+ %META
+  %upv "defines" 'seDefine.inc'
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'rtl'
+  %upv "ifndef" 'NoScripts'
+  %upv "is namespace" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '467A75D90346' /* VT */
+  U$ '4680E7D50168' /* "Everest Engine" */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '490838AA02D0' /* Nemesis */
+  U$ '4E1F0EB100C4' /* ScriptEngine */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+  U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<ScriptKeywords>> StatusBarWords
+   %UID '505C848E02D6'
+   %DEPENDS
+    U$ '4767743E00E5' /* TypInfo */
+    U$ '4799D29F033F' /* Implementation */
+    U$ '49871D5103B9' /* StatusBar */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4DAF19F600C5' /* tfwScriptingInterfaces */
+    U$ '4F69DF560034' /* ControlsProcessing */
+    U$ '5527F81C020E' /* TypesRegistration */
+    U$ '55B7A3160128' /* ScriptedAxiomatics */
+    U$ '55BA28CE0290' /* tfwScriptingTypes */
+    U$ '55CCADD2013D' /* ClassLikeMapping */
+   ; // %DEPENDS
+   %META
+    %upv "ifdef" 'Nemesis'
+    %upv "ifndef" 'NoScripts'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '4684F91300DD' /* Vcl */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '490838AA02D0' /* Nemesis */
+    U$ '54CF97B10370' /* ScriptEngine$Core */
+    U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<ScriptKeywordsPack>> StatusBarWords
+      %UID '505C855C024A'
+      %META
+       %upv "ifndef" 'NoScripts'
+       %upv "needs script" true
+       %upv "no class name" false
+       %upv "no hands" false
+       %upv "no_pop" true
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4684F91300DD' /* Vcl */
+       U$ '469F3E37025A' /* Rtl */
+       U$ '490838AA02D0' /* Nemesis */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4E15A08E030D' /* TnscStatusBar */
+      ; // %INHERITS
+      %LINKS
+        SUMMONED <<uses>> "9502050A7752"
+         %UID '9502050A7752'
+         %TARGET U$ '55153C2C036F' /* TypeInfoExt */
+        ; // 9502050A7752
+        SUMMONED <<injects>> "FD5784AF680E"
+         %UID 'FD5784AF680E'
+         %TARGET U$ '4E15A08E030D' /* TnscStatusBar */
+        ; // FD5784AF680E
+        SUMMONED <<uses>> "03C5AFE361B4"
+         %UID '03C5AFE361B4'
+         %TARGET U$ '5527F8330362' /* TtfwTypeRegistrator */
+        ; // 03C5AFE361B4
+      ; // %LINKS
+      %OPERATIONS
+        PRIVATE FINAL <<keyword>> OrderedControl
+         %UID '552FC8E1023A'
+         %TARGET U$ '47E1201703C3' /* TControl */
+         %META
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anIndex
+            %UID '552FC9080065'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // anIndex
+         ; // %PARAMETERS
+        ; // OrderedControl
+        PRIVATE FINAL <<keyword>> OrderedControlsCount
+         %UID '552FC91301BD'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %META
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // OrderedControlsCount
+        PRIVATE FINAL <<keyword>> OrderIndex
+         %UID '552FC94F0188'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %META
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aControl
+            %UID '552FC96B007C'
+            %TARGET U$ '47E1201703C3' /* TControl */
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+            ; // %TOBEINCLUDED
+           ; // aControl
+         ; // %PARAMETERS
+        ; // OrderIndex
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TtfwContext
+         %UID '81374F32ABEB'
+         %SUMMARY 'Регистрация типа TtfwContext' ;
+        ; // Reg_TtfwContext
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TnscStatusBar
+         %UID 'A18AF40200F8'
+         %SUMMARY 'Регистрация типа TnscStatusBar' ;
+        ; // Reg_TnscStatusBar
+        SUMMONED PRIVATE FINAL <<ini>> Reg_Integer
+         %UID 'C9ACA8ADB67D'
+         %SUMMARY 'Регистрация типа Integer' ;
+        ; // Reg_Integer
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TControl
+         %UID 'B86293ABF7C0'
+         %SUMMARY 'Регистрация типа TControl' ;
+        ; // Reg_TControl
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        SUMMONED PRIVATE FINAL <<SimpleClass>> TStatusBarWordsResNameGetter
+         %UID '98311E435825'
+         %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+         %META
+          %upv "need UC" true
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '55B7A33101AF' /* TtfwAxiomaticsResNameGetter */
+         ; // %INHERITS
+         %REALIZES
+          U$ '55B7A3AF0359' /* ResName */
+         ; // %REALIZES
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> RegAxiom
+            %UID '21C4AD0A8117'
+            %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+           ; // RegAxiom
+         ; // %OPERATIONS
+        ; // TStatusBarWordsResNameGetter
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "StatusBar_OrderedControl"
+         %UID '6A3FD2C52DF9'
+         %SUMMARY 'Слово скрипта StatusBar:OrderedControl'#13#10'*Тип результата:* TControl'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TControl'#13#10' anIndex aStatusBar StatusBar:OrderedControl >>> l_TControl'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'StatusBar:OrderedControl'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '490838AA02D0' /* Nemesis */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '55CCAE000335' /* TtfwClassLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "C5D70F4A5B22"
+            %UID 'C5D70F4A5B22'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // C5D70F4A5B22
+           SUMMONED <<uses>> "1F1A785F47C4"
+            %UID '1F1A785F47C4'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // 1F1A785F47C4
+           SUMMONED <<uses>> "3C1060E29000"
+            %UID '3C1060E29000'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 3C1060E29000
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> OrderedControl
+            %UID 'FE371E175914'
+            %SUMMARY 'Реализация слова скрипта StatusBar:OrderedControl' ;
+            %TARGET U$ '47E1201703C3' /* TControl */
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+             U$ '469F3E37025A' /* Rtl */
+             U$ '490838AA02D0' /* Nemesis */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID '19B2B32EBF7D'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aStatusBar
+               %UID '19B2B32EBF7E'
+               %TARGET U$ '4E15A08E030D' /* TnscStatusBar */
+               %TOBEINCLUDED
+                U$ '490838AA02D0' /* Nemesis */
+               ; // %TOBEINCLUDED
+              ; // aStatusBar
+              SUMMONED <<in>> anIndex
+               %UID '19B2B32EBF7F'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // anIndex
+            ; // %PARAMETERS
+           ; // OrderedControl
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '90C86D8B838E'
+            %SUMMARY 'Регистрация StatusBar_OrderedControl' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "StatusBar_OrderedControl"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "StatusBar_OrderedControlsCount"
+         %UID 'C8B065596342'
+         %SUMMARY 'Слово скрипта StatusBar:OrderedControlsCount'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aStatusBar StatusBar:OrderedControlsCount >>> l_Integer'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'StatusBar:OrderedControlsCount'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '490838AA02D0' /* Nemesis */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '55CCAE000335' /* TtfwClassLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "3A491A412DDA"
+            %UID '3A491A412DDA'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 3A491A412DDA
+           SUMMONED <<uses>> "AE4B33BEBB21"
+            %UID 'AE4B33BEBB21'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // AE4B33BEBB21
+           SUMMONED <<uses>> "BBDC5BD7B52A"
+            %UID 'BBDC5BD7B52A'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // BBDC5BD7B52A
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> OrderedControlsCount
+            %UID '3F6B70526DE3'
+            %SUMMARY 'Реализация слова скрипта StatusBar:OrderedControlsCount' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '490838AA02D0' /* Nemesis */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID 'B9ECF6EA3051'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aStatusBar
+               %UID 'B9ECF6EA3052'
+               %TARGET U$ '4E15A08E030D' /* TnscStatusBar */
+               %TOBEINCLUDED
+                U$ '490838AA02D0' /* Nemesis */
+               ; // %TOBEINCLUDED
+              ; // aStatusBar
+            ; // %PARAMETERS
+           ; // OrderedControlsCount
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '39C3A7025327'
+            %SUMMARY 'Регистрация StatusBar_OrderedControlsCount' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "StatusBar_OrderedControlsCount"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "StatusBar_OrderIndex"
+         %UID 'F7D061E9FD6E'
+         %SUMMARY 'Слово скрипта StatusBar:OrderIndex'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aControl aStatusBar StatusBar:OrderIndex >>> l_Integer'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'StatusBar:OrderIndex'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4684F91300DD' /* Vcl */
+          U$ '469F3E37025A' /* Rtl */
+          U$ '490838AA02D0' /* Nemesis */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '55CCAE000335' /* TtfwClassLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "7D8001BF37D8"
+            %UID '7D8001BF37D8'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 7D8001BF37D8
+           SUMMONED <<uses>> "C4686EB4BF9A"
+            %UID 'C4686EB4BF9A'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // C4686EB4BF9A
+           SUMMONED <<uses>> "C95E5DC84256"
+            %UID 'C95E5DC84256'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // C95E5DC84256
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> OrderIndex
+            %UID 'BD703176FDE6'
+            %SUMMARY 'Реализация слова скрипта StatusBar:OrderIndex' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '4684F91300DD' /* Vcl */
+             U$ '469F3E37025A' /* Rtl */
+             U$ '490838AA02D0' /* Nemesis */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID '747F50098545'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aStatusBar
+               %UID '747F50098546'
+               %TARGET U$ '4E15A08E030D' /* TnscStatusBar */
+               %TOBEINCLUDED
+                U$ '490838AA02D0' /* Nemesis */
+               ; // %TOBEINCLUDED
+              ; // aStatusBar
+              SUMMONED <<in>> aControl
+               %UID '747F50098547'
+               %TARGET U$ '47E1201703C3' /* TControl */
+               %TOBEINCLUDED
+                U$ '4684F91300DD' /* Vcl */
+               ; // %TOBEINCLUDED
+              ; // aControl
+            ; // %PARAMETERS
+           ; // OrderIndex
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '8DEE472E1C40'
+            %SUMMARY 'Регистрация StatusBar_OrderIndex' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "StatusBar_OrderIndex"
+      ; // %CHILDREN
+     ; // StatusBarWords
+     FINAL <<ScriptKeywordsPack>> StatusBarButtonWords
+      %UID '54DB6FD1016A'
+      %META
+       %upv "ifndef" 'NoScripts'
+       %upv "needs script" 'undefined'
+       %upv "no class name" 'undefined'
+       %upv "no hands" false
+       %upv "no_pop" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '490838AA02D0' /* Nemesis */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '503DE6F30027' /* TnscStatusBarButton */
+      ; // %INHERITS
+      %LINKS
+        SUMMONED <<uses>> "595F0372CF1E"
+         %UID '595F0372CF1E'
+         %TARGET U$ '55153C2C036F' /* TypeInfoExt */
+        ; // 595F0372CF1E
+        SUMMONED <<injects>> "95F5D3CF34CC"
+         %UID '95F5D3CF34CC'
+         %TARGET U$ '503DE6F30027' /* TnscStatusBarButton */
+        ; // 95F5D3CF34CC
+        SUMMONED <<uses>> "4087F844C682"
+         %UID '4087F844C682'
+         %TARGET U$ '5527F8330362' /* TtfwTypeRegistrator */
+        ; // 4087F844C682
+      ; // %LINKS
+      %OPERATIONS
+        PRIVATE FINAL <<keyword>> IsDown
+         %UID '552FC9C10154'
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // IsDown
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TtfwContext
+         %UID '4824BB52CEB1'
+         %SUMMARY 'Регистрация типа TtfwContext' ;
+        ; // Reg_TtfwContext
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TnscStatusBarButton
+         %UID '918EE43C98B2'
+         %SUMMARY 'Регистрация типа TnscStatusBarButton' ;
+        ; // Reg_TnscStatusBarButton
+        SUMMONED PRIVATE FINAL <<ini>> Reg_Boolean
+         %UID '24DDEED42EFE'
+         %SUMMARY 'Регистрация типа Boolean' ;
+        ; // Reg_Boolean
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "pop_StatusBarButton_IsDown"
+         %UID '33C559B72437'
+         %SUMMARY 'Слово скрипта pop:StatusBarButton:IsDown'#13#10'*Тип результата:* Boolean'#13#10'*Пример:*'#13#10'{code}'#13#10'BOOLEAN VAR l_Boolean'#13#10' aStatusBarButton pop:StatusBarButton:IsDown >>> l_Boolean'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'pop:StatusBarButton:IsDown'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '490838AA02D0' /* Nemesis */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '55CCAE000335' /* TtfwClassLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "5101881AE63A"
+            %UID '5101881AE63A'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 5101881AE63A
+           SUMMONED <<uses>> "A3952975DB1E"
+            %UID 'A3952975DB1E'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // A3952975DB1E
+           SUMMONED <<uses>> "EA7BB3768809"
+            %UID 'EA7BB3768809'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // EA7BB3768809
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> IsDown
+            %UID '8D82AE1A2B57'
+            %SUMMARY 'Реализация слова скрипта pop:StatusBarButton:IsDown' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '490838AA02D0' /* Nemesis */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID '7915B770EAE0'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aStatusBarButton
+               %UID '7915B770EAE1'
+               %TARGET U$ '503DE6F30027' /* TnscStatusBarButton */
+               %TOBEINCLUDED
+                U$ '490838AA02D0' /* Nemesis */
+               ; // %TOBEINCLUDED
+              ; // aStatusBarButton
+            ; // %PARAMETERS
+           ; // IsDown
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '0B82267804F1'
+            %SUMMARY 'Регистрация pop_StatusBarButton_IsDown' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "pop_StatusBarButton_IsDown"
+      ; // %CHILDREN
+     ; // StatusBarButtonWords
+   ; // %CHILDREN
+  ; // StatusBarWords
+  <<ScriptKeywords>> TaskPanelWords
+   %UID '510134290310'
+   %DEPENDS
+    U$ '4767743E00E5' /* TypInfo */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4D3424960025' /* TasksPanel */
+    U$ '4DAF19F600C5' /* tfwScriptingInterfaces */
+    U$ '4E732D5D02FE' /* HideFields */
+    U$ '4F3E3F5F0160' /* PrimitiveWords */
+    U$ '5527F81C020E' /* TypesRegistration */
+    U$ '55BA28CE0290' /* tfwScriptingTypes */
+    U$ '55CCADD2013D' /* ClassLikeMapping */
+   ; // %DEPENDS
+   %META
+    %upv "ifndef" 'NoVCM'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '467A75D90346' /* VT */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '490838AA02D0' /* Nemesis */
+    U$ '54CF97B10370' /* ScriptEngine$Core */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<ScriptKeywordsPack>> TaskPanelWords
+      %UID '5101345E0143'
+      %META
+       %upv "ifndef" 'NoScripts'
+       %upv "needs script" 'undefined'
+       %upv "no class name" 'undefined'
+       %upv "no hands" false
+       %upv "no_pop" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '490838AA02D0' /* Nemesis */
+       U$ '54CF97B10370' /* ScriptEngine$Core */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4D3424C203C2' /* TnscTasksPanelView */
+      ; // %INHERITS
+      %LINKS
+        SUMMONED <<uses>> "C7843EE8F48A"
+         %UID 'C7843EE8F48A'
+         %TARGET U$ '55153C2C036F' /* TypeInfoExt */
+        ; // C7843EE8F48A
+        SUMMONED <<injects>> "B4E85053313F"
+         %UID 'B4E85053313F'
+         %TARGET U$ '4D3424C203C2' /* TnscTasksPanelView */
+        ; // B4E85053313F
+        SUMMONED <<uses>> "D82F179A3504"
+         %UID 'D82F179A3504'
+         %TARGET U$ '5527F8330362' /* TtfwTypeRegistrator */
+        ; // D82F179A3504
+      ; // %LINKS
+      %ATTRIBUTES
+        PRIVATE FINAL <<readonly>> Count
+         %UID '552FCA4E006B'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %META
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Count
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        PRIVATE FINAL <<keyword>> GetHideField
+         %UID '552FCA800230'
+         %TARGET U$ '508EBD7703BF' /* TnscTasksPanelHideField */
+         %META
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '490838AA02D0' /* Nemesis */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> anIndex
+            %UID '552FCA9D02F3'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // anIndex
+         ; // %PARAMETERS
+        ; // GetHideField
+        SUMMONED FINAL <<keyword>> Count$07788894315C
+         %UID '07788894315C'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %META
+          %upv "bind params" 'undefined'
+          %upv "lvalue" 'undefined'
+          %upv "mapped" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Count$07788894315C
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TtfwContext
+         %UID 'CD97F8829110'
+         %SUMMARY 'Регистрация типа TtfwContext' ;
+        ; // Reg_TtfwContext
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TnscTasksPanelView
+         %UID 'D4306B70EAAA'
+         %SUMMARY 'Регистрация типа TnscTasksPanelView' ;
+        ; // Reg_TnscTasksPanelView
+        SUMMONED PRIVATE FINAL <<ini>> Reg_Integer
+         %UID '059CF6E50D25'
+         %SUMMARY 'Регистрация типа Integer' ;
+        ; // Reg_Integer
+        SUMMONED PRIVATE FINAL <<ini>> Reg_TnscTasksPanelHideField
+         %UID '2772C8830739'
+         %SUMMARY 'Регистрация типа TnscTasksPanelHideField' ;
+        ; // Reg_TnscTasksPanelHideField
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "pop_TaskPanel_GetHideField"
+         %UID 'C357835C3D1B'
+         %SUMMARY 'Слово скрипта pop:TaskPanel:GetHideField'#13#10'*Тип результата:* TnscTasksPanelHideField'#13#10'*Пример:*'#13#10'{code}'#13#10'OBJECT VAR l_TnscTasksPanelHideField'#13#10' anIndex aTaskPanel pop:TaskPanel:GetHideField >>> l_TnscTasksPanelHideField'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'pop:TaskPanel:GetHideField'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '490838AA02D0' /* Nemesis */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '55CCAE000335' /* TtfwClassLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "9DF5DC8125BD"
+            %UID '9DF5DC8125BD'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 9DF5DC8125BD
+           SUMMONED <<uses>> "533313252BDB"
+            %UID '533313252BDB'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // 533313252BDB
+           SUMMONED <<uses>> "6DFC4F559E29"
+            %UID '6DFC4F559E29'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // 6DFC4F559E29
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> GetHideField
+            %UID 'E1A1A40AC939'
+            %SUMMARY 'Реализация слова скрипта pop:TaskPanel:GetHideField' ;
+            %TARGET U$ '508EBD7703BF' /* TnscTasksPanelHideField */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '490838AA02D0' /* Nemesis */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID 'EA98B6BB8B0B'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aTaskPanel
+               %UID 'EA98B6BB8B0C'
+               %TARGET U$ '4D3424C203C2' /* TnscTasksPanelView */
+               %TOBEINCLUDED
+                U$ '490838AA02D0' /* Nemesis */
+               ; // %TOBEINCLUDED
+              ; // aTaskPanel
+              SUMMONED <<in>> anIndex
+               %UID 'EA98B6BB8B0D'
+               %TARGET U$ '46A606AC03B2' /* Integer */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // anIndex
+            ; // %PARAMETERS
+           ; // GetHideField
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '1CBA45EAA775'
+            %SUMMARY 'Регистрация pop_TaskPanel_GetHideField' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "pop_TaskPanel_GetHideField"
+        SUMMONED PRIVATE FINAL <<ScriptKeyword>> "pop_TaskPanel_Count"
+         %UID 'C2B2EE13F5CE'
+         %SUMMARY 'Слово скрипта pop:TaskPanel:Count'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aTaskPanel pop:TaskPanel:Count >>> l_Integer'#13#10'{code} ' ;
+         %META
+          %upv "NameForScript" 'pop:TaskPanel:Count'
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '490838AA02D0' /* Nemesis */
+          U$ '54CF97B10370' /* ScriptEngine$Core */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '5619169603BE' /* TtfwPropertyLike */
+         ; // %INHERITS
+         %REALIZES
+          U$ '4DAEEDE10285' /* DoDoIt */
+         ; // %REALIZES
+         %OVERRIDES
+          U$ '4DB0614603C8' /* GetWordNameForRegister */
+          U$ '52D00B00031A' /* SetValuePrim */
+          U$ '551544E2001A' /* GetResultTypeInfo */
+          U$ '559687E6025A' /* GetAllParamsCount */
+          U$ '5617F4D00243' /* ParamsTypes */
+         ; // %OVERRIDES
+         %LINKS
+           SUMMONED <<uses>> "3E815F0DC4DD"
+            %UID '3E815F0DC4DD'
+            %TARGET U$ '4DB0091E033E' /* TtfwContext */
+           ; // 3E815F0DC4DD
+           SUMMONED <<uses>> "039F99803703"
+            %UID '039F99803703'
+            %TARGET U$ '4767748503B5' /* TTypeInfo */
+           ; // 039F99803703
+           SUMMONED <<uses>> "E0566795DA3E"
+            %UID 'E0566795DA3E'
+            %TARGET U$ '47877EB202FB' /* SysUtils */
+           ; // E0566795DA3E
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<Operation>> Count
+            %UID '6CDE88AB26F2'
+            %SUMMARY 'Реализация слова скрипта pop:TaskPanel:Count' ;
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '490838AA02D0' /* Nemesis */
+             U$ '54CF97B10370' /* ScriptEngine$Core */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              SUMMONED <<in>> aCtx
+               %UID '466588BECE08'
+               %TARGET U$ '4DB0091E033E' /* TtfwContext */
+               %TOBEINCLUDED
+                U$ '54CF97B10370' /* ScriptEngine$Core */
+               ; // %TOBEINCLUDED
+              ; // aCtx
+              SUMMONED <<in>> aTaskPanel
+               %UID '466588BECE09'
+               %TARGET U$ '4D3424C203C2' /* TnscTasksPanelView */
+               %TOBEINCLUDED
+                U$ '490838AA02D0' /* Nemesis */
+               ; // %TOBEINCLUDED
+              ; // aTaskPanel
+            ; // %PARAMETERS
+           ; // Count
+           SUMMONED PRIVATE FINAL <<ini>> Ini_Reg
+            %UID '466BF88B6F14'
+            %SUMMARY 'Регистрация pop_TaskPanel_Count' ;
+           ; // Ini_Reg
+         ; // %OPERATIONS
+        ; // "pop_TaskPanel_Count"
+      ; // %CHILDREN
+     ; // TaskPanelWords
+   ; // %CHILDREN
+  ; // TaskPanelWords
+ ; // %CHILDREN
+; // ScriptEngine$F1

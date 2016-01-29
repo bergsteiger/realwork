@@ -1,0 +1,261 @@
+// Tl3FrameLines 48CA6E8201B8 SimpleClass Class
+
+INCLUDE '4AE5CA2D0034.pas.ms.script'
+
+INCLUDE '467C0CAA02AB.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+FORWARD ME_48CA6E8201B8
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_4D01F1E60013
+ CONST UID '4D01F1E60013'
+ CONST Name 'f_LastFoundObjIndex'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Используется для тестов для формирования уникального имени лога для таблицы' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "ifdef" 'nsTest'
+
+ @SELF
+; // ME_4D01F1E60013 f_LastFoundObjIndex
+
+INCLUDE '48CA6C24020B.pas.ms.script'
+
+: ME_48CA6EE2008E
+ CONST UID '48CA6EE2008E'
+ CONST Name 'f_FrameObjects'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Массив списка линий по данной координате' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_48CA6C24020B // Tl3FrameObjectList
+ ;
+
+ @SELF
+; // ME_48CA6EE2008E f_FrameObjects
+
+: ME_51B9669500F6
+ CONST UID '51B9669500F6'
+ CONST Name 'f_Behaviour'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_51B9640502D4 // Tl3FrameObjectBehaviour
+ ;
+
+ @SELF
+; // ME_51B9669500F6 f_Behaviour
+
+FORWARD ME_51B96284001B
+
+: ME_51B9629F00ED
+ CONST UID '51B9629F00ED'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_48CA6C24020B // Tl3FrameObjectList
+ ;
+
+ @SELF
+; // ME_51B9629F00ED DoIt
+
+: ME_51B96284001B
+ CONST UID '51B96284001B'
+ CONST Name 'GetFrameObjects'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_51B9629F00ED // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_51B96284001B GetFrameObjects
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_48CA6F0403D4
+ CONST UID '48CA6F0403D4'
+ CONST Name 'Make'
+ CONST Class 'Operation'
+ CONST Stereotype 'factory'
+ %SUMMARY 'конструктор' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_48CA6F0403D4 Make
+
+: ME_48CA70380217
+ CONST UID '48CA70380217'
+ CONST Name 'anObjID'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_48CA70380217 anObjID
+
+INCLUDE '48CA64150378.pas.ms.script'
+
+: ME_48CA703303A3
+ CONST UID '48CA703303A3'
+ CONST Name 'InternalFrameObject'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Возвращает объект отрисовки по ключу' ;
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Target ME_48CA64150378 // Tl3FrameObject
+ ;
+ : Parameters
+   [ ME_48CA70380217 // anObjID
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_48CA703303A3 InternalFrameObject
+
+: ME_48CA70500146
+ CONST UID '48CA70500146'
+ CONST Name 'aCanvas'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4727449A00A2 // Il3Canvas
+ ;
+
+ @SELF
+; // ME_48CA70500146 aCanvas
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_48CA70500173
+ CONST UID '48CA70500173'
+ CONST Name 'aFrame'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603530283 // Tl3Frame
+ ;
+
+ @SELF
+; // ME_48CA70500173 aFrame
+
+INCLUDE '472745450206.pas.ms.script'
+
+: ME_48CA7050019F
+ CONST UID '48CA7050019F'
+ CONST Name 'aRect'
+ CONST Class 'Parameter'
+ CONST Stereotype 'inout'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4728974E009E // Tl3Rect
+ ;
+
+ @SELF
+; // ME_48CA7050019F aRect
+
+: ME_48CA70430236
+ CONST UID '48CA70430236'
+ CONST Name 'UpdateFrameRect'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Добавить к aRect отсутпы границ рамок' ;
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_48CA70500146 // aCanvas
+ ME_48CA70500173 // aFrame
+ ME_48CA7050019F // aRect
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_48CA70430236 UpdateFrameRect
+
+: ME_48CA6E8201B8
+ CONST UID '48CA6E8201B8'
+ CONST Name 'Tl3FrameLines'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Комментарии к использованию: '#13#10'Есть возможность отрисовывать все накопленные линии сразу или по одному '#13#10'объекту (в качестве идентификатора выступает PID). Последнее используется '#13#10'при выводе на печать. При выводе на экран накапливается информация для всех '#13#10'таблиц, а потом выводить все за один прием выводится. Можно использовать'#13#10'для любых объектов, имеющих рамку, но пока используется только для таблиц.' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4AE5CA2D0034 // Tl3CProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_475E5FCB018F // Il3FrameLines
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_4D01F1E60013 // f_LastFoundObjIndex
+ ME_48CA6EE2008E // f_FrameObjects
+ ME_51B9669500F6 // f_Behaviour
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_51B96284001B // GetFrameObjects
+ ME_48CA6F0403D4 // Make
+ ME_48CA703303A3 // InternalFrameObject
+ ME_48CA70430236 // UpdateFrameRect
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4A4CB2B2031F // StartFrameObject
+ ME_4A4CB2BE0134 // FinishFrameObject
+ ME_4A4CB2C300F6 // AddFrame
+ ME_4A4CB2D20019 // AlignBoundary
+ ME_4A4CB2DD02ED // DrawAllLines
+ ME_4A4CB2E1010D // DrawFrame
+ ME_4A810BC702C0 // FinishedFO
+ ME_4A928509010C // GetLineWidth
+ ME_4AB873270004 // ReadAlignData
+ ME_4AB8736B0062 // WriteAlignData
+ ME_4D01F080037C // SetNeedLogging
+ ME_4E54CF2D00D3 // ClearFrameObject
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_47A042E100E2 // InitFields
+ ]
+ ; // Overridden
+ CONST "author" 'Инишев Д.А.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '02.10.06 16:27'
+
+ @SELF
+; // ME_48CA6E8201B8 Tl3FrameLines

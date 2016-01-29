@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+	<META HTTP-EQUIV="Content-language" CONTENT="en">
+	<META NAME="Robots" CONTENT="ALL; FOLLOW">
+	<META name="description" content="SYNAPSE - Synchronous TCP/IP Library for Delphi">
+	<META name="keywords" content="Synapse, TCP/IP, Socket, Synchronous, Blocking">
+	<title>SYNAPSE - Synchronous TCP/IP Library for Delphi</title>
+</head>
+<body BGCOLOR="#FFFAEC" LINK="Red" ALINK="Blue" VLINK="Purple">
+
+<CENTER>
+<FONT FACE="sans-serif" SIZE="+1" COLOR="Blue">
+<B>SYNAPSE - Synchronous TCP/IP Library for Delphi</B>
+</FONT>
+<br>
+Other related information can be found at <A HREF="http://www.ararat.cz/synapse/">http://www.ararat.cz/synapse/</A>
+</CENTER>
+<hr>
+<font face="sans-serif" size="+2" color="Blue"><b>MIME guide</b></font><p>
+<b>Class:</b> TMIMEMess<p>
+<b>RFC:</b> 2045, 2046, 2047, 2048, 2049<p>
+<b>Features:</b>
+<ul>
+	<li>support multilevel Mime (each of part maybe sublevel multipart)
+	<li>support automaticly selected transport coding from ISO-8859-1 to ISO-8859-10.
+	<li>support automaticly selected system conding coding from CP1250 to CP1258.
+	<li>character encoding is automaticly coverted.
+	<li>Mime types is automaticly selected.
+	<li>Support for QuotedPrintable an Base64 encoding.
+</ul>
+<b>Typical use:</b><p>
+
+<ul>
+	<li>In all cases you must have <i>MimeMess</i> in your <b>uses</b>.
+	<li>You can easy build multipart MIME message, see example:<p> 
+<font size="-1">
+<font color="Teal"><I>
+{you must create object for MIME message}
+</I></FONT><br>
+MIME:=TMIMEMess.Create;<br>
+<B>try</B><br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{set headers for message}
+  </I></FONT><br>
+  &nbsp;&nbsp;MIME.header.from:=fromaddress;<br>
+  &nbsp;&nbsp;MIME.header.Tolist.add(toaddress);<br>
+  &nbsp;&nbsp;MIME.header.subject:=subject;<br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{add text part}
+  </I></FONT><br>
+  &nbsp;&nbsp;MIME.AddPartText(StringListWithText);<br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{add binary part}
+  </I></FONT><br>
+  &nbsp;&nbsp;MIME.AddPartBinary(FilenameWithBinary);<br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{compose message}
+  </I></FONT><br>
+  &nbsp;&nbsp;MIME.EncodeMessage;<br>
+  &nbsp;&nbsp;MIME.FinalizeHeaders;<br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{Mime message done.}<br>
+  &nbsp;&nbsp;{now we may send it to SMTP server... by SMTPSend unit...}
+  </I></FONT><br>
+  &nbsp;&nbsp;SendToRaw (fromaddress, toaddress, SMTPHost, MIME.Lines, '', '');<br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{destroy MIME object}
+  </I></FONT><br>
+  &nbsp;&nbsp;MIME.Free;<br>
+  <B>end</B>;
+</font>
+</ul>
+
+<hr>
+</body>
+</html>
+

@@ -1,0 +1,1128 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 8.5.0503.xxx"
+    charSet    	204)
+
+(object Class_Category "TestFastobjects"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"cpp:*449692970242_CUSTOM_INCLUDE*"
+	    value      	(value Text 
+|//#UC START# *449692970242_CUSTOM_INCLUDE*¤#include "common/utils/math_statistics/math_statistics.h"¤¤void unit_test_math_statistics () {¤	std::vector <double> d;¤	for (int i = 0; i < 100; ++i) {¤		d.push_back (GCL::normal_distribution (100, 10));¤	}¤	double mx = GCL::get_average (d);¤	double dx = GCL::get_stddev (d, mx);¤	printf ("\n GCL::normal_distribution (100, 10)\n");¤	for (int i = 0; i < 100; ++i) {¤		printf ("%f ", d [i]);¤	}¤	printf ("\n");¤	printf ("mx = %f, dx= %f\n", mx, dx);¤}¤//#UC END# *449692970242_CUSTOM_INCLUDE*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"cpp:*449692970242_MAIN_BODY*"
+	    value      	(value Text 
+|//#UC START# *449692970242_MAIN_BODY*¤	unit_test_math_statistics ();¤¤	::GCL::Aptr < ::GCL::ISettings > settings = new ::GCL::ISettings;¤	const char* test_profile_key = settings->get_string ("test_profile_key");¤	::TestLibrary::Test::ITestProfile_var test_profile = ::TestLibrary::Test::ITestProfileFactory::make (settings, test_profile_key);¤	::TestLibrary::TestFramework::ITestExecutor_var executor = ::TestLibrary::TestFramework::ITestExecutorFactory::make (test_profile);¤	//#UC END# *449692970242_MAIN_BODY*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"mpc:*449692970242_CUSTOM_TOP_DEPENDENCES*"
+	    value      	(value Text 
+|//#UC START# *449692970242_CUSTOM_TOP_DEPENDENCES*¤	specific (make) {¤        lit_libs += FO100Fbs FO100Fex FO100Fin FO100Fkn FO100Foq FO100Fsc FO100Ftm¤    }¤    specific (vc71) {¤		lit_libs += FastObjects.71¤    }¤	//#UC END# *449692970242_CUSTOM_TOP_DEPENDENCES*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"mpc:*449692970242_CUSTOM_BOTTOM_DEPENDENCES*"
+	    value      	(value Text 
+|//#UC START# *449692970242_CUSTOM_BOTTOM_DEPENDENCES*¤	libs += boost_filesystem¤	//#UC END# *449692970242_CUSTOM_BOTTOM_DEPENDENCES*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"mpc:*449692970242_NewImpl_Manual_Headers*"
+	    value      	(value Text 
+|//#UC START# *449692970242_NewImpl_Manual_Headers*¤		//#UC END# *449692970242_NewImpl_Manual_Headers*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"mpc:*449692970242_NewImpl_Rest_Manual_Headers*"
+	    value      	(value Text 
+|//#UC START# *449692970242_NewImpl_Rest_Manual_Headers*¤		//#UC END# *449692970242_NewImpl_Rest_Manual_Headers*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"mpc:*449692970242_Manual_Inlines*"
+	    value      	(value Text 
+|//#UC START# *449692970242_Manual_Inlines*¤		//#UC END# *449692970242_Manual_Inlines*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"mpc:*449692970242_NewImpl_Manual_Sources*"
+	    value      	(value Text 
+|//#UC START# *449692970242_NewImpl_Manual_Sources*¤		//#UC END# *449692970242_NewImpl_Manual_Sources*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"mpc:*449692970242_NewImpl_Rest_Manual_Sources*"
+	    value      	(value Text 
+|//#UC START# *449692970242_NewImpl_Rest_Manual_Sources*¤		//#UC END# *449692970242_NewImpl_Rest_Manual_Sources*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"mpc:*449692970242_RESOURCE_FILES*"
+	    value      	(value Text 
+|//#UC START# *449692970242_RESOURCE_FILES*¤	//#UC END# *449692970242_RESOURCE_FILES*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"mpc:*449692970242_FastObjects_Manual_Headers*"
+	    value      	(value Text 
+|//#UC START# *449692970242_FastObjects_Manual_Headers*¤		//#UC END# *449692970242_FastObjects_Manual_Headers*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"mpc:*449692970242_FastObjects_Rest_Manual_Headers*"
+	    value      	(value Text 
+|//#UC START# *449692970242_FastObjects_Rest_Manual_Headers*¤			./../TestFastobjects/impl/FastObjects/stubs/*.hxx¤		//#UC END# *449692970242_FastObjects_Rest_Manual_Headers*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"mpc:*449692970242_FastObjects_Manual_Sources*"
+	    value      	(value Text 
+|//#UC START# *449692970242_FastObjects_Manual_Sources*¤			./../TestFastobjects/impl/FastObjects/test_create_object_metamodel_i.cpp¤		//#UC END# *449692970242_FastObjects_Manual_Sources*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"mpc:*449692970242_FastObjects_Rest_Manual_Sources*"
+	    value      	(value Text 
+|//#UC START# *449692970242_FastObjects_Rest_Manual_Sources*¤			./../TestFastobjects/impl/FastObjects/stubs/*.cxx¤		//#UC END# *449692970242_FastObjects_Rest_Manual_Sources*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"cpp:*449692970242_SES_POST_CONFIG*"
+	    value      	(value Text 
+|//#UC START# *449692970242_SES_POST_CONFIG*¤	//#UC END# *449692970242_SES_POST_CONFIG*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"cpp:*449692970242_TEMPORARY_INIT*"
+	    value      	(value Text 
+|//#UC START# *449692970242_TEMPORARY_INIT*¤		// here u must initialize ParamsManager or something like this... ¤		// in the future we replace this user-section with real ParamManager initialization¤	unit_test_math_statistics ();¤	//#UC END# *449692970242_TEMPORARY_INIT*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"mpc:*449692970242_Rest_Manual_Headers*"
+	    value      	(value Text 
+|//#UC START# *449692970242_Rest_Manual_Headers*¤			./../TestFastobjects/impl/FastObjects/stubs/*.hxx¤		//#UC END# *449692970242_Rest_Manual_Headers*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"mpc:*449692970242_Rest_Manual_Sources*"
+	    value      	(value Text 
+|//#UC START# *449692970242_Rest_Manual_Sources*¤			./../TestFastobjects/impl/FastObjects/stubs/*.cxx¤		//#UC END# *449692970242_Rest_Manual_Sources*
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"cpp:*449692970242_CUSTOM_REGISTRATE*"
+	    value      	(value Text 
+|//#UC START# *449692970242_CUSTOM_REGISTRATE*¤	//#UC END# *449692970242_CUSTOM_REGISTRATE*
+	    )))
+    quid       	"449692970242"
+    documentation 	"Утилита тестирования хранилища Fastobjects. Содержит только пакеты имплементации, зависящие от Fastobjects."
+    stereotype 	"Utility"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"449693380261"
+	    supplier   	"Logical View::storage::TestLibrary"
+	    quidu      	"4496931800CB")
+	(object Visibility_Relationship
+	    quid       	"449BA01800CB"
+	    supplier   	"Logical View::storage::FastobjectsLib"
+	    quidu      	"449B9F390251"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class_Category "FastObjects"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"44969452035B"
+	    documentation 	"Содержит ту часть реализации конкретных простейших тестов, которая ЗАВИСИТ от хранилища Fastobjects."
+	    stereotype 	"Impl"
+	    visible_categories 	(list visibility_relationship_list
+		(object Visibility_Relationship
+		    quid       	"449BA0ED01A5"
+		    supplier   	"Logical View::storage::FastobjectsLib::FastObjectsHeaders"
+		    quidu      	"449B9F7201D4")
+		(object Visibility_Relationship
+		    quid       	"44BB705B0148"
+		    supplier   	"Logical View::storage::TestLibrary::DB"
+		    quidu      	"44BB6C5900CB"))
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "FastobjectsDBCreate_i"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*449AB3A6031C_CUSTOM_INCLUDES*"
+			    value      	(value Text 
+|//#UC START# *449AB3A6031C_CUSTOM_INCLUDES*¤#include "storage/TestFastobjects/impl/FastObjects/stubs/test_create_object_metamodel.hxx"¤//#UC END# *449AB3A6031C_CUSTOM_INCLUDES*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*449AB3A6031C*"
+			    value      	"//#UC START# *449AB3A6031C*¤//#UC END# *449AB3A6031C*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*449AB3A6031C_DESTR_BODY*"
+			    value      	(value Text 
+|//#UC START# *449AB3A6031C_DESTR_BODY*¤	//#UC END# *449AB3A6031C_DESTR_BODY*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"h:*449AB3A6031C_CUSTOM_INCLUDES*"
+			    value      	(value Text 
+|//#UC START# *449AB3A6031C_CUSTOM_INCLUDES*¤#include "storage/TestFastobjects/impl/FastObjects/stubs/test_create_object_metamodel.hxx"¤//#UC END# *449AB3A6031C_CUSTOM_INCLUDES*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"h:*449AB3A6031C*"
+			    value      	(value Text 
+|//#UC START# *449AB3A6031C*¤private: // MDAGENERATOR MUST DO IT¤	::SimpleObject* m_simple_object;¤//#UC END# *449AB3A6031C*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"fctr.cpp:*449AB3A6031C_CUSTOM_INCLUDES*"
+			    value      	"//#UC START# *449AB3A6031C_CUSTOM_INCLUDES*¤//#UC END# *449AB3A6031C_CUSTOM_INCLUDES*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"fctr.h:*449AB3A6031C_CUSTOM_INCLUDES*"
+			    value      	"//#UC START# *449AB3A6031C_CUSTOM_INCLUDES*¤//#UC END# *449AB3A6031C_CUSTOM_INCLUDES*")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Factory auto reg"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Factory default impl"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Factory key"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Final"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Servant Pool"
+			    value      	"none")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"local supervisor"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"singleton"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular"))
+		    quid       	"449AB3A6031C"
+		    documentation 	"Реализует добавление объектов в базу, используя генератор размеров добавляемых объектов из CreateObjectActionBase_i и указатель на базу из FastobjectsBase_i."
+		    stereotype 	"Servant"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"44A3CE5D03D8"
+			    supplier   	"Logical View::storage::TestFastobjects::FastObjects::FastobjectsBase_i"
+			    quidu      	"449B966E0000"))
+		    realized_interfaces 	(list realize_rel_list
+			(object Realize_Relationship
+			    quid       	"44BB70A7005D"
+			    supplier   	"Logical View::storage::TestLibrary::DB::IDBCreate"
+			    quidu      	"44BB65D80148"))
+		    language   	"MDA Generator")
+		(object Class "FastobjectsBase_i"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*449B966E0000_CUSTOM_INCLUDES*"
+			    value      	"//#UC START# *449B966E0000_CUSTOM_INCLUDES*¤#error TestFastobjects utility is frozen¤#include <poet.hxx>¤#include <cstdio>¤#include <cstdlib>¤//#UC END# *449B966E0000_CUSTOM_INCLUDES*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*449B966E0000*"
+			    value      	"//#UC START# *449B966E0000*¤//#UC END# *449B966E0000*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*449B966E0000_DESTR_BODY*"
+			    value      	(value Text 
+|//#UC START# *449B966E0000_DESTR_BODY*¤	PtBase::POET () -> UngetBase (m_base);¤	DeinitPOET ();¤	//#UC END# *449B966E0000_DESTR_BODY*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"h:*449B966E0000_CUSTOM_INCLUDES*"
+			    value      	"//#UC START# *449B966E0000_CUSTOM_INCLUDES*¤//#UC END# *449B966E0000_CUSTOM_INCLUDES*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"h:*449B966E0000*"
+			    value      	"//#UC START# *449B966E0000*¤//#UC END# *449B966E0000*")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Factory auto reg"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Factory default impl"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Factory key"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Final"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Servant Pool"
+			    value      	"none")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"default ctor"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"local supervisor"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"singleton"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*449B966E0000_BASE_INIT*"
+			    value      	"//#UC START# *449B966E0000_BASE_INIT*¤: m_base (0)¤//#UC END# *449B966E0000_BASE_INIT*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*449B966E0000_BODY*"
+			    value      	(value Text 
+|//#UC START# *449B966E0000_BODY*¤	InitPOET (PtTransactionByBase, "simple_object_base");¤	int err = PtBase::POET () -> GetBase ("LOCAL", PtString ("simple_object_base"), m_base);¤	this->print_error (err, "open base");¤	//#UC END# *449B966E0000_BODY*
+			    )))
+		    quid       	"449B966E0000"
+		    documentation 	
+|Содержит общие для хранилища Fastobjects методы работы с базой.
+|
+|<<методы>>
+|
+|get_base () - возвращает указатель на базу, требуемый служебным вызовам Fastobjects для работы. Эти вызовы осуществляются из конкретных сервантов - наследников.
+|
+|print_error () - проверяет значение, возвращаемое из служебных функций Fastobjects на наличие ошибки и печатает соответствующую отладочную инфо.
+		    
+		    stereotype 	"SimpleClass"
+		    operations 	(list Operations
+			(object Operation "print_error"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"cpp:*449B982A002E*"
+				    value      	(value Text 
+|//#UC START# *449B982A002E*¤	if (db_error < 0) {¤		PtBase::POET () -> UngetBase (m_base);¤		DeinitPOET ();¤		printf ("garant message = %s: db_error = %d, m_base = %p\n", extra_msg, db_error, m_base);¤	}	¤	//#UC END# *449B982A002E*
+				    )))
+			    quid       	"449B982A002E"
+			    parameters 	(list Parameters
+				(object Parameter "db_error"
+				    quid       	"449B989C003E"
+				    type       	"long"
+				    quidu      	"3DBFFD7002C2")
+				(object Parameter "extra_msg"
+				    quid       	"449BAB330222"
+				    type       	"string"
+				    quidu      	"3DBFFE240068"))
+			    concurrency 	"Sequential"
+			    opExportControl 	"Protected"
+			    uid        	0)
+			(object Operation "make"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"cpp:*44A11835009C_BASE_INIT*"
+				    value      	"//#UC START# *44A11835009C_BASE_INIT*¤: m_base (0)¤//#UC END# *44A11835009C_BASE_INIT*")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"cpp:*44A11835009C_BODY*"
+				    value      	(value Text 
+|//#UC START# *44A11835009C_BODY*¤	InitPOET (PtTransactionByBase, "simple_object_base");¤	int err = PtBase::POET () -> GetBase ("LOCAL", PtString ("simple_object_base"), m_base);¤	this->print_error (err, "open base");¤	//#UC END# *44A11835009C_BODY*
+				    )))
+			    quid       	"44A11835009C"
+			    stereotype 	"ctor"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Protected"
+			    uid        	0)
+			(object Operation "get_base"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"AbstarctOperation"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator User Properties"
+				    name       	"debug log"
+				    value      	"false")
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"cpp:*449BB43B029F*"
+				    value      	(value Text 
+|//#UC START# *449BB43B029F*¤	return m_base;¤	//#UC END# *449BB43B029F*
+				    )))
+			    quid       	"449BB43B029F"
+			    stereotype 	"chg"
+			    result     	"PtBase"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Protected"
+			    uid        	0
+			    quidu      	"449B9FF702BF"))
+		    language   	"MDA Generator")
+		(object Class "FastobjectsDBRead_i"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A91CF70167_CUSTOM_INCLUDES*"
+			    value      	(value Text 
+|//#UC START# *44A91CF70167_CUSTOM_INCLUDES*¤#include "storage/TestFastobjects/impl/FastObjects/stubs/test_create_object_metamodel.hxx"¤//#UC END# *44A91CF70167_CUSTOM_INCLUDES*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A91CF70167*"
+			    value      	"//#UC START# *44A91CF70167*¤//#UC END# *44A91CF70167*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44A91CF70167_DESTR_BODY*"
+			    value      	(value Text 
+|//#UC START# *44A91CF70167_DESTR_BODY*¤	delete m_simple_object_all_set;¤	m_simple_object_all_set = 0;¤	//delete m_simple_object_set;¤	//m_simple_object_set = 0;¤	delete m_simple_object_query;¤	m_simple_object_query = 0;¤	//#UC END# *44A91CF70167_DESTR_BODY*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"fctr.cpp:*44A91CF70167_CUSTOM_INCLUDES*"
+			    value      	"//#UC START# *44A91CF70167_CUSTOM_INCLUDES*¤//#UC END# *44A91CF70167_CUSTOM_INCLUDES*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"fctr.h:*44A91CF70167_CUSTOM_INCLUDES*"
+			    value      	"//#UC START# *44A91CF70167_CUSTOM_INCLUDES*¤//#UC END# *44A91CF70167_CUSTOM_INCLUDES*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"h:*44A91CF70167_CUSTOM_INCLUDES*"
+			    value      	(value Text 
+|//#UC START# *44A91CF70167_CUSTOM_INCLUDES*¤#include "storage/TestFastobjects/impl/FastObjects/stubs/test_create_object_metamodel.hxx"¤//#UC END# *44A91CF70167_CUSTOM_INCLUDES*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"h:*44A91CF70167*"
+			    value      	(value Text 
+|//#UC START# *44A91CF70167*¤	::SimpleObjectAllSet* m_simple_object_all_set;¤	::SimpleObjectSet* m_simple_object_set;¤	::SimpleObjectQuery* m_simple_object_query;¤//#UC END# *44A91CF70167*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular"))
+		    quid       	"44A91CF70167"
+		    documentation 	"Реализует чтение объектов из базы, используя генератор id читаемых объектов из ReadObjectActionBase_i и указатель на базу из FastobjectsBase_i."
+		    stereotype 	"Servant"
+		    superclasses 	(list inheritance_relationship_list
+			(object Inheritance_Relationship
+			    quid       	"44A91D1600DA"
+			    supplier   	"Logical View::storage::TestFastobjects::FastObjects::FastobjectsBase_i"
+			    quidu      	"449B966E0000"))
+		    realized_interfaces 	(list realize_rel_list
+			(object Realize_Relationship
+			    quid       	"44BB70AA01A5"
+			    supplier   	"Logical View::storage::TestLibrary::DB::IDBRead"
+			    quidu      	"44BB671C0148"))
+		    language   	"MDA Generator")
+		(object Association "$UNNAMED$0"
+		    quid       	"44A3CE6103D8"
+		    roles      	(list role_list
+			(object Role "base"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"MDA Generator"
+				    name       	"IsNative"
+				    value      	"false"))
+			    quid       	"44A3CE620213"
+			    label      	"base"
+			    supplier   	"Logical View::storage::FastobjectsLib::FastObjectsHeaders::PtBase"
+			    quidu      	"449B9FF702BF"
+			    exportControl 	"Private"
+			    is_navigable 	TRUE)
+			(object Role "$UNNAMED$1"
+			    quid       	"44A3CE620215"
+			    supplier   	"Logical View::storage::TestFastobjects::FastObjects::FastobjectsBase_i"
+			    quidu      	"449B966E0000"))))
+	    logical_presentations 	(list unit_reference_list
+		(object ClassDiagram "Main"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ColorizeFor"
+			    value      	"449692770167"))
+		    quid       	"4496948300DA"
+		    title      	"Main"
+		    zoom       	100
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	0
+		    origin_y   	0
+		    items      	(list diagram_item_list
+			(object ClassView "Class" "Logical View::storage::FastobjectsLib::FastObjectsHeaders::PtBase" @1
+			    ShowCompartmentStereotypes 	TRUE
+			    SuppressAttribute 	TRUE
+			    SuppressOperation 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(270, 210)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	16714250
+				default_color 	FALSE)
+			    label      	(object ItemLabel
+				Parent_View 	@1
+				location   	(78, 182)
+				nlines     	1
+				max_width  	384
+				justify    	0
+				label      	"PtBase")
+			    stereotype 	(object ItemLabel
+				Parent_View 	@1
+				location   	(78, 132)
+				anchor     	10
+				nlines     	1
+				max_width  	384
+				justify    	0
+				label      	"<<Interface>>")
+			    icon       	"Interface"
+			    icon_style 	"Label"
+			    line_color 	16714250
+			    fill_color 	16777215
+			    quidu      	"449B9FF702BF"
+			    width      	402
+			    height     	180
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::storage::TestFastobjects::FastObjects::FastobjectsBase_i" @2
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(1182, 210)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@2
+				location   	(746, 101)
+				fill_color 	13434879
+				nlines     	1
+				max_width  	872
+				justify    	0
+				label      	"FastobjectsBase_i")
+			    stereotype 	(object ItemLabel
+				Parent_View 	@2
+				location   	(746, 51)
+				fill_color 	13434879
+				anchor     	10
+				nlines     	1
+				max_width  	872
+				justify    	0
+				label      	"<<SimpleClass>>")
+			    icon_style 	"Label"
+			    fill_color 	12842465
+			    quidu      	"449B966E0000"
+			    compartment 	(object Compartment
+				Parent_View 	@2
+				location   	(746, 162)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				icon_style 	"Label"
+				fill_color 	16777215
+				anchor     	2
+				nlines     	4
+				max_width  	878
+				justify    	1)
+			    width      	890
+			    height     	342
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object AssociationViewNew "$UNNAMED$0" @3
+			    location   	(603, 210)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    stereotype 	TRUE
+			    line_color 	3947680
+			    quidu      	"44A3CE6103D8"
+			    roleview_list 	(list RoleViews
+				(object RoleView "base" @4
+				    Parent_View 	@3
+				    location   	(-555, -249)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					charSet    	204
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object SegLabel @5
+					Parent_View 	@4
+					location   	(538, 270)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    charSet    	204
+					    bold       	FALSE
+					    italics    	FALSE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					anchor     	1
+					anchor_loc 	1
+					nlines     	1
+					max_width  	116
+					justify    	0
+					label      	"-base"
+					pctDist    	0.492285
+					height     	60
+					orientation 	0)
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"44A3CE620213"
+				    client     	@3
+				    supplier   	@1
+				    vertices   	(list Points
+					(603, 210)
+					(471, 210))
+				    line_style 	0)
+				(object RoleView "$UNNAMED$1" @6
+				    Parent_View 	@3
+				    location   	(-555, -249)
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"44A3CE620215"
+				    client     	@3
+				    supplier   	@2
+				    vertices   	(list Points
+					(603, 210)
+					(736, 210))
+				    line_style 	0)))
+			(object ClassView "Class" "Logical View::storage::TestFastobjects::FastObjects::FastobjectsDBCreate_i" @7
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(888, 894)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@7
+				location   	(661, 864)
+				fill_color 	13434879
+				nlines     	1
+				max_width  	454
+				justify    	0
+				label      	"FastobjectsDBCreate_i")
+			    stereotype 	(object ItemLabel
+				Parent_View 	@7
+				location   	(661, 814)
+				fill_color 	13434879
+				anchor     	10
+				nlines     	1
+				max_width  	454
+				justify    	0
+				label      	"<<Servant>>")
+			    icon_style 	"Label"
+			    fill_color 	12842435
+			    quidu      	"449AB3A6031C"
+			    width      	472
+			    height     	184
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object InheritView "" @8
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    stereotype 	TRUE
+			    line_color 	3947680
+			    quidu      	"44A3CE5D03D8"
+			    client     	@7
+			    supplier   	@2
+			    vertices   	(list Points
+				(926, 801)
+				(1108, 381))
+			    line_style 	0)
+			(object ClassView "Class" "Logical View::storage::TestFastobjects::FastObjects::FastobjectsDBRead_i" @9
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(1476, 897)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@9
+				location   	(1259, 867)
+				fill_color 	13434879
+				nlines     	1
+				max_width  	434
+				justify    	0
+				label      	"FastobjectsDBRead_i")
+			    stereotype 	(object ItemLabel
+				Parent_View 	@9
+				location   	(1259, 817)
+				fill_color 	13434879
+				anchor     	10
+				nlines     	1
+				max_width  	434
+				justify    	0
+				label      	"<<Servant>>")
+			    icon_style 	"Label"
+			    fill_color 	12842435
+			    quidu      	"44A91CF70167"
+			    width      	452
+			    height     	184
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object InheritView "" @10
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    stereotype 	TRUE
+			    line_color 	3947680
+			    quidu      	"44A91D1600DA"
+			    client     	@9
+			    supplier   	@2
+			    vertices   	(list Points
+				(1435, 804)
+				(1255, 381))
+			    line_style 	0)
+			(object ClassView "Class" "Logical View::storage::TestLibrary::DB::IDBRead" @11
+			    ShowCompartmentStereotypes 	TRUE
+			    SuppressAttribute 	TRUE
+			    SuppressOperation 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(1725, 561)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	16714250
+				default_color 	FALSE)
+			    label      	(object ItemLabel
+				Parent_View 	@11
+				location   	(1597, 533)
+				nlines     	1
+				max_width  	256
+				justify    	0
+				label      	"IDBRead")
+			    stereotype 	(object ItemLabel
+				Parent_View 	@11
+				location   	(1597, 483)
+				anchor     	10
+				nlines     	1
+				max_width  	253
+				justify    	0
+				label      	"<<Interface>>")
+			    icon       	"Interface"
+			    icon_style 	"Label"
+			    line_color 	16714250
+			    fill_color 	16777215
+			    quidu      	"44BB671C0148"
+			    width      	274
+			    height     	180
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::storage::TestLibrary::DB::IDBCreate" @12
+			    ShowCompartmentStereotypes 	TRUE
+			    SuppressAttribute 	TRUE
+			    SuppressOperation 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    location   	(642, 546)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	16714250
+				default_color 	FALSE)
+			    label      	(object ItemLabel
+				Parent_View 	@12
+				location   	(514, 518)
+				nlines     	1
+				max_width  	256
+				justify    	0
+				label      	"IDBCreate")
+			    stereotype 	(object ItemLabel
+				Parent_View 	@12
+				location   	(514, 468)
+				anchor     	10
+				nlines     	1
+				max_width  	253
+				justify    	0
+				label      	"<<Interface>>")
+			    icon       	"Interface"
+			    icon_style 	"Label"
+			    line_color 	16714250
+			    fill_color 	16777215
+			    quidu      	"44BB65D80148"
+			    width      	274
+			    height     	180
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object RealizeView "" @13
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"44BB70A7005D"
+			    client     	@7
+			    supplier   	@12
+			    vertices   	(list Points
+				(822, 801)
+				(705, 636))
+			    line_style 	0)
+			(object RealizeView "" @14
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"44BB70AA01A5"
+			    client     	@9
+			    supplier   	@11
+			    vertices   	(list Points
+				(1543, 804)
+				(1657, 651))
+			    line_style 	0))))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ColorizeFor"
+		    value      	"449692770167"))
+	    quid       	"4496944A009C"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object CategoryView "Logical View::storage::TestFastobjects::FastObjects" @15
+		    location   	(657, 699)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@15
+			location   	(513, 665)
+			fill_color 	13434879
+			nlines     	2
+			max_width  	288
+			justify    	0
+			label      	"FastObjects")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@15
+			location   	(513, 615)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	288
+			justify    	0
+			label      	"<<Impl>>")
+		    icon_style 	"Icon"
+		    fill_color 	12842435
+		    quidu      	"44969452035B"
+		    width      	300
+		    height     	180)
+		(object CategoryView "Logical View::storage::FastobjectsLib::FastObjectsHeaders" @16
+		    location   	(978, 234)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@16
+			location   	(787, 183)
+			nlines     	2
+			max_width  	382
+			justify    	0
+			label      	"FastObjectsHeaders")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@16
+			location   	(787, 133)
+			anchor     	10
+			nlines     	1
+			max_width  	382
+			justify    	0
+			label      	"<<External>>")
+		    icon_style 	"Label"
+		    fill_color 	16777215
+		    quidu      	"449B9F7201D4"
+		    width      	394
+		    height     	214)
+		(object ImportView "" @17
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"449BA0ED01A5"
+		    client     	@15
+		    supplier   	@16
+		    vertices   	(list Points
+			(755, 554)
+			(902, 341))
+		    line_style 	0)
+		(object CategoryView "Logical View::storage::TestLibrary::DB" @18
+		    location   	(312, 222)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@18
+			location   	(153, 187)
+			nlines     	2
+			max_width  	318
+			justify    	0
+			label      	"DB")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@18
+			location   	(153, 137)
+			anchor     	10
+			nlines     	1
+			max_width  	318
+			justify    	0
+			label      	"<<Interface>>")
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"44BB6C5900CB"
+		    width      	330
+		    height     	182)
+		(object ImportView "" @19
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"44BB705B0148"
+		    client     	@15
+		    supplier   	@18
+		    vertices   	(list Points
+			(551, 554)
+			(377, 313))
+		    line_style 	0)
+		(object NoteView @20
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"449B9F7201D4"))
+		    location   	(1614, 231)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@20
+			location   	(1361, 168)
+			fill_color 	13434879
+			nlines     	3
+			max_width  	471
+			justify    	1
+			label      	
+|{External Path:=/poet.hxx}
+|{is namespace:=false}
+			)
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	531
+		    height     	138)
+		(object AttachView "" @21
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@20
+		    supplier   	@16
+		    vertices   	(list Points
+			(1348, 231)
+			(1175, 232))
+		    line_style 	0)
+		(object Label @22
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"44969452035B"))
+		    location   	(513, 747)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	255
+			default_color 	FALSE)
+		    nlines     	1
+		    max_width  	12
+		    justify    	1
+		    label      	"protected")))))

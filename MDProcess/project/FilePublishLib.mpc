@@ -1,0 +1,72 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/project/FilePublishLib.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+// Generated from UML model, root element: <<Library::Category>> MDProcess::FilePublishLib
+//
+// читает содержимое файла и публикует его как результат теста
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+project (FilePublishLib) : project_generic_core_corba {
+	sharedname = FilePublishLib
+	staticname = FilePublishLib
+
+	after += CoreSrv_cs
+	libs  += CoreSrv_cs
+
+	includes += ../../
+
+	after += BuildTestLib_cs
+	libs  += BuildTestLib_cs
+
+	Header_Files {
+		Std_Headers {
+			./../FilePublishLib/LibHome.h
+		}
+	
+		FilePublish {
+			./../FilePublishLib/FilePublish/FilePublish.h
+			./../FilePublishLib/FilePublish/FilePublishFactories.h
+		}
+	
+		FilePublishImpl {
+			./../FilePublishLib/impl/FilePublishImpl/PlainText2FunctionalTest.h
+			./../FilePublishLib/impl/FilePublishImpl/PlainText2FunctionalTest_factory.h
+			./../FilePublishLib/impl/FilePublishImpl/PlainTextPublish_i.h
+			./../FilePublishLib/impl/FilePublishImpl/PlainTextPublish_i_factory.h
+		}
+	}
+
+	Inline_Files {
+		Std_Inlines {
+		}
+	
+		FilePublish {
+		}
+	
+		FilePublishImpl {
+		}
+	}
+
+	Source_Files {
+		Std_Sources {
+			./../FilePublishLib/LibHome.cpp
+		}
+	
+		FilePublish {
+			./../FilePublishLib/FilePublish/FilePublish.cpp
+			./../FilePublishLib/FilePublish/FilePublishFactories.cpp
+		}
+	
+		FilePublishImpl {
+			./../FilePublishLib/impl/FilePublishImpl/PlainText2FunctionalTest.cpp
+			./../FilePublishLib/impl/FilePublishImpl/PlainText2FunctionalTest_factory.cpp
+			./../FilePublishLib/impl/FilePublishImpl/PlainTextPublish_i.cpp
+			./../FilePublishLib/impl/FilePublishImpl/PlainTextPublish_i_factory.cpp
+		}
+	}
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

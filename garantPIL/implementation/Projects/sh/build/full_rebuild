@@ -1,0 +1,40 @@
+#!/bin/sh
+
+if test "$1" = "" || test "$2" = "" ; then
+echo "Usage: full_rebuild <root_workspace_dir> <root_workspace_name> [<mwc_sh>]"
+exit
+fi
+
+if test "$MPCXC_SH" = ""; then
+echo "You must export MPCXC_SH env to point to the shell scripts of your Multi Platform Common eXtra Code."
+exit
+fi
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT env to point to the root of your Multi Platform Common eXtra Code."
+exit
+fi
+
+if test "$MPCXC_TARGET" = ""; then
+echo "You must export MPCXC_TARGET env: currently supported: i686-pc-linux-gnu i686-pc-freebsd."
+exit
+fi
+
+target=$MPCXC_TARGET
+
+root_workspace_dir=$1
+root_workspace_name=$2
+mwc_sh=$3
+
+echo "full_rebuild: MPCXC_ROOT = $MPCXC_ROOT"
+echo "full_rebuild: $root_workspace_dir/$root_workspace_name ..."
+
+$MPCXC_SH/clean_thilde_only
+$MPCXC_SH/clean_objects_only
+$MPCXC_SH/clean_bldlibs_only
+$MPCXC_SH/clean_out_only $target
+$MPCXC_SH/clean_makefiles_only
+
+$MPCXC_SH/partial_remake $root_workspace_dir $root_workspace_name $mwc_sh
+
+echo "end."

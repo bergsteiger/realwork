@@ -1,0 +1,236 @@
+// TestParamsDefine.script
+// Объявление костант/переменных для поддержки парметров в скриптах.
+
+INTEGER VAR g_WasInit // Проверка была ли вызвана процедура "Первоначальные параметры"
+
+INTEGER VAR g_DocumentIDToOpen  // Что открыывать
+
+INTEGER VAR g_How2Prepare // Подготовка размеров
+
+INTEGER VAR g_StartAction // Прокрутка и сдвиг курора и т.п.
+
+INTEGER VAR g_CheckAction // Вид проверки в конце теста
+
+INTEGER VAR g_How2End // Действия при закрытии теста
+
+INTEGER VAR g_BeforeStart // Перед началом теста...
+
+BOOLEAN VAR g_AntiTest // Антитест
+ 
+CONST cnNewDocID -1 
+CONST cnNewEmptyDocID -2
+CONST cnNewNSR -3
+CONST cnNewRTF -4
+CONST cnNewDOC -5
+CONST cnNewHTML -6
+CONST cnNewBMPObjTopic -7
+CONST cnNewPDFObjTopic -8
+CONST cnNewDOCX -9
+ 
+PROCEDURE "Использовать создание документа" 
+	cnNewDocID >>> g_DocumentIDToOpen 
+;
+
+PROCEDURE "Использовать создание пустого документа" 
+	cnNewEmptyDocID >>> g_DocumentIDToOpen 
+;
+ 
+PROCEDURE "Открывать" IN aDocID
+	aDocID >>> g_DocumentIDToOpen
+;
+
+PROCEDURE "Использовать создание из NSR"
+	cnNewNSR >>> g_DocumentIDToOpen
+;
+
+PROCEDURE "Использовать создание из RTF"
+	cnNewRTF >>> g_DocumentIDToOpen
+;
+
+PROCEDURE "Использовать создание из DOC"
+	cnNewDOC >>> g_DocumentIDToOpen
+;
+
+PROCEDURE "Использовать создание из DOCX"
+	cnNewDOCX >>> g_DocumentIDToOpen
+;
+
+PROCEDURE "Использовать создание из HTML"
+ cnNewHTML >>> g_DocumentIDToOpen
+;
+
+CONST cnNoAction 0
+CONST cnCloseDoument 1
+CONST cnCloseAllWindow 2
+
+PROCEDURE "Без закрытия документа"
+	cnNoAction >>> g_How2End
+;
+
+PROCEDURE "Не сохранять документ"
+	cnCloseDoument >>> g_How2End
+;
+
+PROCEDURE "Закрывать все окна"
+	cnCloseAllWindow >>> g_How2End
+;
+
+CONST cnNotPrepare 0
+CONST cnStandartPrepare 1
+CONST cnPageBreakSize 2
+CONST cnTableAlignment 3
+CONST cnPrepare2Drawing 4
+CONST cnOnlyMainForm 15
+CONST cnSetHeight 16
+CONST cnThinFormSize 29
+
+INTEGER VAR g_Height
+
+PROCEDURE "Без установки размеров"
+	cnNotPrepare >>> g_How2Prepare
+	0 >>> g_Height
+;
+
+PROCEDURE "Cтандартные размеры" 
+	cnStandartPrepare >>> g_How2Prepare
+	0 >>> g_Height
+;
+
+PROCEDURE "Размеры для отображения разрыва раздела"
+	cnPageBreakSize >>> g_How2Prepare
+	0 >>> g_Height
+;
+
+PROCEDURE "Размеры для выравнивания линий таблиц"
+	cnTableAlignment >>> g_How2Prepare
+	0 >>> g_Height
+;
+
+PROCEDURE "Размеры для отрисовки"
+	cnPrepare2Drawing >>> g_How2Prepare
+	0 >>> g_Height
+;
+
+PROCEDURE "Не разварачивать редактор"
+	cnOnlyMainForm  >>> g_How2Prepare
+	0 >>> g_Height
+;
+
+PROCEDURE "Задать высоту главной форме" INTEGER IN aHeight
+	cnSetHeight  >>> g_How2Prepare
+	aHeight >>> g_Height
+;
+
+PROCEDURE "Узкая форма"
+	cnThinFormSize >>> g_How2Prepare
+;
+
+CONST cnNoneAction 0
+CONST cnCheckWithEVDEtalon 1 // Сравнить с EVD
+CONST cnCheckWithNSREtalon 2 // Сравнить с NSR
+CONST cnCheckWithHTMLEtalon 3 // Сравнить с HTML
+CONST cnCheckDrawing 4 // Сравнить отрисованное
+CONST cnCheckWithPDFEtalon 5 // Сравнить PDF
+CONST cnCheckWithRTFEtalon 6 // Сравнить RTF
+CONST cnCheckTimeSavePDF 7 // Сохранение PDF без сравнения
+CONST cnCheckPrinting 10 // Печать
+CONST cnCheckPDFWithNamePC 11 // Сравнение PDF с привязкой к ПК
+CONST cnImageControl 19
+CONST cnImageControlWithoutRepaint 33
+
+PROCEDURE "Без проверок"
+	cnNoneAction >>> g_CheckAction
+;
+
+PROCEDURE "Проверка EVD эталона"
+	cnCheckWithEVDEtalon >>> g_CheckAction
+;
+
+PROCEDURE "Проверка NSR эталона"	
+	cnCheckWithNSREtalon >>> g_CheckAction
+;
+
+PROCEDURE "Проверка HTML эталона"	
+	cnCheckWithHTMLEtalon >>> g_CheckAction
+;
+
+PROCEDURE "Проверка PDF эталона"	
+	cnCheckWithPDFEtalon >>> g_CheckAction
+;
+
+PROCEDURE "Время сохранения в PDF"	
+	cnCheckTimeSavePDF >>> g_CheckAction
+;
+
+PROCEDURE "Проверка RTF эталона"	
+	cnCheckWithRTFEtalon >>> g_CheckAction
+;
+
+PROCEDURE "Эталон отрисованного"
+	cnCheckDrawing >>> g_CheckAction
+;
+
+PROCEDURE "Эталон напечатанного"
+	cnCheckPrinting >>> g_CheckAction
+;
+
+PROCEDURE "Проверка PDF с привязкой к ПК"
+	cnCheckPDFWithNamePC >>> g_CheckAction
+;
+
+PROCEDURE "Изображение текущего контрола"
+	cnImageControl >>> g_CheckAction
+;
+
+PROCEDURE "Изображение текущего контрола без перерисовки"
+	cnImageControlWithoutRepaint >>> g_CheckAction
+;
+
+CONST cnNoStartAction 0
+CONST cnMoveCursorDownAndHome 1
+CONST cnMoveCursorDown 2
+CONST cnPageDownAndMoveCursorUp 6
+
+INTEGER VAR g_MoveCount
+INTEGER VAR g_PageCount
+
+PROCEDURE "Сразу выполнять тест"
+	cnNoStartAction >>> g_StartAction
+	0 >>> g_MoveCount
+;
+
+PROCEDURE "Курсор вниз на и в начало строки" INTEGER IN aCount
+		cnMoveCursorDownAndHome >>> g_StartAction
+		aCount >>> g_MoveCount
+;
+
+PROCEDURE "Курсор вниз на строки" INTEGER IN aCount
+		cnMoveCursorDown >>> g_StartAction
+		aCount >>> g_MoveCount
+		0 >>> g_PageCount
+;
+
+PROCEDURE "На страницы вниз и сместить курсор вверх на строки" INTEGER IN aPageCount INTEGER IN aCount
+		cnPageDownAndMoveCursorUp >>> g_StartAction
+		aCount >>> g_MoveCount
+		aPageCount >>> g_PageCount		
+;
+
+CONST cnNoBeforeTestParams 0
+CONST cnPictureSave 1
+
+PROCEDURE "Нет параметров"
+	cnNoBeforeTestParams >>> g_BeforeStart
+;
+
+PROCEDURE "Запись картинок"
+	cnPictureSave >>> g_BeforeStart
+;
+
+PROCEDURE "Обычный тест"
+	false >>> g_AntiTest
+;
+
+PROCEDURE "Антитест"
+	true >>> g_AntiTest
+;

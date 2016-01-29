@@ -1,0 +1,958 @@
+uses
+  common,
+  HTMLWork;
+  
+  
+const
+  MDP_USER = 'TestCompleteTester';
+  MDP_PASSWORD = '22222';
+  
+  METHOD_GET = 'GET';
+  METHOD_PUT = 'PUT';
+
+  MDP_URL = 'http://mdp.garant.ru/';
+    
+  TS_ROOT_PAGE_ID = 473436316;
+  HLTC_ROOT_PAGE_ID = 102958079;  
+  
+  TYPED_PAGE_URI = MDP_URL + 'rest/gartypedpages/1/';
+  TS_URI = TYPED_PAGE_URI + 'TS/';
+  HLTC_URI = TYPED_PAGE_URI + 'HLTC/';
+  
+  VIEW_PAGE_URI = MDP_URL + 'pages/viewpage.action?pageId=';
+  
+  TP_FLD_TYPE = 'type';
+  TP_FLD_ID = 'id';
+  TP_FLD_PARENTID = 'parentId';
+  
+  HLTCFLD_SCRIPT_CHECKING_DATE = 'Дата_проверки_скриптом';
+  HLTCFLD_NEED_MANUAL_CHECK = 'Требуется_ручная_проверка';
+  HLTCFLD_EXCERPT = 'excerpt';
+  HLTCFLD_CONTENT_BODY = 'contentBody';
+  HLTCFLD_TITLE = 'title';
+  
+  TSFLD_TRACED_FROM = 'TracedFrom';
+  TSFLD_LAST_RUN_DATE = 'Дата_последнего_запуска';
+  TSFLD_LAST_SUCCESS_RUN_DATE = 'Дата_посл_успешного_запуска';
+  TSFLD_RESULT = 'Result';  
+  TSFLD_OPTIONS = 'Options';
+  TSFLD_ACTIONS = 'Actions';
+  TSFLD_NAME = 'Name';
+  TSFLD_UNIT_NAME = 'Unitname';
+  TSFLD_STATE = 'State';
+  TSFLD_READY = '6_4_Ready';
+  TSFLD_GROUP_NUMBER = 'GroupNumber';
+  TSFLD_DATABASE = 'DataBase';
+  TSFLD_SHELL_CONFIGURATION = 'Конфигурация_оболочки';
+  TSFLD_ID = 'id';
+  
+  MDP_SHELLCONF_LIGHT = 'Основная';
+  MDP_SHELLCONF_STANDARD = 'Расширенная';
+  MDP_SHELLCONF_ANY = 'Любая';
+  
+  OPT_MSOFFICE_REQUIRED = 'Требуется MSOffice';
+  OPT_SERVER_REQUIRED = 'Требуется сервер';
+  OPT_DESKTOP_REQUIRED = 'Требуется десктоп';
+  OPT_FILESERVER_REQUIRED = 'Требуется файл-сервер';
+  OPT_RESOLUTION_1280x1024_REQUIRED = 'Требуется разрешение 1280*1024';
+  OPT_SWITCH_DATABASE = 'Переключает БД';
+  OPT_RUN_BY_ALL = 'Выполнять всем';
+  OPT_STOP_SERVER = 'Останавливает сервер';
+  OPT_SHARE_FOLDERS = 'Расшаривает папки';
+  OPT_NEED_RESTORE_FROM_BACKUP = 'После скрипта восстановить бэкап';
+  OPT_SEND_REPORT_TO_QC = 'Посылать отчет на qc@garant.ru';
+  OPT_FLASH_REQUIRED = 'Требуется Flash выше 6-ой версии';
+  OPT_NOT_FLASH_REQUIRED = 'Требуется Flash ниже 6-ой версии';
+  OPT_CONSOLE_REQUIRED = 'Требуется Console';
+  OPT_NOT_CONSOLE_REQUIRED = 'Требуется НЕ Console';
+  OPT_OUTLOOK_EXPRESS_REQUIRED = 'Требуется Outlook Express';
+  OPT_NOT_RUN_ON_X64 = 'Не запускать на x64';
+
+
+var
+  gbl_TCJSONConverter : OleVariant;
+   
+function TCJSONConverter : OleVariant;
+  const
+    FUNCTION_NAME = 'TCJSONConverter';
+    CLASS_ID = '{626D7DDC-C2AB-4586-B8C1-EF91610F49D8}';
+    FILE_NAME = 'TCJSONConverter.wsc'; 
+  var
+    sSrcPath, sDstPath : String;
+begin
+  try
+    if VarType(gbl_TCJSONConverter) <> varDispatch then
+    begin
+      sSrcPath := GetPathTo(PATH_TO_UTILS) + 'TCJSONHelper\' + FILE_NAME;
+    
+      // создаем локальную копию скрипта на случай его нахождения по сетевому пути 
+      sDstPath := IncludeTrailingBackslash(GetTempDirectory) + FILE_NAME;    
+      if aqFileSystem.Exists(sDstPath) then
+         aqFileSystem.DeleteFile(sDstPath);
+      aqFileSystem.CopyFile(sSrcPath, sDstPath, false);
+     
+      Win32API.WinExec('regsvr32 scrobj.dll /n /s /i:"' + sDstPath + '"', Win32API.SW_HIDE);
+    
+      // получаем объект после регистрации потому что если попытаемся получить до, то если он 
+      // не был зарегистрирован на момент попытки получения, то последующая регистрация 
+      // возымеет эффект только после перезапуска ТК   
+      gbl_TCJSONConverter := Sys.OleObject[CLASS_ID];
+      if VarType(gbl_TCJSONConverter) <> varDispatch then
+        Raise('Ошибка получения TCJSONConverter!');
+    end;
+    Result := gbl_TCJSONConverter;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;          
+end;
+
+
+function IsTS(
+  const arg : OleVariant
+) : Boolean;
+begin
+  Result := (VarType(arg) = varDispatch) AND IsSupported(arg, TP_FLD_TYPE) AND (arg._get(TP_FLD_TYPE) = 'TS');
+end;
+
+
+function IsHLTC(
+  const arg : OleVariant
+) : Boolean;
+begin
+  Result := (VarType(arg) = varDispatch) AND IsSupported(arg, TP_FLD_TYPE) AND (arg._get(TP_FLD_TYPE) = 'HLTC');
+end;
+
+
+function JSArray2DSArray(
+  const oJSArray : OleVariant
+) : OleVariant;
+  const
+    FUNCTION_NAME = 'JSArray2DSArray';
+  var
+    i : Integer;   
+begin
+  try
+    if (VarType(oJSArray) <> varDispatch) OR (oJSArray.length = 0) then
+      Result := nil
+    else
+    begin
+      Result := CreateVariantArray(0, oJSArray.length-1);
+      for i := 0 to oJSArray.length-1 do
+        Result[i] := oJSArray._get(i);
+    end;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;    
+end;
+ 
+
+var
+  gbl_XmlHTTPRequest : OleVariant;
+
+function BuildRequest(
+  const sMethod : String;
+  const sURI : String;
+  const bUpdateRequest : Boolean = false
+) : OleVariant;
+  const
+    FUNCTION_NAME = 'BuildRequest';
+    BASE_AUTH_PARAM = 'os_authType=basic';
+  var
+    sDelim : String;    
+begin
+  try
+    if (bUpdateRequest) or (VarType(gbl_XmlHTTPRequest) <> varDispatch) then
+      gbl_XmlHTTPRequest := Sys.OleObject['MSXML2.XMLHTTP.3.0'];
+    Result := gbl_XmlHTTPRequest; 
+    //Result := Sys.OleObject['MSXML2.XMLHTTP.3.0'];
+    if AnsiStrRScan(sURI, '?') = '' then
+      sDelim := '?'
+    else
+      sDelim := '&';
+  
+    Result.open(sMethod, sURI + sDelim + BASE_AUTH_PARAM, false, MDP_USER, MDP_PASSWORD);
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, 'sMethod: ' + VarToString(sMethod) + ' ;sURI: ' + VarToString(sURI), pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;  
+end;
+
+
+function _SendRequest(
+  const oRequest : OleVariant;
+  const sValue : String = ''
+) : Boolean;
+  const
+    FUNCTION_NAME = '_SendRequest';
+  const
+    TIMEOUT = 15*60; // в секундах
+    DELAY_TIME = 10*1000; // в миллисекундах
+    ERR_STR = 'Ошибка при выполнении запроса';
+  var
+    oEndTime : TDateTime;         
+begin
+  try
+    if sValue = '' then
+      VarClear(sValue);        
+    
+    oEndTime := aqDateTime.AddSeconds(aqDateTime.Now, TIMEOUT);
+    repeat
+      oRequest.send(sValue);
+      Result := oRequest.status = 200;
+      if NOT Result then
+        Delay(DELAY_TIME);
+    until Result OR (aqDateTime.Compare(aqDateTime.Now, oEndTime) = 1);                    
+  
+    if NOT Result then
+    begin
+      Log.Error(ERR_STR, oRequest.statusText);
+      Raise(ERR_STR);
+    end;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, 'sValue: ' + VarToString(sValue), pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+
+
+function _GetTypedPage(
+  const sURI : String;
+  const sTypeCheck : String = ''  
+) : OleVariant;
+  const
+    FUNCTION_NAME = '_GetTypedPage';
+  var
+    i, updateRequest;
+    oRequest, oRes : OleVariant;
+begin
+  try
+    Result := nil;
+    
+    // updateRequest и цикл сделан для устранения ряда ошибок, например
+    // "msxml3.dll error The download of the specified resource has failed"
+    updateRequest := false;
+    for i := 1 to 2 do 
+    try
+    // -->
+      oRequest := BuildRequest(METHOD_GET, sURI, updateRequest);
+
+      if _SendRequest(oRequest) then
+      begin
+        oRes := TCJSONConverter.JSONStr2Obj(oRequest.responseText);
+        if (sTypeCheck = '') OR (aqObject.IsSupported(oRes, 'type') AND (oRes.type = sTypeCheck)) then
+          Result := oRes;
+      end;
+    // <--
+      break;
+    except
+      updateRequest := true;
+      Delay(500);
+    end;
+    // <->    
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, 'sURI: ' + VarToString(sURI), pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;   
+end;
+
+
+function _PutTypedPage(
+  const sURI : String;
+  const value : OleVariant
+) : Boolean;
+  const
+    FUNCTION_NAME = '_PutTypedPage';  
+  var
+    i, updateRequest;
+    oRequest : OleVariant;
+begin
+  try
+    // updateRequest и цикл сделан для устранения ряда ошибок, например
+    // "msxml3.dll error The download of the specified resource has failed"
+    updateRequest := false;
+    for i := 1 to 2 do 
+    try
+    // -->
+      oRequest := BuildRequest(METHOD_PUT, sURI, updateRequest);
+  
+      if VarType(value) = varDispatch then
+        value := value.toJSONString('');
+    
+      Result := _SendRequest(oRequest, value);     
+    // <--
+      break;
+    except
+      updateRequest := true;
+      Delay(500);
+    end;
+    // <->    
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, 'sURI: ' + VarToString(sURI), pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;               
+end;  
+
+{
+  TYPE: Работа с MDP
+  DESC: Получить из К скрипт
+  RESULT:
+  REMARK: 
+}
+function GetTS(
+  const iId : Integer
+) : OleVariant;
+begin
+  Result := _GetTypedPage(TS_URI + VarToString(iId), 'TS');
+end;
+
+{
+  TYPE: Работа с MDP
+  DESC: Сохранить в К скрипт
+  RESULT:
+  REMARK: 
+}
+function PutTS(
+  const oTestScript : OleVariant
+) : Boolean;
+begin
+  Result := _PutTypedPage(TS_URI + VarToString(oTestScript._get(TP_FLD_ID)), oTestScript);
+end;
+
+{
+  TYPE: Работа с MDP
+  DESC: Получить из К тесткейс
+  RESULT:
+  REMARK: 
+}
+function GetHLTC(
+  const iId : Integer
+) : OleVariant;
+begin
+  Result := _GetTypedPage(HLTC_URI + VarToString(iId), 'HLTC');
+end;
+
+{
+  TYPE: Работа с MDP
+  DESC: Сохранить в К тесткейс
+  RESULT:
+  REMARK: 
+}
+function PutHLTC(
+  const oTestCase : OleVariant
+) : Boolean;
+begin
+  Result := _PutTypedPage(HLTC_URI + VarToString(oTestCase._get(TP_FLD_ID)), oTestCase);
+end;
+
+
+function GetHTTPLink(
+  var oTypedPage : OleVariant
+) : String;
+  const
+    FUNCTION_NAME = 'GetHTTPLink';
+begin
+  try 
+    Result := VIEW_PAGE_URI + VarToString(oTypedPage._get(TP_FLD_ID));
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;               
+end;   
+
+{
+  TYPE: Работа с MDP
+  DESC: Получить список всех скриптов удовлетворяющих условию, при необходимости перемешанный
+  RESULT:
+  REMARK: 
+}
+function GetTestScripts(
+  const paramString : String = ''; // строка с условиями
+  const isRandomize : Boolean = true // перемешивать ли список
+) : OleVariant; // js-array со скриптами
+  const
+    FUNCTION_NAME = 'GetTestScripts';
+    FIELD_NAME_ID = 0;
+    FIELD_VALUES_ID = FIELD_NAME_ID + 1;
+    VALUES_FLAG_ID = FIELD_VALUES_ID + 1;        
+  var
+    i, j, k, logColor : Integer;
+    oTestScript, oTSFieldValue, oResult : OleVariant;
+    sFieldName, sCurrValue : String;
+    bValuesFlag, isGood : Boolean;
+    arrFieldsParameters, arrFVData, arrValues : OleVariant; 
+    oFVsRExp, oVsRExp: OleVariant;
+begin
+  try
+    // получаем список скриптов, перемешанный при необходимости
+    oResult := TCJSONConverter.get_childs(TS_ROOT_PAGE_ID, isRandomize, MDP_USER, MDP_PASSWORD, BuiltIn, 'TS');
+  
+    // парсим paramString в массив типа [[имя_поля_1, [значение_1, ...], равно_неравно], ...]
+    oFVsRExp := HISUtils.RegExpr;
+    oFVsRExp.Expression := '(.+?)\s*(=|<>)\s*(.+?)(;|$)';
+    oVsRExp := HISUtils.RegExpr;
+    oVsRExp.Expression := '(.+?)(\||$)';
+    if oFVsRExp.Exec(paramString) then
+    begin    
+      repeat
+        sFieldName := oFVsRExp.Match[1]; // Имя поля
+        bValuesFlag := oFVsRExp.Match[2] = '='; // True если должно быть равно, False - если должно быть неравно
+       
+        arrFVData := CreateVariantArray(FIELD_NAME_ID, VALUES_FLAG_ID);      
+        arrFVData[FIELD_NAME_ID] := sFieldName;
+        arrFVData[VALUES_FLAG_ID] := bValuesFlag;
+      
+        // разбиваем список значений типа item1|item2|item3 в массив      
+        if oVsRExp.Exec(oFVsRExp.Match[3]) then
+        begin
+          arrValues := nil;
+          repeat
+            AddToArray(arrValues, oVsRExp.Match[1]);
+          until NOT oVsRExp.ExecNext;        
+          arrFVData[FIELD_VALUES_ID] := arrValues;
+        end;        
+        AddToArray(arrFieldsParameters, arrFVData);       
+      until NOT oFVsRExp.ExecNext;
+    end;
+  
+    // фильтруем список тесткейсов с учетом параметров
+    if IsArray(arrFieldsParameters) then
+      for i := oResult.length-1 downto 0 do // обходим в обратном порядке чтобы удалять по индексу без проблем
+      begin   
+        oTestScript := oResult._get(i);
+    
+        isGood := True;
+        for j := VarArrayLowBound(arrFieldsParameters, 1) to VarArrayHighBound(arrFieldsParameters, 1) do
+        begin
+          arrFVData := arrFieldsParameters[j];      
+          sFieldName := Utilities.StringReplace(arrFVData[FIELD_NAME_ID], '.', '_', Utilities.rfReplaceAll); // в К имена полей вместо точки содержат подчеркивание, поэтому учитываем это если на вход придет старая строка параметров
+          bValuesFlag := arrFVData[VALUES_FLAG_ID];  
+          arrValues := arrFVData[FIELD_VALUES_ID];
+      
+          oTSFieldValue := oTestScript._get(sFieldName);
+            
+          for k := VarArrayLowBound(arrValues, 1) to VarArrayHighBound(arrValues, 1) do
+          begin        
+            sCurrValue := arrValues[k];
+        
+            // если значение поля массив
+            if (VarType(oTSFieldValue) = varDispatch) AND aqObject.IsSupported(oTSFieldValue, 'contains_ex') then
+              isGood := bValuesFlag = oTSFieldValue.contains_ex(sCurrValue)
+            else if VarType(oTSFieldValue) = varEmpty then // если TS не содержит такого поля
+              isGood := bValuesFlag = False // то он подходит если поле не должно чего-то содержать
+            else // это не массив и не пустое значение, значит сравниваем в лоб           
+              isGood := bValuesFlag = (oTSFieldValue = sCurrValue);
+            if bValuesFlag = isGood then
+              break;
+          end;
+          oTSFieldValue := nil;
+          if NOT isGood then
+            break;      
+        end;
+        if NOT isGood then
+          oResult._del(i);
+      end; 
+  
+    if oResult.length > 0 then 
+      logColor := 'SILVER'
+    else
+    begin
+      logColor := 'RED';
+      Log.Message(FUNCTION_NAME + ': ' + 'Возможно отсутствует доступ к ' + MDP_URL, '', pmNormal, GetLogAttr(logColor));
+    end;     
+    Log.Message(FUNCTION_NAME + ': ' + 'Получено ' + IntToStr(oResult.length) + ' скриптов для выполнения', '', pmNormal, GetLogAttr(logColor));
+    
+    Result := oResult;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, 'paramString: ' + VarToString(paramString), pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;     
+end;
+
+{
+  TYPE: Работа с MDP
+  DESC: Получить список всех HLTC
+  RESULT:
+  REMARK: 
+}
+function GetHLTCs : OleVariant;  
+  const
+    FUNCTION_NAME = 'GetHLTCs';
+begin
+  try
+    Result := TCJSONConverter.get_childs(HLTC_ROOT_PAGE_ID, false, MDP_USER, MDP_PASSWORD, BuiltIn, 'HLTC');
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;
+end;
+
+{
+  TYPE: Работа с MDP
+  DESC: Говорит установлена ли заданная option у скрипта
+  RESULT:
+  REMARK: 
+}
+function IsOptionSet(
+  const oTS : OleVariant; // объект скрипта
+  const sOption : String // название опции
+) : Boolean;
+begin
+  Result := aqObject.IsSupported(oTS, TSFLD_OPTIONS) 
+    AND aqObject.IsSupported(oTS.Options, 'contains_ex')
+    AND oTS.Options.contains_ex(sOption);
+end;
+
+
+const 
+  WWA_OP_SET = 0;
+  WWA_OP_UNSET = 1;
+  WWA_OP_GET = 2;
+
+function _WorkWithActions(
+  const oTS : OleVariant;
+  const iOperation : Integer;
+  const arrActions : OleVariant
+) : Boolean;
+  const
+    FUNCTION_NAME = '_WorkWithActions';
+  var
+    oActions : OleVariant;
+    sAction : String;
+    isContains : Boolean;
+    i, j : Integer;
+begin
+  try
+    Result := False;
+    if NOT aqObject.IsSupported(oTS, TSFLD_ACTIONS) then
+      oTS._add_array_property(TSFLD_ACTIONS);
+    oActions := oTS._get(TSFLD_ACTIONS);
+    //
+    if (iOperation = WWA_OP_GET) then
+    begin
+      Result := JSArray2DSArray(oActions);
+      if IsArray(Result) then
+        for i := VarArrayLowBound(Result, 1) to VarArrayHighBound(Result, 1) do
+          Result[i] := Trim(Result[i]); 
+    end  
+    else
+      for i := VarArrayLowBound(arrActions, 1) to VarArrayHighBound(arrActions, 1) do
+      begin
+        sAction := arrActions[i];
+        isContains := oActions.contains_ex(sAction); 
+        if (iOperation = WWA_OP_SET) AND (NOT isContains) then // если надо установить отсутствующий
+        begin
+          oActions.push(sAction);
+          Result := True;
+        end  
+        else if (iOperation = WWA_OP_UNSET) AND isContains then // если надо удалить имеющийся
+          for j := 0 to oActions.length-1 do
+            if sAction = Trim(oActions._get(j)) then
+            begin
+              oActions._del(j);
+              Result := True;
+              break;
+            end;
+      end;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;    
+end;
+
+{
+  TYPE: Работа с MDP
+  DESC: Возвратить массив установленных actionов
+  RESULT:
+  REMARK: 
+}
+function GetActions(
+  const oTS : OleVariant
+) : OleVariant;
+begin
+  Result := _WorkWithActions(oTS, WWA_OP_GET, '');  
+end;
+
+{
+  TYPE: Работа с MDP
+  DESC: Установить указанные actionы у указанного скрипта
+  RESULT:
+  REMARK: 
+}
+procedure SetActions(
+  const oTS : OleVariant;
+  const arrActions : OleVariant
+);
+begin
+  if _WorkWithActions(oTS, WWA_OP_SET, arrActions) then  
+    PutTS(oTS);
+end;
+
+{
+  TYPE: Работа с MDP
+  DESC: Удалить указанные actionы у указанного скрипта
+  RESULT:
+  REMARK: 
+}
+procedure UnsetActions(
+  const oTS : OleVariant;
+  const arrActions : OleVariant
+);
+begin
+  if _WorkWithActions(oTS, WWA_OP_UNSET, arrActions) then
+    PutTS(oTS);
+end;
+
+{
+  TYPE: Работа с MDP
+  DESC: Получить тексты HLTC по их id
+  RESULT:
+  REMARK: 
+}
+function GetHLTCTextByIDs(
+  const arrHLTCIds : OleVariant // массив id HLTC
+) : String; // строка с текстами HLTC
+  const
+    FUNCTION_NAME = 'GetHLTCTextByIDs';
+  var
+    i, idx : Integer;
+    arrReplStrs, hltc : OleVariant;
+    sText, sTitle, sCurr : String;
+begin
+  try
+    Result := '';
+    for idx := VarArrayLowBound(arrHLTCIds, 1) to VarArrayHighBound(arrHLTCIds, 1) do
+    begin
+      sCurr := '';
+      hltc := GetHLTC(arrHLTCIds[idx]);
+      while hltc <> nil do
+      begin        
+        sTitle := hltc._get(HLTCFLD_TITLE);              
+        if IsSupported(hltc, HLTCFLD_EXCERPT) then
+        begin
+          sText := ' ' + HTMLConv(hltc._get(HLTCFLD_EXCERPT));
+          with HISUtils.RegExpr do
+          begin
+            Expression := '(?m)(.*?)bq\.(.*?)$(.*)';
+            while Exec(sText) do                          
+              sText := Substitute('$1&nbsp&nbsp<font color="blue" size="+2">|</font>&nbsp&nbsp<i>$2</i>$3');
+            
+            Expression := '(.*?)\[\$(\d+)\](.*)';
+            while Exec(sText) do                          
+              sText := Substitute('$1<a href="'+ VIEW_PAGE_URI + '$2">&#91;&#36;$2&#93;</a>$3');    
+          end;
+        end                      
+        else
+          sText := '';
+        
+        sCurr :=
+          '<div style="margin-left:20px">' +
+            '<a href="' + GetHTTPLink(hltc) + '">' + HTMLConv(sTitle) + '</a>' +
+            ':' + sText + '<br><br>' +
+            sCurr +
+          '</div>';
+          
+        hltc := GetHLTC(hltc._get(TP_FLD_PARENTID));         
+      end;
+      if sCurr <> '' then
+        Inc(Result, sCurr + '<br>');
+    end;
+
+    // заменяем "неправильные" символы или лишние теги
+    arrReplStrs := [
+                    (['&lt;', '<']),
+                    (['&gt;', '>'])
+{
+                    (['&lt;p&gt;', '']),
+                    (['&lt;/p&gt;', EndOfLine]),
+                    (['&lt;blockquote&gt;', EndOfLine + '|']),
+                    (['&lt;/blockquote&gt;', EndOfLine]),
+                    (['&lt;BR&gt;', '<br>']),
+                    (['&lt;br/&gt;', EndOfLine]),
+                    (['&lt;ul class=&quot;alternate&quot; type=&quot;square&quot;&gt;', EndOfLine]),
+                    (['&lt;/ul&gt;', '']),
+                    (['&lt;li&gt;', EndOfLine]),
+                    (['&lt;/li&gt;', ''])
+}                    
+    ];
+    for i := VarArrayLowBound(arrReplStrs, 1) to VarArrayHighBound(arrReplStrs, 1) do
+      Result := StringReplace(Result, arrReplStrs[i][0], arrReplStrs[i][1], 1); 
+
+    if Result <> '' then
+      Result := '<font face="Arial">' + Result + '</font>';
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;  
+end;
+
+{
+  TYPE: Работа с MDP
+  DESC: Возвращает текстовое описание всех оттрасированных к скрипту тесткейсов
+  RESULT:
+  REMARK: 
+}
+function GetHLTCText(
+  const oTS : OleVariant // объект скрипта
+) : String; // описание тесткейсов
+  const
+    FUNCTION_NAME = 'GetHLTCText';
+  var
+    oTracedFrom, arrIDs : OleVariant; 
+begin
+  try
+    oTracedFrom := oTS._get(TSFLD_TRACED_FROM);
+    arrIDs := JSArray2DSArray(oTracedFrom);
+    if IsArray(arrIDs) then
+      Result := GetHLTCTextByIDs(arrIDs)
+    else
+      Result := 'Нет связей'; 
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;   
+  end;       
+end;
+
+
+function MDP_StringToDate(
+  const sDate : String
+) : TDateTime;
+  const
+    FUNCTION_NAME = 'MDP_StringToDate';
+begin
+  try
+    with HISUtils.RegExpr do
+    begin
+      Expression := '(\d\d\d\d)-(\d\d)-(\d\d)';
+      if NOT Exec(sDate) then
+        Raise('Некорректная дата!');
+      Result := aqDateTime.SetDateElements(VarToInteger(Match[1]), VarToInteger(Match[2]), VarToInteger(Match[3]));
+    end;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, 'sDate: ' + VarToString(sDate), pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;  
+end;
+
+
+function MDP_DateToString(
+  const date : TDateTime
+) : String;
+begin
+  Result := aqConvert.DateTimeToFormatStr(date, '%Y-%m-%d');
+end;
+
+{
+  TYPE: Работа с MDP
+  DESC: Сбрасывает информацию о прохождении скрипта у всех оттрасированных тесткейсов
+  RESULT:
+  REMARK: 
+} 
+procedure ResetTracedHLTC;
+  const 
+    FUNCTION_NAME = 'ResetTracedHLTC';
+    DAY_DIFF = 3;
+  var
+    oTSList, oTracedFrom, oHLTC, oTS : OleVariant;
+    i, j, iTracedHLTCId : Integer;
+begin
+  try
+    oTSList := GetTestScripts('', false);
+  
+    for i := 0 to oTSList.length-1 do
+    begin
+      oTS := oTSList._get(i);  
+    
+      oTracedFrom := oTS._get(TSFLD_TRACED_FROM);    
+      if IsSupported(oTracedFrom, 'length') then
+        for j := 0 to oTracedFrom.length-1 do
+        begin
+          iTracedHLTCId := oTracedFrom._get(j);
+          oHLTC := GetHLTC(iTracedHLTCId);
+        
+          if IsHLTC(oHLTC) 
+            AND ((NOT IsSupported(oHLTC, HLTCFLD_SCRIPT_CHECKING_DATE))
+                  OR (aqDateTime.TimeInterval(MDP_StringToDate(oHLTC._get(HLTCFLD_SCRIPT_CHECKING_DATE)), aqDateTime.Today()) >= DAY_DIFF)) 
+            AND ((NOT IsSupported(oHLTC, HLTCFLD_NEED_MANUAL_CHECK))
+                  OR (oHLTC._get(HLTCFLD_NEED_MANUAL_CHECK) <> 'Да')) then
+            begin
+              oHLTC._set(HLTCFLD_NEED_MANUAL_CHECK, 'Да');
+              PutHLTC(oHLTC);
+            end;
+        end;
+    end;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;      
+end;
+
+
+{
+  TYPE: Работа с MDP
+  DESC: Выставляет у скрипта и оттрасированных HLTC значения полей отражающих информацию о 
+    времени и результатах выполнения скрипта
+  RESULT:
+  REMARK: 
+} 
+procedure RefreshScriptAndTracedHLTCs(
+  const oTS : OleVariant; // объект скрипта
+  const bScriptResult : Boolean // результат выполнения скрипта
+);
+  const
+    FUNCTION_NAME = 'RefreshScriptAndTracedHLTCs';
+  var
+    sToday : String;
+    oTracedFrom, oHLTC : OleVariant;
+    i, iTracedHLTCId : Integer;    
+begin
+  try
+    sToday := MDP_DateToString(aqDateTime.Today());
+  
+    // обновляем данные скрипта
+    oTS._set(TSFLD_LAST_RUN_DATE, sToday);
+    oTS._set(TSFLD_RESULT, Choose(bScriptResult, 'Passed', 'Failed'));
+    if bScriptResult then
+      oTS._set(TSFLD_LAST_SUCCESS_RUN_DATE, sToday);
+  
+    PutTS(oTS);
+
+    // обновляем данные оттрасированных HLTC  
+    oTracedFrom := oTS._get(TSFLD_TRACED_FROM);    
+    if IsSupported(oTracedFrom, 'length') then
+      for i := 0 to oTracedFrom.length-1 do
+      begin
+        iTracedHLTCId := oTracedFrom._get(i);
+        oHLTC := GetHLTC(iTracedHLTCId);
+      
+        if IsHLTC(oHLTC) then
+        begin
+          oHLTC._set(HLTCFLD_SCRIPT_CHECKING_DATE, sToday);
+          oHLTC._set(HLTCFLD_NEED_MANUAL_CHECK, Choose(bScriptResult, 'Нет', 'Да'));      
+          PutHLTC(oHLTC);
+        end;  
+      end;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;        
+end;
+
+
+var
+  gbl_Name2TSMap : OleVariant;
+
+{
+  TYPE: Работа с MDP
+  DESC: Возвращает объект скрипта по его имени.
+  RESULT:
+  REMARK: 
+}
+function GetTSByName(
+  const sName : String // имя скрипта
+) : OleVariant; // объект скрипта, или неопрелено в случае если не существует.
+  const
+    FUNCTION_NAME = 'GetTSByName'; 
+  var
+    oTSList, oTS : OleVariant;
+    i : Integer;
+begin
+  try
+    if VarType(gbl_Name2TSMap) <> varDispatch then
+    begin
+      oTSList := GetTestScripts('', false);
+      for i := 0 to oTSList.length-1 do
+      begin
+        oTS := oTSList._get(i);
+        Map(gbl_Name2TSMap, 'put', AnsiUpperCase(oTS._get(TSFLD_NAME)), oTS._get(TSFLD_ID));
+      end;
+      VarClear(oTSList);    
+    end;
+    Result := GetTS(Map(gbl_Name2TSMap, 'get', AnsiUpperCase(sName)));
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;    
+end;
+
+procedure DeleteFields;
+  var
+   oTSList, oTS;
+   arrToDel;
+   i, j, bChanged;
+begin
+  Exit;
+  arrToDel := ['TS_Tag'];
+
+  oTSList := GetTestScripts('', false);
+  for i := 0 to oTSList.length-1 do
+  begin
+    bChanged := false;
+    oTS := oTSList._get(i);
+    
+    for j := VarArrayLowBound(arrToDel, 1) to VarArrayHighBound(arrToDel, 1) do    
+      if NOT IsEmpty(oTS._get(arrToDel[j])) then
+      begin
+        oTS._del(arrToDel[j]);
+        bChanged := true;
+      end;  
+          
+    if bChanged then
+      PutTS(oTS);
+  end; 
+  
+end;
+
+procedure AddMacrosToHLTCsBody;
+  const
+    MACRO_TEXT = '{typedpage-search:REQ|query=hltc:%PAGE_ID%|columns=spacekey}';
+  var oHLTCList, oHLTC;
+      i, changedCount;
+      sContentBody;
+      bChanged;
+begin
+  Exit;
+  oHLTCList := GetHLTCs;
+  
+  Log.Message(oHLTCList.length);
+  changedCount := 0;
+    
+  for i := 0 to oHLTCList.length-1 do
+  begin
+    oHLTC := oHLTCList._get(i);
+        
+    if IsSupported(oHLTC, HLTCFLD_CONTENT_BODY) then
+    begin
+      sContentBody := oHLTC._get(HLTCFLD_CONTENT_BODY);      
+      if aqString.Contains(sContentBody, MACRO_TEXT, 0, False) <> -1 then
+      begin
+        Log.Message(oHLTC.title);
+        continue;
+      end        
+      else
+        Inc(sContentBody, EndOfLine + EndOfLine);    
+    end
+    else
+    begin
+      Log.Warning(oHLTC.title);
+      sContentBody := '';
+    end;  
+      
+    oHLTC._set(HLTCFLD_CONTENT_BODY, sContentBody + '----' + EndOfLine + MACRO_TEXT);      
+        
+    PutHLTC(oHLTC);
+    Inc(changedCount);              
+  end;
+  Log.Message(changedCount);
+      
+end;
+
+procedure MDP_Test_Proc;
+var oTS;
+begin
+  //Log.Message( GetHLTCTextByIDs([385976208]) );
+  oTS := GetTSByName('HLTC73_120_9_4');
+  Log.Message(oTS.Name);  
+end;

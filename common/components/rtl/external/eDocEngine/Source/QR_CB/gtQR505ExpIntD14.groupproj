@@ -1,0 +1,50 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{82a82cfa-08ee-45bf-abfd-59d4da3cff42}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="gtQR505Expd14.cbproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="DCLgtQR505Expd14.cbproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<BorlandProject>
+					<Default.Personality/>
+				</BorlandProject>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="gtQR505Expd14">
+			<MSBuild Projects="gtQR505Expd14.cbproj"/>
+		</Target>
+		<Target Name="gtQR505Expd14:Clean">
+			<MSBuild Targets="Clean" Projects="gtQR505Expd14.cbproj"/>
+		</Target>
+		<Target Name="gtQR505Expd14:Make">
+			<MSBuild Targets="Make" Projects="gtQR505Expd14.cbproj"/>
+		</Target>
+		<Target Name="DCLgtQR505Expd14">
+			<MSBuild Projects="DCLgtQR505Expd14.cbproj"/>
+		</Target>
+		<Target Name="DCLgtQR505Expd14:Clean">
+			<MSBuild Targets="Clean" Projects="DCLgtQR505Expd14.cbproj"/>
+		</Target>
+		<Target Name="DCLgtQR505Expd14:Make">
+			<MSBuild Targets="Make" Projects="DCLgtQR505Expd14.cbproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="gtQR505Expd14;DCLgtQR505Expd14"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="gtQR505Expd14:Clean;DCLgtQR505Expd14:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="gtQR505Expd14:Make;DCLgtQR505Expd14:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

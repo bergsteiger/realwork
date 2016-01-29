@@ -1,0 +1,644 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "UnderControlInterfaces"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"GlobalLocally"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (intf.pas)"
+	    value      	"w:/garant6x/implementation/Garant/GbaNemesis/UnderControl/UnderControlInterfaces.pas")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (intf.pas)"
+	    value      	"file")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text "Nemesis,key:NMS,guid:4AC23B8E0397/Home/Core/Common/UnderControl$Resetter/UnderControlInterfaces|4B9A1E7F0036"))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"13085644959"))
+    quid       	"4B9A1E7F0036"
+    stereotype 	"ControllerInterfaces"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4B9A30BC00D5"
+	    supplier   	"Logical View::garant6x::GblAdapterLib::UnderControl"
+	    quidu      	"45EEAA800226"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "IucpUnderControl"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"OS_GUID"
+		    value      	"08B2C1E6-9E0D-46ED-BFD9-C422A17A34E5")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text "Nemesis,key:NMS,guid:4AC23B8E0397/Home/Core/Common/UnderControl$Resetter/UnderControlInterfaces/IucpUnderControl|4B9A2AB603D4"))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"13085718828"))
+	    quid       	"4B9A2AB603D4"
+	    stereotype 	"ViewAreaController"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"4B9A2B05028B"
+		    supplier   	"Logical View::F1 Core::Common::UnderControl$Resetter::UnderControlInterfaces::UnderControlBehaviour"
+		    quidu      	"4B9A2AE40040"))
+	    language   	"MDA Generator")
+	(object Class "UnderControlBehaviour"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Nemesis,key:NMS,guid:4AC23B8E0397/Home/Ìîäåëü ïðîåêòà "F1 Core"/Common/UnderControl$Resetter/UnderControlInterfaces/UnderControlBehaviour|4B9A2AE40040
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"13085728684"))
+	    quid       	"4B9A2AE40040"
+	    stereotype 	"PureMixIn"
+	    operations 	(list Operations
+		(object Operation "ClearControlStatus"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4B9A2F660115_4B9A34C4007A_var*"
+			    value      	"//#UC START# *4B9A2F660115_4B9A34C4007A_var*¤var¤ l_Controllable: IControllable;¤//#UC END# *4B9A2F660115_4B9A34C4007A_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4B9A2F660115_4B9A34C4007A_impl*"
+			    value      	"//#UC START# *4B9A2F660115_4B9A34C4007A_impl*¤ if Get_HasControlStatus then¤ begin¤  l_Controllable := Get_Controllable;¤  if Assigned(l_Controllable) then¤  try¤   l3BoolReset(f_HasControlStatus);¤   l_Controllable.ResetControlStatus;¤  finally¤   l_Controllable := nil;¤  end;{try..finally}¤ end;//Get_HasControlStatus¤//#UC END# *4B9A2F660115_4B9A34C4007A_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13085736150"))
+		    quid       	"4B9A2F660115"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "HasControlStatus"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"calling conventions"
+			    value      	"none")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug tie log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"dll export"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"finished"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"force use const arg"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"is default"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"pm"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"46A603BB0391")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4B9A2F95007C_4B9A34C4007Aget_var*"
+			    value      	"//#UC START# *4B9A2F95007C_4B9A34C4007Aget_var*¤//#UC END# *4B9A2F95007C_4B9A34C4007Aget_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4B9A2F95007C_4B9A34C4007Aget_impl*"
+			    value      	"//#UC START# *4B9A2F95007C_4B9A34C4007Aget_impl*¤ Result := False;¤ if not l3BoolCheck(f_HasControlStatus, Result) then¤  Result := l3BoolSet(Get_ControlStatus <> CS_NONE, f_HasControlStatus);¤//#UC END# *4B9A2F95007C_4B9A34C4007Aget_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13085729789"))
+		    quid       	"4B9A2F95007C"
+		    stereotype 	"readonly"
+		    type       	"Boolean"
+		    quidu      	"46A603BB0391"
+		    exportControl 	"Public")
+		(object ClassAttribute "Controllable"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"45EEC17501B5")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4B9A2FB102EE_4B9A34C4007Aget_var*"
+			    value      	"//#UC START# *4B9A2FB102EE_4B9A34C4007Aget_var*¤//#UC END# *4B9A2FB102EE_4B9A34C4007Aget_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4B9A2FB102EE_4B9A34C4007Aget_impl*"
+			    value      	"//#UC START# *4B9A2FB102EE_4B9A34C4007Aget_impl*¤ Result := DoGetControllable;¤//#UC END# *4B9A2FB102EE_4B9A34C4007Aget_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13085731720"))
+		    quid       	"4B9A2FB102EE"
+		    stereotype 	"readonly"
+		    type       	"Controllable"
+		    quidu      	"45EEC17501B5"
+		    exportControl 	"Public")
+		(object ClassAttribute "ControlStatus"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ResolvedTypeGuid"
+			    value      	"48FD996601CE")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4B9A2FD30344_4B9A34C4007Aget_var*"
+			    value      	"//#UC START# *4B9A2FD30344_4B9A34C4007Aget_var*¤var¤ l_Controllable: IControllable;¤//#UC END# *4B9A2FD30344_4B9A34C4007Aget_var*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"intf.pas:*4B9A2FD30344_4B9A34C4007Aget_impl*"
+			    value      	"//#UC START# *4B9A2FD30344_4B9A34C4007Aget_impl*¤ l_Controllable := Get_Controllable;¤ if Assigned(l_Controllable) and l_Controllable.GetControlled then¤  Result := l_Controllable.GetControlStatus¤ else¤  Result := CS_NONE;¤//#UC END# *4B9A2FD30344_4B9A34C4007Aget_impl*")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13085734346"))
+		    quid       	"4B9A2FD30344"
+		    stereotype 	"readonly"
+		    type       	"Longword"
+		    quidu      	"48FD996601CE"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator")
+	(object Class "TnsDropControlStatus"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"13085737396"))
+	    quid       	"4BA0A44B0062"
+	    stereotype 	"Enum"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "dcsAfterReview"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13085738333"))
+		    quid       	"4BA0A45A0163"
+		    documentation 	"ïîñëå ïðîñìîòðà"
+		    exportControl 	"Public"
+		    Containment 	"By Value")
+		(object ClassAttribute "dcsExitFromSystem"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ValueInitialized"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"13085740084"))
+		    quid       	"4BA0A46F0299"
+		    documentation 	"ïðè âûõîäå èç ñèñòåìû"
+		    exportControl 	"Public"
+		    Containment 	"By Value"))
+	    language   	"MDA Generator")
+	(object Class "TnsDropControlStatusSet"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"13085742100"))
+	    quid       	"4BA0A48E0248"
+	    stereotype 	"SetOf"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4BA0A49B0214"
+		    supplier   	"Logical View::F1 Core::Common::UnderControl$Resetter::UnderControlInterfaces::TnsDropControlStatus"
+		    quidu      	"4BA0A44B0062"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"4B9A1EBA02D4"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::F1 Core::Common::UnderControl$Resetter::UnderControlInterfaces::IucpUnderControl" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(473, 806)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(242, 778)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	462
+			justify    	0
+			label      	"IucpUnderControl")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(242, 728)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	460
+			justify    	0
+			label      	"<<ViewAreaController>>")
+		    icon_style 	"Label"
+		    fill_color 	15908010
+		    quidu      	"4B9A2AB603D4"
+		    width      	480
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::F1 Core::Common::UnderControl$Resetter::UnderControlInterfaces::UnderControlBehaviour" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(475, 262)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(80, 136)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	790
+			justify    	0
+			label      	"UnderControlBehaviour")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(80, 86)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	790
+			justify    	0
+			label      	"<<PureMixIn>>")
+		    icon_style 	"Label"
+		    fill_color 	16777152
+		    quidu      	"4B9A2AE40040"
+		    width      	808
+		    height     	376
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @3
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4B9A2B05028B"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(473, 715)
+			(474, 450))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::F1 Core::Common::UnderControl$Resetter::UnderControlInterfaces::TnsDropControlStatus" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1539, 941)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(1324, 890)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	430
+			justify    	0
+			label      	"TnsDropControlStatus")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(1324, 840)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	430
+			justify    	0
+			label      	"<<Enum>>")
+		    icon_style 	"Label"
+		    fill_color 	13821680
+		    quidu      	"4BA0A44B0062"
+		    width      	448
+		    height     	226
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::F1 Core::Common::UnderControl$Resetter::UnderControlInterfaces::TnsDropControlStatusSet" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1570, 1406)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1321, 1385)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	498
+			justify    	0
+			label      	"TnsDropControlStatusSet")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(1321, 1335)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	498
+			justify    	0
+			label      	"<<SetOf>>")
+		    icon_style 	"Label"
+		    fill_color 	15781360
+		    quidu      	"4BA0A48E0248"
+		    width      	516
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @6
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4BA0A49B0214"
+		    client     	@5
+		    supplier   	@4
+		    vertices   	(list Points
+			(1564, 1322)
+			(1545, 1054))
+		    line_style 	0)))
+	(object ClassDiagram "Uses"
+	    quid       	"4B9A30AF02CE"
+	    title      	"Uses"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object CategoryView "Logical View::F1 Core::Common::UnderControl$Resetter::UnderControlInterfaces" @7
+		    location   	(552, 653)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(408, 613)
+			nlines     	2
+			max_width  	288
+			justify    	0
+			label      	"UnderControlInterfaces")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(408, 563)
+			anchor     	10
+			nlines     	1
+			max_width  	288
+			justify    	0
+			label      	"<<ControllerInterfaces>>")
+		    icon_style 	"Icon"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"4B9A1E7F0036"
+		    width      	300
+		    height     	193)
+		(object CategoryView "Logical View::garant6x::GblAdapterLib::UnderControl" @8
+		    location   	(393, 210)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(205, 176)
+			nlines     	2
+			max_width  	376
+			justify    	0
+			label      	"• UnderControl")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(205, 126)
+			anchor     	10
+			nlines     	1
+			max_width  	376
+			justify    	0
+			label      	"<<Interfaces>>")
+		    icon_style 	"Icon"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"45EEAA800226"
+		    width      	388
+		    height     	180)
+		(object ImportView "" @9
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4B9A30BC00D5"
+		    client     	@7
+		    supplier   	@8
+		    vertices   	(list Points
+			(497, 502)
+			(424, 300))
+		    line_style 	0)))))

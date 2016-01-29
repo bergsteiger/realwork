@@ -1,0 +1,165 @@
+// TkwCompiledWord 4DB6CA4F010D SimpleClass Class
+
+INCLUDE '52D69DF30179.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '47913F4E02E0.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+FORWARD ME_4DB6CA4F010D
+
+INCLUDE '4DAEECD90016.pas.ms.script'
+
+: ME_4DC9729F0399
+ CONST UID '4DC9729F0399'
+ CONST Name 'LocalDictionary'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_4DAEECD90016 // TtfwDictionary
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_4DC9729F0399 LocalDictionary
+
+INCLUDE '4DB6CAC402B4.pas.ms.script'
+
+: ME_4F417F010252
+ CONST UID '4F417F010252'
+ CONST Name 'f_InParams'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Входные параметры слова' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4DB6CAC402B4 // TtfwWordRefList
+ ;
+
+ @SELF
+; // ME_4F417F010252 f_InParams
+
+: ME_52E9252E00F4
+ CONST UID '52E9252E00F4'
+ CONST Name 'f_RightParams'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4DB6CAC402B4 // TtfwWordRefList
+ ;
+
+ @SELF
+; // ME_52E9252E00F4 f_RightParams
+
+: ME_53E467A70306
+ CONST UID '53E467A70306'
+ CONST Name 'f_LeftWordRefs'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_4DB6CAC402B4 // TtfwWordRefList
+ ;
+
+ @SELF
+; // ME_53E467A70306 f_LeftWordRefs
+
+: ME_57FA1EF6534C
+ CONST UID '57FA1EF6534C'
+ CONST Name 'f_LocalDictionary'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства LocalDictionary' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_4DAEECD90016 // TtfwDictionary
+ ;
+
+ @SELF
+; // ME_57FA1EF6534C f_LocalDictionary
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_BA017E9DB4D8
+ CONST UID 'BA017E9DB4D8'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TkwCompiledWord' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_BA017E9DB4D8 Ini_Reg_Class
+
+: ME_4DB6CA4F010D
+ CONST UID '4DB6CA4F010D'
+ CONST Name 'TkwCompiledWord'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Поддержка скомпилированных слов' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_52D69DF30179 // TkwRuntimeWordWithCodeExecution
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4DC9729F0399 // LocalDictionary
+ ME_4F417F010252 // f_InParams
+ ME_52E9252E00F4 // f_RightParams
+ ME_53E467A70306 // f_LeftWordRefs
+ ME_57FA1EF6534C // f_LocalDictionary
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_BA017E9DB4D8 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_47A6FEE600FC // IsCacheable
+ ME_4DAEEDE10285 // DoDoIt
+ ME_4DB6CF7202CB // IsCompiled
+ ME_4DB6D7F70155 // IsImmediate
+ ME_4F4161BC0024 // DoDefineInParameter
+ ME_4F4177910352 // CompileInParameterPopCodeFromString
+ ME_4F49428A01EA // StoreState
+ ME_4F4942C50339 // RestoreState
+ ME_52B43311021D // InnerDictionary
+ ME_52D40FAA0073 // HasLocalDictionary
+ ME_52D5425A037F // GetInParam
+ ME_52D56341033B // GetNewWordDefinitor
+ ME_52D5637A031E // GetKeywordFinder
+ ME_52D56A980103 // DoCompileInParameterPopCode
+ ME_52E9282B0271 // RightParamsCount
+ ME_53C90EC00136 // ClearState
+ ME_53E4914101D2 // LeftWordRefParamsCount
+ ME_55769895035B // GetRightParam
+ ME_559687E6025A // GetAllParamsCount
+ ME_55A7D34102A0 // DoCheckWord
+ ME_55ACE5210310 // GetKeywordByName
+ ME_55ACF0F5025D // GetParentFinder
+ ]
+ ; // Overridden
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '26.04.2011 17:36'
+
+ @SELF
+; // ME_4DB6CA4F010D TkwCompiledWord

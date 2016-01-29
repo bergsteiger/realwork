@@ -1,0 +1,4537 @@
+//////////////////////////////////////////////////////////////////////////////
+//  Набор функций для запуска оболочки, сервера, утилит и инсталляторов
+//////////////////////////////////////////////////////////////////////////////
+//  В данный момент модуль находится в стадии разработки, для запуска оболочки,
+// необходимо кликнуть на Мой компьютер "правой гайкой"  на вкладке "Advanced"
+// нажать кнопку "Environment Variables" и в переменную "PATH" прописать путь к 
+// к каталогу где находится установленный гарант
+uses common, FileWork, exceptions, settingsWork; 
+
+// Исключения
+const 
+
+  //  Возбуждается, если не найден процесс оболочки
+  EX_CANNOT_FIND_F1SHELL_PROCESS = 'Не удалось найти процесс оболочки!';
+
+  SHELL_PROCESS_NAME = 'F1Shell';
+  ADMIN_PROCESS_NAME = 'F1Admin';
+    
+  EX_CANNOT_FIND_F1PRIME_PROCESS = 'Не удалось найти процесс F1Prime!';   
+  PRIME_PROCESS_NAME = 'F1Prime';
+  
+  F1DATASETUP_PROCESS_NAME = 'F1DataSetup';
+  EX_CANNOT_FIND_F1DATASETUP_PROCESS = 'Процесс "F1DataSetup" не найден';
+  F1DATASETUP_STARTER_PROCESS_NAME = 'DataSetup';
+  EX_CANNOT_FIND_F1DATASETUP_STARTER_PROCESS = 'Процесс "DataSetup" не найден';
+    
+  DATAUPD_PROCESS_NAME = 'F1DataUpd';
+  DATAUPD_STARTER_PROCESS_NAME = 'DataUpd';
+  EX_CANNOT_FIND_F1DATAUPD_PROCESS = 'Не удалось найти процесс F1DataUpd!';
+  GEP_EMPTY_VALUE = 'c5b563ba-ccfe-4c3a-9b36-1d1f579bc109';
+
+  F1SERVERPORT = '5051';
+  F1SERVER_PROCESS_NAME = 'F1Server';
+
+  LOGINFORM_NAME = 'LoginForm';
+    
+//Константы для DoLoginOperation
+const
+  OPER_LOGIN_ANYHOW = 'Залогинится каким бы ни было способом';
+  OPER_LOGIN_EXISTING_USER = 'Залогинится существующим пользователем';
+  OPER_LOGIN_NEW_USER = 'Залогинится новым пользователем';
+  OPER_WELCOME_INFO = 'Работа с диалоговыми окнами после запуска';
+  
+  IDLO_NOERROR = 0;
+  IDLO_ERROR = 1;
+  IDLO_USER_ALREADY_EXISTS = 2;
+    
+function TestStandParams( opName : String; paramName : String = ''; paramValue : OleVariant = GEP_EMPTY_VALUE): OleVariant;forward;
+function GetFromLoginForm(  whatToGet : String;  params : String = '') : OleVariant; forward;
+function DoLoginOperation( var login; var pass; operation : string = OPER_LOGIN_ANYHOW;  ParamString : string = '') : integer; forward;
+function IsF1Lived(waiteTime : integer = 3000): boolean; forward;
+
+procedure CloseF1Prime(countOfAttempt: Integer = 3; endProcessDelay: Integer = -1); forward;
+procedure CloseF1Admin(countOfAttempt: Integer = 3; endProcessDelay: Integer = -1); forward;
+function GetPathToDesktopSettings : string; forward;  
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}
+function RunProgramByShell(
+  cmdStr : String;
+  const isWaitForEnd : boolean = true
+): boolean;
+  const
+    FUNCTION_NAME = 'RunProgramByShell';
+    DEFAULT_OPT_VALUE = 312312;
+  var 
+    rexp;
+    domain, site;
+    isDomainAdded, isSiteAdded;
+    domainSection, siteSection, activeSection;
+    oldOption;
+begin
+  try
+    isSiteAdded := false;
+    isDomainAdded := false;
+    oldOption := DEFAULT_OPT_VALUE;
+    //
+    rexp := HISUtils.RegExpr;
+    rexp.Expression := '\\\\([^\.\\]*?)\.*([^\.\\]*?\.*[^\.\\]*)\\';
+    // для сетевого пути добавляем сайт в trusted
+    if rexp.Exec(cmdStr) then
+    begin
+      site := rexp.Substitute('$1');
+      domain := rexp.Substitute('$2');
+      // добавляем/открываем секуию для домента      
+      activeSection := Storages.Registry('Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains', HKEY_CURRENT_USER);
+      isDomainAdded := (NOT activeSection.SubSectionExists(domain));
+      activeSection := activeSection.GetSubSection(domain);
+      domainSection := activeSection;
+      // добавляем открываем секцию для сайта            
+      if (site <> '') then
+      begin
+        isSiteAdded := (NOT activeSection.SubSectionExists(site));
+        activeSection := activeSection.GetSubSection(site);
+        siteSection := activeSection;
+      end;
+      // устанавлитваем значение опции
+      oldOption := activeSection.GetOption('*', DEFAULT_OPT_VALUE);
+      activeSection.SetOption('*', 1); // 1 - Это группа LocalIntranet
+    end;
+
+    // запускаем приложение и ждем окончания
+    Result := ( WSHShell.Run(cmdStr, 0, isWaitForEnd) = 0 );
+    
+    // восстанавливаем то что наменяли в реестре
+    if (oldOption <> DEFAULT_OPT_VALUE) then activeSection.SetOption('*', oldOption);    
+    if isSiteAdded then siteSection.Clear();
+    if isDomainAdded then domainSection.Clear();  
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+function IsValidProcess(
+  prc : OleVariant
+) : boolean;
+begin
+  Result := (VarType(prc) = varDispatch) AND IsSupported(prc, 'Exists') AND prc.Exists AND IsSupported(prc, 'IsOpen') 
+            AND ( (Utilities.AnsiUpperCase(prc.ProcessName) = Utilities.AnsiUpperCase(F1DATASETUP_PROCESS_NAME)) OR (Utilities.AnsiUpperCase(prc.ProcessName) = Utilities.AnsiUpperCase(DATAUPD_PROCESS_NAME)) OR (prc.IsOpen) );  
+end;
+
+
+function IsValidNotOpenApplicationProcess(//Если процесс не OpenAplication
+  prc : OleVariant
+) : boolean;
+begin
+  Result := (VarType(prc) = varDispatch) AND IsSupported(prc, 'Exists') AND prc.Exists AND IsSupported(prc, 'IsOpen');  
+end;
+  
+var
+  psToolsPath_vd54g6546g86rtg864r4gvd5f;
+{
+  TYPE:
+  DESC: Возвращает путь к каталогу, где лежат утилиты PSTools 
+  RESULT:
+  REMARK:
+}
+function GetPSToolsPath : String;
+begin
+  try
+    if (VarType(psToolsPath_vd54g6546g86rtg864r4gvd5f) = varEmpty) then
+      psToolsPath_vd54g6546g86rtg864r4gvd5f := GetPathTo(PATH_TO_PSTOOLS);
+    Result := psToolsPath_vd54g6546g86rtg864r4gvd5f;
+  except
+    Result := '';
+    Log.Message('GetPSToolsPath: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;               
+end;
+
+var gbl_StartupLoggingLevel;
+const
+  SLL_NOT_SPECIFIED = -1;
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}
+function StartupLoggingLevel(
+  operation : String;
+  const param : OleVariant = 0
+): integer;
+  const
+    FUNCTION_NAME = 'StartupLoggingLevel';
+begin
+  try
+    operation := AnsiUpperCase(operation);      
+    case operation of
+      'GET' :
+        if IsEmpty(gbl_StartupLoggingLevel) then
+          Result := SLL_NOT_SPECIFIED
+        else 
+          Result := gbl_StartupLoggingLevel;
+      'SET' : 
+        gbl_StartupLoggingLevel := param;           
+    else
+      Raise('Неизвестная операция');
+    end;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, DbgVarValue(operation, 'operation') + DbgVarValue(param, 'param'), pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+procedure __PT_CONSTANTS; begin end;
+
+const
+  PT_DESKTOP = 'десктоп';
+  PT_SERVER = 'сервер';
+  PT_CLIENT = 'клиент';  
+  PT_FILESERVER = 'файл-сервер';
+  PT_CD = 'CD или DVD';
+  PT_UNKNOWN = 'неизвестен';
+  // Дополнительные константы
+  _PT_CONSOLE_SUFFIX = '-консольный';
+  PT_DESKTOP_CONSOLE = PT_DESKTOP + _PT_CONSOLE_SUFFIX;
+  PT_SERVER_CONSOLE = PT_SERVER + _PT_CONSOLE_SUFFIX;
+  PT_CLIENT_CONSOLE = PT_CLIENT + _PT_CONSOLE_SUFFIX;
+  PT_FILESERVER_CONSOLE = PT_FILESERVER + _PT_CONSOLE_SUFFIX;
+  PT_CD_SERVER = PT_CD + _PT_CONSOLE_SUFFIX;
+
+{
+  TYPE: Общие
+  DESC: Возвращает тип продукта (из инишника из реестра)
+  RESULT: Одна из 5и констант
+  REMARK:
+}
+function GetProductType(
+  pathToINI : String = '';
+  const isAddAnalysis : boolean = false // проводить ли дополнительный анализ. !МОЖЕТ ОТЪЕХАТЬ!
+) : OleVariant;
+  var 
+    product : OleVariant;
+begin
+  try
+    Result := PT_UNKNOWN;
+    product := GetValueFromGarantINI('Version', '-Product', pathToINI);
+    if NOT IsEmpty(product) then
+    begin
+      product := AnsiUpperCase(product);
+      case product of
+        'SERVER' : Result := PT_SERVER;
+        'CLIENT' : Result := PT_CLIENT;
+        'FILESERVER' : Result := PT_FILESERVER;
+        'DESKTOP' : Result := PT_DESKTOP;
+        'CD_OR_DVD' : Result := PT_CD;
+      else
+        Raise('Неизвестное значение ключа!');
+      end;
+    end;
+    
+    if isAddAnalysis then
+    begin
+      if (pathToINI = '') then
+        pathToINI := GetF1Directory + '\garant.ini';
+      if FileExists(ExtractFilePath(pathToINI) + 'apps\f1shell.map') then
+        Result := Result + _PT_CONSOLE_SUFFIX;
+    end;
+  except
+    Log.Message('GetProductType: ' + ExceptionMessage, 'product: "' + VarToStr(product) + '"; ' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE: Общие
+  DESC: Возвращает процесс оболочки
+  RESULT:
+  REMARK: В случае неудачи выбрасывает исключение EX_CANNOT_FIND_F1SHELL_PROCESS
+}
+function GetF1ShellProcess(
+  const timeOut : integer = -1; // таймаут
+  const searchesCount : integer = 2; // столько раз ищем процесс
+  const isRaiseException : boolean = true
+) : OleVariant;
+  const
+    FUNCTION_NAME = 'GetF1ShellProcess';
+  var 
+    i, timeElapsed, timeToWait, startTime : integer;  
+    cacheKey : OleVariant;
+begin
+  try
+    cacheKey := FUNCTION_NAME + 'F1ShellProcess';
+    if NOT Cache_Check(nil, cacheKey, Result) then
+    begin
+      // увеличиваем пока ESX не отремонтируют
+      //if timeOut = -1 then timeOut := 3*Options.Run.Timeout;
+      if timeOut = -1 then timeOut := Options.Run.Timeout;
+            
+      if searchesCount < 1 then searchesCount := 1;
+      Result := NonExObj;
+      
+      for i := 1 to searchesCount do
+      begin
+        timeToWait := timeOut div searchesCount;
+        timeElapsed := Win32API.GetTickCount;
+        //Sys.Refresh;
+        Result := Sys.WaitProcess(SHELL_PROCESS_NAME, timeToWait);
+
+        timeElapsed := Win32API.GetTickCount - timeElapsed;
+        timeToWait := timeToWait - timeElapsed;
+        
+        if IsValidProcess(Result) then break;
+        
+        if timeToWait > 0 then
+        begin
+          startTime := Win32API.GetTickCount;
+          while ( timeToWait > Win32API.GetTickCount - startTime ) AND (NOT IsValidProcess(Result)) do
+            Delay(300);
+        end;
+      end;
+      
+      if NOT IsValidProcess(Result) then
+        Result := NonExObj
+      else      
+        Result := Cache_Put(nil, cacheKey, Result);
+    end;
+       
+    if NOT IsValidProcess(Result) then
+      if isRaiseException then 
+        Raise(EX_CANNOT_FIND_F1SHELL_PROCESS)
+      else
+        Result := NonExObj;          
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Общие
+  DESC: Возвращает процесс интерфейса АДМИН-а
+  RESULT:
+  REMARK: В случае неудачи выбрасывает исключение EX_CANNOT_FIND_F1SHELL_PROCESS
+}
+function GetF1AdminProcess(
+  const timeOut : integer = -1; // таймаут
+  const searchesCount : integer = 2; // столько раз ищем процесс
+  const isRaiseException : boolean = true
+) : OleVariant;
+  const
+    FUNCTION_NAME = 'GetF1AdminProcess';
+  var 
+    i, timeElapsed, timeToWait, startTime : integer;  
+    cacheKey : OleVariant;
+begin
+  try
+    cacheKey := FUNCTION_NAME + 'F1AdminProcess';
+    if NOT Cache_Check(nil, cacheKey, Result) then
+    begin
+      if timeOut = -1 then timeOut := Options.Run.Timeout; 
+      if searchesCount < 1 then searchesCount := 1;
+      Result := NonExObj;
+      
+      for i := 1 to searchesCount do
+      begin
+        timeToWait := timeOut div searchesCount;
+        timeElapsed := Win32API.GetTickCount;
+        Sys.Refresh;
+        Result := Sys.WaitProcess(ADMIN_PROCESS_NAME, timeToWait);
+
+        timeElapsed := Win32API.GetTickCount - timeElapsed;
+        timeToWait := timeToWait - timeElapsed;
+        
+        if IsValidProcess(Result) then break;
+        
+        if timeToWait > 0 then
+        begin
+          startTime := Win32API.GetTickCount;
+          while ( timeToWait > Win32API.GetTickCount - startTime ) AND (NOT IsValidProcess(Result)) do
+            Delay(300);
+        end;
+      end;
+      
+      if NOT IsValidProcess(Result) then
+        Result := NonExObj
+      else      
+        Result := Cache_Put(nil, cacheKey, Result);
+    end;
+       
+    if NOT IsValidProcess(Result) then
+      if isRaiseException then 
+        Raise(EX_CANNOT_FIND_F1SHELL_PROCESS)
+      else
+        Result := NonExObj;          
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+    CommonExceptionHandler;
+  end;
+end;
+
+const 
+  F1REGBRANCH_PARENT = 'Software';
+  F1REGBRANCH_CHILD = 'Garant.F1';
+  F1LAUNCHERREGBRANCH_CHILD = 'Garant.F1-Launcher';
+  F1REGBRANCH = F1REGBRANCH_PARENT + '\' + F1REGBRANCH_CHILD;
+  F1LAUNCHERREGBRANCH = F1REGBRANCH_PARENT + '\' + F1LAUNCHERREGBRANCH_CHILD;
+  F1REGKEY_CLIENT = 'ApplicationAdapterOptions';
+  F1REGKEY_SERVER = 'ApplicationServerOptions';
+  F1GCMCONFIGFILEPARAMNAME = '-GCMConfigFile "';
+  //  
+  F1_ADAPTER_FULL_REG_PATH = 'HKCU\' + F1REGBRANCH;
+  F1_SERVER_FULL_REG_PATH = 'HKLM\' + F1REGBRANCH;
+  F1_LAUNCHER_FULL_REG_PATH = 'HKCU\' + F1LAUNCHERREGBRANCH; 
+
+{
+  TYPE: Запуск
+  DESC: Процедура для запуска оболочки Ф1
+  RESULT:
+  REMARK: Можно указать путь к каталогу, где лежит garant.exe
+}
+var gbl_F1ShellTabsEnabled;       // http://mdp.garant.ru/pages/viewpage.action?pageId=554579450
+var gbl_F1ShellOpenDocsInNewTab;  // http://mdp.garant.ru/pages/viewpage.action?pageId=340174500 
+var gbl_FixTC6bugEnabled;         // http://mdp.garant.ru/pages/viewpage.action?pageId=235864089
+function StartF1Shell(
+  path : String = ''; // путь к каталогу, где лежит garant.exe
+  attemptsCount : integer = 3; // количество попыток запуска оболочки
+  paramString : String = '' // строка параметров
+) : Boolean;
+  var
+    paramList, p; 
+    cmdParams, sum_path, pathToGarant : String;
+    oldAttemptsCount, i : integer;
+begin
+  try
+    ScriptAction('SET ACTION', SA_START_F1SHELL);  
+  
+    paramList := ParseParamString(paramString);
+    cmdParams := GetParam(paramList, 'CmdParams', '');
+
+    oldAttemptsCount := attemptsCount;
+    Result := false;
+    if path = '' then path := GetF1Directory;
+    path := Utilities.IncludeTrailingBackslash(path);
+    // проверяем, а доступна ли оболочка
+    pathToGarant := path + LAUNCHERNAME;
+    if NOT Utilities.FileExists(pathToGarant) then
+    begin
+      Log.Error('Файл "' + pathToGarant + '" не найден!');
+      Exit;
+    end;
+    // выставляем logging level
+    if (GetProductType = PT_DESKTOP) OR (GetProductType = PT_FILESERVER) then
+      if StartupLoggingLevel('get') <> SLL_NOT_SPECIFIED then
+        SetValueToGarantINI('F1Server Params', '-LoggingLevel', VarToString(StartupLoggingLevel('get')), false, path + 'garant.ini' );
+    // пишем в реестр ProductId (чтобы не задавали вопросов о создании ярлыков)
+    Storages.Registry(F1LAUNCHERREGBRANCH, HKEY_CURRENT_USER).SetOption('-ProductId', GetValueFromGarantINI('Version', '-ProductId', path + 'garant.ini') );
+    Storages.Registry(F1LAUNCHERREGBRANCH, HKEY_CURRENT_USER).SetOption('DesktopShortcutsStatus', 'Checked');
+           
+    // запускаем
+    repeat
+      sum_path := '"' + pathToGarant + '" default /MakeAsTC6Client /DisableDebugAgent';
+      if VarToBool(gbl_FixTC6bugEnabled) then 
+        sum_path := sum_path + ' /FixTC6bug';
+      if VarToBool(gbl_F1ShellTabsEnabled) then 
+        sum_path := sum_path + ' -tabs'
+      else
+        sum_path := sum_path + ' -notabs';
+      if cmdParams <> '' then
+        sum_path := sum_path + ' ' + cmdParams;
+      
+      Win32API.WinExec(sum_path, Win32API.SW_SHOWMAXIMIZED);
+      try
+        // вначале проверяем не висит ли garant.exe
+        i := 0;
+        repeat
+          Delay(1000);
+          p := Sys.WaitProcess(aqFileSystem.GetFileName(LAUNCHERNAME), 500);
+          inc(i);
+          if i > 100 then // 100 на случай копирования кеша 
+          begin
+            if IsExists(p) then
+              p.Terminate;
+            Raise;
+          end;
+        until not IsExists(p);
+        // 
+        
+        Result := IsExists( GetF1ShellProcess(Options.Run.Timeout * 3, 5) );
+      except
+        Result := false;
+        Log.Warning('StartF1Shell: Попытка запуска оболочки № ' + VarToString(oldAttemptsCount - attemptsCount + 1) + ' не удалась!' );        
+        if (attemptsCount <= 1) then 
+          CommonExceptionHandler
+        else
+        begin
+          p := Sys.WaitProcess(SHELL_PROCESS_NAME, 1000);
+          if IsExists(p) then 
+            p.Terminate;
+          Delay(500);
+          Log.Message('StartF1Shell: Пробуем еще раз.');
+        end;    
+      end;
+      attemptsCount := attemptsCount - 1;
+    until (attemptsCount < 1) OR Result;      
+  except
+    Log.Message('StartF1Shell: ' + ExceptionMessage, 'path: "' + path + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;
+end;
+
+{
+  TYPE: Запуск
+  DESC: Процедура для запуска интерфейса Администратора
+  RESULT:
+  REMARK: Можно указать путь к каталогу, где лежит garant.exe
+}
+function StartF1Admin(
+  path : String = ''; // путь к каталогу, где лежит garant.exe
+  attemptsCount : integer = 3 // количество попыток запуска оболочки  
+) : Boolean;
+  var 
+    pathToGarant : String;
+    oldAttemptsCount : integer;
+begin
+  try
+    ScriptAction('SET ACTION', SA_START_F1ADMIN);  
+  
+    oldAttemptsCount := attemptsCount;
+    Result := false;
+    if path = '' then path := GetF1Directory;
+    path := Utilities.IncludeTrailingBackslash(path);
+    // проверяем, а доступна ли оболочка
+    pathToGarant := path + LAUNCHERNAME;
+    if NOT Utilities.FileExists(pathToGarant) then
+    begin
+      Log.Error('Файл "' + pathToGarant + '" не найден!');
+      Exit;
+    end;
+    // выставляем logging level
+    if (GetProductType = PT_DESKTOP) OR (GetProductType = PT_FILESERVER) then
+      if StartupLoggingLevel('get') <> SLL_NOT_SPECIFIED then
+        SetValueToGarantINI('F1Server Params', '-LoggingLevel', VarToString(StartupLoggingLevel('get')), false, path + 'garant.ini' );
+    // пишем в реестр ProductId (чтобы не задавали вопросов о создании ярлыков)
+    Storages.Registry(F1LAUNCHERREGBRANCH, HKEY_CURRENT_USER).SetOption('-ProductId', GetValueFromGarantINI('Version', '-ProductId', path + 'garant.ini') );
+    Storages.Registry(F1LAUNCHERREGBRANCH, HKEY_CURRENT_USER).SetOption('DesktopShortcutsStatus', 'Checked');
+           
+    // запускаем
+    repeat
+      Win32API.WinExec('"' + pathToGarant + '" F1Admin default /MakeAsTC6Client /DisableDebugAgent', Win32API.SW_SHOWMAXIMIZED);
+      try
+        Result := IsExists( GetF1AdminProcess(Options.Run.Timeout * 3, 5) );
+      except
+        Result := false;
+        Log.Warning('StartF1Admin: Попытка запуска интерфейса АДМИН-а № ' + VarToString(oldAttemptsCount - attemptsCount + 1) + ' не удалась!' );        
+        if (attemptsCount <= 1) then 
+          CommonExceptionHandler
+        else
+        begin
+          Sys.WaitProcess(ADMIN_PROCESS_NAME, 1000).Terminate;
+          Delay(500);
+          Log.Message('StartF1Admin: Пробуем еще раз.');
+        end;    
+      end;
+      attemptsCount := attemptsCount - 1;
+    until (attemptsCount < 1) OR Result;      
+  except
+    Log.Message('StartF1Admin: ' + ExceptionMessage, 'path: "' + path + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;
+end;
+
+
+{
+  TYPE: Запуск
+  DESC: Перезапускает сервер
+  RESULT:
+  REMARK: Можно указать путь к каталогу, где лежит garant.exe
+  TODO: Сделать проверку нахождения сервера на локальной машине (иначе ничего не перезаускаем)
+}
+function RestartF1Server(
+  path : String = '' // путь к каталогу, где лежит garant.exe
+) : Boolean;
+  const 
+    MAX_TIMEOUT = 30000;
+  var
+    timeOut : integer;
+    p : OleVariant;
+begin
+  try
+    ScriptAction('SET ACTION', SA_START_F1SERVER);
+    ScriptAction('SET ACTION', SA_STOP_F1SERVER); 
+      
+    Result := false;
+    if path = '' then path := Utilities.IncludeTrailingBackslash(GetF1Directory('server')) + 'apps\winNT\';
+    path := Utilities.IncludeTrailingBackslash(path);
+    
+    if NOT Utilities.FileExists(path + 'F1Server.exe') then
+    begin
+      Log.Error('Сервер не найден по пути ' + path);
+      Exit;
+    end;
+    
+    p := Sys.Process(F1SERVER_PROCESS_NAME);
+    if p.Exists then 
+    begin
+      p.Close;
+      timeOut := Win32API.GetTickCount + MAX_TIMEOUT;
+      while (p.Exists) AND (Win32API.GetTickCount < timeOut ) do Delay(500);
+      if p.Exists then p.Terminate;
+      timeOut := Win32API.GetTickCount + (MAX_TIMEOUT div 10);
+      while (p.Exists) AND (Win32API.GetTickCount < timeOut ) do Delay(500);
+      if p.Exists then
+      begin
+        Log.Error('Никак не получилось прибить ' + F1SERVER_PROCESS_NAME + '!');
+        Exit;
+      end;
+    end;
+      
+    Win32API.WinExec(path + 'F1Server.exe -d', Win32API.SW_SHOWNORMAL);
+    Result := Sys.Process(F1SERVER_PROCESS_NAME).Exists;
+  except
+    Log.Message('RestartF1Server: ' + ExceptionMessage, 'path: "' + path + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  DESK:  Отдаёт элементы с формы логина интерфейса Админа
+}
+function GetFromAdminLoginForm(
+  whatToGet : String;
+  params : String = ''  
+) : OleVariant;
+  const
+    FUNCTION_NAME = 'GetFromAdminLoginForm';
+  var 
+    cacheKey, parent : OleVariant;
+begin
+  try
+    whatToGet := AnsiUpperCase(whatToGet);
+    
+    parent := GetF1AdminProcess;
+    cacheKey := FUNCTION_NAME + whatToGet;
+    if NOT Cache_Check(parent, cacheKey , Result ) then
+    begin 
+      case whatToGet of
+        'ФОРМА ЛОГИНА' :
+          Result := FindWindowByPath(parent, 'NAME:=' + LOGINFORM_NAME, true, params);
+        'ПОЛЕ "РЕГИСТРАЦИОННОЕ ИМЯ"' :
+          Result := FindWindowByPath(
+            GetFromAdminLoginForm('ФОРМА ЛОГИНА', params),
+            'NAME:=RegisteredGroupBox;WNDCLASS:=TvtGroupBox|NAME:=edUserName', true, params
+          );
+        'ПОЛЕ "ПАРОЛЬ"' :
+          Result := FindWindowByPath(
+            GetFromAdminLoginForm('ФОРМА ЛОГИНА', params),
+            'NAME:=RegisteredGroupBox;WNDCLASS:=TvtGroupBox|NAME:=edPassword', true, params
+          );
+        'КНОПКА "ОК"', 'КНОПКА "OK"' :
+          Result := FindWindowByPath(
+
+            GetFromAdminLoginForm('ФОРМА ЛОГИНА',  params),
+            'NAME:=RegisteredGroupBox;WNDCLASS:=TvtGroupBox|NAME:=btnOk', true, params
+          );
+      else
+        Raise('Параметр не распознан!');   
+      end;
+	    Result := Cache_Put(parent, cacheKey, Result );
+    end;
+    
+    if IsExists(Result) AND (NOT Result.Visible) then
+    begin
+      Log.Warning('GetFromLoginForm' + ': Объект существует, но НЕ виден! Возвращаем несуществующий объект.',
+                 'whatToGet: "' + whatToGet + '".' + EndOfLine +
+                 'FullName: "' + Result.FullName + '"',
+                 pmNormal, GetLogAttr('YELLOW'));
+      Result := NonExObj;
+    end;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, 'whatToGet: "' + whatToGet + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;
+end;
+
+{
+  DESK:  Отдаёт элементы с формы логина  
+}
+function GetFromLoginForm(
+  whatToGet : String;
+  params : String = ''  
+) : OleVariant;
+const
+  FUNCTION_NAME = 'GetFromLoginForm';
+  var 
+    cacheKey, parent : OleVariant;
+begin
+  try
+    whatToGet := AnsiUpperCase(whatToGet);
+    
+    parent := GetF1ShellProcess;
+    cacheKey := FUNCTION_NAME + whatToGet;
+    if NOT Cache_Check(parent, cacheKey , Result ) then
+    begin 
+      case whatToGet of
+        'ФОРМА ЛОГИНА' :
+          Result := FindWindowByPath(parent, 'NAME:=' + LOGINFORM_NAME, true, params);
+        'ПОЛЕ "РЕГИСТРАЦИОННОЕ ИМЯ"' :
+          Result := FindWindowByPath(
+            GetFromLoginForm('ФОРМА ЛОГИНА', params),
+            'NAME:=RegisteredGroupBox;WNDCLASS:=TvtGroupBox|NAME:=edUserName', true, params
+          );
+        'ПОЛЕ "ПАРОЛЬ"' :
+          Result := FindWindowByPath(
+            GetFromLoginForm('ФОРМА ЛОГИНА', params),
+            'NAME:=RegisteredGroupBox;WNDCLASS:=TvtGroupBox|NAME:=edPassword', true, params
+          );
+        'КНОПКА "ОК"', 'КНОПКА "OK"' :
+          Result := FindWindowByPath(
+            GetFromLoginForm('ФОРМА ЛОГИНА',  params),
+            'NAME:=RegisteredGroupBox;WNDCLASS:=TvtGroupBox|NAME:=btnOk', true, params
+          );
+        'НАДПИСЬ-ССЫЛКА "НОВЫЙ ПОЛЬЗОВАТЕЛЬ"' :          
+          Result := FindWindowByPath(
+            GetFromLoginForm('ФОРМА ЛОГИНА', params),
+            'NAME:=NewUserGroupBox;WNDCLASS:=TvtGroupBox|NAME:=lblNewUser', true, params
+          );
+
+        'ФОРМА РЕГИСТРАЦИИ' :
+          Result := FindWindowByPath(parent, 'NAME:=nsRegistrationForm', true, params);
+          
+        'MAIN_DATA' :
+          Result := FindWindowByPath(
+            GetFromLoginForm('ФОРМА РЕГИСТРАЦИИ', params),
+            'NAME:=pnMainData;WNDCLASS:=TvtPanel', true, params
+          );  
+        'ПОЛЕ "НОВОЕ РЕГИСТРАЦИОННОЕ ИМЯ"' :
+          Result := FindWindowByPath(
+            GetFromLoginForm('MAIN_DATA', params),
+            'NAME:=edLogin;WNDCLASS:=TnscEdit', true, params
+          );
+        'ПОЛЕ "НОВЫЙ ПАРОЛЬ"' :
+          Result := FindWindowByPath(
+            GetFromLoginForm('MAIN_DATA', params),
+            'NAME:=edPassword;WNDCLASS:=TnscComboBoxWithPwdChar', true, params
+          );
+        'ПОЛЕ "ПОДТВЕРЖДЕНИЕ ПАРОЛЯ"' :
+          Result := FindWindowByPath(
+            GetFromLoginForm('MAIN_DATA', params),
+            'NAME:=edConfirm;WNDCLASS:=TnscComboBoxWithPwdChar', true, params
+          );
+        'ПОЛЕ "ФИО ПОЛЬЗОВАТЕЛЯ"' :
+          Result := FindWindowByPath(
+            GetFromLoginForm('MAIN_DATA', params),
+            'NAME:=edUserName;WNDCLASS:=TnscEdit', true, params
+          );
+        'ПОЛЕ "ЭЛЕКТРОННАЯ ПОЧТА"' :
+          Result := FindWindowByPath(
+            GetFromLoginForm('MAIN_DATA', params),
+            'NAME:=edEmail;WNDCLASS:=TnscEdit', true, params
+          );  
+        'КНОПКА "ЗАРЕГИСТРИРОВАТЬСЯ"' :
+          Result := FindWindowByPath(
+            GetFromLoginForm('ФОРМА РЕГИСТРАЦИИ', params),
+            'NAME:=RegisterButton;MAXDEPTH:=2', true, params
+          );
+        'КНОПКА "ОТМЕНА" ФОРМЫ РЕГИСТРАЦИИ' :
+          Result := FindWindowByPath(
+            GetFromLoginForm('ФОРМА РЕГИСТРАЦИИ', params),
+            'NAME:=CancelButton;MAXDEPTH:=2', true, params
+          );
+        'ЧЕКБОКС "ЗАПОМНИТЬ ПАРОЛЬ"' :
+          Result := FindWindowByPath(
+            GetFromLoginForm('ФОРМА ЛОГИНА', params),
+            'NAME:=RegisteredGroupBox;WNDCLASS:=TvtGroupBox|NAME:=cbAutoLogin', true, params
+          );
+        'ЧЕКБОКС "ЗАПОМНИТЬ ПАРОЛЬ" ФОРМЫ РЕГИСТРАЦИИ' :
+          Result := FindWindowByPath(
+            GetFromLoginForm('ФОРМА РЕГИСТРАЦИИ', params),
+            'NAME:=cbAutoLogin;MAXDEPTH:=2', true, params
+          );
+      else
+        Raise('Параметр не распознан!');   
+      end;
+	    Result := Cache_Put(parent, cacheKey, Result );
+    end;
+    
+    if IsExists(Result) AND (NOT Result.Visible) then
+    begin
+      Log.Warning(FUNCTION_NAME + ': Объект существует, но НЕ виден! Возвращаем несуществующий объект.',
+                 'whatToGet: "' + whatToGet + '".' + EndOfLine +
+                 'FullName: "' + Result.FullName + '"',
+                 pmNormal, GetLogAttr('YELLOW'));
+      Result := NonExObj;
+    end;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, 'whatToGet: "' + whatToGet + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;
+end;
+
+{
+  TYPE:
+  DESC: Логинится пользователем. Если пользователя нет, то не создает его.
+  RESULT:
+  REMARK:
+}
+function LoginExistingUser(
+  const login : String; // логин
+  const pass: String // пароль
+) : boolean;
+const
+  FUNCTION_NAME = 'LoginExistingUser';
+begin
+  try
+    result := DoLoginOperation(login, pass, OPER_LOGIN_EXISTING_USER) = IDLO_NOERROR;
+  except
+    Log.Picture(Sys.Screen, 'Исключение в ' + FUNCTION_NAME);
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;   
+  end;
+end;
+
+{
+  TYPE: Запуск
+  DESC: Логинится под указанным логином и паролем
+  RESULT:
+  REMARK:
+    Функция позволяющая залогинится под login-pass
+    если такого пользователя нет, то произойдёт попытка создать пользователя
+    если пользователь уже зарегистрирован, то к login и pass припишется '1'
+    и будет опять предпринята попытка залогинится под login-pass и так, 
+    пока  не  войдём в систему
+    Заточена для медленных машин (для работы с сервером под "пью").
+    !!! Для замеров производительности пользоваться LoginAnyhowEx
+}
+function LoginAnyhow(
+  out login : String; // логин
+  out pass: String // пароль
+): boolean;
+const
+  FUNCTION_NAME = 'LoginAnyhow';  
+begin
+  try
+    result := DoLoginOperation(login, pass) = IDLO_NOERROR;
+    if result then
+      Log.Message('LoginAnyhow: Успешно залогинились.') 
+    else 
+      Log.Picture(Sys.Desktop.Picture, 'LoginAnyhow: Не удалось залогинится!');  
+  except
+    Log.Picture(Sys.Desktop.Picture, 'Исключение в' + FUNCTION_NAME);
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;
+end;
+
+
+{
+  TYPE: Запуск
+  DESC: Создает нового пользователя под указанным логином и паролем
+  RESULT:
+  REMARK:
+    Функция позволяющая создать нового пользователя.
+    Если пользователь уже зарегистрирован, то к login и pass припишется '1'
+    и будет опять предпринята попытка залогинится под login-pass и так, 
+    пока  не  войдём в систему
+}
+function LoginNewUser(
+  out login : String; // логин
+  out pass: String // пароль
+);
+const
+  FUNCTION_NAME = 'LoginNewUser';
+begin
+  try
+    result := DoLoginOperation(login, pass, OPER_LOGIN_NEW_USER) = IDLO_NOERROR;
+  except
+    Log.Picture(Sys.Desktop.Picture, 'Исключение в ' + FUNCTION_NAME);
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));   
+    Raise;
+  end;
+end;
+
+    
+function LoginAnyhow_Test;
+  var p, w : OleVariant;
+    login, pass : String;
+begin
+  try
+    login := 'login';
+    pass := 'pass';
+    LoginAnyhow(login, pass);
+    Log.Message('Login = "' + login + '"; password = "' + pass + '"');
+  except
+    Log.Message('' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;               
+end;
+
+{
+  TYPE: Запуск
+  DESC: Уничтожение процесса оболочки
+  RESULT: true - если процесс не существует
+  REMARK:
+}
+function KillF1Shell: boolean;
+  const
+    FUNCTION_NAME = 'KillF1Shell';
+  var
+    i, p;
+begin
+  try
+    ScriptAction('SET ACTION', SA_KILL_F1SHELL);
+    
+    try    
+      p := GetF1ShellProcess(Options.Run.Timeout div 15, 2, false); //Ищем наш процесс
+    except
+      Log.Error('Исключение, а его быть не должно!', ExceptionMessage);
+    end;  
+    if NOT IsExists(p) then // у нас может случится глюк, что процесс будет существовать, но не будет open, поэтому пробуем его получить как обычный процесс
+      p := Sys.WaitProcess(SHELL_PROCESS_NAME, 100);
+
+    for i := 1 to 10 do
+      if IsExists(p) then
+      begin
+        Delay(Options.Run.Delay div 30);
+        p.Terminate;
+      end
+      else
+        break;
+    
+    Result := not IsExists(p);  
+  except
+    Result := false;
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Запуск
+  DESC: Попытка корректно закрыть все окна приложения,
+  RESULT:
+  REMARK:
+    Попытка корректно закрыть все окна приложения, если не получается - terminate process
+}
+procedure CloseF1Shell(
+  countOfAttempt: Integer = 3;    // столько раз пытаемся закрыть
+  endProcessDelay: Integer  = -1  // столько ждем закрытия процесса
+);
+  const
+    FUNCTION_NAME = 'CloseF1Shell';
+  var
+    p, w, w1, counter, i;
+    dwwinProc;
+    csrssProc;
+begin
+  try
+    ScriptAction('SET ACTION', SA_CLOSE_F1SHELL);
+    
+    if endProcessDelay = -1 then endProcessDelay := Options.Run.Timeout div 3;
+     
+    ClipboardClean; // Для того чтобы оболочка при закрытии не говорила "у вас что-то в буфере..."
+    try    
+      p := GetF1ShellProcess(Options.Run.Timeout div 15, 2, false); //Ищем наш процесс
+    except
+      Log.Error('Исключение, а его быть не должно!', ExceptionMessage);
+    end;  
+    if NOT IsExists(p) then // у нас может случится глюк, что процесс будет существовать, но не будет open, поэтому пробуем его получить как обычный процесс
+      p := Sys.WaitProcess(SHELL_PROCESS_NAME, 100);
+              
+    if IsExists(p) then
+    begin
+      ProcessKiller(FUNCTION_NAME, 'START', Options.Run.Timeout*10, p);
+      try        
+        if countOfAttempt > 0 then
+        begin
+          if countOfAttempt < 3 then
+          begin
+            // качественно убиваем оболочку
+            for i := 1 to 10 do
+              if IsExists(p) then
+              begin
+                Delay(Options.Run.Delay div 30);
+                p.Terminate;
+              end
+              else
+                break;  
+          end  
+          else          
+          try
+         	  w1 := GetMainWindow;
+              
+          	if NOT IsExists(w1) then
+            begin
+            	w1 := p.WaitVCLObject(LOGINFORM_NAME, 100);
+              if IsExists(w1) then
+                w1.Click(16, 64); // w1.Activate и w1.SetFocus не работают на окне логина            
+            end
+            else
+            begin
+              //w1.Activate;
+              w1.SetFocus;            
+            end;
+
+          	if IsExists(w1) then
+            begin
+              if NOT (IsExists(w1)) AND (NOT IsExists(p)) then Exit;
+
+              w1.Keys('~[F4]');
+
+              DoScreenShot('CloseF1Shell. Хотим закрыть оболочку.');  
+            end
+            else
+              p.Close;
+            
+            //--> попытка исправить ошибки в кишочках ТС 
+            if IsExists(p) then
+            begin
+              w := p.WaitWindow('TMessageForm', 'Подтверждение', -1, Options.Run.Timeout div 10);
+              if IsExists(w) then
+              begin
+                w.Activate;
+                Sys.Keys('[Enter]');
+              end;
+            end;
+            //<--
+            if IsExists(p) then  
+              WaitForConfirmationWindow(Options.Run.Timeout div 10, '#Выйти*');
+            //Иногда при дёрганье методов уже не существующего процесса возникают ошибки в кишках ТС, возможно поможет задержка  
+            Delay(endProcessDelay);                
+            if IsExists(p) then  
+              WaitForConfirmationWindow(Options.Run.Timeout div 10, 'Нет', '*буфер*обмена*большой*');
+          except
+            Log.Warning('После закрытия оболочки процесс существовал и причём не валидный!');            
+          end;
+          countOfAttempt := countOfAttempt - 1;
+          Delay(endProcessDelay);
+        
+          // проверяем на наличие системного окна с сообщением об ошибке в оболочке
+          dwwinProc := Sys.WaitProcess('dwwin', Options.Run.Timeout div 10);
+          if IsExists(dwwinProc) then
+          try
+            counter := 1;
+            w := dwwinProc.WaitWindow('#32770', '*' + SHELL_PROCESS_NAME + '*', -1,  Options.Run.Timeout div 6);
+            if NOT IsExists(w) then
+              w := dwwinProc.WaitWindow('#32770', '*ГАРАНТ*', -1,  Options.Run.Timeout div 6);
+            while IsExists(w) AND (counter < 30) do
+            begin
+              Log.Picture(w.Picture, 'При закрытии оболочки произошла ошибка!', '',  pmNormal, GetLogAttr('EXCEPTION'));
+              w.Close;
+              Delay(Options.Run.Timeout div 6);
+              w := dwwinProc.WaitWindow('#32770', '*' + SHELL_PROCESS_NAME + '*', -1, Options.Run.Timeout div 6);
+              counter := counter + 1;
+            end;
+            if IsExists(dwwinProc) then dwwinProc.Terminate;
+          except
+            Log.Message('CloseF1Shell: Исключение при попытке закрытия системного окна с сообщением об ошибке: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+            if IsExists(dwwinProc) then dwwinProc.Terminate;
+          end;
+          
+          csrssProc := Sys.WaitProcess('csrss', Options.Run.Timeout div 10);
+          if IsExists(csrssProc) then
+          try
+            // Ошибка в оболочке
+            counter := 1;
+            w := csrssProc.WaitWindow('#32770', '*' + SHELL_PROCESS_NAME + '*', -1,  Options.Run.Timeout div 6);
+            while IsExists(w) AND (counter < 30) do
+            begin
+              Log.Picture(w.Picture, 'При закрытии оболочки произошла ошибка!', '',  pmNormal, GetLogAttr('EXCEPTION'));
+              w.Close;
+              Delay(Options.Run.Timeout div 6);
+              w := csrssProc.WaitWindow('#32770', '*' + SHELL_PROCESS_NAME + '*', -1, Options.Run.Timeout div 6);
+              counter := counter + 1;
+            end;
+            
+            // Ошибка в TestExecute 
+            counter := 1;
+            w := csrssProc.WaitWindow('#32770', '*TestExecute*', -1,  Options.Run.Timeout div 6);
+            while IsExists(w) AND (counter < 30) do
+            begin
+              Log.Picture(w.Picture, 'Обнаружена ошибка в TestExecute!', '',  pmNormal, GetLogAttr('EXCEPTION'));
+              w.Close;
+              Delay(Options.Run.Timeout div 6);
+              w := csrssProc.WaitWindow('#32770', '*TestExecute*', -1, Options.Run.Timeout div 6);
+              counter := counter + 1;
+            end;          
+          except
+            Log.Message('CloseF1Shell: Исключение при попытке закрытия системного окна с сообщением об ошибке: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+          end;
+        
+          if IsExists(p) then 
+          begin          
+            Log.Warning('После прибития процесса f1shell - он существовал!');
+          end;        
+          CloseF1Shell(countOfAttempt, endProcessDelay);
+        end
+        else
+        begin // никак не удалось закрыть оболочку        
+          DoScreenShot('CloseF1Shell. Не смогли закрыть, поднимаем Exception.');
+          Raise('Не получилось закрыть F1Shell');
+        end;
+      
+      finally
+        ProcessKiller(FUNCTION_NAME, 'STOP');        
+      end;
+    end;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    if (ExceptionMessage <> EX_CANNOT_FIND_F1SHELL_PROCESS) then Raise;    
+  end;
+end;
+
+{
+  TYPE: Запуск
+  DESC: Процедура для запуска Ф1
+  RESULT:
+  REMARK:
+    Процедура для запуска Ф1, аналогична функции StartF1Shell, но не возвращает значение, а возбуждает исключение
+    Фактически, она не нужна, оставлена для совместимости
+}
+function StartF1ShellEx: Boolean;
+begin
+  try
+    Result := StartF1Shell;  
+  except
+    Log.Error ('StartF1ShellEx: ' + ExceptionMessage);
+    Raise ('Не найден процесс <F1Shell>');
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Запуск
+  DESC: Функция позволяющая залогинится под login-pass
+  RESULT:
+  REMARK:
+    Функция позволяющая залогинится под login-pass
+    если такого пользователя нет, то произойдёт попытка создать пользователя
+    если пользователь уже зарегистрирован, то к login и pass припишется '1'
+    и будет опять предпринята попытка залогинится под login-pass и так, 
+    пока  не  войдём в систему
+    Старый вариант ф-ии из версии 1.23 модуля RunPrograms.sd
+    Используется в тестах замера производительности
+}
+procedure LoginAnyhowEx (out  login, pass: String);
+var
+  p, w;
+  res: Boolean;
+  StrAdd: String;
+  countAdd: integer;
+  userNameField, userPassField;
+begin  
+ countAdd := 0;
+  StrAdd:= '';
+  repeat
+    p := GetF1ShellProcess(Options.Run.Timeout*3, 4);
+    w := GetFromLoginForm('ФОРМА ЛОГИНА');
+    w.Activate;
+    userNameField := GetFromLoginForm('ПОЛЕ "РЕГИСТРАЦИОННОЕ ИМЯ"');//Window('TElEdit', '', 1);
+    userPassField := GetFromLoginForm('ПОЛЕ "ПАРОЛЬ"');//w.edPassword;//Window('TElEdit', '', 2);
+        
+    //userNameField.SetFocus;
+    userNameField.Click;
+    Sys.Keys('[End]![Home][Del]'  + login);
+    //userPassField.SetFocus;
+    userPassField.Click;
+    Sys.Keys('[End]![Home][Del]'  + pass);
+    
+    GetFromLoginForm('КНОПКА "ОК"').Click;
+    if Sys.Desktop.ActiveWindow().WndCaption = 'Ошибка' then
+    begin
+      res := False;
+      Sys.Desktop.ActiveWindow().Window('TButton',  'OK').Click;
+      p := GetF1ShellProcess(Options.Run.Timeout*3, 4);
+      w := GetFromLoginForm('ФОРМА ЛОГИНА');
+      w.Activate;
+      GetFromLoginForm('НАДПИСЬ-ССЫЛКА "НОВЫЙ ПОЛЬЗОВАТЕЛЬ"').Click;
+      w := GetFromLoginForm('ФОРМА РЕГИСТРАЦИИ');
+      w.Activate;
+      Sys.Keys(login);
+      Sys.Keys('[Tab]' + pass);
+      Sys.Keys('[Tab]' + pass);
+      Sys.Keys('[Tab]' + login);
+      GetFromLoginForm('КНОПКА "ЗАРЕГИСТРИРОВАТЬСЯ"').Click;
+      w := p.WaitWindow('TMessageForm', 'Предупреждение', -1, 2000);
+      if IsExists(w) then
+      begin
+        w.VCLObject('OK').Click;        
+        p := GetF1ShellProcess(Options.Run.Timeout*3, 4);
+        w := GetFromLoginForm('ФОРМА РЕГИСТРАЦИИ');
+        w.Activate;
+        GetFromLoginForm('КНОПКА "ОТМЕНА" ФОРМЫ РЕГИСТРАЦИИ').Click;
+        res := False;
+        countAdd := countAdd + 1;
+        StrAdd := Utilities.IntToStr(countAdd);
+        login := login+StrAdd;
+        pass := pass+StrAdd;
+      end
+      else
+        res := True;      
+    end
+    else
+      res := True;
+  until res = True;
+end;
+
+
+{
+  TYPE: Перезагрузка
+  DESC: Функция для перезапуска оболочки
+  RESULT:
+  REMARK: 
+}
+function RestartF1Shell(
+  var countOfAttempt: Integer; // столько раз пытаемся закрыть
+  endProcessDelay: Integer; // столько ждем закрытия процесса
+  out login : String; // логин
+  out pass: String; // пароль
+  path : String = '' // путь к каталогу, где лежит garant.exe   
+) : boolean;     
+begin
+  try                                          
+    CloseF1Shell(countOfAttempt, endProcessDelay);
+    StartF1Shell(path);
+    LoginAnyhow(login, pass);
+    result := true;
+  except
+    Log.Message('RestartF1Shell: ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    result := false;
+    CommonExceptionHandler;
+  end;
+end;
+
+procedure __FUNCTIONS_FOR_DB_AND_STAND; begin end;
+
+{
+  TYPE: Общие
+  DESC: Определяет, куда смотрит клиент
+  RESULT:
+  REMARK: Данные берутся из инишника из реестра, если там не инишник клиента, то возвращает пустую строку
+}
+function GetClientTarget : String;
+begin
+  try
+    Result := '';
+    Result := GetValueFromGarantINI('F1Client Params', '-GCMServerAddress');
+    if IsEmpty(Result) then Result := '';
+  except
+    Log.Message('GetClientTarget: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE: Общие
+  DESC: Определяет, куда смотрит клиент
+  RESULT:
+  REMARK: Данные берутся из инишника из реестра, если там не инишник клиента, то возвращает пустую строку
+}
+function SetClientTarget(
+  const target : String
+) : String;
+begin
+  try
+    Result := false;
+    SetValueToGarantINI('F1Client Params', '-GCMServerAddress', target);
+    Result := (GetValueFromGarantINI('F1Client Params', '-GCMServerAddress') = target);
+  except
+    Log.Message('SetClientTarget: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function GetDataPath(
+  whichPath : String = 'active' // какой путь отдавать (ACTIVE|1|2|INACTIVE)
+) : String;
+  var 
+    activeDataPath, activeKey, executeRoot;
+    productType : OleVariant;
+begin
+  try
+    whichPath := AnsiUpperCase(whichPath);
+    productType := GetProductType;
+    // определяем ключ в инишнике, с которым будем работать
+    case whichPath of
+      'ACTIVE', 'INACTIVE':
+        begin
+          activeDataPath := GetValueFromGarantINI('F1Server Params', '-GCMActiveDataPath');
+          if IsEmpty(activeDataPath) then Raise('Не смог прочитать параметр -GCMActiveDataPath');
+          if (whichPath = 'INACTIVE') then
+            if activeDataPath = '1' then activeDataPath := '2' else if activeDataPath = '2' then activeDataPath := '1';
+        end;
+      '1', '2': activeDataPath := whichPath; 
+    else
+      Raise('Параметр whichPath не распознан!');
+    end;
+    activeKey := '-GCMDataPath' + activeDataPath;
+
+    if (productType <> PT_FILESERVER) then
+    begin // <NOT PT_FILESERVER      
+      Result := GetValueFromGarantINI('F1Server Params', activeKey);
+    end
+    else
+    begin // PT_FILESERVER
+      executeRoot := ExcludeTrailingBackslash(GetF1Directory('client'));
+      Result := GetValueFromGarantINI('Default', 'RegistryValue');
+      Result := GetSubStr(Result, activeKey + ' "', '"' );
+      Result := StringReplace(Result, '$(ExecuteRoot)', executeRoot, 2);
+    end;
+    Result := IncludeTrailingBackslash(Result);
+  except
+    Log.Message('GetDataPath: ' + ExceptionMessage, 'whichPath: "' + VarToStr(whichPath) + '"' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := '';
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE: Общие
+  DESC: Устанавливает путь к данным в ini-файле гаранта
+  RESULT: удалось или нет
+  REMARK:
+}
+function SetDataPath(
+  path : String; // путь, который надо присвоить соответствующему ключу
+  whichPath : String = 'active'; // какой путь менять (ACTIVE|1|2|INACTIVE)
+  isRelativeChange : boolean = false // изменить только последний подкаталог, например: a/b/c -> a/b/path, иначе: a/b/c -> path
+) : boolean;
+  const
+    FUNCTION_NAME = 'SetDataPath';
+  var 
+    activeDataPath, oldPath, activeKey, newPath, executeRoot, toReplace, iniSection: String;
+    i, idx : integer;
+    productType, arrINISection : OleVariant;
+begin
+  try
+    Result := false;
+    whichPath := AnsiUpperCase(whichPath);
+    
+    productType := GetProductType;
+    
+    if (productType = PT_FILESERVER) then
+      arrINISection := ['Default', 'F1DataSetup', 'F1DataUpd', 'F1Download', 'F1Prime', 'F1Admin']
+    else
+      arrINISection := ['F1Server Params'];
+    
+    for idx := VarArrayLowBound(arrINISection, 1) to VarArrayHighBound(arrINISection, 1) do
+    begin 
+      iniSection := arrINISection[idx];
+    
+      // определяем ключ в инишнике, скоторым будем работать
+      case whichPath of
+        'ACTIVE', 'INACTIVE':
+          begin
+            activeDataPath := GetValueFromGarantINI('F1Server Params', '-GCMActiveDataPath');
+            if IsEmpty(activeDataPath) then Raise('Не смог прочитать параметр -GCMActiveDataPath');
+            if (whichPath = 'INACTIVE') then
+              if activeDataPath = '1' then activeDataPath := '2' else if activeDataPath = '2' then activeDataPath := '1';
+          end;
+        '1', '2': activeDataPath := whichPath; 
+      else
+        Raise('Параметр whichPath не распознан!');
+      end;
+      activeKey := '-GCMDataPath' + activeDataPath;
+    
+      if (productType <> PT_FILESERVER) then
+      begin // NOT PT_FILESERVER      
+        oldPath := GetValueFromGarantINI(iniSection, activeKey);
+      end
+      else
+      begin // PT_FILESERVER
+        executeRoot := ExcludeTrailingBackslash(GetF1Directory('client'));
+        // определяем реальный существующий путь (он нужен для последующей замены)
+        oldPath := GetValueFromGarantINI(iniSection, 'RegistryValue');
+        oldPath := GetSubStr(oldPath, activeKey + ' "', '"' );
+        toReplace := activeKey + ' "' + oldPath + '"';
+        // а теперь говорим, что существующий путь это $(ExecuteRoot)\pseudo_dir
+        // т.к. менять мы будем последний элемент пути, а новый путь нам 
+        // нужен относительно $(ExecuteRoot) 
+        oldPath := IncludeTrailingBackslash(executeRoot) + 'pseudo_dir'; // на следующем этапе эта pseudo_dir все равно отбросится
+        //
+        if NOT isRelativeChange then
+          path := ExtractRelativePath( ExpandFileName(IncludeTrailingBackslash(executeRoot)), ExpandFileName(IncludeTrailingBackslash(path)) );
+        isRelativeChange := true;  
+      end;  
+    
+      // формируем новый путь
+      if NOT isRelativeChange then
+        newPath := path
+      else
+      begin
+        oldPath := Utilities.ExcludeTrailingBackslash(oldPath);
+        i := Utilities.LastDelimiter('\', oldPath);
+        if i <> 0 then oldPath := Copy(oldPath, 1, i);
+        oldPath := Utilities.IncludeTrailingBackSlash(oldPath);
+        newPath := Utilities.IncludeTrailingBackSlash(oldPath + path);
+      end;
+      if NOT Utilities.DirectoryExists(newPath) then Raise('Путь newPath (' + newPath +') не существует! Не вижу смысла его прописывать в инишник.');
+    
+      if (productType <> PT_FILESERVER) then 
+      begin // NOT PT_FILESERVER
+        // записываем
+        SetValueToGarantINI(iniSection, activeKey, newPath);
+        // проверяем
+        Result := ( GetValueFromGarantINI(iniSection, activeKey) = newPath );
+      end
+      else // PT_FILESERVER 
+      begin
+        Result := SetValueToGarantINI(iniSection, 'RegistryValue',
+          StringReplace(
+            GetValueFromGarantINI(iniSection, 'RegistryValue'),
+            toReplace,
+            activeKey + ' "' + StringReplace(newPath, executeRoot, '$(ExecuteRoot)', 2) + '"',
+            2 
+          )
+        );      
+      end; 
+    end;   
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage,
+      DbgVarValueEx([path, whichPath, isRelativeChange, activeDataPath, oldPath, activeKey, newPath, executeRoot, toReplace, iniSection, i, idx, productType, arrINISection], ['path', 'whichPath', 'isRelativeChange', 'activeDataPath', 'oldPath', 'activeKey', 'newPath', 'executeRoot', 'toReplace', 'iniSection', 'i', 'idx', 'productType', 'arrINISection']),  
+      pmNormal, GetLogAttr('EXCEPTION') );
+    Result := false;
+    CommonExceptionHandler;
+  end;               
+end;
+
+function IsF1ServerStarted(  
+  paramString : String = ''
+): boolean;
+  const
+    FUNCTION_NAME = 'IsF1ServerStarted';
+  var
+    paramList, par_ServerName;   
+begin
+  try
+    paramList := ParseParamString(paramString);
+    par_ServerName := GetParam(paramList, 'ServerName', F1SERVER_PROCESS_NAME);
+    Result := IsExists( Sys.WaitProcess(par_ServerName) );
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+{
+  TYPE: Общие
+  DESC: Останавливает сервер на локальной машине
+  RESULT:
+  REMARK: 
+    Сервер управляется на локальной машине
+    paramString:
+      TimeOut - время, в течение которого ожидаем нормально остановки сервера (Stopper'ом)
+      ServerName - имя сервера
+      IsKill - просто убить сервер, не пытаться останавливать корректно
+      IsKillIfNotStop - убить сервер, если он не остановился корректно в течение таймацта
+      par_IsDirectPath - указан прямой путь к каталогу, где лежит F1ServerStopper
+      par_IsService - является ли сервер сервисом (false или true, если не указана, то автоопределение)
+}
+function StopF1Server(
+  path : String = ''; // путь к каталогу, где лежит garant.exe (или garant.ini)
+  const paramString : String = ''
+) : boolean;
+  var
+    p, paramList : OleVariant;
+    deadline, par_TimeOut : integer;
+    par_ServerName : String;
+    par_IsKill, par_IsKillIfNotStop, par_IsDirectPath, par_IsService : boolean;
+begin
+  try
+    ScriptAction('SET ACTION', SA_STOP_F1SERVER);
+     
+    Result := false;
+    Permissions('check', 'stop server');
+    // разбираем параметры
+    paramList := ParseParamString(paramString);
+    par_TimeOut := StrToInt( GetParam(paramList, 'TimeOut', '300000') );
+    par_ServerName := GetParam(paramList, 'ServerName', F1SERVER_PROCESS_NAME);
+    par_IsKill := VarToBool( GetParam(paramList, 'IsKill', 'false') );
+    par_IsKillIfNotStop := VarToBool( GetParam(paramList, 'IsKillIfNotStop', 'true') );
+    par_IsDirectPath := VarToBool( GetParam(paramList, 'IsDirectPath', 'false') );
+    par_IsService := GetParam(paramList, 'IsService', 'AUTO');
+    //
+    if path = '' then path := GetF1Directory('server');
+    path := Utilities.IncludeTrailingBackslash(path);
+    //
+    p := Sys.WaitProcess(par_ServerName, Options.Run.Timeout div 60);
+    if IsExists(p) then
+    begin
+      if (par_IsService = 'AUTO') then
+        par_IsService := (p.ChildCount = 0)
+      else
+        par_IsService := VarToBool(par_IsService);
+    
+      if (NOT par_IsKill) AND (Win32API.WinExec('"' + path + Choose(par_IsDirectPath, '', 'apps\winNT\') + 'F1ServerStopper.exe" -GCMConfigFile "' + path + 'garant.ini" -GPMAdapterConfigSection "F1Client Params"', Win32API.SW_SHOWNA) >= 32) then
+      begin // успешно запустили остановщик
+        deadline := Win32API.GetTickCount + par_TimeOut;
+        // ждем завершения работы сервера
+        while IsExists(p) AND (Win32API.GetTickCount < deadline) do Delay(300);
+      end;
+      if IsExists(p) AND (par_IsKill OR par_IsKillIfNotStop) then
+      begin
+        if par_IsService then
+        begin
+          if (Win32API.WinExec( '"' + GetPSToolsPath + 'psexec.exe" -accepteula -s -с "' + GetPSToolsPath + 'pskill.exe" -accepteula ' + par_ServerName, Win32API.SW_SHOWNA) >= 32) then
+            Log.Message('StopF1Server. Успешно запустили pskill на сервер')
+          else
+            Log.Warning('StopF1Server. Не удалось запустить pskill на сервер');
+        end
+        else
+          p.Terminate;
+
+        deadline := Win32API.GetTickCount + 5000;
+        while IsExists(p) AND (Win32API.GetTickCount < deadline) do Delay(300);
+      end;  
+    end;  
+    Result := NOT IsExists(p);
+  except
+    Log.Message('StopF1Server: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE: Общие
+  DESC: Запускает сервер
+  RESULT:
+  REMARK: Если сервер был запущен, то считается не пройденной
+    paramString:
+      ServerName - имя сервера
+        default: F1Server
+      IsDirectPath - указан ли прямой путь к каталогу, где лежит сервер
+        default: false  
+}
+function StartF1Server(
+  path : String = ''; // путь к каталогу, где лежит garant.exe (или garant.ini)
+  const paramString : String = ''
+) : boolean;
+  const
+    LOG_LINE_SUCCESS_START = '-LM_INFO: * NOW READY';
+  var 
+    p, paramList, logFileObj : OleVariant;
+    par_ServerName, f1DirFromReg, logFileName : String;
+    par_IsDirectPath : boolean;
+    serverStartTimeout, deadLine;
+begin
+  try
+    ScriptAction('SET ACTION', SA_START_F1SERVER);     
+    serverStartTimeout := 4*Options.Run.Timeout; 
+    Result := false;
+    paramList := ParseParamString(paramString);
+    par_ServerName := GetParam(paramList, 'ServerName', F1SERVER_PROCESS_NAME);
+    par_IsDirectPath := VarToBool( GetParam(paramList, 'IsDirectPath', 'false') );
+    //
+    f1DirFromReg := GetF1Directory('server');   
+    if path = '' then path := f1DirFromReg;
+    path := Utilities.IncludeTrailingBackslash(path);
+    if (NOT par_IsDirectPath) AND (NOT StringCompare(path, IncludeTrailingBackslash(f1DirFromReg))) then
+      SetF1Directory(path, 'server');
+    // выставляем logging level        
+    if StartupLoggingLevel('get') <> SLL_NOT_SPECIFIED then
+      SetValueToGarantINI('F1Server Params', '-LoggingLevel', VarToString(StartupLoggingLevel('get')) );
+    //    
+    p := Sys.WaitProcess(par_ServerName);
+    if IsExists(p) then Raise('Какой-то сервер уже кем-то запущен!');
+    // открываем лог файл и прыгаем в конец файла
+    logFileName := GetValueFromGarantINI('F1Server Params', '-SBELogFile', '');
+    if FileExists(logFileName) then
+    begin    
+      logFileObj := FSO.OpenTextFile(logFileName, 1, false);
+      // прыгаем в конец файла
+      while (NOT logFileObj.atEndOfStream) do logFileObj.Skip(1024*1024);
+    end
+    else // файла с логом нету, значит будем открывать его после запуска сервера
+      VarClear(logFileObj);
+           
+    if (Win32API.WinExec('"' + path + Choose(par_IsDirectPath, '', 'apps\winNT\') + par_ServerName + '.exe" -d -subkey SOFTWARE\Garant.F1', Win32API.SW_SHOWNORMAL) >= 32) then
+      Delay(Options.Run.Timeout div 30);
+    Result := IsExists( Sys.WaitProcess(par_ServerName, Options.Run.Timeout div 5) );
+
+    // ждем реального запуска сервера (появления в логе содержимого константы LOG_LINE_SUCCESS_START)    
+    if Result then
+    begin
+      Result := false;
+      // открываем файл с логом, если он не был открыт ранее
+      if IsEmpty(logFileObj) then
+      begin
+        deadLine := Win32API.GetTickCount + serverStartTimeout;
+        repeat
+          if FileExists(logFileName) then
+            logFileObj := FSO.OpenTextFile(logFileName, 1, false);
+        until (Win32API.GetTickCount > deadLine) OR (NOT IsEmpty(logFileObj));
+        if IsEmpty(logFileObj) then
+          Log.Warning('Не удалось дождаться появления файла с логом в течение ' + VarToString(serverStartTimeout) + ' мс'); 
+      end;  
+      // ожидаем появления в файле с логом нужной строки      
+      deadLine := Win32API.GetTickCount + serverStartTimeout;
+      repeat
+        while (NOT logFileObj.atEndOfStream) AND (NOT Result) do
+          Result := StringCompare('*' + LOG_LINE_SUCCESS_START + '*', logFileObj.ReadLine);
+        if NOT Result then Delay(serverStartTimeout div 10);            
+      until Result OR (Win32API.GetTickCount > deadLine);
+      if NOT Result then
+        Log.Warning('Не удалось дождаться запуска сервера в течение ' + VarToString(serverStartTimeout) + ' мс');      
+    end;
+
+  except
+    Log.Message('StartF1Server: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function SetCleanSettings(
+  srcFolder : String = '' // папка, где лежат чистые настройки (все файлы считаются настройками)
+) : boolean;
+  const  
+    CLEAN_SETTINGS = '\\builds-store.garant.ru\garant-nemesis\deployment\settings\';
+  var 
+    attemptsCount : integer;
+    productType, settingsPath : OleVariant;
+    isServerBeenStarted : boolean;
+    tmp1;
+    tmp2;
+begin
+  try
+    if (srcFolder = '') then 
+      srcFolder := CLEAN_SETTINGS;
+    srcFolder := IncludeTrailingBackslash(srcFolder);  
+    //
+    productType := GetProductType;
+
+    // останавливаем клиент и сервер
+    attemptsCount := 5;
+    CloseF1Shell(attemptsCount, Options.Run.Timeout div 6);
+    isServerBeenStarted := IsF1ServerStarted;
+    if (productType = PT_SERVER) AND isServerBeenStarted then StopF1Server;
+    Log.Message('Всё застопили.');
+    // удаляем текущие настройки
+    if (productType = PT_FILESERVER) then       
+      settingsPath := IncludeTrailingBackslash(GetF1Directory('client')) + 'settings\' // ЗАТОЧКА для ФС, надо будет переделать на номальное оплучение пути
+    else
+    if (productType = PT_DESKTOP) then
+      settingsPath := GetPathToDesktopSettings;        
+    Log.Message('Удалили текущие настройки.');            
+    settingsPath := IncludeTrailingBackslash( settingsPath );       
+    RemoveFoldersExt(settingsPath + 'userdata\');
+    RemoveFoldersExt(settingsPath + 'backup.dir\');
+    RemoveFoldersExt(settingsPath + 'backup.dir.old\');
+    DeleteFilesExt(settingsPath + 'data*.*');
+    
+    // копируем новые
+    tmp1 := CopyFilesExt( srcFolder + '*.*',  settingsPath  );
+    tmp2 := CopyFilesExt( srcFolder + 'userdata\',  settingsPath );
+    Log.Message('1 Скопировали файлов: ' + IntToStr(tmp1));
+    Log.Message('2 Скопировали файлов: ' + IntToStr(tmp2)); 
+    Result := (tmp1 > 0)  AND ( tmp2> 0);
+    Log.Message('Скопировали новые настройки.');    
+    // запускаем обратно сервер
+    if (productType = PT_SERVER) AND isServerBeenStarted then StartF1Server;
+    Log.Message('Запустили сервер.');  
+  except
+    Log.Message('' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+procedure __DBT_CONSTANTS; begin end;
+
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function IsStrPropertyPresent(
+  const prop : OleVariant;
+  const strSet : OleVariant
+) : boolean;
+begin
+  try
+    Result := Pos(prop, strSet) <> 0;
+  except
+    Log.Message('IsPropertyPresent: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+  end;               
+end;
+
+const
+  SSD = '.';
+
+  DBT_OLD = '.старая.';
+  DBT_NEW = '.новая.';
+  DBT_MINI = '.мини.';
+  DBT_MINI_NO_PRIME = '.мини без прайма.';
+  DBT_CONSULTING = '.с консультациями.';
+
+  DBT_UNKNOWN = 'неизвестный тип базы';
+  DBT_UNDEFINED = 'невозможно определить тип базы (возможно оболочка - клиент)';
+
+  // используются в функции переключения
+  DBT_OTHER = 'другая база, неактивная'; 
+  //
+  DBST_LOCAL = 'DBST_LOCAL';
+  DBST_SOURCE = 'DBST_SOURCE';
+
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}
+function GetDataBaseSubPathByType(
+  dbType : OleVariant; // DBT_* тип базы данных 
+  storageType : OleVariant // DBST_* тип месторасположения базы (локальное - куда копируем и с которым работаем, удаленное - откуда копируем)
+): String;
+  const
+    FUNCTION_NAME = 'GetDataBaseSubPathByType';
+begin
+  try
+    case storageType of
+      DBST_LOCAL: // это для локального хранилища баз (сбюда копируем и с этим работаем)
+        case dbType of
+          DBT_OLD           : Result := 'OLD';
+          DBT_NEW           : Result := 'NEW';
+          DBT_MINI          : Result := 'MINI';
+          DBT_MINI_NO_PRIME : Result := 'MINI_NO_PRIME';
+          DBT_CONSULTING    : Result := 'CONSULTING';
+        else
+          Raise('Неизвестный dbType!');
+        end; 
+      DBST_SOURCE: // это для источника (откуда копируем)
+        case dbType of
+          DBT_OLD           : Result := 'testbase\fullbase\130524';
+          DBT_NEW           : Result := 'testbase\fullbase\130527';
+          DBT_MINI          : Result := 'testbase\mini';
+          DBT_MINI_NO_PRIME : Result := 'testbase\mini_noprime';
+          DBT_CONSULTING    : Result := 'testbase\valid';
+        else
+          Raise('Неизвестный dbType!');
+        end;        
+    else
+      Raise('Неизвестный storageType!');
+    end;  
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, DbgVarValue(dbType, 'dbType') + DbgVarValue(storageType, 'storageType'), pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}
+function DataBaseTypeByFolder(
+  whatToDo : String;
+  pathToFolder : String;
+  dbType : OleVariant = DBT_UNKNOWN
+): OleVariant;
+  const
+    FUNCTION_NAME = 'DataBaseTypeByFolder';
+    DBTFILENAME = 'dbtype.file';
+  var
+    dbTypeFileName;
+begin
+  try
+    whatToDo := AnsiUpperCase(whatToDo);    
+    if (pathToFolder = '') then Raise('PathToFolder не может быть пустым!');
+    pathToFolder := IncludeTrailingBackslash(pathToFolder);
+    if (NOT DirectoryExists(pathToFolder)) then Raise('PathToFolder не существует!');
+    dbTypeFileName := pathToFolder + DBTFILENAME;
+    //
+    case whatToDo of
+      'GET':
+        begin
+          Result := GetFileBody(dbTypeFileName);
+          if (Result = '') then Result := DBT_UNKNOWN;
+        end;
+      'SET':
+        begin
+          SaveStrToFile(dbTypeFileName, dbType, false);
+          Result := (DataBaseTypeByFolder('GET', pathToFolder) = dbType);
+        end;
+      'DELETE' :
+        begin
+          if Utilities.FileExists(dbTypeFileName) then
+            Utilities.DeleteFile(dbTypeFileName);
+          Result := NOT Utilities.FileExists(dbTypeFileName);   
+        end;
+    else
+      Raise('whatToDo не распознан!');
+    end;    
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, DbgVarValueEx([whatToDo, pathToFolder, dbType], ['whatToDo', 'pathToFolder', 'dbType']), pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+const
+  FDBIF_DBTYPE_FOLDER = 1;
+  FDBIF_FOLDER_DBTYPE = 2;
+{
+  TYPE:
+  DESC:
+    В заданной папке находит все папки, в которых есть известные базы данных.    
+  RESULT:
+  REMARK:
+}
+function FindDataBasesInFolder(
+  rootFolder : String;
+  const mapType : OleVariant // FDBIF_*
+): OleVariant; // мапа вида тип_базы:имя_папки или имя_папки:тип_базы
+  const
+    FUNCTION_NAME = 'FindDataBasesInFolder';
+  var    
+    foldersArr, folder, dbType : OleVariant;
+    i : integer;    
+begin
+  try
+    rootFolder := IncludeTrailingBackslash(rootFolder);
+    if NOT DirectoryExists(rootFolder) then
+      Raise('rootFolder не существует!');
+    //
+    foldersArr := GetFileList(rootFolder, '*', 0, true, false, true);
+    if IsArray(foldersArr) then
+      for i := VarArrayLowBound(foldersArr, 1) to VarArrayHighBound(foldersArr, 1) do
+        if (AnsiLastChar(foldersArr[i]) = '\') then // нас интересуют только папки
+        begin // это папка
+          folder := rootFolder + foldersArr[i]; // пути нам возвращают относительные
+          // смотрим, что лежит в папке          
+          dbType := DataBaseTypeByFolder('get', folder);
+          if (dbType <> DBT_UNKNOWN) then
+            case mapType of
+              FDBIF_DBTYPE_FOLDER : Map(Result, 'put', dbType, foldersArr[i]);
+              FDBIF_FOLDER_DBTYPE : Map(Result, 'put', foldersArr[i], dbType);
+            else
+              Raise('Неизвестный тип мапы!');  
+            end;  
+        end;  
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage,                   
+      DbgVarValueEx([foldersArr, folder, dbType, rootFolder, mapType, i], ['foldersArr', 'folder', 'dbType', 'rootFolder', 'mapType', 'i']),
+      pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+{
+  TYPE: Общие
+  DESC: Возвращает тип базы данных, из ini-файла (определяет всего лищь по имени папки)
+  RESULT:
+  REMARK:
+}
+function GetDataBaseType(
+  whichPath : String = 'ACTIVE' // какой путь отдавать (ACTIVE|1|2|INACTIVE)
+) : OleVariant;
+  var
+    currDBPath, folder : String;
+begin
+  try
+    // получаем путь к базе
+    currDBPath := GetDataPath(whichPath);
+    //
+    Result := DataBaseTypeByFolder('get', currDBPath);
+  except
+    Result := DBT_UNKNOWN;
+    Log.Message('GetDataBaseType: ' + ExceptionMessage, 'folder: "' + VarToStr(folder) + '"' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC:
+    Ищет в заданное папке папку с нужной базой.
+  RESULT:
+  REMARK:
+}
+function FindDataBaseByType(
+  rootFolder : String; // папка, где лежат базы
+  const dbType : String // тип нужной базы
+): String; // имя папки с нужной базой. Если не нашли, то пустая строка.
+  const
+    FUNCTION_NAME = 'FindDataBaseByType';
+  var    
+    dbTypeMap : OleVariant;
+begin
+  try
+    dbTypeMap := FindDataBasesInFolder(rootFolder, FDBIF_DBTYPE_FOLDER);
+    Result := Map(dbTypeMap, 'get', dbType);
+    if IsEmpty(Result) then    
+      Result := '';  
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+function PutDataBaseToFolder(
+  rootFolder : String; // рут каталога с базами
+  targetFolder : String; // имя папки, куда будем ложить базу
+  const dbType : OleVariant; // тип базы, который нужно положить
+  const isAlwaysMove : Boolean = false  
+): Boolean;
+  const
+    FUNCTION_NAME = 'PutDataBaseToFolder';
+    PM_COPY = 1;
+    PM_MOVE = 2;    
+  var
+    newDBPath; // отсюда будем перемещать базу 
+    oldDBPath; // здесь должна лежать база, которая лежит в targetSubFolder
+    oldDBType;
+    prepMethod;
+    targetFolderParent;
+begin   
+  try 
+    rootFolder := IncludeTrailingBackslash(rootFolder);
+    if NOT DirectoryExists(rootFolder) then
+      Raise('rootFolder не существует!');    
+    targetFolder := IncludeTrailingBackslash(targetFolder);
+    if NOT DirectoryExists(targetFolder) then
+      Raise('targetFolder не существует!');
+    targetFolderParent := IncludeTrailingBackslash(ExtractFilePath(ExcludeTrailingBackslash(targetFolder)));
+    if NOT DirectoryExists(targetFolderParent) then
+      Raise('targetFolderParent не найден!');   
+    //    
+    Result := (DataBaseTypeByFolder('get', targetFolder) = dbType);
+    if (NOT Result) then
+    begin     
+      // проверяем, что существует папка с базой, которую будем подкладывать
+      newDBPath := IncludeTrailingBackslash(rootFolder + GetDataBaseSubPathByType(dbType, DBST_LOCAL));
+      if NOT DirectoryExists(newDBPath) then
+        Raise('Путь, откуда собираемся копировать базу не существует!');
+      // проверяем, а может мы используем эту базу и искать ее надо совсем в другом месте
+      if IsFolderEmpty(newDBPath) OR (DataBaseTypeByFolder('get', newDBPath) = DBT_UNKNOWN) then
+      begin // пустая, значит используется. Или там лежит что-то что не является известной базой (возможно, частично поврежденная).
+        // ищем базу
+        newDBPath := FindDataBaseByType(targetFolderParent, dbType);
+        if (newDBPath = '') then
+          Raise('Нужная база данных нигде не найдена!');
+        newDBPath := IncludeTrailingBackslash(targetFolderParent + newDBPath);  
+        // т.к. БД может использоваться то будем копировать
+        prepMethod := PM_COPY;  
+      end
+      else // не пустая, проверяем что лежит то что нужно
+      begin 
+        if (DataBaseTypeByFolder('get', newDBPath) <> dbType) then
+          Raise('По пути (newDBPath) лежит база с отличающимся типом, такого быть не должно!');        
+        // т.к. БД сервером точно не испольдуется, то для скорости будем перемещать
+        prepMethod := PM_MOVE;  
+      end;
+      if isAlwaysMove then
+        prepMethod := PM_MOVE;
+          
+      // сохраняем базу из целевой папки
+      oldDBType := DataBaseTypeByFolder('get', targetFolder);
+      if (oldDBType <> DBT_UNKNOWN) then
+      begin // база данных известна, мы ее переносим обратно
+        // определяем, где должна лежать база с указанным типом
+        oldDBPath := IncludeTrailingBackslash(rootFolder + GetDataBaseSubPathByType(oldDBType, DBST_LOCAL));
+        // чистим
+        if NOT DirectoryExists(oldDBPath) then
+          Raise('Путь, куда собираемся переносить базу не существует, такого быть не должно!');
+        EmptyFolder(oldDBPath);
+        // переносим
+        FSO.MoveFile(targetFolder + '*.*', oldDBPath);
+      end;
+
+      // чистим папку назначения
+      if NOT EmptyFolder(targetFolder) then
+        Raise('Невозможно очистить папку "' + targetFolder + '", возможно она кем-то используется!');
+
+      // теперь переносим или копируем нужную базу
+      case prepMethod of
+        PM_MOVE: // перемещаем базу данных атомарно, чтобы не возникало ситуации когда она размазана по двум папкам, тест убивают, а идентификатор говорит что база таки есть
+          begin
+            DataBaseTypeByFolder('delete', newDBPath); // удаляем идентификатор базы из исходной папки
+            FSO.MoveFile(newDBPath + '*.*', targetFolder);
+            DataBaseTypeByFolder('set', targetFolder, dbType); // явно ставим идентификатор базы в новой папке
+          end;  
+        PM_COPY:                    
+          FSO.CopyFile(newDBPath + '*.*', targetFolder);
+      else
+        Raise('Значение prepMethod не распознано!');
+      end;   
+    
+      // проверяем
+      Result := (DataBaseTypeByFolder('get', targetFolder) = dbType);
+    end;       
+  except    
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage,
+      DbgVarValueEx([isAlwaysMove, newDBPath, oldDBPath, oldDBType, prepMethod, targetFolder, rootFolder, targetFolderParent, dbType], ['isAlwaysMove', 'newDBPath', 'oldDBPath', 'oldDBType', 'prepMethod', 'targetFolder', 'rootFolder', 'targetFolderParent', 'dbType']),
+      pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+{
+  TYPE:
+  DESC:
+    копирует в путь, на который смотрит сервер, базу с указаным типом
+  RESULT:
+  REMARK:
+}
+function PrepareDataPathByType(
+  const whichPath : String; // какой путь обрабатывать (ACTIVE|1|2|INACTIVE)
+  const dbType : OleVariant // тип базы, который нужно положить
+): boolean;
+  const
+    FUNCTION_NAME = 'PrepareDataPathByType';      
+  var
+    dataPath; // путь, куда смотрит сервер
+    pathToDataBases;
+begin     
+  try  
+    dataPath := GetDataPath(whichPath);
+    Result := (DataBaseTypeByFolder('get', dataPath) = dbType);
+    if (NOT Result) then
+    begin
+      // проверяем, что путь к базам данных задан и существует
+      if NOT TestStandParams('is exists', 'PathToDataBases') then
+        Raise('Параметр PathToDataBase не задан!');
+      pathToDataBases := IncludeTrailingBackslash(TestStandParams('get', 'PathToDataBases')); 
+      if NOT DirectoryExists(pathToDataBases) then
+        Raise('Путь PathToDataBase не существует!');
+      //
+      Result := PutDataBaseToFolder(pathToDataBases, dataPath, dbType);  
+    end;           
+  except    
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage,
+      DbgVarValueEx([whichPath, dbType, dataPath, pathToDataBases], ['whichPath', 'dbType', 'dataPath', 'pathToDataBases']),
+      pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+{
+  TYPE:
+  DESC:
+    Сканирует папки в заданной. И если находит там базу, то перекладывает ее в подпапку, где она и должна находиться
+  RESULT:
+  REMARK:
+}
+function RelocateDatabasesToTheirFolders(
+  const rootFolder : String
+): boolean; // говорит, все ли встреченные базы удалось положить в свои папки
+  const
+    FUNCTION_NAME = 'RelocateDatabasesToTheirFolders';
+  var
+    foldersArr, folder, dbType, neededDBFolder;
+    i;
+    dbTypeMap, dbTypes;
+begin
+  try
+    Result := true;
+    dbTypeMap := FindDataBasesInFolder(rootFolder, FDBIF_DBTYPE_FOLDER);
+    // если в папке найдены какие-то базы
+    if IsMap(dbTypeMap) then
+    begin
+      dbTypes := Map(dbTypeMap, 'keys array', nil);
+      for i := VarArrayLowBound(dbTypes, 1) to VarArrayHighBound(dbTypes, 1) do 
+      begin // перебираем типы баз
+        // получаем тип базы и папку, где она должна лежать
+        dbType := dbTypes[i]; 
+        folder := IncludeTrailingBackslash(rootFolder + GetDataBaseSubPathByType(dbType, DBST_LOCAL));
+        if NOT DirectoryExists(folder) then
+        begin // папки не существует, это может быть, например, после переименования констант с именами папок
+          Log.Message(FUNCTION_NAME + ': ' + Format('%s : Папка "%s" не существовала, создаем ее.', [FUNCTION_NAME, folder]) );
+          if NOT ForceDirectories(folder) then
+            Raise( Format('Не получилось создать папку "%s"!', [folder]) ); 
+        end;  
+        //
+        if NOT PutDataBaseToFolder(rootFolder, folder, dbType, true) then
+        begin
+          Log.Error(FUNCTION_NAME + ': ' + Format('Не получилось перенести базу %s в папку %s!', [dbType, folder]) );
+          Result := false;
+        end;         
+      end;
+    end
+    else
+      Log.Message(FUNCTION_NAME + ': ' + Format('В папке %s не найдено баз данных', [rootFolder]), '', pmNormal, GetLogAttr('EXCEPTION'));
+
+{    
+        
+    if NOT DirectoryExists(rootFolder) then
+      Raise('rootFolder не существует!');
+    rootFolder := IncludeTrailingBackslash(rootFolder);
+    //
+    // получаем список папок
+    foldersArr := GetFileList(rootFolder, '*', 0, true, false, true);
+    if IsArray(foldersArr) then
+      for i := VarArrayLowBound(foldersArr, 1) to VarArrayHighBound(foldersArr, 1) do
+        if (AnsiLastChar(foldersArr[i]) = '\') then // нас интересуют только папки
+        begin // это папка
+          folder := rootFolder + foldersArr[i]; // пути нам возвращают относительные
+          // смотрим, что лежит в папке
+          dbType := DataBaseTypeByFolder('get', folder);
+          if (dbType <> DBT_UNKNOWN) then
+          begin // лежит база
+            // определяем, где она должна лежать
+            neededDBFolder := IncludeTrailingBackslash(rootFolder + GetDataBaseSubPathByType(dbType, DBST_LOCAL));
+            if NOT SameText( folder, neededDBFolder ) then
+            begin // если лежит не там где надо, то перекладываем туда куда надо
+              EmptyFolder(neededDBFolder);
+              FSO.MoveFile(folder + '*.*', neededDBFolder);
+            end;          
+          end; 
+        end;}
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+{
+  TYPE:
+  DESC:
+    Пытается дублировать состояния папки с базами данных.
+    Т.е. разложить базы в целевой папке данных в те же самые папки, что и в эталонной папке.
+    Нужна для целей бэкапа. Другого применения не имеет.
+  RESULT:
+  REMARK:
+}
+procedure TryDuplicateDataBaseState(
+  etalonRootFolder : String;
+  targetRootFolder : String  
+);
+  const
+    FUNCTION_NAME = 'TryDuplicateDataBaseState';
+  var
+    etalonFoldersMap;
+    folders, folder, i, dbType, targetFolder;        
+begin
+  try
+    etalonRootFolder := IncludeTrailingBackslash(etalonRootFolder);
+    if NOT DirectoryExists(etalonRootFolder) then Raise('etalonRootFolder не существует!');
+    targetRootFolder := IncludeTrailingBackslash(targetRootFolder);
+    if NOT DirectoryExists(targetRootFolder) then Raise('targetRootFolder не существует!');
+    //
+    etalonFoldersMap := FindDataBasesInFolder(etalonRootFolder, FDBIF_FOLDER_DBTYPE);    
+    if IsMap(etalonFoldersMap) then
+    begin
+      folders := Map(etalonFoldersMap, 'keys array', nil);
+      for i := VarArrayLowBound(folders, 1) to VarArrayHighBound(folders, 1) do
+      begin
+        // получаем имя папки и тип базы в ней
+        folder := folders[i];
+        dbType := Map(etalonFoldersMap, 'get', folder);
+        // проверяем, а есть ли вообще в целевой папке такая база, если нет, то это вполне нормальная ситуация
+        if (FindDataBaseByType(targetRootFolder, dbType) = '') then
+          continue; // в целевой папке такой базы нет, ну и ладно
+        // если такой папки нету в целевой то создаем ее                                                        
+        targetFolder := IncludeTrailingBackslash(targetRootFolder + folder);
+        if ( (NOT DirectoryExists(targetFolder)) AND (NOT ForceDirectories(targetFolder)) ) then
+            Raise( Format('Не получилось создать папку "%s"', [targetFolder]) );            
+        // теперь ложим туда базу
+        if NOT PutDataBaseToFolder(targetRootFolder, targetFolder, dbType, true) then
+          Log.Message( Format('Не удалось положить базу с типом "%s" в папку "%s"', [dbType, targetFolder]) );                        
+      end;
+    end;       
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+{
+  TYPE: Общие
+  DESC: Говорит, можно ли изменить базу данных
+  RESULT:
+  REMARK:
+    Считаем, что базу можно поменять на десктопе и локальном клиент-сервере
+}
+function IsCanChangeDatabase(
+  const neededDBType : OleVariant = DBT_UNKNOWN
+) : boolean;
+  var
+    productType, currDBType : OleVariant;
+    clientTarget, tmpStr : String;
+begin
+  try
+    Result := false;
+    productType := GetProductType;
+    
+    if Permissions('get', 'change database') = false then
+    begin
+      Result := false;
+      Log.Message('IsCanChangeDatabase: Запрещено переключать базы!');
+      Exit;
+    end;
+    
+    case productType of
+      PT_DESKTOP : Result := true; // десктоп всегда локальный, БД сменить можно
+      PT_CLIENT, PT_SERVER : 
+        begin // для КС проверяем, чтобы клиент смотрел на локальный компьютер
+          clientTarget := GetClientTarget;
+          if StringCompare('*.*.*.*', clientTarget) then
+            Log.Error('Видимо имя сервера для клиента указано в виде IP-адреса. Пока такое не обрабатывается!', clientTarget);
+          if StringCompare(CompName, clientTarget) OR StringCompare(CompName + '.garant.ru', clientTarget) then
+            Result := true;
+        end;
+    else // для остальных считаем, что это невозможно
+      Result := false;   
+    end;
+
+  except
+    Log.Message('IsCanChangeDatabase: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Result := false;
+    CommonExceptionHandler;
+  end;               
+end;
+
+{
+  TYPE:
+  DESC: Выполняет переключение баз данных
+  RESULT: true - если путь переписался, иначе - false
+  REMARK:
+    neededDBType :
+      DBT_OLD | DBT_NEW | DBT_OTHER | DBT_MINI | DBT_MINI_NO_PRIME | DBT_CONSULTING 
+    paramString :
+      IsSwitchOnTheFly - переключать ли базы на лету (с помощью утилиты F1BU), иначе остановка->переписывание_инишника
+        по-умолчанию: true
+}
+function SwitchDataBase(
+  neededDBType : OleVariant; // тип БД, на который будем переключаться
+  const paramString : String = '' // строка параметров
+) : boolean;
+  const
+    FUNCTION_NAME = 'SwitchDataBase';
+  {BEGIN_OF_STD_EX_REP_VARS} var _dbgVarNames, _dbgVars, _dbgI, _dbgExMsg; {END_OF_STD_EX_REP_VARS}
+  var
+    currDBType, productType, paramList, f1BUProc : OleVariant;
+    pathToF1BU, inactivePath, logErrors : String;
+    par_IsSwitchOnTheFly, isShellBeenRunned, res, isBUsuccess : boolean;
+    countOfAttempts, deadline : integer;
+begin
+  _dbgVarNames := 'neededDBType, paramString, currDBType, productType, paramList, pathToF1BU, inactivePath, logErrors, par_IsSwitchOnTheFly, isShellBeenRunned, res, isBUsuccess, countOfAttempts, deadline';
+  try
+    ScriptAction('SET ACTION', SA_SWITCH_DATABASE); 
+    Permissions('check', 'change database');
+    
+    if NOT FindElement( [DBT_CONSULTING, DBT_MINI_NO_PRIME, DBT_OLD, DBT_NEW, DBT_OTHER, DBT_MINI], neededDBType) then
+      Raise('Не подерживается переключение на тип "' + neededDBType + '"');
+      
+    Result := false;
+    paramList := ParseParamString(paramString);
+    par_IsSwitchOnTheFly := VarToBool( GetParam(paramList, 'IsSwitchOnTheFly', 'false' ) );
+    if par_IsSwitchOnTheFly AND (GetProductType <> PT_SERVER) then
+    begin
+      Log.Warning('SwitchDataBase. Указано переключать базу на лету с помощью F1BU.exe, но обнаружен несоотвествующий тип продукта (' + VarToString(GetProductType) +'). Переключение баз будет выполнено НЕ на лету!');
+      par_IsSwitchOnTheFly := false;
+    end;
+
+    // получаем
+    inactivePath := GetDataPath('INACTIVE');
+    currDBType := GetDataBaseType('ACTIVE');
+    // выбираем конкретную базу
+    case neededDBType of
+      DBT_OTHER :
+        begin
+          if (currDBType = DBT_OLD) then
+            neededDBType := DBT_NEW
+          else 
+          if (currDBType = DBT_NEW) then
+            neededDBType := DBT_OLD
+          else 
+          if (DataBaseTypeByFolder('get', inactivePath) <> DBT_UNKNOWN) then
+            neededDBType := DataBaseTypeByFolder('get', inactivePath)
+          else
+            Raise('Непонятно куда переключаться! Надо доопределить поведение.');
+        end;
+    end;
+      
+    // узнаем, можем ли переключать базу
+    if NOT IsCanChangeDatabase(neededDBType) then
+    begin
+      Log.Message('Базу данных переключить нельзя!');
+      Exit;
+    end;   
+        
+    if ( currDBType <> neededDBType ) then
+    begin
+      // вначале закрываем оболочку
+      countOfAttempts := 5;
+      isShellBeenRunned := IsExists(GetF1ShellProcess(-1, 2, false));
+      if (NOT par_IsSwitchOnTheFly) then
+        CloseF1Shell(countOfAttempts, Options.Run.Timeout div 6);// then Raise('Не получилось закрыть оболочку!');
+      // затем если это КС, то останавливаем сервер
+      productType := GetProductType;
+      if (NOT par_IsSwitchOnTheFly) AND ((productType = PT_SERVER) OR (productType = PT_CLIENT)) then StopF1Server;
+      // определяем, как и куда переключаться и переключаемся
+      case neededDBType of
+        DBT_OLD, DBT_NEW, DBT_MINI, DBT_MINI_NO_PRIME, DBT_CONSULTING:
+          if NOT PrepareDataPathByType(Choose(par_IsSwitchOnTheFly, 'INACTIVE', 'ACTIVE'), neededDBType ) then
+            Raise('Не удалось подготовить базу для переключения!');
+      else
+        Raise('Параметр neededDBType не распознан!');
+      end;
+     
+      // запускаем сервер
+      if (NOT par_IsSwitchOnTheFly) AND ((productType = PT_SERVER) OR (productType = PT_CLIENT)) then
+      begin
+        if NOT StartF1Server then Raise('Не получилось запустить сервер!');
+      end
+      else if par_IsSwitchOnTheFly then 
+      begin // переключаем на лету
+        pathToF1BU := IncludeTrailingBackslash(GetF1Directory('server')) + '\tools\bu.bat';
+        inactivePath := GetDataPath('INACTIVE');
+        if FileExists(pathToF1BU) then
+        begin
+          // если переключаем через BU и в инишнике прописано делать бэкап - анализируем и бэкапим лог сервера
+          if GetValueFromGarantINI('F1Server Params', '-LoggingBackup') = '1' then
+          begin 
+            ProcessingLogForErrors(nil, nil, 'isDoLogContentBkup:=true;isFromLastLogPositionCounter:=true;');
+            ProcessingLogForErrors(nil, nil, 'isResetServerLogPositionCountersAndExit:=true');
+          end;
+
+          if ShellExecute(0, 'open', pathToF1BU, '', ExtractFilePath(pathToF1BU), Win32API.SW_SHOWNORMAL ) >= 32 then
+          begin
+            isBUsuccess := false;
+            deadline := Win32API.GetTickCount + Options.Run.Timeout;
+            while (Win32API.GetTickCount < deadline) do 
+              if (inactivePath = GetDataPath('ACTIVE')) then // ждем смены базы
+              begin
+                isBUsuccess := true;
+                break;
+              end  
+              else
+                Delay(500);
+            //
+            if isBUsuccess then 
+              Log.Message('SwitchDatabase. Успешно переключили базы с помощью F1BU')
+            else
+              Log.Error('SwitchDatabase. Переключение баз с помощью F1BU не удалось', '', pmNormal, GetLogAttr('RED'));
+            // дожидаемся завершения работы f1bu и потом прибиваем его если он не завершился
+            f1BUProc := Sys.WaitProcess('f1bu', 0);   
+            deadline := Win32API.GetTickCount + (Options.Run.Timeout div 6);
+            while (Win32API.GetTickCount < deadline) AND IsExists(f1BUProc) do
+              Delay(200);
+            if IsExists(f1BUProc) then 
+              f1BUProc.Close; // прибиваем f1bu.exe                        
+          end;
+          // проверяем лог на ошибки
+          logErrors := ProcessingLogForErrors(nil, nil, 'isSaveLastPositionCounter:=false;isFromLastLogPositionCounter:=true;IsSaveToFile:=true;IsAnalyseAllLogs:=true');
+          if (logErrors <> '') then
+            Log.Error('SwitchDatabase: В логе сервера были найдены ошибки', 'Строки с ошибками: ' + EndOfLine + logErrors);          
+        end
+        else
+          Raise('F1BU не найден! Переключение баз не может быть выполнено!');  
+      end; 
+      // запускаем оболочку
+      if (NOT par_IsSwitchOnTheFly) AND isShellBeenRunned then StartF1Shell;
+    end;  
+    // определяем успешность
+    currDBType := GetDataBaseType('ACTIVE');
+      
+    Result := (currDBType = neededDBType);
+    
+    if Result then
+      Log.Message('SwitchDataBase: Успешно переключили базу на тип "' + VarToStr(currDBType) + '". Требовался тип "' + VarToStr(neededDBType) + '"', '', pmNormal, GetLogAttr('BLUE'))
+    else
+      Log.Warning('SwitchDataBase: Не удалось переключить базу на тип "' + VarToStr(neededDBType) + '". Текущий тип "' + VarToStr(currDBType) + '"', '', pmNormal, GetLogAttr('RED'));
+  except
+    {BEGIN_OF_STD_EX_REP}_dbgExMsg := ExceptionMessage; _dbgVarNames := String2Array(StringReplace(_dbgVarNames, ' ', '', 1 or 2), ','); _dbgVars := CreateVariantArray(VarArrayLowBound(_dbgVarNames, 1), VarArrayHighBound(_dbgVarNames, 1)); for _dbgI := VarArrayLowBound(_dbgVarNames, 1) to VarArrayHighBound(_dbgVarNames, 1) do try _dbgVars[_dbgI] := Evaluate(_dbgVarNames[_dbgI]); except _dbgVars[_dbgI] := 'НЕПРАВИЛЬНО УКАЗАННЫЙ ПАРАМЕТР! НАДО ИСПРАВИТЬ!'; end; try Raise(_dbgExMsg);except end;
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, DbgVarValueEx(_dbgVars, _dbgVarNames), pmNormal, GetLogAttr('EXCEPTION'));{END_OF_STD_EX_REP}
+    Result := false;
+    CommonExceptionHandler;
+  end;               
+end;
+
+procedure __PN_CONSTANTS; begin end;
+
+const
+// http://mdp.garant.ru/pages/viewpage.action?pageId=578895287
+// переделали на 2 типа: обычная и консольная сборка
+
+  PN_SERVER = 'server';
+  PN_SERVER_CONSOLE = 'server-console';
+  PN_CLIENT = 'client';
+  PN_CLIENT_CONSOLE = 'client-console';
+  PN_DESKTOP = 'desktop';
+  PN_DESKTOP_CONSOLE = 'desktop-console';
+  PN_FILESERVER = 'netware';
+  PN_FILESERVER_CONSOLE = 'netware-console';
+  PN_UNKNOWN = 'UNKNOWN';
+
+  START_RUNNER_BAT = 'startRunner.bat';
+  STOP_RUNNER_BAT = 'stopRunner.bat';
+
+{
+  TYPE:
+  DESC: Преобразует к общему типу продукта (также используется как имя папки)  
+  RESULT:
+  REMARK:
+}
+function PN2CommonPN(
+  const productName : OleVariant
+) : OleVariant;
+begin
+  try
+    case productName of 
+      PN_SERVER, PN_SERVER_CONSOLE          : Result := PN_SERVER;
+      PN_CLIENT, PN_CLIENT_CONSOLE          : Result := PN_CLIENT;
+      PN_DESKTOP, PN_DESKTOP_CONSOLE        : Result := PN_DESKTOP;
+      PN_FILESERVER, PN_FILESERVER_CONSOLE  : Result := PN_FILESERVER;
+    else
+      Result := PN_UNKNOWN;
+    end;  
+  except
+    Log.Message('PN2CommonPN: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+  
+{
+  TYPE:
+  DESC: Преобразует к общему описанию продукта 
+  RESULT:
+  REMARK:
+}
+function PN2PT(
+  const productName : OleVariant
+) : OleVariant;
+begin
+  try
+    case productName of 
+      PN_SERVER, PN_SERVER_CONSOLE          : Result := PT_SERVER;
+      PN_CLIENT, PN_CLIENT_CONSOLE          : Result := PT_CLIENT;
+      PN_DESKTOP, PN_DESKTOP_CONSOLE        : Result := PT_DESKTOP;
+      PN_FILESERVER, PN_FILESERVER_CONSOLE  : Result := PT_FILESERVER;
+    else
+      Result := PT_UNKNOWN;
+    end;  
+  except
+    Log.Message('PN2PT: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;               
+end;
+
+const
+  // ИЗМЕНЯЯ ЭТУ КОНСТАНТУ ОБЯЗАТЕЛЬНО ПОМЕНЯЙ ТАКУЮ ЖЕ КОНСТАНТУ В SearchWork. ОНИ РАЗНЕСЕНЫ ДЛЯ ИСКЛЮЧЕНИЯ ЭТИХ МОДУЛЕЙ (И СКОРОСТИ ЗАПУСКА ПРОЕКТОВ).
+  CS_CHECK_TIMEOUT = 30000; // таймаут проверки консультаций, он же прописывается в инишнк сервера/десктопа при инициализации тестового стенда
+   
+  TS_DB_FOLDER = 'DataBases'; // в эту подпапку сохраняются базы 
+  TS_PRODUCT_FOLDER = 'Products'; // в эту подпапку сохраняются скачанные продукты
+  TS_INSTALLER_FOLDER = 'Installer'; // в эту подпапку сохраняется инсталлятор
+  
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}
+function TestStandParams(
+  opName : String;
+  paramName : String = '';
+  paramValue : OleVariant = GEP_EMPTY_VALUE  
+): OleVariant;
+  const
+    FUNCTION_NAME = 'TestStandParams';
+    BASE_SECTION = FUNCTION_NAME;
+  var
+    validParams, i;    
+begin
+  try
+    validParams := [
+      'BuildPath', // путь к сборке
+      'PathToDataBases', // путь к папке, где лежат базы данных
+      'PathToInstaller', // путь к локальной папке, в которую скопирован инсталлятор
+      'TestStandBasePath' // базовый путь, куда кладется все что относится к тестовому стенду
+    ];
+    //
+    if (paramName <> '') then
+    begin
+      for i := VarArrayLowBound(validParams, 1) to VarArrayHighBound(validParams, 1) do
+        validParams[i] := AnsiUpperCase(validParams[i]);
+      if NOT FindElement(validParams, AnsiUpperCase(paramName)) then 
+        Raise('Данный параметр не поддерживается!');
+    end;    
+    //
+    Result := GlobalExtParams(opName, BASE_SECTION, paramName, paramValue);
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, DbgVarValueEx([opName, paramName, paramValue], ['opName', 'paramName', 'paramValue']), pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+{
+  TYPE:
+  DESC: Выполянет бэкап/восстановление баз и ини-файла тестового стенда 
+  RESULT:
+  REMARK:
+}
+function TestStandBackup(
+  whatToDo : String;
+  paramString : String
+): OleVariant; // ничего не возвращает
+  const
+    FUNCTION_NAME = 'TestStandBackup';
+    BACKUP_SUFFIX = '.backuped_by_TC';
+  var
+    paramList : OleVariant;
+    par_DestinationPath, c_DestDBPath, path, countOfAttempts, c_DBBackupPath;
+    isSrvStarted : boolean;  
+begin 
+  try
+    whatToDo := AnsiUpperCase(whatToDo);
+    
+    paramList := ParseParamString(paramString, true,  EndOfLine);
+    
+    par_DestinationPath := GetParam(paramList,
+      'DestinationPath',
+      '');
+    if (par_DestinationPath = '') then Raise('Параметр DestinationPath должен быть задан!');
+    par_DestinationPath := IncludeTrailingBackslash(par_DestinationPath);
+    c_DestDBPath := IncludeTrailingBackslash(par_DestinationPath + TS_DB_FOLDER);
+    c_DBBackupPath := IncludeTrailingBackslash(ExcludeTrailingBackslash(c_DestDBPath) + BACKUP_SUFFIX);
+    //
+    case whatToDo of
+      'RESET': // сброс бэкапа  
+        begin
+          // прибиваем бэкапы реестра
+          DeleteRegistryBranch(F1_ADAPTER_FULL_REG_PATH + BACKUP_SUFFIX);
+          DeleteRegistryBranch(F1_SERVER_FULL_REG_PATH + BACKUP_SUFFIX);
+          DeleteRegistryBranch(F1_LAUNCHER_FULL_REG_PATH + BACKUP_SUFFIX);          
+        end;
+      'CREATE': // создаем бэкап
+        begin
+          // стопим продукт
+          countOfAttempts := 5;
+          CloseF1Shell(countOfAttempts, Options.Run.Timeout div 10);
+          countOfAttempts := 5;
+          CloseF1Prime(countOfAttempts, Options.Run.Timeout div 10);
+          isSrvStarted := IsF1ServerStarted;
+          if isSrvStarted then StopF1Server;
+          // бэкапим базы данных
+            // убеждаемся в существовании папки с бэкапом для баз
+          ForceDirectories(c_DBBackupPath);
+            // пытаемся синхронизировать расположение баз, для уменьшения вероятности операции копирования
+          TryDuplicateDataBaseState(c_DestDBPath, c_DBBackupPath);
+            // синхронизируем папку бэкапа с папкой баз данных
+          if OneWayFolderSync(c_DestDBPath, c_DBBackupPath) then
+            Log.Message('Операция синхронизации папки бэкапа баз данных с папкой баз данных прошла успешно.')
+          else
+            Log.Error('Операция синхронизации папки бэкапа баз данных с папкой баз данных закончилась с ошибкой!');                
+          // бэкапим инишник
+          path := IncludeTrailingBackslash(GetF1Directory) + 'garant.ini';
+          FSO.CopyFile(path, path + BACKUP_SUFFIX, true);
+          // бэкапим настройки         
+          if (GetProductType <> PT_FILESERVER) AND (GetProductType <> PT_DESKTOP) then          
+          begin //Не ФС и не десктоп
+            path := ExcludeTrailingBackslash(GetValueFromGarantINI('F1Server Params', 'GCMSettingsPath'));
+            FSO.CopyFolder(path, path + BACKUP_SUFFIX);
+          end;
+          // бэкапим реестр
+          if IsRegistryBranchExists(F1_ADAPTER_FULL_REG_PATH) then
+            CopyRegistryBranch(F1_ADAPTER_FULL_REG_PATH, F1_ADAPTER_FULL_REG_PATH + BACKUP_SUFFIX);
+          if IsRegistryBranchExists(F1_SERVER_FULL_REG_PATH) then
+            CopyRegistryBranch(F1_SERVER_FULL_REG_PATH, F1_SERVER_FULL_REG_PATH + BACKUP_SUFFIX);
+          if IsRegistryBranchExists(F1_LAUNCHER_FULL_REG_PATH) then
+            CopyRegistryBranch(F1_LAUNCHER_FULL_REG_PATH, F1_LAUNCHER_FULL_REG_PATH + BACKUP_SUFFIX);
+          // Запускаем продукт
+          if isSrvStarted then StartF1Server;        
+        end;
+      'RESTORE': // восстанавливаем бэкап
+        begin
+          // стопим продукт
+          Log.Message('Пытаемся застопить f1Shell');
+          countOfAttempts := 5;          
+          CloseF1Shell(countOfAttempts, Options.Run.Timeout div 10);
+          countOfAttempts := 5;
+          Log.Message('Пытаемся застопить f1Prime');
+          CloseF1Prime(countOfAttempts, Options.Run.Timeout div 10);
+          isSrvStarted := IsF1ServerStarted;
+          Log.Message('Стопим cервер');
+          if isSrvStarted then StopF1Server;
+          //  восстанавливаем реестр
+          Log.Message('Восстанавливаем реестр');
+          if IsRegistryBranchExists(F1_ADAPTER_FULL_REG_PATH + BACKUP_SUFFIX) then
+          begin
+            DeleteRegistryBranch(F1_ADAPTER_FULL_REG_PATH);
+            CopyRegistryBranch(F1_ADAPTER_FULL_REG_PATH + BACKUP_SUFFIX, F1_ADAPTER_FULL_REG_PATH);
+          end;
+          if IsRegistryBranchExists(F1_SERVER_FULL_REG_PATH + BACKUP_SUFFIX) then
+          begin
+            DeleteRegistryBranch(F1_SERVER_FULL_REG_PATH);
+            CopyRegistryBranch(F1_SERVER_FULL_REG_PATH + BACKUP_SUFFIX, F1_SERVER_FULL_REG_PATH);
+          end;
+          if IsRegistryBranchExists(F1_LAUNCHER_FULL_REG_PATH + BACKUP_SUFFIX) then
+          begin
+            DeleteRegistryBranch(F1_LAUNCHER_FULL_REG_PATH);
+            CopyRegistryBranch(F1_LAUNCHER_FULL_REG_PATH + BACKUP_SUFFIX, F1_LAUNCHER_FULL_REG_PATH);
+          end;
+          Log.Message('Реестр восстановлен');
+          // восстанавливаем инишник
+          Log.Message('Восстанавливаем инишник');
+          path := IncludeTrailingBackslash(GetF1Directory) + 'garant.ini';
+          if NOT FSO.FileExists(path + BACKUP_SUFFIX) then
+            Raise('Не обнаружен бэкап INI-файла!');
+          FSO.CopyFile(path + BACKUP_SUFFIX, path, true);
+          // восстанавливаем базы данных                    
+          Log.Message('Восстанавливаем БД');
+            // проверяем, а есть ли бэкап
+          if NOT DirectoryExists(c_DBBackupPath) then
+            Raise('Не обнаружен бэкап баз данных!');
+            // убеждаемся в существовании папки хранилища баз данных
+          ForceDirectories(c_DestDBPath);
+            // пытаемся синхронизировать расположение баз, для уменьшения вероятности операции копирования
+          TryDuplicateDataBaseState(c_DBBackupPath, c_DestDBPath);
+            // синхронизируем
+          if OneWayFolderSync(c_DBBackupPath, c_DestDBPath) then
+            Log.Message('Операция синхронизации хранилища баз данных с папкой бэкапа баз данных прошла успешно.')
+          else
+            Log.Error('Операция синхронизации хранилища баз данных с папкой бэкапа баз данных закончилась с ошибкой!');  
+          // восстанавливаем настройки                    
+          if (GetProductType <> PT_FILESERVER) AND (GetProductType <> PT_DESKTOP) then          
+          begin // не ФС не Десктоп
+            Log.Message('Восстанавливаем настройки для НЕ десктоп и НЕ ФС');
+            path := ExcludeTrailingBackslash(GetValueFromGarantINI('F1Server Params', 'GCMSettingsPath'));
+            if NOT FSO.FolderExists(path + BACKUP_SUFFIX) then
+              Raise('Не обнаружен бэкап настроек!');
+            if FSO.FolderExists(path) then
+            begin
+              WriteDelOperInLog(path, 'DeleteFolder (TestStandBackup: RESTORE)'); 
+              FSO.DeleteFolder(path, true);
+            end;                                            
+            FSO.CopyFolder(path + BACKUP_SUFFIX, path);
+          end
+          else
+          begin // ФС
+            // для ФС и десктоп просто сносим папку с настройками
+            Log.Message('Восстанавливаем настройки для Десктопа или ФС');
+            path := ExcludeTrailingBackslash(Storages.Registry(F1LAUNCHERREGBRANCH, HKEY_CURRENT_USER ).GetOption('InstallRoot', ''));
+            if FSO.FolderExists(path) then
+            begin
+              Log.Message('Начинаем удалять настройки из Appdata: "' + path + '"');
+              WriteDelOperInLog(path, 'DeleteFolder (TestStandBackup: RESTORE)');
+              FSO.DeleteFolder(path, true);
+            end
+            else
+              Log.Message('Не получилось удалить настройки из Appdata, т.к. путь не существует: "' + path + '"', '', pmNormal, GetLogAttr('RED'));
+          end;
+                               
+          // чистим папку с дельтой (если она существует)          
+          path := IncludeTrailingBackslash(GetF1Directory) + 'delta';
+          if FSO.FolderExists(path) then
+          begin
+            Log.Message('Начинаем чистить папку с дельтой: "' + path + '"');
+            EmptyFolder(path);
+          end
+          else
+            Log.Message('Не получилось очистить папку с дельтой, т.к. путь не существует: "' + path + '"', '', pmNormal, GetLogAttr('RED'));
+
+          // Запускаем продукт 
+          if isSrvStarted then StartF1Server;           
+        end;    
+    else
+      Raise('Неизвестное значение whatToDo!');
+    end;
+    
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, DbgVarValueEx([par_DestinationPath, c_DestDBPath, path, countOfAttempts, isSrvStarted, paramList], ['par_DestinationPath', 'c_DestDBPath', 'path', 'countOfAttempts', 'isSrvStarted', 'paramList']), pmNormal, GetLogAttr('EXCEPTION'));
+  end; 
+end;
+
+
+const 
+  CVS_TAG_FILE_NAME = '!cvs_tag'; 
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}
+function LogsBackupOp(
+  opName : String;
+  paramString : OleVariant  // здесь в качестве разделителя применяются EndOfLine !!!
+): OleVariant;
+  const
+    FUNCTION_NAME = 'LogsBackupOp';
+    NEED_BACKUP_FILENAME = 'need_backup';    
+  var
+    paramList;
+    p_PathToLogsBackupDir; // путь к папке, куда будут складываться бэкапы
+    p_PathToGarantINI; // путь к garant.ini продукта, который будем бэкапить
+    p_WorkTag;
+    currFolder;
+    needBackupFileName;
+    logsFolder;  
+    targetFolder;  
+    cvsTag;
+    flagFile;   
+begin
+  try
+    opName := AnsiUpperCase(opName);
+
+    paramList := ParseParamString(paramString, true, EndOfLine);
+    //   
+    p_PathToLogsBackupDir := IncludeTrailingBackslash(GetParam(paramList, 'PathToLogsBackupDir', ''));
+    p_PathToGarantINI := GetParam(paramList, 'PathToGarantINI', '');
+    if NOT FileExists(p_PathToGarantINI) then Raise('garant.ini не найден!!!');
+    currFolder := ExtractFilePath(p_PathToGarantINI);
+    needBackupFileName := currFolder + NEED_BACKUP_FILENAME;
+    logsFolder := currFolder + 'logs\';
+    p_WorkTag := GetParam(paramList, 'WorkTag', '');
+    
+    case opName of
+      'SET NEED BACKUP FLAG' : //устанавливаем признак нужности бэкапа логов
+        begin
+          flagFile := FSO.CreateTextFile(needBackupFileName);
+          flagFile.Write(paramString);
+          flagFile.Close;          
+        end;
+                    
+      'LOAD SAVED PARAMSTRING' :
+        begin
+          if (NOT LogsBackupOp('GET NEED BACKUP FLAG', paramString)) then
+            Raise('Флаг не установлен, операция не возможна!');
+          Result := FSO.OpenTextFile(needBackupFileName, 1, false).ReadAll();
+        end;  
+
+      'RESET NEED BACKUP FLAG' : //устанавливаем признак ненужности бэкапа логов
+        FSO.DeleteFile(needBackupFileName, true);
+        
+      'GET NEED BACKUP FLAG' : 
+        Result := 
+          FSO.FileExists(needBackupFileName) // файл должен существовать 
+          AND (FSO.GetFile(needBackupFileName).Size > 0); // и НЕ должен быть пустым (т.к. 1) возниакает ошибка при ReadAll, 2) такое бывает только на старых версиях функции) 
+           
+      'CREATE' :
+        if LogsBackupOp('GET NEED BACKUP FLAG', paramString) then
+        begin // начинаем бэкапить
+          if (p_PathToLogsBackupDir = '\') then Raise('PathToLogsBackupDir не должен быть пустым!');
+          if NOT FSO.FolderExists(p_PathToLogsBackupDir) then Raise('Папка для бэкапов не существует или не доступна!');
+          // загружаем сохраненный WorkTag
+          p_WorkTag := GetParam( ParseParamString(LogsBackupOp('LOAD SAVED PARAMSTRING', paramString), true, EndOfLine), 'WorkTag', '');
+          //       
+          // сваливаем в папочку с логами другие логи
+          CopyFilesExt(currFolder + '\apps\*.log', logsFolder);
+          
+          // теперь смотрим, есть ли что копировать
+          if NOT (FSO.FolderExists(logsFolder) AND (FSO.GetFolder(logsFolder).Size > 0)) then
+            Exit; // копировать нечего, выходим  
+        
+          // определяем путь куда будем копировать папку с логом
+          targetFolder := p_PathToLogsBackupDir;
+           // если существует файл с cvs тегом то читаем его
+          if FileExists(currFolder + CVS_TAG_FILE_NAME) then
+            cvsTag := FSO.OpenTextFile(currFolder + CVS_TAG_FILE_NAME, 1, false).ReadLine()
+          else
+            cvsTag := 'tag_not_specified.' + FormatDateTime('dd-mm-yyyy hh-nn-ss', Now);
+          targetFolder := IncludeTrailingBackslash(targetFolder + cvsTag);
+           // определяем тип продукта
+          targetFolder := IncludeTrailingBackslash(targetFolder + GetProductType(p_PathToGarantINI, true) );
+           // имя машины и время, на случай если несколько раз на одной сборке запускаться будем
+          targetFolder := IncludeTrailingBackslash(targetFolder + CompName + '.' + Choose(p_WorkTag<>'', p_WorkTag + '.', '') + FormatDateTime('dd-mm-yyyy hh-nn-ss', Now));
+         
+          // создаем эту папочку
+          ForceDirectories(targetFolder);
+
+          // ну и копируем, если папочка создалась          
+          if FSO.FolderExists(targetFolder) then
+            FSO.CopyFolder(ExcludeTrailingBackslash(logsFolder), targetFolder, false);
+          
+          // если что-то скопировалось, то считаем создание бэкапа лога успешным
+          Result := (FSO.GetFolder(targetFolder).Size > 0);
+          // сбрасываем флаг необходимости бэкапа лога
+          if Result then 
+            LogsBackupOp('RESET NEED BACKUP FLAG', paramString)
+          else
+            Log.Error('Произошла ошибка при бэкапе логов!');             
+        end;
+    else
+      Raise('opName не распознан!');  
+    end;
+    
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, DbgVarValue(opName, 'opName') + DbgVarValue(paramString, 'paramString'), pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+{
+  TYPE:
+  DESC: возвращает путь к папке с инсталлятором
+  RESULT:
+  REMARK:
+}
+function PathToInstaller(
+  whatToDo : String; // GET | SET | RESET
+  value : String = '' // при SET сюда передается значение пути
+): String; // путь к папке с инсталлятором. Пустая строка если не установлен
+  const
+    FUNCTION_NAME = 'PathToInstaller';
+    PARAM_NAME = 'PathToInstaller';
+begin
+  try
+    whatToDo := AnsiUpperCase(whatToDo);
+    
+    case whatToDo of
+      'GET'   : Result := TestStandParams('get', PARAM_NAME, '');
+      'SET'   : Result := TestStandParams('set', PARAM_NAME, value);
+      'RESET' : TestStandParams('delete', PARAM_NAME);
+    else
+      Raise('Неизвестное значение whatToDo!');   
+    end;  
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, DbgVarValue(whatToDo, 'whatToDo') + DbgVarValue(value, 'value'), pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+const 
+  WT_DAILY    = 'Daily';
+  WT_PAYLOAD  = 'Payload';
+ 
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function InstallTestStand(
+  const paramString : String = ''
+) : boolean;
+  const
+    FUNCTION_NAME = 'InstallTestStand';
+  {BEGIN_OF_STD_EX_REP_VARS} var _dbgVarNames, _dbgVars, _dbgI, _dbgExMsg; {END_OF_STD_EX_REP_VARS}    
+  var
+    // Эти параметры придется менять очень редко:
+    par_BuildPath; // путь к папке, где лежит сборка
+    par_InstallerPath; // путь к папке, где лежит инсталлятор
+    par_DataBasesPath; // путь к папке где лежат базы данных ("исходники")
+    par_TagStr; // строка тега (если не пустая, то ждем пока не появится файл CVS_TAG_FILE_NAME)
+    par_DestinationPath; // путь куда будет все скачиваться
+    par_TimeToWaitForSuccess; // сколько ждать и ждать ли вообще окончания сборки (-1 - ждать бесконечно, 0 - не ждать, число_больше_ноля - ждать столько миллисекунд)
+    par_IsClearTempDirectory; //  очистка общего TEMP каталога
+    par_IsClearAppDataF1Directories; // очистка пользовательских каталогов всех версий системы  
+    // Обычно придется задавать эти параметры:
+    par_IsDownload; // скачивать или только инициализировать
+    par_WhichProductInit; // какой продукт инициализировать
+    par_WhichDataBaseInit; // какой тип базы данных прописывать в инишнике
+    par_ClientTarget; // на какой комп нацеливать клиент  
+    par_IsDownloadDatabases; // скачивать ли базы данных
+    par_IsDownloadProduct; // скачивать ли продукт
+    par_IsWaitForMainBuildSuccess;
+    par_IsWaitForTestsBuildSuccess;
+    par_PathToLogsBackupDir;
+    par_WorkTag;
+    par_F1Settings;
+    
+    // скорее, служебный параметр
+    par_PathToBatFiles; //
+    par_MaxTCRestartsCount; // максимальное число перезапусков TC
+    c_PathToLocalINI; 
+    c_CVSTagFile;
+    c_DestInstallerPath;
+        
+    c_ProgramfilesVarName, c_SrcBasePath, paramList, c_ProductsList, c_DestDBPath, c_DestProductPath, currProductType, currINI, c_DataBaseToCopy : OleVariant;
+    i, deadline, countOfAttempt : integer;
+    currPath, newLogPath, tmpStr, targetDBPath, sourceDBPath, targetProdPath, sourceProdPath : String;
+    res, isBuildSuccess : boolean;
+    pathToDesktopSettings;
+    knownDBFolders;
+begin
+  _dbgVarNames := 'par_BuildPath, par_InstallerPath, par_DataBasesPath, par_TagStr, par_DestinationPath, par_TimeToWaitForSuccess, paramString, par_IsDownload, par_WhichProductInit, par_WhichDataBaseInit, par_ClientTarget, par_IsDownloadDatabases, par_IsDownloadProduct, par_IsWaitForMainBuildSuccess, par_IsWaitForTestsBuildSuccess, par_PathToLogsBackupDir, par_WorkTag, par_PathToBatFiles, c_PathToLocalINI, c_CVSTagFile, c_DestInstallerPath, c_SrcBasePath, paramList, c_ProductsList, c_DestDBPath, c_DestProductPath, currProductType, currINI, c_DataBaseToCopy, i, deadline, countOfAttempt, currPath, newLogPath, tmpStr, res, isBuildSuccess';
+      
+  Log.Message('InstallTestStand.Begin');
+  try                           
+    TestStandParams('delete');
+    // ================== Инициализая переменных и параметров ==================
+    c_ProductsList := [
+      PN_SERVER,
+      PN_SERVER_CONSOLE,
+      PN_CLIENT,
+      PN_CLIENT_CONSOLE,
+      PN_DESKTOP,
+      PN_DESKTOP_CONSOLE,
+      PN_FILESERVER,
+      PN_FILESERVER_CONSOLE
+    ]; // список продуктов, котрые копируем
+    c_DataBaseToCopy := [
+      DBT_OLD,
+      DBT_NEW,
+      DBT_MINI,
+      DBT_MINI_NO_PRIME,
+      DBT_CONSULTING
+    ];
+
+    Result := false;
+    res := true;
+    //
+    paramList := ParseParamString(paramString, true,  EndOfLine);
+
+    par_DestinationPath := GetParam(paramList,
+      'DestinationPath',
+      '');
+    if (par_DestinationPath = '') then Raise('Параметр DestinationPath должен быть задан!');
+    par_DestinationPath := IncludeTrailingBackslash(par_DestinationPath);
+    TestStandParams('set', 'TestStandBasePath', par_DestinationPath);      
+    c_DestDBPath := IncludeTrailingBackslash(par_DestinationPath + TS_DB_FOLDER);    
+    TestStandParams('set', 'PathToDataBases', c_DestDBPath );
+    c_DestProductPath := IncludeTrailingBackslash(par_DestinationPath + TS_PRODUCT_FOLDER);
+    c_DestInstallerPath := IncludeTrailingBackslash(par_DestinationPath + TS_INSTALLER_FOLDER);     
+    c_PathToLocalINI := par_DestinationPath + 'Settings\local.ini';
+    Utilities.DeleteFile(c_PathToLocalINI);
+           
+    par_TagStr := AnsiUpperCase( GetParam(paramList,
+      'TagStr',
+      ''));      
+
+    par_BuildPath :=  GetParam(paramList,
+      'BuildPath',
+      '');
+    TestStandParams('set', 'BuildPath', par_BuildPath);
+    if (par_BuildPath = '') then Raise('Параметр BuildPath должен быть задан!');
+    par_BuildPath := IncludeTrailingBackslash(par_BuildPath); 
+    c_CVSTagFile := par_BuildPath + CVS_TAG_FILE_NAME;    
+    c_srcBasePath := par_BuildPath;
+    //if (NOT DirectoryExists(c_srcBasePath)) then Raise('Пути, откуда собрадись копировать (' + c_srcBasePath + ') не существует или он не доступен!');
+    
+    par_F1Settings := IncludeTrailingBackslash( GetParam(paramList,
+      'F1Settings',
+      '') ); 
+
+    // Путь InstallerPath, проверка существования пути выполняется ниже
+    par_InstallerPath := GetParam(paramList,
+      'InstallerPath',
+      '');
+    if (par_InstallerPath = '') then
+      Raise('Параметр InstallerPath должен быть задан!');
+    par_InstallerPath := IncludeTrailingBackslash(par_InstallerPath);
+
+    // Путь DataBasesPath    
+    par_DataBasesPath := GetParam(paramList,
+      'DataBasesPath',
+      '');
+    if (par_DataBasesPath = '') then
+      Raise('Параметр DataBasesPath должен быть задан!');
+    par_DataBasesPath := IncludeTrailingBackslash(par_DataBasesPath);
+    for i := 1 to 4 do
+    begin
+      case i of
+        2: Delay(5000);
+        3: Delay(60*1000);
+        4: Delay(5*60*1000); // а то путь может сразу не существовать
+      end;
+      if DirectoryExists(par_DataBasesPath) then
+        break;
+      if i = 4 then
+        Raise('Путь DataBasesPath должен существовать!');
+    end;
+
+    // мапим диск к пути с БД
+    par_DataBasesPath := MappedDrive('MAP PATH AS ANY DRIVE', 'Path:=' + par_DataBasesPath);
+    if (NOT DirectoryExists(par_DataBasesPath)) then 
+      Raise('Не получилось примапить сетевой путь баз данных. Результат MappedDrive: "' + par_DataBasesPath + '"');
+    par_DataBasesPath := IncludeTrailingBackslash(par_DataBasesPath);
+      
+    par_TimeToWaitForSuccess := VarToInteger( GetParam(paramList,
+      'TimeToWaitForSuccess',
+      '-1'));
+    try
+      par_WhichProductInit := Evaluate(GetParam(paramList,
+        'WhichProductInit',
+        ''''''));
+{      
+      // проверка для Windows 10
+      if IsWin10x then
+      begin
+        if par_WhichProductInit = PN_SERVER then
+          par_WhichProductInit := PN_DESKTOP
+        else
+        if par_WhichProductInit = PN_SERVER_CONSOLE then
+          par_WhichProductInit := PN_DESKTOP_CONSOLE;
+      end;
+}
+    except
+      par_WhichProductInit := '';
+    end;    
+    try
+      par_WhichDataBaseInit := Evaluate(GetParam(paramList,
+        'WhichDataBaseInit',
+        'DBT_OLD'));
+    except
+      par_WhichDataBaseInit := '';
+    end; 
+    par_IsDownload := VarToBool( GetParam(paramList,
+      'IsDownload',
+      'true'));
+
+    par_IsDownloadDatabases := VarToBool( GetParam(paramList,
+      'IsDownloadDatabases',
+      'true'));
+    par_IsDownloadProduct := VarToBool( GetParam(paramList,
+      'IsDownloadProduct',
+      'true'));      
+    par_ClientTarget := GetParam(paramList,
+      'ClientTarget',
+      {'\\' + }CompName);
+    par_PathToBatFiles := IncludeTrailingBackslash(GetParam(paramList,
+      'PathToBatFiles',
+      'c:\'));
+
+    par_MaxTCRestartsCount := GetParam(paramList,
+      'MaxTCRestartsCount',
+      '10');
+     
+    par_IsWaitForMainBuildSuccess := VarToBool( GetParam(paramList,
+      'IsWaitForMainBuildSuccess',
+      'true'));
+    par_IsWaitForTestsBuildSuccess := VarToBool( GetParam(paramList,
+      'IsWaitForTestsBuildSuccess',
+      'true'));
+    par_PathToLogsBackupDir := IncludeTrailingBackslash(GetParam(paramList,
+      'PathToLogsBackupDir',
+      ''));
+    par_IsClearTempDirectory := VarToBool( GetParam(paramList,
+      'IsClearTempDirectory',
+      'true'));
+    par_IsClearAppDataF1Directories := VarToBool( GetParam(paramList,
+      'IsClearAppDataF1Directories',
+      'true'));
+    try
+      par_WorkTag := Evaluate(GetParam(paramList,
+        'WorkTag',
+        '''''') );
+    except
+      par_WorkTag := '';
+    end;          
+
+    // ======================= Выполняем установку стенда ======================
+    //Очищаем каталог %TEMP%
+    if par_IsClearTempDirectory then
+      RunProgramByShell('cmd /c "del /s/q/f %TEMP%"');
+    //Очищаем все известные каталоги F1 из %APPDATA%
+    if par_IsClearAppDataF1Directories then
+    begin
+      RunProgramByShell('cmd /c "rd "%APPDATA%\GARANT-CLIENT" /s /q"');
+      RunProgramByShell('cmd /c "rd "%APPDATA%\GARANT-LOCAL" /s /q"');
+      RunProgramByShell('cmd /c "rd "%APPDATA%\GARANT-NET" /s /q"');      
+    end;
+    // прибиваем бэкап  
+    TestStandBackup('RESET', paramString);
+    PathToInstaller('RESET');
+    // прибиваем сервис сервера
+    try
+      if NOT DeleteSystemService(F1SERVICENAME) then
+        Log.Message('Не удалось удалить сервис f1 сервера');
+    except      
+      Log.Error('Исключение при удалении сервиса сервера', ExceptionMessage);
+    end;
+    
+    // --------- Качаем, если сказано -----------    
+    if par_IsDownload then 
+    begin
+   
+      // если задана непустая строка тега, то ждем появления файла CVS_TAG_FILE_NAME в каталоге со сборкой
+      // и появление подстроки par_TagStr в этом файле
+      if (par_TagStr <> '') then
+      begin
+        Log.Message('Ждем появления в файле "' + c_CVSTagFile + '" строки "' + par_TagStr + '"');
+        while (NOT StringCompare(par_TagStr, GetFileBody(c_CVSTagFile)) ) do
+          Delay(60*1000);
+        Log.Message('Дождались!', GetFileBody(c_CVSTagFile));     
+      end; 
+           
+      // --------- останавливаем стенд ---------
+      StopF1Server;
+      countOfAttempt := 5;
+      CloseF1Shell(countOfAttempt, 5000);
+      
+      // -------- копируем ----------     
+      // ---Базы--- - старую, новую и другие
+      if par_IsDownloadDatabases then
+      begin
+        ForceDirectories(c_DestDBPath);      
+        // создаем массив, с известными папками с базами данных
+        for i := VarArrayLowBound(c_DataBaseToCopy, 1) to VarArrayHighBound(c_DataBaseToCopy, 1) do
+          AddToArray(knownDBFolders, GetDataBaseSubPathByType(c_DataBaseToCopy[i], DBST_LOCAL));
+        // теперь раскладываем базы данных по их родным папкам
+        RelocateDatabasesToTheirFolders(c_DestDBPath);          
+        // теперь удаляем из папки с базами данных все неизвестные папки
+        DeleteExceptSpecified(c_DestDBPath, '*', knownDBFolders);
+        // синхронизируем содержимое папок с базами данных   
+        for i := VarArrayLowBound(c_DataBaseToCopy, 1) to VarArrayHighBound(c_DataBaseToCopy, 1) do
+        begin
+          targetDBPath := IncludeTrailingBackslash(c_DestDBPath + GetDataBaseSubPathByType(c_DataBaseToCopy[i], DBST_LOCAL));
+          if NOT ForceDirectories(targetDBPath) then
+            Log.Error('Не смогли создать папку', targetDBPath);
+          //  
+          sourceDBPath := IncludeTrailingBackSlash(par_DataBasesPath + GetDataBaseSubPathByType(c_DataBaseToCopy[i], DBST_SOURCE));
+          if NOT DirectoryExists(sourceDBPath) then
+          begin
+            Log.Error( Format('Папка с базой данных по пути "%s" не найдена!', [sourceDBPath]) );
+            continue;
+          end;     
+          // синхронизируем...
+          if OneWayFolderSync(sourceDBPath, targetDBPath, '', ['*\*']) then
+          begin
+            Log.Message( Format('Успешно синхронизировали базу данных "%s"', [c_DataBaseToCopy[i]]) );
+            DataBaseTypeByFolder('set', IncludeTrailingBackslash(c_DestDBPath + GetDataBaseSubPathByType(c_DataBaseToCopy[i], DBST_LOCAL)), c_DataBaseToCopy[i]);
+          end
+          else
+            Log.Error( Format('Не удалось синхронизировать базу данных "%s"', [c_DataBaseToCopy[i]]) );  
+        end;
+      end;   
+      // --- Продукт ---
+      if par_IsDownloadProduct then
+      begin
+        // удаляем старые продукты
+        for i := VarArrayLowBound(c_ProductsList,1) to VarArrayHighBound(c_ProductsList,1) do
+        begin
+          // удаляем части продукта
+          // потому что синхронизируемся а не копируем EmptyFolder(currPath);
+          currPath := IncludeTrailingBackslash(c_DestProductPath + PN2CommonPN(c_ProductsList[i]));
+          if FileExists(currPath + 'garant.ini') then
+            LogsBackupOp('CREATE', 'PathToGarantINI:=' + currPath + 'garant.ini' + EndOfLine + 'PathToLogsBackupDir:=' + par_pathToLogsBackupDir + EndOfLine + 'WorkTag:=' + par_WorkTag);
+
+          // будем пока удалять продукт, а то бывает распухает до немыслемых размеров и лежит, место занимает
+          EmptyFolder(currPath);
+        end;   
+        //        
+        // потому что синхрнизируемся а не копируем EmptyFolder(c_DestInstallerPath);        
+        // ждем окончания сборки
+        if par_TimeToWaitForSuccess <> 0 then
+        begin
+          Log.Message('Начинаем ждать окончания сборки');
+          deadline := Win32API.GetTickCount + par_TimeToWaitForSuccess;
+          isBuildSuccess := false;
+          while (NOT isBuildSuccess) AND ((par_TimeToWaitForSuccess = -1) OR (par_TimeToWaitForSuccess < deadline)) do
+          begin
+            Delay(10000);
+            isBuildSuccess :=
+              ( Utilities.DirectoryExists(c_srcBasePath) ) 
+              AND ((NOT par_IsWaitForMainBuildSuccess) OR (par_IsWaitForMainBuildSuccess AND Utilities.FileExists(c_srcBasePath + '!success')))
+              AND ((NOT par_IsWaitForTestsBuildSuccess) OR (par_IsWaitForTestsBuildSuccess AND Utilities.FileExists(c_srcBasePath + '!success-tests')));
+          end; 
+          Log.Message('Закончили ждать окончания сборки', 'Результат: ' + Bool2Str(isBuildSuccess));
+          if (NOT isBuildSuccess) then 
+            Raise('Не дождались окончания сборки!');
+        end;
+
+        //
+        for i := VarArrayLowBound(c_ProductsList,1) to VarArrayHighBound(c_ProductsList,1) do
+          if (par_WhichProductInit = c_ProductsList[i]) OR (par_WhichProductInit = '') then
+          begin // копируем только нужный продукт
+            Log.Message('Начали копировать продукт ' + c_ProductsList[i]);
+            sourceProdPath := IncludeTrailingBackSlash(c_srcBasePath + PN2CommonPN(c_ProductsList[i]));
+            targetProdPath := IncludeTrailingBackSlash(c_DestProductPath + PN2CommonPN(c_ProductsList[i]));
+            // копируем продукт
+            try
+              ForceDirectories(targetProdPath);
+              // удаляем лишнее как решили тут:
+              // http://mdp.garant.ru/pages/viewpage.action?pageId=578895287&focusedCommentId=606412385#comment-606412385
+              if OneWayFolderSync(sourceProdPath, targetProdPath, '', 
+                                  ['*.mbxcfg', '*.manifest', '*.redirector', '*\messages*', '*-english*']
+              ) then
+                Log.Message( Format('Успешно синхронизировали продукт "%s"', [c_ProductsList[i]]) )
+              else
+                Log.Error( Format('Не удалось синхронизировать продукт "%s"', [c_ProductsList[i]]) );
+            except
+              res := false;
+            end;
+            currPath := IncludeTrailingBackSlash(c_DestProductPath + PN2CommonPN(c_ProductsList[i]));
+          
+            // для того чтобы можно было использовать SetDataPath и GetDataPath
+            SetF1Directory(currPath, 'client');                    
+
+            // правим инишник
+            currINI := currPath + 'garant.ini';
+            SaveStrToFile(currINI, StringReplace( GetFileBody(currINI), 'C:\Program Files\Garant-Nemesis', ExcludeTrailingBackslash(currPath), 1 or 2 ));
+            currProductType := GetProductType(currINI);
+
+            if (currProductType = PT_SERVER) then 
+            begin
+              SetValueToGarantINI('F1Server Params', '-GCMServerPort', F1SERVERPORT, false, currINI);
+            end;
+              
+            if (currProductType = PT_SERVER) OR (currProductType = PT_CLIENT) then 
+            begin
+              SetValueToGarantINI('F1Client Params', '-GCMServerAddress', CompName + '.garant.ru', false, currINI);
+              SetValueToGarantINI('F1Client Params', '-GCMServerPort', F1SERVERPORT, false, currINI);
+              SetValueToGarantINI('F1Client Params', '-SBELogFile', currPath + 'logs\F1Client.log', true, currINI);
+            end;
+              
+            if (currProductType = PT_SERVER) OR (currProductType = PT_DESKTOP) OR (currProductType = PT_FILESERVER) then 
+            begin              
+              if NOT ForceDirectories(c_DestDBPath + 'data1') then
+                Log.Error('Не удалось создать папку data1');
+              if NOT SetDataPath(c_DestDBPath + 'data1', '1') then
+                Log.Error('Не удалось установить путь 1!');
+              if NOT ForceDirectories(c_DestDBPath + 'data2') then
+                Log.Error('Не удалось создать папку data2');
+              if NOT SetDataPath(c_DestDBPath + 'data2', '2') then
+                Log.Error('Не удалось установить путь 2!');
+              //
+              //SetValueToGarantINI('F1Server Params', '-LoggingLevel', '50', true, currINI);
+              SetValueToGarantINI('F1Server Params', '-GCMActiveDataPath',  '1', false, currINI);
+              SetValueToGarantINI('F1Server Params', '-ConsultingServerAddress',  'strelka-vm1.garant.ru', false, currINI);
+              SetValueToGarantINI('F1Server Params', '-ConsultingServerCheckTimeout', IntToStr(CS_CHECK_TIMEOUT div 1000), false, currINI);
+              SetValueToGarantINI('F1Server Params', '-RevisionCheckEnabled', '0', true, currINI);
+              SetValueToGarantINI('F1DataSetup Params', '-DSHost', '', true, currINI);
+              
+              SetValueToGarantINI('Launcher', 'LocalCacheEnabled', '0', true, currINI);
+            end;
+
+            // копируем файл с тегом  
+            DeleteFile(currPath + CVS_TAG_FILE_NAME);
+            CopyFilesExt(c_CVSTagFile, currPath);
+            
+            // устанавливаем флаг необходимости бэкапа
+            LogsBackupOp('SET NEED BACKUP FLAG', 'PathToGarantINI:=' + currINI + EndOfLine + 'PathToLogsBackupDir:=' + par_pathToLogsBackupDir);
+
+            // удаляем старый консольный лог(и)
+            DeleteFiles(currPath + 'apps\*.log');
+
+            // для консольных версий производим переименование иначе удаляем
+            Utilities.DeleteFile(currPath + 'apps\f1shell.map'); // на всякий случай нужно для однозначного определения типа версии
+            if (c_ProductsList[i] = PN_SERVER_CONSOLE) OR (c_ProductsList[i] = PN_CLIENT_CONSOLE) OR (c_ProductsList[i] = PN_DESKTOP_CONSOLE) OR (c_ProductsList[i] = PN_FILESERVER_CONSOLE) then
+            begin
+              if FileExists(currPath + 'apps\f1shell+console.exe') AND FileExists(currPath + 'apps\f1shell+console.map') then
+              begin
+                Utilities.DeleteFile(currPath + 'apps\f1shell.run');
+                Utilities.RenameFile(currPath + 'apps\f1shell+console.exe', currPath + 'apps\f1shell.run');
+                Utilities.RenameFile(currPath + 'apps\f1shell+console.map', currPath + 'apps\f1shell.map');
+              end;
+            end
+            else
+            begin
+              // для неконсольной версии удаляем как решили тут:
+              // http://mdp.garant.ru/pages/viewpage.action?pageId=578895287&focusedCommentId=606412385#comment-606412385
+              Utilities.DeleteFile(currPath + 'apps\f1shell+console.map');
+              Utilities.DeleteFile(currPath + 'apps\f1shell+console.exe');
+            end;
+
+            Log.Message('Закончили копировать продукт.');  
+          end; // if
+
+        // копируем инсталлятор
+        Log.Message('Проверяем наличие каталога c инсталлятором');
+        for i := 1 to 3 do
+        begin
+          case i of
+            2: Delay(5000);
+            3: Delay(60*1000); // а то порой путь еще не существует
+          end;
+          if DirectoryExists(par_InstallerPath) then
+            break;
+          if i = 3 then
+            Raise('Путь InstallerPath должен существовать!');
+        end;
+
+        Log.Message('Начинаем копировать инсталлятор');
+        ForceDirectories(c_DestInstallerPath);
+        if OneWayFolderSync(par_InstallerPath, c_DestInstallerPath) then         
+        begin
+          PathToInstaller('SET', c_DestInstallerPath);
+          Log.Message('Успешно скопировали инсталлятор!');
+        end
+        else
+          Log.Error('Не удалось скопировать инсталлятор!');                    
+      end;        
+    end; //if par_IsDownload then
+    
+    Result := res;  
+ 
+    // подчищаем реестр
+    // этот блок раньше был в нижнем if, но я его вынес, чтобы корректно очищался реестр, если мы запускаем клиента не из тестового стенда
+    Storages.Registry(F1REGBRANCH_PARENT, HKEY_CURRENT_USER ).DeleteSubSection(F1REGBRANCH_CHILD);
+    Storages.Registry(F1REGBRANCH_PARENT, HKEY_CURRENT_USER ).GetSubSection(F1REGBRANCH_CHILD);    
+    Storages.Registry(F1REGBRANCH, HKEY_CURRENT_USER).SetOption('FirstStart', 'false');
+    //
+    Storages.Registry(F1REGBRANCH_PARENT, HKEY_CURRENT_USER ).DeleteSubSection(F1LAUNCHERREGBRANCH_CHILD);
+    Storages.Registry(F1REGBRANCH_PARENT, HKEY_CURRENT_USER ).GetSubSection(F1LAUNCHERREGBRANCH_CHILD);
+    Storages.Registry(F1LAUNCHERREGBRANCH, HKEY_CURRENT_USER ).SetOption('DesktopShortcutsStatus', 'Checked' );
+                                                 
+    // --------- Инициализируем выбранный продукт -------------
+    
+    if ((NOT par_IsDownload) OR Result) AND (par_WhichProductInit <> '') then
+    begin
+      Log.Message('Начали инициализацию выбранного продукта.');
+      // прописываем пути
+      SetF1Directory(c_DestProductPath + PN2CommonPN(par_WhichProductInit), 'client');
+  
+      if (PN2PT(par_WhichProductInit) = PT_FILESERVER) OR (PN2PT(par_WhichProductInit) = PT_DESKTOP) OR (PN2PT(par_WhichProductInit) = PT_SERVER) then
+      begin
+        case par_WhichDataBaseInit of
+          DBT_OLD, DBT_NEW, DBT_MINI, DBT_MINI_NO_PRIME, DBT_CONSULTING: 
+            if (NOT PrepareDataPathByType('active', par_WhichDataBaseInit)) then
+              Log.Error('Не удалось подготовить базу данных!');
+          '' :;
+        else
+          Raise('Параметр par_WhichDataBaseInit(' + par_WhichDataBaseInit + ') не распознан');
+        end;
+        // переписываем настройки
+        if (par_F1Settings <> '\') then
+          if SetCleanSettings( par_F1Settings ) then
+            Log.Message('Успешно переписали настройки.', par_F1Settings)
+          else
+            Log.Error('Не удалось переписать настройки.', par_F1Settings);  
+            
+      end;      
+      if PN2PT(par_WhichProductInit) = PT_DESKTOP then   
+      begin
+        Log.Message('Так как десктопная версия- то вычищаем настройки из ..\ApplicationData\Garant-Local');
+        pathToDesktopSettings := GetPathToDesktopSettings;          
+        if FSO.FolderExists(pathToDesktopSettings + '\settings') then
+        begin 
+          WriteDelOperInLog(pathToDesktopSettings + '\settings', 'DeleteFolder (InstallStand)');
+          FSO.DeleteFolder(pathToDesktopSettings + '\settings', true);
+        end;   
+        if FSO.FolderExists(pathToDesktopSettings + '\settings-previous') then
+        begin
+          WriteDelOperInLog(pathToDesktopSettings + '\settings-previous', 'DeleteFolder (InstallStand)');        
+          FSO.DeleteFolder(pathToDesktopSettings + '\settings-previous', true);
+        end;    
+      end;  
+      if (PN2PT(par_WhichProductInit) = PT_SERVER) then
+      begin
+        //Для сервера дополнительно чистим ветку реестра HKEY_LOCAL_MACHINE
+        Storages.Registry(F1REGBRANCH_PARENT, HKEY_LOCAL_MACHINE ).DeleteSubSection(F1REGBRANCH_CHILD);
+        Storages.Registry(F1REGBRANCH_PARENT, HKEY_LOCAL_MACHINE ).GetSubSection(F1REGBRANCH_CHILD);    
+        Storages.Registry(F1REGBRANCH, HKEY_LOCAL_MACHINE).SetOption('FirstStart', 'false');
+        //
+        Storages.Registry(F1REGBRANCH_PARENT, HKEY_LOCAL_MACHINE ).DeleteSubSection(F1LAUNCHERREGBRANCH_CHILD);
+        Storages.Registry(F1REGBRANCH_PARENT, HKEY_LOCAL_MACHINE ).GetSubSection(F1LAUNCHERREGBRANCH_CHILD);
+        Storages.Registry(F1LAUNCHERREGBRANCH, HKEY_LOCAL_MACHINE ).SetOption('DesktopShortcutsStatus', 'Checked' );
+    
+        SetF1Directory(c_DestProductPath + PN2CommonPN(par_WhichProductInit), 'server');
+        StartF1Server;
+      end;
+      if (PN2PT(par_WhichProductInit) = PT_CLIENT) then
+      begin
+        SetClientTarget(par_ClientTarget);      
+      end;
+      if (PN2PT(par_WhichProductInit) = PT_FILESERVER) then
+      begin
+        Storages.Registry(F1LAUNCHERREGBRANCH, HKEY_CURRENT_USER ).SetOption('InstallRoot', IncludeTrailingBackslash(GetF1Directory('client')) + 'local_user_settings' );
+        SetValueToGarantINI('Launcher', 'ShowInstallRootDialog', 'No', false);
+      end;
+      //
+      Storages.Registry(F1REGBRANCH, HKEY_CURRENT_USER).SetOption('-ProductId', GetValueFromGarantINI('Version', '-ProductId'));
+      Storages.Registry(F1LAUNCHERREGBRANCH, HKEY_CURRENT_USER).SetOption('-ProductId', GetValueFromGarantINI('Version', '-ProductId'));
+      
+      Result := true;
+
+      // =============== Создаем бэкап =============
+      
+      if (PN2PT(par_WhichProductInit) = PT_FILESERVER) OR (PN2PT(par_WhichProductInit) = PT_DESKTOP) OR (PN2PT(par_WhichProductInit) = PT_SERVER) then
+      begin
+        Log.Message('Начали создание бэкапа.');    
+        TestStandBackup('CREATE', paramString);
+        Log.Message('Закончили создание бэкапа.');
+      end;
+      Log.Message('Закончили инициализацию продукта.');        
+    end;
+    // ============== Формируем ini и bat файлы для запуска пускача ============
+    // сохраняем инишник
+    ForceFile(c_PathToLocalINI);
+    SaveStrToFile(c_PathToLocalINI, paramString);
+    // создаем батник для запуска пускача
+    
+    if (Sys.OSInfo.Windows64bit) then
+      c_ProgramfilesVarName := '%PROGRAMFILES(x86)%'
+    else
+      c_ProgramfilesVarName := '%PROGRAMFILES%';
+    
+    tmpStr := par_PathToBatFiles + START_RUNNER_BAT; 
+    ForceFile(tmpStr);
+    SaveStrToFile(tmpStr,
+      'set BASE_PATH=' + GetPathTo(PATH_TO_IMPLEMENTATION) + EndOfLine +
+      'set PSTOOLS_PATH=' + GetPathTo(PATH_TO_PSTOOLS) + EndOfLine +        
+      'set SHARED_PATH=' + IncludeTrailingBackslash( GetParam(paramList, 'SharedPath', '') ) + EndOfLine +
+      '' + EndOfLine +
+      'IF "%1" NEQ "/restart" goto sleep' + EndOfLine +
+      'del "%SHARED_PATH%common*.*"' + EndOfLine +
+      'del "%SHARED_PATH%doneScripts*.*"' + EndOfLine +
+      'del "%SHARED_PATH%statistics*.*"' + EndOfLine +
+      'goto no_sleep' + EndOfLine +
+      '' + EndOfLine +      
+      ':sleep' + EndOfLine +
+      'rem Засыпаем на это время, чтобы дать возможность TestExecute или TestComplete выгрузиться ' + EndOfLine +
+      //не уменьшать, т.к. появятся ошибки при запуске NetSuiteTest->InstallStand
+      '%PSTOOLS_PATH%sleep.exe 70' + EndOfLine +
+      '' + EndOfLine +
+      ':no_sleep' + EndOfLine +
+      //Цикл для перезапуска TC 
+      'FOR /L %%I IN (1,1,' + par_MaxTCRestartsCount + ') DO (' + EndOfLine +
+      '%PSTOOLS_PATH%sleep.exe 5' + EndOfLine +
+      'rem Прибиваем TestComplete и TestExecute' + EndOfLine +
+      '%PSTOOLS_PATH%pskill.exe -accepteula TestComplete' + EndOfLine +
+      '%PSTOOLS_PATH%pskill.exe -accepteula TestExecute' + EndOfLine +
+      '' + EndOfLine +
+      'rem Перезапускаем этот убогий tcrea чтобы он не висел и не напрягал' + EndOfLine +      
+      '%PSTOOLS_PATH%sleep.exe 5' + EndOfLine +
+      '%PSTOOLS_PATH%pskill.exe -accepteula tcrea' + EndOfLine +
+      '%PSTOOLS_PATH%sleep.exe 5' + EndOfLine +
+      '' + EndOfLine +
+      'start "tcrea" "' + c_ProgramfilesVarName + '\Automated QA\TestExecute 6\Bin\tcrea.exe"' + EndOfLine +
+      '%PSTOOLS_PATH%sleep.exe 20' + EndOfLine +
+      '' + EndOfLine +
+
+      'rem Запускаем TestExecute' + EndOfLine +
+      '"' + c_ProgramfilesVarName + '\Automated QA\TestExecute 6\Bin\testexecute.exe" "%BASE_PATH%projects\Main\Main.pjs" /run /project:Main /unit:Main /routine:Main /exit /SilentMode -ini_file=' + c_PathToLocalINI + EndOfLine +
+      '' + EndOfLine +
+
+      'rem Засыпаем на минуту' + EndOfLine +
+      // не уменьшать, иначе изменить таймаут запуска KillAfterWait в Main 
+      '%PSTOOLS_PATH%sleep.exe 60' + EndOfLine +
+      '' + EndOfLine +
+      
+      'rem Прибиваем TestComplete и TestExecute' + EndOfLine +
+      '%PSTOOLS_PATH%pskill.exe -accepteula TestComplete' + EndOfLine +
+      '%PSTOOLS_PATH%pskill.exe -accepteula TestExecute' + EndOfLine +
+      '' + EndOfLine +
+      
+      'IF EXIST "%SHARED_PATH%%COMPUTERNAME%.not_continue" (' + EndOfLine +
+      'del /q "%SHARED_PATH%%COMPUTERNAME%.not_continue"' + EndOfLine +
+      'exit )' + EndOfLine +
+      '' + EndOfLine +        
+      ')'
+    );
+    // создаем батник для попытки корректной остановки пускача
+    tmpStr := par_PathToBatFiles + STOP_RUNNER_BAT;
+    ForceFile(tmpStr);
+    SaveStrToFile(tmpStr,
+      'set SHARED_PATH=' + IncludeTrailingBackslash( GetParam(paramList, 'SharedPath', '') ) + EndOfLine +
+      'echo command:=stop > "%SHARED_PATH%%COMPUTERNAME%.command"' + EndOfLine + 
+      'echo'
+    );
+
+    Log.Message('Доступны следующие параметры тестового стенда:', TestStandParams('DUMP TO STRING'));
+  except
+   {BEGIN_OF_STD_EX_REP}_dbgExMsg := ExceptionMessage; _dbgVarNames := String2Array(StringReplace(_dbgVarNames, ' ', '', 1 or 2), ','); _dbgVars := CreateVariantArray(VarArrayLowBound(_dbgVarNames, 1), VarArrayHighBound(_dbgVarNames, 1)); for _dbgI := VarArrayLowBound(_dbgVarNames, 1) to VarArrayHighBound(_dbgVarNames, 1) do try _dbgVars[_dbgI] := Evaluate(_dbgVarNames[_dbgI]); except _dbgVars[_dbgI] := 'НЕПРАВИЛЬНО УКАЗАННЫЙ ПАРАМЕТР! НАДО ИСПРАВИТЬ!'; end; try Raise(_dbgExMsg);except end;
+    Log.Error(FUNCTION_NAME + ': ' + ExceptionMessage, DbgVarValueEx(_dbgVars, _dbgVarNames), pmNormal, GetLogAttr('EXCEPTION'));{END_OF_STD_EX_REP}
+    Raise;
+  end;               
+  Log.Message('InstallTestStand.End');
+end;
+ 
+procedure NSWrapperStartRunner; 
+  var
+    paramString, par_PathToBatFiles, par_IsRestartRunner, cmdParams : String;
+    paramList : OleVariant;
+begin
+  Log.Message('NSWrapperStartRunner.Begin');
+  try      
+    paramString := NetworkSuite.Tag;
+    Log.Message(' NSWrapperStartRunner ParamString:', paramString);
+    paramList := ParseParamString(paramString, true,  EndOfLine);
+    
+    par_PathToBatFiles := IncludeTrailingBackslash(GetParam(paramList, 'PathToBatFiles', 'c:\'));
+    par_IsRestartRunner := VarToBool(GetParam(paramList, 'IsRestartRunner', 'false'));
+
+    cmdParams := '';
+    if par_IsRestartRunner then cmdParams := '/restart';
+    Log.Message(' NSWrapperStartRunner ShellExecute Result = ' + VarToString(ShellExecute(0, 'open', par_PathToBatFiles + START_RUNNER_BAT, cmdParams, par_PathToBatFiles, Win32API.SW_SHOWNORMAL )));
+  except
+    Log.Error('NSWrapperStartRunner: ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+  Log.Message('NSWrapperStartRunner.End');
+end;
+
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}
+function SynchroPointWaitWrap(
+  const spName : String;
+  const timeOut : Integer;
+  const isUseOurSyncroPoints : Boolean = false // использовать наши точки синхронизации !!! перед их использованием НЕОБХОДИМО указать общую папку и зарегестрироваться в них !!!
+): Boolean;
+  const
+    FUNCTION_NAME = 'SynchroPointWrap';  
+begin
+  try
+    Log.Message('Начинаем синхронизироваться на точке "' + spName + '" в течение ' + IntToStr(timeOut) + ' мс');    
+    if isUseOurSyncroPoints then
+      Result := SynchroPoint('SYNCHRONIZE', spName, timeOut)
+    else
+      Result := NetworkSuite.Synchronize(spName, timeOut);
+    if Result then
+      Log.Message('Синхронизация на точке "' + spName + '" завершилась успешно', Choose(isUseOurSyncroPoints, 'Наша точка', 'TestComplete''овская точка'))
+    else
+      Log.Warning('Не достигли синхронизации на точке "' + spName + '"', Choose(isUseOurSyncroPoints, 'Наша точка', 'TestComplete''овская точка'));  
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+
+const
+  SSPOP_INIT = 1;
+  SSPOP_WAIT_ON_BEGIN_SP = 2;
+  SSPOP_WAIT_ON_END_SP = 3;  
+  
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}
+function StarterSynchroPoints(
+  const opCode : OleVariant; // что делаем (константы SSPOP_)
+  var context : OleVariant; // контекст выполнения
+  const paramList : OleVariant = nil // отпарсенная строка параметров    
+): Boolean;
+  const
+    FUNCTION_NAME = 'StarterSynchroPoints';
+    BEGIN_SP_NAME = 'BeginSP';
+    END_SP_NAME = 'EndSP';
+    CLIENT_ENDSP_REGISTERED_EVENT = 'CLIENT_ENDSP_REGISTERED_EVENT'; // событие "хоть один клиент зарегистрировался в EndSP точке синхронизации"
+    CT_SLAVE = 1; // тип пользователя функции - клиент
+    CT_MASTER = 2;  // тип пользователя функции - пускач (тот кто вызовет функцию в первый раз - тот и пускач)
+    CT_CS_NAME = 'CT_CS_NAME';
+  var
+    p_SSP_IsUseOurSyncroPoints; // использовать ли наши точки синхронизации
+    p_SSP_DelayAfterStart; // задержка после старта (в инициализации), выполняется только если не используются наши точки
+    p_SSP_DelayAfterSyncPointRegister; // задержка после регистрации в точках синхронизации. Используется только нашими точками. Нужна для того чтобы все запущенные клиенты успели зарегистрироваться в точках синхронизации.
+    p_SSP_BeginSPTimeout; // столько ждем синхронизации на BeginSP
+    p_SSP_EndSPTimeout;  // столько клиент ждет синхронизации на EndSP
+    p_SSP_MasterEndSPTimeout; // столько пускач ждет синхронизации на EndSP 
+    p_SSP_SharedPath; // общая папка. Нужна, если используются наши точки.
+    ip_SSP_CallerType : Integer; // внутренний параметр. Тип запущенного экземпляра (runner - это тот кто запускает проекты (не путать с пускачом запускающем скрипты); client - клиент, которого запускают)
+    endSPTimeout;      
+begin
+  try
+    if NOT IsMap(context) then
+      if (opCode = SSPOP_INIT) then // только при инициализаци контекст может быть пустым
+      begin
+        if NOT IsMap(paramList) then
+          Raise('paramList не инициализирован!');   
+        context := paramList; // потму что контекст мы можем в будущем поменять
+      end   
+      else  
+        Raise('context не инициализирован!');
+    //        
+    p_SSP_IsUseOurSyncroPoints := VarToBool( GetParam(context,
+      'SSP_IsUseOurSyncroPoints',
+      'false'));
+    p_SSP_DelayAfterStart := VarToInteger( GetParam(context,
+      'SSP_DelayAfterStart',
+      IntToStr(1*60*1000)));
+    p_SSP_DelayAfterSyncPointRegister := VarToInteger( GetParam(context,
+      'SSP_DelayAfterSyncPointRegister',
+      IntToStr(3*60*1000)));       
+    p_SSP_BeginSPTimeout := VarToInteger( GetParam(context,
+      'SSP_BeginSPTimeout',
+      IntToStr(5*60*1000)));
+    p_SSP_EndSPTimeout := VarToInteger( GetParam(context,
+      'SSP_EndSPTimeout',
+      IntToStr(15*60*1000)));
+    p_SSP_MasterEndSPTimeout := VarToInteger( GetParam(context,
+      'SSP_MasterEndSPTimeout',
+      -1)); 
+    p_SSP_SharedPath := GetParam(context, 'SSP_SharedPath', '');
+    if (p_SSP_SharedPath = '') then
+      p_SSP_SharedPath := GetParam(context, 'SharedPath', '');  
+    ip_SSP_CallerType := VarToInteger( GetParam(context,
+      'SSP_CallerType',
+      CT_SLAVE) );
+    //
+    case opCode of        
+      SSPOP_INIT : // инициализируем пути и регистрируемся в точках синхронизации      
+        begin
+          if p_SSP_IsUseOurSyncroPoints then
+          begin // мы будем использовать собственные точки синхронизации
+            // т.к. сейчас они сделаны на файлах, то нам нужна общая папка            
+            if (p_SSP_SharedPath = '') OR ((p_SSP_SharedPath <> '') AND (NOT ForceDirectories(p_SSP_SharedPath))) then
+            begin // если не передана общая папка, то не будем использовать наши точки синхронизации 
+              Log.Error('SharedPath не задан или невозможно его создать, хотя он нужен для наших точек синхронизации. ПОэтому их использовать не будем!', 'p_SSP_SharedPath = "' + p_SSP_SharedPath + '"');
+              p_SSP_IsUseOurSyncroPoints := false;
+              SetParam(context, 'SSP_IsUseOurSyncroPoints', p_SSP_IsUseOurSyncroPoints);        
+            end
+            else 
+            begin // передана, будем использовать наши точки синхронизации
+              Log.Message('Используем собственные точки синхронизации');
+              SynchroObjectsParams('SET', SO_ALL_SHARED_PATH, p_SSP_SharedPath);
+              // определяем - кто мы, клиент или пускач
+              if EnterCriticalSectionByFile(CT_CS_NAME, 0) then // из этой критической секции намеренно никогда не выходим
+                ip_SSP_CallerType := CT_MASTER
+              else
+                ip_SSP_CallerType := CT_SLAVE;  
+              SetParam(context, 'SSP_CallerType', ip_SSP_CallerType);
+              //               
+              if (ip_SSP_CallerType = CT_SLAVE)  then 
+              begin
+                SynchroPoint('REGISTER', END_SP_NAME);
+                SynchroEvent('SET', CLIENT_ENDSP_REGISTERED_EVENT); // сообщаем, что как-минимум один клиент зарегистрировался в конечной точке  
+                SynchroPoint('REGISTER', BEGIN_SP_NAME);                              
+                Delay(p_SSP_DelayAfterSyncPointRegister);
+              end;                                    
+            end;  
+          end;
+          if (NOT p_SSP_IsUseOurSyncroPoints) then 
+            Delay(p_SSP_DelayAfterStart); // не надо переносить под else верхнего if, потому что p_SSP_IsUseOurSyncroPoints там может измениться
+          Result := true;          
+        end;
+        
+      SSPOP_WAIT_ON_BEGIN_SP : // ждем на начальной точке синхронизации
+        Result := SynchroPointWaitWrap(BEGIN_SP_NAME, p_SSP_BeginSPTimeout, p_SSP_IsUseOurSyncroPoints);
+
+      SSPOP_WAIT_ON_END_SP : // ждем на конечной точке синхронизации
+        begin
+          if (ip_SSP_CallerType = CT_MASTER) then // а если не используются наши точки, то у пускача это условие не выполнится, потому что он будет считать себя клиентом, потому что sharedpath не инициализируется и в соотв. критическую секцию никогда не войдем. И это будет пофиг, т.к. проблема синхронизации будет лежать на testcomplete.
+          begin
+            SynchroPoint('REGISTER', END_SP_NAME); // пускач регистрируется в синхроточке здесь для того, чтобы если он повиснет до входа в ожидание на конечной точке синхронизации, клиенты не ждали его, как если бы он регистрировался в секции инициализации
+            SynchroEvent('WAIT', CLIENT_ENDSP_REGISTERED_EVENT); // ждем пока чотя бы один клиент не зарегистрируется в конечной точке, чтобы сразу не выйти из точки синхронизации
+            endSPTimeout := p_SSP_MasterEndSPTimeout;             
+          end
+          else
+            endSPTimeout := p_SSP_EndSPTimeout;   
+          Result := SynchroPointWaitWrap(END_SP_NAME, endSPTimeout, p_SSP_IsUseOurSyncroPoints);
+        end;          
+    else
+      Raise('Неизвестный код операции: ' + VarToString(opCode));        
+    end;    
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage,
+      DbgVarValueEx([endSPTimeout,p_SSP_IsUseOurSyncroPoints, p_SSP_DelayAfterStart, p_SSP_DelayAfterSyncPointRegister, p_SSP_BeginSPTimeout, p_SSP_EndSPTimeout, ip_SSP_CallerType, context, opCode, paramList], ['endSPTimeout', 'p_SSP_IsUseOurSyncroPoints', 'p_SSP_DelayAfterStart', 'p_SSP_DelayAfterSyncPointRegister', 'p_SSP_BeginSPTimeout', 'p_SSP_EndSPTimeout', 'ip_SSP_CallerType', 'context', 'opCode', 'paramList']
+      ), pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+const
+  NSWIS_BEGIN_SP_NAME = 'BeginSP';
+  NSWIS_END_SP_NAME = 'EndSP';
+  
+{
+  TYPE: Для пускача
+  DESC: Функция для запуска через NetSuite
+  RESULT:
+  REMARK:
+    Идея такова: Эта функция запускается через NetSuite, инсталлирует тестовый стенд,
+    затем запускает сформированный bat-ник и выходит. Bat-ник через некоторое время запускает пускач.    
+}
+procedure NSWrapperInstallStand;
+  var
+    paramString : String;
+    paramList, sspContext : OleVariant;
+    par_IsStartRunner : boolean;
+begin
+  try
+    Runner.CallMethod( 'commonEventHandlers._InitLogFileCopy', Log.Path + 'TestLog.Dub.Txt' );
+  except
+    Log.Error('Исключение во время вызова commonEventHandlers._InitLogFileCopy');
+  end;  
+  Log.Message('NSWrapperInstallStand.Begin');   
+  try
+    //Delay(1*60*1000); // это чтобы все упели запуститься до синхронизации
+    paramString := NetworkSuite.Tag;
+    paramList := ParseParamString(paramString, true,  EndOfLine);
+    
+    par_IsStartRunner := VarToBool( GetParam(paramList,
+      'IsStartRunner',
+      'true'));
+       
+    // синхронизация перед установкой тестового стенда
+    StarterSynchroPoints(SSPOP_INIT, sspContext, paramList);      
+    StarterSynchroPoints(SSPOP_WAIT_ON_BEGIN_SP, sspContext);
+
+    try      
+      InstallTestStand(paramString);
+    finally // это чтобы другие машины не ждали, если упадем в функции установки стенда      
+      // синхронизация после установки стенда
+      // попробуем без нее, а то порой бесполезно ждет
+      //StarterSynchroPoints(SSPOP_WAIT_ON_END_SP, sspContext);
+    end;  
+
+    if par_IsStartRunner then 
+      NSWrapperStartRunner;
+
+    Log.Message('Установка стенда прошла успешно!', '',  pmNormal, GetLogAttr('GREEN'));
+  except                                         
+    Log.Error('NSWrapperInstallStand: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Log.Message('Возник сбой во время установки стенда, причину см. выше по логу!', '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;
+  Log.Message('NSWrapperInstallStand.End');
+  Log.Message('Завершили работу InstallStandAndRun.');
+end;
+
+{
+  TYPE:
+  DESC: Говорит установлен ли Excel
+  RESULT:
+  REMARK:
+}
+function IsExcelInstalled : boolean;
+var
+  p;
+begin
+  Result := false;
+  try
+    if Permissions('get', 'use msoffice') = false then
+    begin
+      Result := false;
+      Log.Message('IsCanChangeDatabase: Запрещено использовать MSOffice!');
+      Exit;
+    end;
+
+    p := Sys.OleObject('Excel.Application');
+    Result := true;
+  except
+    Result := false;
+    Log.Error('IsExcelInstalled: Excel не найден!' , 'ExceptionMessage: ' + ExceptionMessage ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;    
+end;
+
+{
+  TYPE:
+  DESC: Говорит установлен ли Word
+  RESULT:
+  REMARK:
+}
+function IsWordInstalled : boolean;
+var
+  p;
+begin
+  Result := false;
+  try
+    if Permissions('get', 'use msoffice') = false then
+    begin
+      Result := false;
+      Log.Message('IsCanChangeDatabase: Запрещено использовать MSOffice!');
+      Exit;
+    end;
+    
+    p := Sys.OleObject('Word.Application');
+    Result := IsSupported(p, 'Documents');
+    if not Result then Raise ('Word не установлен!');
+    p.Quit(false);
+  except
+    Result := false;
+    Log.Message('IsWordInstalled: Word не найден!' , 'ExceptionMessage: ' + ExceptionMessage ,  pmNormal, GetLogAttr('EXCEPTION'));
+    CommonExceptionHandler;
+  end;    
+end;
+
+procedure __PRIME__; begin end;
+
+{
+  TYPE: Общие
+  DESC: Возвращает процесс оболочки
+  RESULT:
+  REMARK: В случае неудачи выбрасывает исключение EX_CANNOT_FIND_F1PRIME_PROCESS
+}
+function GetF1PrimeProcess(
+  const timeOut : integer = -1; // таймаут
+  const searchesCount : integer = 2; // столько раз ищем процесс
+  const isRaiseException : boolean = true
+) : OleVariant;
+  const
+    FUNCTION_NAME = 'GetF1PrimeProcess';
+  var 
+    i, timeElapsed, timeToWait, startTime : integer;  
+    cacheKey : OleVariant;
+begin
+  try
+    cacheKey := FUNCTION_NAME + 'F1PrimeProcess';
+    if NOT Cache_Check(nil, cacheKey, Result) then
+    begin
+      if timeOut = -1 then timeOut := Options.Run.Timeout; 
+      if searchesCount < 1 then searchesCount := 1;
+      Result := NonExObj;
+      
+      for i := 1 to searchesCount do
+      begin
+        timeToWait := timeOut div searchesCount;
+        timeElapsed := Win32API.GetTickCount;
+        Sys.Refresh;
+        Result := Sys.WaitProcess(PRIME_PROCESS_NAME, timeToWait);
+
+        timeElapsed := Win32API.GetTickCount - timeElapsed;
+        timeToWait := timeToWait - timeElapsed;
+        
+        if IsValidProcess(Result) then break;
+        
+        if timeToWait > 0 then
+        begin
+          startTime := Win32API.GetTickCount;
+          while ( timeToWait > Win32API.GetTickCount - startTime ) AND (NOT IsValidProcess(Result)) do
+            Delay(300);
+        end;
+      end;
+      
+      if NOT IsValidProcess(Result) then
+        Result := NonExObj
+      else      
+        Result := Cache_Put(nil, cacheKey, Result);
+    end;
+       
+    if NOT IsValidProcess(Result) then
+      if isRaiseException then 
+        Raise(EX_CANNOT_FIND_F1PRIME_PROCESS)
+      else
+        Result := NonExObj;          
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Запуск
+  DESC: Процедура для запуска оболочки Ф1
+  RESULT:
+  REMARK: Можно указать путь к каталогу, где лежит garant.exe
+}
+function StartF1Prime(
+  path : String = ''; // путь к каталогу, где лежит f1prime.exe
+  isWaitMainWindow : boolean = true // помимо существования процесса, ждем главное окно 
+) : Boolean;
+  var 
+    pathToPrime : String;
+begin
+  try
+    Result := false;
+    if path = '' then path := GetF1Directory('client');
+    path := Utilities.IncludeTrailingBackslash(path);
+    // проверяем, а доступен ли прайм
+    pathToPrime := path + '/apps/f1prime.exe';
+    if NOT Utilities.FileExists(pathToPrime) then
+    begin
+      Log.Error('Файл "' + pathToPrime + '" не найден!');
+      Exit;
+    end;
+    // запускаем
+    Win32API.WinExec('"' + pathToPrime + '" default /MakeAsTC6Client /DisableDebugAgent', Win32API.SW_SHOWMAXIMIZED);
+    try
+      Result := IsExists(GetF1PrimeProcess(Options.Run.Timeout * 3, 5)) 
+                and (not isWaitMainWindow or IsExists(F1Prime_GetMainWindow));
+    except
+      Result := false;
+      CommonExceptionHandler;
+    end;    
+  except
+    Log.Message('StartF1Prime: ' + ExceptionMessage, 'path: "' + path + '"',  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;
+end;
+
+{
+  TYPE: Запуск
+  DESC: Попытка корректно закрыть все окна приложения,
+  RESULT:
+  REMARK:
+    Попытка корректно закрыть все окна приложения, если не получается - terminate process
+}
+procedure CloseF1Prime(
+  countOfAttempt: Integer = 3;    // столько раз пытаемся закрыть
+  endProcessDelay: Integer  = -1  // столько ждем закрытия процесса
+);
+var
+  p, w, w1, counter, i;
+begin
+  try    
+    p := GetF1PrimeProcess(2000, 2, false); //Ищем наш процесс
+    if NOT IsExists(p) then // у нас может случится глюк, что процесс будет существовать, но не будет open, поэтому пробуем его получить как обычный процесс
+      p := Sys.WaitProcess(PRIME_PROCESS_NAME, 0);        
+
+    if endProcessDelay = -1 then endProcessDelay := Options.Run.Timeout div 3;
+                   
+    if IsExists(p) then
+    begin
+      if countOfAttempt > 0 then
+      begin
+        if countOfAttempt < 3 then
+        begin
+          // качественно убиваем прайм
+          for i := 1 to 10 do
+            if IsExists(p) then
+            begin
+              Delay(Options.Run.Delay div 30);
+              p.Terminate;
+            end
+            else
+              break;  
+        end 
+        else        
+        try
+         	w1 := F1Prime_GetMainWindow; 
+        	if IsExists(w1) then
+          begin
+            w1.SetFocus;
+            w1.Keys('~[F4]');
+            DoScreenShot('CloseF1Prime. Хотим закрыть оболочку.');  
+          end
+          else
+            p.Close;
+            
+          if IsExists(p) then
+            WaitForConfirmationWindow(Options.Run.Timeout div 10, '#Выйти*');
+          
+          if IsExists(p) then
+          begin
+            Delay(Options.Run.Delay div 10);
+            WaitForConfirmationWindow(2000, 'Нет', '*Сохранить*');
+          end;        
+        except
+           Log.Warning('После закрытия Прайма процесс существовал и причём не валидный!');
+        end;
+        countOfAttempt := countOfAttempt - 1;
+        Delay(endProcessDelay);
+        CloseF1Prime (countOfAttempt, endProcessDelay);
+      end
+      else
+      begin
+        DoScreenShot('CloseF1Prime. Не смогли закрыть, поднимаем Exception.');
+        Raise('Не получилось закрыть F1Prime');
+      end;
+      
+      p := Sys.WaitProcess('dwwin', Options.Run.Timeout div 10);
+      if IsExists(p) then
+      begin
+        counter := 1;
+        w := p.WaitWindow('#32770', '*F1Prime*', -1,  Options.Run.Timeout div 6);
+        while IsExists(w) AND (counter < 30) do
+        begin
+          Log.Picture(w, 'При закрытии Prime произошла ошибка!', '',  pmNormal, GetLogAttr('EXCEPTION'));
+          w.Close;
+          w := p.WaitWindow('#32770', '*F1Prime*', -1, Options.Run.Timeout div 6);
+          counter := counter + 1;
+        end;
+        p.Terminate;
+      end;
+      
+    end;
+  except
+    Log.Message('CloseF1Prime: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    if (ExceptionMessage <> EX_CANNOT_FIND_F1PRIME_PROCESS) then Raise;
+    CommonExceptionHandler;
+  end;
+end;
+
+{
+  TYPE: Запуск
+  DESC: Попытка корректно закрыть все окна приложения,
+  RESULT:
+  REMARK:
+    Попытка корректно закрыть все окна приложения, если не получается - terminate process
+}
+procedure CloseF1Admin(
+  countOfAttempt: Integer = 3;    // столько раз пытаемся закрыть
+  endProcessDelay: Integer = -1  // столько ждем закрытия процесса
+);
+var
+  p, w, w1, counter, i;
+begin
+  try
+    ScriptAction('SET ACTION', SA_CLOSE_F1ADMIN);
+  
+    p := GetF1AdminProcess(2000, 2, false); //Ищем наш процесс
+    if NOT IsExists(p) then // у нас может случится глюк, что процесс будет существовать, но не будет open, поэтому пробуем его получить как обычный процесс
+      p := Sys.WaitProcess(ADMIN_PROCESS_NAME, 0);        
+             
+    if endProcessDelay = -1 then endProcessDelay := Options.Run.Timeout div 3;
+    
+    if IsExists(p) then
+    begin
+      if countOfAttempt > 0 then
+      begin
+        if countOfAttempt < 3 then
+        begin
+          // качественно убиваем прайм
+          for i := 1 to 10 do
+            if IsExists(p) then
+            begin
+              Delay(Options.Run.Delay div 30);
+              p.Terminate;
+            end
+            else
+              break;  
+        end 
+        else        
+        try
+         	w1 := F1Admin_GetMainWindow; 
+        	if IsExists(w1) then
+          begin
+            w1.SetFocus;
+            w1.Keys('~[F4]');
+            DoScreenShot('CloseF1Admin. Хотим закрыть админа.');  
+          end
+          else
+            p.Close;
+            
+          if IsExists(p) then            
+            WaitForConfirmationWindow(Options.Run.Timeout div 10, '#Выйти*');
+          if IsExists(p) then
+          begin
+            Delay(Options.Run.Delay div 10);
+            WaitForConfirmationWindow(Options.Run.Timeout div 10, 'Нет', '*буфер*обмена*большой*');            
+          end;        
+        except
+           Log.Warning('После закрытия Админа процесс существовал и причём не валидный!');
+        end;
+        countOfAttempt := countOfAttempt - 1;
+        Delay(endProcessDelay);
+        CloseF1Admin (countOfAttempt, endProcessDelay);
+      end
+      else
+      begin
+        DoScreenShot('CloseF1Admin. Не смогли закрыть, поднимаем Exception.');
+        Raise('Не получилось закрыть F1Admin');
+      end;
+      
+      p := Sys.WaitProcess('dwwin', Options.Run.Timeout div 10);
+      if IsExists(p) then
+      begin
+        counter := 1;
+        w := p.WaitWindow('#32770', '*F1Admin*', -1,  Options.Run.Timeout div 6);
+        while IsExists(w) AND (counter < 30) do
+        begin
+          Log.Picture(w, 'При закрытии Admin произошла ошибка!', '',  pmNormal, GetLogAttr('EXCEPTION'));
+          w.Close;
+          w := p.WaitWindow('#32770', '*F1Admin*', -1, Options.Run.Timeout div 6);
+          counter := counter + 1;
+        end;
+        p.Terminate;
+      end;
+      
+    end;
+  except
+    Log.Message('CloseF1Admin: ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+    if (ExceptionMessage <> EX_CANNOT_FIND_F1PRIME_PROCESS) then Raise;
+    CommonExceptionHandler;
+  end;
+end;
+
+var gbl_ActiveProcess : OleVariant;
+{
+  TYPE:
+  DESC: 
+  RESULT:
+  REMARK:
+}
+function GetActiveProcess(
+  const timeOut : integer = -1; // таймаут
+  const searchesCount : integer = 2; // столько раз ищем процесс
+  const isRaiseException : boolean = true
+) : OleVariant;
+  const
+    FUNCTION_NAME = 'GetActiveProcess';
+  var
+    cacheKey, primeProc, adminProc : OleVariant;
+    isExPrime, isExAdmin : boolean;
+begin
+  try
+    Result := NonExObj;
+    
+    cacheKey := FUNCTION_NAME + 'ActiveProcess';
+    if NOT Cache_Check(nil, cacheKey, Result) then
+    begin           
+      if IsValidProcess(Sys.WaitProcess(SHELL_PROCESS_NAME, 0)) then
+        Result := GetF1ShellProcess(timeOut, searchesCount, isRaiseException)
+      else
+      if IsValidProcess(Sys.WaitProcess(PRIME_PROCESS_NAME, 0)) then
+        Result := GetF1PrimeProcess(timeOut, searchesCount, isRaiseException)
+      else        
+      if IsValidProcess(Sys.WaitProcess(ADMIN_PROCESS_NAME, 0)) then 
+        Result := GetF1AdminProcess(timeOut, searchesCount, isRaiseException);  
+
+      if IsValidProcess(Result) then
+        Result := Cache_Put(nil, cacheKey, Result);                    
+    end;    
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '' ,  pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;               
+end;
+
+{
+  TYPE: Логин
+  DESC: Глобальная функция для работы с логином 
+  RESULT:
+  REMARK: 
+    isAutoLogin: 0 - ничего не делаем, 1 - выставляем галку, 2 - снимаем галку автологина
+    isCloseAdvaiceOfDay: закрывать ли окно "Совет дня"
+    isClosePrimeInfo: закрывать ли диалог настройки "Прайма" 
+    isCloseErrorMessages: закрывать ли сообщения об ошибке, напр. если пользователь работает уже в системе
+}
+function DoLoginOperation(
+  var login;
+  var pass;
+  operation : string = OPER_LOGIN_ANYHOW;  
+  paramString : string = '' 
+) : integer;
+const
+  FUNCTION_NAME = 'DoLoginOperation'; 
+var  
+  paramList;  
+  isLoginAnyHow, isAutoLogin, isCloseErrorMessages, isCloseAdvaiceOfDay, isClosePrimeInfo;
+  userNameField, userPassField, okBtn, newUserLable, cbAutoLogin;
+  controlName, countAdd, timeOut;
+  res, p, w,  i;
+begin
+try
+  ScriptAction('SET ACTION', SA_LOGIN_INTO_SHELL);
+  paramList := ParseParamString(paramString);
+
+  isLoginAnyHow := VarToBool( GetParam(ParamList, 'isLoginAnyHow', false) );
+  isClosePrimeInfo := VarToBool( GetParam(ParamList, 'isClosePrimeInfo', true) );
+  isCloseAdvaiceOfDay := VarToBool( GetParam(ParamList, 'isCloseAdvaiceOfDay', true) );
+  isCloseErrorMessages :=  VarToBool( GetParam(ParamList, 'isCloseErrorMessages', true) );
+  isAutoLogin := GetParam(ParamList, 'isAutoLogin', 0);
+
+  case operation of
+    //Для работы с диалоговыми окнами после запуска оболочки 
+    OPER_WELCOME_INFO:
+    begin
+      if isClosePrimeInfo then
+      begin
+        Log.Message('OPER_WELCOME_INFO: Пытаемся закрыть форму "СОВЕТ ДНЯ"');
+        res := IDLO_ERROR;
+        
+        p := GetF1ShellProcess(Options.Run.Timeout * 3, 4);
+        w := p.WaitWindow('TefStartupTips', 'Совет дня',  -1, Options.Run.Timeout div 10);
+        if IsExists(w) then 
+          w.Close;
+
+        res := IDLO_NOERROR;
+      end;
+
+      if isCloseAdvaiceOfDay then
+      begin
+        Log.Message('OPER_WELCOME_INFO: Пытаемся закрыть диалог настройки "Прайма"');
+        res := IDLO_ERROR;
+        WaitForAnyMessageWindow('', Options.Run.Timeout div 10, 'Уважаемый пользователь!*Прайм*', '#Начать*');
+        res := IDLO_NOERROR;
+      end;
+
+      //http://mdp.garant.ru/pages/viewpage.action?pageId=554580371&focusedCommentId=561020776#comment-561020776
+      if VarToBool(gbl_F1ShellTabsEnabled) then
+      begin
+        w := GetMainContainer;
+        if IsExists(w) then
+        begin
+          w.Maximize;
+            
+          //http://mdp.garant.ru/pages/viewpage.action?pageId=556147293&focusedCommentId=564264806#comment-564264806
+          //w.Restore;
+          //w.Maximize;
+
+          SetSettingsForF1ShellTabs;
+        end;
+      end;
+    end;
+    OPER_LOGIN_ANYHOW:
+    begin
+      countAdd := 1;
+      repeat           
+        if DoLoginOperation(login, pass, OPER_LOGIN_EXISTING_USER, paramString) = IDLO_NOERROR then
+        begin  
+          res := IDLO_NOERROR;
+          Log.Message('LOGIN_ANYHOW: Успешно залогинились существующим юзером : ' + login);
+        end  
+        else
+        begin
+          Log.Picture(Sys.Desktop.Picture, 'LOGIN_ANYHOW: Существующим юзером войти не удалось, пытаемся залогинится новым: ' + login);           
+          res := DoLoginOperation(login, pass, OPER_LOGIN_NEW_USER, 'isLoginAnyHow:=true;' + paramString);
+        end;  
+        if res = IDLO_USER_ALREADY_EXISTS then
+        begin            
+          Log.Picture(Sys.Desktop.Picture, 'LOGIN_ANYHOW: Существующим юзером войти не удалось, пытаемся залогинится новым: ' + login);
+          inc(countAdd);
+          login := login + IntToStr(countAdd);
+          pass := pass + IntToStr(countAdd);
+        end;    
+      until (res = IDLO_NOERROR) or (res = IDLO_ERROR);       
+    end;
+    OPER_LOGIN_EXISTING_USER:
+    begin
+      res := IDLO_NOERROR;
+      p := GetF1ShellProcess(Options.Run.Timeout * 3, 4);
+      try 
+        w := GetFromLoginForm('ФОРМА ЛОГИНА', 'SEARCHESCOUNT:=5;TIMEOUT:=' + IntToStr(Options.Run.Timeout * 3));
+      except
+        w := GetFromLoginForm('ФОРМА РЕГИСТРАЦИИ', 'SEARCHESCOUNT:=1;TIMEOUT:=1');
+        if IsExists(w) then
+        begin
+          w.Click(w.Width - 12, 12);
+          w := GetFromLoginForm('ФОРМА ЛОГИНА', 'SEARCHESCOUNT:=5;TIMEOUT:=' + IntToStr(Options.Run.Timeout*2));
+        end;
+      end;//except
+      if NOT IsExists(w) then Raise('Формы логина не найдено!');
+      
+      w.Activate;      
+      userNameField := GetFromLoginForm('ПОЛЕ "РЕГИСТРАЦИОННОЕ ИМЯ"');      
+      userPassField := GetFromLoginForm('ПОЛЕ "ПАРОЛЬ"');      
+      okBtn := GetFromLoginForm('КНОПКА "ОК"');
+
+      //Заполняем поле "Регистрационное имя"
+      //userNameField.SetFocus;
+      userNameField.Click;
+      if NOT userNameField.Focused then Raise('Не удалось на форме логина сфокусироваться на ПОЛЕ "РЕГИСТРАЦИОННОЕ ИМЯ"'); 
+      Sys.Keys('[End]' + keyPause + '![Home]' + keyPause + '[Del]');
+      Sys.Keys(login);
+      if NOT StringCompare(common.GetWindowText(userNameField), login) then
+      //В поле вписалось не то, что нам надо, ещё раз вбиваем имя
+      begin
+        Sys.Keys('[End]' + keyPause + '![Home]' + keyPause + '[Del]');
+        PressKeyWithCheck(String2Array(login, ''), userNameField );
+        if NOT StringCompare(common.GetWindowText(userNameField), login) then
+        begin
+          Log.Picture(w, 'В результате 2-ой попытки заполнить поле логин - его значение не эталонно!');
+          Raise('В результате 2-ой попытки заполнить поле логин - его значение не эталонно!');
+        end;   
+      end;
+      //Заполняем поле "Пароль"
+      userPassField.SetFocus;
+      if NOT userPassField.Focused then Raise('Не удалось на форме логина сфокусироваться на ПОЛЕ "ПАРОЛЬ"');
+      Sys.Keys('[End]' + keyPause + '![Home]' + keyPause + '[Del]');
+      Sys.Keys(pass);
+      if (pass <> '') AND (common.GetWindowText(userPassField) = '') then
+      //После ввода пароля(ели он не пустой) значения поля - пустое значение, ещё раз вбиваем пароль 
+      begin
+        Sys.Keys('[End]' + keyPause + '![Home]' + keyPause + '[Del]');
+        PressKeyWithCheck(String2Array(login, ''), userNameField );        
+        if ( common.GetWindowText(userPassField)= '') then
+        begin
+          Log.Picture(w, 'В результате 2-ой попытки заполнить поле пароль - его значение пустое!');
+          Raise('В результате 2-ой попытки заполнить поле пароль - его значение пустое!');
+        end; 
+      end;
+      
+      //Ругаемся, если кнопка "Войти в систему" оказалась задизейбленной
+      if NOT okBtn.Enabled then
+      begin
+        Log.Picture(w, 'после ввода логина\пароля кнопка "Войти в систему" НЕ активна! Такого быть не должно.');
+        Raise('после ввода логина\пароля кнопка "Войти в систему" НЕ активна! Такого быть не должно.');
+      end;
+      //Запоминаем пароль, если нужно
+      if isAutoLogin <> 0 then
+      begin
+        cbAutoLogin := GetFromLoginForm('ЧЕКБОКС "ЗАПОМНИТЬ ПАРОЛЬ"');
+        if not IsExists(cbAutoLogin) then
+          Raise('Не найден ЧЕКБОКС "ЗАПОМНИТЬ ПАРОЛЬ"');
+        if (isAutoLogin = 1) and (cbAutoLogin.wState <> cbChecked)
+           or
+           (isAutoLogin = 2) and (cbAutoLogin.wState <> cbUnchecked)
+        then
+          cbAutoLogin.Click;
+      end;
+      //Кликаем "Войти в систему" 
+      okBtn.Click;
+      DoScreenShot('LoginExistingUser. Ввели логин, пароль и нажали ОК.');
+
+      //Проверяем, что не вылезло окно с ошибкой
+      w := p.WaitWindow('TMessageForm', 'Ошибка', -1, Options.Run.Timeout div 15);
+      if IsExists(w) then
+      begin
+        res := IDLO_ERROR;
+        Log.Picture(w, 'Вылезла ошибка при ' + operation);
+        
+        if isCloseErrorMessages then
+        begin
+          w := GetFromShell('КНОПКА "ОК" ФОРМЫ СООБЩЕНИЯ');
+          ClickOnVgSceneObject(w, 'IsClickBySendMsg:=true');
+          //Даем окну время закрыться
+          Delay(1000);
+        end;
+      end
+      else
+      begin   
+        if login = 'ADMIN' then
+        begin
+          w := p.WaitWindow('TMessageForm', 'Подтверждение',  -1, Options.Run.Timeout div 15);
+          if ( IsExists(w) AND StringCompare('Пользователь*ADMIN*может использоваться только для специальных целей*',
+                                 FindWindowByPath(w, 'NAME:=Message;VCLCLASS:=TvtLabel').Buffer) ) then
+          begin
+            w := GetFromShell('КНОПКА "ОК" ФОРМЫ СООБЩЕНИЯ');
+            ClickOnVgSceneObject(w, 'IsClickBySendMsg:=true');
+            //Даем окну время закрыться
+            Delay(1000);
+          end
+          else
+            Log.Error('После логина в оболочку Админом, не обнаружено диалог предупреждения с эталонным текстом');  
+        end;
+        //Временно передаём большой таймаут, иногда Flash сплеш очень долго грузится  
+        w := GetMainWindow('timeout:=' + IntToStr(20*60*1000) + ';searchesCount:=10');
+        if NOT IsExists(w) then Log.Picture(Sys.Desktop.Picture, 'OPER_LOGIN_EXISTING_USER: После логина главное окно так и не загрузилось!!!');
+        //Закрываем диалоговые окна после запуска оболочки, закрываем "Совет дня"
+        //login и pass передаём для совместимости, так как они объявлены как VAR, собственно в ф-ции они не нужны        
+        DoLoginOperation(login, pass, OPER_WELCOME_INFO);                    
+        if ( IsExists(w) AND (NOT w.Visible) ) then
+        //Если главная форма существует и невидима, хлопаем все информационные окна
+        begin
+          timeOut := Win32API.GetTickCount + Options.Run.Timeout; 
+          while ( Win32API.GetTickCount < timeOut) do 
+          begin     
+            WaitForInfoWindow(Options.Run.Timeout div 6);    
+            Delay(Options.Run.Timeout div 30);
+            if w.Visible then break;                    
+          end;
+          //Если было какое информационное окно, тогда Совет дня открывается после него
+          DoLoginOperation(login, pass, OPER_WELCOME_INFO);
+          w := GetMainWindow;//Почему то после дёрганья Visible свойство окна Exists=false, поэтому переполучаем окно
+        end;
+      end;
+
+      if (res = IDLO_NOERROR) AND IsExists(w) AND w.Visible then
+        res := IDLO_NOERROR
+      else
+        res := IDLO_ERROR;
+    end;   
+    OPER_LOGIN_NEW_USER:
+    begin
+      countAdd := 0;
+      res := IDLO_ERROR;
+      repeat
+        p := GetF1ShellProcess(Options.Run.Timeout*3, 4);
+        try 
+          w := GetFromLoginForm('ФОРМА ЛОГИНА', 'SEARCHESCOUNT:=5;TIMEOUT:=' + IntToStr(Options.Run.Timeout * 3));
+        except
+          w := GetFromLoginForm('ФОРМА РЕГИСТРАЦИИ', 'SEARCHESCOUNT:=1;TIMEOUT:=1');
+          if IsExists(w) then
+          begin
+            w.Click(w.Width - 12, 12);
+            w := GetFromLoginForm('ФОРМА ЛОГИНА', 'SEARCHESCOUNT:=5;TIMEOUT:=' + IntToStr(Options.Run.Timeout*2));
+          end;
+        end;//except
+        if NOT IsExists(w) then Raise('Формы логина не найдено!');
+        
+        w.Activate;      
+        newUserLable := GetFromLoginForm('НАДПИСЬ-ССЫЛКА "НОВЫЙ ПОЛЬЗОВАТЕЛЬ"');
+        newUserLable.Click;
+        w := GetFromLoginForm('ФОРМА РЕГИСТРАЦИИ');
+        w.Activate;
+        //Заполняем регистрационные данные
+        controlName := GetFromLoginForm('ПОЛЕ "НОВОЕ РЕГИСТРАЦИОННОЕ ИМЯ"');        
+        controlName.SetFocus;
+        Sys.Keys('[End]' + keyPause + '![Home]' + keyPause + '[Del]' + keyPause + login);
+        
+        controlName := GetFromLoginForm('ПОЛЕ "НОВЫЙ ПАРОЛЬ"');        
+        controlName.SetFocus;
+        Sys.Keys('[End]' + keyPause + '![Home]' + keyPause + '[Del]' + keyPause + pass);
+        
+        controlName := GetFromLoginForm('ПОЛЕ "ПОДТВЕРЖДЕНИЕ ПАРОЛЯ"');        
+        controlName.SetFocus;
+        Sys.Keys('[End]' + keyPause + '![Home]' + keyPause + '[Del]' + keyPause + pass);
+        
+        controlName := GetFromLoginForm('ПОЛЕ "ФИО ПОЛЬЗОВАТЕЛЯ"');        
+        controlName.SetFocus;
+        Sys.Keys('[End]' + keyPause + '![Home]' + keyPause + '[Del]' + keyPause + login);
+
+        //Запоминаем пароль, если нужно
+        if isAutoLogin <> 0 then
+        begin
+          cbAutoLogin := GetFromLoginForm('ЧЕКБОКС "ЗАПОМНИТЬ ПАРОЛЬ" ФОРМЫ РЕГИСТРАЦИИ');
+          if not IsExists(cbAutoLogin) then
+            Raise('Не найден ЧЕКБОКС "ЗАПОМНИТЬ ПАРОЛЬ" ФОРМЫ РЕГИСТРАЦИИ');
+          if (isAutoLogin = 1) and (cbAutoLogin.wState <> cbChecked)
+             or
+             (isAutoLogin = 2) and (cbAutoLogin.wState <> cbUnchecked)
+          then
+            cbAutoLogin.Click;
+        end;
+
+        //Нажимаем "Зарегистрироваться"                
+        controlName := GetFromLoginForm('КНОПКА "ЗАРЕГИСТРИРОВАТЬСЯ"');
+        controlName.Click;
+  
+        // подтверждаем, но что? выключим, т.к. пустой пароль проверяется ниже 
+        //w := p.WaitWindow('TMessageForm', 'Подтверждение', -1);
+        //if IsExists(w) then
+        //begin
+        //  w := GetFromShell('КНОПКА "ОК" ФОРМЫ СООБЩЕНИЯ');
+        //  ClickOnVgSceneObject(w, 'IsClickBySendMsg:=true');
+        //end;
+
+        // подтверждаем пустой пароль
+        if pass = '' then
+          WaitForConfirmationWindow(Options.Run.Timeout div 4, 'Да');
+
+        w := p.WaitWindow('TMessageForm', 'Предупреждение', -1, 3000);
+        if IsExists(w) then
+        begin
+          DoScreenShot('Появилось предупреждение.');
+          w.VCLObject('Choices0').Click;
+          w := GetFromLoginForm('ФОРМА РЕГИСТРАЦИИ');
+          w.Close; 
+          res := IDLO_USER_ALREADY_EXISTS;
+          if isLoginAnyHow then Raise('Не удалось зарегистрировать нового пользователя, так как пользователь с данным именем уже существует!');
+          countAdd := countAdd + 1;
+          login := login + IntToStr(countAdd);
+          pass := pass + IntToStr(countAdd);
+        end
+        else
+          res := IDLO_NOERROR;
+      until (res = IDLO_NOERROR) or (res = IDLO_ERROR);       
+      w := GetMainWindow;
+      //Закрываем диалоговые окна после запуска оболочки
+      //login и pass передаём для совместимости, так как они объявлены как VAR, собственно в ф-ции они не нужны
+      DoLoginOperation(login, pass, OPER_WELCOME_INFO);
+      
+      if (res = IDLO_NOERROR) AND IsExists(w) AND w.Visible then
+        res := IDLO_NOERROR
+      else
+        res := IDLO_ERROR;
+    end;
+    else
+        Raise('Параметр operation=' + operation + 'не распознан!!');
+  end;//case "operation" 
+  
+  result := res;
+except
+  Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  result := res;
+  if result <> IDLO_USER_ALREADY_EXISTS then
+    result := IDLO_ERROR;
+
+  CommonExceptionHandler;
+end;
+end;
+
+
+{
+DESK: Глобальная функция для работы с логином
+}
+function LoginAdminUser(
+  login : string = 'ADMIN';
+  pass : string = 'ADMIN';
+  paramString : string = '' 
+) : integer;
+const
+  FUNCTION_NAME = 'LoginAdminUser'; 
+var  
+  paramList;
+  res;
+  p, w;
+  i;
+  userNameField, userPassField, okBtn, newUserLable;
+  controlName;
+  countAdd;
+  timeOut;
+begin
+try
+  ScriptAction('SET ACTION', SA_LOGIN_INTO_SHELL);
+  paramList := ParseParamString(paramString);    
+  p := GetF1AdminProcess; 
+  w := GetFromAdminLoginForm('ФОРМА ЛОГИНА', 'SEARCHESCOUNT:=5;TIMEOUT:=' + IntToStr(Options.Run.Timeout * 3));
+  if NOT IsExists(w) then Raise('Не удалось обнаружить "ФОРМА ЛОГИНА"');     
+  w.Activate;
+  userPassField := GetFromAdminLoginForm('ПОЛЕ "ПАРОЛЬ"');
+  if NOT IsExists(userPassField) then Raise('Не удалось получить ПОЛЕ "ПАРОЛЬ"');      
+  okBtn := GetFromAdminLoginForm('КНОПКА "ОК"');
+  if NOT IsExists(okBtn) then Raise('Не удалось получить КНОПКА "ОК"');
+  
+  //Заполняем поле "Пароль"
+  userPassField.SetFocus;
+  if NOT userPassField.Focused then Raise('Не удалось на форме логина сфокусироваться на ПОЛЕ "ПАРОЛЬ"');
+  Sys.Keys('[End]' + keyPause + '![Home]' + keyPause + '[Del]');
+  Sys.Keys(pass);
+  if (pass <> '') AND (common.GetWindowText(userPassField) = '') then
+  //После ввода пароля(ели он не пустой) значения поля - пустое значение, ещё раз вбиваем пароль 
+  begin
+    Sys.Keys('[End]' + keyPause + '![Home]' + keyPause + '[Del]');
+    PressKeyWithCheck(String2Array(login, ''), userNameField );        
+    if ( common.GetWindowText(userPassField)= '') then
+    begin
+      Log.Picture(w, 'В результате 2-ой попытки заполнить поле пароль - его значение пустое!');
+      Raise('В результате 2-ой попытки заполнить поле пароль - его значение пустое!');
+    end; 
+  end;
+  //Ругаемся, если кнопка "Войти в систему" оказалась задизейбленной
+  if NOT okBtn.Enabled then
+  begin
+    Log.Picture(w, 'после ввода логина\пароля кнопка "Войти в систему" НЕ активна! Такого быть не должно.');
+    Raise('после ввода логина\пароля кнопка "Войти в систему" НЕ активна! Такого быть не должно.');
+  end;
+  //Кликаем "Войти в систему" 
+  okBtn.Click;
+  DoScreenShot(FUNCTION_NAME + ': Ввели логин, пароль и нажали ОК.');
+  //Проверяем, что не вылезло окно с ошибкой
+  w := p.WaitWindow('TMessageForm', 'Ошибка', -1, Options.Run.Timeout div 15);
+  if IsExists(w) then
+  begin    
+    Log.Picture(w, 'Вылезла ошибка при ' + operation);
+    w := GetFromShell('КНОПКА "ОК" ФОРМЫ СООБЩЕНИЯ');
+    ClickOnVgSceneObject(w, 'IsClickBySendMsg:=true');
+    Raise('Вылезла ошибка!');        
+  end;
+  w := GetMainWindow('timeout:=' + IntToStr(Options.Run.Timeout * 2) + ';searchesCount:=10');
+  if NOT IsExists(w) then
+  begin 
+    Log.Picture(Sys.Desktop.Picture, 'OPER_LOGIN_EXISTING_USER: После логина главное окно так и не загрузилось!!!');
+    Raise('Не удалось получить главное окно Интерфейса Администратора');
+  end;
+  result := true;
+except
+  Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '',  pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;
+end;
+end;
+
+{
+ Функция говорит, жива ли оболочка
+}
+function IsF1Lived(
+  waiteTime : integer = 3000 //время, втечении которого посылаем сообщение оболочке и для проверки её "Живости"
+): boolean;
+var
+  wnd;
+  objAsync;
+  startTime;  
+begin
+  result := false;
+  wnd := GetMainWindow;
+  if IsExists(wnd) then
+  begin  
+    objAsync := Runner.CallObjectMethodAsync(Win32API, 'SendMessage', wnd.Handle, 1025, 0, 0);
+    startTime := win32Api.GetTickCount;
+    while ( win32Api.GetTickCount < (startTime + waiteTime) ) do
+    begin
+      if objAsync.Completed then
+      begin
+        result := true;
+        break;
+      end;
+      Delay(300);
+    end;//while
+  end;
+  
+  if NOT result then Log.Warning('Оболочка в "подвешеном" состоянии!');
+end;
+
+{
+DESK: Возвращается путь к настройкам пользователя в десктопнорй версии
+REMARK:   
+}
+function GetPathToDesktopSettings : string;
+begin
+  result := 
+    WSHShell.ExpandEnvironmentStrings('%HOMEDRIVE%')+ 
+    WSHShell.ExpandEnvironmentStrings('%HOMEPATH%') +
+    '\Application Data\Garant-Local';     
+end;

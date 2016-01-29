@@ -1,0 +1,25 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+Dim ListArray(1 to 1) as String
+Sub FillArray
+    ListArray(1)="Методика учета экземпляров текущих версий электронного периодического справочника ""Система Гарант"" у пользователя (Саблина С.М.)"
+          
+end sub
+Sub Main
+    call FillArray
+    'CUR_STATE=ST_NONE_STANDART
+    Call NeedState (ST_PPR_6x)
+    call Select_Property(gl_Type,"Комментарии, разъяснения, схемы",1)
+    call Select_Property(gl_Info_Block,"Законодательство о строительстве",1)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    Window Click, "CurrentWindow","Coords=450,250"
+    InputKeys "{HOME}06031997"
+  ' Window SetContext, "Caption={ГАРАНТ*}", ""
+    InputKeys "^{ENTER}"
+    Window SetContext, "Caption={ГАРАН*}", ""
+    Dim ListCount%
+    SQAGetProperty "CurrentFocus","ItemCount",ListCount
+    call StrComp2Log(CSTR(ListCount),"1")
+    call CheckItemNames(ListArray,"{DOWN}",0,ListCount,1)
+    CUR_STATE=ST_NONE_STANDART
+End Sub

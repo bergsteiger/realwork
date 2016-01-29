@@ -1,0 +1,304 @@
+// CodeFlowWordsPack 4F21634F01C7 ScriptKeywordsPack Class
+
+FORWARD ME_4F21634F01C7
+
+INCLUDE '5512E4070106.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '4DB9BB43017B.pas.ms.script'
+
+FORWARD ME_05ABA7975E25
+
+: ME_D8A71E6A3BD0
+ CONST UID 'D8A71E6A3BD0'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_D8A71E6A3BD0 aCtx
+
+: ME_D8A71E6A3BD1
+ CONST UID 'D8A71E6A3BD1'
+ CONST Name 'aWord'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_D8A71E6A3BD1 aWord
+
+: ME_D8A71E6A3BD2
+ CONST UID 'D8A71E6A3BD2'
+ CONST Name 'aBeforeModal'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_D8A71E6A3BD2 aBeforeModal
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_D14B34278240
+ CONST UID 'D14B34278240'
+ CONST Name 'MODAL'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта MODAL' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_D8A71E6A3BD0 // aCtx
+ ME_D8A71E6A3BD1 // aWord
+ ME_D8A71E6A3BD2 // aBeforeModal
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_D14B34278240 MODAL
+
+: ME_180B238826B1
+ CONST UID '180B238826B1'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация MODAL' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_180B238826B1 Ini_Reg
+
+: ME_05ABA7975E25
+ CONST UID '05ABA7975E25'
+ CONST Name 'MODAL'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта MODAL'#13#10'*Пример:*'#13#10'{code}'#13#10' aBeforeModal MODAL aWord'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_5512E4070106 // TtfwWordWorkerEx
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_D14B34278240 // MODAL
+ ME_180B238826B1 // Ini_Reg
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_52E9282B0271 // RightParamsCount
+ ME_5512949D0048 // DoRun
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'MODAL'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_05ABA7975E25 MODAL
+
+FORWARD ME_44C318D8896A
+
+: ME_CC1E892D36BB
+ CONST UID 'CC1E892D36BB'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_CC1E892D36BB aCtx
+
+: ME_CC1E892D36BC
+ CONST UID 'CC1E892D36BC'
+ CONST Name 'aWord'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_CC1E892D36BC aWord
+
+: ME_A56425D1C72F
+ CONST UID 'A56425D1C72F'
+ CONST Name 'THREAD'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта THREAD' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_CC1E892D36BB // aCtx
+ ME_CC1E892D36BC // aWord
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_A56425D1C72F THREAD
+
+: ME_0B212FF0A16D
+ CONST UID '0B212FF0A16D'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация THREAD' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_0B212FF0A16D Ini_Reg
+
+: ME_44C318D8896A
+ CONST UID '44C318D8896A'
+ CONST Name 'THREAD'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта THREAD'#13#10'*Пример:*'#13#10'{code}'#13#10' THREAD aWord'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_5512E4070106 // TtfwWordWorkerEx
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_A56425D1C72F // THREAD
+ ME_0B212FF0A16D // Ini_Reg
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_52E9282B0271 // RightParamsCount
+ ME_5512949D0048 // DoRun
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'THREAD'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_44C318D8896A THREAD
+
+: ME_553F9F9B03E2
+ CONST UID '553F9F9B03E2'
+ CONST Name 'aBeforeModal'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_553F9F9B03E2 aBeforeModal
+
+: ME_553F9F73034D
+ CONST UID '553F9F73034D'
+ CONST Name 'MODAL'
+ CONST Class 'Operation'
+ CONST Stereotype 'globalwordworker'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_553F9F9B03E2 // aBeforeModal
+ ]
+ ; // Parameters
+ CONST "SupressNextImmediate" 'None'
+
+ @SELF
+; // ME_553F9F73034D MODAL
+
+: ME_553FAAB10161
+ CONST UID '553FAAB10161'
+ CONST Name 'THREAD'
+ CONST Class 'Operation'
+ CONST Stereotype 'globalwordworker'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST "SupressNextImmediate" 'None'
+
+ @SELF
+; // ME_553FAAB10161 THREAD
+
+: ME_9826E34AB1D9
+ CONST UID '9826E34AB1D9'
+ CONST Name 'Reg_TtfwContext'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_9826E34AB1D9 Reg_TtfwContext
+
+: ME_BABEA0D1AF95
+ CONST UID 'BABEA0D1AF95'
+ CONST Name 'Reg_TtfwWord'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwWord' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_BABEA0D1AF95 Reg_TtfwWord
+
+: ME_4F21634F01C7
+ CONST UID '4F21634F01C7'
+ CONST Name 'CodeFlowWordsPack'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeywordsPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_553F9F73034D // MODAL
+ ME_553FAAB10161 // THREAD
+ ME_9826E34AB1D9 // Reg_TtfwContext
+ ME_BABEA0D1AF95 // Reg_TtfwWord
+ ]
+ ; // Operations
+ : Children
+   [ ME_05ABA7975E25 // MODAL
+ ME_44C318D8896A // THREAD
+ ]
+ ; // Children
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" 'undefined'
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" 'undefined'
+
+ @SELF
+; // ME_4F21634F01C7 CodeFlowWordsPack

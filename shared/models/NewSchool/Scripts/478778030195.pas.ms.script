@@ -1,0 +1,76 @@
+// l3LocaleInfo 478778030195 UtilityPack Class
+
+FORWARD ME_478778030195
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_478778770380
+ CONST UID '478778770380'
+ CONST Name 'Tl3BaseLocaleInfo'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_46A44ACC0230 // Il3LocaleInfo
+ ]
+ ; // Implements
+ : Implemented
+   [ ME_46A44E1C003B // Id
+ ME_46A44E3A0002 // Language
+ ME_46A44E5C0340 // SubLanguage
+ ME_46A44E770154 // Name
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_478778770380 Tl3BaseLocaleInfo
+
+: ME_47877893008F
+ CONST UID '47877893008F'
+ CONST Name 'Tl3UnixLocaleInfo'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_478778770380 // Tl3BaseLocaleInfo
+ ]
+ ; // Inherits
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_47877893008F Tl3UnixLocaleInfo
+
+: ME_478778030195
+ CONST UID '478778030195'
+ CONST Name 'l3LocaleInfo'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Children
+   [ ME_478778770380 // Tl3BaseLocaleInfo
+ ME_47877893008F // Tl3UnixLocaleInfo
+ ]
+ ; // Children
+ CONST "author" 'Морозов М.А.'
+ CONST "finished" false
+ CONST "no hands" false
+ CONST "started" '27.06.2005 14.30'
+
+ @SELF
+; // ME_478778030195 l3LocaleInfo

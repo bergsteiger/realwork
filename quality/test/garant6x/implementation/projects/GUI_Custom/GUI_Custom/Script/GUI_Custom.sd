@@ -1,0 +1,1710 @@
+//////////////////////////////////////////////////////////////////////////////////
+//  Замеры производительности функциональности на клиенте в пределах одной сессии
+//////////////////////////////////////////////////////////////////////////////////
+uses MenuWork, States, common, commonEventHandlers, RunPrograms, FoldersWork, SettingsWork, DocumentWork, FileWork, ListWork, Clicks, HTMLWork;
+
+var gbl_DEFAULT_DELAY;      
+{
+  TYPE:
+  DESC: Функция доступа/изменения глобальной переменной EMAIL_SUBJ_PREFIX/
+    Эта строка добавляется в начало поля Subject при отсылке письма
+  RESULT:
+  REMARK:
+}
+function DEFAULT_DELAY(
+  whatToDo : String = 'get';
+  const value : integer = -1
+): OleVariant;
+  const
+    FUNCTION_NAME = 'DEFAULT_DELAY';
+    DEFAULT_VALUE = 300;
+begin
+  try
+    // Инициализируем по-умолчанию
+    if VarType(gbl_DEFAULT_DELAY) = varEmpty then gbl_DEFAULT_DELAY := DEFAULT_VALUE;
+  
+    whatToDo := AnsiUpperCase(whatToDo);
+    case whatToDo of
+      'GET': 
+        Result := gbl_DEFAULT_DELAY;
+      'SET': 
+        begin
+          if VarType(value) <> varInteger then Raise('Значение должно быть целым числом!');
+          gbl_DEFAULT_DELAY := value;
+        end;  
+    else
+      Raise('Значение WhatToDo не распознано!');  
+    end;  
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+var gbl_DEFAULT_TIMEOUT;      
+{
+  TYPE:
+  DESC: Функция доступа/изменения глобальной переменной EMAIL_SUBJ_PREFIX/
+    Эта строка добавляется в начало поля Subject при отсылке письма
+  RESULT:
+  REMARK:
+}
+function DEFAULT_TIMEOUT(
+  whatToDo : String = 'get';
+  const value : integer = -1
+): OleVariant;
+  const
+    FUNCTION_NAME = 'DEFAULT_TIMEOUT';
+    DEFAULT_VALUE = 30000;
+begin
+  try
+    // Инициализируем по-умолчанию
+    if VarType(gbl_DEFAULT_TIMEOUT) = varEmpty then gbl_DEFAULT_TIMEOUT := DEFAULT_VALUE;
+  
+    whatToDo := AnsiUpperCase(whatToDo);
+    case whatToDo of
+      'GET': 
+        Result := gbl_DEFAULT_TIMEOUT;
+      'SET': 
+        begin
+          if VarType(value) <> varInteger then Raise('Значение должно быть целым числом!');
+          gbl_DEFAULT_TIMEOUT := value;
+        end;  
+    else
+      Raise('Значение WhatToDo не распознано!');  
+    end;  
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;  
+
+procedure InitOptions;
+  var
+    pngSettings : OleVariant;
+begin
+  //блок настроек секции Run
+  Options.Run.Delay := DEFAULT_DELAY; //время между командами во  время выполнения скрипта
+  Log.Message('Options.Run.Delay = ' + VarToStr(Options.Run.Delay));
+  Options.Run.Timeout := DEFAULT_TIMEOUT; //время, которое ожидается появление окна
+  Log.Message('Options.Run.Timeout = ' + VarToStr(Options.Run.Timeout));
+  // установка формата картинок для лога
+  try
+    Log.Enabled := true;
+    Log.LockEvents(20);
+    pngSettings := Log.CreatePictureConfiguration('PNG');
+    pngSettings.CompressionLevel := 7;
+    Log.SetDefaultPictureConfiguration( pngSettings );
+    ShellWatchdog('START');
+  except
+    Log.Warning('Произошла ошибка при установке параметров лога.', ExceptionMessage);
+  end;
+end;  
+
+
+
+procedure ____CheckListCorrespondingToEtalon____;begin end;
+
+const
+  CLCTE_ORDER = 'Order';
+  CLCTE_POSITION = 'Position';
+  CLCTE_RELEVANCE = 'Relevance';
+  CLCTE_FREQUENCY = 'Frequency';
+  CLCTE_DOCNAME = 'DocumentName';
+  CLCTE_DOCNUMBER = 'Номер документа';  
+  
+  CLCTE_MAP_DOCPARAM = 1;
+  CLCTE_MAP_DOCSLIST = 2;
+  CLCTE_MAP_QUERIESLIST = 3;
+  CLCTE_MAP_DOCNAMESLIST = 4;
+  CLCTE_MAP_CHECKRESULT = 5;
+  
+  
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}                          
+function CLCTE__MapToText(
+  inMap : OleVariant;
+  mapType : OleVariant
+): String;
+  const
+    FUNCTION_NAME = 'CLCTE__MapToText';
+  var
+    relevance, order, position, frequency, docName; 
+    docNumbers, docNumber, docOrders, docOrder;
+    queries, query;
+    i;   
+begin
+  try
+    if (NOT IsMap(inMap)) then
+      if (mapType = CLCTE_MAP_DOCSLIST) AND (VarType(inMap) = varOleStr) then
+      begin // для списка документов допустимо когда передается строка, это означает что поиск не пройден и вернули текст ошибки
+        Result := inMap + EndOfLine;
+        Exit;
+      end
+      else if (mapType = CLCTE_MAP_DOCNAMESLIST) then
+      begin // для списка имен документов допустимо его отсутствие
+        Result := 'Мапа с именами документов пуста. Видимо, ее создание не разрешено.';
+        Exit;
+      end
+      else
+        Raise('inMap должна быть мапой!');
+    Result := '';
+    //
+    case mapType of
+      CLCTE_MAP_DOCPARAM :
+        begin
+          order := GetParam(inMap, CLCTE_ORDER, -1);
+          position := GetParam(inMap, CLCTE_POSITION, -1);
+          relevance := GetParam(inMap, CLCTE_RELEVANCE, -1);
+          frequency := GetParam(inMap, CLCTE_FREQUENCY, -1);
+          docName := GetParam(inMap, CLCTE_DOCNAME, '');
+          docNumber := GetParam(inMap, CLCTE_DOCNUMBER, -1);   
+          Result :=
+            Choose( docNumber <> -1, 'DocNumber: ' + VarToString(docNumber) + EndOfLine, '') + 
+            'Order: ' + VarToString(order) + EndOfLine +
+            'Position: ' + VarToString(position) + EndOfLine +
+            Choose(relevance <> -1, 'Relevance: ' + VarToString(relevance) + EndOfLine, '') +
+            'Frequency: ' + VarToString(frequency) + EndOfLine +
+            Choose(docName <> '', 'DocName: ' + docName + EndOfLine, '');
+        end;
+      CLCTE_MAP_DOCNAMESLIST :
+        begin
+          docOrders := Map(inMap, 'keys array', nil);
+          for i := VarArrayLowBound(docOrders, 1) to VarArrayHighBound(docOrders, 1) do
+          begin
+            docOrder := docOrders[i];
+            Result :=  Result + 'Order: ' + VarToString(docOrder) + EndOfLine +
+              TabText(CLCTE__MapToText(Map(inMap, 'get', docOrder), CLCTE_MAP_DOCPARAM)) + EndOfLine;
+          end;
+        end;  
+      CLCTE_MAP_DOCSLIST :
+        begin
+          docNumbers := Map(inMap, 'keys array', nil);
+          for i := VarArrayLowBound(docNumbers, 1) to VarArrayHighBound(docNumbers, 1) do
+          begin
+            docNumber := docNumbers[i];
+            Result :=  Result + 'DocNumber: ' + VarToString(docNumber) + EndOfLine +
+              TabText(CLCTE__MapToText(Map(inMap, 'get', docNumber), CLCTE_MAP_DOCPARAM)) + EndOfLine;
+          end; 
+        end;
+      CLCTE_MAP_CHECKRESULT :
+        begin
+          Result :=
+            'CLCTE_MAP_DOCSLIST: ' + EndOfLine +
+            TabText(CLCTE__MapToText(Map(inMap, 'get', CLCTE_MAP_DOCSLIST), CLCTE_MAP_DOCSLIST)) + EndOfLine +
+            'CLCTE_MAP_DOCNAMESLIST: ' + EndOfLine +
+            TabText(CLCTE__MapToText(Map(inMap, 'get', CLCTE_MAP_DOCNAMESLIST), CLCTE_MAP_DOCNAMESLIST)) + EndOfLine;                        
+        end;  
+      CLCTE_MAP_QUERIESLIST :
+        begin
+          queries := Map(inMap, 'keys array', nil);
+          for i := VarArrayLowBound(queries, 1) to VarArrayHighBound(queries, 1) do
+          begin
+            query := queries[i];
+            Result := Result + 'Query: ' + query + EndOfLine +
+              TabText(CLCTE__MapToText(Map(inMap, 'get', query), CLCTE_MAP_DOCSLIST));
+          end;
+        end;    
+    end;
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, DbgVarValueEx([mapType, VarType(inMap)], ['mapType', 'VarType(inMap)']), pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;  
+
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}
+function _CLCTE_DoCheck_GoToNextDocInList(
+  const listWnd : OleVariant
+) : Boolean;
+  const
+    FUNCTION_NAME = '_CLCTE_DoCheck_GoToNextDocInList';
+    NEXT_BUTTON  = '[Down]'; // эту кнопку будем давить для перехода к следующему документу в списке
+  var
+    prevIndex, currIndex, deadLine;        
+begin
+  try
+    if (NOT listWnd.Focused) then listWnd.SetFocus;
+    prevIndex := listWnd.CurrentNodeIndex;
+    //
+    repeat     
+      Sys.Keys(NEXT_BUTTON);    
+      // ждем обновления индекса
+      currIndex := listWnd.CurrentNodeIndex;
+      if (currIndex = prevIndex) then
+      begin           
+        deadLine := Win32API.GetTickCount + (Options.Run.Timeout div 10);
+        while (Win32API.GetTickCount < deadLine) AND (currIndex = prevIndex) do
+        begin             
+          Delay(Options.Run.Delay);
+          currIndex := listWnd.CurrentNodeIndex;
+        end;
+      end;     
+      Result := (currIndex <> prevIndex) AND (listWnd.CurrentNodeLevel = 1);
+    until Result OR (currIndex = prevIndex); // повторяес пока не спозиционировались ИЛИ пока индекс перестал меняться, что означает конец списка         
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}
+function _CLCTE_DoCheck_GetCurrDocDOCPARAM(
+  const listWnd : OleVariant;
+  const order : Integer;
+  const isGetPosition : boolean
+): OleVariant; // мапа типа CLCTE_MAP_DOCPARAM
+  const
+    FUNCTION_NAME = '_CLCTE_DoCheck_GetCurrDocDOCPARAM';
+  var
+    relevance, position, docName, docNumber;
+    isShellWatchdogStarted;    
+begin
+  try
+    relevance := listWnd.Relevance;    
+    docName := common.GetWindowText(listWnd.Handle);
+    docNumber := listWnd.DocNumber;    
+    // создаем структуру с параметрами документа
+    SetParam(Result, CLCTE_ORDER, order);    
+    SetParam(Result, CLCTE_RELEVANCE, relevance);
+    SetParam(Result, CLCTE_DOCNAME, docName);
+    SetParam(Result, CLCTE_DOCNUMBER, docNumber);
+    //
+    if isGetPosition then
+    begin
+      isShellWatchdogStarted := ShellWatchdog('HAS STARTED');
+      if isShellWatchdogStarted then ShellWatchdog('STOP');
+      try  
+        position := listWnd.GetSubID;
+      finally
+        if isShellWatchdogStarted then ShellWatchdog('START');
+      end;      
+      SetParam(Result, CLCTE_POSITION, position);    
+    end;   
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+    выходная мапа
+      CLCTE_MAP_DOCNAMESSLIST имеет формат порядковый_номер_документа:paramlist_с_параметрами документа
+        paramlist_с_параметрами содержит параметры
+          Order - порядковый номер документа в списке
+          Position - позиция в документе в параграфах
+          Relevance - релевантность документа
+          DocumentName - имя документа       
+}
+function CLCTE_CollectDocNames(
+  const paramString : String
+): OleVariant;
+  const
+    FUNCTION_NAME = 'CLCTE_CollectDocNames';
+  var
+    listWnd : OleVariant; // окно со списком
+    paramList;    
+    currDocParams;
+    totalDocsCount;
+    i, order, secCounter;
+    p_MaxDocNamesToCollect; // о скольки документах собрать информацию        
+begin
+  try
+    paramList := ParseParamString(paramString);
+    p_MaxDocNamesToCollect := VarToInteger( GetParam(paramList, 'MaxDocNamesToCollect', 10) );
+    //
+    listWnd := GetFromList('СПИСОК ДОКУМЕНТОВ');
+    if NOT IsExists(listWnd) then Raise('Список не найден!');
+    listWnd.SetFocus;
+    Sys.Keys('[Home]');
+    totalDocsCount := GetCurrListElementParam(listWnd, 'ВСЕГО ДОКУМЕНТОВ');    
+    // а теперь собираем информацию о заданном количестве первых документов в списке
+    for i := 1 to Min(totalDocsCount, p_MaxDocNamesToCollect) do
+    begin
+      // переходим к нужному документу
+      secCounter := 0;
+      while true do
+      begin
+        if (listWnd.CurrentNodeLevel = 1) AND (GetCurrListElementParam(listWnd, 'ТЕКУЩИЙ ДОКУМЕНТ') = i) then
+          break;
+        Sys.Keys('[Down]');
+        Inc(secCounter);
+        if (secCounter > 1000) then Raise('Фигня какая-то, не можем найти документ...');          
+      end;    
+      // listWnd.GoToNodeByIndex(i-1); <- из-за сниппетов это больше не работает
+      // узнаем порядок текущего документа
+      order := i; 
+      // собираем информацию о нем
+      currDocParams := _CLCTE_DoCheck_GetCurrDocDOCPARAM(listWnd, order, false);
+      // кладем ее в мапу
+      Map(Result, 'put', order, currDocParams);                                     
+    end;       
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+procedure CLCTE_CollectDocNames_Test;
+begin
+  Log.Message( 'Результат', CLCTE__MapToText(
+    CLCTE_CollectDocNames('MaxDocNamesToCollect := 15')
+    , CLCTE_MAP_DOCNAMESLIST) );
+end;
+  
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+    Перед запуском функции список должен быть уже построен.
+    входная мапа имеет формат номер_документа:paramlist_с_параметрами
+      paramlist_с_параметрами содержит параметры
+        Order - порядковый номер документа в списке
+        Position - позиция в документе в параграфах
+    выходная мапа  
+      CLCTE_MAP_DOCSLIST имеет формат номер_документа:paramlist_с_параметрами
+        paramlist_с_параметрами содержит параметры
+          Order - порядковый номер документа в списке
+          Position - позиция в документе в параграфах
+          Relevance - релевантность документа
+          DocumentName - имя документа       
+        
+}
+function CLCTE_DoCheck(
+  etalonMap : OleVariant; // входная мапа
+  paramString : String = ''
+): OleVariant; // выходная мапа
+  const
+    FUNCTION_NAME = 'CheckListComparingToEtalon';    
+  var
+    listWnd : OleVariant; // окно со списком
+    processedDocs: integer; // столько документов уже найдено в списке                                                                      
+    position, relevance, docNumber, order, docName; //позиция, релевантность и номер текущего документа в списке
+    currDocParams; // параметры текущего обрабатываемого документа
+    deadLine;
+    isWatchdogStarted : Boolean;
+    paramList;
+    etalonDocsCount;
+    docNumbersArr, docNumbersStr;
+    nodeIdxsStr, tmp, nodeIdxsArr, i, nodeIdxsArrIdx;     
+    p_MaxDocToCheck; // максимальное количество проверяемых документов
+    p_IsInternalDocSearch; // выполнять ли поиск документа с помощью специальных методов    
+begin
+  try
+    if NOT IsMap(etalonMap) then Raise('Вход должен быь мапой!');
+    listWnd := GetFromList('СПИСОК ДОКУМЕНТОВ');
+    if NOT IsExists(listWnd) then Raise('Список не найден!');
+    //
+    paramList := ParseParamString(paramString);
+    p_MaxDocToCheck := GetParam(paramList, 'MaxDocToCheck', Win32API.MAXLONG);    
+    p_IsInternalDocSearch := VarToBool( GetParam(paramList, 'IsInternalDocSearch', false) );                                                                                                                                                                                                                                                                                    
+    //
+    listWnd.SetFocus;
+    listWnd.Keys('[Home]');
+    //
+    etalonDocsCount := Map(etalonMap, 'elements count', nil);
+    processedDocs := 0;
+    order := 1;
+    Map(Result, 'create empty map', nil);
+    
+    if (p_MaxDocToCheck > 0) then
+    begin
+      // выполняем поиск документов в списке с помощью внутренних методов оболочки
+      if p_IsInternalDocSearch then
+      begin
+        docNumbersArr := Map(etalonMap, 'keys array', nil);
+        docNumbersStr := Array2String(docNumbersArr, ';');
+        // стопим
+        // приостанавливаем следилку за оболочкой, чтобы она не убила ее, т.к. во время вызова NodeIndexByDocNumber она посчитает оболочку повисшей     
+        isWatchdogStarted := ShellWatchdog('has started');
+        if isWatchdogStarted then ShellWatchdog('stop');
+        try
+        // получаем строку вида номер_документа:номер_ноды;номер_документа:номер_ноды;...                
+          //nodeIdxsStr := listWnd.NodeIndexByDocNumber(docNumbersStr, true);
+          nodeIdxsStr := listWnd.NodeIndexByDocNumber(docNumbersStr, p_MaxDocToCheck, true);
+        finally  
+          // запускаем следилку, если надо
+          if isWatchdogStarted then ShellWatchdog('start');
+        end;        
+        if (nodeIdxsStr = '') then
+          Exit; // в списке нужных документов нет
+        Log.Message('nodeIdxsStr', nodeIdxsStr);
+        // конвертируем ее в массив индексов нод
+        tmp := String2Array(nodeIdxsStr, ';');
+        for i := VarArrayLowBound(tmp, 1) to VarArrayHighBound(tmp, 1) do
+          if (tmp[i] <> '') then 
+            AddToArray(nodeIdxsArr, StrToInt(GetSubStr(tmp[i], ':', '')));
+        if (ArrayLength(nodeIdxsArr) = 0) then
+          Exit; // массив пуст или не массив, документов нет
+        nodeIdxsArrIdx := VarArrayLowBound(nodeIdxsArr, 1);      
+      end;    
+      //
+      repeat    
+    
+        if (p_IsInternalDocSearch) then 
+        begin // позиционирование с помощью внутренних методов
+          if (nodeIdxsArrIdx <= VarArrayHighBound(nodeIdxsArr, 1)) then
+          begin // мы перебрали еще не все ноды
+            // позиционируемся на на документ
+            listWnd.GoToNodeByIndex(nodeIdxsArr[nodeIdxsArrIdx]);
+            //
+            while true do
+            begin
+              // узнаем порядок документа в списке 
+              order := GetCurrListElementParam(listWnd, 'текущий документ');
+              if (order = nodeIdxsArr[nodeIdxsArrIdx]+1) then break; 
+              if (order > nodeIdxsArr[nodeIdxsArrIdx]+1) then Raise('order > nodeIdxsArr[nodeIdxsArrIdx]');
+              if NOT _CLCTE_DoCheck_GoToNextDocInList(listWnd) then
+              begin
+                Log.Error('Не можем перейти к следующему документу, хотя он должен быть!');
+                break;
+              end;
+            end;              
+            Inc(nodeIdxsArrIdx);
+          end
+          else // все ноды перебрали
+            break; // выходим
+        end; 
+    
+        docNumber := listWnd.DocNumber;
+
+        if NOT IsEmpty( Map(etalonMap, 'get', docNumber) ) then
+        begin // текущий документ содержится в эталонном списке
+          currDocParams := _CLCTE_DoCheck_GetCurrDocDOCPARAM(listWnd, order, true);        
+          // кладем в результирующую мапу
+          Map(Result, 'put', docNumber, currDocParams);
+          //
+          Inc(processedDocs);
+        end;
+
+        // переходим к следующему документу
+        if (NOT p_IsInternalDocSearch) then
+        begin // простое позиционирование
+          if NOT _CLCTE_DoCheck_GoToNextDocInList(listWnd) then
+          begin
+            Log.Message('Список закончился');
+            break; // список закончился
+          end;          
+          Inc(order);
+        end;
+      until  
+        (processedDocs = etalonDocsCount) // ИЛИ пока количество обработанных документов сравняется с количеством эталонных документов (все эталонные документы обработаны)
+        OR (order > p_MaxDocToCheck) // ИЛИ пока число просмотренных документов не станет больше максимально разрешенного
+      ;
+    end; // if p_MaxDocToCheck > 0           
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+
+procedure CLCTE_DoCheck_Test;
+  var
+    docParams, docNumber, docNumbers; 
+    inMap, outMap;
+    i, str;
+begin
+  SetParam(docParams, CLCTE_ORDER, 1);
+  SetParam(docParams, CLCTE_POSITION, 20000);
+  Map(inMap, 'put', 12034807, docParams);
+  VarClear(docParams);
+  //SetParam(docParams, CLCTE_ORDER, 2);
+  //SetParam(docParams, CLCTE_POSITION, 12214);
+  //Map(inMap, 'put', 12025268, docParams);
+  //
+  outMap := CLCTE_DoCheck(inMap, 'IsInternalDocSearch := true');
+  //
+  Log.Message('outMap', CLCTE__MapToText(outMap, CLCTE_MAP_DOCSLIST)); 
+end;
+
+{
+  TYPE:
+  DESC:
+  RESULT:
+    выдает мапу формата запрос:мапа_для_CLCTE_DoCheck
+      или запрос:строка_с_ошибкой (не выдает, а просто здесь описан)
+  REMARK:
+    входные данные должны иметь формат вида запрос;номер_документа[.позиция];номер_документа[.позиция]...    
+}
+function CLCTE_CreateInputMapFromCSV(
+  csvData : String;
+  const paramString : String =''  
+): OleVariant; // мапа
+  const
+    FUNCTION_NAME = 'CLCTE_CreateInputMap';
+  var
+    rexpStr; // регэксп для выделения строки с запросом и номерами документов
+    rexpDoc; // регэксп для выделения номера документа и позиции
+    queryText; // здесь будет лежать запрос
+    docsStr; // здесь будет лежать все что после запроса и точки с запятой
+    order; // порядок документа
+    docNumber;
+    docParams; // мапа с параметрами документа
+    docsMap; // мапа формата входной для CLCTE_DoCheck
+    position;
+    frequency;
+    paramList;        
+    isError : boolean;
+    errorStr : String;
+    p_IsMergeDuplicateQueries; // сливать ли одинаковые запросы в один
+    p_IsUpcaseQueries; // преобразовывать ли все запросы к верхнему регистру
+    p_IsMergeDuplicateNumbers; // сливать ли одинаковые номера документов (со сложением частотности). Учитывается как true если и p_IsMergeDuplicateQueries тоже true.
+    p_IsInternalDocNumbers; // на входе внутренние номера документов 
+begin
+  try
+    isError := false;
+    errorStr := '';
+    paramList := ParseParamString(paramString);
+    p_IsMergeDuplicateQueries := VarToBool( GetParam(paramList,
+      'IsMergeDuplicateQueries',
+      false      
+    ) );
+    p_IsUpcaseQueries := VarToBool( GetParam(paramList,
+      'IsUpcaseQueries',
+      false      
+    ) );
+    p_IsMergeDuplicateNumbers := {p_IsMergeDuplicateQueries AND} VarToBool( GetParam(paramList,
+      'IsMergeDuplicateNumbers',
+      false      
+    ) );
+    p_IsInternalDocNumbers := VarToBool( GetParam(paramList,
+      'IsInternalDocNumbers',
+      true      
+    ) );
+    //
+    rexpStr := HISUtils.RegExpr;
+    rexpStr.Expression := '(?gm-s)^\s*(.+?)\s*;([\s\d\.\:;]+)$'; // это регэксп для разбиения строки типа <текст запроса>;<номер документа>.<номер параграфа>;<номер документа>.<номер параграфа> на текст запроса и то что после текста запроса и точки с запятой
+    rexpDoc := HISUtils.RegExpr;
+    rexpDoc.Expression := '(?g)(\d+)\s*\.?\s*(\d*)\s*\:?\s*(\d*)\s*'; // этот регэксп для разбиения строки типа <номер документа>.<номер параграфа>;<номер документа>.<номер параграфа> на номер документа и номер параграфа
+    //
+    // разбираем все данные построчно
+    if rexpStr.Exec(csvData) then
+    begin
+      repeat
+        // здесь мы вычленяем текст запроса и строку с номерами документов и их позициями
+        queryText := StringReplaceExt(rexpStr.Substitute('$1'), [#160, #151], [' ', '-']);
+        if (Utilities.AnsiExtractQuotedStr(queryText, '"') <> '') then
+          queryText := Utilities.AnsiExtractQuotedStr(queryText, '"');
+        if p_IsUpcaseQueries then
+          queryText := AnsiUpperCase(queryText);   
+        docsStr := rexpStr.Substitute('$2');
+        //
+        VarClear(docsMap);
+        docsMap := Map(Result, 'get', queryText); 
+        if (NOT p_IsMergeDuplicateQueries) AND (NOT IsEmpty(docsMap)) then
+        begin
+          errorStr := errorStr +
+            'Дублирование запроса "' + queryText + '"' + EndOfLine;
+          isError := true;
+        end;  
+        
+        // разбираем строку с номерами документов и их позициями
+        if rexpDoc.Exec(docsStr) then
+        begin
+          order := 1;
+          repeat
+            // вычленяем номер документа и позицию и частотность
+            docNumber := VarToInteger(rexpDoc.Substitute('$1'));
+            if (rexpDoc.Substitute('$2') = '') then
+              position := -1
+            else
+              position := VarToInteger(rexpDoc.Substitute('$2'));
+            if (rexpDoc.Substitute('$3') = '') then
+              frequency := -1
+            else
+              frequency := VarToInteger(rexpDoc.Substitute('$3'));
+            //
+            if NOT p_IsInternalDocNumbers then 
+              docNumber := docNumber - 100000;                              
+            //
+            VarClear(docParams);
+            docParams := Map(docsMap, 'get', docNumber); 
+            if NOT IsEmpty( docParams ) then
+            begin
+              if p_IsMergeDuplicateNumbers then
+              begin // надо выполнить слияние двух документов
+                // складываем частотность
+                if (frequency <> -1) AND (GetParam(docParams, CLCTE_FREQUENCY, -1) <> -1) then
+                begin
+                  frequency := frequency + GetParam(docParams, CLCTE_FREQUENCY, -1);
+                  SetParam(docParams, CLCTE_FREQUENCY, frequency);
+                end;
+              end
+              else
+              begin // надо просто ругаться
+                errorStr := errorStr +
+                  'Дублирование номера документа (' + IntToStr(docNumber) + ') для запроса "' + queryText + '"' + EndOfLine;
+                isError := true;
+              end;
+            end
+            else // структуру надо сконструировать
+            begin  
+              // конструируем структуру с данными документа
+              SetParam(docParams, CLCTE_ORDER, order);
+              SetParam(docParams, CLCTE_POSITION, position);
+              SetParam(docParams, CLCTE_FREQUENCY, frequency);              
+            end;  
+            // добавляем в мапу с документами
+            Map(docsMap, 'put', docNumber, docParams);
+            //
+            Inc(order);  
+          until NOT rexpDoc.ExecNext;
+          // добавляем в результирующую мапу          
+          Map(Result, 'put', queryText, docsMap);
+        end
+        else
+        begin
+          errorStr := errorStr + 
+            'Невозможно найти ни один номер документа у запроса "' + queryText + '"' + EndOfLine;            
+          isError := true;
+        end;     
+      until NOT rexpStr.ExecNext;
+    end
+    else
+      Raise('Невозможной найти текст запроса с номерами документов!');
+      
+    if isError then 
+    begin
+      Log.Error('Ошибка парсинга!', errorStr);
+      Raise('Ошибка парсинга!');
+    end;      
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, DbgVarValueEx([csvData, queryText, docsStr, order, docNumber, position], ['csvData', 'queryText', 'docsStr', 'order', 'docNumber', 'position']), pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+procedure CLCTE_CreateInputMapFromCSV_Test;
+  var
+    csvStr;
+    outMap;
+    i, j;
+    queries, query;
+    docsMap;
+    docNumbers, docNumber;
+    docParams;
+    str;
+begin
+  csvStr := 
+    '"аванс";10800200.1111:222;12025268.22:666;31231.313423' + EndOfLine +
+    '"гражданский ""кодекс""";6565.666;777;9999.0087;3123;1212121:4343' + EndOfLine + 
+    'гражданский кодекс2;888885:9999' + EndOfLine;
+  //
+  outMap := CLCTE_CreateInputMapFromCSV(csvStr);
+  Log.Message('outMap', CLCTE__MapToText(outMap, CLCTE_MAP_QUERIESLIST));   
+  //
+  csvStr := 
+    'налоговый кодекс;10800200;5210569;5113282;3441140'+EndOfLine+
+    'о несостоятельности;85181;480219;80608;12038456'+EndOfLine+
+    'срочный трудовой договор;12025268.1073742466;5203918.1239;5113266.314;12034807.3973'+EndOfLine+
+    'отпуск по уходу за ребенком;12025268.1073745712;10001162.1073742;12051366.103;'+EndOfLine+
+    'платежное поручение;10064072.4174;12030728.63;12029272.126;'+EndOfLine+
+    'ндс;10800200.1073748263;;;'+EndOfLine+
+    'ставка есн;10800200.1073758614;3842973.58;;'+EndOfLine+
+    'оквэд;85134;;;'+EndOfLine+
+    'Об образовании;10064235;35916;;'+EndOfLine+
+    'пбу 18/02;12029425;5235021;5044237.8096;';
+  //
+  outMap := CLCTE_CreateInputMapFromCSV(csvStr);
+  Log.Message('outMap', CLCTE__MapToText(outMap, CLCTE_MAP_QUERIESLIST));
+  //
+  csvStr := 
+    'плата за оформление документов по приватизации  жилищного фонда;30004767:6' + EndOfLine +
+    'плата за оформление документов по приватизации  жилищного фонда;30014314:6' + EndOfLine +
+    'плата за оформление документов по приватизации  жилищного фонда;30019895:6';
+  //
+  outMap := CLCTE_CreateInputMapFromCSV(csvStr, 'IsMergeDuplicateQueries:=true');
+  Log.Message('outMap', CLCTE__MapToText(outMap, CLCTE_MAP_QUERIESLIST));
+  //
+  csvStr := 
+    'нк;3441140:26' + EndOfLine +
+    'нк;5113282:44' + EndOfLine +
+    'нк;5210569:34' + EndOfLine +
+    'нк;10800200:3400' + EndOfLine +
+    'НК;10800200:884' + EndOfLine +
+    'Нк;10800200:23' + EndOfLine +
+    'нк;12012591:11' + EndOfLine +
+    'нк;12031077:5' + EndOfLine +
+    'нк;12051287:6' + EndOfLine +
+    'нк;12053802:8' + EndOfLine +
+    'нк;12054837:10' + EndOfLine +
+    'нк;12056768:6' + EndOfLine +
+    'нк;12056813:17' + EndOfLine +
+    'нк;12057004:13' + EndOfLine +
+    'нк;12057371:17' + EndOfLine +
+    'нк;12057372:26' + EndOfLine +
+    'нк;12057387:37' + EndOfLine +
+    'нк;12057435:9' + EndOfLine +
+    'нк;10800200:74' + EndOfLine +
+    'НК;10800200:60' + EndOfLine +
+    'НК;10800200:9';
+  //
+  outMap := CLCTE_CreateInputMapFromCSV(csvStr, 'IsMergeDuplicateQueries:=true;IsUpcaseQueries:=true;IsMergeDuplicateNumbers:=true');
+  Log.Message('outMap', CLCTE__MapToText(outMap, CLCTE_MAP_QUERIESLIST));       
+end;
+
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}
+function CLCTE_ParseResult_DocNamesList(
+  reMapDocNames : OleVariant,
+  paramString : String = '' // строка параметров. Разделитель - конец строки!!!
+): Result;
+  const
+    FUNCTION_NAME = 'CLCTE_ParseResult_DocNamesList';
+  var
+    queries, query, i, j;
+    docOrders, docOrder;
+    docParamsMap;
+    docNamesListMap;   
+    relevance, order, docName, docNumber;
+    tmpStr, strToAdd : String;
+    paramList : OleVariant;
+    outFile, p_OutFileName : OleVariant;
+begin
+  try
+    VarClear(outFile);
+    if NOT IsMap(reMapDocNames) then Raise('reMapDocNames должна быть мапой!');
+    //
+    paramList := ParseParamString(paramString, true, EndOfLine);
+    p_OutFileName := GetParam(paramList, 'OutFileName', '');    
+    if (p_OutFileName <> '') then
+      try
+        if ( FSO().FileExists(p_OutFileName) ) then
+          FSO().DeleteFile(p_OutFileName);        
+        outFile := FSO().OpenTextFile(p_OutFileName, 2, true);
+      except
+        VarClear(outFile);
+      end;
+    //
+    strToAdd := 'Запрос;Номер документа;Позиция в списке;Релевантность;Имя';
+    if IsEmpty(outFile) then 
+      Result := strToAdd + EndOfLine // 5 колонок
+    else
+      outFile.WriteLine(strToAdd);  
+    //
+    queries := Map(reMapDocNames, 'keys array', nil);
+    for i := VarArrayLowBound(queries, 1) to VarArrayHighBound(queries, 1) do
+    begin
+      query := queries[i];
+      docNamesListMap := Map(reMapDocNames, 'get', query);
+      //
+      strToAdd := AnsiQuotedStr(query, '"');
+      if (VarType(docNamesListMap) = varOleStr) AND (docNamesListMap <> '') then
+      begin // поиск не прошел и есть сообщение почему
+        strToAdd := strToAdd + ';' + AnsiQuotedStr('Поиск не прошел! Оболочка сказала "' + docNamesListMap + '"', '"');
+        if IsEmpty(outFile) then  
+          Result := Result + strToAdd + EndOfLine
+        else
+          outFile.WriteLine(strToAdd);  
+        continue;  
+      end
+      else if NOT IsMap(docNamesListMap) then
+      begin
+        strToAdd := strToAdd + ';Неизвестная ошибка!';
+        if IsEmpty(outFile) then  
+          Result := Result + strToAdd + EndOfLine
+        else
+          outFile.WriteLine(strToAdd);         
+        continue;
+      end; 
+      //             
+      tmpStr := '';
+      docOrders := Map(docNamesListMap, 'keys array', nil);
+      //     
+      for j := VarArrayLowBound(docOrders, 1) to VarArrayHighBound(docOrders, 1) do
+      begin
+        docOrder := docOrders[j];
+        docParamsMap := Map(docNamesListMap, 'get', docOrder);
+        // получаем параметры документа
+        order := GetParam(docParamsMap, CLCTE_ORDER, -1);                                               
+        relevance := GetParam(docParamsMap, CLCTE_RELEVANCE, -1);
+        docName := GetParam(docParamsMap, CLCTE_DOCNAME, '');
+        docNumber := GetParam(docParamsMap, CLCTE_DOCNUMBER, -1);
+        //
+        tmpStr := tmpStr + 
+          ';' + VarToString(docNumber) +
+          ';' + VarToString(order) + 
+          ';' + VarToString(relevance) + 
+          ';' + AnsiQuotedStr(docName, '"');
+        if (j <> VarArrayHighBound(docOrders, 1)) then
+          tmpStr := tmpStr + EndOfLine;                                       
+      end;
+      //
+      strToAdd := strToAdd + tmpStr;
+      if IsEmpty(outFile) then  
+        Result := Result + strToAdd + EndOfLine
+      else
+        outFile.WriteLine(strToAdd);  
+    end;
+    //
+    if NOT IsEmpty(outFile) then
+    begin
+      outFile.Close;
+      outFile := nil;
+      Result := GetFileBody(p_OutFileName);
+    end;  
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+procedure CLCTE_ParseResult_DocNamesList_Test;
+  const
+    OP_PREP_DATA='Подготовка тестовых данных';
+    OP_PARSE = 'Парсинг списка имен документов';
+  var
+    reMapDocNames;
+    resCSV, docsMap;
+    docParam;
+    i, j;
+begin
+  // формируем тестовые данные
+  StartTimeMeasure(OP_PREP_DATA);
+  for i := 1 to 500 do
+  begin
+    // формируем данные документов
+    docsMap := nil; 
+    for j := 1 to 10 do 
+    begin
+      docParam := nil;         
+      SetParam(docParam, CLCTE_ORDER, j);
+      SetParam(docParam, CLCTE_RELEVANCE, (j*3)div 2);
+      SetParam(docParam, CLCTE_DOCNAME, 'Документ_' + VarToString(j));
+      SetParam(docParam, CLCTE_DOCNUMBER, j*100+100000);
+      SetParam(docParam, CLCTE_POSITION, 5*j+500);
+      Map(docsMap, 'put', j, docParam);
+    end;  
+    // добавляем их в мапу данных
+    Map(reMapDocNames, 'put', 'Запрос_' + VarToString(i), docsMap);
+  end;
+  EndTimeMeasure(OP_PREP_DATA);      
+  
+  // парсим их
+  StartTimeMeasure(OP_PARSE);
+  resCSV := CLCTE_ParseResult_DocNamesList(reMapDocNames);
+  EndTimeMeasure(OP_PARSE);
+  //
+  Log.Message('Результат', resCSV);  
+end;
+
+{
+  TYPE:
+  DESC:
+  RESULT:
+  REMARK:
+}
+function CLCTE_ParseResult_DocsList(
+  etalonMap : OleVariant, // эталонная мапа. Формат как у CLCTE_CreateInputMapFromCSV
+  realMap : OleVariant, // реальная мапа, соджержащая результаты проверки. Формат как у CLCTE_CreateInputMapFromCSV
+  paramString : String = ''
+): OleVariant;
+  const
+    FUNCTION_NAME = 'CLCTE_ParseResult_DocsList';
+    OUT_HTML = 1;
+    OUT_CSV = 2;
+    MIN_DUPLICATE_ADDITION = 1000000000;
+  var
+    queries, query;
+    docNumbers, docNumber;
+    etDocsMap, reDocsMap; // мапа номер_документа:параметры_документа 
+    etDocParams, reDocParams; // параметры конкретного документа
+    etOrder, etPosition, etFrequency; // эиалонные параметры документа
+    reOrder, rePosition, reRelevance, reDocName; // реальные параметры документа
+    i, j, k, duplicateAddition;
+    isOrderFail, isPositionFail, isDocNotFounded, isSearchFail; 
+    paramList, ordersArr;
+    p_OutputFormat;
+    p_OnlyForThisQuery;
+    elemStr; // элементарная строка
+    outStrMap; // мапа для складывания выходных строк по порядку документов
+    errMsg;   
+begin
+  try
+    if NOT IsMap(etalonMap) then Raise('etalonMap должна быть мапой!');
+    if NOT IsMap(realMap) then Raise('realMap должна быть мапой!');
+    //
+    duplicateAddition := MIN_DUPLICATE_ADDITION;
+    //
+    paramList := ParseParamString(paramString);
+    p_OutputFormat := GetParam(paramList, 'OutputFormat', 'csv');
+    case AnsiUpperCase(p_OutputFormat) of
+      'HTML' : p_OutputFormat := OUT_HTML;
+      'CSV' : p_OutputFormat := OUT_CSV;
+    else
+      Raise('Неизвестный выходной формат (' + p_OutputFormat + ')!');  
+    end;
+    p_OnlyForThisQuery := GetParam(paramList, 'OnlyForThisQuery', '');
+    //
+    // формируем заголовки
+    case p_OutputFormat of
+      OUT_HTML: 
+        Result :=
+          // 6 колонок
+          '<html>' +
+            '<head>' +
+              '<meta http-equiv="Content-Type" content="text/html; charset=Windows-1251">' +
+              '<title>Проверка построения списка</title>' +
+              '<style>' +
+                'td {padding-left:3%}' + 
+                'td.doc_not_founded {background: #ffbbbb}' +
+                'td.order_fail {background: #ffbbbb}' +
+                'td.position_fail {background: #ffbbbb}' +
+                'td.search_fail {background: #ffbbbb}' +
+              '</style>' +
+            '</head>' +
+            '<body>' + 
+              '<table border="1" align="center"><thead><tr>'+
+                '<th>Запрос</th><th>Эталонный документ</th><th>Реальный документ</th><th>Позиция в списке</th><th>Релевантность</th><th>Частотность</th>'+
+                '</tr></thead>' + EndOfLine;
+      OUT_CSV :
+        // 9 колонок
+        Result := 'Запрос;Эталонный документ;Реальный документ;Позиция в списке;Релевантность;Частотность;Несовпадение позиции в списке;Несовпадение позиции в документе;Название документа' + EndOfLine;   
+    end;
+    //
+    queries := Map(etalonMap, 'keys array', nil);
+    // перебираем по запросам
+    for i := VarArrayLowBound(queries, 1) to VarArrayHighBound(queries, 1) do
+    begin
+      query := queries[i];
+      if (p_OnlyForThisQuery <> '') AND (NOT StringCompare(p_OnlyForThisQuery, query)) then
+        continue;  
+      // получаем данные документов для конкретного запроса
+      etDocsMap := Map(etalonMap, 'get', query); 
+      if NOT IsMap(etDocsMap) then Raise('etDocsMap должна быть мапой!');
+      reDocsMap := Map(realMap, 'get', query);
+      isSearchFail := NOT IsMap(reDocsMap);
+      errMsg := '';
+      if isSearchFail AND (VarType(reDocsMap) = varOleStr) AND (reDocsMap <> '') then
+        errMsg := ' Оболочка сказала: "' + reDocsMap + '".';           
+      //if NOT IsMap(reDocsMap) then Raise('reDocsMap должна быть мапой!');
+      //  перебираем по номерам документов (для конкретного запроса)
+      docNumbers := Map(etDocsMap, 'keys array', nil);
+        //
+      if isSearchFail then
+      begin // поиск не прошел, значит нечего обрабатывать
+        case p_OutputFormat of
+          OUT_HTML: Result := Result + '<tr><td>' + query + '</td><td class="search_fail" colSpan=5>Поиск не прошел!' + Choose(errMsg <> '', errMsg, '') + '</td></tr>' + EndOfLine;
+          OUT_CSV : Result := Result + query + ';Поиск не прошел!' + Choose(errMsg <> '', errMsg, '') + EndOfLine;   
+        end;
+        continue; // переходим к обработке следующего запроса
+      end
+      else // поиск был успешен
+      begin
+        case p_OutputFormat of
+          OUT_HTML: elemStr := '<tr><td rowSpan=' + VarToString(ArrayLength(docNumbers)) + '>' + query + '</td>';
+          OUT_CSV : elemStr := query;   
+        end;
+      end;    
+        // 
+      for j := VarArrayLowBound(docNumbers, 1) to VarArrayHighBound(docNumbers, 1) do
+      begin
+        docNumber := docNumbers[j];
+        // получаем данные конкретного документа
+        etDocParams := Map(etDocsMap, 'get', docNumber);
+        etOrder := GetParam(etDocParams, CLCTE_ORDER, -1);
+        etPosition := GetParam(etDocParams, CLCTE_POSITION, -1);
+        etFrequency := GetParam(etDocParams, CLCTE_FREQUENCY, -1);
+        //
+        reDocParams := Map(reDocsMap, 'get', docNumber);
+        isDocNotFounded := NOT IsMap(reDocParams);
+        reOrder := GetParam(reDocParams, CLCTE_ORDER, -1);
+        rePosition := GetParam(reDocParams, CLCTE_POSITION, -1);
+        reRelevance := GetParam(reDocParams, CLCTE_RELEVANCE, -1);
+        reDocName := GetParam(reDocParams, CLCTE_DOCNAME, '');                                                                
+        // сравниваем
+        isOrderFail := (etOrder <> reOrder); // не совпажает позиция в списке
+        isPositionFail := (etPosition <> -1) AND (etPosition <> rePosition); // не совпадает позиция в документе
+        //
+        case p_OutputFormat of
+          OUT_HTML: elemStr := elemStr +
+            '<td>' + VarToStr(docNumber) + Choose(etPosition = -1, '', '.' + VarToStr(etPosition)) + '</td>' +
+            '<td' + Choose(reDocName <> '', ' title="' + HTMLConv(reDocName) + '"', '') + Choose(isDocNotFounded, ' class="doc_not_founded">не найден', Choose(isPositionFail, ' class="position_fail">', '>') + VarToStr(docNumber) + Choose(rePosition <> 0, '.' + VarToStr(rePosition), '')) + '</td>' +
+            '<td' + Choose(isDocNotFounded, '>-', Choose(isOrderFail, ' class="order_fail">', '>') + VarToString(reOrder)) + '</td>' +
+            '<td>' + Choose(isDocNotFounded, '-', VarToString(reRelevance)) + '</td>' +
+            '<td>' + Choose(isDocNotFounded, '-', VarToString(etFrequency)) + '</td>' +             
+            '</tr>';
+          OUT_CSV : elemStr := elemStr + 
+            ';' + VarToStr(docNumber) + Choose(etPosition = -1, '', '.' + VarToStr(etPosition)) +
+            ';' + Choose(isDocNotFounded, 'не найден;-;-', 
+              VarToStr(docNumber) + Choose(rePosition <> 0, '.' + VarToStr(rePosition), '') +
+              ';' +VarToStr(reOrder) +
+              ';' + VarToStr(reRelevance) +
+              ';' + VarToStr(etFrequency) +
+              ';' + Choose(isOrderFail, '+', '') +
+              ';' + Choose(isPositionFail, '+', '') +
+              ';' + Choose(reDocName <> '', AnsiQuotedStr(reDocName, '"'), '') );
+        end;
+        //
+        if NOT IsEmpty( Map(outStrMap, 'get', etOrder) ) then
+        begin
+          Inc(etOrder, duplicateAddition);
+          Inc(duplicateAddition);
+        end;
+        Map(outStrMap, 'put', etOrder, elemStr);
+        //
+        case p_OutputFormat of
+          OUT_HTML: elemStr := '<tr>';
+          OUT_CSV : elemStr := '';
+        end;          
+      end; 
+      // разбираем мапу со строками по порядку документов
+      ordersArr := Map(outStrMap, 'keys array', nil);
+      SortArray(ordersArr); 
+      for j := VarArrayLowBound(ordersArr,1) to VarArrayHighBound(ordersArr,1) do
+        Result := Result + Map(outStrMap, 'get', ordersArr[j]) + EndOfLine;        
+      VarClear(outStrMap);  
+    end;
+    case p_OutputFormat of
+      OUT_HTML: Result := Result + '</table></body></html>';
+      OUT_CSV : ;
+    end;     
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end; 
+end;
+
+procedure CLCTE_ParseResult_DocsList_Test;
+  var
+    etCSV, etMap;
+    reCSV, reMap;
+    resCSV, resHTML;
+begin
+  etCSV := 
+    'аванс;10800200.1111;12025268.22;31231.313423' + EndOfLine +
+    'гражданский кодекс;6565.666;777;9999.0087;3123;1212121' + EndOfLine +
+    'гражданский кодекс3;888885' + EndOfLine+ 
+    'гражданский кодекс2;888885:87554' + EndOfLine;
+  etMap := CLCTE_CreateInputMapFromCSV(etCSV);
+  //
+  reCSV :=
+    'аванс;10800200.11;12025268.22' + EndOfLine +
+    'гражданский кодекс;6565.666;777.23;3123.11;9999.0087;1212121.767' + EndOfLine +
+    'гражданский кодекс2;888885.121:878787' + EndOfLine;
+   reMap := CLCTE_CreateInputMapFromCSV(reCSV);  
+  //
+  resCSV := CLCTE_ParseResult_DocsList(etMap, reMap, 'OutputFormat:=csv');
+  Log.Message('resCSV', resCSV);
+  SaveStrToFile(Log.Path + 'res.csv', resCSV);
+  Log.File(Log.Path + 'res.csv', 'CSV');
+  //
+  resHTML := CLCTE_ParseResult_DocsList(etMap, reMap, 'OutputFormat:=html');  
+  Log.Message('resHTML', resHTML);
+  SaveStrToFile(Log.Path + 'res.html', resHTML);
+  Log.File(Log.Path + 'res.html', 'HTML');
+end;
+
+procedure CLCTE_Main(
+  paramString : String
+);
+  const
+    FUNCTION_NAME = 'CLCTE_Main';
+    MAX_SEARCH_ATTEMPTS = 4;
+    MAX_RESTART_ATTEMPTS = 3;
+  var
+    p_InFileName; // файл с исходными данными
+    p_OutCSVFileName;
+    p_OutDocNamesCSVFileName;
+    p_OutHTMLFileName;
+    p_ShellRestartFactor;
+    p_IsCollectDocNames;
+    p_StartContext;
+    p_OneSearchMaxTime;
+    etMap;
+    reMap;
+    p_Login, p_Pass;
+    queries, query;
+    i, resCSV, resHTML, coa;
+    resDocNamesCSV;
+    reDocsMap;
+    reDocNamesMap;
+    reDocNamesFullMap;
+    paramList; 
+    baseSearchRes;
+    searchAttempt, restartAttempt : Integer; 
+    isHasBeenException, isContinueSearchCycle, isContinueRestartCycle : boolean;
+begin
+  try
+    SetProcessKillerMode(true);
+    _InitLogFileCopy(Log.Path + 'TestLog.Dub.Txt');
+    //
+    paramList := ParseParamString(paramString);
+    p_InFileName := GetParam(paramList, 'InFileName', '');
+    if NOT FileExists(p_InFileName) then Raise('Входной файл не найден!');
+    Log.File(p_InFileName, 'Входной файл');
+    p_OutCSVFileName := GetParam(paramList, 'OutCSVFileName', '');
+    p_OutDocNamesCSVFileName := GetParam(paramList, 'OutDocNamesCSVFileName', '');
+    p_OutHTMLFileName := GetParam(paramList, 'OutHTMLFileName', '');
+    p_Login := GetParam(paramList, 'Login', '_search_test');
+    p_Pass := GetParam(paramList, 'Pass', p_Login);
+    p_StartContext := GetParam(paramList, 'StartContext', ''); 
+    p_ShellRestartFactor := VarToInteger( GetParam(paramList, 'ShellRestartFactor', Win32API.MAXLONG) );
+    p_IsCollectDocNames := VarToBool( GetParam(paramList, 'IsCollectDocNames', true) );
+    p_OneSearchMaxTime := VarToInteger( GetParam(paramList, 'OneSearchMaxTime', 2*60*60*1000) );  
+    //
+    etMap := CLCTE_CreateInputMapFromCSV(GetFileBody(p_InFileName), paramString);
+    Log.Message('etMap', CLCTE__MapToText(etMap, CLCTE_MAP_QUERIESLIST));
+    //
+    try
+      // производим все указанные поиски
+      queries := Map(etMap, 'keys array', nil);
+      Log.Message('Количество запросов: ' + IntToStr(ArrayLength(queries)));
+      for i := VarArrayLowBound(queries, 1) to VarArrayHighBound(queries, 1) do
+      begin
+        query := queries[i];
+        if (p_StartContext <> '') then
+          if (query = p_StartContext) then
+            p_StartContext := ''
+          else
+            continue;
+        Log.AppendFolder('Производим поиск запроса: ' + query, '№ запроса: ' + IntToStr(i) + EndOfLine + 'Запрос: ' + query);
+        // 
+        searchAttempt := 1;
+        isContinueSearchCycle := true; 
+        while (searchAttempt <= MAX_SEARCH_ATTEMPTS) AND isContinueSearchCycle do
+        begin
+          Log.AppendFolder('Попытка поиска № ' + IntToStr(searchAttempt));          
+          try
+            try
+              if (i = VarArrayLowBound(queries, 1)) OR ((i mod p_ShellRestartFactor)=0) OR isHasBeenException then
+              begin
+                isContinueRestartCycle := true;
+                restartAttempt := 1;
+                while (restartAttempt <= MAX_RESTART_ATTEMPTS) AND isContinueRestartCycle do
+                begin
+                  Log.AppendFolder('(Пере)Запускаем оболочку и логинимся. Попытка № ' + IntToStr(restartAttempt));                
+                  try                
+                    try
+                      coa := 5;
+                      CloseF1Shell(coa, Options.Run.Timeout div 6);
+                      StartF1Shell;
+                      LoginAnyhow(p_Login, p_Pass);
+                      isContinueRestartCycle := false; // типа перезапустились
+                    except
+                      Log.Error('Исключение при перезапуске: ' + ExceptionMessage);
+                      if (restartAttempt = MAX_RESTART_ATTEMPTS) then
+                        Raise; // если это последняя попытка перезапуска, то прокидываем исключение дальше  
+                    end;
+                  finally  
+                    Log.PopLogFolder;
+                  end;                    
+                  Inc(restartAttempt);
+                end; // while
+              end;
+              // еще один контур защиты от зависания, предполагаем, что попытка поиска длится не более 2-х часов
+              ProcessKiller('SEARCH_ATTEMPT', 'START', p_OneSearchMaxTime, GetF1ShellProcess);
+              try  
+                isHasBeenException := false;                  
+                VarClear(reDocsMap);
+                VarClear(reDocNamesMap);                
+                //
+                UnexpWindow('reset');
+                ErrorUnexpectedWindow('reset');                
+                // делаем поиск
+                baseSearchRes := BaseSearch(nil, query, 'IsCloseWindow:=false;IsOpenOnlyIfNotFound:=true;IsExtendedResult:=true;SearchType:=Базовый поиск;');//IsInsertByClipboard:=true');
+                //                
+                if UnexpWindow('get flag') then
+                  Raise('В процессе поиска было обнаружено неизвестное окно!');
+                if ErrorUnexpectedWindow('get flag') then
+                  Raise('В процессе поиска было обнаружено окно с ошабкой!');
+                                 
+                if GetParam(baseSearchRes, 'Result', false) then
+                begin // поиск прошел, делаем проверку
+                  reDocsMap := CLCTE_DoCheck(Map(etMap, 'get', query), paramString);
+                  if p_IsCollectDocNames then
+                    reDocNamesMap := CLCTE_CollectDocNames(paramString);                
+                end
+                else
+                begin // поиск не прошел, вместо мапы суем строку с ошибкой
+                  reDocsMap := StringReplace(GetParam(baseSearchRes, 'InfoMsgText', ''), EndOfLine, ' ', 1 or 2);
+                  reDocNamesMap := reDocsMap; 
+                  Log.Error('Поиск не прошел!', query + EndOfLine + GetParam(baseSearchRes, 'InfoMsgText', ''));
+                end;
+                //
+                Map(reMap, 'put', query, reDocsMap);
+                Map(reDocNamesFullMap, 'put', query, reDocNamesMap);
+                //
+                Log.Message('reDocsMap', CLCTE__MapToText(reDocsMap, CLCTE_MAP_DOCSLIST));                     
+                isContinueSearchCycle := false; // переходим к следующему запросу
+              finally
+                ProcessKiller('SEARCH_ATTEMPT', 'STOP');
+              end;  
+            except              
+              Log.Error('Исключение при поиске: ' + ExceptionMessage);
+              isHasBeenException := true;
+              if (searchAttempt = MAX_SEARCH_ATTEMPTS) then
+                Raise; // если это последняя попытка, то прокидываем исключение дальше  
+            end;              
+          finally // try                      
+            Log.PopLogFolder;
+          end; // try
+          Inc(searchAttempt);  
+        end; // while  
+        Log.PopLogFolder;  
+      end; // for
+      Log.Message('reMap', CLCTE__MapToText(reMap, CLCTE_MAP_QUERIESLIST));
+    finally // всегда сохраняем результат
+      // выводим
+      Log.Message('Парсим результат в CSV');
+      resCSV := CLCTE_ParseResult_DocsList(etMap, reMap, 'OutputFormat:=csv');
+      SaveStrToFile(Log.Path + 'result.csv', resCSV);
+      Log.File( Log.Path + 'result.csv', 'CSV File');
+      Log.Message('resCSV', resCSV);            
+      if (p_OutCSVFileName <> '') then      
+        SaveStrToFile(p_OutCSVFileName, resCSV);
+      resCSV := '';  
+      //      
+      Log.Message('Парсим результат в HTML');
+      resHTML := CLCTE_ParseResult_DocsList(etMap, reMap, 'OutputFormat:=html');
+      SaveStrToFile(Log.Path + 'result.html', resHTML);
+      Log.File(Log.Path + 'result.html', 'HTML File');
+      Log.Message('resHTML', resHTML);      
+      if (p_OutHTMLFileName <> '') then
+        SaveStrToFile(p_OutHTMLFileName, resHTML);
+      resHTML := '';  
+      //              
+      if p_IsCollectDocNames then
+      begin
+        Log.Message('Парсим список имен документов в CSV');
+        resDocNamesCSV := CLCTE_ParseResult_DocNamesList(reDocNamesFullMap, 'OutFileName:='+ p_OutDocNamesCSVFileName);
+        SaveStrToFile(Log.Path + 'result_docnames.csv', resDocNamesCSV);
+        Log.File(Log.Path + 'result_docnames.csv', 'DocNames CSV File');
+        if (p_OutDocNamesCSVFileName <> '') then
+          Log.File(p_OutDocNamesCSVFileName, 'OutDocNamesCSVFileName');
+        resDocNamesCSV := '';                        
+      end; 
+    end;  
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, paramString, pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;
+end;
+
+procedure CLCTE_Main_Test;
+begin
+  DEFAULT_DELAY('set', 100);
+
+  {CLCTE_Main(
+    'InFileName:=C:\LIST_CHECK\больше 5 обращений.tsttst.csv'+
+    ';OutHTMLFileName:=c:\res.html'+
+    ';OutCSVFileName:=c:\res.csv'+
+    ';OutDocNamesCSVFileName:=c:\res_docnames.csv'+    
+    ';IsInternalDocSearch := false' +
+    ';MaxDocToCheck := 20' + 
+    ';IsMergeDuplicateQueries := true' + 
+    ';IsMergeDuplicateNumbers := true' +
+    ';IsUpcaseQueries := true'
+  );
+  Exit; }
+   
+  CLCTE_Main(
+    'InFileName:=c:\temp\r\etalon.csv'+
+    ';OutHTMLFileName:=c:\temp\r\res.html'+
+    ';OutCSVFileName:=c:\temp\r\res.csv'+
+    ';OutDocNamesCSVFileName:=c:\temp\r\res_docnames.csv'+
+    ';IsInternalDocSearch := true'
+  );
+  Exit;
+  
+  CLCTE_Main(
+    'InFileName:=c:\temp\r\etalon2.csv'+
+    ';OutHTMLFileName:=c:\temp\r\res2.html'+
+    ';OutCSVFileName:=c:\temp\r\res2.csv'+
+    ';IsInternalDocSearch := true'
+  );  
+end;
+
+procedure CLCTE_Main_DoCheck;
+begin
+  DEFAULT_DELAY('set', 100);
+  DEFAULT_TIMEOUT('set', 30000);
+  InitOptions;
+  DisableLogCopy;
+
+  //ProductVersion('set', PRODUCT_VERSION_7_1 );
+  
+  CLCTE_Main(
+    'InFileName:=C:\LIST_CHECK.2\2010-05-25.csv'+
+    ';OutHTMLFileName:=C:\LIST_CHECK.2\res_2010-05-25.html'+
+    ';OutCSVFileName:=C:\LIST_CHECK.2\res_2010-05-25.csv'+
+    ';OutDocNamesCSVFileName:=C:\LIST_CHECK.2\res_docnames_2010-05-25.csv'+    
+    ';IsInternalDocSearch:=true' +    
+    ';ShellRestartFactor := 70' +    
+    ';MaxDocToCheck := 10' +
+    ';MaxDocNamesToCollect := 10' + 
+    ';IsMergeDuplicateQueries := true' + 
+    ';IsMergeDuplicateNumbers := true' +
+    ';IsUpcaseQueries := true' +
+    ';OneSearchMaxTime := 300000'
+  );     
+  
+  {//ProductVersion('set', PRODUCT_VERSION_7_1 );
+  
+  CLCTE_Main(
+    'InFileName:=C:\LIST_CHECK\больше 5 обращений.csv'+
+    ';OutHTMLFileName:=C:\LIST_CHECK\res.html'+
+    ';OutCSVFileName:=C:\LIST_CHECK\res.csv'+
+    ';IsInternalDocSearch:=false' +    
+    ';ShellRestartFactor := 500' +
+    ';MaxDocToCheck := 20' + 
+    ';IsMergeDuplicateQueries := true' + 
+    ';IsMergeDuplicateNumbers := true' +
+    ';IsUpcaseQueries := true'    
+  );}  
+end;
+
+
+procedure ____BP_LIST_and_DOC_OPEN_____; begin end;
+
+procedure WriteToForm (form : OleVariant, const text: String);
+begin
+  form.setFocus();
+  Sys.Keys(KeyPause +'[End]'+ KeyPause + '![Home]' + KeyPause + '[Del]' + KeyPause + text + KeyPause + KeyPause + '[Del]![End][Del]');  
+end;
+
+const
+  BPLDO_LIST_TIME = 'BPLDO_LIST_TIME';
+  BPLDO_SEARCH_TIME = 'BPLDO_SEARCH_TIME';
+  BPLDO_DOCUMENT_TIME = 'BPLDO_DOCUMENT_TIME';  
+
+function BPLDO_SearchListAndDocOpenTime(
+  context : String
+) : OleVariant;
+  const
+    FUNCTION_NAME = 'BPLDO_SearchListAndDocOpenTime';  
+  var
+    p, w, mWin, cb, pc, list, FormParams: OleVariant;
+    Profiler: OleVariant;
+    mDelay : Integer;  
+    i: integer;  
+    mainWnd;  
+begin
+  try
+    VarClear(Result);
+    p := GetF1ShellProcess; 
+    mainWnd := GetMainWindow;
+    mainWnd.Activate;
+    // Переключаемся на вид информации 'Все документы'
+    OpenBaseSearch(SRCH_BASE);
+    pc := GetFromBaseSearch( 'ЗАКЛАДКИ "ВИД ПРАВОВОЙ ИНФОРМАЦИИ"');
+    SwitchToPage(pc, 'Все документы');
+    // Переводим фокус в комбобокс, очищаем его и инициируем поиск     
+    cb := GetFromBaseSearch( 'КОМБОБОКС "БАЗОВЫЙ ПОИСК"');
+    WriteToForm(cb, context);
+    WriteToForm(cb, context);
+    mDelay := Win32API.GetTickCount;    
+    Sys.Keys('[Enter]');  
+    mWin := p.WaitWindow('TMessageForm', 'Подтверждение', -1, Options.Run.Timeout);
+    if mWin.Exists and mWin.VisibleOnScreen then
+    begin
+      mDelay := Win32API.GetTickCount - mDelay;
+      SetParam(Result, BPLDO_SEARCH_TIME, mDelay);
+      Log.Message('Время поиска: ' + VarToStr(mDelay));
+
+      // Получаем параметры окна и подтверждаем построение списка
+      if ( CheckForKnownMessageForms( [([MFT_CONFIRMATION,'*','Да'])], FormParams ) )then
+      begin
+        // Читаем из профайлера время построения списка
+        list := GetList;
+        if IsExists(list) then
+        begin
+          Profiler := GetProfiler (PR_LIST);
+          for i := 1 to 5 do
+          begin
+            if (Profiler.HasFinished = true) then
+            begin
+              SetParam(Result, BPLDO_LIST_TIME, Profiler.ExecuteTime);
+              Log.Message('Время открытия списка: ' + VarToStr(Profiler.ExecuteTime));
+              break;
+            end
+            else
+              Sleep (3000);
+          end;
+
+          // открываем документ        
+          Sys.Keys('[Enter]');        
+          // Считываем из профайлера время открытия документа
+          w := GetEditor;
+          if IsExists(w) then
+          begin
+            Profiler := GetProfiler (PR_DOCUMENT);
+            for i := 1 to 5 do
+            begin
+              if (Profiler.HasFinished = true) then
+              begin
+                SetParam(Result, BPLDO_DOCUMENT_TIME, Profiler.ExecuteTime);
+                Log.Message('Время открытия документа: ' + VarToStr(Profiler.ExecuteTime)); 
+                break;
+              end
+              else
+                Sleep (3000);
+            end;
+          end
+          else
+            Raise('Документ не открыт');
+        end;
+      end
+      else
+        Raise('Не найдена форма с предложением подтвердить построение списка');  
+    end
+    else
+      Raise('Не дождались окончания поиска!');
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;      
+end;
+
+procedure BPLDO_SearchListAndDocOpenTime_Test;
+begin
+  SetSettings( [ (['Поиск\Подтверждения', 'ПОСТРОЕНИЕ СПИСКА\ПОДТВЕРЖДАТЬ ПОСТРОЕНИЕ СПИСКА [CHECKBOX]', true]) ] );
+  BPLDO_SearchListAndDocOpenTime('конституция');
+  
+end;
+
+procedure BPLDO_Main(
+  paramString : String
+);
+  const
+    FUNCTION_NAME = 'BPLDO_Main';
+    MAX_SEARCH_ATTEMPTS = 4;
+    MAX_RESTART_ATTEMPTS = 3;    
+  var
+    p_InFileName; // файл с исходными данными (одна строка - один запрос)
+    p_OutFileName; // выходной файл
+    p_NumOfMeasurements; // сколько раз мерять время для одного запроса (с целью уменьшения погрешности)
+    p_Login, p_Pass;
+    paramList;
+    contextsArr;
+    context;
+    measuredTime;
+    measuredTimeArr;
+    strToSave;
+    csvHeader;
+    i, j;
+    coa;
+    searchAttempt, restartAttempt : Integer; 
+    isHasBeenException, isContinueSearchCycle, isContinueRestartCycle : boolean;    
+        
+begin
+  try
+    _InitLogFileCopy(Log.Path + 'TestLog.Dub.Txt');
+    //
+    paramList := ParseParamString(paramString);
+    //
+    p_InFileName := GetParam(paramList,
+      'InFileName',
+      '' );    
+    if NOT FileExists(p_InFileName) then    
+      Raise('Входной файл должен существовать!');
+      
+    p_OutFileName := GetParam(paramList,
+      'OutFileName',
+      '' );    
+    if (p_OutFileName = '') then 
+      Raise('Имя выходного файла должно быть задано!');
+    if FileExists(p_OutFileName) then
+    begin
+      Log.File(p_OutFileName, 'Старый выходной файл');
+      DeleteFile(p_OutFileName);
+    end;    
+    
+    p_NumOfMeasurements := VarToInteger( GetParam(paramList,
+      'NumOfMeasurements',
+      '1' ) );  
+      
+    p_Login := GetParam(paramList, 'Login', '_time_test');
+    p_Pass := GetParam(paramList, 'Pass', p_Login);            
+
+    csvHeader := 'Контекст';
+    for j := 1 to p_NumOfMeasurements do
+      csvHeader := csvHeader + ';"Поиск ' + VarToStr(j) + '"';
+    for j := 1 to p_NumOfMeasurements do
+      csvHeader := csvHeader + ';"Список ' + VarToStr(j) + '"';
+    for j := 1 to p_NumOfMeasurements do
+      csvHeader := csvHeader + ';"Документ ' + VarToStr(j) + '"';
+            
+    // парсим входной файл
+    contextsArr := String2Array( GetFileBody(p_InFileName), EndOfLine );
+    // перебираем контексты
+    for i := VarArrayLowBound(contextsArr, 1) to VarArrayHighBound(contextsArr, 1) do
+    begin 
+      context := contextsArr[i];; 
+      if context <> '' then
+      begin
+        Log.AppendFolder('Производим замеры времени для запроса "' +  context + '"');
+        try
+          // делаем замеры для одного контекста указанное количество раз
+          measuredTimeArr := CreateVariantArray(1, p_NumOfMeasurements);
+          for j := 1 to p_NumOfMeasurements do
+          begin
+            Log.AppendFolder(VarToStr(j) + '-й замер');
+            try
+              searchAttempt := 1;
+              isContinueSearchCycle := true;
+              while (searchAttempt <= MAX_SEARCH_ATTEMPTS) AND isContinueSearchCycle do
+              begin
+                Log.AppendFolder('Попытка № ' + IntToStr(searchAttempt));          
+                try
+                  try
+                    if ((j = 1) AND (i = VarArrayLowBound(contextsArr, 1))) OR isHasBeenException then
+                    begin
+                      isContinueRestartCycle := true;
+                      restartAttempt := 1;
+                      while (restartAttempt <= MAX_RESTART_ATTEMPTS) AND isContinueRestartCycle do
+                      begin
+                        Log.AppendFolder('(Пере)Запускаем оболочку и логинимся. Попытка № ' + IntToStr(restartAttempt));                
+                        try                
+                          try
+                            coa := 5;
+                            CloseF1Shell(coa, Options.Run.Timeout div 6);
+                            StartF1Shell;
+                            LoginAnyhow(p_Login, p_Pass);
+                            SetSettings( [ (['Поиск\Подтверждения', 'ПОСТРОЕНИЕ СПИСКА\ПОДТВЕРЖДАТЬ ПОСТРОЕНИЕ СПИСКА [CHECKBOX]', true]) ] );
+                            isContinueRestartCycle := false; // типа перезапустились
+                          except
+                            Log.Error('Исключение при перезапуске: ' + ExceptionMessage);
+                            if (restartAttempt = MAX_RESTART_ATTEMPTS) then
+                              Raise; // если это последняя попытка перезапуска, то прокидываем исключение дальше  
+                          end;
+                        finally  
+                          Log.PopLogFolder;
+                        end;                    
+                        Inc(restartAttempt);
+                      end; // while
+                    end;                    
+                    isHasBeenException := false;
+                    
+                    VarClear(measuredTime);                    
+                    measuredTime := BPLDO_SearchListAndDocOpenTime(context);
+                    measuredTimeArr[j] := measuredTime;
+                    //                    
+                    Log.Message('Время поиска: ' + VarToStr(GetParam(measuredTime, BPLDO_SEARCH_TIME)));
+                    Log.Message('Время построения списка: ' + VarToStr(GetParam(measuredTime, BPLDO_LIST_TIME)));
+                    Log.Message('Время открытия документа: ' + VarToStr(GetParam(measuredTime, BPLDO_DOCUMENT_TIME)));
+                    
+                    isContinueSearchCycle := false;                                      
+                  except
+                    Log.Error('Исключение при замере: ' + ExceptionMessage);
+                    isHasBeenException := true;
+                    if (searchAttempt = MAX_SEARCH_ATTEMPTS) then
+                      Raise; // если это последняя попытка, то прокидываем исключение дальше  
+                  end; // try              
+                finally // try                      
+                  Log.PopLogFolder;
+                end; // try
+                Inc(searchAttempt);  
+              end; // while                                                                         
+            finally
+              Log.PopLogFolder;
+            end; // try
+          end; // for j := 1 to p_NumOfMeasurements do            
+          // пишем результат в файл
+          strToSave := context;
+          for j := 1 to p_NumOfMeasurements do
+            strToSave := strToSave + ';' + VarToStr(GetParam(measuredTimeArr[j], BPLDO_SEARCH_TIME));          
+          for j := 1 to p_NumOfMeasurements do
+            strToSave := strToSave + ';' + VarToStr(GetParam(measuredTimeArr[j], BPLDO_LIST_TIME));
+          for j := 1 to p_NumOfMeasurements do
+            strToSave := strToSave + ';' + VarToStr(GetParam(measuredTimeArr[j], BPLDO_DOCUMENT_TIME));
+          Log.Message('Результаты измерения', strToSave);
+          AppendFile(p_OutFileName, strToSave, csvHeader);
+        finally
+          Log.PopLogFolder;
+        end;
+      end; // if context <> '' then    
+    end; // for i := VarArrayLowBound(contextsArr, 1) to VarArrayHighBound(contextsArr, 1) do
+    
+    //
+    if FileExists(p_OutFileName) then 
+      Log.File(p_OutFileName, 'Выходной файл');    
+  except
+    Log.Message(FUNCTION_NAME + ': ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+    Raise;
+  end;
+end;
+
+procedure BPLDO_Main_Test;
+  var
+    inFileName;
+    outFileName;
+begin
+  inFileName := IncludeTrailingBackslash(GetTempDirectory) + GetRandomString;
+  AppendFile(inFileName, 'конституция');
+  AppendFile(inFileName, 'текст');
+  AppendFile(inFileName, 'трактор');
+  //
+  outFileName := IncludeTrailingBackslash(GetTempDirectory) + GetRandomString;
+  
+  //
+  BPLDO_Main(
+    'InFileName := ' + inFileName + ';' +
+    'OutFileName := ' + outFileName + ';' +
+    'NumOfMeasurements := 4'
+  );
+  
+    
+end;
+
+procedure BPLDO_Main_DoCheck;
+begin
+  InitOptions;
+  
+  CloseF1Shell;  
+  StopF1Server;
+  StartF1Server;  
+
+  BPLDO_Main(
+    'InFileName := c:\syno_1.csv;' +
+    'OutFileName := c:\syno_res_1.csv;' +
+    'NumOfMeasurements := 4'
+  );
+
+  CloseF1Shell;  
+  StopF1Server;
+  StartF1Server;  
+  
+  BPLDO_Main(
+    'InFileName := c:\syno_2.csv;' +
+    'OutFileName := c:\syno_res_2.csv;' +
+    'NumOfMeasurements := 4'
+  );
+
+  CloseF1Shell;  
+  StopF1Server;
+  StartF1Server;  
+    
+  BPLDO_Main(
+    'InFileName := c:\syno_3.csv;' +
+    'OutFileName := c:\syno_res_3.csv;' +
+    'NumOfMeasurements := 4'
+  );    
+end;
+  
+
+

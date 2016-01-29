@@ -1,0 +1,423 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "AutoCompleteValuesImpl"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (fctr.java)"
+	    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/AutoCompleteValuesImpl/DefaultAutoCompleteProviderFactoryImpl.java::47BBF47A03E1")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED FILES (java)"
+	    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/AutoCompleteValuesImpl/DefaultAutoCompleteProvider.java::47BBF47A03E1")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/AutoCompleteValuesImpl/DefaultAutoCompleteProvider|47BBF47A03E1::47BBF47A03E1
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/AutoCompleteValuesImpl|47BBF45503AF
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19010846556"))
+    quid       	"47BBF45503AF"
+    stereotype 	"Impl"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"47BBF46B013B"
+	    supplier   	"Logical View::MDProcess::ConfluencePlugins::AutoCompleteValues"
+	    quidu      	"47BBEB51037F")
+	(object Visibility_Relationship
+	    quid       	"47BC008A02FC"
+	    supplier   	"Logical View::MDProcess::ConfluencePlugins::ConfluencePluginsDAO"
+	    quidu      	"47BC007801F0"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "DefaultAutoCompleteProvider"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (fctr.java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/AutoCompleteValuesImpl/DefaultAutoCompleteProviderFactoryImpl.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/MDProcess/java/src/java/ru/garant/MDProcess/ConfluencePlugins/AutoCompleteValuesImpl/DefaultAutoCompleteProvider.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47BBF47A03E1_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *47BBF47A03E1_CUSTOM_IMPORT*¤¤import java.lang.reflect.InvocationTargetException;¤import java.util.ArrayList;¤import java.util.Collections;¤import java.util.LinkedList;¤import java.util.List;¤¤import org.apache.commons.beanutils.PropertyUtils;¤import org.apache.commons.lang.StringUtils;¤¤import net.sf.hibernate.HibernateException;¤import net.sf.hibernate.Session;¤import net.sf.hibernate.Transaction;¤¤//#UC END# *47BBF47A03E1_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47BBF47A03E1_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *47BBF47A03E1_CUSTOM_CLASS_DEFINITION*¤//#UC END# *47BBF47A03E1_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47BBF47A03E1_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *47BBF47A03E1_CUSTOM_METHODS_AND_DATA*¤	//#UC END# *47BBF47A03E1_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/ConfluencePlugins/AutoCompleteValuesImpl/DefaultAutoCompleteProvider|47BBF47A03E1
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47BBED23013E_47BBEDD00161_47BBF47A03E1_BODY*"
+		    value      	(value Text 
+|//#UC START# *47BBED23013E_47BBEDD00161_47BBF47A03E1_BODY*¤		¤		try {¤			Session session = org.springframework.orm.hibernate.SessionFactoryUtils.getSession (ContainerManager.Factory.get().getSessionFactory(), false);¤			Transaction tx = session.beginTransaction ();¤			AutoCompleteProviderDAOProxy key = new AutoCompleteProviderDAOProxy(userName, form);¤			AutoCompleteProviderDAOProxy currentProxy = ¤				(AutoCompleteProviderDAOProxy) session.get(AutoCompleteProviderDAOProxy.class, key);¤			tx.commit();¤			¤			if (currentProxy != null) {¤				proxy_ = (AutoCompleteProviderDAOProxy) currentProxy.clone();¤			}¤			else {¤				proxy_ = new AutoCompleteProviderDAOProxy(userName, form, false, 10);¤				store();¤			}¤		} catch (Exception e) {¤			Logs.LOG_E("DefaultAutoCompleteProvider::ctor: " + e);¤		}		¤		¤		//#UC END# *47BBED23013E_47BBEDD00161_47BBF47A03E1_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47BD49BD0217_47BBF47A03E1*"
+		    value      	(value Text 
+|//#UC START# *47BD49BD0217_47BBF47A03E1*¤		List<String> values = getSuggestedValues(field);¤		if (values.size() != 0)¤			return values.get(0);¤		return "";¤		//#UC END# *47BD49BD0217_47BBF47A03E1*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47BBF85703CB_47BBF47A03E1*"
+		    value      	(value Text 
+|//#UC START# *47BBF85703CB_47BBF47A03E1*¤		List<String> suggestedValues = proxy_.getSuggestedValues(field);¤		if(suggestedValues == null)¤			suggestedValues = new LinkedList<String>();¤		return Collections.unmodifiableList(suggestedValues);¤		//#UC END# *47BBF85703CB_47BBF47A03E1*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47BBF9500375_47BBF47A03E1_GET*"
+		    value      	(value Text 
+|//#UC START# *47BBF9500375_47BBF47A03E1_GET*¤		return proxy_.getInitialized();¤		//#UC END# *47BBF9500375_47BBF47A03E1_GET*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47BBF901023E_47BBF47A03E1_GET*"
+		    value      	(value Text 
+|//#UC START# *47BBF901023E_47BBF47A03E1_GET*¤		return proxy_.getMaxValues();¤		//#UC END# *47BBF901023E_47BBF47A03E1_GET*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47BBF901023E_47BBF47A03E1_SET*"
+		    value      	(value Text 
+|//#UC START# *47BBF901023E_47BBF47A03E1_SET*¤		if(!proxy_.getInitialized())¤			proxy_.setMaxValues(maxValues);¤		else¤			throw new IllegalStateException("Already initialized");¤		//#UC END# *47BBF901023E_47BBF47A03E1_SET*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47BBFA7D00D8_47BBF47A03E1*"
+		    value      	(value Text 
+|//#UC START# *47BBFA7D00D8_47BBF47A03E1*¤		¤		if(StringUtils.isBlank(value))¤			return;¤		¤		List<String> values = proxy_.getSuggestedValues(field);¤		if (values != null) {¤			if (values.contains(value))¤				values.remove(value);¤			else if (values.size() >= getMaxValues())¤				values.remove(getMaxValues() - 1);¤		}¤		else {¤			values = new LinkedList<String>();¤			proxy_.setSuggestedValues(field, values);¤		}¤		values.add(0, value);¤		¤		//#UC END# *47BBFA7D00D8_47BBF47A03E1*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47BBF9AC013C_47BBF47A03E1*"
+		    value      	(value Text 
+|//#UC START# *47BBF9AC013C_47BBF47A03E1*¤		proxy_.setInitialized(true);¤		//#UC END# *47BBF9AC013C_47BBF47A03E1*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47BBF8AF02B2_47BBF47A03E1*"
+		    value      	(value Text 
+|//#UC START# *47BBF8AF02B2_47BBF47A03E1*¤		¤		if (values == null || values.size() == 0)¤			return;¤		List<String> currentSuggestedValues = proxy_.getSuggestedValues(field);¤		List<String> suggestedValues = currentSuggestedValues != null ? currentSuggestedValues¤				: new LinkedList<String>();¤		suggestedValues.clear();¤		for (int i = 0; i < getMaxValues() && i < values.size(); i++) {¤			if (!StringUtils.isBlank(values.get(i)))¤				suggestedValues.add(values.get(i));¤		}¤		¤		//#UC END# *47BBF8AF02B2_47BBF47A03E1*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*47BC189700F8_47BBF47A03E1*"
+		    value      	(value Text 
+|//#UC START# *47BC189700F8_47BBF47A03E1*¤		¤		Session session = org.springframework.orm.hibernate.SessionFactoryUtils.getSession(¤				ContainerManager.Factory.get().getSessionFactory(), false);¤		Transaction tx = null;¤¤		try {¤			tx = session.beginTransaction();¤			AutoCompleteProviderDAOProxy key = new AutoCompleteProviderDAOProxy(proxy_.getUserName(), proxy_¤					.getForm());¤			AutoCompleteProviderDAOProxy currentProxy = (AutoCompleteProviderDAOProxy) session.get(¤					AutoCompleteProviderDAOProxy.class, key);¤			if (currentProxy == null) {¤				session.save(proxy_);¤				proxy_ = (AutoCompleteProviderDAOProxy) proxy_.clone();¤			}¤			else {¤				PropertyUtils.copyProperties(currentProxy, proxy_);¤				session.save(currentProxy);¤			}¤			tx.commit();¤		}¤		catch (HibernateException ex) {¤			if (tx != null) {¤				try {¤					tx.rollback();¤				}¤				catch (HibernateException e) {¤					Logs.LOG_SEX(ex);¤				}¤			}¤			Logs.LOG_SEX(ex);¤		}¤		catch (CloneNotSupportedException e) {¤			Logs.LOG_E("DefaultAutoCompleteProvider::store: catch CloneNotSupportedException - "¤					+ e.getMessage());¤		}¤		catch (java.lang.reflect.InvocationTargetException ite) {¤			Logs.LOG_E("DefaultAutoCompleteProvider::store: catch InvocationTargetException - "¤					+ ite.getMessage());¤		}¤		catch (NoSuchMethodException nsme) {¤			Logs.LOG_E("DefaultAutoCompleteProvider::store: catch NoSuchMethodException - "¤					+ nsme.getMessage());¤		}¤		catch (IllegalAccessException iae) {¤			Logs.LOG_E("DefaultAutoCompleteProvider::store: catch IllegalAccessException - "¤					+ iae.getMessage());¤		}¤		¤		//#UC END# *47BC189700F8_47BBF47A03E1*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (fctr.java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19010858944"))
+	    quid       	"47BBF47A03E1"
+	    stereotype 	"Servant"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"47BBF48B03B7"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::AutoCompleteValues::AutoCompleteProvider"
+		    quidu      	"47BBED23013E"))
+	    language   	"MDA Generator")
+	(object Association "$UNNAMED$0"
+	    quid       	"47BC018C02B6"
+	    roles      	(list role_list
+		(object Role "proxy"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19010859449"))
+		    quid       	"47BC018D0045"
+		    label      	"proxy"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::ConfluencePluginsDAO::AutoCompleteProviderDAOProxy"
+		    quidu      	"47BC00A30351"
+		    Containment 	"By Value"
+		    exportControl 	"Private"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$1"
+		    quid       	"47BC018D0047"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::AutoCompleteValuesImpl::DefaultAutoCompleteProvider"
+		    quidu      	"47BBF47A03E1"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"47BBF46E030B"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::AutoCompleteValues::AutoCompleteProvider" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(597, 249)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(380, 221)
+			nlines     	1
+			max_width  	434
+			justify    	0
+			label      	"AutoCompleteProvider")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(380, 171)
+			anchor     	10
+			nlines     	1
+			max_width  	434
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"47BBED23013E"
+		    width      	452
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::ConfluencePluginsDAO::AutoCompleteProviderDAOProxy" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1689, 627)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705320
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1376, 599)
+			nlines     	1
+			max_width  	626
+			justify    	0
+			label      	"AutoCompleteProviderDAOProxy")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1376, 549)
+			anchor     	10
+			nlines     	1
+			max_width  	626
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	705320
+		    fill_color 	16777215
+		    quidu      	"47BC00A30351"
+		    width      	644
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::AutoCompleteValuesImpl::DefaultAutoCompleteProvider" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(657, 627)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(380, 597)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	554
+			justify    	0
+			label      	"DefaultAutoCompleteProvider")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(380, 547)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	554
+			justify    	0
+			label      	"<<Servant>>")
+		    icon_style 	"Label"
+		    fill_color 	12842435
+		    quidu      	"47BBF47A03E1"
+		    width      	572
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @4
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"47BBF48B03B7"
+		    client     	@3
+		    supplier   	@1
+		    vertices   	(list Points
+			(642, 534)
+			(611, 339))
+		    line_style 	0)
+		(object AssociationViewNew "$UNNAMED$0" @5
+		    location   	(1154, 627)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"47BC018C02B6"
+		    roleview_list 	(list RoleViews
+			(object RoleView "proxy" @6
+			    Parent_View 	@5
+			    location   	(497, 0)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @7
+				Parent_View 	@6
+				location   	(1161, 581)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	156
+				justify    	0
+				label      	"-proxy"
+				pctDist    	0.033333
+				height     	47
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"47BC018D0045"
+			    client     	@5
+			    supplier   	@2
+			    vertices   	(list Points
+				(1154, 627)
+				(1366, 627))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$1" @8
+			    Parent_View 	@5
+			    location   	(497, 0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"47BC018D0047"
+			    client     	@5
+			    supplier   	@3
+			    vertices   	(list Points
+				(1154, 627)
+				(943, 627))
+			    line_style 	0)))))))

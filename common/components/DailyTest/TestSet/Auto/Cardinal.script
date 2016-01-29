@@ -1,0 +1,16 @@
+: CardinalTest
+
+ CARDINAL VAR X
+ X := 1
+ X .
+ 
+ "Выполнить подавив исключение" ( X := INTEGER ( '2' ) )
+ // INTEGER ( ) - иначе теперь не компилируется
+ X .
+ 
+ @ X pop:Word:Directives .
+ @ CARDINAL pop:Word:Directives .
+ @ CARDINAL pop:object:ClassName .
+;
+
+CardinalTest 

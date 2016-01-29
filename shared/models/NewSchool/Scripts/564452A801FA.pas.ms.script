@@ -1,0 +1,175 @@
+// Diff 564452A801FA TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_564452A801FA
+
+FORWARD ME_564452C80377
+
+FORWARD ME_5644533F0088
+
+: ME_5645BF3100A3
+ CONST UID '5645BF3100A3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5644533F0088 // DoIt
+ ;
+ : Target WL 'ME_53A05AFD02CC' '47913B47006E.pas.ms.script' // Tl3DOSFiler
+ ;
+
+ref; // ME_5645BF3100A3 
+
+: ME_5645C9380255
+ CONST UID '5645C9380255'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_5644533F0088 // DoIt
+ ;
+ : Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.pas.ms.script' // FreeAndNil
+ ;
+
+ref; // ME_5645C9380255 
+
+: ME_5644533F0088
+ CONST UID '5644533F0088'
+ CONST Name 'DoIt'
+ CONST Class class_Class
+ : Stereotype st_Test ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_564452C80377 // DiffTest
+ ;
+ : Dependencies
+   @ ( ME_5645BF3100A3 // 
+ ME_5645C9380255 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+
+ref; // ME_5644533F0088 DoIt
+
+: ME_5645BE980354
+ CONST UID '5645BE980354'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_564452C80377 // DiffTest
+ ;
+ : Target WL 'ME_5644774902C8' '564476FF0335.pas.ms.script' // l3Diff
+ ;
+
+ref; // ME_5645BE980354 
+
+: ME_5645BEA10224
+ CONST UID '5645BEA10224'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_564452C80377 // DiffTest
+ ;
+ : Target WL 'ME_5645BDF50334' '564476FF0335.pas.ms.script' // l3DiffSupport
+ ;
+
+ref; // ME_5645BEA10224 
+
+: ME_8BE373F39A26
+ CONST UID '8BE373F39A26'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_564452C80377 // DiffTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_8BE373F39A26 
+
+: ME_4C937013031D_ME_564452C80377
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_564452C80377 // DiffTest
+ ;
+ref; // ME_4C937013031D_ME_564452C80377 GetFolder
+
+: ME_4DAED6F60146_ME_564452C80377
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_564452C80377 // DiffTest
+ ;
+ref; // ME_4DAED6F60146_ME_564452C80377 GetModelElementGUID
+
+: ME_564452C80377
+ CONST UID '564452C80377'
+ CONST Name 'DiffTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_564452A801FA // Diff
+ ;
+ : Inherits
+   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_5644533F0088 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4C937013031D_ME_564452C80377 // GetFolder
+ ME_4DAED6F60146_ME_564452C80377 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_5645BE980354 // 
+ ME_5645BEA10224 // 
+ ME_8BE373F39A26 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\DiffTest.pas'
+ CONST extprop:pas:TypeName 'TDiffTest'
+
+ref; // ME_564452C80377 DiffTest
+
+: ME_564452A801FA
+ CONST UID '564452A801FA'
+ CONST Name 'Diff'
+ CONST Class class_Category
+ : Stereotype st_TestUnit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4B2A15810261' '4B2A15810261.pas.ms.script' // DailyTest
+ ;
+ : Children
+   @ ( ME_564452C80377 // DiffTest
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
+ WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
+ WL 'ME_564476FF0335' '564476FF0335.pas.ms.script' // Diff
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\564452A801FA.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\564452A801FA.pas.ms.script.runner'
+
+ref; // ME_564452A801FA Diff

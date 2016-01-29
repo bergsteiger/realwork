@@ -1,0 +1,416 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "ContentPermissionImpl"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"finished"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator User Properties"
+	    name       	"is namespace"
+	    value      	"true")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/ConfluenceCore/ContentPermissionImpl|4986FF160126
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"16659469783"))
+    quid       	"4986FF160126"
+    documentation 	"ïàêåò ðåàëèçàöèè ðàáîòû ñ ïðàâàìè êîíòåíòà"
+    stereotype 	"Unit"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"4986FFBF027B"
+	    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.coreImpl"
+	    quidu      	"4649E1A40231")
+	(object Visibility_Relationship
+	    quid       	"4A83BA430214"
+	    supplier   	"Logical View::shared::ConfluenceCore::TaskSupport"
+	    quidu      	"4A83AEB70217"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "DefaultContentPermissionManager"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/ContentPermissionImpl/DefaultContentPermissionManager.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4986FF57017B_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4986FF57017B_CUSTOM_IMPORT*¤¤import java.util.Collection;¤import java.util.Iterator;¤¤import ru.garant.shared.ConfluenceCore.ActionSupport.PostProcessor;¤import ru.garant.shared.ConfluenceCore.EventSupport.ContentPermissionsEvent;¤¤import com.atlassian.confluence.core.ContentEntityObject;¤import com.atlassian.confluence.event.events.security.ContentPermissionEvent;¤import com.atlassian.confluence.security.ContentPermission;¤import com.atlassian.confluence.security.ContentPermissionSet;¤import com.atlassian.confluence.security.persistence.dao.ContentPermissionSetDao;¤import com.atlassian.event.EventManager;¤¤//#UC END# *4986FF57017B_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4986FF57017B_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4986FF57017B_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4986FF57017B_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4986FF57017B_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4986FF57017B_CUSTOM_METHODS_AND_DATA*¤	¤	@Override¤	public void setContentPermissions (Collection requiredPermissions, ContentEntityObject content,¤			String type) {¤		boolean hasPermissionChanges = false;¤		ContentPermissionSet cps = content.getContentPermissionSet(type);¤¤		for (Iterator iterator = requiredPermissions.iterator(); iterator.hasNext();) {¤			ContentPermission contentPermission = (ContentPermission) iterator.next();¤¤			if (!type.equals(contentPermission.getType())) {¤				continue;¤			}¤¤			if (cps == null || !cps.contains(contentPermission)) {¤				addContentPermission(contentPermission, content);¤				hasPermissionChanges = true;¤			}¤		}¤¤		if (cps != null) {¤			Collection toRemove = cps.getAllExcept(requiredPermissions);¤¤			for (Iterator it = toRemove.iterator(); it.hasNext();) {¤				removeContentPermission((ContentPermission) it.next());¤				hasPermissionChanges = true;¤			}¤		}¤		¤		if (hasPermissionChanges) {¤			eventManager.publishEvent(new ContentPermissionsEvent(this, content, type));¤		}¤	}¤	¤	@Override¤	public void removeContentPermission (ContentPermission permission) {¤		ContentEntityObject content = permission.getOwningSet().getOwningContent();¤		String type = permission.getType();¤		ContentPermissionSet set = content.getContentPermissionSet(type);¤		if (set != null) {¤			set.removeContentPermission(permission);¤¤			if (set.isEmpty()) {¤				content.removeContentPermissionSet(set);¤				contentPermissionSetDao.remove(set);¤			}¤		}¤		contentPermissionDao.remove(permission);¤		if (type.equals(ContentPermission.VIEW_PERMISSION)) {¤			PostProcessor.Factory.get().addTask(new ReindexTask(content));¤		}¤¤		eventManager.publishEvent(new ContentPermissionEvent(this, content, permission));¤	}¤	¤	public void addContentPermission (ContentPermission permission, ContentEntityObject content) {¤		if (!content.isLatestVersion()) {¤			throw new IllegalArgumentException(¤					"ContentEntityObject must correspond to the latest version of a content. Permissions can only be added to the latest version of a content.");¤		}¤		content.addPermission(permission);¤¤		contentPermissionDao.save(permission);¤¤		if (permission.getType().equals(ContentPermission.VIEW_PERMISSION)) {¤			PostProcessor.Factory.get().addTask(new ReindexTask(content));¤		}¤¤		eventManager.publishEvent(new ContentPermissionEvent(this, content, permission));¤	}¤	¤	@Override¤	public void setContentPermissionSetDao (ContentPermissionSetDao contentPermissionSetDao) {¤		super.setContentPermissionSetDao(contentPermissionSetDao);¤		this.contentPermissionSetDao = contentPermissionSetDao;¤	}¤	¤	private EventManager eventManager;¤	¤	@Override¤	public void setEventManager (EventManager eventManager) {¤		super.setEventManager(eventManager);¤		this.eventManager = eventManager;¤	}¤	¤	private ContentPermissionSetDao contentPermissionSetDao;¤	¤	//#UC END# *4986FF57017B_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/ConfluenceCore/ContentPermissionImpl/DefaultContentPermissionManager|4986FF57017B
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16659486503"))
+	    quid       	"4986FF57017B"
+	    documentation 	"ïåðåãðóæåííàÿ ðåàëèçàöèÿ ñòàíäàðòíîãî ContentPermissionManager"
+	    stereotype 	"SimpleClass"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4986FFC800C0"
+		    supplier   	"Logical View::external::ConfluenceSupport::com.atlassian.confluence.coreImpl::DefaultContentPermissionManager"
+		    quidu      	"4986FF9D011E"))
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"16659486844"))
+		    quid       	"4A83BA3401F6"
+		    stereotype 	"uses"
+		    supplier   	"Logical View::shared::ConfluenceCore::ContentPermissionImpl::ReindexTask"
+		    quidu      	"4A83B9D50363"))
+	    language   	"MDA Generator")
+	(object Class "ReindexTask"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (java)"
+		    value      	"w:/shared/java/src/java/ru/garant/shared/ConfluenceCore/ContentPermissionImpl/ReindexTask.java")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (java)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|Shared (java and c++),key:SHR,guid:44FEAD4A0272/Home/Ìîäåëü ïðîåêòà "shared"/ConfluenceCore/ContentPermissionImpl/ReindexTask|4A83B9D50363
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A83B9D50363_CUSTOM_IMPORT*"
+		    value      	"//#UC START# *4A83B9D50363_CUSTOM_IMPORT*¤¤import com.atlassian.confluence.core.ContentEntityManager;¤import com.atlassian.confluence.core.ContentEntityObject;¤import com.atlassian.confluence.pages.Attachment;¤import com.atlassian.confluence.pages.AttachmentManager;¤import com.atlassian.confluence.pages.Comment;¤import com.atlassian.confluence.pages.Page;¤import com.atlassian.confluence.pages.persistence.dao.PageDao;¤import com.atlassian.confluence.search.ChangeIndexer;¤import com.atlassian.confluence.search.ConfluenceIndexer;¤¤import ru.garant.shared.ConfluenceCore.Helpers.ContainerManager;¤¤//#UC END# *4A83B9D50363_CUSTOM_IMPORT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A83B9D50363_CUSTOM_CLASS_DEFINITION*"
+		    value      	"//#UC START# *4A83B9D50363_CUSTOM_CLASS_DEFINITION*¤//#UC END# *4A83B9D50363_CUSTOM_CLASS_DEFINITION*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"java:*4A83B9D50363_CUSTOM_METHODS_AND_DATA*"
+		    value      	(value Text 
+|//#UC START# *4A83B9D50363_CUSTOM_METHODS_AND_DATA*¤	¤	private ContentEntityObject content_;¤	¤	public ReindexTask(ContentEntityObject content) {¤		this.content_ = content;¤	}¤	¤	@Override¤	public void doRun () {¤		long time = System.currentTimeMillis();¤		Logs.LOG_D("ReindexTask::doRun - started");¤		if (content_ != null) {¤			ContentEntityManager cem = ContainerManager.Factory.get().getContentEntityManager();¤			// should reget object to attach it to the actual hibernate session¤			ContentEntityObject ceo = cem.getById(content_.getId());¤			reindexContent(ceo);¤		}¤		time = System.currentTimeMillis() - time;¤		Logs.LOG_D("ReindexTask::doRun - completed (" + time + "ms)");¤	}¤¤	@Override¤	protected boolean runInTransaction () {¤		return true;¤	}¤	¤	private void reindexContent (ContentEntityObject content) {¤		if (content == null)¤			return;¤¤		// update index for this page ...¤		getIndexer().reIndex(content);¤		getChangeIndexer().reIndexAllVersions(content);¤¤		// ... and all its dependents (so that attachments, comments reflect the¤		// same perms and properly excluded from search)¤		if (content instanceof Page) {¤			final Page page = (Page) content;¤			// descendent pages¤			for (Page descendent : getPageDao().getDescendents(page)) {¤				getIndexer().reIndex(descendent);¤				getChangeIndexer().reIndexAllVersions(descendent);¤				indexPageDependencies(descendent);¤			}¤			indexPageDependencies(page);¤		}¤	}¤	¤	private void indexPageDependencies (Page page) {¤		for (Attachment attachment : getAttachmentManager().getLatestVersionsOfAttachments(page)) {¤			getIndexer().reIndex(attachment);¤			getChangeIndexer().reIndexAllVersions(attachment);¤		}¤¤		// comments¤		for (Comment comment : page.getComments()) {¤			getIndexer().reIndex(comment);¤			getChangeIndexer().reIndexAllVersions(comment);¤		}¤	}¤	¤	private AttachmentManager getAttachmentManager() {¤		return ContainerManager.Factory.get().getAttachmentManager();¤	}¤	¤	private ChangeIndexer getChangeIndexer() {¤		return ContainerManager.Factory.get().getChangeIndexer();¤	}¤	¤	private ConfluenceIndexer getIndexer() {¤		return ContainerManager.Factory.get().getIndexer();¤	}¤	¤	private PageDao getPageDao() {¤		return ContainerManager.Factory.get().getPageDao();¤	}¤¤	@Override¤	public boolean isInSingleThread() {¤		// TODO Auto-generated method stub¤		return false;¤	}¤	¤	¤	//#UC END# *4A83B9D50363_CUSTOM_METHODS_AND_DATA*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"16663580856"))
+	    quid       	"4A83B9D50363"
+	    documentation 	"ïåðåèíäåêñèðóåò ContentEntityObject, â ñëó÷àå ñòðàíèöû ïåðåèíäåêñèðóåò çàâèñèìîñòè"
+	    stereotype 	"SimpleClass"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"4A83BA2E015D"
+		    supplier   	"Logical View::shared::ConfluenceCore::TaskSupport::PostProcessorTask"
+		    quidu      	"4A83AEE0035D"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"4986FF4D0371"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::ContentPermissionImpl::DefaultContentPermissionManager" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(801, 915)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(470, 879)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	662
+			justify    	0
+			label      	"DefaultContentPermissionManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(470, 834)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	662
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4986FF57017B"
+		    width      	680
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::external::ConfluenceSupport::com.atlassian.confluence.coreImpl::DefaultContentPermissionManager" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(807, 261)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(396, 227)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	822
+			justify    	0
+			label      	"DefaultContentPermissionManager")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(396, 182)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	822
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"4986FF9D011E"
+		    width      	840
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @3
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4986FFC800C0"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(801, 822)
+			(805, 351))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::TaskSupport::PostProcessorTask" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1914, 228)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	705320
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(1716, 194)
+			nlines     	1
+			max_width  	396
+			justify    	0
+			label      	"PostProcessorTask")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(1716, 149)
+			anchor     	10
+			nlines     	1
+			max_width  	396
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    line_color 	705320
+		    fill_color 	16777215
+		    quidu      	"4A83AEE0035D"
+		    width      	414
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::ConfluenceCore::ContentPermissionImpl::ReindexTask" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1929, 882)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1764, 846)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	330
+			justify    	0
+			label      	"ReindexTask")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(1764, 801)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	328
+			justify    	0
+			label      	"<<SimpleClass>>")
+		    icon_style 	"Label"
+		    fill_color 	12842465
+		    quidu      	"4A83B9D50363"
+		    width      	348
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @6
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4A83BA2E015D"
+		    client     	@5
+		    supplier   	@4
+		    vertices   	(list Points
+			(1926, 789)
+			(1915, 318))
+		    line_style 	0)
+		(object UsesView "" @7
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @8
+			Parent_View 	@7
+			location   	(1445, 776)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<uses>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4A83BA3401F6"
+		    client     	@1
+		    supplier   	@5
+		    vertices   	(list Points
+			(1141, 904)
+			(1754, 886))
+		    line_style 	0)))))

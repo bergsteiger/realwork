@@ -1,0 +1,89 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MDPSpecific/ConfluenceTemplate/Plugins/ConfluenceSupport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess::MDPSpecific::ConfluenceTemplate::Plugins::ConfluenceSupport
+//
+// набор вспомогательных функций для генерации поагинов для К
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// нужно ли выводить информацию о элементе в файл описания плагинов
+f _need_output_xml
+//#UC START# *470470AB03B9*
+	[{<{}{%CM=CPluginsPackage::Category}{C}>!=0}{false}true]
+//#UC END# *470470AB03B9*
+
+// возвращает тип плагина в терминах Confluence
+t _plugin_type
+//#UC START# *4705D056031C*
+c                                   {}
+r "%SS"="KServletPlugin":           {servlet}
+r "%SS"="KListenerPlugin":          {listener}
+r "%SS"="KMacroPlugin":             {macro}
+r "%SS"="KComponentPlugin":         {component}
+r "%SS"="KJobPlugin":               {job}
+r "%SS"="KTriggerPlugin":           {trigger}
+r "%SS"="KVelocityContextPlugin":   {velocity-context-item}
+r "%SS"="KXWorkPlugin":             {xwork}
+r "%SS"="XPackage":                 {package}
+r "%SS"="KSpringPlugin":            {job}
+r "%SS"="KExtractorPlugin":         {extractor}
+r "%SS"="KLifecyclePlugin":         {lifecycle}
+//#UC END# *4705D056031C*
+
+// выводит информацию о плагине
+f _dump_plugin_xml
+//#UC START# *4705D08C0148*
+	[{%Sa!=abstract}
+	\t\<%t_plugin_type(%S) name="%S%f_xml_name()"%f_dump_xml_attr(%S)\>
+	[%S%f_additional_plugin_xml_properties()
+	]\t	\<description\>%SD\</description\>[
+	<{\t\t}{}%CX>
+	]
+	\t\</%t_plugin_type(%S)\>
+	]
+//#UC END# *4705D08C0148*
+
+// выводит атрибуты плагина
+f _dump_xml_attr
+//#UC START# *4705D0A301E4*
+	[[{"%SS"!="Package"} key="%f_dump_java_package(%S).%SN"]\
+	[{%f_is_class(%S)=true} class="%f_dump_java_package(%S).%SN"]\
+	[{%SS=KVelocityContextPlugin} context-key="%S{context-key}"]\
+	[{%SS=KExtractorPlugin} priority="%S{priority}"]\
+	[{%SS=KExtractorPlugin|%SS=KLifecyclePlugin} sequence="%S{sequence}"]]
+//#UC END# *4705D0A301E4*
+
+// является ли элемент плагином К
+t _is_cplugin
+//#UC START# *4714D6EA009C*
+c                                          {}
+r "%SM"="KServletPlugin::Class":           {true}
+r "%SM"="KListenerPlugin::Class":          {true}
+r "%SM"="KMacroPlugin::Class":             {true}
+r "%SM"="KComponentPlugin::Class":         {true}
+r "%SM"="KJobPlugin::Class":               {true}
+r "%SM"="KTriggerPlugin::Class":           {true}
+r "%SM"="KVelocityContextPlugin::Class":   {true}
+/r "%SM"="VM::Class":                       {true}
+r "%SM"="KXWorkPlugin::Class":             {true}
+r "%SM"="KActionPlugin::Class":            {true}
+r "%SM"="KSpringPlugin::Class":            {true}
+r "%SM"="KExtractorPlugin::Class":         {true}
+r "%SM"="KLifecyclePlugin::Class":         {true}
+r "%SM"="WebItem::Class":                  {true}
+r ""="":                                   {false}
+//#UC END# *4714D6EA009C*
+
+// возвращает true, если в xml нужно выводить атрибут class
+// Надо бы это на функцию стереотипа перенести...
+f _is_class
+//#UC START# *4715E13A0157*
+	[{"%SS"!="KXWorkPlugin"}{false}true]
+//#UC END# *4715E13A0157*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

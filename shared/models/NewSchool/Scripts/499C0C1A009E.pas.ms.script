@@ -1,0 +1,96 @@
+// TeeTreeViewExport 499C0C1A009E TestClass Class
+
+INCLUDE '499C0B7B012E.pas.ms.script'
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+INCLUDE '4682595B0268.pas.ms.script'
+
+FORWARD ME_499C0C1A009E
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_499C0C240318
+ CONST UID '499C0C240318'
+ CONST Name 'CurrentNodeLevel'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'lnk'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_499C0C240318 CurrentNodeLevel
+
+: ME_499C0C3600B4
+ CONST UID '499C0C3600B4'
+ CONST Name 'CurrentNodeIndex'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'lnk'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_499C0C3600B4 CurrentNodeIndex
+
+: ME_499C0C420199
+ CONST UID '499C0C420199'
+ CONST Name 'CurrentNodeExpanded'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'lnk'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_499C0C420199 CurrentNodeExpanded
+
+: ME_499C1DC600BD
+ CONST UID '499C1DC600BD'
+ CONST Name 'IsCurrentOperationEnabled'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ %SUMMARY 'Эта функция регистрируется на TeeTreeViewExport, хотя по хорошему надо бы на'#13#10'TnscTasksPanelTreeView, но этот класс объявлен в implementation секции модуля'#13#10'nscTasksPanelView и недоступен. Поэтому, свойство будет существовать практически для всех деревьев, но будет иметь смысл только если его получать в дереве Панели задач, на других деревьях будет пустое (Empty) значение' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'lnk'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_499C1DC600BD IsCurrentOperationEnabled
+
+: ME_499C0C1A009E
+ CONST UID '499C0C1A009E'
+ CONST Name 'TeeTreeViewExport'
+ CONST Class 'Class'
+ CONST Stereotype 'TestClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_499C0B7B012E // TeeTreeViewExport
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_499C0C240318 // CurrentNodeLevel
+ ME_499C0C3600B4 // CurrentNodeIndex
+ ME_499C0C420199 // CurrentNodeExpanded
+ ME_499C1DC600BD // IsCurrentOperationEnabled
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_46A5AA4B003C // Invalidate
+ ME_477243870072 // RootChanged
+ ]
+ ; // Implemented
+ CONST "is friend" false
+
+ @SELF
+; // ME_499C0C1A009E TeeTreeViewExport

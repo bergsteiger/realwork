@@ -1,0 +1,52 @@
+// Mouse_MiddleDown 4F967CF70162 ScriptKeyword Class
+
+INCLUDE '4F967BAD0127.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_4F967CF70162
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_CA24403B133E
+ CONST UID 'CA24403B133E'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Mouse_MiddleDown' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_CA24403B133E Ini_Reg
+
+: ME_4F967CF70162
+ CONST UID '4F967CF70162'
+ CONST Name 'Mouse_MiddleDown'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_4F967BAD0127 // TkwMouseUpDownSupport
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_CA24403B133E // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4F967BED0186 // GetMouseEventFlag
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4F967CF70162 Mouse_MiddleDown

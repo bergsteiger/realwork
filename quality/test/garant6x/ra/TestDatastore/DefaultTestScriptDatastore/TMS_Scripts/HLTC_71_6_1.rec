@@ -1,0 +1,19 @@
+'$include "States.sbl"
+'$include "global.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+    
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Text=Правовой навигатор", "Coords=62,11"
+    GenericObject Click, "Text=Документы", "Coords=50,12"
+    Dim elem$
+    Dim count%
+    SQAgetProperty "CurrentFocus","Text",elem
+    call StrComp2Log(elem,"Основы государственно-правового устройства")
+    InputKeys "мой класс. верхний уровень{ENTER}"
+    SQAgetProperty "CurrentFocus","ItemCount",count
+    call StrComp2Log(CSTR(count),"2")
+    
+    
+End Sub

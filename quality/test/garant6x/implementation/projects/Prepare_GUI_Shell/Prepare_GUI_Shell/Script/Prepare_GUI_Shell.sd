@@ -1,0 +1,101 @@
+//////////////////////////////////////////////////////////////////////////////
+//  ѕодготовка настроек клиента дл€ выполнени€ автоматического тестировани€
+//////////////////////////////////////////////////////////////////////////////
+
+uses st_common, MenuWork, States, common, RunPrograms, FoldersWork, SettingsWork, Graphics, DocumentWork,
+     FileWork, ListWork, Clicks;
+     
+const
+  GUI_LOGIN_KEY = 'gui_login';
+  GUI_PASSWORD_KEY = 'gui_password';
+  PO_LOG_DIR = 'log_dir'; // ѕуть к каталогу с лог файлами
+  PO_CUR_DATE = 'cur_date'; // “екуща€ дата, беретс€ из сист. переменной %DATE%  
+{
+  ”станавливаем настройки проекта.
+}
+procedure PrepareInitOptions;
+begin
+  //блок настроек секции Run
+  Options.Run.Delay := 100; //врем€ между командами во  врем€ выполнени€ скрипта
+  Options.Run.Timeout := 30000; //врем€, которое ожидаетс€ по€вление окна
+  Options.Run.StopOnWarning := False;
+  Options.Run.StopOnRecognitionError  := False;
+  Options.Run.StopOnError := False;
+  Options.Run.ErrorDialog := False;
+  Options.Run.CaseSensitive := True;
+  Options.Run.ClickOnButton := True;
+  Options.Run.PressEsc  := False;
+  Options.Run.PressEnter  := False;
+  Options.Run.SendWMClose := False;
+  Options.Run.StopOnUnexpWindow := False;
+  Options.Run.IgnoreOverWindow := False;
+end;  
+{
+  ќсновна€ процедура запуска
+  пока только открывает оболочку, регисрируетс€ заданным логином\паролем,
+  ставит "галку" подтверждени€ построени€ списка
+  и закрывает оболочку
+  ѕроект требует двух переменных  "gui_login" и "gui_password";
+}     
+procedure Prepare;
+var
+  p, w;
+  cmdLogin, cmdPassword: String;
+  countOfAttempt;
+  pathToLogDir;
+  currentDate;
+  logFile;
+begin
+  try
+    pathToLogDir := GetValueFromCmdLine(PO_LOG_DIR); // ѕуть к каталогу с лог файлами
+    //pathToLogDir := 'd:\logs';
+    currentDate := GetValueFromCmdLine(PO_CUR_DATE); //“екуща€ дата
+    //currentDate := '03.02.01';
+    logFile := GetFileNameWithDateEx (pathToLogDir, currentDate);
+    
+    AppendFile (logFile, 'Start Prepare');
+    log.message ('Start Prepare');
+
+    PrepareInitOptions;
+    countOfAttempt := 5;
+    
+    AppendFile (logFile, 'Run CloseF1Shell');
+    log.message ('Run CloseF1Shell');
+    CloseF1Shell (countOfAttempt, Options.Run.Timeout div 2);
+    cmdLogin := GetValueFromCmdLine(GUI_LOGIN_KEY);
+    //cmdLogin := 'new2';
+    cmdPassword := GetValueFromCmdLine(GUI_PASSWORD_KEY);
+    //cmdPassword := 'new2';
+    
+    AppendFile (logFile, 'Run StartF1ShellEx');
+    log.message ('Run StartF1ShellEx');
+    StartF1ShellEx;
+
+    AppendFile (logFile, 'Run LoginAnyHow');
+    log.message ('Run LoginAnyHow');
+    LoginAnyHow (cmdLogin, cmdPassword);
+    
+    AppendFile (logFile, 'LoginAnyHow зарегистрировалс€ пользователем: '+ cmdLogin);
+    Log.Message ('LoginAnyHow зарегистрировалс€ пользователем: '+ cmdLogin);
+    p := Sys.Process('F1Shell');
+    w := p.WaitWindow('TnsMainWindow', '', -1, Options.Run.Timeout div 2);
+    if NOT w.Exists then
+    begin
+      AppendFile (logFile, 'Ќе найдено основное окна <TnsMainWindow>');      
+      raise ('Ќе найдено основное окно <TnsMainWindow>');
+    end;
+    w.Activate;
+    SettingsCheckBox('ѕоиск\ѕодтверждени€', 'ѕодтверждать построение списка', True);
+    
+    AppendFile (logFile, 'Run CloseF1Shell');     
+    log.message ('Run CloseF1Shell');
+    CloseF1Shell (countOfAttempt, Options.Run.Timeout div 2);
+  except
+    Log.Error ('Prepare: ' + ExceptionMessage);
+  end;
+end;
+
+procedure testtest;
+begin
+  Log.Message('1');
+end;

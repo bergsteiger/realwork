@@ -1,0 +1,74 @@
+//////////////////////////////////////////////////////////////////////////////////
+// ServerFacet (class)
+//////////////////////////////////////////////////////////////////////////////////
+
+: ServerFacet::Class
+? Серверный фасет
+? Серверный фасетный интерфейс, тоже, что и Facet, только используется в серверных компонентах
+< *::Category, *::Class
+= Facet::Class
+$ C 215,215,255
+$ l 10,10,255
+$ f 10,10,255
+
+L code_server_facet
+Y t4_server_facet.gif
+
+%t _constraint
+c          {}
+r {"<{}{%GS!=ServerFacet}{%GC}>"!="0"}:                      {%SS can inherit only from ServerFacet}
+r {"%Rx"="true"}:                                            {%SS can't realize something}
+/r {<{}{%CC=Attribute&%Cl=ref}{C}>!=0}:                       {%SS не может иметь ref связи}
+r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS, используемого в качестве серверного типа, не должно совпадать с именем родителя}
+r {<{}{%P{Full MDP}=true}{C}>!=0&<{}{%DS=UseCase}{C}>=0}:    {%SS не используется ни одним прецедентом}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= Servant::Class;wiki
+
++ java
+O []
+
++ fctr.java
+O []
+
++ idl
+= ServerInterface::Class;idl
+
+: ServerFacet::Class::Attribute
+= ServerInterface::Class::Attribute
+
+: ServerFacet::Class::readonly::Attribute
+= ServerFacet::Class::Attribute
+e g
+
+: ServerFacet::Class::writeonly::Attribute
+= ServerFacet::Class::Attribute
+e s
+
+: ServerFacet::Class::Operation
+= ServerInterface::Class::Operation
+
+: ServerFacet::Class::oneway::Operation
+= ServerInterface::Class::oneway::Operation
+
+: ServerFacet::Class::oneway,chg::Operation
+= ServerInterface::Class::oneway::Operation
+
+: ServerFacet::Class::chg::Operation
+= ServerInterface::Class::Operation
+
+: ServerFacet::Class::Operation::Parameter
+= ServerInterface::Class::Operation::Parameter
+
+: ServerFacet::Class::factory::Operation::Parameter
+= ServerInterface::Class::Operation::Parameter
+
+: ServerFacet::Class::multi factory::Operation::Parameter
+= ServerInterface::Class::Operation::Parameter
+
+: ServerFacet::Class::chg::Operation::Parameter
+= ServerInterface::Class::Operation::Parameter
+
+: ServerFacet::Class::oneway::Operation::Parameter
+= ServerInterface::Class::Operation::Parameter

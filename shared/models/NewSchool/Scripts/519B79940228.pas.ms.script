@@ -1,0 +1,52 @@
+// dt_LinkServ 519B79940228 UtilityPack Class
+
+FORWARD ME_519B79940228
+
+FORWARD ME_52E8BA5101A7
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_44D2D8443D9A
+ CONST UID '44D2D8443D9A'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода LinkServer' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_44D2D8443D9A DoIt
+
+: ME_52E8BA5101A7
+ CONST UID '52E8BA5101A7'
+ CONST Name 'LinkServer'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_44D2D8443D9A // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_52E8BA5101A7 LinkServer
+
+: ME_519B79940228
+ CONST UID '519B79940228'
+ CONST Name 'dt_LinkServ'
+ CONST Class 'Class'
+ CONST Stereotype 'UtilityPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_52E8BA5101A7 // LinkServer
+ ]
+ ; // Operations
+ CONST "finished" false
+ CONST "ifdef" 'Archi'
+ CONST "no hands" false
+
+ @SELF
+; // ME_519B79940228 dt_LinkServ

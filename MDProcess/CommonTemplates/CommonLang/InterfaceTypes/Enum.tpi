@@ -1,0 +1,262 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/InterfaceTypes/Enum.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::InterfaceTypes::Enum
+//
+// Перечисление
+// ---
+// Значения перечисления определяются именами его атрибутов (без указания типа)
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: Enum::Class
+? Перечисление
+? Значения перечисления определяются именами его атрибутов (без указания типа)
+< *::Class,*::Category
+
+= InterfaceGeneratorWithJava::MDAGenerator
+= Генерация JavaScript::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+v +#-
+/ - типы видимости
+Y code_enum.gif
+L code_enum
+D
+/ - запрещена форвард-декларация
+// Параметры визуализации
+$ C 240,230,210
+$ l 100,75,35
+$ f 100,75,35
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p force usage:b=false ? явно определяет, что элемент будет кем-то использован (нужно для проверки)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{force usage}"!="%S{!force usage}"}%f_up_prefix(%S) *force usage* = *%S{force usage}* - явно определяет, что элемент будет кем-то использован (нужно для проверки)
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for470F198F0000*
+c                              {}
+r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}: {имя %SS, используемого в качестве серверного типа, не должно совпадать с именем родителя}
+r {%M{force usage}=false&%ax=false&%S{force usage}=false}: {%SS ни кем не используется}
+//#UC END# *4704C0E30186for470F198F0000*
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+%f _DoSpell
+//#UC START# *4B2A19E3038Bfor470F198F0000*
+	%S%[inherited]\
+
+	[{%Cx=true}\
+	<{}{%ZS=Typedef&%ZN=%SN}\
+
+	%f_set_var(CONSTANTS_NAME,"%ZN_%SN_Constants")\
+
+	[{%Z%P<{}{%CN=%{CONSTANTS_NAME}N}{C}>=0}\
+	%Z%P%f_add_class(%ZU_%SU_Constants,Constants,%ZN_%SN_Constants,Constants_Inst)\
+	%{Constants_Inst}%f_set_documentation(Алиасы для значений %PN.%SN)\
+	%{Constants_Inst}%f_set_up(children prefix,%S{children prefix})\
+	%{Constants_Inst}%f_set_up(elements prefix,%S{elements prefix})\
+	<{}{%CC=Attribute}{%C}\
+	%{Constants_Inst}%f_add_attribute(%CU_%{Constants_Inst}U_Alias,,\
+	%CN = %PN::%SN::%CN,\
+	Attr_Inst)\
+	%{Attr_Inst}%f_set_documentation(%CD)\
+	>\
+	]\
+	>\
+	]
+//#UC END# *4B2A19E3038Bfor470F198F0000*
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor470F198F0000*
+	%f_docs(%S)\
+	[#%S%f_open_ifdef()
+	]#enum %SN {
+	#	<{\n#\t, }[%S{children prefix}_]%CN[ // %f_str_replace(%CD,\n,%f_space(%C))]>
+	#};[
+	#%S%f_close_ifdef()]
+//#UC END# *47022C88029Ffor470F198F0000*
+
+// реализация абстрактного стереотипа CORBA IDL::MDAGenerator
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for470F198F0000*
+	<#%FF
+	>%f_docs(%S)\
+	#enum %SN {
+	#	<{\n#\t, }%CN[ // %f_str_replace(%CD,\n,%f_space(%C))]>
+	#};
+//#UC END# *47022BBE0261for470F198F0000*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor470F198F0000*
+	[{%SV!=PublicAccess}[%f_with_gen_id(intf.pas,%SX)\n]]
+//#UC END# *470F15B800CBfor470F198F0000*
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor470F198F0000*
+R  
+	[{%f_exists_in_list(GENERATED_INTF,"%f_pas_TypeName(%S)")!=true}\
+	%f_add_to_list(GENERATED_INTF,"%f_pas_TypeName(%S)")\
+	%f_pas_OpenType(%S)\
+	#%f_pas_TypeName(%S) = (\
+	[\n# \{* %SD \}]
+	#  <{\n#, }%C%f_pas_Prefix()%CN\
+	[{"%CD"!=""} // %f_str_replace(%CD,\n,%f_space(%C))]\
+	>
+	#);//%f_pas_TypeName(%S)]
+//#UC END# *470F1571031Cfor470F198F0000*
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for470F198F0000*
+S class %SN;
+O [{%t_nested_scope_def(%P)=false&%f_is_server_type(%S)=false}%SN.java]
+	%f_output_constraint(%S)\
+	[{%f_is_server_type(%S)=false}[{%t_nested_scope_def(%P)=false}\
+	%f_header(%S)
+	package %f_dump_java_package(%S);
+	]
+	#%t_visibility(%S,"%XU")[{%t_nested_scope_def(%P)=true}static ]%t_abstract_type(%S)enum %SN {
+	#	<{\n#\t, }%CN[ // %f_str_replace(%CD,\n,%f_space(%C))]>
+	#} // %SN][{%f_is_server_type(%S)=false}\
+	[{%t_nested_scope_def(%P)=false}
+	%f_footer(%S)
+	]]
+//#UC END# *470321950119for470F198F0000*
+
+// реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
+// Delphi интерфейсы для адаптера (.pas)
++ pas
+//#UC START# *470F152700FAfor470F198F0000*
+	[%f_pas_OpenType(%S)\n]\
+	%f_docs(%S)\
+	#P%SN = ^T%SN;
+	#T%SN = (
+	#	<{\n#\t, }%CN[ // %f_str_replace(%CD,\n,%f_space(%C))]>
+	#);
+//#UC END# *470F152700FAfor470F198F0000*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for470F198F0000*
+G %PU
+//#UC END# *46E6D4BB0339for470F198F0000*
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
++ spell
+//#UC START# *4A41A13D03D5for470F198F0000*
+	%S%f_DoSpell()
+//#UC END# *4A41A13D03D5for470F198F0000*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: Enum::Class::Attribute
+? идентификаторы, составляющие множества
+= Delphi интерфейсы и реализация::MDAGenerator
+= InterfaceGenerator::MDAGenerator
+
+// Параметры стереотипа
+v +
+/ - типы видимости
+Y code_attr.gif
+L code_attr
+T 
+/ - может не иметь "цели" (типа/результата)
+l a
+/ - возможные типы связи атрибута
+
+// Генераторы
+// Генерация модели в MDKnow
++ wiki
+//#UC START# *46E6D4BB0339for470F1A0100DA*
+//#UC END# *46E6D4BB0339for470F1A0100DA*
+
+// генератор idl спецификаций (.idl)
++ idl
+//#UC START# *47022BBE0261for470F1A0100DA*
+//#UC END# *47022BBE0261for470F1A0100DA*
+
+// генератор заголовочных файлов C++ (.h)
++ h
+//#UC START# *47022C88029Ffor470F1A0100DA*
+//#UC END# *47022C88029Ffor470F1A0100DA*
+
+// генератор классов, интерфейсов на java (.java)
++ java
+//#UC START# *470321950119for470F1A0100DA*
+//#UC END# *470321950119for470F1A0100DA*
+
+// Delphi интерфейсы для адаптера (.pas)
++ pas
+//#UC START# *470F152700FAfor470F1A0100DA*
+//#UC END# *470F152700FAfor470F1A0100DA*
+
+// Родные Delphi интерфейсы (.pas)
++ intf.pas
+R  
+//#UC START# *470F1571031Cfor470F1A0100DA*
+//#UC END# *470F1571031Cfor470F1A0100DA*
+
+// Реализация на Delphi(.pas)
++ impl.pas
+R  
+//#UC START# *470F15B800CBfor470F1A0100DA*
+//#UC END# *470F15B800CBfor470F1A0100DA*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S%[Delphi интерфейсы и реализация::MDAGenerator]f_wiki_up_print()
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for470F1A0100DA*
+c                                                                       {}
+r {<{}{%PS=ServerLibrary}{C}>!=0&%f_to_lower(%PN)=%f_to_lower(%SN)}:    {имя %SS не должно совпадать с именем %P%SS}
+//#UC END# *4704C0E30186for470F1A0100DA*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

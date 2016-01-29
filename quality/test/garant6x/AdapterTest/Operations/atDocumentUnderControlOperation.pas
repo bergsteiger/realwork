@@ -1,0 +1,194 @@
+unit atDocumentUnderControlOperation;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Библиотека "AdapterTest"
+// Модуль: "w:/quality/test/garant6x/AdapterTest/Operations/atDocumentUnderControlOperation.pas"
+// Родные Delphi интерфейсы (.pas)
+// Generated from UML model, root element: <<SimpleClass::Class>> garant6x_test::AdapterTest::Operations::TatDocumentUnderControlOperation
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// ! Полностью генерируется с модели. Править руками - нельзя. !
+
+interface
+
+uses
+  atOperationBase
+  ;
+
+type
+ OpType = (
+   SET_CONTROL
+ , UNSET_CONTROL
+ , INVERT_CONTROL
+ , RESET_CONTROL_STATUS
+ );//OpType
+
+ TatDocumentUnderControlOperation = class(TatOperationBase)
+ protected
+ // realized methods
+   procedure ExecuteSelf; override;
+ protected
+ // overridden protected methods
+   procedure InitParamList; override;
+ end;//TatDocumentUnderControlOperation
+
+implementation
+
+uses
+  l3Base {a},
+  TypInfo,
+  SysUtils,
+  UnderControlUnit,
+  atLogger,
+  DocumentUnit,
+  atControlStatusConverter
+  ;
+
+type
+  _EnumType_ = OpType;
+ {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
+  TatOpTypeConverter = class(_atEnumConverter_)
+  public
+  // public methods
+   class function Exists: Boolean;
+     {* Проверяет создан экземпляр синглетона или нет }
+  public
+  // singleton factory method
+    class function Instance: TatOpTypeConverter;
+     {- возвращает экземпляр синглетона. }
+  end;//TatOpTypeConverter
+
+
+// start class TatOpTypeConverter
+
+var g_TatOpTypeConverter : TatOpTypeConverter = nil;
+
+procedure TatOpTypeConverterFree;
+begin
+ l3Free(g_TatOpTypeConverter);
+end;
+
+class function TatOpTypeConverter.Instance: TatOpTypeConverter;
+begin
+ if (g_TatOpTypeConverter = nil) then
+ begin
+  l3System.AddExitProc(TatOpTypeConverterFree);
+  g_TatOpTypeConverter := Create;
+ end;
+ Result := g_TatOpTypeConverter;
+end;
+
+
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
+
+// start class TatOpTypeConverter
+
+class function TatOpTypeConverter.Exists: Boolean;
+ {-}
+begin
+ Result := g_TatOpTypeConverter <> nil;
+end;//TatOpTypeConverter.Exists
+
+procedure TatDocumentUnderControlOperation.ExecuteSelf;
+//#UC START# *48089F460352_504F1A8B004B_var*
+  var
+    l_OpTypeStr, l_Str : String;
+    l_OpType : OpType;
+    l_Doc : IDocument;
+    l_Controllable : IControllable;
+//#UC END# *48089F460352_504F1A8B004B_var*
+begin
+//#UC START# *48089F460352_504F1A8B004B_impl*
+
+  ExecutionContext.GblAdapterWorker.ControlManager.UpdateStatus(false);
+
+  l_OpTypeStr := Parameters['op_type'].AsStr;
+  try
+    l_OpType := TatOpTypeConverter.Instance.ToValueCI(l_OpTypeStr);
+  except
+    on ex : EConvertError do
+    begin
+      Logger.Error('Неизвестная операция: %s', [l_OpTypeStr]);
+      Exit;
+    end;
+  end;
+
+  l_Doc := ExecutionContext.UserWorkContext.CurrDoc;
+  if l_Doc = nil then
+  begin
+    Logger.Error('Нет открытого документа');
+    Exit;
+  end;
+
+  l_Controllable := l_Doc as IControllable;
+  if l_Controllable.GetControlled then
+    Logger.Info('Обрабатываем документ %d, он на контроле и его статус "%s"',
+      [l_Doc.GetInternalId, TatControlStatusConverter.Instance.ToValues(l_Controllable.GetControlStatus, '; ')])
+  else
+    Logger.Info('Обрабатываем документ %d, он не на контроле', [l_Doc.GetInternalId]);
+
+  with l_Controllable do
+  begin
+    case l_OpType of
+      SET_CONTROL:
+        begin
+          if NOT GetCanSetToControl then
+          begin
+            Logger.Error('Нельзя ставить на контроль!');
+            Exit;
+          end;
+          Logger.Info('Ставии документ на контроль');
+          if NOT GetControlled then SetControlled(true);
+        end;
+      UNSET_CONTROL:
+        begin
+          Logger.Info('Снимаем документ с контроля');
+          if GetControlled then SetControlled(false);
+        end;
+      INVERT_CONTROL:
+        begin
+          if (NOT GetControlled) AND (NOT GetCanSetToControl) then
+          begin
+            Logger.Error('Нельзя ставить на контроль!');
+            Exit;
+          end;
+          Logger.Info('Изменяем признак контроля на противоположный');          
+          SetControlled(NOT GetControlled);
+        end;
+      RESET_CONTROL_STATUS:
+        begin
+          Logger.Info('Сбрасываем статус измененности');
+          if GetControlled then
+            ResetControlStatus;
+        end;
+    end;
+    //
+    if GetControlled then
+      l_Str := ''
+    else
+      l_Str := 'не ';
+    Logger.Info('Документ в состоянии "%s" и его статус "%s"',
+      [l_Str + 'на контроле', TatControlStatusConverter.Instance.ToValues(GetControlStatus, '; ')]);
+  end;
+//#UC END# *48089F460352_504F1A8B004B_impl*
+end;//TatDocumentUnderControlOperation.ExecuteSelf
+
+procedure TatDocumentUnderControlOperation.InitParamList;
+//#UC START# *48089F3701B4_504F1A8B004B_var*
+//#UC END# *48089F3701B4_504F1A8B004B_var*
+begin
+//#UC START# *48089F3701B4_504F1A8B004B_impl*
+  inherited;
+  with f_ParamList do
+  begin
+    Add( ParamType.Create('op_type', 'Что делать') );
+  end;
+//#UC END# *48089F3701B4_504F1A8B004B_impl*
+end;//TatDocumentUnderControlOperation.InitParamList
+
+end.

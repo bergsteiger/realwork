@@ -1,0 +1,72 @@
+// TtfwMainDictionary 55A0005D02CC SimpleClass Class
+
+INCLUDE '559E8B2E0385.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+INCLUDE '4DAEECD90016.pas.ms.script'
+
+FORWARD ME_55A0005D02CC
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+: ME_55A4E85101BA
+ CONST UID '55A4E85101BA'
+ CONST Name 'CompiledCode'
+ CONST Class 'Attribute'
+ CONST Stereotype 'property'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ @SELF
+; // ME_55A4E85101BA CompiledCode
+
+: ME_6D7738866C85
+ CONST UID '6D7738866C85'
+ CONST Name 'f_CompiledCode'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ %SUMMARY 'Поле для свойства CompiledCode' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'ref'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_6D7738866C85 f_CompiledCode
+
+: ME_55A0005D02CC
+ CONST UID '55A0005D02CC'
+ CONST Name 'TtfwMainDictionary'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_559E8B2E0385 // TtfwDictionaryEx
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_55A4E85101BA // CompiledCode
+ ME_6D7738866C85 // f_CompiledCode
+ ]
+ ; // Attributes
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ME_55A3A1E7038F // FindInUsedDictionary
+ ME_55A531FA016A // IsMain
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_55A0005D02CC TtfwMainDictionary

@@ -1,0 +1,172 @@
+// vcmToolbarUnit 502BC6B600F3 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_502BC6B600F3
+
+FORWARD ME_502BC6DC00F4
+
+FORWARD ME_502CEFC803B2
+
+: ME_502BC739002B
+ CONST UID '502BC739002B'
+ CONST Name 'DockList'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_502CEFC803B2 // TvcmToolbarDockListManager
+ ;
+ : Target WL 'ME_502BC72401EC' '47D0E1500033.pas.ms.script' // TvcmObjectList
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_502BC739002B DockList
+
+: ME_001FDDDEF117
+ CONST UID '001FDDDEF117'
+ CONST Name 'f_DockList'
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства DockList' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_502CEFC803B2 // TvcmToolbarDockListManager
+ ;
+ : Target WL 'ME_502BC72401EC' '47D0E1500033.pas.ms.script' // TvcmObjectList
+ ;
+
+ref; // ME_001FDDDEF117 f_DockList
+
+FORWARD ME_502CF050026B
+
+: ME_502CF06A02CD
+ CONST UID '502CF06A02CD'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_502CF050026B // Exists
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_502CF06A02CD DoIt
+
+: ME_502CF050026B
+ CONST UID '502CF050026B'
+ CONST Name 'Exists'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_502CEFC803B2 // TvcmToolbarDockListManager
+ ;
+ : Operations
+   @ ( ME_502CF06A02CD // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ CONST "is static" true
+
+ref; // ME_502CF050026B Exists
+
+: ME_479731C50290_ME_502CEFC803B2
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_502CEFC803B2 // TvcmToolbarDockListManager
+ ;
+ref; // ME_479731C50290_ME_502CEFC803B2 Cleanup
+
+: ME_502CEFC803B2
+ CONST UID '502CEFC803B2'
+ CONST Name 'TvcmToolbarDockListManager'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_502BC6DC00F4 // vcmToolbarUtils
+ ;
+ : Inherits
+   @ ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_502BC739002B // DockList
+ ME_001FDDDEF117 // f_DockList
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_502CF050026B // Exists
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_479731C50290_ME_502CEFC803B2 // Cleanup
+ ) .SequenceCode.It
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST "singleton" true
+
+ref; // ME_502CEFC803B2 TvcmToolbarDockListManager
+
+: ME_502BC6DC00F4
+ CONST UID '502BC6DC00F4'
+ CONST Name 'vcmToolbarUtils'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_502BC6B600F3 // vcmToolbarUnit
+ ;
+ : Children
+   @ ( ME_502CEFC803B2 // TvcmToolbarDockListManager
+ ) .SequenceCode.It
+ ; // Children
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\vcmToolbarUtils.pas'
+
+ref; // ME_502BC6DC00F4 vcmToolbarUtils
+
+: ME_502BC6B600F3
+ CONST UID '502BC6B600F3'
+ CONST Name 'vcmToolbarUnit'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4790C3B8021E' '4790C3B8021E.pas.ms.script' // VCM
+ ;
+ : Children
+   @ ( ME_502BC6DC00F4 // vcmToolbarUtils
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\502BC6B600F3.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\502BC6B600F3.pas.ms.script.runner'
+
+ref; // ME_502BC6B600F3 vcmToolbarUnit

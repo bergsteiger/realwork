@@ -1,0 +1,269 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Interface
+//////////////////////////////////////////////////////////////////////////////////
+
+: Interface::Category
+? Интерфейсный пакет
+? Содержит экспортируемые наружу компоненты типы и интерфейсы. Определяет неймспейс. Может зависить только от других интерфейсных пакетов (своей компоненты или чужой)
+> Interface::Class, Facet::Class, Constants::Class, Enum::Class, Exception::Class
+> Struct::Class, BitMask::Class, Typedef::Class, Union::Class, Valuetype::Class, StateMachine::Class
+> TestInterface::Class
+> HashMap::Class, Map::Class, Queue::Class, Set::Class, UnsortedMap::Class, UnsortedSet::Class, Vector::Class, MultiMap::Class
+> SetOf::Class, SetConst::Class, InitedTypedef::Class, Range::Class
+$ C 215,215,255
+$ l 10,10,255
+$ f 10,10,255
+D
+v +#i
+p is namespace:b=true ? определяет является ли модуль неймспейсом
+p finished:b=true ? определяет что модуль полностью закончен и может генерироваться в код
+p weak:b=false ? определяет что модуль может шариться между динамичексими пакетами
+p need UC:b=false ? явно включает генерацию дополнительных секций Юзер-Кода
+p path prefix ? определяет префикс пути
+p defines:s= ? определяет файл с условиями компиляции
+p author ? автор
+p started ? дата и время начала
+p no hands:b=false ? предупреждение о том, что руками править нельзя (на время переходного периода)
+L code_interfaces
+Y t3_interface.gif
+
+%f _wiki_up_print
+	[{%S{is namespace}=false}* *не* является неймспейсом 
+	]
+
+//////////////////////////////////////////////////////////////////////////////////
+f _use_in_pack_child
+	%f_set_var(TYPE,S)[{"%{PACK}<%C<{}{%wU=%{TYPE}U}.>>"!=""|<{}{%CS=Class&%f_use_in_pack_child(%C)=true}{C}>!=0}{false}true]
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
++ wiki
+= Unit::Category;wiki
+
++ h
+C /%SN
+O %SN.h
+P
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+	%f_output_constraint(%S)\
+# t0_h_header
+	%f_std_inc(%S)
+	%f_set_var(PACK,S)%f_includes_by_contents(%S)<[{%DM=Unit::Category}%D<{}{%CM=UtilityPack::Class&%f_use_in_pack_child(%C)=true}\#include %f_dump_include_path(%CL,%C)
+	>][\#include %f_dump_include_path(%DL,%D)
+	]>[{"<{}{"%CM"="TestInterface::Class"}{C}>"!="0"}
+	\#include "GTF/GTFLib/GTFInterfaces/GTFInterfaces.h"
+	][{%S{need UC}=true}%U[{_CUSTOM_INCLUDE}
+	]
+	][// forward decls for friend interface's servants<{}{"%f_has_factory_methods(%C)"="true"}{%C}%C[
+	<{}{"%aM"="Interface::Class::friend::ClassDependency"}{Sp}%a%P<%f_in_scope_name(%L)
+	>>]>]
+	%SP[{"%S{is namespace}"="true"}namespace %SN {
+	]
+	<%CX
+	
+	>[{"%S{is namespace}"="true"}} // namespace %SN
+	]%Sp[
+	// TypeTraits specializations
+	namespace Core {	
+	<{}{%CM=Interface::Class&%f_has_factory_methods(%C)=true}\
+	template \<\>
+	struct TypeTraits \<%f_full_name(%C)\> {
+		typedef %f_full_name(%C)Factory Factory;
+	};
+	>} // namespace Core
+	]
+# t0_h_footer
+
+//////////////////////////////////////////////////////////////////////////////////
++ cpp
+P
+C /%SN
+O [{"%f_need_factory_files(%S)"="true"}%SN.cpp]
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+	%f_output_constraint(%S)\
+	[{"%f_need_factory_files(%S)"="true"}\
+# t0_header
+	%f_std_inc(%S)
+	\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+	\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%SL),%S)
+	
+	%SP[{"%S{is namespace}"="true"}namespace %SN {
+	]
+	<%CX>[{"%S{is namespace}"="true"}} // namespace %SN
+	]%Sp
+# t0_footer
+	]
+
++ i.h
+C /%SN
+P
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+
+//////////////////////////////////////////////////////////////////////////////////
++ fctr.h
+C /%SN
+O [{"%f_need_factory_files(%S)"="true"}%SNFactories.h]
+P
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+	%f_output_constraint(%S)\
+	[{"%f_need_factory_files(%S)"="true"}\
+# t0_h_header
+	%f_std_inc(%S)
+	\#include \<map\>
+	\#include \<string\>
+	\#include "ace/Singleton.h"
+	\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+	
+	%SP[{"%S{is namespace}"="true"}namespace %SN {
+	]<[%CX
+	
+	]>[{"%S{is namespace}"="true"}} // namespace %SN
+	]%Sp
+# t0_h_footer
+	]
+
+//////////////////////////////////////////////////////////////////////////////////
++ fctr.cpp
+P
+C /%SN
+O [{"%f_need_factory_files(%S)"="true"}%SNFactories.cpp]
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+	%f_output_constraint(%S)\
+	[{"%f_need_factory_files(%S)"="true"}\
+# t0_header
+	%f_std_inc(%S)
+	\#include %f_dump_include_path(%f_with_gen_id(fctr.h,%SL),%S)
+	
+	%SP[{"%S{is namespace}"="true"}namespace %SN {
+	]<%CX>[{"%S{is namespace}"="true"}} // namespace %SN
+	]%Sp
+# t0_footer
+	]
+
+//////////////////////////////////////////////////////////////////////////////////
++ fctr.java
+C /%SN
+P
+	<%CX>
+//////////////////////////////////////////////////////////////////////////////////
++ dll.h
+P
+C /%SN
+O [{"%f_need_tie_files(%S)"="true"}%SN_tie.h]
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+	%f_output_constraint(%S)\
+	[{"%f_need_tie_files(%S)"="true"}\
+# t0_h_header
+	%f_std_inc(%S)
+	\#include "shared/Core/mng/IObject_tie.h"
+	\#include "shared/Core/mng/PoolObjectManager.h"
+	\#include %f_dump_include_path(%f_with_gen_id(h,%SL),%S)
+	[<{\n}\#include %f_dump_include_path(%DL,%D)>
+	]
+	%SP[{"%S{is namespace}"="true"}namespace %SN {
+	]
+	<%CX
+	
+	>[{"%S{is namespace}"="true"}} // namespace %SN
+	]%Sp	
+# t0_h_footer
+	]
+
+//////////////////////////////////////////////////////////////////////////////////
++ dll.cpp
+C /%SN
+O [{"%f_need_tie_files(%S)"="true"}%SN_tie.cpp]
+P
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+	%f_output_constraint(%S)\
+	[{"%f_need_tie_files(%S)"="true"}\
+# t0_header
+	
+	%f_std_inc(%S)
+	\#include %f_dump_include_path(%f_with_gen_id(dll.h,%SL),%S)
+	
+	%SP[{"%S{is namespace}"="true"}namespace %SN {
+	]
+	<%CX
+	
+	>[{"%S{is namespace}"="true"}} // namespace %SN
+	]%Sp
+# t0_footer
+	]
+
+//////////////////////////////////////////////////////////////////////////////////
++ pas
+P
+O %SNUnit.pas
+	%f_output_constraint(%S)\
+	unit %SNUnit; {$Z4}
+	
+# t0_header
+	
+	interface
+	
+	[uses%f_set_var(SELF,S)
+		[{"<{}{"%CM"="Exception::Class"}{C}>"!="0"}SysUtils
+		[{"%Dx"="true"}, ]]<{\n\t, }%DNUnit><%D<{\n\t, }{"%C{native definition}"="DLL outside"}
+		%U[{_%{SELF}U_UNIT_FOR_%CN}
+		]
+		>>;]
+	[{"<{}{"%C{native definition}"!="DLL outside"&"%CC"!="Category"}{C}>"!="0"}
+	type]<
+	
+	%CX>
+	
+	implementation
+	end.
+
+f _need_file
+	[{"%f_dump_src(%S)"=""}{false}true]
+
+# MDAGen/GTS/Interface_cat_intf_pas
+
++ java
+C [{%S{is namespace}=true}/%SN]
+P
+	<%CX>
+
++ fctr.java
+= java
+/////////////////////////////////////////////////////////////////////////////
+// functions
+
+f _in_scope_name
+	%SP\tclass %SN;
+	%Sp
+
+/////////////////////////////////////////////////////////////////////////////
+// AMI support functions
+
+f _need_ami
+	[{"<{}{"%f_use_ami(%C)"="true"}{C%C}>"="0"}{true}false]
+
+f _use_ami
+	[{"%S{Use AMI}"="true"}{[{"<{}{"%f_use_ami(%Z)"="true"}{C%Z}>"="0"}{true}false]}true]
+
+f _used_in_ami
+/	[{"<{}{"%s%P%PU"="%PU"&"%f_use_ami(%s%P)"="true"}{C%s}>"="0"}{true}false]
+/	[{"<{}{"%s%P%PU"="%PU"}%f_print_use_ami(%s%P)>"=""}{true}false]
+	[{"<{}{"%f_use_ami(%b)"="true"}{C%b}>"="0"}{true}false]
+
+f _print_in_ami_file
+	[{"%f_use_ami(%S)"="true"|"%f_used_in_ami(%S)"="true"}{false}true]
+
+/////////////////////////////////////////////////////////////////////////////
+// file generation expressions
+
+f _need_factory_files
+	[{"<{}{"%f_has_factory_methods(%C)"="true"}{%CC}>"="0"}{true}false]
+
+f _need_tie_files
+/	[{"<{}{"%CM"="Interface::Class"|"%CM"="Sequence::Class"}{%CC}>"="0"}{true}false]
+	[{"<{}{"%CM"="Interface::Class"}{%CC}>"="0"}{true}false]

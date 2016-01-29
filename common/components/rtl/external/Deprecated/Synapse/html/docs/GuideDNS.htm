@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+	<META HTTP-EQUIV="Content-language" CONTENT="en">
+	<META NAME="Robots" CONTENT="ALL; FOLLOW">
+	<META name="description" content="SYNAPSE - Synchronous TCP/IP Library for Delphi">
+	<META name="keywords" content="Synapse, TCP/IP, Socket, Synchronous, Blocking">
+	<title>SYNAPSE - Synchronous TCP/IP Library for Delphi</title>
+</head>
+<body BGCOLOR="#FFFAEC" LINK="Red" ALINK="Blue" VLINK="Purple">
+
+<CENTER>
+<FONT FACE="sans-serif" SIZE="+1" COLOR="Blue">
+<B>SYNAPSE - Synchronous TCP/IP Library for Delphi</B>
+</FONT>
+<br>
+Other related information can be found at <A HREF="http://www.ararat.cz/synapse/">http://www.ararat.cz/synapse/</A>
+</CENTER>
+<hr>
+<font face="sans-serif" size="+2" color="Blue"><b>DNS guide</b></font><p>
+<b>Class:</b> TDNSSend<p>
+<b>RFC:</b> 1035, 1183, 1706, 1712, 2163, 2230<p>
+<b>Features:</b>
+<ul>
+	<li>uses UDP queries.
+	<li>support for all standard resource records except WKS. (A, NS, MD, MF, CNAME, SOA, MB, MG, MR, NULL, PTR, HINFO, MINFO, MX and TXT)
+	<li>support non-standard resource records: RP, AFSDB, X25, ISDN, RT, NSAP, NSAPPTR, PX, GPOS and KX.
+	<li>special support for getting mail exchange servers (MX records) for easy use.
+</ul>
+
+<b>Typical use:</b><p>
+
+<ul>
+	<li>In all cases you must have <i>DNSsend</i> in your <b>uses</b>.
+	<li>For simple query for Mail Exchanger (MX), use function <i>GetMailServers</i>. Not need any more. This function create needed object, query DNS server for requested domain, get response, and presents result as stringlist of MX servers in order of preference numbers. Maximum preference server is first in list, minimum preference server is last in list.
+	<li>If you can query for any other resource, see example:<p> 
+<font size="-1">
+<font color="Teal"><I>
+{you must create object for DNS session}
+</I></FONT><br>
+DNS:=DNSSend.Create;<br>
+<B>try</B><br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{set address of DNS server}
+  </I></FONT><br>
+  &nbsp;&nbsp;DNS.DNSHost:=DNSHost;<br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{Querying DNS server...}<br>
+  &nbsp;&nbsp;{QueryValue is string contains host name, domain name or IP address}<br>
+  &nbsp;&nbsp;{QueryType is integer number or one of predefined constants }
+  </I></FONT><br>
+  &nbsp;&nbsp;<B>if </B> DNS.DNSQuery (QueryValue,QueryType,ResponseStringList) <B>then</B><br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;&nbsp;&nbsp;{in ResponseStringList is response. Each resource is one line.}
+  </I></FONT><br>
+  &nbsp;&nbsp;<B>else</B> 
+  <font color="Teal"><I>
+  &nbsp;&nbsp;&nbsp;&nbsp;{error connecting to server or query error.}
+  </I></FONT>;<br>
+  <B>finally</B><br>
+  <font color="Teal"><I>
+  &nbsp;&nbsp;{destroy DNS object}
+  </I></FONT><br>
+  &nbsp;&nbsp;DNS.Free;<br>
+  <B>end</B>;
+</font>
+</ul>
+
+<hr>
+</body>
+</html>
+

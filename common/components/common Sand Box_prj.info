@@ -1,0 +1,213 @@
+Shared Delphi Sand Box : Project - Песочница
+version: 204
+SandBox : Library - 
+ Pure : Interfaces - 
+  T : ImpurityParamType - 
+  Comparable : PureMixIn - 
+    : impurity param - 
+   compare - 
+ Concret : Interfaces - 
+  Concret : Facet - 
+   T : impurity value - 
+ Meta : EVD - 
+  Meta : TagTable - 
+   Visibility : Enum - 
+   Abstract : Enum - 
+   Inner : Tag - 
+   Element : Tag - 
+   dependency : Tag - 
+   Class : Tag - 
+   operation : Tag - 
+   attribute : Tag - 
+ Containers : Unit - 
+  StackPrim : Impurity - 
+   ItemType : ImpurityParamType - 
+   ItemsHolder : Vector - 
+   ItemType : impurity param - 
+   f_Items - 
+   Push - 
+   Pop - 
+  Stack : Impurity - 
+  TStringStack : SimpleClass - 
+   ItemType : impurity value - 
+  TIntStack : SimpleClass - 
+   ItemType : impurity value - 
+  TIntStackFromPersistent : SimpleClass - 
+   ItemType : impurity value - 
+  TIntStackFromComponent : SimpleClass - 
+   ItemType : impurity value - 
+ Reference Counting : Unit - 
+ Basic Interfaces : Unit - 
+  TmyInterfacedObject : SimpleClass - 
+  TmyReferenceCountGuard : SimpleClass - Класс исключительно для примеров
+   ImyReferenceCountGuard : Facet - Интерфейс исключительно для примеров
+   Make : Factory - 
+ Rounded : Views - 
+  RoundedControl : GUIControlMixIn - 
+  TRoundedButton : GuiControl - 
+  TRoundedEdit : GuiControl - 
+    : uses - undefined
+   Ini_Reg_Class : ini - Регистрация TRoundedEdit
+ STLLike : Unit - 
+  ItemType : ImpurityParamType - 
+  List : Impurity - Абстрактный список значений
+   PItemType : Typedef - 
+   Sizes : Constants - 
+   IndexType : Typedef - 
+   ReAllocList : method - 
+   CheckIndex : method - проверяет валидность индекса и поднимает исключение, если он неправильный
+   ItemSlot : method - 
+   ExpandSize : method - 
+   CheckSetItem : method - Проверяет валидность индекса при вставке
+   Delete : method - удалить элемент с индексом anIndex
+   DirectInsert : method - Непосредственная вставка элемента. Без проверки валидности индекса
+   Insert : method - Вставка элемента
+   MoveItems : method - 
+   Add : method - Добавляет элемент списка
+   IndexOf : method - Возвращает индекс элемента списка или -1, если элемента в списке нет
+   Remove : method - Удаляет элемент из списка
+   Clear : method - Очищает список
+   f_Data - Собственно место хранения данных
+   ItemType : impurity param - 
+   Count : property - Количество элементов списка
+   Capacity : property - Мощность списка
+   Items : property - Элементы списка.
+   Empty : readonly - Список пустой
+   First : readonly - Первый элемент списка
+   Last : readonly - Последний элемент списка
+   FreeItem : inline - 
+   FillItem : inline - 
+   IsSame : inline - 
+    : uses - 
+    : uses - 
+   f_Count - Поле для свойства Count
+  UnrefcountedListPrim : Impurity - Список значений без какого то бы ни было подсчёта ссылок
+   l3Items_IsUnrefcounted : Define - 
+  AtomicList : Impurity - Список атомарных значений
+   l3Items_IsAtomic : Define - 
+  InterfaceList : Impurity - 
+  InterfaceRefList : Impurity - Список Ссылок на интерфейсы. Владеет своими элементами
+  InterfacePtrList : Impurity - Список УКАЗАТЕЛЕЙ на интерфейсы. Не владеет своими элементами
+ FinalContainers : Unit - 
+  StandardAtomicList : Impurity - 
+  TByteList : SimpleClass - 
+   ItemType : impurity value - 
+  TInt64List : SimpleClass - 
+   ItemType : impurity value - 
+  TIntegerList : SimpleClass - Список Integer'ов
+   ItemType : impurity value - 
+  TIUnknownPtrList : SimpleClass - Список УКАЗАТЕЛЕЙ на IUnknown
+   ItemType : impurity value - 
+  TIUnknownRefList : SimpleClass - Список ССЫЛОК на IUnknown
+   ItemType : impurity value - 
+ Services : Unit - 
+  TIterateableService : Service - 
+   Iterate : serviceiterator - 
+   MIterateableService : PureMixIn - Контракт сервиса TIterateableService
+   IIterateableService : Facet - Интерфейс сервиса TIterateableService
+   Alien : writeonly - Внешняя реализация сервиса IIterateableService
+   f_Alien - Поле для свойства Alien
+   Exists : static - Проверяет создан экземпляр синглетона или нет
+  TIterateableServiceProvider : SimpleClass - 
+   TIterateableServiceImpl : ServiceImplementation - 
+SandBoxTest : TestLibrary - 
+ ContainersTestsPrim : TestUnit - 
+  StackTest : TestCaseMixIn - 
+   TEtalonData : Typedef - 
+   StackType : ImpurityParamType - 
+   DoDoIt : method - 
+   GetEtalonData : abstractmethod - 
+   EtalonData : Vector - 
+   ArrayToEtalon : method - Вспомогательная функция появившаяся оттого, что динамические массивы умеют к открытым приводиться автоматом, а обратно - нет
+   DoIt : Test - 
+   StackType : impurity param - 
+    : uses - 
+    : uses - undefined
+ ContainersTests : TestUnit - 
+  TIntStackTest : TestCase - 
+   DoIt : Test - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TStringStackTest : TestCase - 
+   DoIt : Test - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TIntStackTestViaMixIn : TestCase - 
+   StackType : impurity value - 
+    : uses - undefined
+  TStringStackTestViaMixIn : TestCase - 
+   StackType : impurity value - 
+    : uses - undefined
+ Core : TestUnit - 
+  TRefcountedTest : TestCase - 
+   DoIt : Test - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TmyInterfacedObjectTest : TestCase - 
+   DoIt : Test - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  TmyReferenceCountGuardTest : TestCase - 
+   DoIt : Test - 
+   CheckWithClause : Test - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+  ServiceTest : TestCase - 
+   DoIt : Test - 
+   DoIter : method - 
+    : uses - undefined
+ Emba : TestUnit - Тесты стандартных библиотек
+  TReallocMemTest : TestCase - 
+   DoIt : Test - 
+    : uses - undefined
+ Rounded : TestUnit - 
+  RoundedControlsTest : TestCase - 
+   DoIt : Test - 
+    : uses - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+ Memory : TestUnit - 
+  MemorySizeTest : TestCase - 
+   DoIt : Test - 
+    : uses - 
+    : uses - 
+    : uses - undefined
+ FinalContainersTests : TestUnit - 
+  ListTest : TestCaseMixIn - 
+   CreateList : method - 
+   ListType : impurity param - 
+    : uses - 
+    : uses - undefined
+  AtomicListTest : TestCaseMixIn - 
+   ListType : ImpurityParamType - 
+   DoIt : Test - 
+   TestTwoLists : Test - 
+   TestInsert : Test - 
+   RandomItem : method - 
+   TestInsertAt0 : Test - 
+   DeleteTest : Test - Тест удаления элемента
+   AddTest : Test - Тест добавления элемента
+   RemoveTest : Test - Тест удаления элемента по значению
+    : uses - 
+    : uses - undefined
+  Int64ListTest : TestCase - 
+   ListType : impurity value - 
+    : uses - undefined
+  IntegerListTest : TestCase - 
+   ListType : impurity value - 
+    : uses - undefined
+  IUnknownRefListTest : TestCase - 
+   DoIt : Test - 
+   ListType : impurity value - 
+    : uses - undefined
+  ByteListTest : TestCase - 
+   ListType : impurity value - 
+    : uses - undefined
+SandBox$Tests : TestTarget - 
+ReleaseSandBox$Tests : TestTarget -  (релизный вариант)

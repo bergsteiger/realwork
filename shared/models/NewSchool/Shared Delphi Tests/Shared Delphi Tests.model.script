@@ -1,0 +1,629 @@
+%DISABLE_CASCADE_DICT
+
+USES
+ 'W:\shared\models\NewSchool\Templates\Implementation1.tpl.script'
+;
+
+USES
+ 'W:\shared\models\NewSchool\Templates\Implementation2.tpl.script'
+;
+
+USES
+ 'W:\shared\models\NewSchool\Templates\EVD.tpl.script'
+;
+
+USES
+ 'W:\shared\models\NewSchool\Templates\VCM.tpl.script'
+;
+
+USES
+ 'w:\shared\models\NewSchool\Shared Delphi\Shared Delphi.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Core\Shared Delphi Core.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Tools\Shared Delphi Tools.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi For Archi\Shared Delphi For Archi.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Low Level\Shared Delphi Low Level.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Testing Framework\Shared Delphi Testing Framework.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Operations For Tests\Shared Delphi Operations For Tests.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Требования к низкоуровневым библиотекам\Shared Delphi Требования к низкоуровневым библиотекам.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Core Tests\Shared Delphi Core Tests.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Rtl\Shared Delphi Rtl.model.script'
+;
+
+<<Project>> "Shared Delphi Tests"
+ %UID '49B923B60333'
+ %SUMMARY 'Тесты для Shared Delphi' ;
+ %INCLUDES
+  'w:\shared\models\NewSchool\Shared Delphi Tests\Abstract Tests\Abstract Tests.model.script' /* "Abstract Tests" */
+  'w:\shared\models\NewSchool\Shared Delphi Tests\Keywords4Daily\Keywords4Daily.model.script' /* Keywords4Daily */
+  'w:\shared\models\NewSchool\Shared Delphi Tests\DailyTest\DailyTest.model.script' /* DailyTest */
+  'w:\shared\models\NewSchool\Shared Delphi Tests\TestForTFW\TestForTFW.model.script' /* TestForTFW */
+  'w:\shared\models\NewSchool\Shared Delphi Tests\Abstract Archi Tests\Abstract Archi Tests.model.script' /* "Abstract Archi Tests" */
+  'w:\shared\models\NewSchool\Shared Delphi Tests\Archi Tests\Archi Tests.model.script' /* "Archi Tests" */
+ ; // %INCLUDES
+ %DEPENDS
+  U$ '4677DDBD0193' /* "Shared Delphi" */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47913B47006E' /* l3CoreObjects */
+  U$ '49B1511700CA' /* "Shared Delphi Core" */
+  U$ '49B800BB0239' /* "Shared Delphi Tools" */
+  U$ '4AB0C3C60310' /* Sys */
+  U$ '4ABA2360025A' /* "Shared Delphi For Archi" */
+  U$ '4ABCC25A0322' /* "Shared Delphi Low Level" */
+  U$ '4B2A0D4A006F' /* DUnit */
+  U$ '4B2A0D6A0077' /* Source */
+  U$ '4B2A10C40309' /* DUnitTuning */
+  U$ '4B30CC420206' /* "Shared Delphi Testing Framework" */
+  U$ '4B30FC850092' /* VCM_TFW */
+  U$ '4CA0BB31027B' /* BridgeToKviaCORBA */
+  U$ '4DADA06B03B6' /* "Shared Delphi Operations For Tests" */
+  U$ '4DEF302C0007' /* ScriptEngine */
+  U$ '4E1F0EB100C4' /* ScriptEngine */
+  U$ '4E5BC50E02E1' /* "Shared Delphi Требования к низкоуровневым библиотекам" */
+  U$ '5130499D0080' /* "DUnit Script Support" */
+  U$ '5130776E01BE' /* DUnitKeyWordsSupport */
+  U$ '515D7AD40236' /* "Shared Delphi Core Tests" */
+  U$ '562E251101C2' /* "Shared Delphi Rtl" */
+ ; // %DEPENDS
+ %META
+  %upv "Full MDP" false
+  %upv "build share" 'DailyTest'
+  %upv "create project" true
+  %upv "fix version" 0
+  %upv "force usage" true
+  %upv "full constraint" true
+  %upv "ifdef" 'nsTest'
+  %upv "ifndef" 'NoScripts'
+  %upv "major version" 1
+  %upv "minor version" 0
+  %upv "package prefix" 'ru.garant'
+  %upv "root path suffix" '/components'
+  %upv "space key" 'SHD'
+  %upv "space name" 'Shared (delphi)'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4677DDBD0193' /* "Shared Delphi" */
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677E18600C2' /* dd */
+  U$ '467A75D90346' /* VT */
+  U$ '467A8734039C' /* EVD */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '472082480337' /* m3 */
+  U$ '474AD18D0096' /* RenderEVD */
+  U$ '476BBDC80314' /* m4 */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '48EEE54C0072' /* EverestCommon */
+  U$ '49B1511700CA' /* "Shared Delphi Core" */
+  U$ '49B800BB0239' /* "Shared Delphi Tools" */
+  U$ '4ABA2360025A' /* "Shared Delphi For Archi" */
+  U$ '4ABCC25A0322' /* "Shared Delphi Low Level" */
+  U$ '4B2A0D4A006F' /* DUnit */
+  U$ '4B2A10C40309' /* DUnitTuning */
+  U$ '4B2A15810261' /* DailyTest */
+  U$ '4B30C4D400DF' /* TestForms */
+  U$ '4B30C5FF0172' /* TestFormsTest */
+  U$ '4B30C6E3023C' /* Forms */
+  U$ '4B30CC420206' /* "Shared Delphi Testing Framework" */
+  U$ '4CA0B1CA00A3' /* TestForTFW */
+  U$ '4D02561D01C8' /* "Abstract Tests" */
+  U$ '4D53DDBE00EE' /* "Abstract Archi Tests" */
+  U$ '4D53DEED0062' /* "Archi Tests" */
+  U$ '4DADA06B03B6' /* "Shared Delphi Operations For Tests" */
+  U$ '4DC3D1BC0060' /* ScriptTestLibrary */
+  U$ '4E1F0EB100C4' /* ScriptEngine */
+  U$ '4E2EE37B0097' /* Everest$EditorUsers */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '4E5BC50E02E1' /* "Shared Delphi Требования к низкоуровневым библиотекам" */
+  U$ '4F19102600B0' /* TestsSupport */
+  U$ '509A5C8903C7' /* Keywords4Daily */
+  U$ '5130499D0080' /* "DUnit Script Support" */
+  U$ '515D7AD40236' /* "Shared Delphi Core Tests" */
+  U$ '515D7B0B006F' /* Containers */
+  U$ '5214D28E024C' /* dd$AppConfig */
+  U$ '548712F60101' /* m3$DB */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+  U$ '54ECA252008F' /* ScriptEngine$Everest */
+  U$ '55C1EE2F01B7' /* ScriptEngine$Parsing */
+  U$ '562E251101C2' /* "Shared Delphi Rtl" */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<TestTarget>> TFW
+   %UID '4CA0B21F0130'
+   %SUMMARY 'Тесты для тестирования собственно тестового фреймворка TFW' ;
+   %DEPENDS
+    U$ '4773D64E036C' /* l3Base */
+    U$ '4787A405013D' /* Exception */
+    U$ '4B2A0D8A03A0' /* TextTestRunner */
+    U$ '4B2A0D9401CC' /* GUITestRunner */
+    U$ '4B2A10C40309' /* DUnitTuning */
+    U$ '4B2A112B011A' /* Source */
+    U$ '4B2A6D4303A9' /* KTestRunner */
+    U$ '4CA0B1CA00A3' /* TestForTFW */
+    U$ '4CA0BB8600CF' /* TKBridge */
+    U$ '4DAECE5D0060' /* TvcmInsiderTest */
+    U$ '4DC24756009A' /* TAutoTestsSuite */
+    U$ '4DEF306102FF' /* TtfwScriptEngineEX */
+   ; // %DEPENDS
+   %META
+    %upv "CONFIG_UC" false
+    %upv "console" false
+    %upv "is insider test" false
+    %upv "need UC in project" false
+    %upv "no scripts" 'undefined'
+    %upv "old format" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4B2A0D4A006F' /* DUnit */
+    U$ '4B2A10C40309' /* DUnitTuning */
+    U$ '4CA0B1CA00A3' /* TestForTFW */
+    U$ '4E1F0EB100C4' /* ScriptEngine */
+    U$ '5130499D0080' /* "DUnit Script Support" */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<TestResults>> ItsLAW
+      %UID '4CA0B4860072'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "needs script keywords documentation" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B2A10C40309' /* DUnitTuning */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4B7AAC7A031D' /* TTestResultsPlace */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4B7AB0B6016E' /* CommandLineKey */
+       U$ '4B7C0B43005B' /* TimesPage */
+       U$ '4B7C0B670215' /* ResultsPage */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C35A6DA02E9' /* IsLAW */
+      ; // %OVERRIDES
+     ; // ItsLAW
+   ; // %CHILDREN
+  ; // TFW
+  <<TestTarget>> Daily$Test
+   %UID '4B2A48AA03D4'
+   %SUMMARY 'Ежедневные тесты нашей библиотеки компонент' ;
+   %DEPENDS
+    U$ '4773D64E036C' /* l3Base */
+    U$ '4787A405013D' /* Exception */
+    U$ '4B2A0D8A03A0' /* TextTestRunner */
+    U$ '4B2A0D9401CC' /* GUITestRunner */
+    U$ '4B2A10C40309' /* DUnitTuning */
+    U$ '4B2A112B011A' /* Source */
+    U$ '4B2A15810261' /* DailyTest */
+    U$ '4B2A6D4303A9' /* KTestRunner */
+    U$ '4B30C5FF0172' /* TestFormsTest */
+    U$ '4CA0BB8600CF' /* TKBridge */
+    U$ '4D02561D01C8' /* "Abstract Tests" */
+    U$ '4D53DDBE00EE' /* "Abstract Archi Tests" */
+    U$ '4D53DEED0062' /* "Archi Tests" */
+    U$ '4DAECE5D0060' /* TvcmInsiderTest */
+    U$ '4DC24756009A' /* TAutoTestsSuite */
+    U$ '4DC3B47F00B7' /* ScriptSupport */
+    U$ '4DEF306102FF' /* TtfwScriptEngineEX */
+    U$ '515D7B0B006F' /* Containers */
+   ; // %DEPENDS
+   %META
+    %upv "CONFIG_UC" false
+    %upv "console" false
+    %upv "defines" 'DailyTest.inc'
+    %upv "is insider test" false
+    %upv "need UC in project" false
+    %upv "no scripts" 'undefined'
+    %upv "old format" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4B2A0D4A006F' /* DUnit */
+    U$ '4B2A10C40309' /* DUnitTuning */
+    U$ '4B2A15810261' /* DailyTest */
+    U$ '4B30C5FF0172' /* TestFormsTest */
+    U$ '4D02561D01C8' /* "Abstract Tests" */
+    U$ '4D53DDBE00EE' /* "Abstract Archi Tests" */
+    U$ '4D53DEED0062' /* "Archi Tests" */
+    U$ '4E1F0EB100C4' /* ScriptEngine */
+    U$ '5130499D0080' /* "DUnit Script Support" */
+    U$ '515D7B0B006F' /* Containers */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<CustomDirectory>> TestSet
+      %UID '4B2BAF9E00E8'
+      %SUMMARY 'Тестовый набор' ;
+      %CHILDREN
+       
+        <<CustomDirectory>> Auto
+         %UID '4DC3BF8000B5'
+         %SUMMARY 'Тесты в виде скриптов' ;
+        ; // Auto
+      ; // %CHILDREN
+     ; // TestSet
+     <<TestResults>> toK
+      %UID '4B7BFDB40015'
+      %SUMMARY 'Стандартный вывод для ГК' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "needs script keywords documentation" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B2A10C40309' /* DUnitTuning */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4B7AAC7A031D' /* TTestResultsPlace */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4B7AB0B6016E' /* CommandLineKey */
+       U$ '4B7C0B43005B' /* TimesPage */
+       U$ '4B7C0B670215' /* ResultsPage */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4BEA9969001B' /* IsGK */
+      ; // %OVERRIDES
+      %LINKS
+        <<uses>> "511B995000AD"
+         %UID '511B995000AD'
+         %TARGET U$ '4DC3B4A603C9' /* TSHDTestScriptEngine */
+        ; // 511B995000AD
+      ; // %LINKS
+     ; // toK
+     <<TestResults>> ItsLAW
+      %UID '4B7BFDCA01F9'
+      %SUMMARY 'Вывод для отладочных целей' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "needs script keywords documentation" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B2A10C40309' /* DUnitTuning */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4B7AAC7A031D' /* TTestResultsPlace */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4B7AB0B6016E' /* CommandLineKey */
+       U$ '4B7C0B43005B' /* TimesPage */
+       U$ '4B7C0B670215' /* ResultsPage */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C35A6DA02E9' /* IsLAW */
+      ; // %OVERRIDES
+     ; // ItsLAW
+     <<TestResults>> Archi2
+      %UID '4C35A13B0201'
+      %SUMMARY 'Тесты на Archi2' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "needs script keywords documentation" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B2A10C40309' /* DUnitTuning */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4B7AAC7A031D' /* TTestResultsPlace */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4B7AB0B6016E' /* CommandLineKey */
+       U$ '4B7C0B43005B' /* TimesPage */
+       U$ '4B7C0B670215' /* ResultsPage */
+      ; // %REALIZES
+     ; // Archi2
+     <<TestResults>> toK64
+      %UID '4DB6B0DB0284'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "needs script keywords documentation" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B2A10C40309' /* DUnitTuning */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4B7AAC7A031D' /* TTestResultsPlace */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4B7AB0B6016E' /* CommandLineKey */
+       U$ '4B7C0B43005B' /* TimesPage */
+       U$ '4B7C0B670215' /* ResultsPage */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4BEA9969001B' /* IsGK */
+      ; // %OVERRIDES
+     ; // toK64
+     <<TestResults>> toKT
+      %UID '4E9EE76E003C'
+      %SUMMARY 'Ежедневные тесты библиотек в Твери' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "needs script keywords documentation" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B2A10C40309' /* DUnitTuning */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4B7AAC7A031D' /* TTestResultsPlace */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4B7AB0B6016E' /* CommandLineKey */
+       U$ '4B7C0B43005B' /* TimesPage */
+       U$ '4B7C0B670215' /* ResultsPage */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4BEA9969001B' /* IsGK */
+      ; // %OVERRIDES
+     ; // toKT
+   ; // %CHILDREN
+  ; // Daily$Test
+  <<InstallerTarget>> DailyTestSetup
+   %UID '4B33B3DC01CB'
+   %SUMMARY 'Инсталлятор DailyTest' ;
+   %DEPENDS
+    U$ '4B2A48AA03D4' /* Daily$Test */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '49B923B60333' /* "Shared Delphi Tests" */
+   ; // %TOBEINCLUDED
+  ; // DailyTestSetup
+  SUMMONED <<TestTarget>> ReleaseTFW
+   %UID 'ECB151341247'
+   %SUMMARY 'Тесты для тестирования собственно тестового фреймворка TFW (релизный вариант)' ;
+   %DEPENDS
+    U$ '4773D64E036C' /* l3Base */
+    U$ '4787A405013D' /* Exception */
+    U$ '4B2A0D8A03A0' /* TextTestRunner */
+    U$ '4B2A0D9401CC' /* GUITestRunner */
+    U$ '4B2A10C40309' /* DUnitTuning */
+    U$ '4B2A112B011A' /* Source */
+    U$ '4B2A6D4303A9' /* KTestRunner */
+    U$ '4CA0B1CA00A3' /* TestForTFW */
+    U$ '4CA0BB8600CF' /* TKBridge */
+    U$ '4DAECE5D0060' /* TvcmInsiderTest */
+    U$ '4DC24756009A' /* TAutoTestsSuite */
+    U$ '4DEF306102FF' /* TtfwScriptEngineEX */
+   ; // %DEPENDS
+   %META
+    %upv "CONFIG_UC" false
+    %upv "console" false
+    %upv "is insider test" false
+    %upv "need UC in project" false
+    %upv "no scripts" 'undefined'
+    %upv "old format" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4B2A0D4A006F' /* DUnit */
+    U$ '4B2A10C40309' /* DUnitTuning */
+    U$ '4CA0B1CA00A3' /* TestForTFW */
+    U$ '4E1F0EB100C4' /* ScriptEngine */
+    U$ '5130499D0080' /* "DUnit Script Support" */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     SUMMONED <<TestResults>> ReleaseItsLAW
+      %UID 'F8EECE1AEED7'
+      %SUMMARY ' (релизный вариант)' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "needs script keywords documentation" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B2A10C40309' /* DUnitTuning */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4B7AAC7A031D' /* TTestResultsPlace */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4B7AB0B6016E' /* CommandLineKey */
+       U$ '4B7C0B43005B' /* TimesPage */
+       U$ '4B7C0B670215' /* ResultsPage */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C35A6DA02E9' /* IsLAW */
+      ; // %OVERRIDES
+     ; // ReleaseItsLAW
+   ; // %CHILDREN
+  ; // ReleaseTFW
+  SUMMONED <<TestTarget>> ReleaseDaily$Test
+   %UID '06EF1E6353C7'
+   %SUMMARY 'Ежедневные тесты нашей библиотеки компонент (релизный вариант)' ;
+   %DEPENDS
+    U$ '4773D64E036C' /* l3Base */
+    U$ '4787A405013D' /* Exception */
+    U$ '4B2A0D8A03A0' /* TextTestRunner */
+    U$ '4B2A0D9401CC' /* GUITestRunner */
+    U$ '4B2A10C40309' /* DUnitTuning */
+    U$ '4B2A112B011A' /* Source */
+    U$ '4B2A15810261' /* DailyTest */
+    U$ '4B2A6D4303A9' /* KTestRunner */
+    U$ '4B30C5FF0172' /* TestFormsTest */
+    U$ '4CA0BB8600CF' /* TKBridge */
+    U$ '4D02561D01C8' /* "Abstract Tests" */
+    U$ '4D53DDBE00EE' /* "Abstract Archi Tests" */
+    U$ '4D53DEED0062' /* "Archi Tests" */
+    U$ '4DAECE5D0060' /* TvcmInsiderTest */
+    U$ '4DC24756009A' /* TAutoTestsSuite */
+    U$ '4DEF306102FF' /* TtfwScriptEngineEX */
+    U$ '515D7B0B006F' /* Containers */
+   ; // %DEPENDS
+   %META
+    %upv "CONFIG_UC" false
+    %upv "console" false
+    %upv "defines" 'DailyTest.inc'
+    %upv "is insider test" false
+    %upv "need UC in project" false
+    %upv "no scripts" 'undefined'
+    %upv "old format" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4B2A0D4A006F' /* DUnit */
+    U$ '4B2A10C40309' /* DUnitTuning */
+    U$ '4B2A15810261' /* DailyTest */
+    U$ '4B30C5FF0172' /* TestFormsTest */
+    U$ '4D02561D01C8' /* "Abstract Tests" */
+    U$ '4D53DDBE00EE' /* "Abstract Archi Tests" */
+    U$ '4D53DEED0062' /* "Archi Tests" */
+    U$ '4E1F0EB100C4' /* ScriptEngine */
+    U$ '5130499D0080' /* "DUnit Script Support" */
+    U$ '515D7B0B006F' /* Containers */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     SUMMONED <<TestResults>> ReleasetoK
+      %UID '431348CB3E15'
+      %SUMMARY 'Стандартный вывод для ГК (релизный вариант)' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "needs script keywords documentation" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B2A10C40309' /* DUnitTuning */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4B7AAC7A031D' /* TTestResultsPlace */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4B7AB0B6016E' /* CommandLineKey */
+       U$ '4B7C0B43005B' /* TimesPage */
+       U$ '4B7C0B670215' /* ResultsPage */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4BEA9969001B' /* IsGK */
+      ; // %OVERRIDES
+     ; // ReleasetoK
+     SUMMONED <<TestResults>> ReleaseItsLAW
+      %UID '97FE67497778'
+      %SUMMARY 'Вывод для отладочных целей (релизный вариант)' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "needs script keywords documentation" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B2A10C40309' /* DUnitTuning */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4B7AAC7A031D' /* TTestResultsPlace */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4B7AB0B6016E' /* CommandLineKey */
+       U$ '4B7C0B43005B' /* TimesPage */
+       U$ '4B7C0B670215' /* ResultsPage */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4C35A6DA02E9' /* IsLAW */
+      ; // %OVERRIDES
+     ; // ReleaseItsLAW
+     SUMMONED <<TestResults>> ReleaseArchi2
+      %UID '6B92D0808EA8'
+      %SUMMARY 'Тесты на Archi2 (релизный вариант)' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "needs script keywords documentation" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B2A10C40309' /* DUnitTuning */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4B7AAC7A031D' /* TTestResultsPlace */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4B7AB0B6016E' /* CommandLineKey */
+       U$ '4B7C0B43005B' /* TimesPage */
+       U$ '4B7C0B670215' /* ResultsPage */
+      ; // %REALIZES
+     ; // ReleaseArchi2
+     SUMMONED <<TestResults>> ReleasetoK64
+      %UID '18F018C495DA'
+      %SUMMARY ' (релизный вариант)' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "needs script keywords documentation" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B2A10C40309' /* DUnitTuning */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4B7AAC7A031D' /* TTestResultsPlace */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4B7AB0B6016E' /* CommandLineKey */
+       U$ '4B7C0B43005B' /* TimesPage */
+       U$ '4B7C0B670215' /* ResultsPage */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4BEA9969001B' /* IsGK */
+      ; // %OVERRIDES
+     ; // ReleasetoK64
+     SUMMONED <<TestResults>> ReleasetoKT
+      %UID '7C0A8318D8D4'
+      %SUMMARY 'Ежедневные тесты библиотек в Твери (релизный вариант)' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "needs script keywords documentation" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4B2A10C40309' /* DUnitTuning */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '4B7AAC7A031D' /* TTestResultsPlace */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4B7AB0B6016E' /* CommandLineKey */
+       U$ '4B7C0B43005B' /* TimesPage */
+       U$ '4B7C0B670215' /* ResultsPage */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '4BEA9969001B' /* IsGK */
+      ; // %OVERRIDES
+     ; // ReleasetoKT
+   ; // %CHILDREN
+  ; // ReleaseDaily$Test
+ ; // %CHILDREN
+; // "Shared Delphi Tests"

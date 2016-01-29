@@ -1,0 +1,628 @@
+VOID Test PointTest
+ class_impl _:Point
+  %FIELDS %Fld
+   'VMT'
+   'X'
+   'Y'
+  ; // %FIELDS %Fld
+  
+  %INHERITS %G
+   @
+   _:Object
+  ; // %INHERITS %G
+  
+ ; // class_impl _:Point
+ 
+ class_impl _:Rectangle
+  %FIELDS %Fld
+   'VMT'
+   'TopLeft'
+   'BottomRight'
+  ; // %FIELDS %Fld
+  
+  %INHERITS %G
+   @
+   _:Object
+  ; // %INHERITS %G
+  
+ ; // class_impl _:Rectangle
+ 
+ INTEGER CONST c:Point:Instance:Size
+  3
+ INTEGER CONST c:Point:Offset:VMT
+  0
+ INTEGER CONST c:Point:Offset:X
+  1
+ INTEGER CONST c:Point:Offset:Y
+  2
+ INTEGER CONST c:Rectangle:Instance:Size
+  3
+ INTEGER CONST c:Rectangle:Offset:BottomRight
+  2
+ INTEGER CONST c:Rectangle:Offset:TopLeft
+  1
+ INTEGER CONST c:Rectangle:Offset:VMT
+  0
+ ARRAY VAR l_Points
+ ARRAY VAR l_Rectangles
+ Object VAR O1
+ Point VAR P1
+ Point VAR P10
+ Point VAR P11
+ Point VAR P2
+ Point VAR P3
+ Point VAR P4
+ Point VAR P5
+ Point VAR P6
+ Point VAR P7
+ Point VAR P8
+ Point VAR P9
+ IMMEDIATE VOID TYPE Pixel
+  TtfwValueTypes
+  Ctx:IncludeValueTypes
+ ; // IMMEDIATE VOID TYPE Pixel
+ 
+ IMMEDIATE VOID TYPE PixelList
+  TtfwValueTypes
+  Ctx:IncludeValueTypes
+ ; // IMMEDIATE VOID TYPE PixelList
+ 
+ IMMEDIATE VOID TYPE Point
+  TtfwValueTypes
+  Ctx:IncludeValueTypes
+ ; // IMMEDIATE VOID TYPE Point
+ 
+ Point method Point:-
+  ^ IN _aPoint
+  IMMEDIATE VOID OPERATOR aPoint
+   '_aPoint'
+   MangledNamePusher
+  ; // IMMEDIATE VOID OPERATOR aPoint
+  
+  Point IN Self
+  Point:OF
+  (
+   Self
+   Point:+
+   (
+    (
+     _aPoint |^
+    )
+    Point:Neg
+   )
+  )
+  Result
+  pop:Word:SetValue
+ ; // Point method Point:-
+ 
+ Point constructor Point::
+  ^ IN _aX
+  ^ IN _aY
+  IMMEDIATE VOID OPERATOR aX
+   '_aX'
+   MangledNamePusher
+  ; // IMMEDIATE VOID OPERATOR aX
+  
+  IMMEDIATE VOID OPERATOR aY
+   '_aY'
+   MangledNamePusher
+  ; // IMMEDIATE VOID OPERATOR aY
+  
+  [
+   @
+   _:Point
+   (
+    _aX |^
+   )
+   (
+    _aY |^
+   )
+  ]
+  Result
+  pop:Word:SetValue
+ ; // Point constructor Point::
+ 
+ Point method Point:+
+  ^ IN _aPoint
+  IMMEDIATE VOID OPERATOR aPoint
+   '_aPoint'
+   MangledNamePusher
+  ; // IMMEDIATE VOID OPERATOR aPoint
+  
+  Point IN Self
+  Point::
+  (
+   Self
+   Point:X
+   (+)
+   (
+    (
+     _aPoint |^
+    )
+    Point:X
+   )
+  )
+  (
+   Self
+   Point:Y
+   (+)
+   (
+    (
+     _aPoint |^
+    )
+    Point:Y
+   )
+  )
+  Result
+  pop:Word:SetValue
+ ; // Point method Point:+
+ 
+ Point constructor Point:0
+  Point::
+  0
+  0
+  Result
+  pop:Word:SetValue
+ ; // Point constructor Point:0
+ 
+ Point method Point:Neg
+  Point IN Self
+  Point::
+  Neg
+  (
+   Self
+   Point:X
+  )
+  Neg
+  (
+   Self
+   Point:Y
+  )
+  Result
+  pop:Word:SetValue
+ ; // Point method Point:Neg
+ 
+ Point constructor Point:OF
+  ^ IN _aPoint
+  IMMEDIATE VOID OPERATOR aPoint
+   '_aPoint'
+   MangledNamePusher
+  ; // IMMEDIATE VOID OPERATOR aPoint
+  
+  Point::
+  (
+   (
+    _aPoint |^
+   )
+   Point:X
+  )
+  (
+   (
+    _aPoint |^
+   )
+   Point:Y
+  )
+  Result
+  pop:Word:SetValue
+ ; // Point constructor Point:OF
+ 
+ VOID method Point:Print
+  Point IN Self
+  Self
+  Point:ToPrintable
+  .
+ ; // VOID method Point:Print
+ 
+ OVERRIDE STRING method Point:ToPrintable
+  Point IN Self
+  [
+   '( '
+   'X: '
+   Self
+   Point:X
+   ToPrintable
+   ', Y: '
+   Self
+   Point:Y
+   ToPrintable
+   ' )'
+  ]
+  strings:Cat
+  Result
+  pop:Word:SetValue
+ ; // OVERRIDE STRING method Point:ToPrintable
+ 
+ Pixel readonly Point:X
+  Point IN Self
+  Self
+  FieldByOffset
+  c:Point:Offset:X
+  Result
+  pop:Word:SetValue
+ ; // Pixel readonly Point:X
+ 
+ Point constructor Point:XY
+  ^ IN _aPoint
+  IMMEDIATE VOID OPERATOR aPoint
+   '_aPoint'
+   MangledNamePusher
+  ; // IMMEDIATE VOID OPERATOR aPoint
+  
+  ARRAY VAR Points
+  [
+   (
+    _aPoint |^
+   )
+  ]
+  Points
+  pop:Word:SetValue
+  Point::
+  (
+   Points
+   FieldByOffset
+   0
+  )
+  (
+   Points
+   FieldByOffset
+   1
+  )
+  Result
+  pop:Word:SetValue
+ ; // Point constructor Point:XY
+ 
+ Pixel readonly Point:Y
+  Point IN Self
+  Self
+  FieldByOffset
+  c:Point:Offset:Y
+  Result
+  pop:Word:SetValue
+ ; // Pixel readonly Point:Y
+ 
+ Rectangle VAR R1
+ Rectangle VAR R2
+ IMMEDIATE VOID TYPE Rectangle
+  TtfwValueTypes
+  Ctx:IncludeValueTypes
+ ; // IMMEDIATE VOID TYPE Rectangle
+ 
+ Rectangle constructor Rectangle::
+  ^ IN _aBottomRight
+  ^ IN _aTopLeft
+  IMMEDIATE VOID OPERATOR aBottomRight
+   '_aBottomRight'
+   MangledNamePusher
+  ; // IMMEDIATE VOID OPERATOR aBottomRight
+  
+  IMMEDIATE VOID OPERATOR aTopLeft
+   '_aTopLeft'
+   MangledNamePusher
+  ; // IMMEDIATE VOID OPERATOR aTopLeft
+  
+  [
+   @
+   _:Rectangle
+   (
+    _aTopLeft |^
+   )
+   (
+    _aBottomRight |^
+   )
+  ]
+  Result
+  pop:Word:SetValue
+ ; // Rectangle constructor Rectangle::
+ 
+ Point readonly Rectangle:BottomRight
+  Rectangle IN Self
+  Self
+  FieldByOffset
+  c:Rectangle:Offset:BottomRight
+  Result
+  pop:Word:SetValue
+ ; // Point readonly Rectangle:BottomRight
+ 
+ VOID method Rectangle:Print
+  Rectangle IN Self
+  Self
+  Rectangle:ToPrintable
+  .
+ ; // VOID method Rectangle:Print
+ 
+ Point readonly Rectangle:TopLeft
+  Rectangle IN Self
+  Self
+  FieldByOffset
+  c:Rectangle:Offset:TopLeft
+  Result
+  pop:Word:SetValue
+ ; // Point readonly Rectangle:TopLeft
+ 
+ OVERRIDE STRING method Rectangle:ToPrintable
+  Rectangle IN Self
+  [
+   '( '
+   'TopLeft: '
+   Self
+   Rectangle:TopLeft
+   Point:ToPrintable
+   ', BottomRight: '
+   Self
+   Rectangle:BottomRight
+   Point:ToPrintable
+   ' )'
+  ]
+  strings:Cat
+  Result
+  pop:Word:SetValue
+ ; // OVERRIDE STRING method Rectangle:ToPrintable
+ 
+ PointTest
+ DumpElement
+ Point:0
+ P1
+ pop:Word:SetValuePrim
+ Point:0
+ P2
+ pop:Word:SetValuePrim
+ Point::
+ 1
+ 1
+ P3
+ pop:Word:SetValuePrim
+ Point:XY
+ (
+  2
+  2
+ )
+ P4
+ pop:Word:SetValuePrim
+ Point:OF
+ P4
+ P5
+ pop:Word:SetValuePrim
+ (
+  P3
+  Point:+
+  P4
+ )
+ P6
+ pop:Word:SetValue
+ (
+  P3
+  Point:-
+  P4
+ )
+ P7
+ pop:Word:SetValue
+ (
+  P4
+  Point:-
+  P3
+ )
+ P8
+ pop:Word:SetValue
+ (
+  P4
+  Point:Neg
+ )
+ P9
+ pop:Word:SetValue
+ (
+  P3
+  Point:Neg
+ )
+ P10
+ pop:Word:SetValue
+ Point:XY
+ (
+  -2
+  2
+ )
+ P11
+ pop:Word:SetValuePrim
+ P1
+ O1
+ pop:Word:SetValuePrim
+ O1
+ Point:Print
+ [
+  P1
+  P2
+  P3
+  P4
+  P5
+  P6
+  P7
+  P8
+  P9
+  P10
+  P11
+ ]
+ l_Points
+ pop:Word:SetValue
+ l_Points
+ DO
+ Point:Print
+ SWAP
+ Array:Iterate
+ l_Points
+ DO
+ (
+  Point:X
+  .
+ )
+ SWAP
+ Array:Iterate
+ l_Points
+ DO
+ (
+  Point:Y
+  .
+ )
+ SWAP
+ Array:Iterate
+ l_Points
+ DO
+ (
+  Object:class
+  .
+ )
+ SWAP
+ Array:Iterate
+ l_Points
+ DO
+ (
+  Object:ClassName
+  .
+ )
+ SWAP
+ Array:Iterate
+ l_Points
+ DO
+ (
+  (
+   Object:class
+   %G
+  )
+  DO
+  (
+   getClassName
+   .
+  )
+  SWAP
+  Array:Iterate
+ )
+ SWAP
+ Array:Iterate
+ Rectangle::
+ P1
+ P4
+ R1
+ pop:Word:SetValuePrim
+ Rectangle::
+ P6
+ P7
+ R2
+ pop:Word:SetValuePrim
+ [
+  R1
+  R2
+ ]
+ l_Rectangles
+ pop:Word:SetValue
+ l_Rectangles
+ DO
+ Rectangle:Print
+ SWAP
+ Array:Iterate
+ 'Hello '
+ (+)
+ 'world'
+ .
+ 'Hello '
+ (+)
+ 'world'
+ .
+ 'Hello '
+ (+)
+ 'world'
+ .
+ 1
+ (+)
+ 2
+ .
+ 10
+ (+)
+ 20
+ .
+ 0
+ (-)
+ 10
+ .
+ Neg
+ 10
+ .
+ Neg
+ -10
+ .
+; // VOID Test PointTest
+
+( X: 0, Y: 0 )
+( X: 0, Y: 0 )
+( X: 0, Y: 0 )
+( X: 1, Y: 1 )
+( X: 2, Y: 2 )
+( X: 2, Y: 2 )
+( X: 3, Y: 3 )
+( X: -1, Y: -1 )
+( X: 1, Y: 1 )
+( X: -2, Y: -2 )
+( X: -1, Y: -1 )
+( X: -2, Y: 2 )
+0
+0
+1
+2
+2
+3
+-1
+1
+-2
+-1
+-2
+0
+0
+1
+2
+2
+3
+-1
+1
+-2
+-1
+2
+TkwCompiledProcedure
+TkwCompiledProcedure
+TkwCompiledProcedure
+TkwCompiledProcedure
+TkwCompiledProcedure
+TkwCompiledProcedure
+TkwCompiledProcedure
+TkwCompiledProcedure
+TkwCompiledProcedure
+TkwCompiledProcedure
+TkwCompiledProcedure
+Point
+Point
+Point
+Point
+Point
+Point
+Point
+Point
+Point
+Point
+Point
+Object
+Object
+Object
+Object
+Object
+Object
+Object
+Object
+Object
+Object
+Object
+( TopLeft: ( X: 0, Y: 0 ), BottomRight: ( X: 2, Y: 2 ) )
+( TopLeft: ( X: 3, Y: 3 ), BottomRight: ( X: -1, Y: -1 ) )
+Hello world
+Hello world
+Hello world
+3
+30
+-10
+-10
+10

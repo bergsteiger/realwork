@@ -1,0 +1,154 @@
+uses
+  Maps, func;
+  
+  
+function StringCompare(
+  what {  что ищем }
+  , where : String {  где ищем }
+  ; options : boolean = False {  включает регистро-независисмость}
+) : boolean; {  нашли или нет }
+  var i, regular, regEx ;
+begin
+  try
+    if options then regular := regular + '(?i)';
+    regular := regular + '^'; //начало строки
+    for i:=1 to Length(what) do
+      case what[i] of
+        '?' : regular := regular + '.{1}';
+        '*' : regular := regular + '.' + what[i];
+        '.', '\', '|', '[', ']', '(', ')', '{', '}' : regular := regular + '\' + what[i];
+      else regular := regular + what[i];
+      end;
+    regular := regular + '$'; //конец строки
+//    log.message('"' + what + '" -> "' + regular + '"');
+
+  regEx:=HISUtils.RegExpr;
+  regEx.Expression:=regular;
+  Result := regEx.Exec(where);
+
+  except
+    Log.Error(ExceptionMessage);  
+  end;
+end;  
+  
+  // поиск в списке клиентов, если не найдено, возвращает -1
+  // SearchInList('str', 'str') / что искать / имя столбика
+
+  
+//function SearchInList(
+//  SearchTarget : String,    // что искать
+//  SearchColumn : String)    // имя столбика где искать
+//    : OleVariant;
+//  var arm, i, j, rows;
+//begin
+//  try
+//    SearchColumn := AnsiUpperCase(SearchColumn);
+//    if not IsExists(GetFromMainWindow('список клиентов')) then Raise('окно "список клиентов" не существует');
+//    case SearchColumn of
+//      'НОМЕР КАРТОЧКИ', 'НОМЕР' :
+//        j := 0;
+//      'НАЗВАНИЕ КЛИЕНТА', 'НАЗВАНИЕ' :
+//        j := 1;
+//      
+//    else
+//      Raise('не допустимое имя столбика');
+//    end;  
+//    
+//    i := 0;
+//    rows := GetFromMainWindow('список клиентов').RowCount;
+//    if GetFromMainWindow('список клиентов').Cells[j, i] <> SearchTarget 
+//      then
+//        repeat
+//          i := i+1;
+//        until (GetFromMainWindow('список клиентов').Cells[j, i] = SearchTarget) or (i = rows-1); 
+//    if (GetFromMainWindow('список клиентов').Cells[j, i] <> SearchTarget) and (i = rows-1)
+//      then Result := -1
+//      else Result := i;
+//
+//  except
+//    Result := NonExObj; 
+//    Log.Error(ExceptionMessage);  
+//  end;
+//end;
+
+  // поиск в списке. если не найдено, возвращает -1
+
+function SearchInList(
+  ObjectWhere : String,          // объект в котором искать (список) 
+  SearchTarget : String,         // что искать
+  SearchColumn : String = '',    // имя столбика где искать
+  StartRow : Integer = 0,        // номер строки, с которой следует искать 
+  Sensytiv : Boolean = False )   // включает регистро-независисмость
+    : OleVariant;
+  var arm, i, j, j1, j2, NumOfCol, rows, Columns, Done;
+begin
+  try
+    Columns := ObjectWhere.ColCount;
+    rows := GetFromMainWindow('список клиентов').RowCount;  
+    if not IsExists(ObjectWhere) then Raise('объекта "' + ObjectWhere + '" не существует');
+    if (StartRow > rows) or (StartRow < 0) then Raise('номер строки (' + VarToStr(StartRow) + ') не должен быть меньше "0" и больше максимально возможного значения для этой таблицы - "' + VarToStr(rows) + '"');
+
+    // определяем номер столбца
+    NumOfCol := -1;
+    if SearchColumn <> '' 
+      then 
+        repeat
+          NumOfCol := NumOfCol+1;
+          if NumOfCol = Columns
+            then Raise('не верный параметр "' + SearchColumn + '", параметр регистрозависимый');
+        until (pos(SearchColumn, ObjectWhere.ColCaption[NumOfCol]) <> 0) or (NumOfCol = Columns);
+     
+    if NumOfCol = -1
+      then 
+        begin
+          j1 := 0;
+          j2 := Columns-1;    
+        end
+      else  
+        begin
+          j1 := NumOfCol;
+          j2 := NumOfCol;    
+        end;
+        
+    Done := False;
+        
+    // ищем    
+    i := StartRow;
+        repeat
+//          for j:=j1 to j2 do if GetFromMainWindow('список клиентов').Cells[j, i] = SearchTarget then Done := True;   // ищет точное совпадение
+//          for j:=j1 to j2 do if StringCompare(SearchTarget, GetFromMainWindow('список клиентов').Cells[j, i], Sensytiv) then Done := True;   // работает с маской */?
+//          for j:=j1 to j2 do Done := StringCompare(SearchTarget, GetFromMainWindow('список клиентов').Cells[j, i], Sensytiv);   // косячный
+          for j:=j1 to j2 do Done := StringCompare(SearchTarget, GetFromMainWindow('список клиентов').Cells[j, i], Sensytiv) or Done;   // работает с маской */?
+ 
+          i := i+1;
+        until (Done = True) or (i = rows); 
+    if Done = False
+      then
+        begin
+          Result := -1;
+//          Log.Message('не найдено значение "' + SearchTarget + '"');
+        end
+      else Result := i-1;
+
+  except
+    Result := NonExObj; 
+    Log.Error(ExceptionMessage);  
+  end;
+end;
+
+
+procedure Test2;
+var nom, i;
+begin
+  i:=-1;
+  nom:=-1;
+  repeat
+    i := i + 1; 
+    nom := nom+1;
+    nom:=SearchInList2(GetFromMainWindow('список клиентов'), '*0*', '',nom, True);
+    log.message(nom);
+    if nom = GetFromMainWindow('список клиентов').RowCount - 1 then i := i + 1;    
+  until (nom = -1) or (nom = GetFromMainWindow('список клиентов').RowCount - 1);
+  log.message('найдено ' + VarToStr(i) + ' раз');
+  
+end;

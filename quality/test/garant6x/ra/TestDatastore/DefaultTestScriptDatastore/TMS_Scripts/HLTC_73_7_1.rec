@@ -1,0 +1,45 @@
+'$include "global.sbl"
+'$include "States.sbl"
+'*** Проверка тесткейса № 73.7.1 ***
+Sub Main
+    Dim Result As Integer
+
+    Call NeedState (ST_FIRST_BRANCH)
+    CUR_STATE = ST_NONE_STANDART
+
+  DelayFor (3000) 'Ждем загрузки списка
+'Переводим на ст.1 конституции и сравниваем 1 экран вхождения и возвращемся в список
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  InputKeys "{Num+}{DOWN}{ENTER}"
+  DelayFor (3000) 'Ждем загрузки конституции
+  InputKeys "^+{RIGHT}"
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=Const_gl1")
+  Call Click_Back
+  DelayFor (3000) 'Ждем загрузки списка
+  
+'Сворачиваем вхождения конституции и переходим на sub 200 документа 2002
+  InputKeys "{UP}{Num+}{DOWN}{DOWN}{Num+}{DOWN}{ENTER}"
+  DelayFor (2000) 'Ждем загрузки документа
+  InputKeys "^+{RIGHT}"
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=Doc2002")
+
+'Проверяем 2 вхождения в документ: "Приказ Минтранса РФ от 14 мая 2001 г. N 84"
+  Call Click_Back
+  DelayFor (3000) 'Ждем загрузки списка
+  InputKeys "{UP}{Num+}{END}{UP}{UP}{UP}{Num+}{DOWN}{ENTER}"
+  DelayFor (2000) 'Ждем загрузки документа  
+  InputKeys "^+{RIGHT}"
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=inp1")
+  
+  Call Click_Back
+  InputKeys "{DOWN}{ENTER}"
+  DelayFor (2000) 'Ждем загрузки документа
+  InputKeys "^+{RIGHT}"
+  Result = RichEditVP (CompareImage, "ObjectIndex=1", "VP=inp2")
+  
+'Возвращаемся в исходный список и выставляем состояние  
+  Call Click_Back
+  DelayFor (3000) 'Ждем загрузки списка
+  InputKeys "{UP}{UP}{Num+}{HOME}"
+    CUR_STATE = ST_FIRST_BRANCH
+End Sub

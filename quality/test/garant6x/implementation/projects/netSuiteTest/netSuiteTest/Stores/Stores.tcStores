@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="child list">
+			<Node name="item2">
+				<Node name="item data">
+					<Prp name="relpath" type="S" value="Objects.tcObjects"/>
+				</Node>
+				<Prp name="type" type="S" value="{30501691-969F-4007-923F-BA4459E51E6A}"/>
+				<Prp name="typename" type="S" value="Objects"/>
+				<Prp name="key" type="S" value="{1D881C38-46BF-4CCC-86B4-3C384A47D99B}"/>
+				<Prp name="index" type="I" value="2"/>
+			</Node>
+			<Node name="item1">
+				<Node name="item data">
+					<Prp name="relpath" type="S" value="Files.tcFiles"/>
+				</Node>
+				<Prp name="type" type="S" value="{AA2F3067-5C9B-4CCF-89D4-1F93CE1C510F}"/>
+				<Prp name="typename" type="S" value="Files"/>
+				<Prp name="key" type="S" value="{34C9DF85-1DA9-4E0E-9486-81896E300DD9}"/>
+				<Prp name="index" type="I" value="1"/>
+			</Node>
+			<Node name="item0">
+				<Node name="item data">
+					<Prp name="relpath" type="S" value="Regions.tcRegions"/>
+				</Node>
+				<Prp name="type" type="S" value="{DA6D7EF7-5B05-4735-AAF0-A85E47D47989}"/>
+				<Prp name="typename" type="S" value="Regions"/>
+				<Prp name="key" type="S" value="{8288E4EF-656C-43E0-9679-E2EFEB73AB31}"/>
+				<Prp name="index" type="I" value="0"/>
+			</Node>
+		</Node>
+		<Node name="settings"/>
+		<Prp name="signature" type="S" value="{5238AF17-5FE2-48FF-8BCC-9803A975A4F4}"/>
+		<Prp name="version" type="S" value="4.0"/>
+	</Node>
+</Nodes>

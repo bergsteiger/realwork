@@ -1,0 +1,97 @@
+// l3Changing 4A5CBFAB03AF Impurity Class
+
+INCLUDE '47D810610398.pas.ms.script'
+
+FORWARD ME_4A5CBFAB03AF
+
+FORWARD ME_54D9E08D0212
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_F5AAE6B2C2F4
+ CONST UID 'F5AAE6B2C2F4'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода DoChanged' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_F5AAE6B2C2F4 DoIt
+
+: ME_54D9E08D0212
+ CONST UID '54D9E08D0212'
+ CONST Name 'DoChanged'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_F5AAE6B2C2F4 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54D9E08D0212 DoChanged
+
+FORWARD ME_54D9E09D018D
+
+: ME_5738FC697CCD
+ CONST UID '5738FC697CCD'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура метода DoChanging' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_5738FC697CCD DoIt
+
+: ME_54D9E09D018D
+ CONST UID '54D9E09D018D'
+ CONST Name 'DoChanging'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_5738FC697CCD // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_54D9E09D018D DoChanging
+
+: ME_4A5CBFAB03AF
+ CONST UID '4A5CBFAB03AF'
+ CONST Name 'l3Changing'
+ CONST Class 'Class'
+ CONST Stereotype 'Impurity'
+ %SUMMARY 'Объект с нотификацией об изменении состояния' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Implements
+   [ ME_54D8B06301D2 // Ml3ChangingChanged
+ ]
+ ; // Implements
+ : Operations
+   [ ME_54D9E08D0212 // DoChanged
+ ME_54D9E09D018D // DoChanging
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4A5CBFFE0157 // Changing
+ ME_4A5CC00B03D5 // Changed
+ ]
+ ; // Implemented
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '14.07.2009 21:26'
+
+ @SELF
+; // ME_4A5CBFAB03AF l3Changing

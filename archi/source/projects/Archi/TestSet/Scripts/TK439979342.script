@@ -1,0 +1,32 @@
+USES  
+	QuickTestsUtils.script
+;
+
+OBJECT VAR g_Editor
+VAR g_Para
+
+PROCEDURE "Прокрутить вверх"
+	5 раз ( g_Editor pop:Editor:ScrollLineUp )
+	ProcessMessages
+;
+
+PROCEDURE "Получить блок из текущего параграфа и свернуть его"
+	focused:control:push >>> g_Editor
+	g_Editor pop:Editor:PushParaFromCursor >>> g_Para
+	g_Para Para:GetParent >>> g_Para
+	g_Para Para:GetParent >>> g_Para
+	evd::ti_Collapsed true g_Editor g_Para Para:BoolW
+; 
+
+Тест TK439979342
+	Параметры: ( "Проверка EVD документа" "Размеры для блоков" ) 
+	Выполнить (
+		"В конец документа"
+		"Получить блок из текущего параграфа и свернуть его"
+		"Прокрутить вверх"
+		"Нажать вверх"
+		"Подвинуть нижнюю границу блока с уровнем {(1000)} {(2)}"	
+	)
+;
+
+TK439979342

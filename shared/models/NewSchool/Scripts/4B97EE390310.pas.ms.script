@@ -1,0 +1,127 @@
+// TnscTreeComboWithHistory 4B97EE390310 GuiControl Class
+
+FORWARD ME_4B97EE390310
+
+FORWARD ME_53FF1F0503B4
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+INCLUDE '4CFF747800AA.pas.ms.script'
+
+: ME_53FF1F3A0175
+ CONST UID '53FF1F3A0175'
+ CONST Name 'cDefaultContextEmptyColor'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value 'cDefaultContextEmptyColor'
+ : ValueType ME_4CFF747800AA // nscConst
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_53FF1F3A0175 cDefaultContextEmptyColor
+
+INCLUDE '47D15712022D.pas.ms.script'
+
+: ME_53FF1F59035F
+ CONST UID '53FF1F59035F'
+ CONST Name 'clWindowText'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value 'clWindowText'
+ : ValueType ME_47D15712022D // Graphics
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_53FF1F59035F clWindowText
+
+: ME_53FF1F690298
+ CONST UID '53FF1F690298'
+ CONST Name 'clBlue'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ CONST Value 'clBlue'
+ : ValueType ME_47D15712022D // Graphics
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ @SELF
+; // ME_53FF1F690298 clBlue
+
+: ME_53FF1F0503B4
+ CONST UID '53FF1F0503B4'
+ CONST Name 'TnscTreeComboWithHistory Default Values'
+ CONST Class 'Class'
+ CONST Stereotype 'Constants'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Attributes
+   [ ME_53FF1F3A0175 // cDefaultContextEmptyColor
+ ME_53FF1F59035F // clWindowText
+ ME_53FF1F690298 // clBlue
+ ]
+ ; // Attributes
+ CONST "spell names" false
+
+ @SELF
+; // ME_53FF1F0503B4 TnscTreeComboWithHistory Default Values
+
+INCLUDE '4B97EDFB0057.pas.ms.script'
+
+: ME_EC179FCC17B3
+ CONST UID 'EC179FCC17B3'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TnscTreeComboWithHistory' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_EC179FCC17B3 Ini_Reg_Class
+
+: ME_4B97EE390310
+ CONST UID '4B97EE390310'
+ CONST Name 'TnscTreeComboWithHistory'
+ CONST Class 'Class'
+ CONST Stereotype 'GuiControl'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4B97EDFB0057 // TnscCustomTreeComboWithHistory
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_EC179FCC17B3 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Constants
+   [ ME_53FF1F0503B4 // TnscTreeComboWithHistory Default Values
+ ]
+ ; // Constants
+ CONST "base wnd class" 'CWnd'
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4B97EE390310 TnscTreeComboWithHistory

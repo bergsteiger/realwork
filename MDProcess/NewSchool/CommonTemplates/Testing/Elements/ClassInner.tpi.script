@@ -1,0 +1,383 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/Testing/Elements/ClassInner.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAGenerator::Class>> MDProcess$Templates::CommonTemplates::Testing::Elements::ClassInner
+//
+// Генератор внутренних элементов класса (методов или свойств)
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: ClassInner::MDAGenerator*
+implementation @ <<ClassInner>>
+//? Генератор внутренних элементов класса (методов или свойств)
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+// Выводит регистрацию в TestComplete
+//%f _pas_RegisterInTC
+; // st_space_key
+
+: pas_RegisterInTC OBJECT IN %S
+//#UC START# *499AD180009Ffor499ACEDD01EF*
+//	[{%S%f_IsWriteOnlyProp()!=true}\
+ if ( ( %S %f IsWriteOnlyProp %( )% ) %!=  true ) then
+ begin
+//	tc%1NPublicInfo._RegisterMethod(%f_pas_TypeName(%P%G), tc%1NOpenAppClasses.mtGet, '%SN', TypeInfo(%f_pas_TypeName(%T)),\
+  'tc'
+  %1 |N 'PublicInfo._RegisterMethod('
+  [%f] pas_TypeName %( %P ->G  )% ', tc'
+  %1 |N 'OpenAppClasses.mtGet, '''
+  %S |N ''', TypeInfo('
+  [%f] pas_TypeName %( %T )% '),'
+//	 \[<{, }TypeInfo(%f_pas_TypeName(%C%T))>\], \[<{, }'%CN'>\], %f_pas_FullMethodName(%S,%P,"","get")_Pub%1N);\
+  ' ['
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    'TypeInfo('
+    [%f] pas_TypeName %( %C ->T  )% ')' 
+    ++! l_Counter
+   end // if
+  end // for C
+  '], ['
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+    ''''
+    %C |N '''' 
+    ++! l_Counter
+   end // if
+  end // for C
+  '], '
+  [%f] pas_FullMethodName %( %S %, %P %, '' %, 'get' )% '_Pub'
+  %1 |N ');'
+//	]\
+ end // if
+//	[{%S%f_IsReadOnlyProp()!=true}\
+ if ( ( %S %f IsReadOnlyProp %( )% ) %!=  true ) then
+ begin
+//	[{%S%f_IsWriteOnlyProp()!=true}\n ]\
+  if ( ( %S %f IsWriteOnlyProp %( )% ) %!=  true ) then
+  begin
+   #13#10' ' 
+  end // if
+//	tc%1NPublicInfo._RegisterMethod(%f_pas_TypeName(%P%G), tc%1NOpenAppClasses.mtPut, '%SN', nil, \[\], \[\], %f_pas_FullMethodName(%S,%P,"","set")_Pub%1N);\
+  'tc'
+  %1 |N 'PublicInfo._RegisterMethod('
+  [%f] pas_TypeName %( %P ->G  )% ', tc'
+  %1 |N 'OpenAppClasses.mtPut, '''
+  %S |N ''', nil, [], [], '
+  [%f] pas_FullMethodName %( %S %, %P %, '' %, 'set' )% '_Pub'
+  %1 |N ');'
+//	]
+ end // if
+//#UC END# *499AD180009Ffor499ACEDD01EF*
+; // pas_RegisterInTC
+
+
+// Параметры вызова
+//%f _pas_CallParams
+: pas_CallParams OBJECT IN %S
+//#UC START# *499BD90A0000for499ACEDD01EF*
+//	%f_set_var(CHILDREN_COUNT,"<{}{}{C%C}>")\
+ [%f] set_var %( 'CHILDREN_COUNT' %, 
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+
+   ++! l_Counter
+  end // if
+ end // for C
+ l_Counter
+)% //	[{%{CHILDREN_COUNT}N!=0}\
+ if ( ( ( get_global_var ( 'CHILDREN_COUNT' ) |N ) ) %!= 0 ) then
+ begin
+//	<{, }\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+    if ( l_Counter >0 ) then ( ', ' )
+//	%t_pas_FromVariant(%C%T)\
+    [%t] pas_FromVariant %( %C ->T  )% 
+//	(Args^\[%f_evaluate(%{CHILDREN_COUNT}N-%Cn)\])>]
+    '(Args^['
+    [%f] evaluate %( ( get_global_var ( 'CHILDREN_COUNT' ) |N ) '-'
+    %C |n )% '])' 
+    ++! l_Counter
+   end // if
+  end // for C
+ end // if
+//#UC END# *499BD90A0000for499ACEDD01EF*
+; // pas_CallParams
+
+
+// Генерируем "ворота" для вызова из TC
+//%f _pas_CallTCGates
+: pas_CallTCGates OBJECT IN %S
+// параметры: TCNum: long = %1
+//#UC START# *499C111002ACfor499ACEDD01EF*
+//	[{%S%f_IsWriteOnlyProp()!=true}\
+ if ( ( %S %f IsWriteOnlyProp %( )% ) %!=  true ) then
+ begin
+//	%f_pas_OpenMethodImplementation(%S,%P,"","get")\
+  [%f] pas_OpenMethodImplementation %( %S %, %P %, '' %, 'get' )% 
+//	procedure %f_pas_FullMethodName(%S,%P,"","get")_Pub%1N(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
+  'procedure '
+  [%f] pas_FullMethodName %( %S %, %P %, '' %, 'get' )% '_Pub'
+  %1 |N '(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;'
+//	begin
+  'begin'
+//	 Assert(Instance is %f_pas_TypeName(%P%G));
+  ' Assert(Instance is '
+  [%f] pas_TypeName %( %P ->G  )% ');'
+//	 try
+  ' try'
+//	  Value := %t_pas_ToVariant(%T,%1)(\
+  '  Value := '
+  [%t] pas_ToVariant %( %T %, %1 )% '('
+//	%f_pas_FullMethodName(%S,%P,"","get")(%P%f_EffectiveType()(Instance)\
+  [%f] pas_FullMethodName %( %S %, %P %, '' %, 'get' )% '('
+  %P %f EffectiveType %( )% '(Instance)'
+//	[, %S%f_pas_CallParams()])\
+  if NOT-EMPTY
+  begin
+   ', '
+   %S %f pas_CallParams %( )% 
+  end // if
+  NOP
+  ')'
+//	);
+  ');'
+//	 except
+  ' except'
+//	  // - гасим исключения
+  '  // - гасим исключения'
+//	  Value := Unassigned;
+  '  Value := Unassigned;'
+//	 end;//try..except
+  ' end;//try..except'
+//	end;]\
+  'end;' 
+ end // if
+//	[{%S%f_IsReadOnlyProp()!=true}\
+ if ( ( %S %f IsReadOnlyProp %( )% ) %!=  true ) then
+ begin
+//	%f_pas_OpenMethodImplementation(%S,%P,"","set")\
+  [%f] pas_OpenMethodImplementation %( %S %, %P %, '' %, 'set' )% 
+//	procedure %f_pas_FullMethodName(%S,%P,"","set")_Pub%1N(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;
+  'procedure '
+  [%f] pas_FullMethodName %( %S %, %P %, '' %, 'set' )% '_Pub'
+  %1 |N '(Instance: TObject; Args: PVariantArgList; out Value: OleVariant; Cookie: Cardinal); stdcall;'
+//	begin
+  'begin'
+//	 Assert(Instance is %f_pas_TypeName(%P%G));
+  ' Assert(Instance is '
+  [%f] pas_TypeName %( %P ->G  )% ');'
+//	 try
+  ' try'
+//	  %f_pas_FullMethodName(%S,%P,"","set")(%P%f_EffectiveType()(Instance), %t_pas_FromVariant(%T)(Args^\[0\]));
+  '  '
+  [%f] pas_FullMethodName %( %S %, %P %, '' %, 'set' )% '('
+  %P %f EffectiveType %( )% '(Instance), '
+  [%t] pas_FromVariant %( %T )% '(Args^[0]));'
+//	 except
+  ' except'
+//	  // - гасим исключения
+  '  // - гасим исключения'
+//	 end;//try..except
+  ' end;//try..except'
+//	end;]
+  'end;' 
+ end // if
+//#UC END# *499C111002ACfor499ACEDD01EF*
+; // pas_CallTCGates
+
+
+// Генерируем "ворота" для вызова из TC
+//%f _pas_OutTCGates
+: pas_OutTCGates OBJECT IN %S
+//#UC START# *4BC43D89028Dfor499ACEDD01EF*
+//	%S%f_pas_CallTCGates("5")\
+ %S %f pas_CallTCGates %( 5 )% 
+//	%S%f_pas_CallTCGates("6")
+ %S %f pas_CallTCGates %( 6 )% 
+//#UC END# *4BC43D89028Dfor499ACEDD01EF*
+; // pas_OutTCGates
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for499ACEDD01EF*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for499ACEDD01EF*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor499ACEDD01EF*
+//#UC END# *4705CBD6003Efor499ACEDD01EF*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for499ACEDD01EF*
+//#UC END# *470484D50138for499ACEDD01EF*
+; // wiki_up_add_gen
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит реализацию тела метода
+//%f _pas_MethodBodyImplementation
+: pas_MethodBodyImplementation OBJECT IN %S
+//#UC START# *499A7D7E028Afor499ACEDD01EF*
+//	 with Self do
+ ' with Self do'
+//	 begin
+ ' begin'
+//	%S%[inherited]
+ inherited
+//	 end;//with Self
+ ' end;//with Self'
+//#UC END# *499A7D7E028Afor499ACEDD01EF*
+; // pas_MethodBodyImplementation
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Разделитель имени метода
+//%f _pas_MethodOwnerDelim
+: pas_MethodOwnerDelim OBJECT IN %S
+//#UC START# *4999789602FFfor499ACEDD01EF*
+//	_
+ '_'
+//#UC END# *4999789602FFfor499ACEDD01EF*
+; // pas_MethodOwnerDelim
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor499ACEDD01EF*
+//R  
+//	%S%f_pas_MethodImplementation()
+ %S %f pas_MethodImplementation %( )% 
+//#UC END# *470F15B800CBfor499ACEDD01EF*
+; // impl.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor499ACEDD01EF*
+//#UC END# *470F1571031Cfor499ACEDD01EF*
+; // intf.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for499ACEDD01EF*
+//	%S%f_pas_RegisterInTC("5")
+ %S %f pas_RegisterInTC %( 5 )% 
+//#UC END# *477398E501C0for499ACEDD01EF*
+; // intf2.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Ресурсы (.rc)
+//+ rc.pas
+<<generator>> rc.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D28B0157for499ACEDD01EF*
+//#UC END# *55B8D28B0157for499ACEDD01EF*
+; // rc.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Скрипты в ресурсах (.rc.script)
+//+ rc.script.pas
+<<generator>> rc.script.pas OBJECT IN %S
+//R  
+//#UC START# *55B8D2F80145for499ACEDD01EF*
+//#UC END# *55B8D2F80145for499ACEDD01EF*
+; // rc.script.pas
+
+
+// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Компилятор ресурса (.res.cmd)
+//+ res.cmd.pas
+<<generator>> res.cmd.pas OBJECT IN %S
+//R  
+//#UC START# *55B8DD9C0301for499ACEDD01EF*
+//#UC END# *55B8DD9C0301for499ACEDD01EF*
+; // res.cmd.pas
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for499ACEDD01EF*
+//#UC END# *46E6D4BB0339for499ACEDD01EF*
+; // wiki
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// 3-я секция интерфейса. Например поле для свойства.
+//+ intf3.pas
+<<generator>> intf3.pas OBJECT IN %S
+//R  
+//#UC START# *4774D2A20372for499ACEDD01EF*
+//	%S%f_pas_RegisterInTC("6")
+ %S %f pas_RegisterInTC %( 6 )% 
+//#UC END# *4774D2A20372for499ACEDD01EF*
+; // intf3.pas
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<ClassInner>>
+

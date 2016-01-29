@@ -1,0 +1,519 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Russian resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+#ifdef _WIN32
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Downloader.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_DESIGNED            BITMAP                  "res\\2060.bmp"
+IDB_GARANT              BITMAP                  "res\\garant.bmp"
+IDB_PROGRESS            BITMAP                  "res\\Progress.bmp"
+IDB_PROGRESS_           BITMAP                  "res\\bitmap1.bmp"
+IDB_NTCOMPATIBLE        BITMAP                  "res\\2061.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Downloader.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_DOWNLOAD_PROCESS, DIALOG
+    BEGIN
+        RIGHTMARGIN, 310
+        BOTTOMMARGIN, 209
+    END
+
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 75
+    END
+
+    IDD_DOWNLOADER_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 205
+    END
+
+    IDD_INTERNET_ACCESS_SETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 293
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 195
+    END
+
+    IDD_DIALOG_REWRITE_EXIST_FILE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 272
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 59
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_LOGIN DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Подключение к серверу пакетного пополнения"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_LOGIN,154,18,149,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSWORD,154,38,149,14,ES_PASSWORD | ES_AUTOHSCROLL
+    PUSHBUTTON      "&Настройки",IDC_INET_SETTINGS,100,190,50,14
+    DEFPUSHBUTTON   "&Далее >",IDOK,150,190,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Помощь",ID_HELP,260,190,50,14
+    CONTROL         137,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    LTEXT           "Логин",IDC_STATIC,117,21,30,8
+    LTEXT           "Пароль",IDC_STATIC,117,41,31,8
+    GROUPBOX        "Регистрационные данные ",IDC_STATIC,107,3,204,172
+    LTEXT           "Проверка регистрации пользователя...",IDC_STATIC_CHECK_REGISTRATION,117,77,162,10,NOT WS_VISIBLE
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,116,67,185,1,WS_EX_STATICEDGE
+    CONTROL         138,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+END
+
+IDD_DOWNLOAD_PROCESS DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Загрузка данных с сервера пакетного пополнения"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Закрыть",IDOK,205,190,51,14,NOT WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "Отмена",IDCANCEL,260,190,50,14
+    CONTROL         138,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+    CONTROL         137,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    LTEXT           "Status process",IDC_STATUS_STATIC,114,64,187,10
+    CONTROL         "Progress1",IDC_PROGRESS_STATUS,"msctls_progress32",WS_BORDER,116,82,185,11
+    LTEXT           "Идет загрузка данных..",IDC_STATIC_COMMENT,108,12,186,11
+    ICON            "",IDC_IMAGE_PROGRESS,198,80,20,20
+    GROUPBOX        "",IDC_STATIC,107,25,203,151
+    ICON            "",IDC_STATIC____,199,129,20,20,SS_CENTERIMAGE | SS_REALSIZEIMAGE
+END
+
+IDD_END_PROCESS DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Загрузка завершена"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "< &Назад",IDBACK,100,190,50,14,WS_DISABLED
+    PUSHBUTTON      "&Далее >",IDOK,150,190,50,14,WS_DISABLED
+    DEFPUSHBUTTON   "Закрыть",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Помощь",ID_HELP,260,190,50,14
+    CONTROL         137,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    LTEXT           "Загрузка данных с сервера пакетного пополнения успешно завершена..",IDC_FINAL_MESSAGE_TEXT,112,12,186,62
+    CONTROL         138,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+END
+
+IDD_ABOUTBOX DIALOG  0, 0, 235, 82
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "О программе.."
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "Программа автоматической закачки данных c сервера пакетного пополнения, для обновления базы данных системы ""Гарант """,IDC_STATIC,40,10,129,33,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2002",IDC_STATIC,40,60,119,8
+    DEFPUSHBUTTON   "Закрыть",IDOK,178,7,45,14,WS_GROUP
+    LTEXT           "Версия 1.0",IDC_STATIC,40,49,38,8
+END
+
+IDD_DOWNLOADER_DIALOG DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Настройка параметров"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_COMBO_COMPLECT,152,45,153,83,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "DateTimePicker1",IDC_BEGIN_DATE,"SysDateTimePick32",DTS_RIGHTALIGN | WS_TABSTOP,168,64,56,15
+    CONTROL         "DateTimePicker2",IDC_END_DATE,"SysDateTimePick32",DTS_RIGHTALIGN | WS_TABSTOP,249,64,56,15
+    EDITTEXT        IDC_PATH,113,155,138,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_BORDER
+    PUSHBUTTON      "Обзор",IDC_BROWSE,258,152,46,15
+    PUSHBUTTON      "< &Назад",IDBACK,100,190,50,14
+    DEFPUSHBUTTON   "&Начать >",IDOK,150,190,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Помощь",ID_HELP,260,190,50,14
+    CONTROL         137,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    GROUPBOX        "",IDC_STATIC,107,32,203,56
+    CTEXT           "по",IDC_STATIC,232,66,10,9
+    GROUPBOX        "Каталог",IDC_STATIC,107,139,203,36
+    PUSHBUTTON      "<>",IDC_APPLY,290,95,20,9,NOT WS_VISIBLE | WS_DISABLED
+    LTEXT           "Программа готова скачать файлы пакетного пополнения для указанного комплекта и интервала дат",IDC_STATIC,107,13,202,19
+    LTEXT           "Комплект",IDC_STATIC,112,47,34,8
+    LTEXT           "Обновление с",IDC_STATIC,112,66,48,8
+    LTEXT           "Файлы пакетного пополнения будут помещены в указанный каталог. Для выбора другого каталога нажмите кнопку ""Обзор""",IDC_STATIC,107,110,200,26
+    PUSHBUTTON      "-->",IDC_START_DOWNLOAD,267,95,21,9,NOT WS_VISIBLE | WS_DISABLED
+    CONTROL         138,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+END
+
+IDD_INTERNET_ACCESS_SETTINGS DIALOGEX 0, 0, 301, 191
+STYLE DS_SETFONT | DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Настройка доступа к Интернет"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "Использовать настройки из системного реестра",IDC_RADIO_OPEN_TYPE_PRECONFIG,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,14,16,183,10
+    CONTROL         "Использовать прокси-сервер",IDC_RADIO_OPEN_TYPE_PROXY,
+                    "Button",BS_AUTORADIOBUTTON,14,29,119,10
+    EDITTEXT        IDC_EDIT_PROXY_NAME,46,57,92,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PROXY_PORT,46,75,37,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "&Принять",IDOK,187,170,50,14
+    PUSHBUTTON      "Отменить",IDCANCEL,243,170,50,14
+    CONTROL         "Локальное вычисление имен ведущих узлов",IDC_RADIO_OPEN_TYPE_DIRECT,
+                    "Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,139,29,143,10
+    GROUPBOX        "Тип доступа к Интернет",IDC_STATIC,7,4,286,114
+    CTEXT           "Порт:",IDC_STATIC,20,78,20,8
+    RTEXT           "Хост:",IDC_STATIC,20,59,19,8
+    CONTROL         138,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,7,168,37,16
+    GROUPBOX        "Параметры запроса",IDC_STATIC,7,122,286,41
+    CONTROL         "Загрузка данных непосредственно с сервера, даже если они кэшированы",IDC_CHECK_RELOAD_CACHE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,134,268,10
+    CONTROL         "Не записывать полученную с сервера информацию в кэш",IDC_CHECK_NO_CACHE_WRITE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,147,223,10
+    GROUPBOX        "Прокси-сервер",IDC_STATIC,15,44,269,66
+    CONTROL         "Авторизация",IDC_CHECK_PROXY_AUTHENTICATION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,151,94,60,10
+    LTEXT           "Логин:",IDC_STATIC,151,59,24,8
+    LTEXT           "Пароль:",IDC_STATIC,151,78,28,8
+    EDITTEXT        IDC_EDIT_PROXY_LOGIN,183,57,92,14,ES_AUTOHSCROLL
+    GROUPBOX        "",IDC_STATIC,145,44,139,66
+    EDITTEXT        IDC_EDIT_PROXY_PASSWORD,183,75,92,14,ES_PASSWORD | ES_AUTOHSCROLL
+END
+
+IDD_DIALOG_REWRITE_EXIST_FILE DIALOG  0, 0, 279, 66
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Внимание"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Перезаписать",IDOK,51,45,57,14
+    PUSHBUTTON      "Отменить",IDCANCEL,171,45,56,14
+    LTEXT           "Файл %s в указанном каталоге уже существует, \nно полностью недокачан. Вы можете или перезаписать, или докачать существующий файл, или оставить его без изменений.",IDC_STATIC,45,8,223,27
+    PUSHBUTTON      "Докачать",IDC_BTN_ADD,111,45,57,14
+END
+
+IDD_PILOT_LOGIN DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Авторизация"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_LOGIN,185,60,120,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSWORD,185,80,120,14,ES_PASSWORD | ES_AUTOHSCROLL
+    PUSHBUTTON      "< &Назад",IDBACK,100,190,50,14,WS_DISABLED
+    DEFPUSHBUTTON   "&Далее >",IDOK,150,190,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Помощь",ID_HELP,260,190,50,14,WS_DISABLED
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    CONTROL         164,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         138,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+    LTEXT           "",IDC_INPUT_NAME_STATIC,111,7,199,18
+    LTEXT           "Замечание: у вас должны быть права на проведение пакетного пополнения системы.",IDC_STATIC,110,30,200,20
+    LTEXT           "Имя пользователя:",IDC_STATIC,110,63,70,8
+    LTEXT           "Пароль:",IDC_STATIC,110,83,65,8,NOT WS_GROUP
+END
+
+IDD_NEMESIS_LOGIN DIALOGEX 0, 0, 318, 212
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Авторизация"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_LOGIN,185,60,120,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSWORD,185,80,120,14,ES_PASSWORD | ES_AUTOHSCROLL
+    PUSHBUTTON      "< &Назад",IDBACK,100,190,50,14,WS_DISABLED
+    DEFPUSHBUTTON   "&Далее >",IDOK,150,190,50,14
+    PUSHBUTTON      "Отмена",IDCANCEL,205,190,50,14
+    PUSHBUTTON      "&Помощь",ID_HELP,260,190,50,14,WS_DISABLED
+    CONTROL         "",IDC_STATIC,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,5,183,305,1,WS_EX_STATICEDGE
+    CONTROL         164,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,6,95,169
+    CONTROL         138,IDC_STATIC,"Static",SS_BITMAP | SS_SUNKEN,5,189,37,16
+    LTEXT           "",IDC_INPUT_NAME_STATIC,111,7,199,18
+    LTEXT           "Замечание: у вас должны быть права на проведение пакетного пополнения системы.",IDC_STATIC,110,30,200,20
+    LTEXT           "Имя пользователя:",IDC_STATIC,110,63,70,8
+    LTEXT           "Пароль:",IDC_STATIC,110,83,65,8,NOT WS_GROUP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "&О программе..."
+    IDS_CONNECTION_FAILED   "Не удается установить соединение с сервером пакетного пополнения.\nПроверьте наличие доступа к Интернет и повторите попытку."
+    IDS_ERROR_INCORRECT_LOGIN 
+                            "Неверный логин или пароль.\nУбедитесь, что клавиша Caps Lock не включена\nи символы введены в латинской раскладке."
+    IDS_ERROR_HTTP_ERROR    "Сервер пакетного пополнения не отвечает.\nПовторите попытку через несколько минут."
+    IDS_DOWNLOAD_CANCEL     "Прервать закачку файла %s?"
+    IDS_QUEST_FILE_ALREADY_EXIST 
+                            "Файл: %s, размером: %.2f Мб, в указанном каталоге\nуже существует.\n\nЗаписать новый файл поверх существующего?"
+    IDS_STATIC_DOWNLOAD_NORMAL 
+                            "Загрузка файлов обновления успешно завершена. \n\nДля обновления информационного банка запустите программу пакетного пополнения."
+    IDS_STATIC_DOWNLOAD_CANCELED 
+                            "Загрузка файлов обновления прервана пользователем."
+    IDS_STATIC_DOWNLOAD_ABORTED 
+                            "Процесс закачки данных с сервера пакетного пополнения был прерван."
+    IDS_ERROR_CLOSED_FILE   "Не удалось закрыть файл %s."
+    IDS_QUEST_EXIT_FROM_PROGAM "Завершить работу приложения?"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MSG_CLOSED_PROGRAM  "Работа программы завершена."
+    IDS_APPLICATION_ALREADY_RUNNING 
+                            "Программа загрузки обновления уже запущена.\nЗапуск второй копии невозможен."
+    IDS_DONT_RUN_PROGRAM    "Запуск программы невозможен"
+    IDS_FILE_NOTFOUND       "Нарушена целостность или структура системы ГАРАНТ. \n\n(Не найден файл %s.)"
+    IDS_ERROR_DOWNLOAD      "Ошибка при закачке данных."
+    IDS_UNEXPECTED_ERROR    "Недиагностируемый сбой в работе операционной системы. \n\nЕсли перезагрузка системы не устранит данную проблему, \nобратитесь в службу техподдержки компании Гарант."
+    IDS_QUERY_TO_SERVER     "Выполняется запрос к серверу пакетного пополнения"
+    IDS_DOWNLOAD_FILE       "Загрузка файла %s размером %.2f Мб"
+    IDS_ERROR_NO_UPDATE     "Для комплекта '%s' за период с %s по %s\nобновление не предусмотрено.\n\nПроверьте правильность интервала дат."
+    IDS_ERROR_INCORRECT_UPDATE_PERIOD 
+                            "Введен недопустимый интервал дат. \n\nДата ""по"" должна быть больше даты ""с"" и не превышать текущей даты."
+    IDS_ERROR_FILE_NOT_OPEN "Не удалось открыть базу данных (файл %s). \nПродолжение работы невозможно."
+    IDS_MSG_CHECK_REGISTRATION "Проверка регистрационных данных."
+    IDS_MSG_RUNNING_PROGRAM "Режим работы приложения: MANUAL."
+    IDS_ERROR_LOAD_SECOND_APPLICATION 
+                            "Попытка запуска второй копии. Работа данной копии будет завершена."
+    IDS_ERROR_NOT_INIT_LOGIN_OR_PASSWORD 
+                            "Поля диалога ""Логин"" и ""Пароль"" должны быть\n обязательно заполнены."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_ERROR_NOT_CREATE_THREAD "Ошибка создания потока"
+    IDS_ERROR_PROGRAM_CANT_RUNNING 
+                            "Нарушена целостность системы ГАРАНТ. \n\nДанная программа не может находиться в каталоге %s."
+    IDS_ERROR_CANT_RECEIVE_DIRECTORY_PATH 
+                            "Нарушена целостность или структура системы ГАРАНТ. \n\n(Рабочий каталог недоступен.)"
+    IDS_BASESORG_NOTFOUND   "Нарушена целостность или структура системы ГАРАНТ. \n\n(Файл защиты отсутствует.)"
+    IDS_BASESORGPRIMARY     "Нарушена целостность или структура системы ГАРАНТ. \n\n(Файл защиты испорчен.)"
+    IDS_BASESORGBADCOMPLECT "Нарушена целостность или структура системы ГАРАНТ. \n\n(Отсутствует информация об установленных базах.)"
+    IDS_ERROROPENINGBASE    "Нарушена целостность или структура системы ГАРАНТ. \n\n(Ошибка при открытии базы %s.)"
+    IDS_ERRORREADINGHERE    "Нарушена целостность или структура системы ГАРАНТ. \n\n(Ошибка при чтении индекса HERE базы %s.)"
+    IDS_BASEPACKED          "База %s упакована. Такая база не может быть обновлена."
+    IDS_BASENOTGL           "Нарушена целостность системы ГАРАНТ. \n\n(К базе %s не был применен процесс построения основного меню.)"
+    IDS_CANTFINDBASEINFO    "Нарушена целостность системы ГАРАНТ. \n\n(Невозможно определить информацию о сегменте %d базы %s.)"
+    IDS_BASEBADREVS         "Нарушена целостность системы ГАРАНТ. \n\n(Комплект, состоящий из сегментов различных ревизий, не может быть обновлен.)"
+    IDS_MSG_RUNNING_PROGRAM_IN_AUTO_MODE "Режим работы приложения: AUTO."
+    IDS_ERROR_DOWNLOAD_DATA "Ошибка при загрузке данных:\n%s\nПовторить попытку?\n"
+    IDS_ERROR_HTTP_GETINFO  "Невозможно получить информацию с сервера пакетного пополнения:\n%s"
+    IDS_MSG_STOP_DOWNLOAD   "Загрузка данных остановлена.."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_ERROR_NOT_LOAD_DLL  "Неудалось загрузить библиотеку ICMP.DLL\nПродолжение работы невозможно."
+    IDS_ERROR_LOAD_DLL      "Ошибка загрузки библиотеки ICMP.DLL\nПродолжение работы невозможно."
+    IDS_ERROR_WSA_STARTUP   "Ошибка инициализации библиотеки Windows Sockets.\nПродолжение работы невозможно."
+    IDS_ERROR_WINSOCK_NOT_SUPPORT 
+                            "Не поддерживается версия 1.1 библиотеки Windows Sockets.\nПродолжение работы невозможно."
+    IDS_ERROR_PROXY_ADDR_EMPTY "Не введен адрес прокси."
+    IDS_ERROR_PROXY_PORT_EMPTY "Не введен порт прокси."
+    IDS_ERROR_EMPTY_FILE_NAME 
+                            "Не удалось инициализировать имя файла с данными пополнения."
+    IDS_ERROR_USERS_AUTHORIZATION 
+                            "Неверный ответ cервера: В возвращенном по запросу буфере комплектов отсутствует сигнатура."
+    IDS_QUEST_ABORTED_FILE_ALREADY_EXIST 
+                            "Файл %s в указанном каталоге уже существует, но полностью не докачан.\nРазмер существующего файла: %.2f Мб, реальный размер: %.2f Мб.\nВыберите ""Да"" для докачки файла, или ""Нет"" для перезаписи.\n\nДокачать существующий файл?"
+    IDS_DOWNLOAD_FILE_PLUS  "Докачка файла %s размером %.2f Мб"
+    IDS_PROXY_PING          "Попытка пинговать прокси %s"
+    IDS_USE_PROXY_SERVER    "Соединение с интернет: прокси-сервер (адрес: %s, порт: %s)"
+    IDS_INCORRECT_PROXY_SETTINGS "Некорректные настройки прокси-сервера."
+    IDS_USE_SERVER_FROM_COMMAND_LINE 
+                            "Попытка установить соединение с сервером\nиз параметров программы: %s, порт: %s"
+    IDS_REG_PROXY_NOT_FOUND "В системном реестре прокси-сервер не найден. "
+    IDS_USE_SERVER          "Попытка установить соединение с сервером %s, порт: %s"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_INTERNET_NOT_FOUND  "Нет доступа к интернет."
+    IDS_GARANT_SERVERS_NOT_FOUND 
+                            "Сервера пакетного пополнения не доступны.\nДоступ к интернет есть."
+    IDS_CONNECT_SYSTEM_EXCEPTION 
+                            "Системное исключение при попытке соединения."
+    IDS_USE_PRECONFIG_TYPE  "Соединение с интернет: настройки из системного реестра."
+    IDS_PING_HOST           "Попытка пинговать хост %s"
+    IDS_RECONNECT_MESSAGE   "Делаем реконнект, т.к установить больше 5 соединений библиотека WinInet не позволяет."
+    IDS_SESSION_LOG_DELIMITER 
+                            "-----------------------------------------------------------------------------------------------------"
+    IDS_DOWNLOAD_QUERY      "Вы можете скачать файл: %s, размером: %.2f Мб\n\nПродолжить?"
+    IDS_DOWNLOAD_INFO       "Закачка доступного обновления для комплекта '%s'\nИмя файла: %s, размер файла: %.2f Мб."
+    IDS_ADD_DOWNLOAD_INFO   "Докачка обновления для комплекта '%s'\nИмя файла: %s.\nРеальный размер файла: %.2f Мб, размер файла докачки: %.2f Мб."
+    IDS_USER_AGENT          "Имя приложения, как агент в HTTP протоколе (user agent): %s"
+    IDS_IP_CONFIG           "IP адрес рабочей станции: %s"
+    IDS_INET_ACCESS_SETTING_CHANGE "Изменение настроек доступа к интернет."
+    IDS_SYSTEM_EXCEPTION    "Произошло системное исключение.\nИнформация: %s"
+    IDS_RUN_UPDATE_UTIL     "Автоматический запуск утилиты dataupd.exe"
+    IDS_STATIC_NOT_DOWLOAD_DATA "Процесс закачки данных запущен не был."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_COMPLECT_NOT_REGISTRED 
+                            "Комплект с идентификационным номером %d для данного пользователя не зарегистрирован"
+    IDS_CHECK_INFO          "Проверка обновлений для комплекта '%s'\nза период с %s по %s."
+    IDS_NOT_ENOUGH_SPACE    "Недостаточно места на диске."
+    IDS_SERVER_IS_STARTING  "Сервер приложения находится в процессе инициализации. Попробуйте войти в систему позже!"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_CANT_RUN_PROCESS    "Невозможно запустить %s\nИнформация : "
+    IDS_ATTEMPT_USER_AUTHORIZATION 
+                            "Попытка авторизации пользователя '%s' на СПП"
+    IDS_QUERY_RECEIVE_FILE_LENGTH_RESULT_MSG 
+                            "Результат выполнения запроса на получение размера выполняемого файла\n"
+    IDS_UNKNOWN_EXCEPTION   "Неопределенное исключение."
+    IDS_ATTEMPT_RENEW_CONNECTION "Попытка восстановить соединение.."
+    IDS_DOWNLOAD_DATA_PROCESS "Идет загрузка данных.."
+    IDS_INCORRECT_TIMEOUT_PARAM 
+                            "Некорректное значение для параметра коммандной строки -dsc.\nЗначение временного интервала (мин.), в течении которого происходит попытка восстановить соединение,\nдолжно быть больше 0."
+    IDS_FATAL_ERROR_CLOSE   "Аварийное завершение работы программы.."
+    IDS_FATAL_ERROR_DOWNLOAD_DATA "Ошибка при загрузке данных:\n%s\n"
+    IDS_TRANSIENT           "Отсутствует соединение с сервером приложений."
+    IDS_SERVER_NOT_FOUND    "Сервер приложений не доступен."
+    IDS_BAD_NETWORK_CONFIG  "Не пришел обратный вызов от сервера приложений, вероятно фаерволл клиента блокирует входящие вызовы."
+    IDS_IP_ADDRESS_NOT_FOUND "Неверный IP адрес."
+    IDS_DATANOTFOUND        "Неверные параметры."
+    IDS_USER_ALREADY_EXIST_IN_ONLINE 
+                            "Пользователь с таким именем уже работает в системе."
+    IDS_USER_IS_LOCKED      "Пользователь заблокирован. Обратитесь к системному администратору."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_PILOT_DATE_NOT_INITIALIZE 
+                            "Не удалось инициализировать начальную дату."
+    IDS_EXCEPTION_USER_AUTHORIZATION "Авторизация пользователя не возможна.\n"
+    IDS_PILOT_NAME          "Гарант - Интранет"
+    IDS_NEMESIS_NAME        "Гарант 6х"
+    IDS_INPUT_USERNAME      "Введите имя, которое будет идентифицировать вас как пользователя системы "
+    IDS_ERROR_PROXY_LOGIN_EMPTY 
+                            "Не введен логин пользователя для авторизации на прокси."
+    IDS_ERROR_PROXY_PASSWORD_EMPTY 
+                            "Не введен пароль пользователя для авторизации на прокси."
+    IDS_ATTEMPT_USER_AUTHORIZATION_ON_PROXY 
+                            "Авторизация пользователя '%s' на прокси."
+    IDS_NEMESIS_BASE_NOT_EXIST 
+                            "База наполнения системы ГАРАНТ не установлена."
+    IDS_BAD_PARAMS          "Прокси-сервер недоступен или неверно заданы параметры соединения с интернетом."
+    IDS_BAD_PROXYPORT       "Неверно заданы параметры соединения с интернетом."
+    IDS_BADPING_MESSAGE     "Мастеру загрузки пакетного пополнения не удалось получить ответ от прокси-сервера. В случае, если соединение с сервером пакетного пополнения не будет установлено - проверьте правильность параметров соединения с интернетом."
+    IDS_ATTENTION           "Внимание"
+    IDS_ATTENTION_COLON     "Внимание: %s"
+    IDS_CHOOSE_DIR          "Выбор рабочего каталога "
+    IDS_FATAL_ERROR         "Работа программы невозможна"
+END
+
+#endif    // Russian resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\Downloader.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

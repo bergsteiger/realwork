@@ -1,0 +1,220 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/BaseTypes/JavaUtils.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::BaseTypes::JavaUtils
+//
+// набор вспомогательных функции для генерации на Java
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// возвращает рут, от которого расчитывается путь к java-классам
+f _java_root
+//#UC START# *4799906E0262*
+	[{%SS=Project}{<{}{%PS=Project}%f_set_var(PROJECT,P)>}%f_set_var(PROJECT,S)]%f_with_gen_id(java,%SR/%{PROJECT}N%{PROJECT}{root path suffix})/java/src/java
+//#UC END# *4799906E0262*
+
+// Возвращает путь к java-типу
+f _import_path
+//#UC START# *479991BB003D*
+	[{%f_can_import(%S)=true}[{%Se=false}{%SW}[{%f_is_server_type(%S)=false&"%SO"!=""}{%f_java_full_path(%S)}%f_with_gen_id(java,%f_java_type_path(S))]]]
+
+f _java_type_package
+	%f_cut_postfix(%f_java_type_path(S),.[{}{%SN}%1N])
+//#UC END# *479991BB003D*
+
+// Возвращает имя импортируемого типа, формат вызова:
+// %f_get_name_from_type(«элемент»,"«путь к типу»")
+f _get_name_from_type
+//#UC START# *479991E60066*
+	%f_clear_list(TYPE_LIST)\
+	%f_split_to_list(TYPE_LIST,%1N,.)\
+	[{%f_is_empty(TYPE_LIST)=false}%f_pop_last_to_var(TYPE_LIST,_TYPE_)[{"%{_TYPE_}N"!="*"}%{_TYPE_}N]]%f_clear_list(TYPE_LIST)
+
+f _get_package_from_type
+//#UC START# *479991E60066*
+	%f_clear_list(TYPE_LIST)\
+	%f_split_to_list(TYPE_LIST,%1N,.)\
+	%f_pop_last_to_var(TYPE_LIST,_TYPE_)\
+	<{.}{%f_is_empty(TYPE_LIST)=false}{W}[%f_pop_first_to_var(TYPE_LIST,_TYPE_)%{_TYPE_}N]>
+//#UC END# *479991E60066*
+
+// Возвращает нормализованный путь к типу, нормализация проводится по наличию импорта этого пути в
+// текущем файле
+f _java_normalized_type
+//#UC START# *47999321006C*
+/	%f_dump_java_package(%S)[{%Se=false|"%SL"=""}.%SN]
+	[{%XU=java&%BC!=Category}{%f_java_full_path(%S)}\
+	%f_set_var(CONTEXT,B)\
+	[{%BC=Class}{%B<{}{"%{CONTEXT}U"=""&%PC=Class}{%P}%f_set_var(CONTEXT,P)>}%f_set_var(CONTEXT,B)]\
+	[{"%{CONTEXT}U"=""}%f_error("%SN, variable CONTEXT is undefined")]\
+	[{"%{CONTEXT}O"=""}{%f_set_var(OUTPUT_OWNER,{CONTEXT})}%{CONTEXT}<{}{"%PO"!=""}{%Pr}%f_set_var(OUTPUT_OWNER,P)>]\
+	[{"%{OUTPUT_OWNER}U"=""}%f_error("%SN, variable OUTPUT_OWNER is undefined")]\
+	[{}{%SN}[{%f_need_full_path(%{OUTPUT_OWNER},%S)=false}{%f_java_full_path(%S)}%SN]]]
+
+f _need_full_path
+	[{%SC=Class|%SC=State}{true}[{%SU=%1U|%f_exists_in_import_list(%S,%1)=true|%f_equal_scope(%S,%1)=true}{true}false]]
+
+f _need_full_path1
+	[{%SC=Class}{true}[{%SN!=%1N|%SU=%1U}{true}false]]
+
+f _dump_import_list
+	%f_copy_list(%SU_IMPORT_LIST,TEMP_LIST)\
+	<{, }{%f_is_empty(TEMP_LIST)=false}{W}[%f_pop_first_to_var(TEMP_LIST,TEMP),%{TEMP}N]>
+
+f _exists_in_import_list
+	%f_set_var(PATH,"%f_import_path(%1)")\
+//нужно принудительно проинициализировать переменную %SU_IMPORT_LIST
+//т.к она может быть не проинициализированна, при генерации не от рута
+	%f_get_import_list(%S)\
+	[{%f_exists_in_list(%SU_IMPORT_LIST,"%{PATH}N")=true|%f_exists_in_list(%SU_IMPORT_LIST,"%f_get_package_from_type(%{PATH},%{PATH}N).*")=true}{false}true]
+
+f _equal_scope
+	%f_split_to_list(FIRST,%f_import_path(%1),.)\
+	%f_split_to_list(OWNER,%f_import_path(%S),.)\
+	%f_pop_last_to_var(FIRST,TEMP)\
+	[{%f_is_equal_list(FIRST,OWNER)=false}{true}%f_pop_last_to_var(OWNER,TEMP)\
+	%f_is_equal_list(FIRST,OWNER)]
+
+f _java_full_path
+	%f_dump_java_package(%S)[{%Se=false|"%SL"=""}[{%f_is_nested(%P)=true&%{ARG}M=Constants::Class}{[{%SM=State::Class}.sm.%PN].%SN}]]
+//#UC END# *47999321006C*
+
+// Инициализирует контекст генерации, в котором будет сгенерён блок импорта
+f _start_import_context
+//#UC START# *4799BA3A0253*
+//#UC END# *4799BA3A0253*
+
+// Деинициализирует контекст генерации, в котором будет сгенерён блок импорта
+f _end_import_context
+//#UC START# *4799BA6D0342*
+//#UC END# *4799BA6D0342*
+
+// Возвращает список видимых типов относительно текущей точки генерации
+// список представлен в виде строчки, в которой элементы разделены символом "|"
+f _get_available_types
+//#UC START# *4799D80403A0*
+//#UC END# *4799D80403A0*
+
+// Возвращает список импортируемых типов для элемента в виде строчки, элементы в списке разделены
+// символом "|"
+f _get_import_list
+//#UC START# *479D5D730229*
+	%f_set_var(IMPORT_CONTEXT,S)[{%f_is_empty(%SU_IMPORT_LIST)=true&%t_has_import_list(%S)=true}[%f_clear_list(IMPORT_TYPE_LIST)\
+	%f_clear_list(NEW_IMPORT_TYPE)\
+	%f_fill_self_import_list(%S)\
+	<{}{"%AO"=""&%AC=Class}{%A}%f_fill_self_import_list(%A)>\
+	[{%f_is_interface(%S)=true|%SS=LocalInterface}<{}{%Ga=abstract}%f_fill_self_import_list(%G)>]\
+	[{%SS=LocalInterface}<{}{%f_is_interface(%R)=true}%f_fill_self_import_list(%R)>]\
+	%f_remove_from_list(%SU_IMPORT_LIST,"")\
+//удаляем дубликаты из списка
+	%f_sort_list(%SU_IMPORT_LIST,n)\
+	%f_unique_list(%SU_IMPORT_LIST)\
+//перед итерированием списка копируем его
+//
+	%f_copy_list(%SU_IMPORT_LIST,NEW_IMPORT_LIST)\
+//
+//формируем список импортируемых типов
+//
+	<{}{%f_is_empty(%SU_IMPORT_LIST)=false}{W}%f_pop_last_to_var(%SU_IMPORT_LIST,_IMPORT_)\
+	%f_add_to_list(IMPORT_TYPE_LIST,"%f_get_name_from_type(%{_IMPORT_},"%{_IMPORT_}N")")>\
+	%f_add_to_list(IMPORT_TYPE_LIST,"%f_get_name_from_type(%S,"%f_import_path(%S)")")\
+	%f_remove_from_list(IMPORT_TYPE_LIST,"")\
+	%f_copy_list(NEW_IMPORT_LIST,%SU_IMPORT_LIST)\
+//
+//удаляем из списка импорта те элементы, которые встречаются в списке IMPORT_TYPE_LIST более одного раза
+//т.к в этом случае возникнет ситуация, что будут пытаться импортироваться два различных типа с одинаковым
+//именем, но это недопустимо!
+//
+	<{}{%f_is_empty(NEW_IMPORT_LIST)=false}{W}%f_pop_last_to_var(NEW_IMPORT_LIST,_IMPORT_)\
+	[{%f_number_cmp("%f_count_in_list(IMPORT_TYPE_LIST,"%f_get_name_from_type(%{_IMPORT_},"%{_IMPORT_}N")")","1","\>")=1}\
+	%f_remove_from_list(%SU_IMPORT_LIST,"%{_IMPORT_}N")]\
+/	%f_add_to_list(%SU_IMPORT_LIST,"[%f_get_package_from_type(%{_IMPORT_},"%{_IMPORT_}N").*]")\
+	>\
+	%f_remove_from_list(%SU_IMPORT_LIST,"")\
+	%f_clean_wrong_import(%S)\
+	%f_unique_list(%SU_IMPORT_LIST)\
+	%f_clear_list(NEW_IMPORT_TYPE_LIST)\
+	%f_clear_list(IMPORT_TYPE_LIST)]]
+
+f _fill_self_import_list
+	<{}{%f_can_import(%I)=true}%f_add_to_import_list(%I)>\
+	<{}{%f_can_import(%W)=true}%f_add_to_import_list(%W)>\
+	<{}{}{%o}[{%f_can_import(%o%T)=true}%f_add_to_import_list(%o%T)]\
+	%o<{}{%f_can_import(%C%T)=true}{%C}%f_add_to_import_list(%C%T)>>\
+	<{}{}{%O}[{%f_can_import(%O%T)=true}%f_add_to_import_list(%O%T)]\
+	%O<{}{%f_can_import(%C%T)=true}{%C}%f_add_to_import_list(%C%T)>>\
+	[{%SS=Servant|%SS=LocalInterface}<{}{}{%r}%f_set_var(R_PATH,"%f_import_path(%r)")[{%f_is_interface(%r)=true}{[{%rM=StateMachine::Class}\
+	%f_add_to_list(%{IMPORT_CONTEXT}U_IMPORT_LIST,"%f_make_sm_package(%r,%{R_PATH})")]}%f_add_to_list(%{IMPORT_CONTEXT}U_IMPORT_LIST,"%{R_PATH}N")\
+	%f_add_to_list(%{IMPORT_CONTEXT}U_IMPORT_LIST,"%f_get_package_from_type(%r,"%{R_PATH}N").*")]%r<{}{%RM=StateMachine::Class}\
+	%f_set_var(R_PATH,"%f_import_path(%R)")%f_add_to_list(%{IMPORT_CONTEXT}U_IMPORT_LIST,"%f_make_sm_package(%R,%{R_PATH})")>>]\
+	<{}{"%AS"="uses"&"%AC"="Dependency"&%f_can_import(%A%T)=true}%f_add_to_import_list(%A%T)>
+
+f _add_to_import_list
+	%f_set_var(IMPORT_PATH,"%f_import_path(%S)")\
+	[{%SM=StateMachine::Class&%t_impl_class(%{IMPORT_CONTEXT})=true}%f_add_to_list(%{IMPORT_CONTEXT}U_IMPORT_LIST,"%f_make_sm_package(%S,%{IMPORT_PATH})")]\
+	%f_add_to_list(%{IMPORT_CONTEXT}U_IMPORT_LIST,"%{IMPORT_PATH}N")
+
+f _make_sm_package
+	%f_str_replace(%1N,.%SN,.sm.%SN.*)
+
+//удаляем не нужные импорты
+f _clean_wrong_import
+	%f_set_var(SELF_PATH,"%f_import_path(%S)")\
+	%f_set_var(SELF_PACK,"%f_get_package_from_type(%S,"%{SELF_PATH}N")")\
+	%f_set_var(LIST_ID,"%SU_IMPORT_LIST")\
+	%f_copy_list(%{LIST_ID}N,TEMP_IMPORT_LIST)\
+	<{}{%f_is_empty(TEMP_IMPORT_LIST)=false}{W}%f_pop_last_to_var(TEMP_IMPORT_LIST,_IMPORT_)\
+	%f_set_var(CURR_PACK,"%f_get_package_from_type(%{_IMPORT_},"%{_IMPORT_}N")")\
+	[{%{CURR_PACK}N=%{SELF_PACK}N|%{CURR_PACK}N=%{SELF_PATH}N}\
+	%f_remove_from_list(%{LIST_ID}N,"%{_IMPORT_}N")]\
+	[{%f_need_force_import(%{_IMPORT_},"%{_IMPORT_}N")=false&%f_is_package_import(%{_IMPORT_})=false&%f_exists_in_list(%{LIST_ID}N,"%{CURR_PACK}N.*")=true}\
+	%f_remove_from_list(%{LIST_ID}N,"%{_IMPORT_}N")]\
+	>
+
+
+f _need_force_import
+	%f_set_var(NAME,"%f_get_name_from_type(%S,"%SN")")\
+	%t_is_java_lang_type(%{NAME})
+
+//возвращает true, если тип с таким именем определён в пакете java.lang
+t _is_java_lang_type
+c                                  {}
+r {%SN=Error}:                     {true}
+r {%SN=InternalError}:             {true}
+r {""=""}:                         {false}
+
+//возвращает true, если имортируется весь пакет
+//т.е импорт вида: A.B.C.*
+f _is_package_import
+	%f_clear_list(TYPE_LIST)\
+	%f_split_to_list(TYPE_LIST,%SN,.)\
+	%f_pop_last_to_var(TYPE_LIST,_TYPE_)\
+	[{%{_TYPE_}N=*}{false}true]%f_clear_list(TYPE_LIST)
+
+f _have_path
+	[{%SC=Class&%SS!=UMLPrimitive&%SS!=Typedef&%t_is_container(%S)=false}{false}true]
+
+f _can_import
+	[{%SC=Class&%SS!=UMLPrimitive&%SS!=Typedef&%t_is_container(%S)=false}{[{%SC!=State}{true}false]}true]
+/	[{%SC=Class|%SC=State}{false}[%SS!=UMLPrimitive&%SS!=Typedef&%t_is_container(%S)=false}{false}true]]
+//#UC END# *479D5D730229*
+
+// выводит блок импорта для java
+f _java_dump_import_block
+//#UC START# *47A026140332*
+	%f_get_import_list(%S)\
+	%f_copy_list(%SU_IMPORT_LIST,TEMP_IMPORT_LIST)\
+	[<{}{%f_is_empty(TEMP_IMPORT_LIST)=false}{W}[%f_pop_first_to_var(TEMP_IMPORT_LIST,TEMP)import %{TEMP}N;
+	]>]
+
+t _has_import_list
+c                                {}
+/r {%SM=StateMachine::Class}:     {false}
+r {""=""}:                       {true}
+//#UC END# *47A026140332*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

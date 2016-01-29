@@ -1,0 +1,22 @@
+project (goptcsources_gopt) : project-common-defines-tools, project-common-includes, project_generic_core {
+	staticname = goptcsources_gopt
+	sharedname = goptcsources_gopt
+
+	macros += MULTI_INDEX_STREAM_FILE
+
+	includes += ./../../component/cpp/libs/mrglib/src
+	includes += ./../../component/cpp/tools/gopt/src
+
+	Header_Files {
+		./../../component/cpp/tools/gopt/src/gopt.h
+		./../../component/cpp/tools/gopt/src/ready.h
+	}
+		
+	Source_Files {
+		./../../component/cpp/tools/gopt/src/main.c
+		./../../component/cpp/tools/gopt/src/optmain.c
+		./../../component/cpp/tools/gopt/src/optndt.c
+		./../../component/cpp/tools/gopt/src/opttree.c
+	}
+}
+

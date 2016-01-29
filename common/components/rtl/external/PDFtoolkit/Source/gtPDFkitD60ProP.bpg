@@ -1,0 +1,26 @@
+#------------------------------------------------------------------------------
+VERSION = BWS.01
+#------------------------------------------------------------------------------
+!ifndef ROOT
+ROOT = $(MAKEDIR)\..
+!endif
+#------------------------------------------------------------------------------
+MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
+DCC = $(ROOT)\bin\dcc32.exe $**
+BRCC = $(ROOT)\bin\brcc32.exe $**
+#------------------------------------------------------------------------------
+PROJECTS = gtPDF32D6.bpl gtPDFkitD60ProP.bpl DCLgtPDFkitD60ProP.bpl
+#------------------------------------------------------------------------------
+default: $(PROJECTS)
+#------------------------------------------------------------------------------
+
+gtPDFkitD60ProP.bpl: gtPDFkitD60ProP.dpk
+  $(DCC)
+
+DCLgtPDFkitD60ProP.bpl: DCLgtPDFkitD60ProP.dpk
+  $(DCC)
+
+gtPDF32D6.bpl: ..\PDFProcessor\Source\gtPDF32\gtPDF32D6.dpk
+  $(DCC)
+
+

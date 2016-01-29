@@ -1,0 +1,77 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/shared/project/parallelstl.mpc"
+// mpc/mwc файлы проектов (mpc/mwc)
+//
+// The CodePlex Parallel STL project is the Microsoft 
+// prototype of the Working Draft, Technical Specification for C++ Extensions 
+// for Parallelism a proposal to add a set of high level parallel algorithms to the next major version of the ISO C++.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+project (parallelstl)  {
+	sharedname = parallelstl
+	staticname = parallelstl
+
+	includes += ./../parallelstl/include/
+	
+	Header_Files {
+		../parallelstl/include/experimental/algorithm
+		../parallelstl/include/experimental/array_view
+		../parallelstl/include/experimental/coordinate
+		../parallelstl/include/experimental/exception
+		../parallelstl/include/experimental/execution_policy
+		../parallelstl/include/experimental/memory
+		../parallelstl/include/experimental/numeric
+
+		../parallelstl/include/experimental/impl/adjacent_find.h
+		../parallelstl/include/experimental/impl/algorithm_impl.h
+		../parallelstl/include/experimental/impl/algorithm_scheduler.h
+		../parallelstl/include/experimental/impl/algorithm_scheduler_app.h
+		../parallelstl/include/experimental/impl/all_any_none_of.h
+		../parallelstl/include/experimental/impl/array_view.h
+		../parallelstl/include/experimental/impl/coordinate.h
+		../parallelstl/include/experimental/impl/copy.h
+		../parallelstl/include/experimental/impl/count.h
+		../parallelstl/include/experimental/impl/defines.h
+		../parallelstl/include/experimental/impl/equal.h
+		../parallelstl/include/experimental/impl/event.h
+		../parallelstl/include/experimental/impl/fill.h
+		../parallelstl/include/experimental/impl/find.h
+		../parallelstl/include/experimental/impl/foreach.h
+		../parallelstl/include/experimental/impl/generate.h
+		../parallelstl/include/experimental/impl/includes.h
+		../parallelstl/include/experimental/impl/is_partitioned.h
+		../parallelstl/include/experimental/impl/is_sorted.h
+		../parallelstl/include/experimental/impl/lexicographical_compare.h
+		../parallelstl/include/experimental/impl/merge.h
+		../parallelstl/include/experimental/impl/minmax_element.h
+		../parallelstl/include/experimental/impl/mismatch.h
+		../parallelstl/include/experimental/impl/move.h
+		../parallelstl/include/experimental/impl/nth_element.h
+		../parallelstl/include/experimental/impl/partition.h
+		../parallelstl/include/experimental/impl/reduce.h
+		../parallelstl/include/experimental/impl/remove.h
+		../parallelstl/include/experimental/impl/replace.h
+		../parallelstl/include/experimental/impl/reverse.h
+		../parallelstl/include/experimental/impl/rotate.h
+		../parallelstl/include/experimental/impl/scan.h
+		../parallelstl/include/experimental/impl/search.h
+		../parallelstl/include/experimental/impl/sequential.h
+		../parallelstl/include/experimental/impl/set_operations.h
+		../parallelstl/include/experimental/impl/sort.h
+		../parallelstl/include/experimental/impl/swap_ranges.h
+		../parallelstl/include/experimental/impl/taskgroup.h
+		../parallelstl/include/experimental/impl/transform.h
+		../parallelstl/include/experimental/impl/unintialized_copy.h
+		../parallelstl/include/experimental/impl/unintialized_fill.h
+		../parallelstl/include/experimental/impl/unique.h
+	}
+
+	Source_Files {
+		../parallelstl/src/algorithm.cpp
+		../parallelstl/src/event.cpp
+		../parallelstl/src/scheduler.cpp
+//		../parallelstl/src/scheduler_app.cpp
+		../parallelstl/src/taskgroup.cpp
+	}
+}

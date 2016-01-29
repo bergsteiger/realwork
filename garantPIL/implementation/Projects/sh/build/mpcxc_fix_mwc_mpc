@@ -1,0 +1,25 @@
+#!/bin/sh
+
+if test "$1" = "" ; then
+echo "Usage: mpcxc_fix_mwc_mpc <cvsmod>"
+echo "Current directory must be your MPCXC_ROOT."
+exit
+fi
+
+if test "$MPCXC_ROOT" = ""; then
+echo "You must export MPCXC_ROOT env to point to the root of your Multi Platform Common eXtra Code."
+exit
+fi
+
+echo "mpcxc_update_cvs_daily ..."
+
+cvsmod=$1
+
+future_scripts_path=$MPCXC_ROOT/src/garant6x/implementation/Projects/sh/build
+export MPCXC_SH=$future_scripts_path
+
+$MPCXC_SH/fix_common_templates_mpc $MPCXC_ROOT/src/$cvsmod
+$MPCXC_SH/fix_garant6x_projects_mwc $MPCXC_ROOT/src/$cvsmod
+$MPCXC_SH/fix_config_mpb_mpc $MPCXC_ROOT/src/$cvsmod
+
+echo "end."

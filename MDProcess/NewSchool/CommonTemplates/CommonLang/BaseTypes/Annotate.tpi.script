@@ -1,0 +1,93 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/BaseTypes/Annotate.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAAbstractClass::Class>> MDProcess$Templates::CommonTemplates::CommonLang::BaseTypes::Annotate
+//
+// поддержка аннотаций
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: Annotate::Class
+implementation @ <<Annotate>>
+//? поддержка аннотаций
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p annotation:s ? Имя аннотации. Несколько аннтоаций задаются через запятую: Ann1, Ann2
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	[{"%S{annotation}"!="%S{!annotation}"}%f_up_prefix(%S) *annotation* = *%S{annotation}* - Имя аннотации. Несколько аннтоаций задаются через запятую: Ann1, Ann2
+ if ( ( %S get_up ( 'annotation' ) ) %!= ( %S get_up_def ( 'annotation' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *annotation* = *'
+  %S get_up ( 'annotation' ) '* - Имя аннотации. Несколько аннтоаций задаются через запятую: Ann1, Ann2'
+//	]
+ end // if
+
+// генерит список аннтоаций
+//%f _dump_annotations
+; // wiki_up_print
+
+: dump_annotations OBJECT IN %S
+// параметры: tab: string = %1, is_override: boolean = %2
+//#UC START# *4A55CE3F03C5for4A55CDF90044*
+//	%f_clear_list(ANNOTATIONS)\
+ [%f] clear_list %( 'ANNOTATIONS' )% 
+//	%f_split_to_list(ANNOTATIONS,%S{annotation},%f_comma(%S))\
+ [%f] split_to_list %( 'ANNOTATIONS' %, %S get_up ( 'annotation' ) %, [%f] comma %( %S )% )% 
+//	[{%PU!=%{SERV}U&%t_interface(%P)=false&%PS!=LocalInterface}%f_add_to_list(ANNOTATIONS,"Override")]\
+ if ( ( %P |U ) %!= ( ( get_global_var ( 'SERV' ) |U ) ) AND 
+   ( ( [%t] interface %( %P )% ) %==  false  ) AND 
+   ( ( %P |S ) %!= 'LocalInterface'  ) ) then
+ begin
+  [%f] add_to_list %( 'ANNOTATIONS' %, 'Override' )% 
+ end // if
+//	[{%2N=true}%f_add_to_list(ANNOTATIONS,"Override")]\
+ if ( ( %2 |N ) %==  true ) then
+ begin
+  [%f] add_to_list %( 'ANNOTATIONS' %, 'Override' )% 
+ end // if
+//	%f_remove_from_list(ANNOTATIONS,"")\
+ [%f] remove_from_list %( 'ANNOTATIONS' %, '' )% 
+//	%f_sort_list(ANNOTATIONS,n)%f_unique_list(ANNOTATIONS)\
+ [%f] sort_list %( 'ANNOTATIONS' %, 'n' )% [%f] unique_list %( 'ANNOTATIONS' )% 
+//	%f_set_var(TAB,1)\
+ [%f] set_var %( 'TAB' %, 1 )% 
+//	<{\n}{%f_is_empty(ANNOTATIONS)=false}{W}%f_pop_first_to_var(ANNOTATIONS,ANNOTATION)%{TAB}N%f_str_replace(@%{ANNOTATION}N, ,)>
+ INTEGER VAR l_Counter l_Counter := 0
+ while true
+ begin
+  if ( ( [%f] is_empty %( 'ANNOTATIONS' )% ) %==  false ) then
+  begin
+   if ( l_Counter >0 ) then ( #13#10 )
+   [%f] pop_first_to_var %( 'ANNOTATIONS' %, 'ANNOTATION' )% ( get_global_var ( 'TAB' ) |N ) [%f] str_replace %( '@'
+   ( get_global_var ( 'ANNOTATION' ) |N ) %, ' ' %, )% 
+   ++! l_Counter
+  end // if
+  else
+   break
+ end // while
+//#UC END# *4A55CE3F03C5for4A55CDF90044*
+; // dump_annotations
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<Annotate>>
+

@@ -1,0 +1,302 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!-- Promt98 Translation System-->
+<HTML>
+ 
+<head>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=Windows-1251">
+<META HTTP-EQUIV="Translator" CONTENT="Promt98 Translation System">  
+<link rel="StyleSheet" href="../../rop.css" type="text/css">
+ 
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">  
+<meta name="ProgId" content="FrontPage.Editor.Document">  
+<title> Руководство: Тест-Модель</title> 
+<meta http-equiv="Content-Type" content="text/html">  
+  
+<meta name="Microsoft Border" content="rb">  </head> 
+<body>
+<a href="_md_tstmd.htm">Оригинал этой страницы (RUP-2001) смотрите здесь!</a>
+
+<h2 class="banner"> <a name="Top"></a><a name="XE_test_model__guidelines_for"></a>Руководство:
+Тест-Модель</h2> 
+<p class="banner">Guidelines:
+Test Model</p> 
+<div align="center">
+
+<center>  
+<table border="1" width="85%" cellspacing="0" cellpadding="2" style="border: 1px solid rgb(128,128,128)">  
+<tr>  
+<td width="25%" valign="middle" bordercolor="#808080" align="center" bordercolorlight="#808080" bordercolordark="#808080"> 
+<font face="Arial" size="2"><strong>Тест-Модель</strong></font>
+  <p><font face="Arial" size="2"><strong>Test Model</strong></font></p>
+</td> 
+<td width="75%" valign="top" bordercolor="#808080" bordercolorlight="#808080" bordercolordark="#808080"> <strong><a name="XE_test_model__definition_of"></a>
+  Тест- модель</strong>  является представлением
+  того, что и как будет тестироваться. Это вид проекта и моделей
+  реализации, включающий собрание тест-установок,
+  тест-процедур, и тест-сценариев, и их отношений. &nbsp;
+  <p>The
+    <a name="XE_test_model__definition_of"></a><strong>test model </strong>is a
+    representation of what will be tested and how it will be tested. It is a
+    view of the design and implementation models and includes the collection of
+    the test cases, test procedures, and test scripts, and their
+    relationship.&nbsp;</p>
+</td> 
+</tr> 
+</table> 
+
+</center>
+</div>
+ 
+<h3> Разделы</h3> 
+ 
+<p> Topics</p> 
+<ul>
+ 
+<li> <a href="#Explanation">Объяснение</a></li> 
+<li> <a href="#Use">Использование</a></li> 
+
+</ul>
+<ul>
+  <li><a href="#Explanation">Explanation</a></li>
+  <li><a href="#Use">Use</a></li>
+</ul>
+<p>&nbsp;</p>
+<h3> <a name="Explanation">Объяснение</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Explanation">Explanation</a> </p> 
+<p>Тест-модель - это модель того, что должно быть
+тестировано в цели теста (будь это система или часть системы). Это
+вид проекта и моделей реализации,
+который включает дополнительную систему
+обозначений , специфичную для теста, включая
+тест-установки, тест-процедуры и тест-сценарии. Роль
+тест-модели состоит в том, чтобы передать, что и как должно быть проверено.
+</p>
+<p>A test model is a model of what is to be tested in a target-of-test (be it
+the system or a part of the system). It is a view of the design and
+implementation models that include additional notation specific to test,
+including the test cases, test procedures, and test scripts. The role of the
+test model is to communicate what is to be tested and how to test it.
+</p>
+<h3> <a name="Use">Использование</a><a href="#Top"></a> <img src="../../images/top.gif" alt="К вершине страницы" border="0" width="26" height="20"> </h3> 
+<p> <a name="Use">Use</a> </p> 
+<p>
+Для каждой итерации в разработке
+жизненного цикла Вы развиваете новую версию
+тест-модели. Новая версия должна содержать старые
+тесты (возвратные тесты) и новые тесты, которые
+учитывают новые функциональные возможности.
+</p>
+<p>For each iteration in the development lifecycle, you develop a new version of
+the test model. The new version should contain old tests (as regression tests),
+and new tests that take new functionality into account
+</p>
+<p>
+На высшем уровне детализации тест-модели Вы
+увидите проект и/или модель реализации и примечания, отражающие
+тест-установки. Тест-установки определяют
+набор исходных данных, условий выполнения и ожидаемых результатов. Большинство
+тест-установок получаются из сценариев
+прецедента или реализаций прецедента и соответствует выполнению
+прецедента, поскольку это пересекается с целью
+теста. Если целью теста является целая система,
+то тест-установка будет соответствовать полному выполнению
+прецедента. Если цель теста является подсистемой,
+то тест-установка будет соответствовать части
+прецедента, которая пересекается с
+подсистемой.
+</p>
+<p>At the least detailed level of the test model, you will see the design and /
+or implementation model and notations reflecting the test cases. Test cases
+define a collection of inputs, execution conditions and expected results. The
+majority of the test cases are derived from use-case scenarios, or use-case
+realizations, and correspond to an execution of a use case as it traverses the
+test target. If the target-of-test is the whole system, the test case will
+correspond to a complete execution of a use case. If the target-of-test is a
+subsystem, the test case will correspond to the part of the use case that
+traverses the subsystem.
+</p>
+<p>
+Пример системной тест-установки для БАНКОМАТА должен был бы
+подтвердить, что клиент может снять 100$, если карта
+действительна и на определенном счете
+достаточно средств. Другая тест-установка
+должна была бы проверить, что программное обеспечение
+Банкомата ведет себя соответствующим
+образом, когда клиент вводит неправильный
+PIN код для другой действительной карты.
+</p>
+<p>An example of a system test case for an ATM machine would be to verify that a
+customer can withdraw $100, provided the card is valid and enough funds are in
+the specified account. Another test case would be to verify that the ATM
+software behaves as expected when a customer enters the wrong PIN for an
+otherwise valid card.
+</p>
+<p>Кроме того, в более ранних итерациях, может
+не быть каких-либо полных описаний
+прецедентов, только сценарии. Поэтому в
+первой итерации теста реализована только
+тест-установка для того, чтобы проверить
+возможность снимать наличные деньги, но не
+возможность обрабатывать неправильный PIN
+код.
+</p>
+<p>In earlier iterations, there might not be any complete use-case descriptions
+yet, only scenarios. Therefore, in the first iteration of test, only a test case
+to verify the ability to withdraw cash is implemented, but not the ability to
+handle the wrong PIN code.
+</p>
+<p>
+Наиболее детальная из тест-моделей
+отобразит отношения между тест-установками,
+тест-процедурами и тест-сценариями, которые
+создаются, чтобы выполнять тесты.
+</p>
+<p>The most detailed of test models will depict the relationships between the
+test cases, test procedures, and the test scripts that are generated to execute
+the tests.
+</p>
+<p>
+Не все требования в системе проявляются в
+прецедентах. Этот тип требования относится
+к не-функциональным или техническим требованиям.
+Примерами являются&nbsp; требования к
+загрузке и требования к платформе
+приложения.
+</p>
+<p>Not all requirements on a system are manifested in use cases. This type of
+requirement is referred to as non-functional or technical requirements. Examples
+are load requirements and application platform requirements.
+</p>
+<p align="center">
+<br>
+<img src="images/tstml002.gif" width="285" height="239"> <br>
+
+</p>
+<p class="picturetext">Тест-установка получается из и
+прослеживается до прецедента или сценария, реализации
+прецедента или требования.
+</p>
+<p>
+ &nbsp;A test case is derived from and traceable to a use case
+or scenario, a use-case realization, or a requirement.
+</p>
+<p>
+В организациях, где возможность отслеживания от первичных требований системы 
+до деталей реализации является важной (или востребованной), должна 
+поддерживаться связь отслеживаемости между тест-установкой
+и соответствующим требованием(ми) системы.
+</p>     	
+<p>In organizations where traceability from original system requirements to the
+details of the implementation is important (or required), a traceability link
+from a test case to its corresponding system requirement(s) should be
+maintained.
+</p>
+<p>
+Обратите внимание: если Вы не имеете инструментария,
+который сможет эффективно помочь Вам поддержать эти связи
+отслеживаемости, то управление может стать
+очень дорогим. В этом случае, знание о том, из
+какого прецедента, сценария прецедента или
+реализации прецедента получается тест-установка
+может быть достаточно.
+</p>
+<p>Note: if you do not have tools that efficiently help you maintain these
+traceability links, it may become very costly to administer. In that case
+knowing what use case, use-case scenario, or use-case realization a test case is
+derived from may be sufficient.<br>
+<br>
+На самом высоком уровне, ваши тест-установки
+должны быть сгруппированы согласно тому, что
+является целью теста: система, подсистема, или компонент. 
+На следующем уровне, Вы могли бы выбирать согласно тому, какому прецеденту
+или требованию, из которых получены тест-установки,
+производить группировку.
+</p>
+<p>
+At the highest level, your test cases should be grouped according to what the
+target for test is: system, subsystem, or component. At the next level, you
+might choose to group according to what use case or requirement the test cases
+are derived from.<br>
+<br>
+В простой реализации, тест-установка
+реализуется как одна тест-процедура. Тест-процедура физически 
+проявляет себя как текстовая инструкция относительно того, как исполнить
+тест-установку (ручной тест), или как тест-сценарий, который будет выполнен в
+контексте инструментария автоматизации
+теста. В более сложной реализации, тест-установка
+может соответствовать одной и более тест-процедурам, также как
+одна тест-процедура может являться частью одной и
+более реализуемых тест-установок. Точно так же тест-процедуры могут быть 
+реализованы одним и более тест-сценариями.
+</p>
+<p>
+In a simple implementation, a test case is implemented as one test procedure.
+The test procedure physically manifests itself as a textual instruction on how
+to perform the test case (manual test), or as a test script to be executed
+within the context of a test automation tool. In a more complex implementation,
+a test case may correspond to one-to-many test procedures, as well as one test
+procedure being part of implementing one-to-many test cases. Similarly, the test
+procedures may be implemented by one-to-many test scripts.
+</p>
+<p>Дополнительную информацию см. Артефакты: "<a href="../artifact/ar_tstcs.htm">Тест
+Установка</a>", "<a href="../artifact/ar_tstpr.htm">Тест-Процедура</a>", или "<a href="../artifact/ar_tstsc.htm">Тест-сценарий</a>".
+</p>
+<p>See Artifacts: &quot;<a href="../artifact/ar_tstcs.htm">Test Case</a>&quot;,
+&quot;<a href="../artifact/ar_tstpr.htm">Test Procedure</a>&quot;, or &quot;<a href="../artifact/ar_tstsc.htm">Test
+Script</a>&quot; for more information.
+</p>
+<p>
+ &nbsp;
+</p>
+<p align="center">
+<img src="images/tstml003.gif" width="238" height="299"> 
+</p>
+<p class="picturetext">
+Отношения между тесит-установками, тест-процедурами, и
+тест-сценариями.
+</p>
+<p>
+ &nbsp;The relationship between test cases, test procedures, and
+test scripts.
+</p>
+<p>Тест-установка реализуется одной и более
+тест-процедурой.
+</p>
+<p>A test case is implemented by one-to-many test procedures.
+</p>
+<p>
+Тест-процедура может реализовывать (целую или части)
+одной и более тест-установки.
+</p>
+<p>
+A test procedure may implement (the whole or parts of) one-to-many test
+cases.
+</p>
+<p>
+Когда должно быть выполнено ручное
+тестирование, имеет место непосредственное
+отношение с тест-процедурами.
+</p>
+<p>
+When manual testing is to be executed, there is a one-to-one relationship
+with the test procedures.
+</p>
+<p>
+Когда тестирование автоматизировано (реализованы
+тест-сценарии), тест-процедура может быть
+реализована многими тест-сценариями или
+тест-сценарий может реализовывать много
+тест-процедур (или частей тест-процедур). 
+<p>
+ When testing is automated (test scripts implemented), a test procedure may be
+implemented by many test scripts, or a test script may implement many test
+procedures (or parts of test procedures). 
+<p>
+ &nbsp;
+<p>
+<font face="Arial"><a href="../../copyrite/copyrite.htm"><small><small>Copyright&nbsp;
+© 1987 - 2000 Rational Software Corporation</small></small></a></font>
+
+</body>
+ 
+</HTML>

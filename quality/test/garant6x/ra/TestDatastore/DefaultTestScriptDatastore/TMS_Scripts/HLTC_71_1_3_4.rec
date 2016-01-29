@@ -1,0 +1,71 @@
+'$include "global.sbl"
+'$include "States.sbl"
+'*** Проверка тесткейса № 71.1.3.4 ***
+
+'Начальное состояние:
+'На экране ОМ с открытым навигатором и шириной по умолчанию,
+'в навигаторе активна закладка "Мои документы"
+
+Sub Main
+    Dim Result As Integer
+    Dim ItemsNameArray (1 To 18) As String 'Массив имен элементов свернутого дерева
+    
+    ItemsNameArray (1) = "Основы государственно-правового устройства"
+    ItemsNameArray (2) = "Налоговое законодательство"
+    ItemsNameArray (3) = "Таможенное законодательство, внешнеэкономическая деятельность"
+    ItemsNameArray (4) = "Законодательство об отдельных видах деятельности"
+    ItemsNameArray (5) = "Гражданский и арбитражный процесс, исполнительное производство"
+    ItemsNameArray (6) = "Здравоохранение, образование, наука, культура, спорт и туризм"
+    ItemsNameArray (7) = "Законодательство об обороне"
+    ItemsNameArray (8) = "Охрана правопорядка, безопасность, правоохранительные органы"
+    ItemsNameArray (9) = "Международное право, международные отношения"
+    ItemsNameArray (10) = "Содружество независимых государств"
+    ItemsNameArray (11) = "Международные организации, комиссии, делегации"
+    ItemsNameArray (12) = "Дипломатическое и консульское право"
+    ItemsNameArray (13) = "Общие вопросы"
+    ItemsNameArray (14) = "Международное право, международные отношения"
+    ItemsNameArray (15) = "Законодательство об обеспечении безопасности государства"
+    ItemsNameArray (16) = "Законодательство об охране правопорядка и общественной безопасности"
+    ItemsNameArray (17) = "Законодательство о прокуратуре"
+    ItemsNameArray (18) = "Охрана правопорядка, безопасность, правоохранительные органы"
+    
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE = ST_NONE_STANDART
+
+'Преход из ОМ с активной закладкой "Мои документы" на ветку рубрикатора:
+'Правовой навигатор \ Проекты законов
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  GenericObject Click, "Text=Правовой навигатор", "Coords=106,13"
+  GenericObject Click, "Text=Проекты законов", "Coords=70,10"
+  
+'Переводим фокус на закладку навигатора "Разъяснения, комментарии, схемы"
+  Window SetContext, "Caption={ГАРАНТ*}", ""
+  Call Click_FirstKnot
+  
+'Разворачиваем все элементы кнопкой "Развренуть все"
+  Call Click_NavExpClps
+  
+'Проверяем, что состояние кнопки "Свернуть все"
+  Result = GenericObjectVP (CompareImage, "Class=TvcmToolbar;ClassIndex=2", "VP=Collapse")
+  
+'Сворачиваем все элементы кнопкой "Свернуть все"
+  Call Click_NavExpClps
+  Call Click_FirstKnot
+
+'Проверяем, что дерево свернуто
+  InputKeys "{Down}"
+  Call CheckItemNames ( ItemsNameArray , "{Down}", 0, 9)
+  
+'Проверяем, что состояние кнопки "Развернуть все"
+  Result = GenericObjectVP (CompareImage, "Class=TvcmToolbar;ClassIndex=2", "VP=Expand")
+  InputKeys "{Tab}{Tab}{Tab}"
+  
+'Разворачиваем несколько элементов дерева
+  InputKeys "{RIGHT}{UP}{UP}{RIGHT}{UP}"
+  
+'Проверяем что элементы развернулись
+  Call CheckItemNames ( ItemsNameArray , "{Down}", 17, 9)
+  
+'Проверяем, что состояние кнопки осталось "Развернуть все"
+  Result = GenericObjectVP (CompareImage, "Class=TvcmToolbar;ClassIndex=2", "VP=Expand")
+End Sub

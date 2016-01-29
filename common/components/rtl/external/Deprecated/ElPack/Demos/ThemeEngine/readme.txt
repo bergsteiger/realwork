@@ -1,0 +1,1 @@
+This demo is for Delphi 5 and higher only.

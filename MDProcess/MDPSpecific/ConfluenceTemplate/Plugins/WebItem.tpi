@@ -1,0 +1,214 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/MDPSpecific/ConfluenceTemplate/Plugins/WebItem.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess::MDPSpecific::ConfluenceTemplate::Plugins::WebItem
+//
+// Плагин web-item
+// ---
+// предназначен для модификации Web интерфейса Конфлюенс, а именно: меню администратора, добавление
+// табов к страницам просмотра документа
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+: WebItem::Class
+? Плагин web-item
+? предназначен для модификации Web интерфейса Конфлюенс, а именно: меню администратора, добавление табов к страницам просмотра документа
+< *::Class,*::Category
+
+= KPluginBase::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+p weight:s ? определяет порядок табов на странице Конфлюенс. Более легкий показывается первым (required)
+p label key:s ? текстовый заголовок таба(required)
+p section:s ? определяет место, в котрое в интерфейсе Конфлюенс куда будет встроен плагин (required)
+p accessKey:s ? клавиатурный шоткат
+p styleClass:s ? класс стиля для оформления элемента
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	%S#[inherited][{"%S{weight}"!="%S{!weight}"}%f_up_prefix(%S) *weight* = *%S{weight}* - определяет порядок табов на странице Конфлюенс. Более легкий показывается первым (required)
+	][{"%S{label key}"!="%S{!label key}"}%f_up_prefix(%S) *label key* = *%S{label key}* - текстовый заголовок таба(required)
+	][{"%S{section}"!="%S{!section}"}%f_up_prefix(%S) *section* = *%S{section}* - определяет место, в котрое в интерфейсе Конфлюенс куда будет встроен плагин (required)
+	][{"%S{accessKey}"!="%S{!accessKey}"}%f_up_prefix(%S) *accessKey* = *%S{accessKey}* - клавиатурный шоткат
+	][{"%S{styleClass}"!="%S{!styleClass}"}%f_up_prefix(%S) *styleClass* = *%S{styleClass}* - класс стиля для оформления элемента
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for4705CD4F03D8*
+c                              {}
+r {%ax=false&<{}{%P{Full MDP}=true}{C}>!=0&<{}{%aS=UseCase}{C}>=0}:                {%SS ни кем (включая прецеденты) не используется}
+r {"%S{weight}"=""}:                                                               {не задан обязательный параметр weight}
+r {"%S{label key}"=""}:                                                            {не задан обязательный параметр label key}
+r {"%S{section}"=""}:                                                              {не задан обязательный параметр section}
+r {<{}{%CS=link&%CC=Dependency}{%CC}>!=1}:                                         {%SS должен быть связан с XAction посредством связи link}
+r {"%S{accessKey}"!=""&%f_string_length(%S{accessKey})!=1}:                        {параметр accessKey должен быть символом}
+//#UC END# *4704C0E30186for4705CD4F03D8*
+
+// перекрытие базового стереотипа Проектные файлы Java::MDAGenerator
+// генератор файлов с описанием плагинов для Confluence
++ output.xml
+//#UC START# *4703223D01A5for4705CD4F03D8*
+I <!--UC_BEGIN
+i -->
+J <!--UC_END
+j -->
+	[{%Sa!=abstract}
+	#\t\<web-item name="%SN" key="<{.}{}{%Pr}%PN>::%SN" section="%S{section}" weight="%S{weight}"\>
+	[{"%S{styleClass}"!=""}#\t	\<styleClass\>%S{styleClass}\</styleClass\>
+	]#\t	\<label key="%S{label key}"\>
+	#\t		%U[{LABEL_CONTENT}
+	#\t		]
+	#\t	\</label\>[
+	<{}{%CS=link&%CC=Dependency}%CX>]
+	[<{}{"%CS"="condition"&"%CC"="Attribute"}#\t	\<condition class="%f_with_gen_id(java,%f_type(%C%T))"[{%C{invert}=true} invert="true"]\>
+	%C<{}{%CC=Attribute}#\t		\<param name="%CN"\>%CI\</param\>
+	>#\t	\</condition\>
+	>]#\t\</web-item\>
+	]
+//#UC END# *4703223D01A5for4705CD4F03D8*
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Вложенные стереотипы
+
+: WebItem::Class::condition::Attribute
+? реализация com.atlassian.plugin.web.Condition
+? добавляет правила, чтобы определить должен ли показываться данный таб или нет (optional)
+= Java::MDAGenerator
+
+// Параметры стереотипа
+Y code_webitem_condition.gif
+L code_webitem_condition
+l l
+/ - возможные типы связи атрибута
+
+// Пользовательские свойства
+p invert:b=false ? флаг о необходимости инвертировать условие
+
+// Генераторы
+// генератор файлов с описанием плагинов для Confluence
++ output.xml
+//#UC START# *4703223D01A5for4705CDFB00CB*
+P
+//#UC END# *4703223D01A5for4705CDFB00CB*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	[{"%S{invert}"!="%S{!invert}"}%f_up_prefix(%S) *invert* = *%S{invert}* - флаг о необходимости инвертировать условие
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for4705CDFB00CB*
+c                                                     {}
+r {"%S%f_check_params_uniqually()"!=""}:              {Параметры %SS должны быть уникальны: %S%f_check_params_uniqually()}
+r {""=""}:                                            {}
+
+%f _check_params_uniqually
+	%f_clear_list(PARAMS)\
+	%f_set_var(FIRST,"true")\
+	<{}{%CC=Attribute}[{%f_exists_in_list(PARAMS,"%CN")=false}{[{%{FIRST}N!=true}, ]%CN%f_set_var(FIRST,"false")}%f_add_to_list(PARAMS,"%CN")]>
+//#UC END# *4704C0E30186for4705CDFB00CB*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor4705CDFB00CB*
+	condition
+//#UC END# *4705CBD6003Efor4705CDFB00CB*
+
+// Вложенные стереотипы
+: WebItem::Class::condition::Attribute::Attribute
+? параметры условия
+// Параметры стереотипа
+Y code_attr_key.gif
+L code_attr_key
+T 
+/ - может не иметь "цели" (типа/результата)
+
+// Генераторы
+// генератор файлов с описанием плагинов для Confluence
++ output.xml
+//#UC START# *4703223D01A5for4A8BA7D900F9*
+//#UC END# *4703223D01A5for4A8BA7D900F9*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+
+
+: WebItem::Class::link::ClassDependency
+? Экшн, который будет вызван при выборе таба плагина
+= Java::MDAGenerator
+
+// Параметры стереотипа
+Y code_webitem_link.gif
+L code_webitem_link
+
+// Пользовательские свойства
+p id:s ? идентификатор
+p params:s ? строка параметров для экшена
+
+// Генераторы
+// генератор файлов с описанием плагинов для Confluence
++ output.xml
+//#UC START# *4703223D01A5for477E0DF10224*
+	#\t\<link[{"%P{accessKey}"!=""} accessKey='%P{accessKey}'][{"%S{id}"!=""} linkId="%S{id}"]\>%T%f_path().action[?%S{params}]]\</link\>
+//#UC END# *4703223D01A5for477E0DF10224*
+
+// Функции стереотипа
+%f _st_space_key
+	MDP
+
+%f _wiki_up_print
+	[{"%S{params}"!="%S{!params}"}%f_up_prefix(%S) *params* = *%S{params}* - строка параметров для экшена
+	][{"%S{id}"!="%S{!id}"}%f_up_prefix(%S) *id* = *%S{id}* - идентификатор
+	]
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for477E0DF10224*
+c                       {}
+r {"%TS"!="XAction"}:   {Целью %SS может быть только элемент \<\<XAction\>\>}
+//#UC END# *4704C0E30186for477E0DF10224*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor477E0DF10224*
+	link
+//#UC END# *4705CBD6003Efor477E0DF10224*
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+

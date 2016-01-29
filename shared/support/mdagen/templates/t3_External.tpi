@@ -1,0 +1,48 @@
+//////////////////////////////////////////////////////////////////////////////////
+// External 
+//////////////////////////////////////////////////////////////////////////////////
+
+: External::Category
+$ C 225,225,204
+? ¬нешний модуль
+? »спользуетс€ дл€ определени€ внешнего множества элементов. явл€етс€ их контейнером, определ€ющим путь и им€ файла в котором внешние элементы содержатс€, а так же их нейм-спейс (или его отсутствие).
+? ѕуть и им€ внешнего файла а так же признак того €вл€тс€ ли элемент неймспейсом, определ€етс€ в его пользовательских свойствах.
+> Component::Class, Set::Class, Vector::Class, Queue::Class, Map::Class, HashMap::Class, Servant::Class
+> SimpleClass::Class, Union::Class, Enum::Class, Typedef::Class, Struct::Class, Sequence::Class
+> Exception::Class, Box::Class, Interface::Class, Local Interface::Class, Valuetype::Class
+p is namespace:b=true ? определ€ет €вл€етс€ ли модуль неймспейсом
+p External Path ? указывает путь к внешнему файлу с деклорацией содержимого модул€
++ h
+P
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+o %S{External Path}
+
++ idl
+= h
+
++ cpp
+S [{"%S{is namespace}"="true"}namespace %SN {\n]
+s [{"%S{is namespace}"="true"}} // namespace %SN\n]
+P
+
++ i.h
+= cpp
++ idl_ami
+= cpp
++ fctr.cpp
+= cpp
++ fctr.h
+= cpp
++ pas
+= cpp
++ dll.cpp
+= cpp
++ dll.h
+= cpp
++ dll.pas
+= cpp
++ mpc
+= cpp
++ mpc2
+= mpc

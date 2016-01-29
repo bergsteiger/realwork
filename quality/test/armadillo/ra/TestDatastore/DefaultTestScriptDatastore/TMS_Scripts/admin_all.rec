@@ -1,0 +1,58 @@
+
+Sub Main
+    Dim Result As Integer
+
+    'Initially Recorded: 26.06.2002  12:46:48
+    'Script Name: admin_all
+    
+    StartApplication """C:\Program Files\Garant-Service\Armadillo\Admin.exe"""
+    
+    Window SetContext, "Caption=Вход в систему", ""
+    InputKeys "admin{ENTER}"
+    
+    Window SetContext, "Caption=Администратор АРМ регионального партнера;Class=TfrmMain", ""
+    MenuIDSelect 15
+    
+    Window SetContext, "Caption=Просмотр лицензий в СА АРМ;ChildWindow", ""
+    GenericObject Click, "Text=TBToolbar1", "Coords=40,10"
+    
+    Window SetContext, "Caption=Выбор файла лицензий", ""
+    InputKeys "сж{BKSP}{BKSP}c:\lic.lic"
+    PushButton Click, "Text=Выбрать"
+    
+    Window SetContext, "Caption=Администратор АРМ регионального партнера;Class=TfrmMain", ""
+    
+    Window SetContext, "Caption=Подключение лицензий из файла lic.lic;ChildWindow", ""
+    GenericObject Click, "Text=TBToolbar1", "Coords=33,9"
+    
+    Window SetContext, "Caption=Администратор АРМ регионального партнера;Class=#32770", ""
+    InputKeys "{ENTER}"
+    
+    Window SetContext, "Caption=Администратор АРМ регионального партнера;Class=TfrmMain", ""
+    
+    Window SetContext, "Caption=Подключение лицензий из файла lic.lic;ChildWindow", ""
+    InputKeys "^{F4}"
+    
+    Window SetContext, "Caption=Администратор АРМ регионального партнера;Class=TfrmMain", ""
+    MenuIDSelect 28
+    
+    Window SetContext, "Caption=Просмотр лицензий в СА АРМ;ChildWindow", ""
+    InputKeys "^{F4}"
+    
+    Window SetContext, "Caption=Администратор АРМ регионального партнера;Class=TfrmMain", ""
+    MenuSelect "Сотрудники"
+    
+    Window SetContext, "Caption=Редактор сотрудников;ChildWindow", ""
+    GenericObject Click, "Class=TTBToolbar;ClassIndex=1", "Coords=52,10"
+    EditBox Click, "ObjectIndex=5", "Coords=11,6"
+    InputKeys "Alexis{TAB}A{TAB}Koz{TAB}{DOWN}{TAB}{TAB}{DOWN}{TAB}{TAB} {DOWN}"
+    InputKeys " {TAB}{RIGHT}{TAB}ax222{TAB}22222{TAB}22222{TAB}{RIGHT}{TAB} "
+    InputKeys "{DOWN}{DOWN} {DOWN}{TAB}{TAB}{TAB} {TAB} {TAB} {TAB}{TAB} {TAB}"
+    InputKeys "{TAB} "
+    GenericObject Click, "Class=TTBToolbar;ClassIndex=1", "Coords=10,7"
+    InputKeys "%{F4}"
+    
+    Window SetContext, "Caption=Администратор АРМ регионального партнера;Class=#32770", ""
+    InputKeys "{ENTER}"
+
+End Sub

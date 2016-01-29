@@ -1,0 +1,32 @@
+'$Include "global.sbl"
+'$include "States.sbl"
+Dim ListArray(1 to 6) as String
+Sub FillArray
+    ListArray(1)="Приказ ГТК РФ от 26 июня 2001 г. N 598"
+    ListArray(2)="Приказ ФПС РФ от 15 декабря 2000 г. N 660"
+    ListArray(3)="Приказ ГТК РФ от 21 августа 2000 г. N 741"                   
+    ListArray(4)="Приказ ГТК РФ и МНС РФ от 11 апреля 2000 г. N 294/АП-3-03/139"
+    ListArray(5)="Приказ ГТК РФ от 24 декабря 1998 г. N 870"
+    ListArray(6)="Инструкция о порядке выдачи ветеринарных сопроводительных документов на подконтрольные госветнадзору грузы"
+end sub
+Sub Main
+  
+    'CUR_STATE=ST_NONE_STANDART
+    Call NeedState (ST_PPR_6x)
+   
+    call Select_Property(gl_Status,"Действующий",1)
+    call Select_Property(gl_Form_Law_Info,"Документы",1)
+ 
+    Window Click, "CurrentWindow","Coords=560,185"
+    Window SetContext, "Caption={ГАРАН*}", ""
+    InputKeys "^{ENTER}"
+    Window SetContext, "Caption={ГАРАН*}", ""
+    InputKeys "{ENTER}"
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    'ListBox Click, "ObjectIndex=4", "Coords=8,60"
+    Dim ListCount%
+    
+    SQAGetProperty "CurrentFocus","ItemCount",ListCount
+    call StrComp2Log(CSTR(ListCount),"4954")
+    CUR_STATE=ST_NONE_STANDART
+End Sub

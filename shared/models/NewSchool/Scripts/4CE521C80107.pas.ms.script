@@ -1,0 +1,74 @@
+// Tl3ProtoObjectRefList 4CE521C80107 SimpleClass Class
+
+FORWARD ME_4CE521C80107
+
+: ME_52FE53AA02D7
+ CONST UID '52FE53AA02D7'
+ CONST Name 'l3Items_NoSort'
+ CONST Class 'Class'
+ CONST Stereotype 'Define'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_52FE53AA02D7 l3Items_NoSort
+
+INCLUDE '47B99E920196.pas.ms.script'
+
+INCLUDE '4A54DD4E036F.pas.ms.script'
+
+INCLUDE '47A74A5F0123.pas.ms.script'
+
+INCLUDE '47B45152003F.pas.ms.script'
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+: ME_4CE521F4022E
+ CONST UID '4CE521F4022E'
+ CONST Name 'ItemType'
+ CONST Class 'Attribute'
+ CONST Stereotype 'impurity value'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'abstract'
+ CONST LinkType 'agr'
+ : Target ME_49E7754802A9 // Tl3ProtoObject
+ ;
+
+ @SELF
+; // ME_4CE521F4022E ItemType
+
+: ME_4CE521C80107
+ CONST UID '4CE521C80107'
+ CONST Name 'Tl3ProtoObjectRefList'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Список ССЫЛОК на Tl3ProtoObject' ;
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_47B99E920196 // l3UncomparabeObjectRefList
+ ME_4A54DD4E036F // Tl3ProtoDataContainer
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_4CE521F4022E // ItemType
+ ]
+ ; // Attributes
+ : Implemented
+   [ ME_47B2C42A0163 // AssignItem
+ ME_47B99D4503A2 // CompareExistingItems
+ ]
+ ; // Implemented
+ : Children
+   [ ME_52FE53AA02D7 // l3Items_NoSort
+ ]
+ ; // Children
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '18.11.2010 15:53'
+
+ @SELF
+; // ME_4CE521C80107 Tl3ProtoObjectRefList

@@ -1,0 +1,1 @@
+tfhxreg.exe -u GPDFtoolkit2006.xml

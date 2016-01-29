@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{285ce04f-4bc4-4d55-9f9f-979031816988}</ProjectGuid>
+    <Config Condition="'$(Config)'==''">Release</Config>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+    <Base>true</Base>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+    <Base>true</Base>
+    <Cfg_1>true</Cfg_1>
+    <CfgParent>Base</CfgParent>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+    <Base>true</Base>
+    <Cfg_2>true</Cfg_2>
+    <CfgParent>Base</CfgParent>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Base)'!=''">
+    <OutputExt>lib</OutputExt>
+    <BCC_OptimizeForSpeed>true</BCC_OptimizeForSpeed>
+    <Defines>NO_STRICT</Defines>
+    <DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
+    <DynamicRTL>true</DynamicRTL>
+    <BCC_UnderscoreSymbolNames>false</BCC_UnderscoreSymbolNames>
+    <ProjectType>CppStaticLibrary</ProjectType>
+    <PackageImports>vclx.bpi;vcl.bpi;rtl.bpi;dbrtl.bpi;vcldb.bpi;dsnap.bpi;dbxcds.bpi;dbexpress.bpi;DbxCommonDriver.bpi;vclie.bpi;webdsnap.bpi;xmlrtl.bpi;inet.bpi;inetdbbde.bpi;inetdbxpress.bpi;vclactnband.bpi;adortl.bpi;bcbie.bpi;VclSmp.bpi;websnap.bpi;bcbsmp.bpi;vclib.bpi;ibxpress.bpi;bdertl.bpi;vcldbx.bpi;dsnapcon.bpi</PackageImports>
+    <BCC_wpar>false</BCC_wpar>
+    <BCC_PCHUsage>None</BCC_PCHUsage>
+    <IncludePath>$(BDS)\include;$(BDS)\include\dinkumware;$(BDS)\include\vcl;..\..\..\src\base;..\..\..\src\pcf;..\..\..\src\pfr;..\..\..\src\psaux;..\..\..\src\pshinter;..\..\..\src\psnames;..\..\..\src\raster;..\..\..\src\sfnt;..\..\..\src\truetype;..\..\..\src\type1;..\..\..\src\cid;..\..\..\src\type42;..\..\..\src\winfonts;..\..\..\src\autofit;..\..\..\src\bdf;..\..\..\src\cff;..\..\..\src\cache;..\..\..\src\gzip;..\..\..\src\lzw;..\..\..\src\smooth;..\..\..\src\otvalid</IncludePath>
+    <BCC_IncludePath>..\..\..\include</BCC_IncludePath>
+    <AllPackageLibs>rtl.lib;vcl.lib</AllPackageLibs>
+    <TLIB_PageSize>64</TLIB_PageSize>
+    <ILINK_LibraryPath>$(BDS)\lib;$(BDS)\lib\obj;$(BDS)\lib\psdk</ILINK_LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Cfg_1)'!=''">
+    <DCC_Optimize>false</DCC_Optimize>
+    <BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
+    <Defines>_DEBUG;FT2_BUILD_LIBRARY;$(Defines)</Defines>
+    <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+    <ILINK_FullDebugInfo>true</ILINK_FullDebugInfo>
+    <BCC_InlineFunctionExpansion>false</BCC_InlineFunctionExpansion>
+    <ILINK_DisableIncrementalLinking>true</ILINK_DisableIncrementalLinking>
+    <BCC_UseRegisterVariables>None</BCC_UseRegisterVariables>
+    <DCC_Define>DEBUG</DCC_Define>
+    <BCC_DebugLineNumbers>true</BCC_DebugLineNumbers>
+    <FinalOutputDir>.\..\..\..\objs\debug</FinalOutputDir>
+    <IntermediateOutputDir>.\..\..\..\objs\debug</IntermediateOutputDir>
+    <TASM_DisplaySourceLines>true</TASM_DisplaySourceLines>
+    <BCC_StackFrames>true</BCC_StackFrames>
+    <ILINK_LibraryPath>$(BDS)\lib\debug;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+    <BCC_DisableOptimizations>true</BCC_DisableOptimizations>
+    <TASM_Debugging>Full</TASM_Debugging>
+    <BCC_SourceDebuggingOn>true</BCC_SourceDebuggingOn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Cfg_2)'!=''">
+    <Defines>NDEBUG;FT2_BUILD_LIBRARY;$(Defines)</Defines>
+    <FinalOutputDir>.\..\..\..\objs\release</FinalOutputDir>
+    <IntermediateOutputDir>.\..\..\..\objs\release</IntermediateOutputDir>
+    <ILINK_LibraryPath>$(BDS)\lib\release;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+    <BCC_Defines>FT2_BUILD_LIBRARY;$(BCC_Defines)</BCC_Defines>
+    <TASM_Debugging>None</TASM_Debugging>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <Borland.Personality>CPlusPlusBuilder.Personality</Borland.Personality>
+    <Borland.ProjectType>CppStaticLibrary</Borland.ProjectType>
+    <BorlandProject>
+<BorlandProject><CPlusPlusBuilder.Personality><VersionInfo><VersionInfo Name="IncludeVerInfo">False</VersionInfo><VersionInfo Name="AutoIncBuild">False</VersionInfo><VersionInfo Name="MajorVer">1</VersionInfo><VersionInfo Name="MinorVer">0</VersionInfo><VersionInfo Name="Release">0</VersionInfo><VersionInfo Name="Build">0</VersionInfo><VersionInfo Name="Debug">False</VersionInfo><VersionInfo Name="PreRelease">False</VersionInfo><VersionInfo Name="Special">False</VersionInfo><VersionInfo Name="Private">False</VersionInfo><VersionInfo Name="DLL">False</VersionInfo><VersionInfo Name="Locale">1033</VersionInfo><VersionInfo Name="CodePage">1252</VersionInfo></VersionInfo><VersionInfoKeys><VersionInfoKeys Name="CompanyName"></VersionInfoKeys><VersionInfoKeys Name="FileDescription"></VersionInfoKeys><VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys><VersionInfoKeys Name="InternalName"></VersionInfoKeys><VersionInfoKeys Name="LegalCopyright"></VersionInfoKeys><VersionInfoKeys Name="LegalTrademarks"></VersionInfoKeys><VersionInfoKeys Name="OriginalFilename"></VersionInfoKeys><VersionInfoKeys Name="ProductName"></VersionInfoKeys><VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys><VersionInfoKeys Name="Comments"></VersionInfoKeys></VersionInfoKeys><Debugging><Debugging Name="DebugSourceDirs"></Debugging></Debugging><Parameters><Parameters Name="RunParams"></Parameters><Parameters Name="Launcher"></Parameters><Parameters Name="UseLauncher">False</Parameters><Parameters Name="DebugCWD"></Parameters><Parameters Name="HostApplication"></Parameters><Parameters Name="RemoteHost"></Parameters><Parameters Name="RemotePath"></Parameters><Parameters Name="RemoteParams"></Parameters><Parameters Name="RemoteLauncher"></Parameters><Parameters Name="UseRemoteLauncher">False</Parameters><Parameters Name="RemoteCWD"></Parameters><Parameters Name="RemoteDebug">False</Parameters><Parameters Name="Debug Symbols Search Path"></Parameters><Parameters Name="LoadAllSymbols">True</Parameters><Parameters Name="LoadUnspecifiedSymbols">False</Parameters></Parameters><Excluded_Packages>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <Excluded_Packages Name="$(BDS)\bin\bcboffice2k100.bpl">CodeGear C++Builder Office 2000 Servers Package</Excluded_Packages>
+      <Excluded_Packages Name="$(BDS)\bin\bcbofficexp100.bpl">CodeGear C++Builder Office XP Servers Package</Excluded_Packages>
+      <Excluded_Packages Name="$(BDS)\bin\dcloffice2k100.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+      <Excluded_Packages Name="$(BDS)\bin\dclofficexp100.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+    </Excluded_Packages><Linker><Linker Name="LibPrefix"></Linker><Linker Name="LibSuffix"></Linker><Linker Name="LibVersion"></Linker></Linker><ProjectProperties><ProjectProperties Name="AutoShowDeps">False</ProjectProperties><ProjectProperties Name="ManagePaths">True</ProjectProperties><ProjectProperties Name="VerifyPackages">True</ProjectProperties></ProjectProperties><HistoryLists_hlIncludePath><HistoryLists_hlIncludePath Name="Count">3</HistoryLists_hlIncludePath><HistoryLists_hlIncludePath Name="Item0">$(BDS)\include;$(BDS)\include\dinkumware;$(BDS)\include\vcl;..\..\..\src\base;..\..\..\src\pcf;..\..\..\src\pfr;..\..\..\src\psaux;..\..\..\src\pshinter;..\..\..\src\psnames;..\..\..\src\raster;..\..\..\src\sfnt;..\..\..\src\truetype;..\..\..\src\type1;..\..\..\src\cid;..\..\..\src\type42;..\..\..\src\winfonts;..\..\..\src\autofit;..\..\..\src\bdf;..\..\..\src\cff;..\..\..\src\cache;..\..\..\src\gzip;..\..\..\src\lzw;..\..\..\src\smooth;..\..\..\src\otvalid</HistoryLists_hlIncludePath><HistoryLists_hlIncludePath Name="Item1">$(BDS)\include;$(BDS)\include\dinkumware;$(BDS)\include\vcl;..\..\..\src\base;..\..\..\src\pcf;..\..\..\src\pfr;..\..\..\src\psaux;..\..\..\src\pshinter;..\..\..\src\psnames;..\..\..\src\raster;..\..\..\src\sfnt;..\..\..\src\truetype;..\..\..\src\type1;..\..\..\src\cid;..\..\..\src\type42;..\..\..\src\winfonts;..\..\..\src\autofit;..\..\..\src\bdf;..\..\..\src\cff;..\..\..\src\cache;..\..\..\src\gzip;..\..\..\src\lzw;..\..\..\src\smooth</HistoryLists_hlIncludePath><HistoryLists_hlIncludePath Name="Item2">$(BDS)\include;$(BDS)\include\dinkumware;$(BDS)\include\vcl</HistoryLists_hlIncludePath></HistoryLists_hlIncludePath><HistoryLists_hlILINK_LibraryPath><HistoryLists_hlILINK_LibraryPath Name="Count">3</HistoryLists_hlILINK_LibraryPath><HistoryLists_hlILINK_LibraryPath Name="Item0">$(BDS)\lib;$(BDS)\lib\obj;$(BDS)\lib\psdk</HistoryLists_hlILINK_LibraryPath><HistoryLists_hlILINK_LibraryPath Name="Item1">$(BDS)\lib\release;$(BDS)\lib;$(BDS)\lib\obj;$(BDS)\lib\psdk</HistoryLists_hlILINK_LibraryPath><HistoryLists_hlILINK_LibraryPath Name="Item2">$(BDS)\lib\debug;$(BDS)\lib;$(BDS)\lib\obj;$(BDS)\lib\psdk</HistoryLists_hlILINK_LibraryPath></HistoryLists_hlILINK_LibraryPath><HistoryLists_hlDefines><HistoryLists_hlDefines Name="Count">4</HistoryLists_hlDefines><HistoryLists_hlDefines Name="Item0">NO_STRICT</HistoryLists_hlDefines><HistoryLists_hlDefines Name="Item1">NDEBUG;FT2_BUILD_LIBRARY;NO_STRICT</HistoryLists_hlDefines><HistoryLists_hlDefines Name="Item2">_DEBUG;FT2_BUILD_LIBRARY;NO_STRICT</HistoryLists_hlDefines><HistoryLists_hlDefines Name="Item3">_DEBUG;NO_STRICT</HistoryLists_hlDefines></HistoryLists_hlDefines><HistoryLists_hlIntermediateOutputDir><HistoryLists_hlIntermediateOutputDir Name="Count">3</HistoryLists_hlIntermediateOutputDir><HistoryLists_hlIntermediateOutputDir Name="Item0">.\..\..\..\objs\release</HistoryLists_hlIntermediateOutputDir><HistoryLists_hlIntermediateOutputDir Name="Item1">.\..\..\..\objs\debug</HistoryLists_hlIntermediateOutputDir><HistoryLists_hlIntermediateOutputDir Name="Item2">Debug</HistoryLists_hlIntermediateOutputDir></HistoryLists_hlIntermediateOutputDir><HistoryLists_hlBCC_MaxIdentifierLength><HistoryLists_hlBCC_MaxIdentifierLength Name="Count">1</HistoryLists_hlBCC_MaxIdentifierLength><HistoryLists_hlBCC_MaxIdentifierLength Name="Item0">250</HistoryLists_hlBCC_MaxIdentifierLength></HistoryLists_hlBCC_MaxIdentifierLength><VFOLDERS><VFOLDER ID="{5D5A0BEF-1335-4C62-9CFF-E16BFF2976EA}" name="Header Files" /><VFOLDER ID="{A558CFCC-B6FC-48CA-89CC-DC59FE5CAF05}" name="Source Files"><VFOLDER ID="{32DF3E4B-1AD8-4224-B91C-CDD87DBECB43}" name="FT_MODULES" /></VFOLDER></VFOLDERS><HistoryLists_hlBCC_IncludePath><HistoryLists_hlBCC_IncludePath Name="Count">1</HistoryLists_hlBCC_IncludePath><HistoryLists_hlBCC_IncludePath Name="Item0">..\..\..\include</HistoryLists_hlBCC_IncludePath></HistoryLists_hlBCC_IncludePath><HistoryLists_hlTLIB_PageSize><HistoryLists_hlTLIB_PageSize Name="Count">1</HistoryLists_hlTLIB_PageSize><HistoryLists_hlTLIB_PageSize Name="Item0">64</HistoryLists_hlTLIB_PageSize><HistoryLists_hlTLIB_PageSize Name="Item1">128</HistoryLists_hlTLIB_PageSize><HistoryLists_hlTLIB_PageSize Name="Item2">32</HistoryLists_hlTLIB_PageSize></HistoryLists_hlTLIB_PageSize><HistoryLists_hlFinalOutputDir><HistoryLists_hlFinalOutputDir Name="Count">2</HistoryLists_hlFinalOutputDir><HistoryLists_hlFinalOutputDir Name="Item0">.\..\..\..\objs\release</HistoryLists_hlFinalOutputDir><HistoryLists_hlFinalOutputDir Name="Item1">.\..\..\..\objs\debug</HistoryLists_hlFinalOutputDir></HistoryLists_hlFinalOutputDir></CPlusPlusBuilder.Personality></BorlandProject></BorlandProject>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildBinPath)\Borland.Cpp.Targets" />
+  <ItemGroup>
+    <None Include="..\..\..\include\freetype\config\ftconfig.h">
+      <VirtualFolder>{5D5A0BEF-1335-4C62-9CFF-E16BFF2976EA}</VirtualFolder>
+      <BuildOrder>2</BuildOrder>
+    </None>
+    <None Include="..\..\..\include\freetype\config\ftheader.h">
+      <VirtualFolder>{5D5A0BEF-1335-4C62-9CFF-E16BFF2976EA}</VirtualFolder>
+      <BuildOrder>3</BuildOrder>
+    </None>
+    <None Include="..\..\..\include\freetype\config\ftmodule.h">
+      <VirtualFolder>{5D5A0BEF-1335-4C62-9CFF-E16BFF2976EA}</VirtualFolder>
+      <BuildOrder>4</BuildOrder>
+    </None>
+    <None Include="..\..\..\include\freetype\config\ftoption.h">
+      <VirtualFolder>{5D5A0BEF-1335-4C62-9CFF-E16BFF2976EA}</VirtualFolder>
+      <BuildOrder>5</BuildOrder>
+    </None>
+    <None Include="..\..\..\include\freetype\config\ftstdlib.h">
+      <VirtualFolder>{5D5A0BEF-1335-4C62-9CFF-E16BFF2976EA}</VirtualFolder>
+      <BuildOrder>1</BuildOrder>
+    </None>
+    <None Include="..\..\..\include\ft2build.h">
+      <VirtualFolder>{5D5A0BEF-1335-4C62-9CFF-E16BFF2976EA}</VirtualFolder>
+      <BuildOrder>0</BuildOrder>
+    </None>
+    <CppCompile Include="..\..\..\src\autofit\autofit.c">
+      <VirtualFolder>{A558CFCC-B6FC-48CA-89CC-DC59FE5CAF05}</VirtualFolder>
+      <BuildOrder>24</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\base\ftbase.c">
+      <VirtualFolder>{A558CFCC-B6FC-48CA-89CC-DC59FE5CAF05}</VirtualFolder>
+      <BuildOrder>27</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\base\ftbbox.c">
+      <VirtualFolder>{32DF3E4B-1AD8-4224-B91C-CDD87DBECB43}</VirtualFolder>
+      <BuildOrder>7</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\base\ftbitmap.c">
+      <VirtualFolder>{A558CFCC-B6FC-48CA-89CC-DC59FE5CAF05}</VirtualFolder>
+      <BuildOrder>28</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\base\ftdebug.c">
+      <VirtualFolder>{A558CFCC-B6FC-48CA-89CC-DC59FE5CAF05}</VirtualFolder>
+      <BuildOrder>30</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\base\ftgasp.c">
+      <VirtualFolder>{A558CFCC-B6FC-48CA-89CC-DC59FE5CAF05}</VirtualFolder>
+      <BuildOrder>31</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\base\ftglyph.c">
+      <VirtualFolder>{A558CFCC-B6FC-48CA-89CC-DC59FE5CAF05}</VirtualFolder>
+      <BuildOrder>38</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\base\ftinit.c">
+      <VirtualFolder>{A558CFCC-B6FC-48CA-89CC-DC59FE5CAF05}</VirtualFolder>
+      <BuildOrder>34</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\base\ftmm.c">
+      <VirtualFolder>{32DF3E4B-1AD8-4224-B91C-CDD87DBECB43}</VirtualFolder>
+      <BuildOrder>8</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\base\ftpfr.c">
+      <VirtualFolder>{32DF3E4B-1AD8-4224-B91C-CDD87DBECB43}</VirtualFolder>
+      <BuildOrder>9</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\base\ftstroke.c">
+      <VirtualFolder>{A558CFCC-B6FC-48CA-89CC-DC59FE5CAF05}</VirtualFolder>
+      <BuildOrder>35</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\base\ftsynth.c">
+      <VirtualFolder>{32DF3E4B-1AD8-4224-B91C-CDD87DBECB43}</VirtualFolder>
+      <BuildOrder>10</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\base\ftsystem.c">
+      <VirtualFolder>{A558CFCC-B6FC-48CA-89CC-DC59FE5CAF05}</VirtualFolder>
+      <BuildOrder>33</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\base\fttype1.c">
+      <VirtualFolder>{32DF3E4B-1AD8-4224-B91C-CDD87DBECB43}</VirtualFolder>
+      <BuildOrder>11</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\base\ftwinfnt.c">
+      <VirtualFolder>{32DF3E4B-1AD8-4224-B91C-CDD87DBECB43}</VirtualFolder>
+      <BuildOrder>6</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\bdf\bdf.c">
+      <VirtualFolder>{A558CFCC-B6FC-48CA-89CC-DC59FE5CAF05}</VirtualFolder>
+      <BuildOrder>25</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\cache\ftcache.c">
+      <VirtualFolder>{A558CFCC-B6FC-48CA-89CC-DC59FE5CAF05}</VirtualFolder>
+      <BuildOrder>29</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\cff\cff.c">
+      <VirtualFolder>{A558CFCC-B6FC-48CA-89CC-DC59FE5CAF05}</VirtualFolder>
+      <BuildOrder>26</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\cid\type1cid.c">
+      <VirtualFolder>{32DF3E4B-1AD8-4224-B91C-CDD87DBECB43}</VirtualFolder>
+      <BuildOrder>21</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\gzip\ftgzip.c">
+      <VirtualFolder>{A558CFCC-B6FC-48CA-89CC-DC59FE5CAF05}</VirtualFolder>
+      <BuildOrder>32</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\lzw\ftlzw.c">
+      <VirtualFolder>{A558CFCC-B6FC-48CA-89CC-DC59FE5CAF05}</VirtualFolder>
+      <BuildOrder>36</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\pcf\pcf.c">
+      <VirtualFolder>{32DF3E4B-1AD8-4224-B91C-CDD87DBECB43}</VirtualFolder>
+      <BuildOrder>12</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\pfr\pfr.c">
+      <VirtualFolder>{32DF3E4B-1AD8-4224-B91C-CDD87DBECB43}</VirtualFolder>
+      <BuildOrder>13</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\psaux\psaux.c">
+      <VirtualFolder>{32DF3E4B-1AD8-4224-B91C-CDD87DBECB43}</VirtualFolder>
+      <BuildOrder>14</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\pshinter\pshinter.c">
+      <VirtualFolder>{32DF3E4B-1AD8-4224-B91C-CDD87DBECB43}</VirtualFolder>
+      <BuildOrder>15</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\psnames\psmodule.c">
+      <VirtualFolder>{32DF3E4B-1AD8-4224-B91C-CDD87DBECB43}</VirtualFolder>
+      <BuildOrder>16</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\raster\raster.c">
+      <VirtualFolder>{32DF3E4B-1AD8-4224-B91C-CDD87DBECB43}</VirtualFolder>
+      <BuildOrder>17</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\sfnt\sfnt.c">
+      <VirtualFolder>{32DF3E4B-1AD8-4224-B91C-CDD87DBECB43}</VirtualFolder>
+      <BuildOrder>18</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\smooth\smooth.c">
+      <VirtualFolder>{A558CFCC-B6FC-48CA-89CC-DC59FE5CAF05}</VirtualFolder>
+      <BuildOrder>37</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\truetype\truetype.c">
+      <VirtualFolder>{32DF3E4B-1AD8-4224-B91C-CDD87DBECB43}</VirtualFolder>
+      <BuildOrder>19</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\type1\type1.c">
+      <VirtualFolder>{32DF3E4B-1AD8-4224-B91C-CDD87DBECB43}</VirtualFolder>
+      <BuildOrder>20</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\type42\type42.c">
+      <VirtualFolder>{32DF3E4B-1AD8-4224-B91C-CDD87DBECB43}</VirtualFolder>
+      <BuildOrder>22</BuildOrder>
+    </CppCompile>
+    <CppCompile Include="..\..\..\src\winfonts\winfnt.c">
+      <VirtualFolder>{32DF3E4B-1AD8-4224-B91C-CDD87DBECB43}</VirtualFolder>
+      <BuildOrder>23</BuildOrder>
+    </CppCompile>
+    <BuildConfiguration Include="Debug">
+      <Key>Cfg_1</Key>
+    </BuildConfiguration>
+    <BuildConfiguration Include="Release">
+      <Key>Cfg_2</Key>
+    </BuildConfiguration>
+  </ItemGroup>
+</Project>

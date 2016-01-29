@@ -1,0 +1,3301 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.061205"
+    charSet    	204)
+
+(object Class_Category "Метамодель хранимых объектов"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Метамодель хранимых объектов|48591D79026F
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"NESTED GENERATED WikiPageID (wiki)"
+	    value      	(value Text ""))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki"))
+    quid       	"48591D79026F"
+    documentation 	"Описание возможностей, правил и ограничений проектирования хранимых объектов"
+    stereotype 	"Features"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"486B843700E5"
+	    supplier   	"Logical View::Storage::Хранилище::Проблемы хранениЯ объектов"
+	    quidu      	"471630E9036D")
+	(object Visibility_Relationship
+	    quid       	"488CB45B010F"
+	    supplier   	"Logical View::Storage::Хранилище::Сложность разработки"
+	    quidu      	"488CA4890330")
+	(object Visibility_Relationship
+	    quid       	"488CC89102C6"
+	    supplier   	"Logical View::Storage::Хранилище::Проблемы конкурентного доступа"
+	    quidu      	"48773D84018C")
+	(object Visibility_Relationship
+	    quid       	"48E351BE0105"
+	    supplier   	"Logical View::Storage::Хранилище::Проблемы выборки объектов"
+	    quidu      	"486B6CBC010E"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "Фабрики и Ремуверы Сущности"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Метамодель хранимых объектов/Фабрики и Ремуверы Сущности|485922E2009A
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"485922E2009A"
+	    documentation 	
+|Любая сущнсоть заданная на модели автоматичеки получает специальную "загружающую" фабрку и один ремувер. Остальные фабрики могут\должны быть доопределены в ручную.
+|
+	    
+	    stereotype 	"Feature"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"485923B803A7"
+		    supplier   	"Logical View::Storage::Хранилище::Сложность разработки::Неоднозначность семантики создания и удаления"
+		    quidu      	"4858E3BD03D3")
+		(object Realize_Relationship
+		    quid       	"493575C101A4"
+		    supplier   	"Logical View::Storage::Хранилище::Сложность разработки::Неэффективность одной реализации"
+		    quidu      	"493570B402CE"))
+	    language   	"MDA Generator")
+	(object Class "Трехуровневая модель хранимого объекта"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Метамодель хранимых объектов/Трехуровневая модель хранимого объекта|487476630347
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"NESTED GENERATED WikiPageID (wiki)"
+		    value      	"")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"487476630347"
+	    documentation 	"Определены три уровня описания хранимого объекта. Уровень интерфейсов содержит Сущности видимые клиенту. Уровень реализации содержит серванты определяющие бизнес-логику. Уровень состояний описывает модель хранения. Два последних уровня не доступны клиенту."
+	    stereotype 	"Feature"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"488CC73602C3"
+		    supplier   	"Logical View::Storage::Хранилище::Сложность разработки::Смешение слоев представления"
+		    quidu      	"488CC5940044"))
+	    language   	"MDA Generator"
+	    nestedClasses 	(list nestedClasses
+		(object Class "Понятие Сущность"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Метамодель хранимых объектов/Трехуровневая модель хранимого объекта/Понятие Сущность|48592124023B
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"NESTED GENERATED WikiPageID (wiki)"
+			    value      	"")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"48592124023B"
+		    documentation 	"Сущность - это интерфейс на модели, обладающий хранимой идентичностью, видимой пользователю, и возможностью содержать хранимое состояние."
+		    stereotype 	"Feature"
+		    realized_interfaces 	(list realize_rel_list
+			(object Realize_Relationship
+			    quid       	"4859214A000B"
+			    supplier   	"Logical View::Storage::Хранилище::Проблемы хранениЯ объектов::Потеря экземпляров объектов между запусками программы"
+			    quidu      	"4858E280014C")))
+		(object Class "Понятие Состояние"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Метамодель хранимых объектов/Трехуровневая модель хранимого объекта/Понятие Состояние|487478700355
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"487478700355"
+		    documentation 	"Состояние представляет собой хранимый образ Сущности. Как только Состояние было восстановлено из базы, дальнейшее поведение Сущности зависит только от этого состояния и последовательности вызовов методов на ней. Доступ к состоянию, его сериализация происходит автоматически из Серванта сущности. Связь между Состоянием и Сущностью происходит опосредованно через сервант сущности."
+		    stereotype 	"Feature"
+		    realized_interfaces 	(list realize_rel_list
+			(object Realize_Relationship
+			    quid       	"487479DF03A9"
+			    supplier   	"Logical View::Storage::Хранилище::Проблемы хранениЯ объектов::Потеря экземпляров объектов между запусками программы"
+			    quidu      	"4858E280014C")))
+		(object Class "Понятие Серванта Сущности"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Метамодель хранимых объектов/Трехуровневая модель хранимого объекта/Понятие Серванта Сущности|4875CFC40225
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"4875CFC40225"
+		    documentation 	"Определяет реализацию Сущности - реализацию ее БЛ и связь с типом Состояния. Аналогичен серванту интерфейса."
+		    stereotype 	"Feature"
+		    realized_interfaces 	(list realize_rel_list
+			(object Realize_Relationship
+			    quid       	"4875D16400B3"
+			    supplier   	"Logical View::Storage::Хранилище::Проблемы хранениЯ объектов::Потеря экземпляров объектов между запусками программы"
+			    quidu      	"4858E280014C")
+			(object Realize_Relationship
+			    quid       	"4935759A02EF"
+			    supplier   	"Logical View::Storage::Хранилище::Сложность разработки::Неэффективность одной реализации"
+			    quidu      	"493570B402CE")))
+		(object Class "Сущности без состояний"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Метамодель хранимых объектов/Трехуровневая модель хранимого объекта/Сущности без состояний|4875E82F0205
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"4875E82F0205"
+		    documentation 	
+|Сущность обладает ХРАНИМОЙ идентифицируемостью, но НЕ обязательно хранимым состоянием. Сервант Сущности м.б. имплементирован БЕЗ связи с хранимым Состоянием, т.е. от Серванта к Сущности на модели может быть проведена стрелка реализации, а от Серванта к Состоянию - нет.
+|
+		    
+		    stereotype 	"Feature"
+		    realized_interfaces 	(list realize_rel_list
+			(object Realize_Relationship
+			    quid       	"4875E9570308"
+			    supplier   	"Logical View::Storage::Хранилище::Проблемы хранениЯ объектов::Хранимый объект не обязан иметь атрибуты"
+			    quidu      	"488CBD180144")))
+		(object Class "Наследование Сущностей, Сервантов и Состояний"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"WikiPageID (wiki)"
+			    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Метамодель хранимых объектов/Трехуровневая модель хранимого объекта/Наследование Сущностей, Сервантов и Состояний|493575200092
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"SourceType (wiki)"
+			    value      	"wiki"))
+		    quid       	"493575200092"
+		    documentation 	"Определяет возможность наследования (включая множественное) в рамках своего слоя всех трех метатипов элементов."
+		    stereotype 	"Feature"
+		    realized_interfaces 	(list realize_rel_list
+			(object Realize_Relationship
+			    quid       	"4935758C0395"
+			    supplier   	"Logical View::Storage::Хранилище::Сложность разработки::Дублирование кода и потеря соответствия"
+			    quidu      	"49356FBF011C")))))
+	(object Class "Маппинг атрибутов Сущности"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Метамодель хранимых объектов/Маппинг атрибутов Сущности|485B6A7A00E2
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"485B6A7A00E2"
+	    documentation 	"Логические атрибуты сущности, объявленные на ее интерфейсы, должны быть как-то связанны с ее данными (состоянием) . Для этого есть две возможности ручная и автоматическая."
+	    stereotype 	"Feature"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"488CC75D0337"
+		    supplier   	"Logical View::Storage::Хранилище::Сложность разработки::Смешение слоев представления::Рутинное связывание различных слоев"
+		    quidu      	"488CC6A70334"))
+	    language   	"MDA Generator")
+	(object Class "Константные методы Сущности"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Метамодель хранимых объектов/Константные методы Сущности|4874A29001DC
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4874A29001DC"
+	    documentation 	"Константные методы гарантированно не могут изменить состояние Сущности, включая ее хранимое Состояние (со стереотипом Persistent). Этот факт может быть использован фреймворком для оптимизации."
+	    stereotype 	"Feature"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"4874A4740392"
+		    supplier   	"Logical View::Storage::Хранилище::Проблемы хранениЯ объектов::Избыточность при доступе только на чтение"
+		    quidu      	"4874A3BA026A"))
+	    language   	"MDA Generator")
+	(object Class "Интерфейс-итератор по набору сущностей"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Метамодель хранимых объектов/Интерфейс-итератор по набору сущностей|4874B50B02A9
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4874B50B02A9"
+	    documentation 	"Для доступа к множеству сущностей используется специальный интерфейс-итератор, инкапсулирующий в себе оптимальную реализацию логики перебора с т.з механизмов хранилища"
+	    stereotype 	"Feature"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"4874BA4203AE"
+		    supplier   	"Logical View::Storage::Хранилище::Сложность разработки::Разная семантика работы с коллекциями"
+		    quidu      	"485916250107"))
+	    language   	"MDA Generator")
+	(object Class "Вычисляемые атрибуты Состояния"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Метамодель хранимых объектов/Вычисляемые атрибуты Состояния|4875DF300029
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4875DF300029"
+	    documentation 	"Атрибуты которые физически не храняться в БД, вместо этого они вычисляются в run-time на основе других атроибутов Состояния."
+	    stereotype 	"Feature"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"4875DFCC02D8"
+		    supplier   	"Logical View::Storage::Хранилище::Проблемы выборки объектов::Поиск перебором по функции атрибутов"
+		    quidu      	"485914D500EF")
+		(object Realize_Relationship
+		    quid       	"488CB4D40385"
+		    supplier   	"Logical View::Storage::Хранилище::Проблемы выборки объектов::Поиск перебором по функции атрибутов::Разсинхронизация функционально связанных атрибутов"
+		    quidu      	"488CB0C60048"))
+	    language   	"MDA Generator")
+	(object Class "Уникальность экземпляра базы заданного типа"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|New Storage,key:NST,guid:4715CB5403D7/Home/Модель проекта "Storage"/Хранилище/Метамодель хранимых объектов/Уникальность экземпляра базы заданного типа|4874747500F1
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki"))
+	    quid       	"4874747500F1"
+	    documentation 	"В один момент времени в системе может быть открыта только одна база определенного типа. Тип базы определяется как логическое объединение разных типов Сущностей. Упрощает persistent API в целом, т.к. исчезает нужда идентифицировать саму базу в rum-time."
+	    stereotype 	"Feature"
+	    realized_interfaces 	(list realize_rel_list
+		(object Realize_Relationship
+		    quid       	"487475B1011A"
+		    supplier   	"Logical View::Storage::Хранилище::Сложность разработки::Смешение объектов разной природы в одной БД::Неоднозначность места хранения"
+		    quidu      	"4874750D005C")
+		(object Realize_Relationship
+		    quid       	"488CE3910337"
+		    supplier   	"Logical View::Storage::Хранилище::Сложность разработки::Смешение объектов разной природы в одной БД"
+		    quidu      	"488CE1A00198"))
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ClassUID"
+		    value      	"487476630347"))
+	    quid       	"488CD3F30293"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Метамодель хранимых объектов::Трехуровневая модель хранимого объекта::Понятие Сущность" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1467, 99)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(1087, 67)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	760
+			justify    	0
+			label      	"Понятие Сущность")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(1087, 17)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	760
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    fill_color 	11531715
+		    quidu      	"48592124023B"
+		    width      	778
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы хранениЯ объектов::Потеря экземпляров объектов между запусками программы" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(654, 645)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(40, 613)
+			nlines     	1
+			max_width  	1228
+			justify    	0
+			label      	"Потеря экземпляров объектов между запусками программы")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(40, 563)
+			anchor     	10
+			nlines     	1
+			max_width  	1228
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"4858E280014C"
+		    width      	1246
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Метамодель хранимых объектов::Трехуровневая модель хранимого объекта::Понятие Состояние" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1824, 645)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1444, 613)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	760
+			justify    	0
+			label      	"Понятие Состояние")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(1444, 563)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	760
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    fill_color 	11531715
+		    quidu      	"487478700355"
+		    width      	778
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @4
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"487479DF03A9"
+		    client     	@3
+		    supplier   	@2
+		    vertices   	(list Points
+			(1434, 645)
+			(1277, 645))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Метамодель хранимых объектов::Трехуровневая модель хранимого объекта::Понятие Серванта Сущности" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1497, 951)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1113, 919)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	768
+			justify    	0
+			label      	"Понятие Серванта Сущности")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(1113, 869)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	768
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    fill_color 	11531715
+		    quidu      	"4875CFC40225"
+		    width      	786
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @6
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4875D16400B3"
+		    client     	@5
+		    supplier   	@2
+		    vertices   	(list Points
+			(1238, 856)
+			(914, 739))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Метамодель хранимых объектов::Трехуровневая модель хранимого объекта::Сущности без состояний" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1503, 1164)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(1119, 1132)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	768
+			justify    	0
+			label      	"Сущности без состояний")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@7
+			location   	(1119, 1082)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	768
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    fill_color 	11531715
+		    quidu      	"4875E82F0205"
+		    width      	786
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы хранениЯ объектов::Хранимый объект не обязан иметь атрибуты" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(540, 1170)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(84, 1138)
+			nlines     	1
+			max_width  	912
+			justify    	0
+			label      	"Хранимый объект не обязан иметь атрибуты")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(84, 1088)
+			anchor     	10
+			nlines     	1
+			max_width  	912
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"488CBD180144"
+		    width      	930
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @9
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4875E9570308"
+		    client     	@7
+		    supplier   	@8
+		    vertices   	(list Points
+			(1109, 1166)
+			(1005, 1167))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Работа с моделью::Определение Сущности" @10
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(450, 333)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@10
+			location   	(449, 475)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	651
+			justify    	0
+			label      	"Определение Сущности")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"471632F402E0"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @11
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4909F0FE02A4"
+		    client     	@10
+		    supplier   	@1
+		    vertices   	(list Points
+			(562, 303)
+			(1077, 187))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Работа с моделью::Определение идентификатора Сущности" @12
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1068, 333)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@12
+			location   	(1067, 475)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	747
+			justify    	0
+			label      	"Определение идентификатора Сущности")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48748D1C01E1"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @13
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48748D9602C3"
+		    client     	@12
+		    supplier   	@1
+		    vertices   	(list Points
+			(1168, 271)
+			(1304, 193))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Работа с моделью::Определение Состояния" @14
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2592, 639)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@14
+			location   	(2591, 781)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	651
+			justify    	0
+			label      	"Определение Состояния")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"4874C96D0042"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @15
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4874CA010232"
+		    client     	@14
+		    supplier   	@3
+		    vertices   	(list Points
+			(2478, 638)
+			(2213, 641))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::РеализациЯ::Реализация Сущности" @16
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2289, 1137)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@16
+			location   	(2288, 1279)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	651
+			justify    	0
+			label      	"Реализация Сущности")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48E38C860236"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @17
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48E38C9203CD"
+		    client     	@16
+		    supplier   	@5
+		    vertices   	(list Points
+			(2174, 1107)
+			(1890, 1043))
+		    line_style 	0)
+		(object RealizeView "" @18
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48E3A3440018"
+		    client     	@16
+		    supplier   	@7
+		    vertices   	(list Points
+			(2175, 1138)
+			(1896, 1150))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Работа с моделью::Определение Серванта Сущности" @19
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2859, 1137)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@19
+			location   	(2858, 1279)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	651
+			justify    	0
+			label      	"Определение Серванта Сущности")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48E3A40A018E"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::РеализациЯ::Реализация Сущности" @20
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2508, 336)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@20
+			location   	(2507, 478)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	690
+			justify    	0
+			label      	"Реализация Сущности")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48E38C860236"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Работа клиента::Работа с Сущностью" @21
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2082, 336)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@21
+			location   	(2081, 478)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	690
+			justify    	0
+			label      	"Работа с Сущностью")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48E37F000203"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @22
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"490C207D00DE"
+		    client     	@20
+		    supplier   	@1
+		    vertices   	(list Points
+			(2393, 307)
+			(1856, 186))
+		    line_style 	0)
+		(object RealizeView "" @23
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"490C20850121"
+		    client     	@21
+		    supplier   	@1
+		    vertices   	(list Points
+			(1968, 290)
+			(1713, 193))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Работа клиента::Создание Сущности" @24
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1668, 336)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@24
+			location   	(1667, 478)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	690
+			justify    	0
+			label      	"Создание Сущности")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"489448C302AE"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @25
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"490C30C40303"
+		    client     	@24
+		    supplier   	@1
+		    vertices   	(list Points
+			(1614, 274)
+			(1547, 193))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::РеализациЯ::Реализация \"идентичности\"" @26
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2769, 102)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@26
+			location   	(2768, 244)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	654
+			justify    	0
+			label      	
+|Реализация "идентичности"
+			)
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"4921372E01E4"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @27
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4859214A000B"
+		    client     	@1
+		    supplier   	@2
+		    vertices   	(list Points
+			(1078, 110)
+			(176, 110)
+			(176, 551))
+		    line_style 	3
+		    origin_attachment 	(1078, 110)
+		    terminal_attachment 	(176, 551))
+		(object RealizeView "" @28
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"492137C50323"
+		    client     	@26
+		    supplier   	@1
+		    vertices   	(list Points
+			(2654, 98)
+			(1856, 99))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Сложность разработки::Дублирование кода и потеря соответствия" @29
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(561, 1479)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@29
+			location   	(118, 1447)
+			nlines     	1
+			max_width  	886
+			justify    	0
+			label      	"Дублирование кода и потеря соответствия")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@29
+			location   	(118, 1397)
+			anchor     	10
+			nlines     	1
+			max_width  	886
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"49356FBF011C"
+		    width      	904
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Сложность разработки::Неэффективность одной реализации" @30
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(612, 945)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@30
+			location   	(364, 901)
+			nlines     	1
+			max_width  	496
+			justify    	0
+			label      	"Неэффективность одной реализации")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@30
+			location   	(364, 851)
+			anchor     	10
+			nlines     	1
+			max_width  	496
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"493570B402CE"
+		    width      	514
+		    height     	212
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Метамодель хранимых объектов::Трехуровневая модель хранимого объекта::Наследование Сущностей, Сервантов и Состояний" @31
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1659, 1476)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@31
+			location   	(1131, 1444)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1056
+			justify    	0
+			label      	"Наследование Сущностей, Сервантов и Состояний")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@31
+			location   	(1131, 1394)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1056
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    fill_color 	11531715
+		    quidu      	"493575200092"
+		    width      	1074
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @32
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4935758C0395"
+		    client     	@31
+		    supplier   	@29
+		    vertices   	(list Points
+			(1121, 1476)
+			(1013, 1477))
+		    line_style 	0)
+		(object RealizeView "" @33
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4935759A02EF"
+		    client     	@5
+		    supplier   	@30
+		    vertices   	(list Points
+			(1103, 948)
+			(869, 946))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Работа с моделью::Определение Состояния" @34
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1950, 1752)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@34
+			location   	(1949, 1894)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	657
+			justify    	0
+			label      	"Определение Состояния")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"4874C96D0042"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Работа с моделью::Определение Сущности" @35
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1434, 1752)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@35
+			location   	(1433, 1894)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	661
+			justify    	0
+			label      	"Определение Сущности")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"471632F402E0"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @36
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"493576260315"
+		    client     	@35
+		    supplier   	@31
+		    vertices   	(list Points
+			(1478, 1689)
+			(1581, 1570))
+		    line_style 	0)
+		(object RealizeView "" @37
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4935762802A9"
+		    client     	@34
+		    supplier   	@31
+		    vertices   	(list Points
+			(1885, 1689)
+			(1758, 1570))
+		    line_style 	0)
+		(object RealizeView "" @38
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48E3A4780168"
+		    client     	@19
+		    supplier   	@5
+		    vertices   	(list Points
+			(2842, 1075)
+			(2842, 906)
+			(1890, 906))
+		    line_style 	3
+		    origin_attachment 	(2842, 1075)
+		    terminal_attachment 	(1890, 906))
+		(object RealizeView "" @39
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"4935760202B5"
+		    client     	@19
+		    supplier   	@31
+		    vertices   	(list Points
+			(2842, 1353)
+			(2842, 1478)
+			(2196, 1478))
+		    line_style 	3
+		    origin_attachment 	(2842, 1353)
+		    terminal_attachment 	(2196, 1478))))
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"48FEE7C10166"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	154
+	    origin_y   	595
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Метамодель хранимых объектов::Маппинг атрибутов Сущности" @40
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1749, 1728)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@40
+			location   	(1427, 1707)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	644
+			justify    	0
+			label      	"Маппинг атрибутов Сущности")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@40
+			location   	(1427, 1657)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	644
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    fill_color 	11531715
+		    quidu      	"485B6A7A00E2"
+		    width      	662
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Метамодель хранимых объектов::Вычисляемые атрибуты Состояния" @41
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1758, 2943)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@41
+			location   	(1385, 2922)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	746
+			justify    	0
+			label      	"Вычисляемые атрибуты Состояния")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@41
+			location   	(1385, 2872)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	746
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    fill_color 	11531715
+		    quidu      	"4875DF300029"
+		    width      	764
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Метамодель хранимых объектов::Интерфейс-итератор по набору сущностей" @42
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1797, 2265)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@42
+			location   	(1349, 2244)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	896
+			justify    	0
+			label      	"Интерфейс-итератор по набору сущностей")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@42
+			location   	(1349, 2194)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	896
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    fill_color 	11531715
+		    quidu      	"4874B50B02A9"
+		    width      	914
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Метамодель хранимых объектов::Трехуровневая модель хранимого объекта" @43
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1797, 846)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@43
+			location   	(1361, 825)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	872
+			justify    	0
+			label      	"Трехуровневая модель хранимого объекта")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@43
+			location   	(1361, 775)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	872
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    line_color 	7885055
+		    fill_color 	11531715
+		    quidu      	"487476630347"
+		    width      	890
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Метамодель хранимых объектов::Уникальность экземпляра базы заданного типа" @44
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1851, 198)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@44
+			location   	(1378, 177)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	946
+			justify    	0
+			label      	"Уникальность экземпляра базы заданного типа")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@44
+			location   	(1378, 127)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	946
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    fill_color 	11531715
+		    quidu      	"4874747500F1"
+		    width      	964
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Метамодель хранимых объектов::Фабрики и Ремуверы Сущности" @45
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1683, 1056)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@45
+			location   	(1357, 1035)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	652
+			justify    	0
+			label      	"Фабрики и Ремуверы Сущности")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@45
+			location   	(1357, 985)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	652
+			justify    	0
+			label      	"<<Feature>>")
+		    icon_style 	"Icon"
+		    fill_color 	11531715
+		    quidu      	"485922E2009A"
+		    width      	670
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Сложность разработки::Смешение слоев представления::Рутинное связывание различных слоев" @46
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(651, 1731)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@46
+			location   	(246, 1699)
+			nlines     	1
+			max_width  	810
+			justify    	0
+			label      	"Рутинное связывание различных слоев")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@46
+			location   	(246, 1649)
+			anchor     	10
+			nlines     	1
+			max_width  	810
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"488CC6A70334"
+		    width      	828
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @47
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"488CC75D0337"
+		    client     	@40
+		    supplier   	@46
+		    vertices   	(list Points
+			(1417, 1728)
+			(1065, 1729))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Сложность разработки::Смешение слоев представления" @48
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(483, 837)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@48
+			location   	(127, 805)
+			nlines     	1
+			max_width  	712
+			justify    	0
+			label      	"Смешение слоев представления")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@48
+			location   	(127, 755)
+			anchor     	10
+			nlines     	1
+			max_width  	712
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"488CC5940044"
+		    width      	730
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @49
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"488CC73602C3"
+		    client     	@43
+		    supplier   	@48
+		    vertices   	(list Points
+			(1351, 842)
+			(848, 839))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Сложность разработки::Разная семантика работы с коллекциями" @50
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(627, 2274)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@50
+			location   	(211, 2242)
+			nlines     	1
+			max_width  	832
+			justify    	0
+			label      	"Разная семантика работы с коллекциями")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@50
+			location   	(211, 2192)
+			anchor     	10
+			nlines     	1
+			max_width  	832
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"485916250107"
+		    width      	850
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @51
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4874BA4203AE"
+		    client     	@42
+		    supplier   	@50
+		    vertices   	(list Points
+			(1339, 2268)
+			(1052, 2270))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы выборки объектов::Поиск перебором по функции атрибутов" @52
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(744, 3024)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@52
+			location   	(350, 2992)
+			nlines     	1
+			max_width  	788
+			justify    	0
+			label      	"Поиск перебором по функции атрибутов")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@52
+			location   	(350, 2942)
+			anchor     	10
+			nlines     	1
+			max_width  	788
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"485914D500EF"
+		    width      	806
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @53
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4875DFCC02D8"
+		    client     	@41
+		    supplier   	@52
+		    vertices   	(list Points
+			(1375, 2973)
+			(1147, 2990))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Проблемы выборки объектов::Поиск перебором по функции атрибутов::Разсинхронизация функционально связанных атрибутов" @54
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(597, 2841)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@54
+			location   	(26, 2809)
+			nlines     	1
+			max_width  	1142
+			justify    	0
+			label      	"Разсинхронизация функционально связанных атрибутов")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@54
+			location   	(26, 2759)
+			anchor     	10
+			nlines     	1
+			max_width  	1142
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"488CB0C60048"
+		    width      	1160
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @55
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"488CB4D40385"
+		    client     	@41
+		    supplier   	@54
+		    vertices   	(list Points
+			(1375, 2907)
+			(1177, 2892))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Сложность разработки::Смешение объектов разной природы в одной БД::Неоднозначность места хранения" @56
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(609, 114)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@56
+			location   	(185, 82)
+			nlines     	1
+			max_width  	848
+			justify    	0
+			label      	"Неоднозначность места хранения")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@56
+			location   	(185, 32)
+			anchor     	10
+			nlines     	1
+			max_width  	848
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"4874750D005C"
+		    width      	866
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @57
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"487475B1011A"
+		    client     	@44
+		    supplier   	@56
+		    vertices   	(list Points
+			(1368, 164)
+			(1042, 142))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Сложность разработки::Смешение объектов разной природы в одной БД" @58
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(573, 294)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@58
+			location   	(86, 262)
+			nlines     	1
+			max_width  	974
+			justify    	0
+			label      	"Смешение объектов разной природы в одной БД")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@58
+			location   	(86, 212)
+			anchor     	10
+			nlines     	1
+			max_width  	974
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"488CE1A00198"
+		    width      	992
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @59
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"488CE3910337"
+		    client     	@44
+		    supplier   	@58
+		    vertices   	(list Points
+			(1368, 234)
+			(1069, 256))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Сложность разработки::Неоднозначность семантики создания и удаления" @60
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(531, 1008)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@60
+			location   	(10, 976)
+			nlines     	1
+			max_width  	1042
+			justify    	0
+			label      	"Неоднозначность семантики создания и удаления")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@60
+			location   	(10, 926)
+			anchor     	10
+			nlines     	1
+			max_width  	1042
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"4858E3BD03D3"
+		    width      	1060
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @61
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"485923B803A7"
+		    client     	@45
+		    supplier   	@60
+		    vertices   	(list Points
+			(1347, 1041)
+			(1061, 1029))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::РеализациЯ::Ручная связь атрибутов" @62
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1344, 1965)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@62
+			location   	(1343, 2107)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	651
+			justify    	0
+			label      	"Ручная связь атрибутов")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48E3A1CD024F"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @63
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48E3A20802C9"
+		    client     	@62
+		    supplier   	@40
+		    vertices   	(list Points
+			(1444, 1903)
+			(1603, 1811))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Внутренние детали фреймоврка::Автоматическое связывание атрибутов" @64
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2121, 1959)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@64
+			location   	(2120, 2101)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	752
+			justify    	0
+			label      	"Автоматическое связывание атрибутов")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48E3A8F0005A"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::РеализациЯ::Реализация вычисляемых атрибутов" @65
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1749, 3228)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@65
+			location   	(1748, 3370)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	752
+			justify    	0
+			label      	"Реализация вычисляемых атрибутов")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48E38E6400F8"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @66
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48E38E8502B6"
+		    client     	@65
+		    supplier   	@41
+		    vertices   	(list Points
+			(1748, 3164)
+			(1754, 3026))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Внутренние детали фреймоврка::Индексация вычисляемых атрибутов" @67
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2466, 3222)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@67
+			location   	(2465, 3364)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	752
+			justify    	0
+			label      	"Индексация вычисляемых атрибутов")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48E3A94E0138"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @68
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48E3A96901FC"
+		    client     	@67
+		    supplier   	@41
+		    vertices   	(list Points
+			(2350, 3174)
+			(1973, 3026))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Работа с моделью::Определение вычисляемого атрибута" @69
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1017, 3231)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@69
+			location   	(1016, 3373)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	742
+			justify    	0
+			label      	"Определение вычисляемого атрибута")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48E38DAC0337"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @70
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48E38DD1004C"
+		    client     	@69
+		    supplier   	@41
+		    vertices   	(list Points
+			(1129, 3184)
+			(1542, 3026))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Работа клиента::Перебор массива сущностей" @71
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1356, 2490)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@71
+			location   	(1355, 2632)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	651
+			justify    	0
+			label      	"Перебор массива сущностей")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48E381350299"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @72
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48E381470151"
+		    client     	@71
+		    supplier   	@42
+		    vertices   	(list Points
+			(1468, 2429)
+			(1632, 2348))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Внутренние детали фреймоврка::Генерация специального итератора Сущностей" @73
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2193, 2484)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@73
+			location   	(2192, 2626)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	863
+			justify    	0
+			label      	"Генерация специального итератора Сущностей")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48E3A54E0189"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @74
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48E3A56801AE"
+		    client     	@73
+		    supplier   	@42
+		    vertices   	(list Points
+			(2082, 2422)
+			(1949, 2348))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Работа клиента::Работа с БД" @75
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1527, 510)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@75
+			location   	(1526, 652)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	651
+			justify    	0
+			label      	"Работа с БД")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48E621B802AD"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @76
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48E621DC0224"
+		    client     	@75
+		    supplier   	@44
+		    vertices   	(list Points
+			(1586, 448)
+			(1762, 281))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Внутренние детали фреймоврка::Валидация открытия и закрытия базы" @77
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2079, 516)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@77
+			location   	(2078, 658)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	706
+			justify    	0
+			label      	"Валидация открытия и закрытия базы")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48E6228F00ED"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @78
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48E622B9013F"
+		    client     	@77
+		    supplier   	@44
+		    vertices   	(list Points
+			(2033, 454)
+			(1910, 281))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Работа с моделью::Определение логической базы" @79
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1047, 513)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@79
+			location   	(1046, 655)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	651
+			justify    	0
+			label      	"Определение логической базы")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"4892D0BF02EA"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @80
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4892D0EA02B4"
+		    client     	@79
+		    supplier   	@44
+		    vertices   	(list Points
+			(1159, 466)
+			(1633, 281))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Работа с моделью::Задание связей между Сущностями" @81
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2799, 528)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@81
+			location   	(2798, 670)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	651
+			justify    	0
+			label      	"Задание связей между Сущностями")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48E4B7A00202"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @82
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48E623010283"
+		    client     	@81
+		    supplier   	@44
+		    vertices   	(list Points
+			(2685, 487)
+			(2091, 281))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Работа клиента::Создание Сущности" @83
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(324, 1413)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@83
+			location   	(323, 1555)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	651
+			justify    	0
+			label      	"Создание Сущности")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"489448C302AE"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @84
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"489448D502AC"
+		    client     	@83
+		    supplier   	@45
+		    vertices   	(list Points
+			(436, 1380)
+			(1364, 1139))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::РеализациЯ::Реализация дополнительных ремуверов" @85
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1983, 1416)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@85
+			location   	(1982, 1558)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	756
+			justify    	0
+			label      	"Реализация дополнительных ремуверов")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48E38D6C016E"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @86
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48E38D8401E9"
+		    client     	@85
+		    supplier   	@45
+		    vertices   	(list Points
+			(1928, 1352)
+			(1752, 1139))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Работа с моделью::Определение фабрик и ремуверов" @87
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1269, 1416)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@87
+			location   	(1268, 1558)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	651
+			justify    	0
+			label      	"Определение фабрик и ремуверов")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"48E38D05025B"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @88
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48E38D4600CC"
+		    client     	@87
+		    supplier   	@45
+		    vertices   	(list Points
+			(1334, 1352)
+			(1585, 1139))
+		    line_style 	0)
+		(object RealizeView "" @89
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"48E3A90303A3"
+		    client     	@64
+		    supplier   	@40
+		    vertices   	(list Points
+			(2022, 1897)
+			(1883, 1811))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Работа клиента::Удаление сущности" @90
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(732, 1416)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@90
+			location   	(731, 1558)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	654
+			justify    	0
+			label      	"Удаление сущности")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"490C32D402DC"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @91
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"490C33A5022F"
+		    client     	@90
+		    supplier   	@45
+		    vertices   	(list Points
+			(844, 1369)
+			(1460, 1139))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Внутренние детали фреймоврка::Генерация каркаса реализации" @92
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2736, 969)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@92
+			location   	(2735, 1111)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	651
+			justify    	0
+			label      	"Генерация каркаса реализации")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"490C59F803DF"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @93
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"490C5A920057"
+		    client     	@92
+		    supplier   	@45
+		    vertices   	(list Points
+			(2622, 974)
+			(2018, 1027))
+		    line_style 	0)
+		(object RealizeView "" @94
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"490C5A9702FD"
+		    client     	@92
+		    supplier   	@43
+		    vertices   	(list Points
+			(2621, 952)
+			(2242, 903))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::Сложность разработки::Неэффективность одной реализации" @95
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(429, 1182)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	5911215
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@95
+			location   	(30, 1150)
+			nlines     	1
+			max_width  	798
+			justify    	0
+			label      	"Неэффективность одной реализации")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@95
+			location   	(30, 1100)
+			anchor     	10
+			nlines     	1
+			max_width  	798
+			justify    	0
+			label      	"<<UserNeeds>>")
+		    icon_style 	"Label"
+		    line_color 	5911215
+		    fill_color 	16777215
+		    quidu      	"493570B402CE"
+		    width      	816
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @96
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"493575C101A4"
+		    client     	@45
+		    supplier   	@95
+		    vertices   	(list Points
+			(1347, 1089)
+			(837, 1140))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::Storage::Хранилище::РеализациЯ::Реализация прозрачной мульти фабрики" @97
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(2754, 1416)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	1989310
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@97
+			location   	(2753, 1558)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	741
+			justify    	0
+			label      	"Реализация прозрачной мульти фабрики")
+		    icon       	"UseCase"
+		    icon_style 	"Icon"
+		    line_color 	1989310
+		    fill_color 	16777215
+		    quidu      	"4937C95B0269"
+		    width      	230
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object RealizeView "" @98
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"4937CC900268"
+		    client     	@97
+		    supplier   	@45
+		    vertices   	(list Points
+			(2639, 1374)
+			(1930, 1139))
+		    line_style 	0)))))

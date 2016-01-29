@@ -1,0 +1,95 @@
+// Impl 536B6ADF02D2 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_536B6ADF02D2
+
+FORWARD ME_536B7D0F0314
+
+: ME_536B848D031F
+ CONST UID '536B848D031F'
+ CONST Name 'ScreenLeft'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_536B7D0F0314 // TvgVisualObject
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_536B848D031F ScreenLeft
+
+: ME_536B849D0317
+ CONST UID '536B849D0317'
+ CONST Name 'ScreenTop'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_lnk
+ : Parent ME_536B7D0F0314 // TvgVisualObject
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_536B849D0317 ScreenTop
+
+: ME_536B7D0F0314
+ CONST UID '536B7D0F0314'
+ CONST Name 'TvgVisualObject'
+ CONST Class class_Class
+ : Stereotype st_TestClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_536B6ADF02D2 // Impl
+ ;
+ : Inherits
+   @ ( WL 'ME_4D49562A01B7' '4CFCE51A00B0.pas.ms.script' // TvgVisualObject
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_536B848D031F // ScreenLeft
+ ME_536B849D0317 // ScreenTop
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "is friend" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\VGScene\vgVisualObject_p.pas'
+
+ref; // ME_536B7D0F0314 TvgVisualObject
+
+: ME_536B6ADF02D2
+ CONST UID '536B6ADF02D2'
+ CONST Name 'Impl'
+ CONST Class class_Category
+ : Stereotype st_TestUnit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_536B6A5E0136' '536B6A5E0136.pas.ms.script' // VGSceneTest
+ ;
+ : Children
+   @ ( ME_536B7D0F0314 // TvgVisualObject
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_4CFCE51A00B0' '4CFCE51A00B0.pas.ms.script' // Impl
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\536B6ADF02D2.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\536B6ADF02D2.pas.ms.script.runner'
+
+ref; // ME_536B6ADF02D2 Impl

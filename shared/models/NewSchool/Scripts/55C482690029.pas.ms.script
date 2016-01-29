@@ -1,0 +1,267 @@
+// TtfwDefaultScriptCaller 55C482690029 SimpleClass Class
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+INCLUDE '515AC8CC02BD.pas.ms.script'
+
+FORWARD ME_55C482690029
+
+FORWARD ME_55C491FC025C
+
+INCLUDE '4677FBA70343.pas.ms.script'
+
+: ME_55C4927600E2
+ CONST UID '55C4927600E2'
+ CONST Name 'aStr'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46780D0003AF // Tl3WString
+ ;
+
+ @SELF
+; // ME_55C4927600E2 aStr
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_55C4926D01BE
+ CONST UID '55C4926D01BE'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_55C4927600E2 // aStr
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_55C4926D01BE DoIt
+
+: ME_55C491FC025C
+ CONST UID '55C491FC025C'
+ CONST Name 'DoPrint'
+ CONST Class 'Class'
+ CONST Stereotype 'virtualmethod'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_55C4926D01BE // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55C491FC025C DoPrint
+
+FORWARD ME_55C4A52C01A0
+
+: ME_55C4A53202D3
+ CONST UID '55C4A53202D3'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_55C4A53202D3 DoIt
+
+: ME_55C4A52C01A0
+ CONST UID '55C4A52C01A0'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_55C4A53202D3 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55C4A52C01A0 Create
+
+FORWARD ME_55C4A53D0305
+
+: ME_CDA83D765596
+ CONST UID 'CDA83D765596'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура фабрики TtfwDefaultScriptCaller.Make' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DAF1A1700F7 // ItfwScriptCaller
+ ;
+
+ @SELF
+; // ME_CDA83D765596 DoIt
+
+: ME_55C4A53D0305
+ CONST UID '55C4A53D0305'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'Factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55C4A52C01A0 // Create
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_4DAF1A1700F7 // ItfwScriptCaller
+ ]
+ ; // Implements
+ : Operations
+   [ ME_CDA83D765596 // DoIt
+ ]
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_55C4A53D0305 Make
+
+FORWARD ME_55CC867301F7
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_55CC868302A8
+ CONST UID '55CC868302A8'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_55CC868302A8 DoIt
+
+: ME_55CC867301F7
+ CONST UID '55CC867301F7'
+ CONST Name 'DictPath'
+ CONST Class 'Class'
+ CONST Stereotype 'virtualmethod'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_55CC868302A8 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55CC867301F7 DictPath
+
+FORWARD ME_55D34AD90105
+
+: ME_55D34AFC0293
+ CONST UID '55D34AFC0293'
+ CONST Name 'aFile'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_55D34AFC0293 aFile
+
+: ME_55D34AEA00A4
+ CONST UID '55D34AEA00A4'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_476136D3010B // String
+ ;
+ : Parameters
+   [ ME_55D34AFC0293 // aFile
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_55D34AEA00A4 DoIt
+
+: ME_55D34AD90105
+ CONST UID '55D34AD90105'
+ CONST Name 'DoResolveIncludedFilePath'
+ CONST Class 'Class'
+ CONST Stereotype 'virtualmethod'
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'regular'
+ : Operations
+   [ ME_55D34AEA00A4 // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55D34AD90105 DoResolveIncludedFilePath
+
+: ME_55C482690029
+ CONST UID '55C482690029'
+ CONST Name 'TtfwDefaultScriptCaller'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_4DAF1A1700F7 // ItfwScriptCaller
+ ]
+ ; // Implements
+ : Operations
+   [ ME_55C491FC025C // DoPrint
+ ME_55C4A52C01A0 // Create
+ ME_55C4A53D0305 // Make
+ ME_55CC867301F7 // DictPath
+ ME_55D34AD90105 // DoResolveIncludedFilePath
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4CAEDCF9006A // CheckOutputWithInput$1
+ ME_4DAF1A280116 // Check
+ ME_4DB173AA005A // Print
+ ME_4DB1785F011A // Print
+ ME_4DC2E1470046 // ResolveIncludedFilePath
+ ME_4DCA915C0120 // ResolveOutputFilePath
+ ME_4DD533BF023D // CheckWithEtalon
+ ME_4DECF57B02D2 // ResolveInputFilePath
+ ME_4F0D7AC900FA // CheckPrintEtalon
+ ME_4F0D8B740186 // ShouldStop
+ ME_4F0D8C360085 // CheckTimeout
+ ME_4F0D8C5A01A2 // StartTimer
+ ME_4F0D8CB0015D // StopTimer
+ ME_4F0D91AA0080 // KPage
+ ME_4F0DA2A7024A // ToLog
+ ME_4F5F3C61023E // CheckOutputWithInput
+ ME_4F72CEFE016D // GetIsWritingToK
+ ME_4F72CF27029A // GetIsFakeCVS
+ ME_4F72CF78027D // GetCVSPath
+ ME_4F851D7B0399 // DontRaiseIfEtalonCreated
+ ME_511BC7C60063 // TimeToLog
+ ME_513866B10237 // GetTestSetFolderName
+ ME_5138790002FF // GetEtalonSuffix
+ ME_52EBC5BB0300 // CompileOnly
+ ME_536A15F901DA // CheckPictureOnly
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_55C482690029 TtfwDefaultScriptCaller

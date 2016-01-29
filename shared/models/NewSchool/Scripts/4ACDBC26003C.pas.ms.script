@@ -1,0 +1,408 @@
+// Source 4ACDBC26003C Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ACDBC26003C
+
+FORWARD ME_4ACDBC4A0003
+
+FORWARD ME_4ACDBC6101A6
+
+: ME_ED06A9EFC4C7
+ CONST UID 'ED06A9EFC4C7'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class class_Operation
+ : Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация TImageEnView' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_4ACDBC6101A6 // TImageEnView
+ ;
+ CONST "ifndef" 'NoScripts'
+
+ref; // ME_ED06A9EFC4C7 Ini_Reg_Class
+
+: ME_003D26D1450D
+ CONST UID '003D26D1450D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4ACDBC6101A6 // TImageEnView
+ ;
+ : Target WL 'ME_561F9F9400BC' '561F9F7D02A7.pas.ms.script' // TtfwClassRef
+ ;
+
+ref; // ME_003D26D1450D 
+
+: ME_4ACDBC6101A6
+ CONST UID '4ACDBC6101A6'
+ CONST Name 'TImageEnView'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ACDBC4A0003 // imageenview
+ ;
+ : Operations
+   @ ( ME_ED06A9EFC4C7 // Ini_Reg_Class
+ ) .SequenceCode.It
+ ; // Operations
+ : Dependencies
+   @ ( ME_003D26D1450D // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ : Injected
+   @ ( WL 'ME_54F4642100D0' '52E20E0E0059.pas.ms.script' // 
+ ) .SequenceCode.It
+ ; // Injected
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" true
+
+ref; // ME_4ACDBC6101A6 TImageEnView
+
+: ME_4ACDBC4A0003
+ CONST UID '4ACDBC4A0003'
+ CONST Name 'imageenview'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4ACDBC26003C // Source
+ ;
+ : Children
+   @ ( ME_4ACDBC6101A6 // TImageEnView
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\ImageEn\src\NOT_FINISHED_imageenview.pas'
+
+ref; // ME_4ACDBC4A0003 imageenview
+
+FORWARD ME_4ACDBE7800FD
+
+: ME_4ACDBE8801BE
+ CONST UID '4ACDBE8801BE'
+ CONST Name 'TImageEnIO'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ACDBE7800FD // imageenio
+ ;
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_4ACDBE8801BE TImageEnIO
+
+FORWARD ME_53733D6C036D
+
+: ME_0C9ADE2797D7
+ CONST UID '0C9ADE2797D7'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода FindStreamFormat' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_53733D6C036D // FindStreamFormat
+ ;
+
+ref; // ME_0C9ADE2797D7 DoIt
+
+: ME_53733D6C036D
+ CONST UID '53733D6C036D'
+ CONST Name 'FindStreamFormat'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4ACDBE7800FD // imageenio
+ ;
+ : Operations
+   @ ( ME_0C9ADE2797D7 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+
+ref; // ME_53733D6C036D FindStreamFormat
+
+: ME_4ACDBE7800FD
+ CONST UID '4ACDBE7800FD'
+ CONST Name 'imageenio'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4ACDBC26003C // Source
+ ;
+ : Operations
+   @ ( ME_53733D6C036D // FindStreamFormat
+ ) .SequenceCode.It
+ ; // Operations
+ : Children
+   @ ( ME_4ACDBE8801BE // TImageEnIO
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\ImageEn\src\NOT_FINISHED_imageenio.pas'
+
+ref; // ME_4ACDBE7800FD imageenio
+
+FORWARD ME_4ACDC3F80345
+
+: ME_4ACDC40F0227
+ CONST UID '4ACDC40F0227'
+ CONST Name 'TIEMMouseInteractItems'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ACDC3F80345 // iemview
+ ;
+
+ref; // ME_4ACDC40F0227 TIEMMouseInteractItems
+
+: ME_4ACDC3F80345
+ CONST UID '4ACDC3F80345'
+ CONST Name 'iemview'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4ACDBC26003C // Source
+ ;
+ : Children
+   @ ( ME_4ACDC40F0227 // TIEMMouseInteractItems
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\ImageEn\src\NOT_FINISHED_iemview.pas'
+
+ref; // ME_4ACDC3F80345 iemview
+
+FORWARD ME_4ACDC4220115
+
+: ME_4ACDC43503CA
+ CONST UID '4ACDC43503CA'
+ CONST Name 'TResampleFilter'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4ACDC4220115 // hyiedefs
+ ;
+
+ref; // ME_4ACDC43503CA TResampleFilter
+
+: ME_4ACDC4220115
+ CONST UID '4ACDC4220115'
+ CONST Name 'hyiedefs'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4ACDBC26003C // Source
+ ;
+ : Children
+   @ ( ME_4ACDC43503CA // TResampleFilter
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\ImageEn\src\NOT_FINISHED_hyiedefs.pas'
+
+ref; // ME_4ACDC4220115 hyiedefs
+
+FORWARD ME_4B0FFBFC0188
+
+: ME_4B0FFC0A03CA
+ CONST UID '4B0FFC0A03CA'
+ CONST Name 'TIEMouseWheelParamsAction'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4B0FFBFC0188 // hyieutils
+ ;
+
+ref; // ME_4B0FFC0A03CA TIEMouseWheelParamsAction
+
+: ME_4FD0890501F9
+ CONST UID '4FD0890501F9'
+ CONST Name 'TIEBitmap'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4B0FFBFC0188 // hyieutils
+ ;
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_4FD0890501F9 TIEBitmap
+
+: ME_4B0FFBFC0188
+ CONST UID '4B0FFBFC0188'
+ CONST Name 'hyieutils'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4ACDBC26003C // Source
+ ;
+ : Children
+   @ ( ME_4B0FFC0A03CA // TIEMouseWheelParamsAction
+ ME_4FD0890501F9 // TIEBitmap
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\ImageEn\src\NOT_FINISHED_hyieutils.pas'
+
+ref; // ME_4B0FFBFC0188 hyieutils
+
+FORWARD ME_4C8778C80111
+
+: ME_4C8778D802F6
+ CONST UID '4C8778D802F6'
+ CONST Name 'TImageEnProc'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C8778C80111 // imageenproc
+ ;
+ CONST "finished" false
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ref; // ME_4C8778D802F6 TImageEnProc
+
+: ME_4C8778C80111
+ CONST UID '4C8778C80111'
+ CONST Name 'imageenproc'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4ACDBC26003C // Source
+ ;
+ : Children
+   @ ( ME_4C8778D802F6 // TImageEnProc
+ ) .SequenceCode.It
+ ; // Children
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\ImageEn\src\NOT_FINISHED_imageenproc.pas'
+
+ref; // ME_4C8778C80111 imageenproc
+
+: ME_524970860109
+ CONST UID '524970860109'
+ CONST Name 'giflzw'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4ACDBC26003C // Source
+ ;
+ CONST "finished" false
+ CONST "no hands" false
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\external\ImageEn\src\NOT_FINISHED_giflzw.pas'
+
+ref; // ME_524970860109 giflzw
+
+: ME_4ACDBC26003C
+ CONST UID '4ACDBC26003C'
+ CONST Name 'Source'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4ACDBBED0241' '4ACDBBED0241.pas.ms.script' // ImageEn
+ ;
+ : Children
+   @ ( ME_4ACDBC4A0003 // imageenview
+ ME_4ACDBE7800FD // imageenio
+ ME_4ACDC3F80345 // iemview
+ ME_4ACDC4220115 // hyiedefs
+ ME_4B0FFBFC0188 // hyieutils
+ ME_4C8778C80111 // imageenproc
+ ME_524970860109 // giflzw
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_561F9F7D02A7' '561F9F7D02A7.pas.ms.script' // ScriptEngine
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "path prefix" '/src'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4ACDBC26003C.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4ACDBC26003C.pas.ms.script.runner'
+
+ref; // ME_4ACDBC26003C Source

@@ -1,0 +1,1145 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 8.5.0503.xxx"
+    charSet    	204)
+
+(object Class_Category "UserActionAnalizer"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"h:*44EB0A5502AB_CUSTOM_INCLUDE*"
+	    value      	"//#UC START# *44EB0A5502AB_CUSTOM_INCLUDE*¤//#UC END# *44EB0A5502AB_CUSTOM_INCLUDE*")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ApplyedGens"
+	    value      	"C++ интерфейсы и реализация")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (cpp)"
+	    value      	"w:/shared/GCI/UserActionAnalizer/UserActionAnalizer.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.cpp)"
+	    value      	"w:/shared/GCI/UserActionAnalizer/UserActionAnalizerFactories.cpp")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (fctr.h)"
+	    value      	"w:/shared/GCI/UserActionAnalizer/UserActionAnalizerFactories.h")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SELF GENERATED FILE (h)"
+	    value      	"w:/shared/GCI/UserActionAnalizer/UserActionAnalizer.h"))
+    quid       	"44EB0A5502AB"
+    documentation 	
+|Анализатор последовательности действий (action). На основе входного файла описания "ограничений" действий, и реальной последовательности действий сообщаемых извне,  анализатор может вызывать события нарушения "ограничений". События будут передаваться внешнему получателю, для обработки и\или сигнализации пользователю.
+    
+    stereotype 	"Interface"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"44EB3B200163"
+	    supplier   	"Logical View::shared::GCI::IO"
+	    quidu      	"4423F94903C8"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "Analizer"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44EB0A6E01E0_44EB0A850337_44EB1EFD0172_BASE_INIT*"
+		    value      	"//#UC START# *44EB0A6E01E0_44EB0A850337_44EB1EFD0172_BASE_INIT*¤//#UC END# *44EB0A6E01E0_44EB0A850337_44EB1EFD0172_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44EB0A6E01E0_44EB0A850337_44EB1EFD0172_BODY*"
+		    value      	(value Text 
+|//#UC START# *44EB0A6E01E0_44EB0A850337_44EB1EFD0172_BODY*¤	const char* file_name = suplier->get_action_constraint_file ();¤	FILE* file = fopen (file_name, "rt");¤	if (!file) {¤		throw;¤	}¤¤	bool ra_mode = false;¤	char pline[1024];¤	while (fgets(pline, 1024, file)) {¤		if (pline[strlen(pline)-1] == '\n') {¤			pline[strlen(pline)-1] = 0;¤		}¤¤		std::string line = GCL::trim_ws(pline);¤		if (GCL::start_with (line.data(), "//")) {¤			continue;¤		}¤¤		if (!ra_mode) {¤			if (GCL::start_with (line.data(), "actions")) {¤				ra_mode = true;¤			} else if (GCL::start_with (line.data(), "constraint")) {¤				m_constraints.insert(new Constraint (file, suplier));¤			} else {¤				LOG_D (("unknown command in file"));¤			}¤		} else {¤			if (GCL::start_with (line.data(), "}")) {¤				ra_mode = false;¤			} else {¤				m_actions.insert (GCI::IO::IStringFactory::make(line.data()));¤			}¤		}¤	}¤¤	//#UC END# *44EB0A6E01E0_44EB0A850337_44EB1EFD0172_BODY*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44EB0A6E01E0_44F895BB018A_44EB1EFD0172_BASE_INIT*"
+		    value      	"//#UC START# *44EB0A6E01E0_44F895BB018A_44EB1EFD0172_BASE_INIT*¤//#UC END# *44EB0A6E01E0_44F895BB018A_44EB1EFD0172_BASE_INIT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"cpp:*44EB0A6E01E0_44F895BB018A_44EB1EFD0172_BODY*"
+		    value      	(value Text 
+|//#UC START# *44EB0A6E01E0_44F895BB018A_44EB1EFD0172_BODY*¤	//#UC END# *44EB0A6E01E0_44F895BB018A_44EB1EFD0172_BODY*
+		    )))
+	    quid       	"44EB0A6E01E0"
+	    documentation 	"Основной интерфейс для анализа последовательности пользовательских действий."
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "make"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"Must throw in error"
+			    value      	"true")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"cached"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"debug log"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator User Properties"
+			    name       	"dll export"
+			    value      	"true"))
+		    quid       	"44EB0A850337"
+		    documentation 	
+|создает анализатор связанный с переданным "пользователем"
+		    
+		    stereotype 	"multi factory"
+		    parameters 	(list Parameters
+			(object Parameter "inout suplier"
+			    quid       	"44FC0E2C035F"
+			    type       	"AnalizeSuplier"
+			    quidu      	"44EB0B45029B"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "push_action"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44EB0AAB021E_44EB1EFD0172*"
+			    value      	(value Text 
+|//#UC START# *44EB0AAB021E_44EB1EFD0172*¤	UserActionAnalizer::ActionId_cvar _id = UserActionAnalizer::ActionId::_duplicate(id);¤	ActionsSet::const_iterator it = m_actions.find (_id);¤	if (it == m_actions.end ()) {¤		throw;¤	}¤¤	for (Constraints::const_iterator it = m_constraints.begin (); it != m_constraints.end (); ++it) {¤		(*it)->push_action (id);¤	}¤¤	//#UC END# *44EB0AAB021E_44EB1EFD0172*
+			    ))
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"GetRaises"
+			    value      	""))
+		    quid       	"44EB0AAB021E"
+		    documentation 	
+|сообщает анализатору об очередном выполненном действии, которое необходимо подвергнуть анализу (преверки достижения условия из файла "ограничений" действий)
+		    
+		    parameters 	(list Parameters
+			(object Parameter "id"
+			    quid       	"44FC379801C9"
+			    type       	"ActionId"
+			    quidu      	"44EB0B010105"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"MDA Generator")
+	(object Class "ActionId"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"44EB0B010105"
+	    documentation 	
+|Строка-идентификатор "действия"
+	    
+	    stereotype 	"Typedef"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"44EB0B160172"
+		    supplier   	"Logical View::shared::GCI::IO::IString"
+		    quidu      	"431841610361"))
+	    language   	"MDA Generator")
+	(object Class "AnalizeSuplier"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"abstract")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"44EB0B45029B"
+	    documentation 	
+|"Внешний получатель" интерфейса анализатора, определяет изходный файл "ограничений действий", и принимает кал-бек при возникновлени события по достижению условия.
+	    
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "fire_analize_event"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"abstract")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44EB0BF302AB_44EB0E980172*"
+			    value      	(value Text 
+|//#UC START# *44EB0BF302AB_44EB0E980172*¤	LOG_D (("TestSuplier_i::fire_analize_event"));¤	return 0;¤	//#UC END# *44EB0BF302AB_44EB0E980172*
+			    )))
+		    quid       	"44EB0BF302AB"
+		    documentation 	
+|кал-бек метод для оповещении о наступлении события выполнения условия. Долен вернуть один из возможных "ответов" на событие
+		    
+		    stereotype 	"chg"
+		    parameters 	(list Parameters
+			(object Parameter "event"
+			    quid       	"44EB0C9A022E"
+			    type       	"ConstraintEvent"
+			    quidu      	"44EB0C620078"))
+		    result     	"AnswerId"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"44EB3499029B"))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "action_constraint_file"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"cpp:*44EB0BB30328_44EB0E980172_GET*"
+			    value      	(value Text 
+|//#UC START# *44EB0BB30328_44EB0E980172_GET*¤	return "T:/TestUserActionAnalizer/test_consts.txt";¤	//#UC END# *44EB0BB30328_44EB0E980172_GET*
+			    )))
+		    quid       	"44EB0BB30328"
+		    documentation 	
+|имя исходного файла "ограничений действий"
+		    
+		    stereotype 	"readonly"
+		    type       	"string"
+		    quidu      	"3DBFFE240068"
+		    exportControl 	"Public"))
+	    language   	"MDA Generator"
+	    abstract   	TRUE)
+	(object Class "ConstraintId"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"44EB0C4500D6"
+	    documentation 	"Строка идентификатор проверяемого ограничения"
+	    stereotype 	"Typedef"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"44EB0C540163"
+		    supplier   	"Logical View::shared::GCI::IO::IString"
+		    quidu      	"431841610361"))
+	    language   	"MDA Generator")
+	(object Class "ConstraintEvent"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"44EB0C620078"
+	    documentation 	"Событие достижения услвия одного из ограничений"
+	    stereotype 	"Struct"
+	    language   	"MDA Generator")
+	(object Class "AnswerId"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false"))
+	    quid       	"44EB3499029B"
+	    documentation 	
+|Строка-идентификатор "ответа"
+	    
+	    stereotype 	"Typedef"
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"44EB34B301EF"
+		    supplier   	"Logical View::shared::GCI::IO::IString"
+		    quidu      	"431841610361"))
+	    language   	"MDA Generator")
+	(object Class "Answers"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"fctr.cpp:*44EB34DE01E0_MAKE_NOCOPY_IMPL*"
+		    value      	(value Text 
+|//#UC START# *44EB34DE01E0_MAKE_NOCOPY_IMPL*¤			assert (0);¤			return 0;¤		//#UC END# *44EB34DE01E0_MAKE_NOCOPY_IMPL*
+		    )))
+	    quid       	"44EB34DE01E0"
+	    documentation 	
+|Массив "ответов"
+	    
+	    stereotype 	"Vector"
+	    language   	"MDA Generator")
+	(object Association "$UNNAMED$0"
+	    quid       	"44EB0C75026C"
+	    roles      	(list role_list
+		(object Role "avalible_answers"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44EB0C750357"
+		    documentation 	
+|спсиок возможных "ответов" на событие
+		    
+		    label      	"avalible_answers"
+		    supplier   	"Logical View::shared::GCI::UserActionAnalizer::Answers"
+		    quidu      	"44EB34DE01E0"
+		    Containment 	"By Value"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$1"
+		    quid       	"44EB0C750366"
+		    supplier   	"Logical View::shared::GCI::UserActionAnalizer::ConstraintEvent"
+		    quidu      	"44EB0C620078"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$2"
+	    quid       	"44EB0C77026C"
+	    roles      	(list role_list
+		(object Role "constraint"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false"))
+		    quid       	"44EB0C7703C4"
+		    documentation 	"идентификатор условия по которому произошло событие"
+		    label      	"constraint"
+		    supplier   	"Logical View::shared::GCI::UserActionAnalizer::ConstraintId"
+		    quidu      	"44EB0C4500D6"
+		    Containment 	"By Reference"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$3"
+		    quid       	"44EB0C7703C6"
+		    supplier   	"Logical View::shared::GCI::UserActionAnalizer::ConstraintEvent"
+		    quidu      	"44EB0C620078"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$4"
+	    quid       	"44EB34F000D6"
+	    roles      	(list role_list
+		(object Role "$UNNAMED$5"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"TargetStereotype"
+			    value      	"const"))
+		    quid       	"44EB34F0023D"
+		    supplier   	"Logical View::shared::GCI::UserActionAnalizer::AnswerId"
+		    quidu      	"44EB3499029B"
+		    Containment 	"By Reference"
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$6"
+		    quid       	"44EB34F0023F"
+		    supplier   	"Logical View::shared::GCI::UserActionAnalizer::Answers"
+		    quidu      	"44EB34DE01E0"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ColorizeFor"
+		    value      	"44FEAD4A0272"))
+	    quid       	"44EB0A6A0357"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	431
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::shared::GCI::UserActionAnalizer::Analizer" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(696, 1275)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(560, 1247)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	272
+			justify    	0
+			label      	"Analizer")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(560, 1197)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	269
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"44EB0A6E01E0"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(560, 1308)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Label"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	3
+			max_width  	0
+			justify    	1)
+		    width      	290
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Primitives::string" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(309, 654)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	TRUE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	658120
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(228, 608)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	162
+			justify    	0
+			label      	"string")
+		    icon_style 	"None"
+		    line_color 	14803425
+		    fill_color 	14803425
+		    quidu      	"3DBFFE240068"
+		    height     	117
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::GCI::UserActionAnalizer::AnalizeSuplier" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1932, 1272)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	TRUE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1783, 1244)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	298
+			justify    	0
+			label      	"AnalizeSuplier")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(1783, 1194)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	298
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    fill_color 	16766935
+		    quidu      	"44EB0B45029B"
+		    compartment 	(object Compartment
+			Parent_View 	@3
+			location   	(1783, 1305)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	TRUE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Label"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	3
+			max_width  	0
+			justify    	1)
+		    width      	316
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::GCI::UserActionAnalizer::ActionId" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(738, 657)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(608, 636)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	260
+			justify    	0
+			label      	"ActionId")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(608, 586)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	258
+			justify    	0
+			label      	"<<Typedef>>")
+		    icon_style 	"Label"
+		    fill_color 	15792890
+		    quidu      	"44EB0B010105"
+		    width      	278
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::GCI::UserActionAnalizer::ConstraintId" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(726, 951)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(596, 930)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	260
+			justify    	0
+			label      	"ConstraintId")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(596, 880)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	258
+			justify    	0
+			label      	"<<Typedef>>")
+		    icon_style 	"Label"
+		    fill_color 	15792890
+		    quidu      	"44EB0C4500D6"
+		    width      	278
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::GCI::UserActionAnalizer::ConstraintEvent" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1812, 687)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(1656, 659)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	312
+			justify    	0
+			label      	"ConstraintEvent")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@6
+			location   	(1656, 609)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	312
+			justify    	0
+			label      	"<<Struct>>")
+		    icon_style 	"Label"
+		    fill_color 	13427169
+		    quidu      	"44EB0C620078"
+		    width      	330
+		    height     	180
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$2" @7
+		    location   	(1255, 821)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"44EB0C77026C"
+		    roleview_list 	(list RoleViews
+			(object RoleView "constraint" @8
+			    Parent_View 	@7
+			    location   	(1006, 554)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @9
+				Parent_View 	@8
+				location   	(1074, 914)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	210
+				justify    	0
+				label      	"+constraint"
+				pctDist    	0.493037
+				height     	47
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"44EB0C7703C4"
+			    client     	@7
+			    supplier   	@5
+			    vertices   	(list Points
+				(1255, 821)
+				(865, 916))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$3" @10
+			    Parent_View 	@7
+			    location   	(1006, 554)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"44EB0C7703C6"
+			    client     	@7
+			    supplier   	@6
+			    vertices   	(list Points
+				(1255, 821)
+				(1646, 727))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::shared::GCI::UserActionAnalizer::AnswerId" @11
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(741, 393)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@11
+			location   	(611, 372)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	260
+			justify    	0
+			label      	"AnswerId")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@11
+			location   	(611, 322)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	258
+			justify    	0
+			label      	"<<Typedef>>")
+		    icon_style 	"Label"
+		    fill_color 	15792890
+		    quidu      	"44EB3499029B"
+		    width      	278
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::shared::GCI::UserActionAnalizer::Answers" @12
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1173, 396)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@12
+			location   	(1055, 375)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	236
+			justify    	0
+			label      	"Answers")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@12
+			location   	(1055, 325)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	234
+			justify    	0
+			label      	"<<Vector>>")
+		    icon_style 	"Label"
+		    fill_color 	16107765
+		    quidu      	"44EB34DE01E0"
+		    width      	254
+		    height     	167
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$0" @13
+		    location   	(1473, 531)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"44EB0C75026C"
+		    roleview_list 	(list RoleViews
+			(object RoleView "avalible_answers" @14
+			    Parent_View 	@13
+			    location   	(1224, 264)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @15
+				Parent_View 	@14
+				location   	(1584, 464)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	328
+				justify    	0
+				label      	"+avalible_answers"
+				pctDist    	-0.389412
+				height     	108
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"44EB0C750357"
+			    client     	@13
+			    supplier   	@12
+			    vertices   	(list Points
+				(1473, 531)
+				(1300, 453))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$1" @16
+			    Parent_View 	@13
+			    location   	(1224, 264)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"44EB0C750366"
+			    client     	@13
+			    supplier   	@6
+			    vertices   	(list Points
+				(1473, 531)
+				(1646, 610))
+			    line_style 	0)))
+		(object AssociationViewNew "$UNNAMED$4" @17
+		    location   	(962, 393)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"44EB34F000D6"
+		    roleview_list 	(list RoleViews
+			(object RoleView "$UNNAMED$5" @18
+			    Parent_View 	@17
+			    location   	(-94, 270)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @19
+				Parent_View 	@18
+				location   	(896, 353)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    charSet    	204
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				hidden     	TRUE
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	128
+				justify    	0
+				label      	""
+				pctDist    	0.800000
+				height     	41
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"44EB34F0023D"
+			    client     	@17
+			    supplier   	@11
+			    vertices   	(list Points
+				(962, 393)
+				(880, 393))
+			    line_style 	0)
+			(object RoleView "$UNNAMED$6" @20
+			    Parent_View 	@17
+			    location   	(-94, 270)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"44EB34F0023F"
+			    client     	@17
+			    supplier   	@12
+			    vertices   	(list Points
+				(962, 393)
+				(1045, 394))
+			    line_style 	0)))
+		(object ClassView "Class" "Logical View::shared::GCI::IO::IString" @21
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(324, 438)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	16714250
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@21
+			location   	(188, 406)
+			nlines     	1
+			max_width  	272
+			justify    	0
+			label      	"IString")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@21
+			location   	(188, 356)
+			anchor     	10
+			nlines     	1
+			max_width  	269
+			justify    	0
+			label      	"<<Interface>>")
+		    icon       	"Interface"
+		    icon_style 	"Label"
+		    line_color 	16714250
+		    fill_color 	16777215
+		    quidu      	"431841610361"
+		    width      	290
+		    height     	188
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @22
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"44EB0B160172"
+		    client     	@4
+		    supplier   	@21
+		    vertices   	(list Points
+			(598, 582)
+			(469, 513))
+		    line_style 	0)
+		(object InheritView "" @23
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"44EB0C540163"
+		    client     	@5
+		    supplier   	@21
+		    vertices   	(list Points
+			(659, 867)
+			(397, 532))
+		    line_style 	0)
+		(object InheritView "" @24
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3947680
+		    quidu      	"44EB34B301EF"
+		    client     	@11
+		    supplier   	@21
+		    vertices   	(list Points
+			(601, 406)
+			(469, 420))
+		    line_style 	0)
+		(object NoteView @25
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"LinkedItemGuid"
+			    value      	"44EB34F000D6"))
+		    location   	(1137, 174)
+		    font       	(object Font
+			size       	8
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@25
+			location   	(930, 114)
+			fill_color 	13434879
+			nlines     	3
+			max_width  	378
+			justify    	1
+			label      	"Target stereotype: const")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	438
+		    height     	132)
+		(object AttachView "" @26
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@25
+		    supplier   	@17
+		    vertices   	(list Points
+			(1082, 240)
+			(962, 393))
+		    line_style 	0)))))

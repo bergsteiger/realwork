@@ -1,0 +1,576 @@
+// CoreObjects 49083E150027 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49083E150027
+
+FORWARD ME_49083E6F02D8
+
+: ME_49083E83005D
+ CONST UID '49083E83005D'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_49083E6F02D8 // TInscContextFilterStateList
+ ;
+ : Target WL 'ME_4908393001C5' '490838E10313.pas.ms.script' // InscContextFilterState
+ ;
+
+ref; // ME_49083E83005D ItemType
+
+: ME_49083E6F02D8
+ CONST UID '49083E6F02D8'
+ CONST Name 'TInscContextFilterStateList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49083E150027 // CoreObjects
+ ;
+ : Inherits
+   @ ( WL 'ME_47B57D830369' '47913B47006E.pas.ms.script' // l3InterfaceRefList
+ WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_49083E83005D // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\InscContextFilterStateList.pas'
+
+ref; // ME_49083E6F02D8 TInscContextFilterStateList
+
+FORWARD ME_4908462903E0
+
+: ME_4908471900D5
+ CONST UID '4908471900D5'
+ CONST Name 'f_Active'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4908462903E0 // TnscContextFilterState
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4908471900D5 f_Active
+
+: ME_4908475C03AC
+ CONST UID '4908475C03AC'
+ CONST Name 'f_CaretPos'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4908462903E0 // TnscContextFilterState
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4908475C03AC f_CaretPos
+
+: ME_49084768008A
+ CONST UID '49084768008A'
+ CONST Name 'f_NeedRefilterTree'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4908462903E0 // TnscContextFilterState
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_49084768008A f_NeedRefilterTree
+
+: ME_490847360248
+ CONST UID '490847360248'
+ CONST Name 'f_Context'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4908462903E0 // TnscContextFilterState
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_490847360248 f_Context
+
+: ME_4908474F0389
+ CONST UID '4908474F0389'
+ CONST Name 'f_NotificationSource'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4908462903E0 // TnscContextFilterState
+ ;
+ : Target WL 'ME_477251BA00B2' '4682595B0268.pas.ms.script' // Il3ContextFilterNotifySource
+ ;
+
+ref; // ME_4908474F0389 f_NotificationSource
+
+: ME_490847A70304
+ CONST UID '490847A70304'
+ CONST Name 'IsActive'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_490847A70304 IsActive
+
+: ME_490847A703A8
+ CONST UID '490847A703A8'
+ CONST Name 'aContext'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_490847A703A8 aContext
+
+: ME_490847A80014
+ CONST UID '490847A80014'
+ CONST Name 'aPos'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_490847A80014 aPos
+
+: ME_490847A8006B
+ CONST UID '490847A8006B'
+ CONST Name 'aNeedRefilterTree'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_490847A8006B aNeedRefilterTree
+
+: ME_490847A800CC
+ CONST UID '490847A800CC'
+ CONST Name 'aContextFilterTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46835C6F02E0' '4682595B0268.pas.ms.script' // Il3ContextFilterTarget
+ ;
+
+ref; // ME_490847A800CC aContextFilterTarget
+
+: ME_4908477B00BE
+ CONST UID '4908477B00BE'
+ CONST Name 'Create'
+ CONST Class class_Operation
+ : Stereotype st_ctor::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4908462903E0 // TnscContextFilterState
+ ;
+ : Parameters
+   @ ( ME_490847A70304 // IsActive
+ ME_490847A703A8 // aContext
+ ME_490847A80014 // aPos
+ ME_490847A8006B // aNeedRefilterTree
+ ME_490847A800CC // aContextFilterTarget
+ ) .SequenceCode.It
+ ; // Parameters
+
+ref; // ME_4908477B00BE Create
+
+: ME_490847CB03A5
+ CONST UID '490847CB03A5'
+ CONST Name 'IsActive'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_490847CB03A5 IsActive
+
+: ME_490847CC001A
+ CONST UID '490847CC001A'
+ CONST Name 'aContext'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_490847CC001A aContext
+
+: ME_490847CC0075
+ CONST UID '490847CC0075'
+ CONST Name 'aPos'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_490847CC0075 aPos
+
+: ME_490847CC00F0
+ CONST UID '490847CC00F0'
+ CONST Name 'aNeedRefilterTree'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value false
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_490847CC00F0 aNeedRefilterTree
+
+: ME_490847CC0157
+ CONST UID '490847CC0157'
+ CONST Name 'aContextFilterTarget'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46835C6F02E0' '4682595B0268.pas.ms.script' // Il3ContextFilterTarget
+ ;
+ CONST Value 'nil'
+ : ValueType WL 'ME_46835C6F02E0' '4682595B0268.pas.ms.script' // Il3ContextFilterTarget
+ ;
+
+ref; // ME_490847CC0157 aContextFilterTarget
+
+: ME_490847B7019C
+ CONST UID '490847B7019C'
+ CONST Name 'Make'
+ CONST Class class_Operation
+ : Stereotype st_factory::Operation ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4908462903E0 // TnscContextFilterState
+ ;
+ : Target WL 'ME_4908393001C5' '490838E10313.pas.ms.script' // InscContextFilterState
+ ;
+ : Parameters
+   @ ( ME_490847CB03A5 // IsActive
+ ME_490847CC001A // aContext
+ ME_490847CC0075 // aPos
+ ME_490847CC00F0 // aNeedRefilterTree
+ ME_490847CC0157 // aContextFilterTarget
+ ) .SequenceCode.It
+ ; // Parameters
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_490847B7019C Make
+
+: ME_490847E700F2
+ CONST UID '490847E700F2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4908462903E0 // TnscContextFilterState
+ ;
+ : Target WL 'ME_47877EB202FB' '4AB0C3C60310.pas.ms.script' // SysUtils
+ ;
+
+ref; // ME_490847E700F2 
+
+: ME_477250FC0040_ME_4908462903E0
+ CONST UID '477250FC0040'
+ CONST Name 'RequestReapply'
+ : Original WL 'ME_477250FC0040' '4682595B0268.pas.ms.script' // RequestReapply
+ ;
+ : Implementor ME_4908462903E0 // TnscContextFilterState
+ ;
+ref; // ME_477250FC0040_ME_4908462903E0 RequestReapply
+
+: ME_4772510D0043_ME_4908462903E0
+ CONST UID '4772510D0043'
+ CONST Name 'RequestClearAndTurnOff'
+ : Original WL 'ME_4772510D0043' '4682595B0268.pas.ms.script' // RequestClearAndTurnOff
+ ;
+ : Implementor ME_4908462903E0 // TnscContextFilterState
+ ;
+ref; // ME_4772510D0043_ME_4908462903E0 RequestClearAndTurnOff
+
+: ME_4772511D0316_ME_4908462903E0
+ CONST UID '4772511D0316'
+ CONST Name 'RequestCheckValid'
+ : Original WL 'ME_4772511D0316' '4682595B0268.pas.ms.script' // RequestCheckValid
+ ;
+ : Implementor ME_4908462903E0 // TnscContextFilterState
+ ;
+ref; // ME_4772511D0316_ME_4908462903E0 RequestCheckValid
+
+: ME_4908394101EB_ME_4908462903E0
+ CONST UID '4908394101EB'
+ CONST Name 'Active'
+ : Original WL 'ME_4908394101EB' '490838E10313.pas.ms.script' // Active
+ ;
+ : Implementor ME_4908462903E0 // TnscContextFilterState
+ ;
+ CONST "pm" true
+ref; // ME_4908394101EB_ME_4908462903E0 Active
+
+: ME_4908395B027E_ME_4908462903E0
+ CONST UID '4908395B027E'
+ CONST Name 'Context'
+ : Original WL 'ME_4908395B027E' '490838E10313.pas.ms.script' // Context
+ ;
+ : Implementor ME_4908462903E0 // TnscContextFilterState
+ ;
+ CONST "pm" true
+ref; // ME_4908395B027E_ME_4908462903E0 Context
+
+: ME_4908396C014C_ME_4908462903E0
+ CONST UID '4908396C014C'
+ CONST Name 'ActiveContext'
+ : Original WL 'ME_4908396C014C' '490838E10313.pas.ms.script' // ActiveContext
+ ;
+ : Implementor ME_4908462903E0 // TnscContextFilterState
+ ;
+ CONST "pm" true
+ref; // ME_4908396C014C_ME_4908462903E0 ActiveContext
+
+: ME_4908397A033F_ME_4908462903E0
+ CONST UID '4908397A033F'
+ CONST Name 'CaretPos'
+ : Original WL 'ME_4908397A033F' '490838E10313.pas.ms.script' // CaretPos
+ ;
+ : Implementor ME_4908462903E0 // TnscContextFilterState
+ ;
+ CONST "pm" true
+ref; // ME_4908397A033F_ME_4908462903E0 CaretPos
+
+: ME_490839F50038_ME_4908462903E0
+ CONST UID '490839F50038'
+ CONST Name 'NeedRefilterTree'
+ : Original WL 'ME_490839F50038' '490838E10313.pas.ms.script' // NeedRefilterTree
+ ;
+ : Implementor ME_4908462903E0 // TnscContextFilterState
+ ;
+ref; // ME_490839F50038_ME_4908462903E0 NeedRefilterTree
+
+: ME_479731C50290_ME_4908462903E0
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_4908462903E0 // TnscContextFilterState
+ ;
+ref; // ME_479731C50290_ME_4908462903E0 Cleanup
+
+: ME_4908462903E0
+ CONST UID '4908462903E0'
+ CONST Name 'TnscContextFilterState'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_49083E150027 // CoreObjects
+ ;
+ : Inherits
+   @ ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implements
+   @ ( WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ WL 'ME_477250E7033C' '4682595B0268.pas.ms.script' // Il3ContextFilterNotifier
+ WL 'ME_4908393001C5' '490838E10313.pas.ms.script' // InscContextFilterState
+ ) .SequenceCode.It
+ ; // Implements
+ : Attributes
+   @ ( ME_4908471900D5 // f_Active
+ ME_4908475C03AC // f_CaretPos
+ ME_49084768008A // f_NeedRefilterTree
+ ME_490847360248 // f_Context
+ ME_4908474F0389 // f_NotificationSource
+ ) .SequenceCode.It
+ ; // Attributes
+ : Operations
+   @ ( ME_4908477B00BE // Create
+ ME_490847B7019C // Make
+ ) .SequenceCode.It
+ ; // Operations
+ : Implemented
+   @ ( ME_477250FC0040_ME_4908462903E0 // RequestReapply
+ ME_4772510D0043_ME_4908462903E0 // RequestClearAndTurnOff
+ ME_4772511D0316_ME_4908462903E0 // RequestCheckValid
+ ME_4908394101EB_ME_4908462903E0 // Active
+ ME_4908395B027E_ME_4908462903E0 // Context
+ ME_4908396C014C_ME_4908462903E0 // ActiveContext
+ ME_4908397A033F_ME_4908462903E0 // CaretPos
+ ME_490839F50038_ME_4908462903E0 // NeedRefilterTree
+ ) .SequenceCode.It
+ ; // Implemented
+ : Overridden
+   @ ( ME_479731C50290_ME_4908462903E0 // Cleanup
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_490847E700F2 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Р. Лукьянец'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '2007/03/19 10:44:06'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscContextFilterState.pas'
+
+ref; // ME_4908462903E0 TnscContextFilterState
+
+FORWARD ME_4CFF747800AA
+
+FORWARD ME_53FF09C9016B
+
+: ME_53FF09E901A3
+ CONST UID '53FF09E901A3'
+ CONST Name 'cDefaultContextEmptyColor'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53FF09C9016B // nscConst
+ ;
+ CONST Value 'clGrayText'
+ : ValueType WL 'ME_47D15712022D' '55C4AEC801CA.pas.ms.script' // Graphics
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_53FF09E901A3 cDefaultContextEmptyColor
+
+: ME_53FF09FA010E
+ CONST UID '53FF09FA010E'
+ CONST Name 'cPlusKeyCode'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53FF09C9016B // nscConst
+ ;
+ CONST Value 188
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_53FF09FA010E cPlusKeyCode
+
+: ME_53FF0A020304
+ CONST UID '53FF0A020304'
+ CONST Name 'cMinusKeyCode'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53FF09C9016B // nscConst
+ ;
+ CONST Value 189
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+
+ref; // ME_53FF0A020304 cMinusKeyCode
+
+: ME_53FF09C9016B
+ CONST UID '53FF09C9016B'
+ CONST Name 'nscConst'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4CFF747800AA // nscConst
+ ;
+ : Attributes
+   @ ( ME_53FF09E901A3 // cDefaultContextEmptyColor
+ ME_53FF09FA010E // cPlusKeyCode
+ ME_53FF0A020304 // cMinusKeyCode
+ ) .SequenceCode.It
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_53FF09C9016B nscConst
+
+: ME_4CFF747800AA
+ CONST UID '4CFF747800AA'
+ CONST Name 'nscConst'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_49083E150027 // CoreObjects
+ ;
+ : Constants
+   @ ( ME_53FF09C9016B // nscConst
+ ) .SequenceCode.It
+ ; // Constants
+ CONST "no hands" true
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\Nemesis\nscConst.pas'
+
+ref; // ME_4CFF747800AA nscConst
+
+: ME_49083E150027
+ CONST UID '49083E150027'
+ CONST Name 'CoreObjects'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ %SUMMARY 'Базовые объекты' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_490838AA02D0' '490838AA02D0.pas.ms.script' // Nemesis
+ ;
+ : Children
+   @ ( ME_49083E6F02D8 // TInscContextFilterStateList
+ ME_4908462903E0 // TnscContextFilterState
+ ME_4CFF747800AA // nscConst
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
+ WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+ WL 'ME_4682595B0268' '4682595B0268.pas.ms.script' // l3TreeInterfaces
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_490838E10313' '490838E10313.pas.ms.script' // nscNewInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
+ WL 'ME_55C4AEC801CA' '55C4AEC801CA.pas.ms.script' // Graphics
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\49083E150027.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49083E150027.pas.ms.script.runner'
+
+ref; // ME_49083E150027 CoreObjects

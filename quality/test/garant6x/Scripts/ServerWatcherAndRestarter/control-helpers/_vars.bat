@@ -1,0 +1,1 @@
+set PATH_TO_CODE=%~d0%~p0..\code\&

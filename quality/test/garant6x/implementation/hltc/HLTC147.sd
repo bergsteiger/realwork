@@ -1,0 +1,3470 @@
+uses common, States, RunPrograms, SettingsWork, Clicks, DocumentWork,
+     MenuWork, FoldersWork, ListWork, SearchWork;
+     
+////////////////////      Общие функции     /////////////////////////////////
+{
+  TYPE: История навигации
+  DESC: Функция осуществляет переход по истории и сравнивает активый объект после перехода с эталонным 
+        объектом (который должен быть);
+  RESULT: Если тип объектов равны, result = True; 
+  REMARK:По истории можно двигаться(НАЗАД \ ВПЕРЁД) на несколько шагов(по умолчанию step=1)  
+}
+
+function IsEtalonObjByHistory(
+  direction: string ; //Направление куда двигаемся(НАЗАД \ ВПЕРЁД)
+  const obj: string;  //Эталонный объект(Если в истории не эталонный объект, то result= false)
+  const step: integer = 1 //Шаг(на сколько уровней переходим по истории)
+):boolean;
+var
+  i: integer;
+  objTemp;
+  str;
+begin
+try
+  result := false;
+  if  step < 1  then Raise('Передано не правильное значение параметра step'); 
+  direction := AnsiUpperCase(direction);
+  case direction of
+    'ВПЕРЕД', 'ВПЕРЁД', 'FORWARD':
+      str := 'ВПЕРЕД';
+    'НАЗАД', 'BACK':
+      str := 'НАЗАД';
+    else
+      Raise('Передан не распознанный параметр направления Direction!');  
+  end;  
+  case obj of
+    'ОСНОВНОЕ МЕНЮ', 'ОМ':
+      begin
+        for i := 1 to step do
+        if NOT GoByHistory(str) then 
+          Raise('Не удалось перейти ' + str + ' по истории на шаге: ' + IntToStr(i));
+        objTemp := GetFromMainWindow('ОБЛАСТЬ ОСНОВНОГО МЕНЮ');
+        result := IsExists(objTemp) AND objTemp.Visible;
+      end;
+    'РУБРИКАТОР':
+      begin
+        for i := 1 to step do
+        if NOT GoByHistory(str) then 
+          Raise('Не удалось перейти ' + str + ' по истории на шаге: ' + IntToStr(i));
+        objTemp := GetFromList('СПИСОК РУБРИКАТОРА');
+        result := IsExists(objTemp) AND objTemp.Visible;
+      end;
+    'СПИСОК':
+      begin
+        for i := 1 to step do
+        if NOT GoByHistory(str) then 
+          Raise('Не удалось перейти ' + str + ' по истории на шаге: ' + IntToStr(i));
+        objTemp := GetFromList('СПИСОК ДОКУМЕНТОВ');
+        result := IsExists(objTemp) AND objTemp.Visible;
+      end;
+    'ДОКУМЕНТ':
+      begin
+        for i := 1 to step do
+        if NOT GoByHistory(str) then 
+          Raise('Не удалось перейти ' + str + ' по истории на шаге: ' + IntToStr(i));
+        objTemp := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+        result := IsExists(objTemp) AND objTemp.Visible;
+      end;
+    'ППР':
+      begin
+        for i := 1 to step do
+        if NOT GoByHistory(str) then 
+          Raise('Не удалось перейти ' + str + ' по истории на шаге: ' + IntToStr(i));
+        objTemp := GetFromPPR('КАРТОЧКА ЗАПРОСА');
+        result := IsExists(objTemp) AND objTemp.Visible;
+      end;
+    'ППС':
+      begin
+        for i := 1 to step do
+        if NOT GoByHistory(str) then 
+          Raise('Не удалось перейти ' + str + ' по истории на шаге: ' + IntToStr(i));
+        objTemp := GetFromPPS('СИТУАЦИИ ДОПОЛНИТЕЛЬНОГО УРОВНЯ');
+        result := IsExists(objTemp) AND objTemp.Visible;
+      end;
+    'ППИО':
+      begin
+        for i := 1 to step do
+        if NOT GoByHistory(str) then 
+          Raise('Не удалось перейти ' + str + ' по истории на шаге: ' + IntToStr(i));
+        objTemp := GetFromPPIO('ДЕРЕВО ИЗДАНИЙ');
+        result := IsExists(objTemp) AND objTemp.Visible;
+      end;
+    'ИНФОРМАЦИЯ О КОМПЛЕКТЕ':
+      begin
+        for i := 1 to step do
+        if NOT GoByHistory(str) then 
+          Raise('Не удалось перейти ' + str + ' по истории на шаге: ' + IntToStr(i));
+        objTemp := GetFromMainWindow('ИНФОРМАЦИЯ О КОМПЛЕКТЕ');
+        result := IsExists(objTemp) AND objTemp.Visible;
+      end;
+    else
+      Raise('Передан не распознанный параметр эталонного объекта Obj!');  
+  end;    
+  if NOT result then Log.Error('Объект не является эталонным', obj);
+except
+  Log.Message('IsEtalonObjByHistory: ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;
+end;   
+end;
+{
+  TYPE: История навигации
+  DESC: Функция осуществляет переход по истории и сравнивает активую вкладку после перехода с эталонной
+        вкладкой (которая должна быть);
+  RESULT: Если тип объектов равны, result = True; 
+  REMARK:По истории можно двигаться(НАЗАД \ ВПЕРЁД) на несколько шагов(по умолчанию step=1)  
+}
+
+function IsEtalonPageControlByHistory(
+  direction: string ; //Направление куда двигаемся(НАЗАД \ ВПЕРЁД)
+  const obj: string;  //Эталонный объект(Если в истории не эталонный объект, то result= false)
+  const step: integer = 1 //Шаг(на сколько уровней переходим по истории)
+):boolean;
+var
+  i: integer;
+  objTemp;
+  str;
+begin
+try
+  result := false;
+  if  step < 1  then Raise('Передано не правильное значение параметра step'); 
+  direction := AnsiUpperCase(direction);
+  case direction of
+    'ВПЕРЕД', 'ВПЕРЁД', 'FORWARD':
+      str := 'ВПЕРЕД';
+    'НАЗАД', 'BACK':
+      str := 'НАЗАД';
+    else
+      Raise('Передан не распознанный параметр направления Direction!');  
+  end;  
+  case obj of
+    'ТЕКСТ', 'ВКЛАДКА "ТЕКСТ"':
+      begin
+        for i := 1 to step do
+        if NOT GoByHistory(str) then 
+          Raise('Не удалось перейти ' + str + ' по истории на шаге: ' + IntToStr(i));
+        objTemp := GetFromEditor('ВКЛАДКА "ТЕКСТ"');
+        result := IsExists(objTemp) AND objTemp.Visible;
+      end;    
+    'ССЫЛКИ НА ДОКУМЕНТ', 'ВКЛАДКА "ССЫЛКИ НА ДОКУМЕНТ"':
+      begin
+        for i := 1 to step do
+        if NOT GoByHistory(str) then 
+          Raise('Не удалось перейти ' + str + ' по истории на шаге: ' + IntToStr(i));
+        objTemp := GetFromEditor('ВКЛАДКА "ССЫЛКИ НА ДОКУМЕНТ"');
+        result := IsExists(objTemp) AND objTemp.Visible;
+      end;
+    'ССЫЛКИ ИЗ ДОКУМЕНТА', 'ВКЛАДКА "ССЫЛКИ ИЗ ДОКУМЕНТА"':
+      begin
+        for i := 1 to step do
+        if NOT GoByHistory(str) then 
+          Raise('Не удалось перейти ' + str + ' по истории на шаге: ' + IntToStr(i));
+        objTemp := GetFromEditor('ВКЛАДКА "ССЫЛКИ ИЗ ДОКУМЕНТА"');
+        result := IsExists(objTemp) AND objTemp.Visible;
+      end;  
+    'ИНФОРМАЦИЯ О ДОКУМЕНТЕ', 'ВКЛАДКА "ИНФОРМАЦИЯ О ДОКУМЕНТЕ"':
+      begin
+        for i := 1 to step do
+        if NOT GoByHistory(str) then 
+          Raise('Не удалось перейти ' + str + ' по истории на шаге: ' + IntToStr(i));
+        objTemp := GetFromEditor('ВКЛАДКА "ИНФОРМАЦИЯ О ДОКУМЕНТЕ"');
+        result := IsExists(objTemp) AND objTemp.Visible;
+      end;
+    'АННОТАЦИЯ', 'ВКЛАДКА "АННОТАЦИЯ"':
+      begin
+        for i := 1 to step do
+        if NOT GoByHistory(str) then 
+          Raise('Не удалось перейти ' + str + ' по истории на шаге: ' + IntToStr(i));
+        objTemp := GetFromEditor('ВКЛАДКА "АННОТАЦИЯ"');
+        result := IsExists(objTemp) AND objTemp.Visible;
+      end;
+    'СПРАВКА', 'ВКЛАДКА "СПРАВКА"':
+      begin
+        for i := 1 to step do
+        if NOT GoByHistory(str) then 
+          Raise('Не удалось перейти ' + str + ' по истории на шаге: ' + IntToStr(i));
+        objTemp := GetFromEditor('ВКЛАДКА "СПРАВКА"');
+        result := IsExists(objTemp) AND objTemp.Visible;
+      end;
+    'СПИСОК', 'ВКЛАДКА "СПИСОК"':
+      begin
+        for i := 1 to step do
+        if NOT GoByHistory(str) then 
+          Raise('Не удалось перейти ' + str + ' по истории на шаге: ' + IntToStr(i));
+        objTemp := GetFromList('СПИСОК ДОКУМЕНТОВ');
+        result := IsExists(objTemp) AND objTemp.Visible;
+      end;    
+    'СИНХРОННЫЙ ПРОСМОТР', 'ВКЛАДКА "СИНХРОННЫЙ ПРОСМОТР"':
+      begin
+        for i := 1 to step do
+        if NOT GoByHistory(str) then 
+          Raise('Не удалось перейти ' + str + ' по истории на шаге: ' + IntToStr(i));
+        objTemp := GetFromSynchroView('ОБЛАСТЬ ТЕКСТА ДОКУМЕНТА');
+        result := IsExists(objTemp) AND objTemp.Visible;
+      end;  
+    'СПРАВКА К СПИСКУ', 'ВКЛАДКА "СПРАВКА К СПИСКУ"':
+      begin
+        for i := 1 to step do
+        if NOT GoByHistory(str) then 
+          Raise('Не удалось перейти ' + str + ' по истории на шаге: ' + IntToStr(i));
+        objTemp := GetFromList('ВКЛАДКА "СПРАВКА К СПИСКУ"');
+        result := IsExists(objTemp) AND objTemp.Visible;
+      end;    
+    else
+      Raise('Передан не распознанный параметр эталонного объекта Obj!');  
+  end;    
+  if NOT result then Log.Error('Объект не является эталонным', obj);
+except
+  Log.Message('IsEtalonPageControlByHistory: ' + ExceptionMessage, '', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;
+end;   
+end;
+
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+//                       ИСТОРИЯ НАВИГАЦИИ
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+{
+HLTC147: История навигации
+  HLTC147.1: Проверить, что в историю навигации попадают следующие, загружавшиеся в одно и тоже окно объекты:
+    HLTC147.1.1: ОМ(навигатор)
+}
+function HLTC147_1_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 10003000;
+var
+  obj;
+begin                                  
+try  
+  GoToMainMenu;  
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  result := IsEtalonObjByHistory ('НАЗАД', 'ОМ');
+  if NOT result then 
+    Log.Error('После возврата по истории активным является не ОМ');
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_1_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.1: Проверить, что в историю навигации попадают следующие, загружавшиеся в одно и тоже окно объекты:
+    HLTC147.1.2: Рубрикатор
+}
+function HLTC147_1_2_Execute (var  CurrentState: OleVariant): OleVariant; 
+var
+  obj;
+begin                                  
+try  
+  if NOT OpenObjectFromFolder(LIST_RUBR_MAIN, OpenMenuTab) then Raise('Не удалось открыть рубрикатор');      
+  GoToMainMenu;
+  result := IsEtalonObjByHistory ('НАЗАД', 'РУБРИКАТОР');
+  if NOT result then 
+    Log.Error('После возврата по истории активным является не РУБРИКАТОР');
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_1_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.1: Проверить, что в историю навигации попадают следующие, загружавшиеся в одно и тоже окно объекты:
+    HLTC147.1.3: Список
+      HLTC147.1.3.1: В том числе при переходе по мультиссылке
+}
+function HLTC147_1_3_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const  
+  CONTEXT = 'VANONCED';
+  DOC_NUM = 12024178;
+var
+  obj;
+begin                                  
+try  
+  if NOT OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then Raise('Не удалось открыть список из рубрикатора');      
+  GoToMainMenu;
+  if NOT IsEtalonObjByHistory ('НАЗАД', 'СПИСОК') then 
+  begin
+    Log.Error('После возврата по истории активным является не СПИСОК');
+    Raise('После возврата по истории активным является не СПИСОК');
+  end;
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  if NOT ClickByHyperLink(obj, CONTEXT) then Raise('Не удалось кликнуть по искомой гиперссылке');
+  GoToMainMenu;
+  result := IsEtalonObjByHistory ('НАЗАД', 'СПИСОК');
+  if NOT result then 
+    Log.Error('После возврата по истории активным является не СПИСОК');
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_1_3_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+HLTC147: История навигации
+  HLTC147.1: Проверить, что в историю навигации попадают следующие, загружавшиеся в одно и тоже окно объекты:
+    HLTC147.1.4: Документ
+      HLTC147.1.4.1: В том числе при переходе по гипертекстовой ссылке в другой документ
+}
+function HLTC147_1_4_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  CONTEXT = 'МУЛЬТИССЫЛКА НА VANONCED';
+  DOC_NUM = 12024178;
+var
+  obj;
+begin                                  
+try
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  if NOT ClickByHyperLink(obj, CONTEXT) then Raise('Не удалось кликнуть по искомой гиперссылке');
+  result := IsEtalonObjByHistory ('НАЗАД', 'ДОКУМЕНТ');
+  if NOT result then 
+    Log.Error('После возврата по истории активным является не ДОКУМЕНТ');
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_1_4_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.1: Проверить, что в историю навигации попадают следующие, загружавшиеся в одно и тоже окно объекты:
+    HLTC147.1.4: Документ
+      HLTC147.1.4.3: В том числе при переходе по гиперссылке внутри одного документа
+}
+function HLTC147_1_4_3_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  CONTEXT = 'Преамбула';
+  DOC_NUM = 1055132;
+var
+  obj;
+begin                                  
+try
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  if NOT ClickByHyperLink(obj, CONTEXT) then Raise('Не удалось кликнуть по искомой гиперссылке');
+  result := IsEtalonObjByHistory ('НАЗАД', 'ДОКУМЕНТ');
+  if NOT result then 
+    Log.Error('После возврата по истории активным является не ДОКУМЕНТ');
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_1_4_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.1: Проверить, что в историю навигации попадают следующие, загружавшиеся в одно и тоже окно объекты:
+    HLTC147.1.5: ППР
+}
+function HLTC147_1_5_Execute (var  CurrentState: OleVariant): OleVariant;
+begin                                  
+try
+  if NOT GoToPPR then Raise('Не удалось открыть ППР');
+  GoToMainMenu;   
+  result := IsEtalonObjByHistory ('НАЗАД', 'ППР');
+  if NOT result then 
+    Log.Error('После возврата по истории активным является не ППР');
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_1_5_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.1: Проверить, что в историю навигации попадают следующие, загружавшиеся в одно и тоже окно объекты:
+    HLTC147.1.6: ППС
+}
+function HLTC147_1_6_Execute (var  CurrentState: OleVariant): OleVariant;
+begin                                  
+try
+  if NOT GoToPPS then Raise('Не удалось открыть ППС');
+  GoToMainMenu;   
+  result := IsEtalonObjByHistory ('НАЗАД', 'ППС');
+  if NOT result then 
+    Log.Error('После возврата по истории активным является не ППС');
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_1_6_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.1: Проверить, что в историю навигации попадают следующие, загружавшиеся в одно и тоже окно объекты:
+    HLTC147.1.7: Поиск по источнику опубликования
+}
+function HLTC147_1_7_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  obj;
+begin                                  
+try
+  if NOT GoToPPIO then Raise('Не удалось открыть ППИО');
+  GoToMainMenu;   
+  result := IsEtalonObjByHistory ('НАЗАД', 'ППИО');
+  if NOT result then 
+    Log.Error('После возврата по истории активным является не ППИО');
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_1_7_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.1: Проверить, что в историю навигации попадают следующие, загружавшиеся в одно и тоже окно объекты:
+    HLTC147.1.8: Информация о комплекте
+}
+function HLTC147_1_8_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  obj;
+begin                                  
+try
+  if NOT GoToPPR then Raise('Не удалось открыть ППР');
+  if NOT ClickByMainMenuItem('Помощь\Информация о комплекте') then 
+    Raise('Не могу кликнуть по пункту меню: "Помощь\Информация о комплекте"');
+  GoToMainMenu;
+  result := IsEtalonObjByHistory ('НАЗАД', 'ИНФОРМАЦИЯ О КОМПЛЕКТЕ');
+  if NOT result then 
+    Log.Error('После возврата по истории активным является не ИНФОРМАЦИЯ О КОМПЛЕКТЕ');
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_1_8_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.2: Проверить, что если находясь в промежуточном объекте истории инициировать загрузку в текущее
+  окно любого объекта люым способом, кроме перемещения по истории навигации, то система отбрасывает всю
+  правую часть истории, дела загруженный объект последней записью в истории:
+    HLTC147.2.1: Зайти в систему (должно быть показано основное меню в основной области), перейти в ППР,
+    затем в информацию о комплекте. По истории перейти в ППР, там построить список по запросу – из истории
+    должна удалится информация о комплекте.
+}
+function HLTC147_2_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  obj;
+begin                                  
+try
+  if NOT GoToPPR then Raise('Не удалось открыть ППР');
+  if NOT ClickByMainMenuItem('Помощь\Информация о комплекте') then 
+    Raise('Не могу кликнуть по пункту меню: "Помощь\Информация о комплекте"');
+  if NOT GoByHistory('НАЗАД') then Raise('Не удалось перейти назад по истории');  
+  Sys.Keys('[Enter]');
+  obj := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(obj) then Raise('Не удалось получить список в процессе проверки перехода по Истории');  
+  result := 
+    (NOT GoByHistory('ВПЕРЁД')) AND
+    IsEtalonObjByHistory ('НАЗАД', 'ППР') AND IsEtalonObjByHistory ('НАЗАД', 'ОМ');
+  if NOT result then
+    Log.Error('Последовательность объектов в истории не соответствует Эталонной');
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_2_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.2: Проверить, что если находясь в промежуточном объекте истории инициировать загрузку в текущее
+  окно любого объекта люым способом, кроме перемещения по истории навигации, то система отбрасывает всю
+  правую часть истории, дела загруженный объект последней записью в истории:
+    HLTC147.2.2: Зайти в систему (должно быть показано основное меню в основной области), перейти в ППР,
+    затем в информацию о комплекте. По истории перейти в ППР, загрузить документ (из папки, открыть по 
+    номеру) – из истории должна удалится информация о комплекте.
+}
+function HLTC147_2_2_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 10003000;
+var
+  obj;
+begin                                  
+try
+  GoToMainMenu;
+  if NOT GoToPPR then Raise('Не удалось открыть ППР');
+  if NOT ClickByMainMenuItem('Помощь\Информация о комплекте') then 
+    Raise('Не могу кликнуть по пункту меню: "Помощь\Информация о комплекте"');
+  if NOT GoByHistory('НАЗАД') then Raise('Не удалось перейти назад по истории');  
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА в процессе проверки перехода по Истории');
+  result := 
+    (NOT GoByHistory('ВПЕРЁД')) AND
+    IsEtalonObjByHistory ('НАЗАД', 'ППР') AND IsEtalonObjByHistory ('НАЗАД', 'ОМ');
+  if NOT result then
+    Log.Error('Последовательность объектов в истории не соответствует Эталонной');
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_2_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.2: Проверить, что если находясь в промежуточном объекте истории инициировать загрузку в текущее
+  окно любого объекта люым способом, кроме перемещения по истории навигации, то система отбрасывает всю
+  правую часть истории, дела загруженный объект последней записью в истории:
+    HLTC147.2.3: Зайти в систему (должно быть показано основное меню в основной области), перейти в ППР, затем в
+    информацию о комплекте, затем в ППС. По истории перейти в ППР, открыть толковый словарь – из истории  должны
+    удалиться информация о комплекте и ППС
+}
+function HLTC147_2_3_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 10003000;
+var
+  obj;
+  i;
+begin                                  
+try
+  if NOT GoToPPR then Raise('Не удалось открыть ППР');
+  if NOT ClickByMainMenuItem('Помощь\Информация о комплекте') then 
+    Raise('Не могу кликнуть по пункту меню: "Помощь\Информация о комплекте"');
+  if NOT GoToPPS then Raise('Не удалось открыть ППС');  
+  for i:= 1 to 2 do
+    if NOT GoByHistory('НАЗАД') then Raise('Не удалось перейти назад по истории');
+  if NOT GoToDictionary then Raise('Не удалось открыть ТС');  
+  result := 
+    (NOT GoByHistory('ВПЕРЁД')) AND
+    IsEtalonObjByHistory ('НАЗАД', 'ППР') AND IsEtalonObjByHistory ('НАЗАД', 'ОМ');
+  if NOT result then
+    Log.Error('Последовательность объектов в истории не соответствует Эталонной');
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_2_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.3: Проверить, что если в истории один единственный объект,то навигация по истории запрещена.
+}
+function HLTC147_3_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  PREF = 'HLTC147_3';
+var
+  toolBar;
+  obj;
+  login;
+  pass;
+  count;
+begin
+try
+  count := 5;
+  login := PREF + '_user1';
+  pass  := PREF;
+  RestartF1Shell(count, Options.Run.Timeout div 6, login, pass);  
+  toolBar := GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"');
+  if NOT IsExists(toolBar) then Raise('Не удалось получить ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"');
+  obj := GetToolBarObject(toolBar, 'BUTTON', 'Назад');
+  if NOT IsExists(obj) then Raise('Не удалось получить КНОПКУ НАЗАД по Истории');
+  if obj.NativeDelphiObject.Enabled then
+  begin
+    Log.Error('Кнопка "Назад по Истории" активна, хотя в исторои нет объектов!');
+    Raise;
+  end;
+  obj := GetToolBarObject(toolBar, 'BUTTON', 'Вперед');
+  if NOT IsExists(obj) then Raise('Не удалось получить КНОПКУ ВПЕРЕД по Истории');
+  if obj.NativeDelphiObject.Enabled then
+  begin
+    Log.Error('Кнопка "Вперед по Истории" активна, хотя в истории нет объектов!');
+    Raise;
+  end;
+  result := true;
+except  
+  Log.Message('HLTC147_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+ HLTC147.4: Проверить, что при навигации по истории запоминается положение тулбаров на форме:
+  HLTC147.4.1: Проверить, когда тулбар в состоянии pop-up: перейти в ППР вытащить тулбар «Поиск: 
+  По реквизитам» вернуться по истории назад, затем вперёд – тулбар должен быть в состоянии pop-up.
+}
+function HLTC147_4_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  toolBar;
+  obj;
+  x1, y1;
+  x2, y2;
+  x ,y;
+  dockedName;
+  tbClass, tbCaption;
+begin
+try
+  if NOT SetDefaultToolBarSettings then
+    Log.Warning('Не удалось установить настройки Тулбара по умолчанию');
+  if NOT UnlockToolbars then Raise('Не удалось разлочить ТУЛБАРЫ');  
+  if NOT GoToPPR then Raise('Не удалось перейти в ППР');  
+  toolBar := GetFromPPR('НИЖНИЙ ТУЛБАР КАРТОЧКИ ЗАПРОСА');
+  if NOT IsExists(toolBar) then Raise('Не удалось получить НИЖНИЙ ТУЛБАР КАРТОЧКИ ЗАПРОСА');
+  
+  tbCaption := toolBar.WndCaption;
+  tbClass := toolBar.WndClass;
+  obj := GetFromPPR('КАРТОЧКА ЗАПРОСА');
+  if NOT IsExists(obj) then Raise('Не удалось получить КАРТОЧКА ЗАПРОСА');
+  x1 := toolBar.ScreenLeft;
+  y1 := toolBar.ScreenTop;
+  x2 := obj.ScreenLeft + obj.Width  div 2;
+  y2 := obj.ScreenTop +  obj.Height div 2;
+  if NOT DragExt(nil, x1, y1, x2 - x1, -y1 + y2, '', 10) then 
+    Raise('Не удалось перетянуть ТУЛБАР при помощи DragExt');//перетаскиваем Тулбар
+    
+  toolBar := FindWindowByPath(GetF1ShellProcess, 'WNDCLASS:='+tbClass+';WNDCAPTION:='+ tbCaption+';MAXDEPTH:=20', false);  
+  if NOT IsExists(toolBar) then Raise('Не удалось обнаружить ТУЛБАР (даже пытались искать от процесса)');
+  
+  try
+    dockedName := toolBar.DockedTo.Name;
+  except
+    dockedName := '';
+  end;  
+  if dockedName <> '' then Raise('Тулбар не раздочился, его dockedName = ' + dockedName);
+  x := toolBar.ScreenLeft;
+  y := toolBar.ScreenTop;
+  if NOT GoByHistory('НАЗАД') then Raise('Не удалось перейти НАЗАД по истории');  
+  if NOT GoByHistory('ВПЕРЕД') then Raise('Не удалось перейти ВПЕРЕД по истории');
+    
+  toolBar := FindWindowByPath(GetF1ShellProcess, 'WNDCLASS:='+tbClass+';WNDCAPTION:='+ tbCaption+';MAXDEPTH:=20', false);
+  if NOT IsExists(toolBar) then 
+  begin
+    Log.Error('Не удалось найти тулбар после перехода по истроии НАЗАД');
+    Raise;
+  end;
+  try
+    dockedName := toolBar.DockedTo.Name;
+  except
+    dockedName := '';
+  end;  
+  if dockedName <> '' then 
+  begin
+    Log.Error('После возврата по Истории Тулбар не остался в раздоченом состоянии');
+    Raise;
+  end;
+  if NOT ( (x = toolBar.ScreenLeft) AND (y = toolBar.ScreenTop) )then 
+  begin
+    Log.Error('После возврата по Истории координаты Тулбара не остались преждними');
+    Raise;
+  end;
+  if NOT SetDefaultToolBarSettings then
+    Log.Warning('Не удалось установить настройки Тулбара по умолчанию');
+  result := true;
+except  
+  Log.Message('HLTC147_4_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  SetDefaultToolBarSettings;
+  result := false;
+  CommonExceptionHandler;             
+end;
+	SetDefaultSettings;
+end;
+
+{
+HLTC147: История навигации
+ HLTC147.4: Проверить, что при навигации по истории запоминается положение тулбаров на форме:
+  HLTC147.4.2: Проверить когда один тулбар на несколько форм, например тулбар «Основное меню»: Перейти в 
+  ППР, переместить тулбар «Основное меню» в нижнюю часть формы, перйти в ППС – тулбар «Основное меню» 
+  должен быть внизу.
+}
+function HLTC147_4_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  toolBar;
+  obj;
+  x1, y1;
+  x2, y2;
+  x ,y;
+  dockedName;
+  tbClass, tbCaption;
+begin
+try
+  if NOT SetDefaultToolBarSettings then
+    Log.Warning('Не удалось установить настройки Тулбара по умолчанию');
+  if NOT UnlockToolbars then Raise('Не удалось разлочить ТУЛБАРЫ');  
+  if NOT GoToPPR then Raise('Не удалось перейти в ППР');  
+  toolBar := GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"');
+  if NOT IsExists(toolBar) then Raise('Не удалось получить ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"');
+  tbCaption := toolBar.WndCaption;
+  tbClass := toolBar.WndClass;
+  obj := GetFromPPR('КАРТОЧКА ЗАПРОСА');
+  if NOT IsExists(obj) then Raise('Не удалось получить КАРТОЧКА ЗАПРОСА');
+  x1 := toolBar.ScreenLeft;
+  y1 := toolBar.ScreenTop;
+  x2 := obj.ScreenLeft + obj.Width  div 2;
+  y2 := obj.ScreenTop +  obj.Height div 2;
+  if NOT DragExt(nil, x1, y1, x2 - x1, y2 - y1, '', 30) then 
+    Raise('Не удалось перетянуть ТУЛБАР при помощи DragExt');//перетаскиваем Тулбар
+  
+  toolBar := GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"');  
+  if NOT IsExists(toolBar) then Raise('Не удалось обнаружить ТУЛБАР (даже пытались искать от процесса)');  
+      
+  try
+    dockedName := toolBar.DockedTo.Name;
+  except
+    dockedName := '';
+  end;  
+  if dockedName <> '' then Raise('Тулбар не раздочился');
+  x := toolBar.ScreenLeft;
+  y := toolBar.ScreenTop;
+  if NOT GoToPPS then Raise('Не удалось перейти в ППС');
+    
+  toolBar := GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"');
+  if NOT IsExists(toolBar) then 
+  begin
+    Log.Error('Не удалось найти тулбар после перехода в ППС');
+    Raise;
+  end;
+  try
+    dockedName := toolBar.DockedTo.Name;
+  except
+    dockedName := '';
+  end;  
+  if dockedName <> '' then 
+  begin
+    Log.Error('После перехода в ППС Тулбар не остался в раздоченом состоянии');
+    Raise;
+  end;
+  if NOT ( (x = toolBar.ScreenLeft) AND (y = toolBar.ScreenTop) )then 
+  begin
+    Log.Error('После перехода в ППС координаты Тулбара не остались преждними');
+    Raise;
+  end;
+  if NOT SetDefaultToolBarSettings then
+    Log.Warning('Не удалось установить настройки Тулбара по умолчанию');
+  result := true;
+except  
+  Log.Message('HLTC147_4_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  SetDefaultToolBarSettings;
+  result := false;
+  CommonExceptionHandler;             
+end;
+	SetDefaultSettings;
+end;
+
+{
+HLTC147: История навигации
+ HLTC147.5: Проверить, что при навигации по истории запоминается положение навигатора (в плавающем 
+ состоянии): Вытащить вкладку «Мои документы» в плавающее состояние, перейти в ППР, ППС, ОМ, вренуться
+ по истории в ППР – вкладка всё время в плавающем состоянии.
+}
+function HLTC147_5_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  navigator;
+  x1, y1; 
+  x, y;
+  i;
+begin
+try
+  OpenMyDocTab;
+  navigator := GetFromNavigator('ФОРМА ЛЕВОГО НАВИГАТОРА');
+  if NOT IsExists(navigator) then Raise('Не удалось получить ФОРМА ЛЕВОГО НАВИГАТОРА');
+  //Вытаскиваем навигатор в отдельное окно
+// The following line was changed by TestComplete:
+//   x1 := navigator.SLeft + navigator.Width div 2;
+  x1 := navigator.ScreenLeft + navigator.Width div 2;
+// The following line was changed by TestComplete:
+//   y1 := navigator.STop + 10;  
+  y1 := navigator.ScreenTop + 10;  
+  if NOT DragExt(nil, x1, y1, navigator.Width, 30, '', 30) then 
+    Raise('Не удалось перетянуть навигатор при помощи DragExt');
+  navigator := GetFromNavigator('ФОРМА ПЛАВАЮЩЕГО НАВИГАТОРА');
+  if NOT IsExists(navigator) then Raise('Не удалось получить ФОРМА ПЛАВАЮЩЕГО НАВИГАТОРА');
+// The following line was changed by TestComplete:
+//   x := navigator.SLeft;
+  x := navigator.ScreenLeft;
+// The following line was changed by TestComplete:
+//   y := navigator.STop;
+  y := navigator.ScreenTop;
+  if NOT GoToPPR then Raise('Не удалось перейти в ППР');  
+  if NOT GoToPPS then Raise('Не удалось перейти в ППС');
+  if NOT GoToMainMenu then Raise('Не удалось перейти в ОМ');
+  for i := 1 to 3 do
+  begin
+    if NOT GoByHistory('НАЗАД') then Raise('Не удалось перейти НАЗАД по истории');
+    navigator := GetFromNavigator('ФОРМА ПЛАВАЮЩЕГО НАВИГАТОРА');
+    if NOT IsExists(navigator) then
+    begin
+      Log.Error('После перехода НАЗАД по истории Левый нввигатор не остался в плавающем состоянии');
+      Raise;
+    end;
+// The following line was changed by TestComplete:
+//     if NOT ( (x = navigator.SLeft) AND (y = navigator.STop) ) then
+    if NOT ( (x = navigator.ScreenLeft) AND (y = navigator.ScreenTop) ) then
+    begin
+      Log.Error('После перехода НАЗАД по истории координаты Плавающего навигатора не остались преждними');
+      Raise;
+    end;
+  end;//for    
+  result := true;
+except  
+  Log.Message('HLTC147_5_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+	SetDefaultSettings;
+end;
+
+
+{
+HLTC147: История навигации
+  HLTC147.6: Для стандартной конфигурации проверить, что в истории навигации сохраняется активность вкладок 
+  (т.е. запоминается, какая из вкладок была активной – Текст, синхронный просмотр, ССЫЛКИ НА ДОКУМЕНТ, ССЫЛКИ ИЗ ДОКУМЕНТА,
+  Атрибуты, Справка к Списку и др.):
+    HLTC147.6.1: При навигации между документами
+}
+function HLTC147_6_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM_1 = 10003000;
+  DOC_NUM_2 = 1055132;
+var
+  obj;
+  i;
+begin                                  
+try
+  if NOT OpenDocByNumber(DOC_NUM_1) then Raise('Не удалось открыть документ по Alt+N');
+  obj := OpenInDocument('ТЕКСТ');
+  if NOT IsExists(obj) then Raise ('Не удалось открыть ТЕКСТ');
+  if NOT OpenDocByNumber(DOC_NUM_2) then Raise('Не удалось открыть документ по Alt+N');
+  obj := OpenInDocument('ССЫЛКИ НА ДОКУМЕНТ');
+  if NOT IsExists(obj) then Raise ('Не удалось открыть ССЫЛКИ НА ДОКУМЕНТ');
+  //переходим в конституцию 
+  if NOT IsEtalonPageControlByHistory('НАЗАД', 'ВКЛАДКА "ТЕКСТ"')then 
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "ТЕКСТ"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "ТЕКСТ"');
+  end;
+  obj := OpenInDocument('ССЫЛКИ ИЗ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise ('Не удалось открыть ССЫЛКИ ИЗ ДОКУМЕНТА');
+  //переходим в Договор
+  if NOT IsEtalonPageControlByHistory('ВПЕРЁД', 'ВКЛАДКА "ССЫЛКИ НА ДОКУМЕНТ"')then 
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "ССЫЛКИ НА ДОКУМЕНТ"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "ССЫЛКИ НА ДОКУМЕНТ"');
+  end;
+  obj := OpenInDocument('ТЕКСТ');
+  if NOT IsExists(obj) then Raise ('Не удалось открыть ТЕКСТ');
+  //переходим в конституцию
+  if NOT IsEtalonPageControlByHistory('НАЗАД', 'ВКЛАДКА "ССЫЛКИ ИЗ ДОКУМЕНТА"')then 
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "ССЫЛКИ ИЗ ДОКУМЕНТА"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "ССЫЛКИ ИЗ ДОКУМЕНТА"');
+  end;
+  obj := OpenInDocument('ИНФОРМАЦИЯ О ДОКУМЕНТЕ');
+  if NOT IsExists(obj) then Raise ('Не удалось открыть ИНФОРМАЦИЯ О ДОКУМЕНТЕ');
+  //переходим в Договор
+  if NOT IsEtalonPageControlByHistory('ВПЕРЁД', 'ВКЛАДКА "ТЕКСТ"')then 
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "ТЕКСТ"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "ТЕКСТ"');
+  end;
+  obj := OpenInDocument('СПРАВКА');
+  if NOT IsExists(obj) then Raise ('Не удалось открыть СПРАВКА');
+  //переходим в конституцию
+  if NOT IsEtalonPageControlByHistory('НАЗАД', 'ВКЛАДКА "ИНФОРМАЦИЯ О ДОКУМЕНТЕ"')then 
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "ИНФОРМАЦИЯ О ДОКУМЕНТЕ"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "ИНФОРМАЦИЯ О ДОКУМЕНТЕ"');
+  end;
+  //переходим в Договор
+  if NOT IsEtalonPageControlByHistory('ВПЕРЁД', 'ВКЛАДКА "СПРАВКА"')then 
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "СПРАВКА"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "СПРАВКА"');
+  end;
+    
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_6_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;  
+  
+{
+HLTC147: История навигации
+  HLTC147.6: Для стандартной конфигурации проверить, что в истории навигации сохраняется активность вкладок 
+  (т.е. запоминается, какая из вкладок была активной – Текст, синхронный просмотр, ССЫЛКИ НА ДОКУМЕНТ, ССЫЛКИ ИЗ ДОКУМЕНТА,
+  Атрибуты, Справка к Списку и др.):
+    HLTC147.6.2: При навигации между списками
+}
+function HLTC147_6_2_Execute (var  CurrentState: OleVariant): OleVariant;
+begin                                  
+try
+  //Список 1
+  if NOT OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then Raise('Не удалось открыть список из навигатора');
+  if NOT IsExists(OpenInList('СПИСОК ДОКУМЕНТОВ')) then Raise('Не удалось открыть СПИСОК ДОКУМЕНТОВ');
+  //Список 2
+  if NOT OpenObjectFromFolder(LIST_MAIN1, OpenMenuTab) then Raise('Не удалось открыть список из навигатора');
+  if NOT IsExists(OpenInList('СПРАВКА К СПИСКУ')) then Raise('Не удалось открыть СПРАВКА К СПИСКУ');
+  //Список 1  
+  if NOT IsEtalonPageControlByHistory('НАЗАД', 'ВКЛАДКА "СПИСОК"')then 
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "СПИСОК"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "СПИСОК"');
+  end;
+  if NOT IsExists(OpenInList('СИНХРОННЫЙ ПРОСМОТР')) then Raise('Не удалось открыть СИНХРОННЫЙ ПРОСМОТР');
+  //Список 2
+  if NOT IsEtalonPageControlByHistory('ВПЕРЁД', 'ВКЛАДКА "СПРАВКА К СПИСКУ"')then 
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "СПРАВКА К СПИСКУ"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "СПРАВКА К СПИСКУ"');
+  end;
+  //Список 1  
+  if NOT IsEtalonPageControlByHistory('НАЗАД', 'ВКЛАДКА "СИНХРОННЫЙ ПРОСМОТР"')then 
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "СИНХРОННЫЙ ПРОСМОТР"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "СИНХРОННЫЙ ПРОСМОТР"');
+  end;
+     
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_6_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.6: Для стандартной конфигурации проверить, что в истории навигации сохраняется активность вкладок 
+  (т.е. запоминается, какая из вкладок была активной – Текст, синхронный просмотр, ССЫЛКИ НА ДОКУМЕНТ, ССЫЛКИ ИЗ ДОКУМЕНТА,
+  Атрибуты, Справка к Списку и др.):
+    HLTC147.6.3: Между списком и документом
+}
+function HLTC147_6_3_Execute (var  CurrentState: OleVariant): OleVariant;
+const  
+  DOC_NUM = 1055132;
+begin                                  
+try
+  //Список
+  if NOT OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then Raise('Не удалось открыть список из навигатора');
+  if NOT IsExists(OpenInList('СПИСОК ДОКУМЕНТОВ')) then Raise('Не удалось открыть СПИСОК ДОКУМЕНТОВ');
+  //Документ
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  if NOT IsExists(OpenInDocument('ТЕКСТ')) then Raise ('Не удалось открыть ТЕКСТ');
+  //Список
+  if NOT IsEtalonPageControlByHistory('НАЗАД', 'ВКЛАДКА "СПИСОК"')then
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "СПИСОК"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "СПИСОК"');
+  end;
+  if NOT IsExists(OpenInList('СИНХРОННЫЙ ПРОСМОТР')) then Raise('Не удалось открыть СИНХРОННЫЙ ПРОСМОТР');
+  //Документ
+  if NOT IsEtalonPageControlByHistory('ВПЕРЁД', 'ВКЛАДКА "ТЕКСТ"')then 
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "ТЕКСТ"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "ТЕКСТ"');
+  end;
+  if NOT IsExists(OpenInDocument('ССЫЛКИ НА ДОКУМЕНТ')) then Raise('Не удалось открыть ССЫЛКИ НА ДОКУМЕНТ');  
+  //Список
+  if NOT IsEtalonPageControlByHistory('НАЗАД', 'ВКЛАДКА "СИНХРОННЫЙ ПРОСМОТР"')then
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "СИНХРОННЫЙ ПРОСМОТР"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "СИНХРОННЫЙ ПРОСМОТР"');
+  end;
+  if NOT IsExists(OpenInList('СПРАВКА К СПИСКУ')) then Raise('Не удалось открыть СПРАВКА К СПИСКУ');
+  //Документ
+  if NOT IsEtalonPageControlByHistory('ВПЕРЁД', 'ВКЛАДКА "ССЫЛКИ НА ДОКУМЕНТ"')then 
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "ССЫЛКИ НА ДОКУМЕНТ"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "ССЫЛКИ НА ДОКУМЕНТ"');
+  end;
+  if NOT IsExists(OpenInDocument('ССЫЛКИ ИЗ ДОКУМЕНТА')) then Raise('Не удалось открыть ССЫЛКИ ИЗ ДОКУМЕНТА');
+  //Список
+  if NOT IsEtalonPageControlByHistory('НАЗАД', 'ВКЛАДКА "СПРАВКА К СПИСКУ"')then
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "СПРАВКА К СПИСКУ"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "СПРАВКА К СПИСКУ"');
+  end;
+  //Документ
+  if NOT IsEtalonPageControlByHistory('ВПЕРЁД', 'ВКЛАДКА "ССЫЛКИ ИЗ ДОКУМЕНТА"')then
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "ССЫЛКИ ИЗ ДОКУМЕНТА"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "ССЫЛКИ ИЗ ДОКУМЕНТА"');
+  end;
+  if NOT IsExists(OpenInDocument('ИНФОРМАЦИЯ О ДОКУМЕНТЕ')) then Raise('Не удалось открыть ИНФОРМАЦИЯ О ДОКУМЕНТЕ');
+  //Список
+  if NOT IsEtalonPageControlByHistory('НАЗАД', 'ВКЛАДКА "СПРАВКА К СПИСКУ"')then
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "СПРАВКА К СПИСКУ"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "СПРАВКА К СПИСКУ"');
+  end;
+  //Документ
+  if NOT IsEtalonPageControlByHistory('ВПЕРЁД', 'ВКЛАДКА "ИНФОРМАЦИЯ О ДОКУМЕНТЕ"')then
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "ИНФОРМАЦИЯ О ДОКУМЕНТЕ"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "ИНФОРМАЦИЯ О ДОКУМЕНТЕ"');
+  end;
+  if NOT IsExists(OpenInDocument('СПРАВКА')) then Raise('Не удалось открыть СПРАВКА');
+  //Список
+  if NOT IsEtalonPageControlByHistory('НАЗАД', 'ВКЛАДКА "СПРАВКА К СПИСКУ"')then
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "СПРАВКА К СПИСКУ"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "СПРАВКА К СПИСКУ"');
+  end;
+  //Документ
+  if NOT IsEtalonPageControlByHistory('ВПЕРЁД', 'ВКЛАДКА "СПРАВКА"')then
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "СПРАВКА"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "СПРАВКА"');
+  end;
+     
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_6_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.6: Для стандартной конфигурации проверить, что в истории навигации сохраняется активность вкладок 
+  (т.е. запоминается, какая из вкладок была активной – Текст, синхронный просмотр, ССЫЛКИ НА ДОКУМЕНТ, ССЫЛКИ ИЗ ДОКУМЕНТА,
+  Атрибуты, Справка к Списку и др.):
+    HLTC147.6.4: Между навигатором и списком
+    HLTC147.6.5: Между навигатором и документом
+}
+function HLTC147_6_4_Execute (var  CurrentState: OleVariant): OleVariant;
+const  
+  CAPTION_1 = '*Гражданское законодательство, приватизация';
+  CAPTION_2 = '*Основы государственно-правового устройства';
+var
+  obj;
+  str;
+  folderTree;  
+begin                                  
+try
+  folderTree := OpenMenuTab;
+  if NOT OpenObjectFromFolder(LIST_RUBR_LEGISLATION, OpenMenuTab) then Raise('Не удалось открыть навигатора');
+  if NOT OpenObjectFromFolder(LIST_RUBR_MAIN, OpenMenuTab) then Raise('Не удалось открыть навигатора');
+  if NOT GoByHistory('НАЗАД') then Raise('Не удалось перейти НАЗАД по истории');
+  obj := GetFromList('СПИСОК РУБРИКАТОРА');
+  str := GetMainWindow.Caption;  
+  if NOT (IsExists(obj) AND obj.Visible AND StringCompare(CAPTION_1, str)) then
+  begin
+    Log.Error('После перехода по истории активный объект не эталонный или caption MainWindow Не эталонный');
+    Raise('После перехода по истории активный объект не эталонный или caption MainWindow Не эталонный');
+  end;
+  str := common.GetWindowText(folderTree.Handle);
+  if NOT StringCompare(CAPTION_1, str) then
+  begin
+    Log.Error('В дереве навигатора после перехода по истории активный узел НЕ Эталонный', str);
+    Raise('В дереве навигатора после перехода по истории активный узел НЕ Эталонный');
+  end;
+  if NOT GoByHistory('ВПЕРЁД') then Raise('Не удалось перейти ВПЕРЁД по истории');
+  obj := GetFromList('СПИСОК РУБРИКАТОРА');
+  str := GetMainWindow.Caption;  
+  if NOT (IsExists(obj) AND obj.Visible AND StringCompare(CAPTION_2, str)) then
+  begin
+    Log.Error('После перехода по истории активный объект не эталонный или caption MainWindow Не эталонный');
+    Raise('После перехода по истории активный объект не эталонный или caption MainWindow Не эталонный');
+  end;
+  str := common.GetWindowText(folderTree.Handle);
+  if NOT StringCompare(CAPTION_2, str) then
+  begin
+    Log.Error('В дереве навигатора после перехода по истории активный узел НЕ Эталонный', str);
+    Raise('В дереве навигатора после перехода по истории активный узел НЕ Эталонный');
+  end;
+     
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_6_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.6: Для стандартной конфигурации проверить, что в истории навигации сохраняется активность вкладок 
+  (т.е. запоминается, какая из вкладок была активной – Текст, синхронный просмотр, ССЫЛКИ НА ДОКУМЕНТ, ССЫЛКИ ИЗ ДОКУМЕНТА,
+  Атрибуты, Справка к Списку и др.):
+    HLTC147.6.6: Проверить при навигации между списком и документом (когда документ получен по ссылке из 
+    синхронного просмотра в списке)
+}
+function HLTC147_6_6_Execute (var  CurrentState: OleVariant): OleVariant;
+const  
+  CONTEXT = 'Преамбула';
+var
+  obj;  
+begin                                  
+try
+  //Список
+  if NOT OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then Raise('Не удалось открыть список из навигатора');
+  obj := OpenInList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(obj) then Raise('Не удалось открыть СПИСОК ДОКУМЕНТОВ');  
+  if NOT Position_Internal(obj, 'Договор*', '\', true) then
+    Raise('Не удалось спозиционироваться на документе в списке');
+  obj := OpenInList('СИНХРОННЫЙ ПРОСМОТР');
+  if NOT IsExists(obj) then Raise('Не удалось получить область СИНХРОННЫЙ ПРОСМОТР');
+  obj := GetFromSynchroView('ТЕКСТ ДОКУМЕНТА');
+  obj.SetFocus;
+  //Документ
+  if NOT ClickByHyperLink(obj, CONTEXT) then 
+    Raise('Не удалось кликнуть по гиперссылке в окне синхронного просмотра');
+  if NOT IsExists(OpenInDocument('ТЕКСТ')) then Raise ('Не удалось открыть ТЕКСТ');
+  //Список
+  if NOT IsEtalonPageControlByHistory('НАЗАД', 'ВКЛАДКА "СИНХРОННЫЙ ПРОСМОТР"')then
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "СИНХРОННЫЙ ПРОСМОТР"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "СИНХРОННЫЙ ПРОСМОТР"');
+  end;
+  if NOT IsExists(OpenInList('СПИСОК ДОКУМЕНТОВ')) then Raise('Не удалось открыть СПИСОК ДОКУМЕНТОВ');
+  //Документ
+  if NOT IsEtalonPageControlByHistory('ВПЕРЁД', 'ВКЛАДКА "ТЕКСТ"')then 
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "ТЕКСТ"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "ТЕКСТ"');
+  end;
+  if NOT IsExists(OpenInDocument('ССЫЛКИ НА ДОКУМЕНТ')) then Raise('Не удалось открыть ССЫЛКИ НА ДОКУМЕНТ');  
+  //Список
+  if NOT IsEtalonPageControlByHistory('НАЗАД', 'ВКЛАДКА "СПИСОК"')then
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "СПИСОК"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "СПИСОК"');
+  end;
+  if NOT IsExists(OpenInList('СПРАВКА К СПИСКУ')) then Raise('Не удалось открыть СПРАВКА К СПИСКУ');
+  //Документ
+  if NOT IsEtalonPageControlByHistory('ВПЕРЁД', 'ВКЛАДКА "ССЫЛКИ НА ДОКУМЕНТ"')then 
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "ССЫЛКИ НА ДОКУМЕНТ"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "ССЫЛКИ НА ДОКУМЕНТ"');
+  end;
+  if NOT IsExists(OpenInDocument('ССЫЛКИ ИЗ ДОКУМЕНТА')) then Raise('Не удалось открыть ССЫЛКИ ИЗ ДОКУМЕНТА');
+  //Список
+  if NOT IsEtalonPageControlByHistory('НАЗАД', 'ВКЛАДКА "СПРАВКА К СПИСКУ"')then
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "СПРАВКА К СПИСКУ"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "СПРАВКА К СПИСКУ"');
+  end;
+  //Документ
+  if NOT IsEtalonPageControlByHistory('ВПЕРЁД', 'ВКЛАДКА "ССЫЛКИ ИЗ ДОКУМЕНТА"')then
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "ССЫЛКИ ИЗ ДОКУМЕНТА"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "ССЫЛКИ ИЗ ДОКУМЕНТА"');
+  end;
+  if NOT IsExists(OpenInDocument('ИНФОРМАЦИЯ О ДОКУМЕНТЕ')) then Raise('Не удалось открыть ИНФОРМАЦИЯ О ДОКУМЕНТЕ');
+  //Список
+  if NOT IsEtalonPageControlByHistory('НАЗАД', 'ВКЛАДКА "СПРАВКА К СПИСКУ"')then
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "СПРАВКА К СПИСКУ"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "СПРАВКА К СПИСКУ"');
+  end;
+  //Документ
+  if NOT IsEtalonPageControlByHistory('ВПЕРЁД', 'ВКЛАДКА "ИНФОРМАЦИЯ О ДОКУМЕНТЕ"')then
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "ИНФОРМАЦИЯ О ДОКУМЕНТЕ"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "ИНФОРМАЦИЯ О ДОКУМЕНТЕ"');
+  end;
+  if NOT IsExists(OpenInDocument('СПРАВКА')) then Raise('Не удалось открыть СПРАВКА');
+  //Список
+  if NOT IsEtalonPageControlByHistory('НАЗАД', 'ВКЛАДКА "СПРАВКА К СПИСКУ"')then
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "СПРАВКА К СПИСКУ"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "СПРАВКА К СПИСКУ"');
+  end;
+  //Документ
+  if NOT IsEtalonPageControlByHistory('ВПЕРЁД', 'ВКЛАДКА "СПРАВКА"')then
+  begin
+    Log.Error('После перехода по истории активна НЕ ВКЛАДКА "СПРАВКА"');
+    Raise('После перехода по истории активна НЕ ВКЛАДКА "СПРАВКА"');
+  end;
+     
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_6_6_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+
+{
+HLTC147: История навигации
+  HLTC147.6: Для стандартной конфигурации проверить, что в истории навигации сохраняется активность вкладок 
+  (т.е. запоминается, какая из вкладок была активной – Текст, синхронный просмотр, ССЫЛКИ НА ДОКУМЕНТ, ССЫЛКИ ИЗ ДОКУМЕНТА,
+  Атрибуты, Справка к Списку и др.):
+    HLTC147.6.8: Зайти в документ, открыть вкладку Судебная практика, перейти в первый документ в списке, 
+    перейти назад по истории.
+}
+function HLTC147_6_8_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 10003000;
+var
+  obj;  
+begin                                  
+try
+  if NOT SetSettings ([(['НАСТРОЙКИ ИНТЕРФЕЙСА', 'ВКЛАДКИ ОСНОВНОГО ОКНА\ОТКРЫВАТЬ ДОКУМЕНТЫ ИЗ СПИСКОВ\В ТЕКУЩЕЙ ВКЛАДКЕ [GROUPBUTTON]', true])]) then
+     Raise('Не удалось в Настройках включить открытие документа В ТЕКУЩЕЙ ВКЛАДКЕ!');
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  obj := GetFromEditor('ЗАКЛАДКИ');
+  if NOT IsExists(obj) then Raise('Не удалось получить PageControl');
+  if NOT SwitchToPage(obj, 'Судебная практика') then
+    Raise('Не удалось переключиться на вкладку "Судебная практика"');
+  obj := GetFromEditor('ВКЛАДКА "ССЫЛКИ НА ДОКУМЕНТ СУДЕБНАЯ ПРАКТИКА"');
+  if NOT (IsExists(obj) AND obj.Visible) then Raise('Не удалось получить вкладку "Судебная практика"');    
+  if NOT OpenDocFromList('', obj) then Raise('Не удалось открыть документ из списка');
+  if NOT GoByHistory('НАЗАД') then Raise('Не удалось перейти НАЗАД по истории');  
+  obj := GetFromEditor('ЗАКЛАДКИ');
+  if NOT IsExists(obj) then Raise('Не удалось получить PageControl');
+  result := IsExists(obj) AND obj.Visible AND (obj.ActivePage.Caption = 'Судебная практика');
+  if NOT result then
+    Log.Error('После возврата по истории активна не эталонная вкладка, должна быть активна "Судебная практика"');
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_6_8_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+  SetDefaultSettings;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.7: Проверить, что в истории навигации сохраняется состояние 
+  свёрнутости/развёрнутости деревьев (групп):
+    HLTC147.7.1: Проверить для деревьев списка.
+}
+function HLTC147_7_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  obj;  
+begin                                  
+try
+  if NOT SetSettings ([(['НАСТРОЙКИ ИНТЕРФЕЙСА', 'ВКЛАДКИ ОСНОВНОГО ОКНА\ОТКРЫВАТЬ ДОКУМЕНТЫ ИЗ СПИСКОВ\В ТЕКУЩЕЙ ВКЛАДКЕ [GROUPBUTTON]', true])]) then
+     Raise('Не удалось в Настройках включить открытие документа В ТЕКУЩЕЙ ВКЛАДКЕ!'); 
+  if NOT OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then Raise('Не удалось открыть список из навигатора');
+  obj := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(obj) then Raise('Не удалось получить СПИСОК ДОКУМЕНТОВ');
+  if NOT Position_Internal(obj, 'Конституция Российской*', '\', true) then Raise
+    ('Не удалось спозиционироваться на документе в списке');
+  if IsCurrentNodeExpanded(obj)then Raise('Элемент развернут, хотя недолжен!');  
+  Sys.Keys('[Right]');
+  if NOT IsCurrentNodeExpanded(obj)then Raise('После нажатия [Right] элемент в дереве не развернут');  
+  obj.SetFocus;
+  Sys.Keys('[Home]');  
+  if NOT Position_Internal(obj, 'Договор*', '\', true) then Raise
+    ('Не удалось спозиционироваться на документе в списке');
+  OpenDocFromList;
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  if NOT GoByHistory('НАЗАД') then Raise('Не удалось перейти НАЗАД по истории');
+  obj := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(obj) then Raise('Не удалось получить СПИСОК ДОКУМЕНТОВ после возврата по истрории');
+  obj.SetFocus;
+  Sys.Keys('[Home]');
+  if NOT Position_Internal(obj, 'Конституция Российской*', '\', true) then Raise
+    ('Не удалось спозиционироваться на документе в списке');  
+  if NOT IsCurrentNodeExpanded(obj) then
+  begin
+    Log.Error('После возврата по истории элемент не сохранил своё свойство развёрнутости');
+    Raise;
+  end;
+  Sys.Keys('[Left]');
+  if IsCurrentNodeExpanded(obj)then Raise('После нажатия [Left] элемент в дереве не свернулся');  
+  if NOT Position_Internal(obj, 'Договор*', '\', true) then Raise
+    ('Не удалось спозиционироваться на документе в списке');
+  OpenDocFromList;
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT GoByHistory('НАЗАД') then Raise('Не удалось перейти НАЗАД по истории');
+  obj := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(obj) then Raise('Не удалось получить СПИСОК ДОКУМЕНТОВ после возврата по истрории');
+  obj.SetFocus;
+  Sys.Keys('[Home]');
+  if NOT Position_Internal(obj, 'Конституция Российской*', '\', true) then Raise
+    ('Не удалось спозиционироваться на документе в списке');
+  if IsCurrentNodeExpanded(obj)then
+  begin    
+    Log.Error('После возврата по истории элемент не сохранил своё свойство Свёрнутости');
+    Raise;
+  end;  
+  result := true;    
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_7_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+  SetDefaultSettings;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.7: Проверить, что в истории навигации сохраняется состояние 
+  свёрнутости/развёрнутости деревьев (групп):
+    HLTC147.7.2: Проверить для деревьев в панели навигатора
+}
+function HLTC147_7_2_Execute (var  CurrentState: OleVariant): OleVariant;
+const  
+  DOC_NUM = 10003000;
+var
+  obj;
+begin                                  
+try 
+  obj := OpenMenuTab;
+  if NOT IsExists(obj) then Raise('Не удалось получить ВКЛАДКА НАВИГАТОРА "МЕНЮ"');
+  Sys.Keys('[Apps]');
+  if NOT ClickByPopUpMenuItem(obj, 'Свернуть все') then 
+    Raise('Не удалось вызвать пункт контекстного меню "Свернуть все"');  
+  if NOT Position_Internal(obj, LIST_RUBR_MAIN) then Raise ('Не удалось спозиционироваться в Дереве папок');
+  if IsCurrentNodeExpanded(obj)then Raise('Элемент развернут, хотя недолжен!');
+  Sys.Keys('[Right]');
+  if NOT IsCurrentNodeExpanded(obj)then Raise('После нажатия [Right] элемент в дереве не развернут');  
+    
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  if NOT IsExists(GetFromEditor('ТЕКСТ ДОКУМЕНТА')) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  if NOT GoByHistory('НАЗАД') then Raise('Не удалось перейти НАЗАД по истории');
+  obj.SetFocus;
+  Sys.Keys('[Home]');
+  if NOT Position_Internal(obj, LIST_RUBR_MAIN) then Raise
+    ('Не удалось спозиционироваться в Дереве папок');    
+  if NOT IsCurrentNodeExpanded(obj)then
+  begin
+    Log.Error('После возврата по истории элемент элемент не сохранил свойство развёрнутости');
+    Raise;
+  end;
+  Sys.Keys('[Left]');
+  if IsCurrentNodeExpanded(obj) then Raise('После нажатия [Left] элемент в дереве не свернулся');
+      
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  if NOT IsExists(GetFromEditor('ТЕКСТ ДОКУМЕНТА')) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  if NOT GoByHistory('НАЗАД') then Raise('Не удалось перейти НАЗАД по истории');
+  obj.SetFocus;
+  Sys.Keys('[Home]');
+  if NOT Position_Internal(obj, LIST_RUBR_MAIN) then Raise
+    ('Не удалось спозиционироваться в Дереве папок');  
+  if IsCurrentNodeExpanded(obj) then
+  begin
+    Log.Error('После возврата по истории элемент элемент не сохранил свойство свернутости');
+    Raise;
+  end;
+  result := true;
+  ClosePopUpMenu(obj);  
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_7_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.9: Проверить, что переход можно осуществлять сразу к конкретному объекту (т.е не перемещаясь
+  в списке поэлементно). Для этого из списка объектов истории выбрать нужный:
+    HLTC147.9.1: Проверить когда в истории 2 объекта
+}
+function HLTC147_9_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 10003000;
+begin
+try 
+  if NOT GoToPPR then Raise('Не удалось открыть ППР');
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  if NOT GoToPPS then Raise('Не удалось открыть ППС');
+  if NOT GoByHistory('НАЗАД', 'Поиск по реквизитам') then
+  begin
+    Log.Error('Не удалось перейти НАЗАД по истории на определённый Item');
+    Raise('Не удалось перейти НАЗАД по истории на определённый Item');
+  end;
+  if NOT GoByHistory('ВПЕРЁД') then Raise('Не удалось перейти по истории ВПЕРЁД');
+  if NOT IsExists(GetFromEditor('ТЕКСТ ДОКУМЕНТА')) then 
+    Raise('После перехода по истории активный объект не эталонный, должен быть ТЕКСТ ДОКУМЕНТА');
+  if NOT GoByHistory('ВПЕРЁД') then Raise('Не удалось перейти по истории ВПЕРЁД');
+  if NOT IsExists(GetFromPPS('СИТУАЦИИ ДОПОЛНИТЕЛЬНОГО УРОВНЯ')) then 
+    Raise('После перехода по истории активный объект не эталонный, должен быть ППС');
+  result := true; 
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_9_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.9: Проверить, что переход можно осуществлять сразу к конкретному объекту (т.е не перемещаясь
+  в списке поэлементно). Для этого из списка объектов истории выбрать нужный:
+    HLTC147.9.2: Проверить когда в истории более двух объектов
+}
+function HLTC147_9_2_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 10003000;
+begin
+try 
+  if NOT GoToPPR then Raise('Не удалось открыть ППР');
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  if NOT GoToPPS then Raise('Не удалось открыть ППС');
+  if NOT GoByHistory('НАЗАД', 'Поиск по реквизитам') then
+  begin
+    Log.Error('Не удалось перейти НАЗАД по истории на определённый Item');
+    Raise('Не удалось перейти НАЗАД по истории на определённый Item');
+  end;
+  if NOT GoByHistory('ВПЕРЁД') then Raise('Не удалось перейти по истории ВПЕРЁД');
+  if NOT IsExists(GetFromEditor('ТЕКСТ ДОКУМЕНТА')) then 
+    Raise('После перехода по истории активный объект не эталонный, должен быть ТЕКСТ ДОКУМЕНТА');
+  if NOT GoByHistory('ВПЕРЁД') then Raise('Не удалось перейти по истории ВПЕРЁД');
+  if NOT IsExists(GetFromPPS('СИТУАЦИИ ДОПОЛНИТЕЛЬНОГО УРОВНЯ')) then 
+    Raise('После перехода по истории активный объект не эталонный, должен быть ППС');
+  result := true; 
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_9_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.9: Проверить, что переход можно осуществлять сразу к конкретному объекту (т.е не перемещаясь
+  в списке поэлементно). Для этого из списка объектов истории выбрать нужный:
+    HLTC147.9.3: Проверить перемещение из списка объектов истории на один элемент вперёд (назад).
+}
+function HLTC147_9_3_Execute (var  CurrentState: OleVariant): OleVariant;
+begin
+try 
+  if NOT GoToPPR then Raise('Не удалось открыть ППР');
+  if NOT GoToPPS then Raise('Не удалось открыть ППС');
+  if NOT GoByHistory('НАЗАД', 'Поиск по реквизитам') then
+  begin
+    Log.Error('Не удалось перейти НАЗАД по истории на определённый Item (один шаг назад)');
+    Raise('Не удалось перейти НАЗАД по истории на определённый Item (один шаг назад)');
+  end;  
+  if NOT GoByHistory('ВПЕРЁД') then Raise('Не удалось перейти по истории ВПЕРЁД');
+  if NOT IsExists(GetFromPPS('СИТУАЦИИ ДОПОЛНИТЕЛЬНОГО УРОВНЯ')) then 
+    Raise('После перехода по истории активный объект не эталонный, должен быть ППС');
+  result := true; 
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_9_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.10: Проверить, что есть возможность просмотра объектов в истории (специальный 
+  список – появляющийся при нажатии на «стрелку» у кнопок навигации по истории)
+}
+function HLTC147_10_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  toolBar;
+  obj;
+begin
+try  
+  if NOT GoToPPR then Raise('Не удалось открыть ППР');
+  if NOT GoToPPS then Raise('Не удалось открыть ППС');
+  toolBar := GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"');
+  obj := ClickToolbarButton(toolBar, 'Назад', 'ClickForPopupMenu:=true');
+  if NOT IsExists(obj) then
+  begin
+    Log.Error('Не удалось вызвать контекстное меню с шагами истории кликом по "стрелки" у кнопки навигации по истории НАЗАД');
+    Raise('Не удалось вызвать контекстное меню с шагами истории кликом по "стрелки" у кнопки навигации по истории НАЗАД ');
+  end;
+  if NOT ClickByPopUpMenuItem(obj, 'Поиск по реквизитам') then
+  begin
+    Log.Error('Не удалось вызвать переход по истории из списка(по "стрелки" у кнопки НАЗАД)');
+    Raise('Не удалось вызвать переход по истории из списка(по "стрелки" у кнопки НАЗАД)');
+  end;
+  obj := ClickToolbarButton(toolBar, 'Вперед', 'ClickForPopupMenu:=true');
+  if NOT IsExists(obj) then
+  begin
+    Log.Error('Не удалось вызвать контекстное меню с шагами истории кликом по "стрелки" у кнопки навигации по истории ВПЕРЁД');
+    Raise('Не удалось вызвать контекстное меню с шагами истории кликом по "стрелки" у кнопки навигации по истории ВПЕРЁД ');
+  end;
+  if NOT ClickByPopUpMenuItem(obj, 'Поиск по ситуации') then
+  begin
+    Log.Error('Не удалось вызвать переход по истории из списка(по "стрелки" у кнопки ВПЕРЁД)');
+    Raise('Не удалось вызвать переход по истории из списка(по "стрелки" у кнопки ВПЕРЁД)');
+  end;  
+  result := true; 
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_10_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+ HLTC147.11: Проверить, что объекты в историю записываются именно в том порядке, в котором они создавались.
+}
+function HLTC147_11_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 10003000;
+var
+  toolBar;
+  obj;
+  i;
+begin
+try
+  //Создаём историю
+  OpenDocByNumber(DOC_NUM); GoToPPR; GoToPPS; GoToPPIO; GoToMainMenu; GoToDictionary;
+  OpenDocByNumber(DOC_NUM);
+  for i := 1 to 6 do
+  begin
+    if NOT GoByHistory('НАЗАД') then Raise('Не удалось перейти НАЗАД по истории');
+    case i of
+      1: obj := GetFromDictionary('ТЕКСТ СТАТЬИ');
+      2: obj := GetFromMainWindow('ОБЛАСТЬ ОСНОВНОГО МЕНЮ');
+      3: obj := GetFromPPIO('ДЕРЕВО ИЗДАНИЙ');
+      4: obj := GetFromPPS('СИТУАЦИИ ДОПОЛНИТЕЛЬНОГО УРОВНЯ');
+      5: obj := GetFromPPR('КАРТОЧКА ЗАПРОСА');
+      6: obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+    end;
+    result := IsExists(obj) AND obj.Visible; 
+    if NOT result then
+    begin
+      Log.Error('После перехода на ' + IntToStr(i) + '-й шаг НАЗАД по истории активный объект не Эталонен');
+      Raise('После перехода на ' + IntToStr(i) + '-й шаг НАЗАД по истории активный объект не Эталонен');
+    end;
+  end;
+  for i := 1 to 6 do 
+  begin
+    if NOT GoByHistory('ВПЕРЁД') then Raise('Не удалось перейти ВПЕРЁД по истории');
+    case i of
+      1: obj := GetFromPPR('КАРТОЧКА ЗАПРОСА');
+      2: obj := GetFromPPS('СИТУАЦИИ ДОПОЛНИТЕЛЬНОГО УРОВНЯ');
+      3: obj := GetFromPPIO('ДЕРЕВО ИЗДАНИЙ');
+      4: obj := GetFromMainWindow('ОБЛАСТЬ ОСНОВНОГО МЕНЮ');
+      5: obj := GetFromDictionary('ТЕКСТ СТАТЬИ');
+      6: obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+    end;
+    result := IsExists(obj) AND obj.Visible; 
+    if NOT result then
+    begin
+      Log.Error('После перехода на ' + IntToStr(i) + '-й шаг ВПЕРЁД по истории активный объект не Эталонен');
+      Raise('После перехода на ' + IntToStr(i) + '-й шаг ВПЕРЁД по истории активный объект не Эталонен');
+    end;
+  end;
+  result := true; 
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_11_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.12: Проверить, что в истории сохраняются Х последних перемещений. 
+  Где X – это значение из настроек конфигурации «Настройки интерфейса\Количество элементов в истории»
+  
+  HLTC147.13: Последовательно перейти по истории назад до самого первого объекта, и далее перейти по 
+  истории вперед к самому последнему объекту, попавшему в историю перемещений (проверить это, когда в 
+  ходе работы были осуществлены переходы по рубрикатору, списку – осуществлялись модификации списка, 
+  поиск по реквизитам - осуществлялась смена конфигурации (5х-6х), ситуации, просмотр информации о 
+  комплекте, просмотр документа – осуществлялись переходы по ссылкам).
+  
+  HLTC147.16: Проверить, что переход по истории осуществляется с помощью шоткатов Alt+Left и Alt+Right.
+}
+
+function HLTC147_12_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 1055132;  
+  CONTEXT = 'Уставом';
+  CONTEXT_IN = 'Преамбула';
+var
+  toolBar;
+  obj;
+  i;
+  cardData;
+  list;
+begin
+try
+  cardData := [
+  	CARD_PPR, ([([
+    FD_TYPE, ([
+		  '[ИЛИ]Акт']) ]),([
+  	FD_INOPERATIVE_EDITION, ([
+		  'Да']) ]) ]) 
+  ];
+
+  //Ставим настройки по умолчанию, для того что бы количество элементов в истории было 10
+  if NOT SetDefaultSettings then Raise('Не удалось установить настройки по умолчанию');  
+  //Создаём историю
+  //1
+  if NOT OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then Raise('Не удалось открыть список из навигатора');
+  obj := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(obj) then Raise('Не удалось получить СПИСОК ДОКУМЕНТОВ');
+  obj.SetFocus;
+  DelWithConfirm;
+  //2
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  obj :=GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  //3
+  if NOT ClickByHyperLink(obj, CONTEXT) then Raise('Не удалось кликнуть по искомой гиперссылке');
+  obj :=GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  //4
+  if NOT ClickByMainMenuItem('Помощь\Информация о комплекте') then 
+    Raise('Не могу кликнуть по пункту меню: "Помощь\Информация о комплекте"');
+  //Меняем конфигурацию на 5-х  
+////  if NOT ClickByMainMenuItem('Файл\Выбор конфигурации\Гарант*') then 
+//    Raise('Не могу кликнуть по пункту меню: "Файл\Выбор конфигурации\Гарант 5.х"');  
+  //5  
+  if NOT FillPPRCard(cardData) then Raise('Не удалось заполнить КЗ ППР');
+  if NOT ClickToolBarButton(GetFromPPR('НИЖНИЙ ТУЛБАР КАРТОЧКИ ЗАПРОСА'), 'Искать') then 
+    Raise('Не удалось кликнуть по кнопке Искать в КЗ');
+  //6  
+  obj := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(obj) then Raise('Не удалось получить СПИСОК ДОКУМЕНТОВ после ППР');
+  list := GetElementsFromTree(obj);  
+  //Меняем конфигурацию на Стандартную
+//  if NOT ClickByMainMenuItem('Файл\Выбор конфигурации\Стандартная') then 
+//    Raise('Не могу кликнуть по пункту меню: "Файл\Выбор конфигурации\Стандартная"');
+  //7
+  if NOT GoToPPS then Raise('Не удалось открыть ППС');
+  //8
+  if NOT GoToPPIO then Raise('Не удалось открыть ППИО');
+  //9
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  //10
+  if NOT ClickByHyperLink(obj, CONTEXT_IN) then Raise('Не удалось кликнуть по искомой гиперссылке');
+  obj :=GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');  
+  //Начинаем переход НАЗАД по истории  
+  for i := 1 to 10 do
+  begin
+    if NOT GoByHistory('НАЗАД') then Raise('Не удалось перейти НАЗАД по истории');
+    case i of
+      1: obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+      2: obj := GetFromPPIO('ДЕРЕВО ИЗДАНИЙ');
+      3: obj := GetFromPPS('СИТУАЦИИ ДОПОЛНИТЕЛЬНОГО УРОВНЯ');      
+      4: obj := GetFromList('СПИСОК ДОКУМЕНТОВ');
+      5: obj := GetFromPPR('КАРТОЧКА ЗАПРОСА');
+      6: obj := GetFromMainWindow('ИНФОРМАЦИЯ О КОМПЛЕКТЕ');
+      7: obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+      8: obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+      9: obj := GetFromList('СПИСОК ДОКУМЕНТОВ');
+      10:obj := GetFromMainWindow('ОБЛАСТЬ ОСНОВНОГО МЕНЮ');
+    end;        
+    if NOT (IsExists(obj) AND obj.Visible) then
+    begin
+      Log.Error('После перехода на ' + IntToStr(i) + '-й шаг НАЗАД по истории активный объект не Эталонен');
+      Raise('После перехода на ' + IntToStr(i) + '-й шаг НАЗАД по истории активный объект не Эталонен');
+    end;
+    //Для списка и КЗ проверяем, что они не только сущесьвуют, но и равны эталонным
+    if i = 4 then
+    begin
+      if NOT CompareArray(GetElementsFromTree(obj), list) then
+      begin
+        Log.Error('Список содержит не эталонные документы');
+        Raise;
+      end;
+    end;
+    if i = 5 then
+    begin
+      if NOT CompareQueryCardData( ExtractQueryCardData(obj), cardData) then
+      begin
+        Log.Error('КЗ заполнена не эталонно');
+        Raise;
+      end;
+    end;
+  end;
+  toolBar := GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"');
+  if NOT IsExists(toolBar) then Raise('Не удалось получить ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"');
+  obj := GetToolBarObject(toolBar, 'BUTTON', 'Назад');
+  if NOT IsExists(obj) then Raise('Не удалось получить кнопуку "Назад" на главном тулбаре');
+  if obj.NativeDelphiObject.Enabled then
+  begin
+    Log.Error('Кнопка "Назад по истории" не задизейбдена после 10 переходов назад по истории');
+    Raise('Кнопка "Назад по истории" не задизейбдена после 10 переходов назад по истории');
+  end;                                                                   
+  // Проверяем [Alt + Right]  
+  for i := 1 to 4 do
+  begin
+    
+    //Sys.Keys('~');
+    Delay(Options.Run.Timeout div 30);
+    Sys.Keys('~[Right]');
+    Delay(Options.Run.Timeout div 30);
+    case i of
+      1: obj := GetFromList('СПИСОК ДОКУМЕНТОВ');
+      2: obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+      3: obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+      4: obj := GetFromMainWindow('ИНФОРМАЦИЯ О КОМПЛЕКТЕ');
+{      5: obj := GetFromPPR('КАРТОЧКА ЗАПРОСА');
+      6: obj := GetFromList('СПИСОК ДОКУМЕНТОВ');
+      7: obj := GetFromPPS('СИТУАЦИИ ДОПОЛНИТЕЛЬНОГО УРОВНЯ');
+      8: obj := GetFromPPIO('ДЕРЕВО ИЗДАНИЙ');
+      9: obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+      10:obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА')}
+    end;
+    if NOT (IsExists(obj) AND obj.Visible) then
+    begin
+      Log.Error('После перехода на ' + IntToStr(i) + '-й шаг ВПЕРЕД по истории при помощи [Alt + Right] активный объект не Эталонен');
+      Raise('После перехода на ' + IntToStr(i) + '-й шаг ВПЕРЕД по истории при помощи [Alt +Right] активный объект не Эталонен');
+    end;
+  end;
+  // Проверяем [Alt + Left]
+  for i := 7 to 10 do
+  begin    
+    //Sys.Keys('~');
+    Delay(Options.Run.Timeout div 30);
+    Sys.Keys('~[Left]');
+    case i of
+{      1: obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+      2: obj := GetFromPPIO('ДЕРЕВО ИЗДАНИЙ');
+      3: obj := GetFromPPS('СИТУАЦИИ ДОПОЛНИТЕЛЬНОГО УРОВНЯ');
+      4: obj := GetFromList('СПИСОК ДОКУМЕНТОВ');
+      5: obj := GetFromPPR('КАРТОЧКА ЗАПРОСА');
+      6: obj := GetFromMainWindow('ИНФОРМАЦИЯ О КОМПЛЕКТЕ');}
+      7: obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+      8: obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+      9: obj := GetFromList('СПИСОК ДОКУМЕНТОВ');
+      10:obj := GetFromMainWindow('ОБЛАСТЬ ОСНОВНОГО МЕНЮ');
+    end;
+    if NOT (IsExists(obj) AND obj.Visible) then
+    begin
+      Log.Error('После перехода на ' + IntToStr(i) + '-й шаг НАЗАД по истории при помощи [Alt + Left] активный объект не Эталонен');
+      Raise('После перехода на ' + IntToStr(i) + '-й шаг НАЗАД по истории при помощи [Alt + Left] активный объект не Эталонен');
+    end;
+  end;
+  
+  for i := 1 to 10 do
+  begin
+    if NOT GoByHistory('ВПЕРЕД') then Raise('Не удалось перейти ВПЕРЕД по истории');
+    case i of
+      1: obj := GetFromList('СПИСОК ДОКУМЕНТОВ');
+      2: obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+      3: obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+      4: obj := GetFromMainWindow('ИНФОРМАЦИЯ О КОМПЛЕКТЕ');
+      5: obj := GetFromPPR('КАРТОЧКА ЗАПРОСА');
+      6: obj := GetFromList('СПИСОК ДОКУМЕНТОВ');
+      7: obj := GetFromPPS('СИТУАЦИИ ДОПОЛНИТЕЛЬНОГО УРОВНЯ');
+      8: obj := GetFromPPIO('ДЕРЕВО ИЗДАНИЙ');
+      9: obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+      10:obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+    end;
+    if NOT (IsExists(obj) AND obj.Visible) then
+    begin
+      Log.Error('После перехода на ' + IntToStr(i) + '-й шаг ВПЕРЕД по истории активный объект не Эталонен');
+      Raise('После перехода на ' + IntToStr(i) + '-й шаг ВПЕРЕД по истории активный объект не Эталонен');
+    end;
+  end;
+  toolBar := GetFromMainWindow('ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"');
+  if NOT IsExists(toolBar) then Raise('Не удалось получить ТУЛБАР "ГЛАВНАЯ ПАНЕЛЬ ИНСТРУМЕНТОВ"');
+  obj := GetToolBarObject(toolBar, 'BUTTON', 'Вперед');
+  if NOT IsExists(obj) then Raise('Не удалось получить кнопуку "ВПЕРЕД" на главном тулбаре');
+  if obj.NativeDelphiObject.Enabled then
+  begin
+    Log.Error('Кнопка "Вперед по истории" не задизейбдена после 10 переходов Вперед по истории');
+    Raise('Кнопка "Вперед по истории" не задизейбдена после 10 переходов Вперед по истории');
+  end;  
+  result := true; 
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_12_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.14: Проверить переход по истории навигации на ранее просмотренный объект, находящийся в списке 
+  перемещений по истории (через список истории перейти на объект из середины списка). Дополнительно 
+  проверить, что после перехода к произвольному объекту по истории существует возможность перехода по 
+  истории «вперед»:
+    HLTC147.14.1: Перейти в документ, находящийся в середине списка истории
+}
+function HLTC147_14_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 1055132;  
+var
+  obj;
+begin
+try  
+  if NOT GoToPPR then Raise('Не удалось открыть ППР');
+  //
+  GoToMainMenu;
+  //
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  obj :=GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  //
+  if NOT OpenObjectFromFolder(LIST_RUBR_MAIN, OpenMenuTab) then Raise('Не удалось открыть рубрикатор');
+  obj := GetFromList('СПИСОК РУБРИКАТОРА');
+  if NOT IsExists(obj) then Raise('Не удалось получить СПИСОК РУБРИКАТОРА');
+  //
+  GoToPPR;
+  //
+  GoToMainMenu;
+  //
+  if NOT GoByHistory('НАЗАД', 'Текст : Договор*') then
+  begin
+    Log.Error('Не удалось перейти по истории на ранее просматриваемый объект из середины списка навигации');
+    Raise('Не удалось перейти по истории на ранее просматриваемый объект из середины списка навигации');
+  end;
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT (IsExists(obj) AND obj.Visible) then 
+  begin
+    Log.Error('Не удалось получить ТЕКСТ ДОКУМЕНТА после перехода по истории');
+    Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА после перехода по истории');
+  end;
+  if NOT GoByHistory('ВПЕРЕД') then
+  begin
+    Log.Error('Не удалось перейти по истории ВПЕРЕД');
+    Raise('Не удалось перейти по истории ВПЕРЕД');
+  end;
+  obj := GetFromList('СПИСОК РУБРИКАТОРА');
+  if NOT (IsExists(obj) AND obj.Visible) then
+  begin
+    Log.Error('Не удалось получить СПИСОК РУБРИКАТОРА после перехода по истории Вперёд');
+    Raise('Не удалось получить СПИСОК РУБРИКАТОРА после перехода по истории Вперёд');
+  end;  
+  result := true; 
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_14_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+HLTC147: История навигации
+  HLTC147.14: Проверить переход по истории навигации на ранее просмотренный объект, находящийся в списке 
+  перемещений по истории (через список истории перейти на объект из середины списка). Дополнительно 
+  проверить, что после перехода к произвольному объекту по истории существует возможность перехода по 
+  истории «вперед»:
+    HLTC147.14.2: Перейти в рубрикатор, находящийся в середине списка истории
+}
+function HLTC147_14_2_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 1055132;  
+var
+  obj;
+begin
+try  
+  if NOT GoToPPR then Raise('Не удалось открыть ППР');
+  //
+  GoToMainMenu;
+  //
+  if NOT OpenObjectFromFolder(LIST_RUBR_MAIN, OpenMenuTab) then Raise('Не удалось открыть рубрикатор');
+  obj := GetFromList('СПИСОК РУБРИКАТОРА');
+  if NOT IsExists(obj) then Raise('Не удалось получить СПИСОК РУБРИКАТОРА');
+  //  
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  obj :=GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  //
+  GoToPPR;
+  //
+  GoToMainMenu;
+  //
+  if NOT GoByHistory('НАЗАД', 'Основы государственно-правового устройства') then
+  begin
+    Log.Error('Не удалось перейти по истории на ранее просматриваемый объект из середины списка навигации');
+    Raise('Не удалось перейти по истории на ранее просматриваемый объект из середины списка навигации');
+  end;
+  obj := GetFromList('СПИСОК РУБРИКАТОРА');
+  if NOT (IsExists(obj) AND obj.Visible) then 
+  begin
+    Log.Error('Не удалось получить СПИСОК РУБРИКАТОРА после перехода по истории');
+    Raise('Не удалось получить СПИСОК РУБРИКАТОРА после перехода по истории');
+  end;
+  if NOT GoByHistory('ВПЕРЕД') then
+  begin
+    Log.Error('Не удалось перейти по истории ВПЕРЕД');
+    Raise('Не удалось перейти по истории ВПЕРЕД');
+  end;
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT (IsExists(obj) AND obj.Visible) then
+  begin
+    Log.Error('Не удалось получить ТЕКСТ ДОКУМЕНТА после перехода по истории Вперёд');
+    Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА после перехода по истории Вперёд');
+  end;  
+  result := true; 
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_14_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.14: Проверить переход по истории навигации на ранее просмотренный объект, находящийся в списке 
+  перемещений по истории (через список истории перейти на объект из середины списка). Дополнительно 
+  проверить, что после перехода к произвольному объекту по истории существует возможность перехода по 
+  истории «вперед»:
+    HLTC147.14.3: Перейти в список, находящийся в середине списка истории
+}
+function HLTC147_14_3_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 1055132;
+var
+  obj;
+begin
+try  
+  if NOT GoToPPR then Raise('Не удалось открыть ППР');
+  //
+  GoToMainMenu;
+  //
+  if NOT OpenObjectFromFolder(LIST_MAIN, OpenMenuTab) then Raise('Не удалось открыть список из навигатора');
+  obj := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT IsExists(obj) then Raise('Не удалось получить СПИСОК ДОКУМЕНТОВ');
+  //  
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  obj :=GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  //
+  GoToPPR;
+  //
+  GoToMainMenu;
+  //
+  if NOT GoByHistory('НАЗАД', 'Тематика: Правовой*') then
+  begin
+    Log.Error('Не удалось перейти по истории на ранее просматриваемый объект из середины списка навигации');
+    Raise('Не удалось перейти по истории на ранее просматриваемый объект из середины списка навигации');
+  end;
+  obj := GetFromList('СПИСОК ДОКУМЕНТОВ');
+  if NOT (IsExists(obj) AND obj.Visible) then 
+  begin
+    Log.Error('Не удалось получить СПИСОК ДОКУМЕНТОВ после перехода по истории');
+    Raise('Не удалось получить СПИСОК ДОКУМЕНТОВ после перехода по истории');
+  end;
+  if NOT GoByHistory('ВПЕРЕД') then
+  begin
+    Log.Error('Не удалось перейти по истории ВПЕРЕД');
+    Raise('Не удалось перейти по истории ВПЕРЕД');
+  end;
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT (IsExists(obj) AND obj.Visible) then
+  begin
+    Log.Error('Не удалось получить ТЕКСТ ДОКУМЕНТА после перехода по истории Вперёд');
+    Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА после перехода по истории Вперёд');
+  end;  
+  result := true; 
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_14_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.14: Проверить переход по истории навигации на ранее просмотренный объект, находящийся в списке 
+  перемещений по истории (через список истории перейти на объект из середины списка). Дополнительно 
+  проверить, что после перехода к произвольному объекту по истории существует возможность перехода по 
+  истории «вперед»:
+    HLTC147.14.4: Перейти в КЗ ППР, находящийся в середине списка истории
+}
+function HLTC147_14_4_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 1055132;
+var
+  obj;
+begin
+try  
+  if NOT GoToPPS then Raise('Не удалось открыть ППС');
+  //
+  GoToMainMenu;
+  //
+  if NOT GoToPPR then Raise('Не удалось открыть ППР');
+  //  
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  obj :=GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  //
+  GoToPPS;
+  //
+  GoToMainMenu;
+  //
+  if NOT GoByHistory('НАЗАД', 'Поиск по реквизитам') then
+  begin
+    Log.Error('Не удалось перейти по истории на ранее просматриваемый объект из середины списка навигации');
+    Raise('Не удалось перейти по истории на ранее просматриваемый объект из середины списка навигации');
+  end;
+  obj := GetFromPPR('КАРТОЧКА ЗАПРОСА');
+  if NOT (IsExists(obj) AND obj.Visible) then 
+  begin
+    Log.Error('Не удалось получить КАРТОЧКА ЗАПРОСА после перехода по истории');
+    Raise('Не удалось получить КАРТОЧКА ЗАПРОСА после перехода по истории');
+  end;
+  if NOT GoByHistory('ВПЕРЕД') then
+  begin
+    Log.Error('Не удалось перейти по истории ВПЕРЕД');
+    Raise('Не удалось перейти по истории ВПЕРЕД');
+  end;
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT (IsExists(obj) AND obj.Visible) then
+  begin
+    Log.Error('Не удалось получить ТЕКСТ ДОКУМЕНТА после перехода по истории Вперёд');
+    Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА после перехода по истории Вперёд');
+  end;  
+  result := true; 
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_14_4_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.14: Проверить переход по истории навигации на ранее просмотренный объект, находящийся в списке 
+  перемещений по истории (через список истории перейти на объект из середины списка). Дополнительно 
+  проверить, что после перехода к произвольному объекту по истории существует возможность перехода по 
+  истории «вперед»:
+    HLTC147.14.5: Перейти в КЗ ППС, находящийся в середине списка истории
+}
+function HLTC147_14_5_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 1055132;
+var
+  obj;
+begin
+try  
+  if NOT GoToPPR then Raise('Не удалось открыть ППP');
+  //
+  GoToMainMenu;
+  //
+  if NOT GoToPPS then Raise('Не удалось открыть ППC');
+  //  
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  obj :=GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  //
+  GoToPPR;
+  //
+  GoToMainMenu;
+  //
+  if NOT GoByHistory('НАЗАД', 'Поиск по ситуации') then
+  begin
+    Log.Error('Не удалось перейти по истории на ранее просматриваемый объект из середины списка навигации');
+    Raise('Не удалось перейти по истории на ранее просматриваемый объект из середины списка навигации');
+  end;
+  obj := GetFromPPS('СИТУАЦИИ ДОПОЛНИТЕЛЬНОГО УРОВНЯ');
+  if NOT (IsExists(obj) AND obj.Visible) then 
+  begin
+    Log.Error('Не удалось получить ППС после перехода по истории');
+    Raise('Не удалось получить ППС после перехода по истории');
+  end;
+  if NOT GoByHistory('ВПЕРЕД') then
+  begin
+    Log.Error('Не удалось перейти по истории ВПЕРЕД');
+    Raise('Не удалось перейти по истории ВПЕРЕД');
+  end;
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT (IsExists(obj) AND obj.Visible) then
+  begin
+    Log.Error('Не удалось получить ТЕКСТ ДОКУМЕНТА после перехода по истории Вперёд');
+    Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА после перехода по истории Вперёд');
+  end;  
+  result := true; 
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_14_5_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.14: Проверить переход по истории навигации на ранее просмотренный объект, находящийся в списке 
+  перемещений по истории (через список истории перейти на объект из середины списка). Дополнительно 
+  проверить, что после перехода к произвольному объекту по истории существует возможность перехода по 
+  истории «вперед»:
+    HLTC147.14.6: Перейти к просмотру информации о комплекте, находящийся в середине списка истории
+}
+function HLTC147_14_6_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 1055132;
+var
+  obj;
+begin
+try  
+  if NOT GoToPPR then Raise('Не удалось открыть ППP');
+  //
+  GoToMainMenu;
+  //
+  if NOT ClickByMainMenuItem('Помощь\Информация о комплекте') then 
+    Raise('Не могу кликнуть по пункту меню: "Помощь\Информация о комплекте"');
+  //  
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  obj :=GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  //
+  GoToPPR;
+  //
+  GoToMainMenu;
+  //
+  if NOT GoByHistory('НАЗАД', 'Информация о комплекте') then
+  begin
+    Log.Error('Не удалось перейти по истории на ранее просматриваемый объект из середины списка навигации');
+    Raise('Не удалось перейти по истории на ранее просматриваемый объект из середины списка навигации');
+  end;
+  obj := GetFromMainWindow('ИНФОРМАЦИЯ О КОМПЛЕКТЕ');
+  if NOT (IsExists(obj) AND obj.Visible) then 
+  begin
+    Log.Error('Не удалось получить ИНФОРМАЦИЯ О КОМПЛЕКТЕ после перехода по истории');
+    Raise('Не удалось получить ИНФОРМАЦИЯ О КОМПЛЕКТЕ после перехода по истории');
+  end;
+  if NOT GoByHistory('ВПЕРЕД') then
+  begin
+    Log.Error('Не удалось перейти по истории ВПЕРЕД');
+    Raise('Не удалось перейти по истории ВПЕРЕД');
+  end;
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT (IsExists(obj) AND obj.Visible) then
+  begin
+    Log.Error('Не удалось получить ТЕКСТ ДОКУМЕНТА после перехода по истории Вперёд');
+    Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА после перехода по истории Вперёд');
+  end;  
+  result := true; 
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_14_6_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.15: Журнал работы.
+    HLTC147.15.1: Проверить, что журнал отображается в иерархическом виде в специальной 
+    папке <Журнал работы> в <Моих документах>    
+    HLTC147.15.2: Проверить, что если пользователь не просматривал документы, списки, не выполнял запросы, то 
+    папка «Журнал работы» пуста.
+}
+function HLTC147_15_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  PATH = 'Журнал работы';
+  LOGIN = 'HLTC147_15_1';
+  PASS = 'HLTC147_15_1';
+var
+  obj;
+  str;  
+begin 
+try
+  if NOT  Position_Internal(OpenMyDocTab, PATH) then
+  begin
+    Log.Error('Не удалось спозиционироваться "Журнал работы"'); 
+    Raise('Не удалось спозиционироваться "Журнал работы"');
+  end;  
+  if NOT RestartF1Shell(5, Options.Run.Timeout div 6, LOGIN, PASS) then
+    Raise('Не удалось перезапустить оболочку');
+  obj := OpenMyDocTab;
+  if NOT  Position_Internal(obj, PATH) then
+  begin
+    Log.Error('Не удалось спозиционироваться "Журнал работы"'); 
+    Raise('Не удалось спозиционироваться "Журнал работы"');
+  end;  
+  PressKeyNCount('[Right]', 3); //нажимаем 3 раза для надёжности
+  str := common.GetWindowText(obj.Handle);
+  if NOT StringCompare(str, PATH) then
+  begin
+    Log.Error('Папка Журнал работы не пуста, т.к. при нажатии [Right] позиционирование произошло на другом элементе', str);
+    Raise('Папка Журнал работы не пуста, т.к. при нажатии [Right] позиционирование произошло на другом элементе');
+  end;
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_15_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.15: Журнал работы.
+    HLTC147.15.3: Проверить, что для папки «Журнал работы» доступна дополнительная операция для 
+    очистки всего <Журнала работы> - пункт в контекстном меню на этой папке.
+}
+function HLTC147_15_3_Execute (var  CurrentState: OleVariant): OleVariant;
+const  
+  DOC_NUM = 10003000;
+var
+  obj;
+  str;  
+begin 
+try
+  //Делаем какие либо дейтвия, что б точно знать, что журнал заполнен
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть докумнет по Alt+N');
+  GoToMainMenu;
+  //
+  obj := OpenJurnalTab;
+  obj.SetFocus;
+  Sys.Keys('[Apps]');
+  if NOT ClickByPopUpMenuItem(obj, 'Очистить') then
+  begin
+    Log.Error('Не удалось вызвать контекстную операцию "Очистить журнал работы"');
+    Raise('Не удалось вызвать контекстную операцию "Очистить журнал работы"');
+  end;
+  obj.SetFocus;
+  PressKeyNCount('[Right]', 3); //нажимаем 3 раза для надёжности
+  
+  if NOT StringCompare(common.GetWindowText(obj.handle), '') then
+  begin
+    Log.Error('Папка Журнал работы НЕ очистилась');
+    Raise('Папка Журнал работы НЕ очистилась');
+  end;
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_15_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147: История навигации
+  HLTC147.15: Журнал работы.
+    HLTC147.15.4: Проверить, что в «Журнал работы» элементы попадают следующим образом:
+      HLTC147.15.4.1: если журнал пуст или на текущий день не было записей, то создаётся папка с именем ДД.ММ.ГГ (текущая дата) и элементы представлены там в иерархическом виде:<br>
+      Просмотренные документы </li>
+        Документ 1 :
+      Поиск по реквизитам
+        Запрос 1 (ДД.ММ.ГГГГ)
+      Поиск по ситуации
+        Запрос 1  (ДД.ММ.ГГГГ)
+      Обзор изменений законодательства
+        Запрос 1  (ДД.ММ.ГГГГ)
+      Поиск по источнику опубликования
+        Запрос 1  (ДД.ММ.ГГГГ)      
+      Базовый поиск
+        Запрос 1  (ДД.ММ.ГГГГ) 
+}
+function HLTC147_15_4_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  PATH = 'Журнал работы';
+  DOC_NUM = 10003000;
+var
+  obj;
+  str;
+  i;
+  folderDate;  
+begin 
+try
+  folderDate := DateTimeToStr(Utilities.Date);  
+  if NOT JurnalClear then Raise ('Не удалось очистить Журнал Работы');
+  //Делаем какие либо дейтвия, что-б заполниь Журнал
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть докумнет по Alt+N');
+  //
+  if NOT GoToPPR then Raise('Не удалось открыть ППР');
+  obj := GetFromPPR('НИЖНИЙ ТУЛБАР КАРТОЧКИ ЗАПРОСА');
+  if NOT IsExists(obj) then Raise('Не удалось получить НИЖНИЙ ТУЛБАР КАРТОЧКИ ЗАПРОСА');
+  if NOT ClickToolBarButton(obj, 'Искать') then Raise('Не удалось кликнуть на кнопку "Искать"');
+  //
+  if NOT GoToPPS then Raise('не удалось открыть ППС');
+  obj := GetFromPPS('СИТУАЦИИ ОСНОВНОГО УРОВНЯ');
+  if NOT IsExists(obj) then Raise('Не удалось получить СИТУАЦИИ ДОПОЛНИТЕЛЬНОГО УРОВНЯ');
+  if NOT Position_Internal(obj, 'А это специальный ключ') then 
+    Raise('Не удалось спозиционироваться в ППС');
+  obj := GetFromPPS('НИЖНИЙ ТУЛБАР');
+  if NOT IsExists(obj) then Raise('Не удалось получить НИЖНИЙ ТУЛБАР ППС');
+  if NOT ClickToolBarButton(obj, 'Искать') then Raise('Не удалось кликнуть на кнопку "Искать"');
+  //
+  if NOT GoToPPIO then Raise('не удалось открыть ППИО');
+  obj := GetFromPPIO('ДЕРЕВО ИЗДАНИЙ');
+  if NOT IsExists(obj) then Raise('Не удалось получить ДЕРЕВО ИЗДАНИЙ');
+  if NOT Position_Internal(obj, 'Газета "Московский налоговый курьер"') then 
+    Raise('Не удалось спозиционироваться в ППИО');
+  obj := GetFromPPIO('НИЖНИЙ ТУЛБАР ППИО');
+  if NOT IsExists(obj) then Raise('Не удалось получить НИЖНИЙ ТУЛБАР ППИО');
+  if NOT ClickToolBarButton(obj, 'Искать') then Raise('Не удалось кликнуть на кнопку "Искать"');  
+  //
+  obj := GoToAnalyticReview('', true);
+  if NOT IsExists(obj) then Raise('Не удалось открыть Обзор Изменений Законодательства');
+  obj.SetFocus;
+  Sys.Keys('Президент');
+  obj := GetFromAnalyticReview('НИЖНИЙ ТУЛБАР КАРТОЧКИ ЗАПРОСА');
+  if NOT IsExists(obj) then Raise('Не удалось получить НИЖНИЙ ТУЛБАР КАРТОЧКИ ЗАПРОСА Аналитического обзора');
+  if NOT ClickToolBarButton(obj, 'Искать') then Raise('Не удалось кликнуть на кнопку "Искать"');    
+  //
+  if NOT GoToBaseSearch then Raise('Не удалось открыть Базовый поиск');
+  obj := GetFromBaseSearch('КОМБОБОКС "БАЗОВЫЙ ПОИСК"');
+  if NOT IsExists(obj) then Raise('Не удалось получить КОМБОБОКС "БАЗОВЫЙ ПОИСК"');
+  obj.SetFocus;
+  Sys.Keys('[Home]![End][Del]' + keyPause + 'конституция' + keyPause + '[Del]');
+  Sys.Keys('^[Enter]');
+  //
+  GoToMainMenu;
+  //Проверяем правильность иерархии Журнала работы }
+  obj := OpenJurnalTab;
+  if NOT IsExists(obj) then Raise('Не удалось получить вкладку Мои документы');
+  for i := 1 to 6 do 
+  begin
+    case i of
+      1: str := folderDate + 
+        '\Просмотренные документы\Конституция Российской Федерации*';
+      2: str := folderDate + 
+        '\Поиск по реквизитам\Запрос: Список всех*' + folderDate + '*';
+      3: str := folderDate +
+        '\Поиск по ситуации\Запрос: СИТУАЦИИ - А это специальный ключ*' + folderDate + '*';
+      4: str := folderDate + 
+        '\Прайм. Обзор изменений законодательства\Запрос: ОРГАН - Президент*' + folderDate + '*';
+      5: str := folderDate + 
+        '\Поиск по источнику опубликования\Запрос: ИСТОЧНИК ОПУБЛИКОВАНИЯ - Газета "Московский налоговый курьер"*' + folderDate + '*';
+      6: str := folderDate + 
+        '\Базовый поиск\Запрос: СЛОВА В ТЕКСТЕ - конституция*' + folderDate + '*';  
+    end;
+    if NOT Position_Internal(obj, str, '\', true) then
+    begin
+      Log.Error('Не удалось найти в Журнале работы элемент: ' + str);
+      Raise('Не удалось найти в Журнале работы элемент: ' + str);
+    end;
+    obj.SetFocus;
+    Sys.Keys('[Home]');
+  end;  
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_15_4_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+ {
+HLTC147.15: Журнал работы.
+  HLTC147.15.4: Проверить, что в «Журнал работы» элементы попадают следующим образом:
+    HLTC147.15.4.2: если на текущий день уже есть записи, то элементы добавляются в соответствующую папку.
+    HLTC147.15.4.3: Проверить, что если имя элемента в журнале больше 70 символов, то имя обрезается. 
+}
+function HLTC147_15_4_2_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM_1 = 10003000;
+  DOC_NUM_2 = 1055132;
+var
+  obj;
+  str;
+  folderDate;  
+begin 
+try
+  folderDate := DateTimeToStr(Utilities.Date);  
+  if NOT JurnalClear then Raise ('Не удалось очистить Журнал Работы');
+  if NOT OpenDocByNumber(DOC_NUM_1) then Raise('Не удалось открыть докумнет по Alt+N');
+  if NOT OpenDocByNumber(DOC_NUM_2) then Raise('Не удалось открыть докумнет по Alt+N');
+  GoToMainMenu;
+  obj := OpenJurnalTab;
+  if NOT IsExists(obj) then Raise('Не удалось получить вкладку Мои документы');
+  str := folderDate + 
+    '\Просмотренные документы\Конституция Российской Федерации (принята на всенародном гол...';
+  if NOT Position_Internal(obj, str) then
+  begin
+    Log.Error('Не удалось найти в Журнале работы элемент: "' + str + '", Имя которого должно быть обрезадо до короткого');
+    Raise('Не удалось найти в Журнале работы элемент: "' + str + '", Имя которого должно быть обрезадо до короткого');
+  end;
+  obj.SetFocus;
+  Sys.Keys('[Home]');
+  str := folderDate + '\Просмотренные документы\Договор*';
+  if NOT Position_Internal(obj, str, '\', true) then
+  begin
+    Log.Error('Не удалось найти в Журнале работы элемент: "' + str + '", добавленный в уже имеющуюся папку');
+    Raise('Не удалось найти в Журнале работы элемент: "' + str + '", добавленный в уже имеющуюся папку');
+  end;
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_15_4_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+HLTC147.15: Журнал работы.
+  HLTC147.15.5: Проверить, что в «Журнал работы» попадают:
+    HLTC147.15.5.1: Просмотренные пользователем документы:
+      HLTC147.15.5.1.1: Документы сохраняются в виде закладки на просмотренное место в документе. 
+      HLTC147.15.5.1.2: Имена этих закладок совпадают с именем документа (коротким).
+      HLTC147.15.5.1.3: Сохраняется закладка на последнее просмотренное пользователем (показанное на экране)
+      состояние (должен учитываться просмотр документа в основной области). Т.е если пользователь зашёл в 
+      документ, посмотрел его до середины, то закладка в журнал сохранилась на середину, если затем 
+      пользователь посмотрел этот документ дло конца, то закладка в журнале сохранится на конец документа.
+      HLTC147.15.5.1.4: Проверить, что в журнале работы в каждом дне не существует нескольких закладок на 
+      один и тот же документ.
+}
+function HLTC147_15_5_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 10003000;
+  CONTEXT_1 = 'Носителем суверенитета';
+  CONTEXT_2 = 'изменения наименования республики';
+var
+  obj;
+  str;  
+  path;
+  folderDate;
+begin 
+try
+  folderDate := DateTimeToStr(Utilities.Date);  
+  if NOT DeleteAllInMyDoc then Log.Warning('Не удалось удалить все объекты из моих документов');
+  if NOT JurnalClear then Raise ('Не удалось очистить Журнал Работы');
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть докумнет по Alt+N');
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА');
+  if NOT ClickOnContext(obj, CONTEXT_1) then Raise('Не удалось кликнуть по указанному контексту');  
+  GoToMainMenu;                     
+  obj := OpenJurnalTab;
+  if NOT IsExists(obj) then Raise('Не удалось получить вкладку Мои документы');
+  path := folderDate + '\Просмотренные документы\Конституция Российской Федерации*'; 
+  if NOT Position_Internal(obj, path, '\', true) then
+  begin
+    Log.Error('Не удалось спозиционироваться в Журнале работы на "Конституция Российской Федерации*"');
+    Raise;
+  end;
+  if NOT MoveMouseToObject(obj, 'Saved_Bookmark.bmp', 0, 0, true) then
+  begin
+    Log.Error('Не удалось обнаружить иконку закладки в журнале работы у элемента из просмотренных документов');
+    Raise;
+  end;  
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА после открытия его из' +
+    ' Журнала работы кликом по иконке');
+  obj.Click(1, 1);
+  str := CopyToClipboard(obj, 'STRING', 'Trim := true');
+  if NOT StringCompare('*' + CONTEXT_1 + '*', str) then
+  begin
+    Log.Error('Состояние документа, вызванное из Журнала работы не равно эталонному состоянию документа', str);
+    Raise('Состояние документа, вызванное из Журнала работы не равно эталонному состоянию документа');
+  end;
+  if NOT ClickOnContext(obj, CONTEXT_2) then Raise('Не удалось кликнуть по указанному контексту');  
+  GoToMainMenu;                     
+  obj := OpenJurnalTab;  
+  if NOT OpenObjectFromFolder(path, obj) then
+    Raise('Не удалось открыть из Журнала работы "Конституция Российской Федерации*"');
+  obj := GetFromEditor('ТЕКСТ ДОКУМЕНТА');
+  if NOT IsExists(obj) then Raise('Не удалось получить ТЕКСТ ДОКУМЕНТА после открытия его из Журнала работы');
+  obj.Click(1, 1);
+  str := CopyToClipboard(obj, 'STRING', 'Trim := true');
+  if NOT StringCompare('*' + CONTEXT_2 + '*', str) then
+  begin
+    Log.Error('Состояние документа, вызванное из Журнала работы не равно эталонному состоянию документа', str);
+    Raise('Состояние документа, вызванное из Журнала работы не равно эталонному состоянию документа');
+  end;
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть докумнет по Alt+N');
+  GoToMainMenu;
+  obj := OpenJurnalTab;  
+  str := folderDate + '\Просмотренные документы'; 
+  obj.SetFocus;
+  Sys.Keys('[Home]');
+  if NOT Position_Internal(obj, str) then
+    Raise('Не удалось спозиционироваться в Журнале работы на "Просмотренные документы"');
+  obj.SetFocus;
+  Sys.Keys('[Home][End][Up]');
+  str := common.GetWindowText(obj.Handle);
+  if NOT StringCompare('Просмотренные документы*', str) then// Проверяем что в просмотренных документах всего один документ
+  begin
+    Log.Error('В Журнале Работы за один день существует несколько закладок на один и т.ж. документ', str);
+    Raise('В Журнале Работы за один день существует несколько закладок на один и т.ж. документ');
+  end;
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_15_5_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147.15: Журнал работы.
+  HLTC147.15.5.2: Запросы:
+    HLTC147.15.5.2.1: Запрос сохраняется в журнал работы, только в случае построения по нему списка.      
+      HLTC147.15.5.2.1.1: Выполниить в ППР запрос, построить список – проверить, что этот запрос 
+      попал в журнал.
+}
+function HLTC147_15_5_2_1_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  obj;
+  str;  
+  folderDate;
+begin 
+try
+  folderDate := DateTimeToStr(Utilities.Date);  
+  if NOT JurnalClear then Raise ('Не удалось очистить Журнал Работы');
+  if NOT GoToPPR then Raise('Не удалось открыть ППР');
+  Sys.Keys('^[Enter]');
+  GoToMainMenu;
+  obj := OpenJurnalTab;
+  str := folderDate + 
+        '\Поиск по реквизитам\Запрос: Список всех*' + folderDate + '*'; 
+  if NOT Position_Internal(obj, str, '\', true) then
+  begin
+    Log.Error('Не удалось спозиционироваться в Журнале работы на запрос');
+    Raise('Не удалось спозиционироваться в Журнале работы на запрос');
+  end;  
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_15_5_2_1_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147.15: Журнал работы.
+  HLTC147.15.5.2: Запросы:
+    HLTC147.15.5.2.1: Запрос сохраняется в журнал работы, только в случае построения по нему списка.      
+      HLTC147.15.5.2.1.2: Выполниить в ППС запрос, построить список – проверить, что этот запрос 
+      попал в журнал.
+}
+function HLTC147_15_5_2_1_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  obj;
+  str;  
+  folderDate;
+begin 
+try
+  folderDate := DateTimeToStr(Utilities.Date);  
+  if NOT JurnalClear then Raise ('Не удалось очистить Журнал Работы');
+  if NOT GoToPPS then Raise('Не удалось открыть ППС');
+  PressKeyWithCheck(['^[Enter]']);
+  GoToMainMenu;
+  obj := OpenJurnalTab;
+  str := folderDate +
+        '\Поиск по ситуации\Запрос:*' + folderDate + '*'; 
+  if NOT Position_Internal(obj, str, '\', true) then
+  begin
+    Log.Error('Не удалось спозиционироваться в Журнале работы на запрос');
+    Raise('Не удалось спозиционироваться в Журнале работы на запрос');
+  end;  
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_15_5_2_1_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147.15: Журнал работы.
+  HLTC147.15.5.2: Запросы:
+    HLTC147.15.5.2.1: Запрос сохраняется в журнал работы, только в случае построения по нему списка.      
+      HLTC147.15.5.2.1.3: Выполниить в ППР запрос,не строить список – проверить, что этот запрос не попал
+      в журнал(предварительно в настройках конфигурации поставить подтверждение на построение списка).
+}
+function HLTC147_15_5_2_1_3_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  obj;
+  str;  
+  folderDate;
+begin 
+try
+  folderDate := DateTimeToStr(Utilities.Date);  
+  if NOT GoToPPR then Raise('Не удалось открыть ППР');
+  Sys.Keys('^[Enter]');
+  GoToMainMenu;
+  obj := OpenJurnalTab;
+  str := folderDate + 
+        '\Поиск по реквизитам\Запрос*'; 
+  if NOT Position_Internal(obj, str, '\', true) then Raise('В Журнале работы по эталонному пути не удалось обнаружить запрос');
+  if NOT JurnalClear then Raise ('Не удалось очистить Журнал Работы');
+  if NOT SetSettings( 
+    [
+     (['ПОИСК\ПОДТВЕРЖДЕНИЯ', 'ПОСТРОЕНИЕ СПИСКА\ПОДТВЕРЖДАТЬ ПОСТРОЕНИЕ СПИСКА [CHECKBOX]', true])
+    ]
+  ) then Raise('Не удалось установить настройки как понравилось!');
+  if NOT GoToPPR then Raise('Не удалось открыть ППР');
+  Sys.Keys('^[Enter]');
+  if WaitForConfirmationWindow(Options.Run.Timeout div 15, 'Нет', 'Найден*документ*Построить список?*') = '' then 
+    Raise('Не удалось обнаружить эталонное окно Подтверждения');
+  GoToMainMenu;
+  obj := OpenJurnalTab;
+  if Position_Internal(obj, str, '\', true) then
+  begin
+    Log.Error('Невыполненный Запрос попал в Журнале работы!');
+    Raise;
+  end;
+  if NOT SetDefaultSettings then Raise('Не удалось установить настройки по умолчанию');
+  result := true;
+  GoToMainMenu;
+except
+  if NOT SetDefaultSettings then Raise('Не удалось установить настройки по умолчанию');
+  Log.Message('HLTC147_15_5_2_1_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147.15: Журнал работы.
+  HLTC147.15.5.2: Запросы:
+    HLTC147.15.5.2.1: Запрос сохраняется в журнал работы, только в случае построения по нему списка.      
+      HLTC147.15.5.2.1.4: Выполниить в ППС запрос,не строить список – проверить, что этот запрос не попал
+      в журнал(предварительно в настройках конфигурации поставить подтверждение на построение списка).
+}
+function HLTC147_15_5_2_1_4_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  obj;
+  str;  
+  folderDate;
+  cardData;
+begin 
+try
+  folderDate := DateTimeToStr(Utilities.Date);  
+  if NOT GoToPPS then Raise('Не удалось открыть ППС');
+  Sys.Keys('^[Enter]');
+  GoToMainMenu;
+  obj := OpenJurnalTab;
+  str := folderDate + 
+        '\Поиск по ситуации\Запрос*'; 
+  if NOT Position_Internal(obj, str, '\', true) then Raise('В Журнале работы по эталонному : "' + str + '" не удалось обнаружить запрос');
+  if NOT JurnalClear then Raise ('Не удалось очистить Журнал Работы');
+  if NOT SetSettings( 
+    [
+     (['ПОИСК\ПОДТВЕРЖДЕНИЯ', 'ПОСТРОЕНИЕ СПИСКА\ПОДТВЕРЖДАТЬ ПОСТРОЕНИЕ СПИСКА [CHECKBOX]', true])
+    ]
+  ) then Raise('Не удалось установить настройки как понравилось!');  
+  
+  cardData := [
+    'А это специальный ключ'    
+  ];  
+  if NOT SearchInPPS(carddata) then Raise('Не удаловсь выполнить поиск ППС');
+  if WaitForConfirmationWindow(Options.Run.Timeout div 15, 'Нет', 'Найдено*документ*Построить список?*') = '' then 
+    Raise('Не удалось обнаружить эталонное окно Подтверждения');
+  GoToMainMenu;
+  obj := OpenJurnalTab;
+  if Position_Internal(obj, str, '\', true) then
+  begin
+    Log.Error('Невыполненный Запрос попал в Журнале работы!');
+    Raise;
+  end;
+  if NOT SetDefaultSettings then Raise('Не удалось установить настройки по умолчанию');
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_15_5_2_1_4_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  SetDefaultSettings;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147.15: Журнал работы.
+  HLTC147.15.5.2: Запросы:
+    HLTC147.15.5.2.1: Запрос сохраняется в журнал работы, только в случае построения по нему списка.      
+      HLTC147.15.5.2.1.5: Выполниить запрос в Базовом поиске - проверить, что этот запрос попал в журнал. 
+}
+function HLTC147_15_5_2_1_5_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  CONTEXT = 'конституция';
+var
+  obj;
+  str;  
+  folderDate;  
+begin 
+try
+  folderDate := DateTimeToStr(Utilities.Date);  
+  if NOT JurnalClear then Raise ('Не удалось очистить Журнал Работы');
+  if NOT GoToBaseSearch then Raise('Не удалось открыть Базовый поиск');
+  PressKeyWithCheck([CONTEXT]);  
+  PressKeyWithCheck(['^[Enter]']);
+  if NOT IsExists(GetFromList('СПИСОК ДОКУМЕНТОВ')) then Raise('После базового поиска список Не построился!');
+  GoToMainMenu;
+  obj := OpenJurnalTab;
+  str := folderDate +
+        '\Базовый поиск\Запрос: СЛОВА В ТЕКСТЕ - ' + CONTEXT + '*'; 
+  if NOT Position_Internal(obj, str, '\', true) then
+  begin
+    Log.Error('Не удалось спозиционироваться в Журнале работы на запрос');
+    Raise('Не удалось спозиционироваться в Журнале работы на запрос');
+  end;  
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_15_5_2_1_5_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+HLTC147.15: Журнал работы.
+  HLTC147.15.5.2.2: Имена сохраняемых запросов должны формироваться аналогично имени списка, получаемого по
+  этим запросам. Например, запрос: Тип: Указ Орган: Президент ИЛИ Правительство Контекст:  России Имя будет:
+  Запрос по реквизитам: ТИП Указ; ОРГАН: Президент ИЛИ Правительство; КОНТЕКСТ: России
+    HLTC147.15.5.2.2.1: Проверить формирование имени запроса в ППР
+}
+function HLTC147_15_5_2_2_1_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  obj;
+  str;  
+  folderDate;
+  cardData;
+begin 
+try 
+  cardData := [
+    CARD_PPR, ([([
+  	FD_WORDS_IN_CAPTION, ([
+  		'России']) ]),([
+  	FD_TYPE, ([
+  		'[ИЛИ]Указ']) ]),([
+  	FD_SOURCE, ([
+  		'[ИЛИ]Президент России и СССР',
+  		'[ИЛИ]Правительство России и СССР']) ]),([
+  	FD_INOPERATIVE_EDITION, ([
+  		'Да']) ]) ]) 
+  ];  
+  folderDate := DateTimeToStr(Utilities.Date);  
+  if NOT JurnalClear then Raise ('Не удалось очистить Журнал Работы');
+  SearchInPPR(carddata);
+  GoToMainMenu;
+  obj := OpenJurnalTab;
+  str := folderDate + '\Поиск по реквизитам\Запрос: ТИП - Указ; ОРГАН - Президент*(' + folderDate + ' -*)'; 
+  if NOT Position_Internal(obj, str, '\', true) then
+  begin
+    Log.Error('Не удалось спозиционироваться в Журнале работы на запрос ППР', str);
+    Raise('Не удалось спозиционироваться в Журнале работы на запрос ППР');
+  end;  
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_15_5_2_2_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+  CommonExceptionHandler;end;
+end;
+
+{
+HLTC147.15: Журнал работы.
+  HLTC147.15.5.2.2: Имена сохраняемых запросов должны формироваться аналогично имени списка, получаемого по
+  этим запросам. Например, запрос: Тип: Указ Орган: Президент ИЛИ Правительство Контекст:  России Имя будет:
+  Запрос по реквизитам: ТИП Указ; ОРГАН: Президент ИЛИ Правительство; КОНТЕКСТ: России
+    HLTC147.15.5.2.2.2: Проверить формирование имени запроса в ППС
+}
+function HLTC147_15_5_2_2_2_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  obj;
+  str;  
+  folderDate;
+  cardData;
+begin 
+try     
+  cardData := [
+    'Авария\Авария',
+    'Авиация'
+  ];
+  folderDate := DateTimeToStr(Utilities.Date);  
+  if NOT JurnalClear then Raise ('Не удалось очистить Журнал Работы');
+  SearchInPPS(carddata);
+  GoToMainMenu;
+  obj := OpenJurnalTab;
+  str := folderDate +
+        '\Поиск по ситуации\Запрос: СИТУАЦИИ - Авиация ИЛИ Авария*авария (' + folderDate + ' -*)'; 
+  if NOT Position_Internal(obj, str, '\', true) then
+  begin
+    Log.Error('Не удалось спозиционироваться в Журнале работы на запрос ППС', str);
+    Raise('Не удалось спозиционироваться в Журнале работы на запрос ППС');
+  end;  
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_15_5_2_2_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147.15: Журнал работы.
+  HLTC147.15.5.2.2: Имена сохраняемых запросов должны формироваться аналогично имени списка, получаемого по
+  этим запросам. Например, запрос: Тип: Указ Орган: Президент ИЛИ Правительство Контекст:  России Имя будет:
+  Запрос по реквизитам: ТИП Указ; ОРГАН: Президент ИЛИ Правительство; КОНТЕКСТ: России
+    HLTC147.15.5.2.2.3: Проверить формирование имени запроса в ППП (поиск по источнику опубликования)
+}
+function HLTC147_15_5_2_2_3_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  obj;
+  str;  
+  folderDate;
+  situations;
+  operations;
+  i;
+begin 
+try 
+  situations := ['Специальный источник опубликования.', 'Газета "Московский налоговый курьер"'];
+  folderDate := DateTimeToStr(Utilities.Date);  
+  if NOT JurnalClear then Raise ('Не удалось очистить Журнал Работы');
+  obj := GoToPPIO('', true);
+  if NOT IsExists(obj) then Raise('Не удалось открыть Обзор Изменений Законодательства');
+  obj.SetFocus;
+  for i := VarArrayLowBound(situations, 1) to VarArrayHighBound(situations, 1) do
+  begin  
+    if NOT Position_Internal(obj, situations[i], '\', true, 'IsPressHome:=true') then 
+      Raise('Не удалось в карточке ППИО спозиционироваться на искомую ситуацию: ' + situations[i]);
+    Sys.Keys('[Apps]');
+    if i = VarArrayLowBound(situations, 1) then operations := 'ИЛИ' else  operations := 'КРОМЕ';
+    if NOT ClickByPopupMenuItem(obj, operations) then Raise ('Не удалось вызвать операцию контекстного меню : ' + operations);
+  end;  
+  obj := GetFromPPIO('НИЖНИЙ ТУЛБАР ППИО');
+  if NOT IsExists(obj) then Raise('Не удалось получить НИЖНИЙ ТУЛБАР ППИО');
+  if NOT ClickToolBarButton(obj, 'Искать') then Raise('Не удалось кликнуть на кнопку "Искать"');  
+  GoToMainMenu;
+  obj := OpenJurnalTab;
+  str := folderDate + '\Поиск по источнику опубликования\Запрос: ИСТОЧНИК ОПУБЛИКОВАНИЯ - ' +  situations[0] +
+  ' КРОМЕ Газ* (' + folderDate + ' -*)';
+  if NOT Position_Internal(obj, str, '\', true, 'IsPressHome:=true') then
+  begin
+    Log.Error('Не удалось спозиционироваться в Журнале работы на запрос ППИО', str);
+    Raise;
+  end;  
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_15_5_2_2_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147.15: Журнал работы.
+  HLTC147.15.5.2: Запросы:
+    HLTC147.15.5.2.1: Запрос сохраняется в журнал работы, только в случае построения по нему списка.      
+      HLTC147.15.5.2.2.4: Проверить формирование имени запроса в Базовом поиске
+}
+function HLTC147_15_5_2_2_4_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  CONTEXT = 'конституция';  
+var
+  obj;
+  str;  
+  folderDate;
+  pageControl;  
+  baseSearchField;  
+begin 
+try
+  folderDate := DateTimeToStr(Utilities.Date);  
+  if NOT JurnalClear then Raise ('Не удалось очистить Журнал Работы');
+   
+  baseSearchField := GoToBaseSearch('', true); 
+  if NOT BaseSearch(baseSearchField, CONTEXT, 'searchType:=' + SRCH_BASE_THEME_ACTS) then Raise('Не удалось выполнить БП');
+  
+  GoToMainMenu;
+  obj := OpenJurnalTab;
+  str := folderDate +
+        '\Базовый поиск\Запрос: СЛОВА В ТЕКСТЕ - ' + CONTEXT + '; Базовый список; ВИД ИНФОРМАЦИИ - Акты ор*'; 
+  if NOT Position_Internal(obj, str, '\', true) then
+  begin
+    Log.Error('Не удалось спозиционироваться в Журнале работы на запрос');
+    Raise('Не удалось спозиционироваться в Журнале работы на запрос');
+  end;
+  //Возвращаем назад фокус на "Все документы"
+  baseSearchField := GoToBaseSearch('', true);
+  if NOT BaseSearch(baseSearchField, CONTEXT, 'searchType:=' + SRCH_BASE_THEME_ALL_DOCS) then Raise('Не удалось выполнить БП');    
+  result := true;
+  GoToMainMenu;
+except    
+  Log.Message('HLTC147_15_5_2_2_4_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+HLTC147.15: Журнал работы.
+  HLTC147.15.6: Проверить, что для вложенных в журнал папок и элементов доступны стандартные 
+  операции с элементами папок:
+    HLTC147.15.6.1: Удаление.
+}
+function HLTC147_15_6_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 10003000;
+var
+  obj;
+  str;  
+  folderDate;
+begin 
+try 
+  folderDate := DateTimeToStr(Utilities.Date);  
+  if NOT JurnalClear then Raise ('Не удалось очистить Журнал Работы');
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  GoToMainMenu;
+  obj := OpenJurnalTab;  
+  str := folderDate + '\Просмотренные документы\Конституция*';
+  if NOT Position_Internal(obj, str, '\', true) then
+  begin
+    Log.Error('Не удалось спозиционироваться в Журнале работы на запрос');
+    Raise('Не удалось спозиционироваться в Журнале работы на запрос');
+  end;  
+  Sys.Keys('[Apps]');
+  if NOT ClickByPopUpMenuItem(obj, 'Удалить') then
+  begin
+    Log.Error('Не удалось вызвать контекстную операцию "Удалить" для элемента иэ журнала работы');
+    Raise('Не удалось вызвать контекстную операцию "Удалить" для элемента иэ журнала работы');
+  end;
+  WaitForConfirmationWindow(Options.Run.Timeout div 6,'Да');
+  obj.SetFocus;
+  Sys.Keys('[Home]');
+  if Position_Internal(obj, str, '\', true) then
+  begin
+    Log.Error('Элемент не удалился из Журнала работы');
+    Raise('Элемент не удалился из Журнала работы');
+  end;  
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_15_6_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147.15: Журнал работы.
+  HLTC147.15.6: Проверить, что для вложенных в журнал папок и элементов доступны стандартные 
+  операции с элементами папок:
+    HLTC147.15.6.2: Нельзя перемещать (из журнала и в журнал).
+    
+    Пробуем перетащить документ в раздел поисков и проверить что ничего не перетащилось
+}
+function HLTC147_15_6_2_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 10003000;
+var
+  obj;
+  str;  
+  folderDate;
+  x1, y1, x2, y2;
+  dX, dY;
+begin 
+try 
+  folderDate := DateTimeToStr(Utilities.Date);  
+  if NOT JurnalClear then Raise ('Не удалось очистить Журнал Работы');
+  if NOT DeleteAllInMyDoc then Log.Warning('Не удалось удалить все объекты из моих документов');
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  GetListOfAllDocuments;
+  GoToMainMenu;
+  obj := OpenJurnalTab;  
+  //Проверяем, что можно нельзя перетащить элеменет документа из Журнала работы в элемент поиска  в Журнале работы
+  str := folderDate + '\Просмотренные документы\Конституция*';
+  if NOT Position_Internal(obj, str, '\', true, 'isPressHome:=true') then
+    Raise('Не удалось спозиционироваться в Журнале работы на элемент :' + str);
+  if NOT  GetTextSelectionCoords(obj, x2, y2) then
+    Raise('Не удалось найти выделенный элемент в Журнале работы');
+    
+  
+  if NOT Position_Internal(obj, folderDate + '\Поиск по реквизитам*', '\', true, 'isPressHome:=true') then
+    Raise('Не удалось спозиционироваться в Журнале работы на элемент Поиск по реквизитам');
+  if NOT  GetTextSelectionCoords(obj, x1, y1) then
+    Raise('Не удалось найти выделенный элемент в Журнале работы');
+  dX := x1 - x2;
+  dY := y1 - y2;
+  DragExt(obj, x2, y2, dX, dY);
+  
+  if NOT ( (NOT Position_Internal(obj, folderDate + '\Поиск по реквизитам\Конституция*', '\', true, 'isPressHome:=true')) AND  
+               (Position_Internal(obj, str, '\', true, 'isPressHome:=true')) ) then
+  begin
+    Log.Error('Элемент как то переместился из Журнала работы');
+    Raise('Элемент как то переместился из Журнала работы');
+  end;
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_15_6_2_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+	SetDefaultSettings;
+end;
+
+
+{
+HLTC147.15: Журнал работы.
+  HLTC147.15.7: Проверить, что журнал и его вложенные папки нельзя открыть на общий доступ.
+}
+function HLTC147_15_7_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  DOC_NUM = 10003000;
+var
+  obj;
+  str;  
+  folderDate;
+  toolBarTop;
+  pageControl;
+begin 
+try 
+  folderDate := DateTimeToStr(Utilities.Date);  
+  if NOT JurnalClear then Raise ('Не удалось очистить Журнал Работы');
+  if NOT OpenDocByNumber(DOC_NUM) then Raise('Не удалось открыть документ по Alt+N');
+  GoToMainMenu;       
+  obj := OpenJurnalTab;  
+  str := folderDate + '\Просмотренные документы';
+  if NOT Position_Internal(obj, str) then
+    Raise('Не удалось спозиционироваться в Журнале работы на элемент');  
+  obj.ClickR;   
+  if IsPopupMenuItemExists(obj, 'Открыть общий доступ') then   
+  begin
+    Log.Error('Для папки из Журнала работы существует контекстная операция "Открыть общий доступ"');
+    Raise('Для папки из Журнала работы существует контекстная операция "Открыть общий доступ"');
+  end;                                                   
+  Sys.Keys('[Esc]');
+  
+  result := true;
+  GoToMainMenu;
+except
+  Sys.Keys('[Esc]');  
+  Log.Message('HLTC147_15_7_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+HLTC147.15: Журнал работы.
+ HLTC147.15.9: Проверить, что количество сохранённых элементов в журнале можно настраивать:
+  HLTC147.15.9.1: В настройках должен быть соответствующий пункт 
+  (Настройки конфигурации/настройки интерфейса)
+  HLTC147.15.9.2: Проверить, что максимальное количество элементов= 20.
+}
+function HLTC147_15_9_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  COUNT = 5;
+  NAME_1 = 'КОЛИЧЕСТВО ПОСЛЕДНИХ ОТКРЫТЫХ ДОКУМЕНТОВ [EDIT]';
+  NAME_2 = 'КОЛИЧЕСТВО ПОСЛЕДНИХ ВЫПОЛНЕННЫХ ЗАПРОСОВ [EDIT]';
+  PAGE = 'НАСТРОЙКИ ИНТЕРФЕЙСА';
+var
+  obj;
+  pageWnd;
+  controlWnd;
+  toolBar;
+  name;
+  i;
+begin 
+try
+  pageWnd := OpenSettingsPage(PAGE);
+  if NOT IsExists(pageWnd) then Raise('Не удалось открыть нужную страницы с настройками!');
+  for i := 1 to 1 do
+  begin
+    case i of
+      1: name := NAME_1;
+      2: name := NAME_2;//Убрали это поле
+    end;//case  
+    controlWnd := GetSettingsElement(PAGE, name, pageWnd);
+    if NOT IsExists(controlWnd) then Raise('Не удалось получить ' + name);
+    controlWnd.SetFocus;  
+    Sys.Keys('[End]' + keyPause + '![Home]' + keyPause + '[Del]' + keyPause + '21');
+    if NOT StringCompare(common.GetWindowText(controlWnd.Handle), '21') then Raise('Не удалось вписать в поле число 11');
+    toolBar := GetFromSettings('НИЖНИЙ ТУЛБАР');
+    if NOT ClickToolbarButton(toolBar, 'Ок') then Raise('Не удалось кликнуть по кнопке "Ок" на Нижнем тулбаре в "настройки конфигурации"');
+    if WaitForErrorWindow(Options.Run.Timeout div 20, 'Введенное вами число*находится вне диапазона*') = '' then
+    begin
+      Log.Error('После ввода числа "21", вылезающего за диапазон разрешённых(1-20), не выдалось ошибки');
+      Raise;
+    end;
+    //if i = 1 then 
+      if NOT ClickToolbarButton(toolBar, 'Отмена') then Raise('Не удалось кликнуть по кнопке "Отмена" на Нижнем тулбаре в "настройки конфигурации"'); 
+  end;//for  
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_15_9_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147.15: Журнал работы.
+ HLTC147.15.9: Проверить, что количество сохранённых элементов в журнале можно настраивать:
+  HLTC147.15.9.3: Проверить, что по умолчанию количество последних выполненных запросов и 
+  открытых документов = 5.
+}
+function HLTC147_15_9_3_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  COUNT = 5;
+  NAME = 'КОЛИЧЕСТВО ПОСЛЕДНИХ ОТКРЫТЫХ ДОКУМЕНТОВ [EDIT]';  
+  PAGE = 'НАСТРОЙКИ ИНТЕРФЕЙСА';
+var  
+  mass;
+  p;
+  value;  
+begin 
+try
+  mass := [      
+      ([PAGE, NAME])
+    ];    
+  p := GetSettings( mass );    
+  value := GetFromSettingsArr(p, PAGE, NAME);
+  if NOT (StrToInt(value) = COUNT)  then
+  begin
+    Log.Error('По умолчанию значение ' + name + 'не равно эталонному!');
+    Raise;
+  end;
+    
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_15_9_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+{
+HLTC147.15: Журнал работы.
+ HLTC147.15.9: Проверить, что количество сохранённых элементов в журнале можно настраивать:
+  HLTC147.15.10.1: В настройках должен быть соответствующий пункт (Количество дней в Журнале работы)
+  HLTC147.15.10.2: По умолчанию - 10 дней (причем это стоит рассматривать не как временной отрезок, а как
+  количество папок, т.е. при попытке создания папки для 11 дня - самая ранняя стирается)
+}
+function HLTC147_15_10_1_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  COUNT = 10;
+  NAME_1 = 'КОЛИЧЕСТВО ДНЕЙ В ЖУРНАЛЕ РАБОТЫ [EDIT]';
+  NAME_2 = 'КОЛИЧЕСТВО ЭЛЕМЕНТОВ В ИСТОРИИ [EDIT]';
+  PAGE = 'НАСТРОЙКИ ИНТЕРФЕЙСА';
+var
+  obj;
+  mass;
+  p;
+  value;
+  i;
+  name;
+begin 
+try
+  mass := [
+      ([PAGE, NAME_1]),
+      ([PAGE, NAME_2])
+    ];    
+  p := GetSettings( mass );
+  for i := 1 to 2 do
+  begin
+    case i of
+      1: name := NAME_1;
+      2: name := NAME_2;
+    end;//case  
+    value := GetFromSettingsArr(p, PAGE, name);
+    if NOT (StrToInt(value) = COUNT)  then
+    begin
+      Log.Error('По умолчанию значение ' + name + 'не равно эталонному!');
+      Raise;
+    end;
+  end;//for  
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_15_10_1_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147.15: Журнал работы.
+ HLTC147.15.10: Проверить, максимальное количество папок по дням регулируется в настройках:
+  HLTC147.15.10.3: Максимальное количество = 30.
+}
+function HLTC147_15_10_3_Execute (var  CurrentState: OleVariant): OleVariant;
+const
+  COUNT = 5;
+  NAME = 'КОЛИЧЕСТВО ДНЕЙ В ЖУРНАЛЕ РАБОТЫ [EDIT]';
+  PAGE = 'НАСТРОЙКИ ИНТЕРФЕЙСА';
+var
+  obj;
+  pageWnd;
+  controlWnd;
+  toolBar;  
+  i;
+  maxCount;
+begin 
+try
+  if NOT SetDefaultSettings then Log.Warning('Не удалось установить настройки по умолчанию');   
+  pageWnd := OpenSettingsPage(PAGE);
+  if NOT IsExists(pageWnd) then Raise('Не удалось открыть нужную страницы с настройками!');  
+  for i := 1 to 2 do
+  begin
+    case i of
+      1: maxCount := '31';
+      2: maxCount := '30';
+    end;  
+    controlWnd := GetSettingsElement(PAGE, NAME, pageWnd);
+    if NOT IsExists(controlWnd) then Raise('Не удалось получить ' + NAME);
+    controlWnd.SetFocus;  
+    Sys.Keys('[End]' + keyPause + '![Home]' + keyPause + '[Del]' + keyPause + maxCount);
+    if NOT StringCompare(common.GetWindowText(controlWnd.Handle), maxCount) then Raise('Не удалось вписать в поле число ' + maxCount);
+    toolBar := GetFromSettings('НИЖНИЙ ТУЛБАР');
+    if NOT ClickToolbarButton(toolBar, 'Ок') then Raise('Не удалось кликнуть по кнопке "Ок" на Нижнем тулбаре в "настройки конфигурации"');
+    if i = 1 then
+    begin
+      if WaitForErrorWindow(Options.Run.Timeout div 20, 'Введенное вами число*находится вне диапазона*') = '' then
+      begin
+        Log.Error('После ввода числа "' + maxCount + '", вылезающего за диапазон разрешённых(1-30), не выдалось ошибки');
+        Raise;
+      end;
+    end
+    else
+    begin
+      if NOT ( WaitForErrorWindow(Options.Run.Timeout div 20, 'Введенное вами число*находится вне диапазона*') = '' ) then
+      begin
+        Log.Error('После ввода числа "' + maxCount + '", влезающего в допустимый диапазон(1-30), выдалась ошибка');
+        Raise;
+      end;
+    end;      
+  end;
+  if NOT SetDefaultSettings then Log.Warning('Не удалось установить настройки по умолчанию');   
+  result := true;
+  GoToMainMenu;
+except  
+  Log.Message('HLTC147_15_10_3_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  if IsExists(pageWnd) then
+    if NOT ClickToolbarButton(GetFromSettings('НИЖНИЙ ТУЛБАР'), 'Отмена') then 
+      Log.Warning('Не удалось кликнуть по кнопке "Отмена" на Нижнем тулбаре в "настройки конфигурации"'); 
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+{
+HLTC147.15: Журнал работы.
+  HLTC147.15.10: Проверить, максимальное количество папок по дням регулируется в настройках:
+    HLTC147.15.10.4: Заполнить журнал на несколько дней (т.е добится, чтобы в журнале создались папки за 
+    несколько дней >1). Выставить количество дней в журнале = 1. Выйти из оболочки, переставить дату на следующий 
+    день (чтобы создалась новая папка в журнале), и перейти в документ (или выполнить запрос) – из журнала
+    должны удалится все предыдущии папки, кроме папки за текущий день.
+}
+function HLTC147_15_10_4_Execute (var  CurrentState: OleVariant): OleVariant;
+var
+  i;    
+  folderDate;
+  systemTime, day, defaultDay;
+  myDocTab;
+  path;
+  count, login, pass;
+  arrFolderDate;
+begin 
+try
+  count := 5;
+  login := 'user___HLTC147_15_10_4';
+  pass := login;  
+  if NOT RestartF1Shell(count, Options.Run.Timeout div 6, login, pass) then
+    Raise('Не удалось перегрузить оболочку');
+
+  systemTime := Win32API.SYSTEMTIME; 
+  Win32API.GetSystemTime(systemTime);
+  defaultDay := systemTime.wDay;
+  day := StrToInt(defaultDay+1);
+  systemTime.wDay := IntToStr(day);
+  Win32API.SetSystemTime(systemTime);
+  JurnalClear;  
+  for i := 0 to 5 do
+  begin
+    if NOT OpenDocByNumber(10003000) then Raise('Не удалось открыть документ по Alt+N');
+    if NOT GoToMainMenu then Raise('Не удалось открыть ОМ');
+    
+    folderDate := DateTimeToStr(Utilities.Date);
+    myDocTab := OpenJurnalTab;
+    addToArray(arrFolderDate, folderDate);    
+    path := folderDate +  '\Просмотренные документы\Конституция*';
+    if NOT Position_Internal(myDocTab, path, '\', true) then
+      Raise('Не удалось спозиционироваться в Журнале работы по пути: ' + path);
+    if (day = 28) OR (day = 29) OR (day = 30) OR (day = 31) then
+      day := 1
+    else
+      inc(day);  
+    systemTime.wDay := IntToStr(day);
+    Win32API.SetSystemTime(systemTime);  
+  end;//for
+  
+  if NOT SetSettings( [
+      (['НАСТРОЙКИ ИНТЕРФЕЙСА', 'КОЛИЧЕСТВО ДНЕЙ В ЖУРНАЛЕ РАБОТЫ [EDIT]', '1'])
+    ] ) then 
+    Raise('Не удалось изменить в настройках  КОЛИЧЕСТВО ДНЕЙ В ЖУРНАЛЕ РАБОТЫ [EDIT]');
+  
+  count := 5;  
+  if NOT RestartF1Shell(count, Options.Run.Timeout div 6, login, pass) then
+    Raise('Не удалось повторно перегрузить оболочку');
+  systemTime.wDay := defaultDay;
+  Win32API.SetSystemTime(systemTime);
+  folderDate := DateTimeToStr(Utilities.Date);    
+  if NOT OpenDocByNumber(10003000) then Raise('Не удалось открыть документ по Alt+N');
+  if NOT GoToMainMenu then Raise('Не удалось открыть ОМ');
+  myDocTab := OpenJurnalTab;
+  path := folderDate +  '\Просмотренные документы\Конституция*';
+  if NOT Position_Internal(myDocTab, path, '\', true) then
+     Raise('Не удалось спозиционироваться в Журнале работы по пути: ' + path);
+  for i := VarArrayLowBound(arrFolderDate, 1) to VarArrayHighBound(arrFolderDate, 1) do
+  begin
+    path :=  arrFolderDate[i];
+    if Position_Internal(myDocTab, path, '\', true, 'IsPressHome:=true') then
+    begin
+      Log.Error('Из журнала работы не очистились лишние папки "' + arrFolderDate[i] + '" при минимизации значения количества элементов в истории');
+      Log.Error('Из журнала работы не очистились лишние папки "' + arrFolderDate[i] + '" при минимизации значения количества элементов в истории');      
+    end;
+  end;    
+  SetDefaultSettings;   
+  result := true;
+  GoToMainMenu;
+except
+  SetDefaultSettings;
+  systemTime.wDay := defaultDay;
+  Win32API.SetSystemTime(systemTime);  
+  Log.Message('HLTC147_15_10_4_Execute: ' + ExceptionMessage,'', pmNormal, GetLogAttr('EXCEPTION'));
+  result := false;
+  CommonExceptionHandler;             
+end;
+end;
+
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////
+procedure RykovTest147;
+var cur;
+begin
+//--05.07.06-----------------------------
+  {Log.Message( HLTC147_1_1_Execute(cur));
+  Log.Message( HLTC147_1_2_Execute(cur)); 
+  Log.Message( HLTC147_1_2_Execute(cur)); 
+  Log.Message( HLTC147_1_3_1_Execute(cur));
+  Log.Message( HLTC147_1_4_1_Execute(cur));
+  Log.Message( HLTC147_1_4_3_Execute(cur));
+  Log.Message( HLTC147_1_5_Execute(cur));
+  Log.Message( HLTC147_1_6_Execute(cur));
+  Log.Message( HLTC147_1_7_Execute(cur)); 
+  Log.Message( HLTC147_1_8_Execute(cur));
+//--06.07.06-----------------------------
+  Log.Message( HLTC147_2_1_Execute(cur));
+  Log.Message( HLTC147_2_2_Execute(cur));
+  Log.Message( HLTC147_2_3_Execute(cur)); 
+  Log.Message(HLTC147_6_1_Execute(cur)); 
+//--07.07.06----------------------------- 
+  Log.Message(HLTC147_6_2_Execute(cur));
+  Log.Message(HLTC147_6_3_Execute(cur));
+  Log.Message(HLTC147_6_4_Execute(cur));
+  Log.Message(HLTC147_6_6_Execute(cur)); 
+  Log.Message(HLTC147_6_8_Execute(cur));
+//--10.07.06-----------------------------   
+  Log.Message(HLTC147_7_1_Execute(cur));
+  Log.Message(HLTC147_7_2_Execute(cur));
+  Log.Message(HLTC147_9_1_Execute(cur));  //На чистой 
+  Log.Message(HLTC147_9_2_Execute(cur));
+  Log.Message(HLTC147_9_3_Execute(cur));
+  Log.Message(HLTC147_10_Execute(cur));         
+  Log.Message(HLTC147_11_Execute(cur)); }
+  Log.Message(HLTC147_12_Execute(cur));
+{//--11.07.06-----------------------------     
+  Log.Message(HLTC147_14_1_Execute(cur));
+  Log.Message(HLTC147_14_2_Execute(cur));
+  Log.Message(HLTC147_14_3_Execute(cur));
+  Log.Message(HLTC147_14_4_Execute(cur));
+  Log.Message(HLTC147_14_5_Execute(cur));
+  Log.Message(HLTC147_14_6_Execute(cur));
+//--12.07.06-----------------------------   
+  Log.Message(HLTC147_15_1_Execute(cur));
+  Log.Message(HLTC147_15_3_Execute(cur));
+  Log.Message(HLTC147_15_4_1_Execute(cur));
+  Log.Message(HLTC147_15_4_2_Execute(cur));
+//--13.07.06----------------------------- 
+  Log.Message(HLTC147_15_5_1_Execute(cur));
+  //Log.Message(HLTC147_15_5_2_1_1_Execute(cur));
+  {Log.Message(HLTC147_15_5_2_1_2_Execute(cur)); 
+  Log.Message(HLTC147_15_5_2_2_1_Execute(cur));
+  Log.Message(HLTC147_15_5_2_2_2_Execute(cur));
+  Log.Message(HLTC147_15_5_2_2_3_Execute(cur));
+//--14.07.06-----------------------------     
+  Log.Message(HLTC147_15_6_1_Execute(cur));}
+  //Log.Message(HLTC147_15_6_2_Execute(cur));     
+{//--17.07.06-----------------------------       
+  Log.Message(HLTC147_15_6_3_Execute(cur));
+  Log.Message( HLTC147_15_7_Execute(cur) ); 
+//--19.10.06-----------------------------       
+  Log.Message(HLTC147_3_Execute(cur));  
+  Log.Message(HLTC147_4_1_Execute(cur));
+  Log.Message(HLTC147_4_2_Execute(cur));
+  Log.Message(HLTC147_5_Execute(cur));           
+//--20.10.06-----------------------------       
+  Log.Message(HLTC147_15_5_2_1_3_Execute(cur));
+  Log.Message(HLTC147_15_5_2_1_4_Execute(cur));
+  Log.Message(HLTC147_15_9_1_Execute(cur)); 
+  Log.Message(HLTC147_15_9_3_Execute(cur));
+//--20.10.06-----------------------------       
+  Log.Message(HLTC147_15_10_1_Execute(cur));//Доделать 
+  Log.Message(HLTC147_15_10_3_Execute(cur));
+    
+     
+  Log.Message(HLTC147_15_5_2_1_5_Execute(cur));
+  Log.Message(HLTC147_15_5_2_2_4_Execute(cur));
+  Log.Message(HLTC147_15_10_4_Execute(cur));}
+end;
+
+ 
+// Теставая функция, потом надо удалить
+function HLTC147_test_Execute (var  CurrentState: OleVariant): OleVariant;
+begin
+  result := true;
+end;
+
+procedure test;
+var
+  countOfAttempts;
+begin
+  //countOfAttempts := 3;
+  //CloseF1Shell(countOfAttempts, Options.Run.Timeout div 6);
+   
+  
+end;

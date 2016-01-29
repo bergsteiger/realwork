@@ -1,0 +1,229 @@
+// TpgTableQueryFactory 55F81B3F024D SimpleClass Class
+
+INCLUDE '49E7754802A9.pas.ms.script'
+
+INCLUDE '5432518A0316.pas.ms.script'
+
+INCLUDE '51612ED700B4.pas.ms.script'
+
+FORWARD ME_55F81B3F024D
+
+INCLUDE '55DAD4150001.pas.ms.script'
+
+: ME_55F81BAA0343
+ CONST UID '55F81BAA0343'
+ CONST Name 'f_DataConverter'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_55E41C6E00E2 // IpgDataConverter
+ ;
+
+ @SELF
+; // ME_55F81BAA0343 f_DataConverter
+
+INCLUDE '55F6875803A8.pas.ms.script'
+
+: ME_5603B92601BF
+ CONST UID '5603B92601BF'
+ CONST Name 'f_Connection'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_55F6875803A8 // TpgConnection
+ ;
+
+ @SELF
+; // ME_5603B92601BF f_Connection
+
+FORWARD ME_55F81B5C029C
+
+: ME_55F81B7800BB
+ CONST UID '55F81B7800BB'
+ CONST Name 'aDataConverter'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_55E41C6E00E2 // IpgDataConverter
+ ;
+
+ @SELF
+; // ME_55F81B7800BB aDataConverter
+
+: ME_5603B9460295
+ CONST UID '5603B9460295'
+ CONST Name 'aConnection'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_55F6875803A8 // TpgConnection
+ ;
+
+ @SELF
+; // ME_5603B9460295 aConnection
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_55F81B65009A
+ CONST UID '55F81B65009A'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_55F81B7800BB // aDataConverter
+ ME_5603B9460295 // aConnection
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_55F81B65009A DoIt
+
+: ME_55F81B5C029C
+ CONST UID '55F81B5C029C'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_55F81B65009A // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_55F81B5C029C Create
+
+FORWARD ME_55F81B7D0343
+
+: ME_ED31BC8A621F
+ CONST UID 'ED31BC8A621F'
+ CONST Name 'aDataConverter'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_55E41C6E00E2 // IpgDataConverter
+ ;
+
+ @SELF
+; // ME_ED31BC8A621F aDataConverter
+
+: ME_1D2E6957941E
+ CONST UID '1D2E6957941E'
+ CONST Name 'aConnection'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_55F6875803A8 // TpgConnection
+ ;
+
+ @SELF
+; // ME_1D2E6957941E aConnection
+
+: ME_B776DC238DE9
+ CONST UID 'B776DC238DE9'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Сигнатура фабрики TpgTableQueryFactory.Make' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_554C78BD038C // IdaTableQueryFactory
+ ;
+ : Parameters
+   [ ME_ED31BC8A621F // aDataConverter
+ ME_1D2E6957941E // aConnection
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_B776DC238DE9 DoIt
+
+: ME_55F81B7D0343
+ CONST UID '55F81B7D0343'
+ CONST Name 'Make'
+ CONST Class 'Class'
+ CONST Stereotype 'Factory'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55F81B5C029C // Create
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_554C78BD038C // IdaTableQueryFactory
+ ]
+ ; // Implements
+ : Operations
+   [ ME_B776DC238DE9 // DoIt
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_5549C65D038D // MakeTabledQuery
+ ME_559B80BD00A8 // MakeSelectField
+ ME_559B810003CF // MakeParamsCondition
+ ME_559BAF4401C8 // GetUserNameStr
+ ME_55C1BFA402E3 // DataConverter
+ ]
+ ; // Implemented
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ @SELF
+; // ME_55F81B7D0343 Make
+
+: ME_55F81B3F024D
+ CONST UID '55F81B3F024D'
+ CONST Name 'TpgTableQueryFactory'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_49E7754802A9 // Tl3ProtoObject
+ ]
+ ; // Inherits
+ : Implements
+   [ ME_554C78BD038C // IdaTableQueryFactory
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_55F81BAA0343 // f_DataConverter
+ ME_5603B92601BF // f_Connection
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_55F81B5C029C // Create
+ ME_55F81B7D0343 // Make
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_5549C65D038D // MakeTabledQuery
+ ME_559B80BD00A8 // MakeSelectField
+ ME_559B810003CF // MakeParamsCondition
+ ME_559BAF4401C8 // GetUserNameStr
+ ME_55C1BFA402E3 // DataConverter
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_479731C50290 // Cleanup
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_55F81B3F024D TpgTableQueryFactory

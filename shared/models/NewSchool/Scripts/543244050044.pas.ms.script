@@ -1,0 +1,52 @@
+// DA 543244050044 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_543244050044
+ CONST UID '543244050044'
+ CONST Name 'DA'
+ CONST Class class_Category
+ : Stereotype st_Library ;
+ %SUMMARY 'DataAccess - обобщение доступа к данным' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4ABA2360025A' '4ABA2360025A.pas.ms.script' // Shared Delphi For Archi
+ ;
+ : Children
+   @ ( WL 'ME_5432448401BC' '5432448401BC.pas.ms.script' // daTypes
+ WL 'ME_5432518A0316' '5432518A0316.pas.ms.script' // daInterfaces
+ WL 'ME_5437B26200BF' '5437B26200BF.pas.ms.script' // Utils
+ WL 'ME_552D07D0005E' '552D07D0005E.pas.ms.script' // DataScheme
+ WL 'ME_55963E9101B2' '55963E9101B2.pas.ms.script' // daGUITypes
+ WL 'ME_54F85B2500FB' '54F85B2500FB.pas.ms.script' // Provider
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
+ WL 'ME_4677E18600C2' '4677E18600C2.pas.ms.script' // dd
+ WL 'ME_467A8734039C' '467A8734039C.pas.ms.script' // EVD
+ WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+ WL 'ME_5214D28E024C' '5214D28E024C.pas.ms.script' // dd$AppConfig
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "defines" 'daDefine.inc'
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'rtl'
+ CONST "is namespace" true
+ CONST "vendor" '/Garant'
+ : Generators
+ @ (
+ gen_forth_structure
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi For Archi\DA\DA.model.script'
+ CONST intf.pas:Path 'common\components\rtl\Garant\DA\DA_lib.info'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\543244050044.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\543244050044.pas.ms.script.runner'
+
+ref; // ME_543244050044 DA

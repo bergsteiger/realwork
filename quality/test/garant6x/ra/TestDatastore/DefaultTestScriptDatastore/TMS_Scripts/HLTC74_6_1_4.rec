@@ -1,0 +1,39 @@
+'$Include "global.sbl"
+
+'$include "States.sbl"
+Sub Main
+    Call NeedState (ST_MAIN_MENU)
+    CUR_STATE=ST_NONE_STANDART
+Dim Rekvizit$  
+   Dim FolderName1$,FolderName2$
+   Dim NewComment$
+   FolderName1="Empty Folder"
+   FolderName2="Новый комментарий"
+   call CreateFolder("Мои документы",FolderName1)
+   call ChangeProperty("Мои документы\"+FolderName1,sComment:=FolderName2)
+   Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=13,118"
+    ListBox Click, "ObjectIndex=1", "Coords=49,11"
+    if Position_Internal("CurrentFocus","Мои документы\"+FolderName1)<>0 then
+        call Click_ChangeProperty
+        EditBox Click, "ObjectIndex=1", ""
+        SQAGetProperty "CurrentFocus","Text",NewComment
+        if NewComment=FolderName2 then
+           SQALogMessage sqaPass, "Комментарий изменён", "Новый комментарий: """+NewComment+"""" 
+        else
+           SQALogMessage sqaFail, "Комментарий не изменён", "Текущий комментарий: """+NewComment+"""" 
+        end if
+        'Toolbar Click, "ObjectIndex=10;VisualText=Выбор действия", "Coords=19,15"
+        Toolbar Click, "Text=Выбор действия", "Coords=89,11"
+   
+    else
+        SQALogMessage sqaFail, "Неудалось найти путь", "!Внимание! Не удалось найти путь: """+sPath+""""
+    end if
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17"
+    Toolbar Click, "ObjectIndex=6;VisualText=Папки", "Coords=16,17" 
+    
+    call DeleteFolder("Мои документы\"+FolderName1)
+    Window SetContext, "Caption={ГАРАНТ*}", ""
+    GenericObject Click, "Class=TElPageControlNavigator;ClassIndex=1", "Coords=15,52"
+End Sub

@@ -1,0 +1,486 @@
+ABSTRACT <<VCMControllers>> List
+ %UID '4954F58900E8'
+ %SUMMARY 'Абстрактные списки' ;
+ %DEPENDS
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FF4B0036' /* Data */
+  U$ '4682595B0268' /* l3TreeInterfaces */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47E9EEC60260' /* Model */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %DEPENDS
+ %META
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'prj'
+  %upv "is namespace" true
+  %upv "vendor" 'none'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '4677FF4B0036' /* Data */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '47E9EEC60260' /* Model */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<ControllerInterfaces>> SimpleListInterfaces
+   %UID '4922BFA000DD'
+   %SUMMARY 'Интерфейсы "простого списка"' ;
+   %DEPENDS
+    U$ '456F02A50196' /* BaseTreeSupport */
+    U$ '45EEA48F011F' /* Filters */
+    U$ '45EEAA8E034E' /* Search */
+    U$ '4682595B0268' /* l3TreeInterfaces */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %META
+    %upv "author" 'Люлин А.В.'
+    %upv "is namespace" true
+    %upv "no hands" true
+    %upv "started" '18.11.2008 15:07'
+   ; // %META
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4954F58900E8' /* List */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<ViewAreaController>> IdsSimpleListSynchroViewPrim
+      %UID '47ECD4E8023E'
+      %SUMMARY 'Спецификация синхронного просмотра для списка' ;
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> HasDocument
+         %UID '47ECD54803CB'
+         %SUMMARY 'Наличие документа.' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // HasDocument
+        ABSTRACT LINK <<readonly>> IsDocumentActive
+         %UID '47ECD5490012'
+         %SUMMARY 'Текущим в зоне является документ.' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // IsDocumentActive
+        ABSTRACT LINK <<readonly>> HasAttributes
+         %UID '47F08A0E035F'
+         %SUMMARY 'Наличие атрибутов.' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // HasAttributes
+        ABSTRACT LINK <<readonly>> IsAttributesActive
+         %UID '47F08A2A03E6'
+         %SUMMARY 'Текущими в зоне являются атрибуты документа.' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // IsAttributesActive
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        ABSTRACT <<Operation>> OpenDocument
+         %UID '47ECD5280007'
+         %SUMMARY 'Открыть документ.' ;
+        ; // OpenDocument
+        ABSTRACT <<Operation>> OpenAttributes
+         %UID '47F08A7F0108'
+         %SUMMARY 'Открыть атрибуты.' ;
+        ; // OpenAttributes
+      ; // %OPERATIONS
+     ; // IdsSimpleListSynchroViewPrim
+     <<ViewAreaController>> IdsSimpleListSynchroView
+      %UID '494690E5004E'
+      %SUMMARY 'Синхронный просмотр для списка' ;
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4954F58900E8' /* List */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47ECD4E8023E' /* IdsSimpleListSynchroViewPrim */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47ECD5280007' /* OpenDocument */
+       U$ '47ECD54803CB' /* HasDocument */
+       U$ '47ECD5490012' /* IsDocumentActive */
+       U$ '47F08A0E035F' /* HasAttributes */
+       U$ '47F08A2A03E6' /* IsAttributesActive */
+       U$ '47F08A7F0108' /* OpenAttributes */
+      ; // %REALIZES
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> HasList
+         %UID '4946928403A8'
+         %SUMMARY 'Наличие списка.' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // HasList
+        ABSTRACT LINK <<readonly>> IsListActive
+         %UID '49469292003A'
+         %SUMMARY 'Текущим в зоне является список.' ;
+         %TARGET U$ '46A603BB0391' /* Boolean */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // IsListActive
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        ABSTRACT <<Operation>> OpenList
+         %UID '494692790065'
+         %SUMMARY 'Открыть список.' ;
+        ; // OpenList
+      ; // %OPERATIONS
+     ; // IdsSimpleListSynchroView
+     <<Facet>> IdeFilter
+      %UID '4922D91D0027'
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        ABSTRACT LINK <<readonly>> Query
+         %UID '4B1D15D203DC'
+         %TARGET U$ '45EEE145027B' /* Query */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // Query
+        ABSTRACT LINK <<readonly>> Filter
+         %UID '4B1D160B00AC'
+         %SUMMARY 'текущий узел фильтра выбранный в форме фильтров' ;
+         %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+         %META
+          %upv "pm" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // Filter
+      ; // %ATTRIBUTES
+     ; // IdeFilter
+     ABSTRACT <<UseCaseController>> IucpFilters
+      %UID '47FB1D7601A6'
+      %SUMMARY 'Управляет открытием формы фильтров' ;
+      %OPERATIONS
+        ABSTRACT <<Operation>> Open
+         %UID '47FB2086026D'
+         %SUMMARY 'открыть форму фильтры' ;
+        ; // Open
+      ; // %OPERATIONS
+     ; // IucpFilters
+     <<ViewAreaController>> IdsFilters
+      %UID '4922D94500FB'
+      %TOBEINCLUDED
+       U$ '4954F58900E8' /* List */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        ABSTRACT <<Operation>> OpenFilter
+         %UID '4922D96003C8'
+         %SUMMARY 'возвращает данные необходимые редактироания фильтра' ;
+         %TARGET U$ '4922D91D0027' /* IdeFilter */
+         %TOBEINCLUDED
+          U$ '4954F58900E8' /* List */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %PARAMETERS
+           <<in>> aNode
+            %UID '4922D96A02C6'
+            %TARGET U$ '468259900322' /* Il3SimpleNode */
+            %TOBEINCLUDED
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+           ; // aNode
+         ; // %PARAMETERS
+        ; // OpenFilter
+      ; // %OPERATIONS
+     ; // IdsFilters
+   ; // %CHILDREN
+  ; // SimpleListInterfaces
+  <<ControllerUnit>> SimpleList
+   %UID '4955235700D2'
+   %SUMMARY 'Простые списки' ;
+   %DEPENDS
+    U$ '456EA56002BF' /* BaseTypes */
+    U$ '456F02A50196' /* BaseTreeSupport */
+    U$ '45EEA48F011F' /* Filters */
+    U$ '45EEAA8E034E' /* Search */
+    U$ '4682595B0268' /* l3TreeInterfaces */
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47D0E1500033' /* Implementation */
+    U$ '48F747EC0073' /* Common */
+    U$ '4922BFA000DD' /* SimpleListInterfaces */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '456EA3D2031C' /* GblAdapterLib */
+    U$ '4677FF4B0036' /* Data */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790C3B8021E' /* VCM */
+    U$ '4790D09A0378' /* L3 */
+    U$ '4954F58900E8' /* List */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<ViewAreaControllerImp>> TdsFilters
+      %UID '47F5BC100329'
+      %SUMMARY 'БОФ формы фильтры' ;
+      %META
+       %upv "author" 'Морозов М.А.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '29.07.2005 17.07'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790C3B8021E' /* VCM */
+       U$ '4954F58900E8' /* List */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4922D94500FB' /* IdsFilters */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '47ECE94D03D4' /* vcmFormDataSourcePrim */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4922D96003C8' /* OpenFilter */
+      ; // %REALIZES
+      %LINKS
+        <<uses>> "4923EEAD0350"
+         %UID '4923EEAD0350'
+         %TARGET U$ '4923ECA602AE' /* TdeFilter */
+        ; // 4923EEAD0350
+      ; // %LINKS
+     ; // TdsFilters
+     <<SimpleClass>> TdeFilter
+      %UID '4923ECA602AE'
+      %META
+       %upv "author" 'Люлин А.В.'
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" true
+       %upv "register in scripts" 'undefined'
+       %upv "started" '08.12.2009 16:48'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '456EA3D2031C' /* GblAdapterLib */
+       U$ '4790D09A0378' /* L3 */
+       U$ '4954F58900E8' /* List */
+       U$ '4E2F0E1B03BB' /* L3$Domain */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '4922D91D0027' /* IdeFilter */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '49E7754802A9' /* Tl3ProtoObject */
+      ; // %INHERITS
+      %REALIZES
+       U$ '4B1D15D203DC' /* Query */
+       U$ '4B1D160B00AC' /* Filter */
+      ; // %REALIZES
+      %OVERRIDES
+       U$ '5000565C019C' /* ClearFields */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+        PRIVATE <<Attribute>> f_Filter
+         %UID '4B1E598802DD'
+         %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // f_Filter
+        PRIVATE <<Attribute>> f_Query
+         %UID '4B1E5996014D'
+         %TARGET U$ '45EEE145027B' /* Query */
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+        ; // f_Query
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Constructor>> Create$4B1E59B3005A
+         %UID '4B1E59B3005A'
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt$4B1E59BC02B5
+            %UID '4B1E59BC02B5'
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aFilter
+               %UID '4CB4538E0209'
+               %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aFilter
+            ; // %PARAMETERS
+           ; // DoIt$4B1E59BC02B5
+         ; // %OPERATIONS
+        ; // Create$4B1E59B3005A
+        FINAL <<Constructor>> Create$FromQuery$4B1E59CA009A
+         %UID '4B1E59CA009A'
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt$4B1E59E000E4
+            %UID '4B1E59E000E4'
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aQuery
+               %UID '4B1E59E50013'
+               %TARGET U$ '45EEE145027B' /* Query */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aQuery
+            ; // %PARAMETERS
+           ; // DoIt$4B1E59E000E4
+         ; // %OPERATIONS
+        ; // Create$FromQuery$4B1E59CA009A
+        FINAL <<Factory>> Make$4B1E59F802B7
+         %UID '4B1E59F802B7'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt$4B1E5A05031C
+            %UID '4B1E5A05031C'
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aFilter
+               %UID '4CB4539301E1'
+               %TARGET U$ '4CA499CA03DD' /* FilterFromQuery */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aFilter
+            ; // %PARAMETERS
+           ; // DoIt$4B1E5A05031C
+         ; // %OPERATIONS
+        ; // Make$4B1E59F802B7
+        FINAL <<Factory>> Make$FromQuery$4B1E5A0D0254
+         %UID '4B1E5A0D0254'
+         %META
+          %upv "check nil" false
+          %upv "need AfterCreate" 'undefined'
+          %upv "need Aggregate" 'undefined'
+          %upv "need As" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '456EA3D2031C' /* GblAdapterLib */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt$4B1E5A1F03CE
+            %UID '4B1E5A1F03CE'
+            %TOBEINCLUDED
+             U$ '456EA3D2031C' /* GblAdapterLib */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aQuery
+               %UID '4B1E5A220205'
+               %TARGET U$ '45EEE145027B' /* Query */
+               %TOBEINCLUDED
+                U$ '456EA3D2031C' /* GblAdapterLib */
+               ; // %TOBEINCLUDED
+              ; // aQuery
+            ; // %PARAMETERS
+           ; // DoIt$4B1E5A1F03CE
+         ; // %OPERATIONS
+        ; // Make$FromQuery$4B1E5A0D0254
+        FINAL <<method>> Make$FromSimpleNode$4B1E5A280341
+         %UID '4B1E5A280341'
+         %META
+          %upv "is static" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4954F58900E8' /* List */
+          U$ '4E2F0E1B03BB' /* L3$Domain */
+         ; // %TOBEINCLUDED
+         %LINKS
+           <<uses>> "4B1E5B8B0345"
+            %UID '4B1E5B8B0345'
+            %TARGET U$ '4ADEE49C02DF' /* Supports$4ADEE49C02DF */
+           ; // 4B1E5B8B0345
+           <<uses>> "4CB457280164"
+            %UID '4CB457280164'
+            %TARGET U$ '456EB3E10177' /* EntityBase */
+           ; // 4CB457280164
+         ; // %LINKS
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt$4B1E5A430303
+            %UID '4B1E5A430303'
+            %TARGET U$ '4922D91D0027' /* IdeFilter */
+            %TOBEINCLUDED
+             U$ '4954F58900E8' /* List */
+             U$ '4E2F0E1B03BB' /* L3$Domain */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aNode
+               %UID '4B1E5A4A00CA'
+               %TARGET U$ '468259900322' /* Il3SimpleNode */
+               %TOBEINCLUDED
+                U$ '4E2F0E1B03BB' /* L3$Domain */
+               ; // %TOBEINCLUDED
+              ; // aNode
+            ; // %PARAMETERS
+           ; // DoIt$4B1E5A430303
+         ; // %OPERATIONS
+        ; // Make$FromSimpleNode$4B1E5A280341
+      ; // %OPERATIONS
+     ; // TdeFilter
+   ; // %CHILDREN
+  ; // SimpleList
+ ; // %CHILDREN
+; // List

@@ -1,0 +1,21 @@
+project (GDiff) {
+	exename   = GDiff
+
+	exeout    = .
+	install   = .
+
+	specific (vc9) {
+		macros   -= _WINDOWS
+		macros   += _CONSOLE
+		subsystem = 1 // console
+	}
+
+	Header_Files {
+		./GDiffComparators.h
+	}
+
+	Source_Files {
+		./GDiff.cpp
+		./GDiffComparators.cpp
+	}
+}

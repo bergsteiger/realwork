@@ -1,0 +1,2020 @@
+// ArrayProcessingPack 4F50313101D1 ScriptKeywordsPack Class
+
+FORWARD ME_4F50313101D1
+
+FORWARD ME_4F5037E30231
+
+INCLUDE '52DFF03B0030.pas.ms.script'
+
+INCLUDE '4DAF19F600C5.pas.ms.script'
+
+FORWARD ME_52EB991C028F
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_EE8F249909F2
+ CONST UID 'EE8F249909F2'
+ CONST Name 'Ini_Reg_Class'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация TkwCompiledArray' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "ifndef" 'NoScripts'
+
+ @SELF
+; // ME_EE8F249909F2 Ini_Reg_Class
+
+: ME_52EB991C028F
+ CONST UID '52EB991C028F'
+ CONST Name 'TkwCompiledArray'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_52DFF03B0030 // TkwBeginLikeCompiledCode
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_EE8F249909F2 // Ini_Reg_Class
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_4DAEEDE10285 // DoDoIt
+ ME_52CFC11603C8 // ResultTypeInfo
+ ME_551544E2001A // GetResultTypeInfo
+ ]
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_52EB991C028F TkwCompiledArray
+
+INCLUDE '52D6AC0F0186.pas.ms.script'
+
+INCLUDE '54D229E702B6.pas.ms.script'
+
+FORWARD ME_4F5037FA03C6
+
+: ME_8A4F6C4F45CD
+ CONST UID '8A4F6C4F45CD'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация CloseArray' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_8A4F6C4F45CD Ini_Reg
+
+: ME_4F5037FA03C6
+ CONST UID '4F5037FA03C6'
+ CONST Name 'CloseArray'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_52D6AC0F0186 // CloseBracket
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_8A4F6C4F45CD // Ini_Reg
+ ]
+ ; // Operations
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ]
+ ; // Overridden
+ CONST "NameForScript" ']'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4F5037FA03C6 CloseArray
+
+INCLUDE '4DBAEF29031F.pas.ms.script'
+
+INCLUDE '4DB6C8F30161.pas.ms.script'
+
+: ME_15ACCB4AA1FE
+ CONST UID '15ACCB4AA1FE'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация OpenArray' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_15ACCB4AA1FE Ini_Reg
+
+: ME_4F5037E30231
+ CONST UID '4F5037E30231'
+ CONST Name 'OpenArray'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_4DBAEF29031F // TtfwBeginLikeWord
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_15ACCB4AA1FE // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DB6C99F026E // EndBracket
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_4DBAEE0D028D // CompiledWordClass
+ ]
+ ; // Overridden
+ : Children
+   [ ME_52EB991C028F // TkwCompiledArray
+ ME_4F5037FA03C6 // CloseArray
+ ]
+ ; // Children
+ CONST "NameForScript" '['
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4F5037E30231 OpenArray
+
+INCLUDE '55B7A33101AF.pas.ms.script'
+
+FORWARD ME_DB8D8DCA5554
+
+: ME_0725B7AA0CBF
+ CONST UID '0725B7AA0CBF'
+ CONST Name 'RegAxiom'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_0725B7AA0CBF RegAxiom
+
+: ME_DB8D8DCA5554
+ CONST UID 'DB8D8DCA5554'
+ CONST Name 'TArrayProcessingPackResNameGetter'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ %SUMMARY 'Регистрация скриптованой аксиоматики' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55B7A33101AF // TtfwAxiomaticsResNameGetter
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_0725B7AA0CBF // RegAxiom
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_55B7A3AF0359 // ResName
+ ]
+ ; // Implemented
+ CONST "need UC" true
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_DB8D8DCA5554 TArrayProcessingPackResNameGetter
+
+INCLUDE '55CCAE000335.pas.ms.script'
+
+FORWARD ME_878FE88B604D
+
+: ME_6546C301B9B1
+ CONST UID '6546C301B9B1'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_6546C301B9B1 aCtx
+
+: ME_6546C301B9B2
+ CONST UID '6546C301B9B2'
+ CONST Name 'aArray'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+
+ @SELF
+; // ME_6546C301B9B2 aArray
+
+: ME_428D1CC30289
+ CONST UID '428D1CC30289'
+ CONST Name 'Clear'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта Array:Clear' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_6546C301B9B1 // aCtx
+ ME_6546C301B9B2 // aArray
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_428D1CC30289 Clear
+
+: ME_F9D611D8EE24
+ CONST UID 'F9D611D8EE24'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Array_Clear' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_F9D611D8EE24 Ini_Reg
+
+: ME_878FE88B604D
+ CONST UID '878FE88B604D'
+ CONST Name 'Array_Clear'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта Array:Clear'#13#10'*Пример:*'#13#10'{code}'#13#10' aArray Array:Clear'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_428D1CC30289 // Clear
+ ME_F9D611D8EE24 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'Array:Clear'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_878FE88B604D Array_Clear
+
+FORWARD ME_E14E90E5EF2D
+
+: ME_AA3679225344
+ CONST UID 'AA3679225344'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_AA3679225344 aCtx
+
+: ME_AA3679225345
+ CONST UID 'AA3679225345'
+ CONST Name 'aArray'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+
+ @SELF
+; // ME_AA3679225345 aArray
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_AA3679225346
+ CONST UID 'AA3679225346'
+ CONST Name 'anIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_AA3679225346 anIndex
+
+INCLUDE '55BF153300A4.pas.ms.script'
+
+: ME_66E011EC054E
+ CONST UID '66E011EC054E'
+ CONST Name 'Item'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта Array:Item' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DB00A510300 // TtfwStackValue
+ ;
+ : Parameters
+   [ ME_AA3679225344 // aCtx
+ ME_AA3679225345 // aArray
+ ME_AA3679225346 // anIndex
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_66E011EC054E Item
+
+: ME_B57897A30704
+ CONST UID 'B57897A30704'
+ CONST Name 'aArray'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+
+ @SELF
+; // ME_B57897A30704 aArray
+
+: ME_B57897A30705
+ CONST UID 'B57897A30705'
+ CONST Name 'anIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_B57897A30705 anIndex
+
+: ME_B57897A30706
+ CONST UID 'B57897A30706'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB00A510300 // TtfwStackValue
+ ;
+
+ @SELF
+; // ME_B57897A30706 aValue
+
+: ME_2550EECFAAC1
+ CONST UID '2550EECFAAC1'
+ CONST Name 'DoSetValue'
+ CONST Class 'Operation'
+ CONST Stereotype 'static'
+ %SUMMARY 'Метод установки значения свойства Item' ;
+ CONST Visibility 'ProtectedAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_B57897A30704 // aArray
+ ME_B57897A30705 // anIndex
+ ME_B57897A30706 // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_2550EECFAAC1 DoSetValue
+
+: ME_8EAD9A1D078E
+ CONST UID '8EAD9A1D078E'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Array_Item' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_8EAD9A1D078E Ini_Reg
+
+: ME_E14E90E5EF2D
+ CONST UID 'E14E90E5EF2D'
+ CONST Name 'Array_Item'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта Array:Item'#13#10'*Тип результата:* TtfwStackValue'#13#10'*Пример:*'#13#10'{code}'#13#10'VAR l_TtfwStackValue'#13#10' anIndex aArray Array:Item >>> l_TtfwStackValue'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_66E011EC054E // Item
+ ME_2550EECFAAC1 // DoSetValue
+ ME_8EAD9A1D078E // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_52D00B00031A // SetValuePrim
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617C8A30023 // BindParams
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'Array:Item'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_E14E90E5EF2D Array_Item
+
+FORWARD ME_68189B4B7D71
+
+: ME_9F9B5E9AD1CD
+ CONST UID '9F9B5E9AD1CD'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_9F9B5E9AD1CD aCtx
+
+: ME_9F9B5E9AD1CE
+ CONST UID '9F9B5E9AD1CE'
+ CONST Name 'aArray'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+
+ @SELF
+; // ME_9F9B5E9AD1CE aArray
+
+: ME_155569C67894
+ CONST UID '155569C67894'
+ CONST Name 'Reverted'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта Array:Reverted' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+ : Parameters
+   [ ME_9F9B5E9AD1CD // aCtx
+ ME_9F9B5E9AD1CE // aArray
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_155569C67894 Reverted
+
+: ME_4C67301ED149
+ CONST UID '4C67301ED149'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Array_Reverted' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_4C67301ED149 Ini_Reg
+
+: ME_68189B4B7D71
+ CONST UID '68189B4B7D71'
+ CONST Name 'Array_Reverted'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта Array:Reverted'#13#10'*Тип результата:* ItfwValueList'#13#10'*Пример:*'#13#10'{code}'#13#10'ARRAY VAR l_ItfwValueList'#13#10' aArray Array:Reverted >>> l_ItfwValueList'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_155569C67894 // Reverted
+ ME_4C67301ED149 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'Array:Reverted'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_68189B4B7D71 Array_Reverted
+
+FORWARD ME_BE2AD2FE44CF
+
+: ME_A561AECA3AD9
+ CONST UID 'A561AECA3AD9'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_A561AECA3AD9 aCtx
+
+: ME_A561AECA3ADA
+ CONST UID 'A561AECA3ADA'
+ CONST Name 'aArray'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+
+ @SELF
+; // ME_A561AECA3ADA aArray
+
+: ME_A561AECA3ADB
+ CONST UID 'A561AECA3ADB'
+ CONST Name 'aLambda'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_A561AECA3ADB aLambda
+
+: ME_781431CE844D
+ CONST UID '781431CE844D'
+ CONST Name 'Filter'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта Array:Filter' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+ : Parameters
+   [ ME_A561AECA3AD9 // aCtx
+ ME_A561AECA3ADA // aArray
+ ME_A561AECA3ADB // aLambda
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_781431CE844D Filter
+
+: ME_164F3CD17773
+ CONST UID '164F3CD17773'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Array_Filter' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_164F3CD17773 Ini_Reg
+
+: ME_BE2AD2FE44CF
+ CONST UID 'BE2AD2FE44CF'
+ CONST Name 'Array_Filter'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта Array:Filter'#13#10'*Тип результата:* ItfwValueList'#13#10'*Пример:*'#13#10'{code}'#13#10'ARRAY VAR l_ItfwValueList'#13#10' aLambda aArray Array:Filter >>> l_ItfwValueList'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_781431CE844D // Filter
+ ME_164F3CD17773 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'Array:Filter'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_BE2AD2FE44CF Array_Filter
+
+FORWARD ME_4D82A8E4E72B
+
+: ME_DD1DB5AAA84F
+ CONST UID 'DD1DB5AAA84F'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_DD1DB5AAA84F aCtx
+
+: ME_DD1DB5AAA850
+ CONST UID 'DD1DB5AAA850'
+ CONST Name 'aArray'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+
+ @SELF
+; // ME_DD1DB5AAA850 aArray
+
+: ME_DD1DB5AAA851
+ CONST UID 'DD1DB5AAA851'
+ CONST Name 'aLambda'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_DD1DB5AAA851 aLambda
+
+: ME_7FA64661B5E5
+ CONST UID '7FA64661B5E5'
+ CONST Name 'Map'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта Array:Map' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+ : Parameters
+   [ ME_DD1DB5AAA84F // aCtx
+ ME_DD1DB5AAA850 // aArray
+ ME_DD1DB5AAA851 // aLambda
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_7FA64661B5E5 Map
+
+: ME_EEC688F1BC68
+ CONST UID 'EEC688F1BC68'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Array_Map' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_EEC688F1BC68 Ini_Reg
+
+: ME_4D82A8E4E72B
+ CONST UID '4D82A8E4E72B'
+ CONST Name 'Array_Map'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта Array:Map'#13#10'*Тип результата:* ItfwValueList'#13#10'*Пример:*'#13#10'{code}'#13#10'ARRAY VAR l_ItfwValueList'#13#10' aLambda aArray Array:Map >>> l_ItfwValueList'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_7FA64661B5E5 // Map
+ ME_EEC688F1BC68 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'Array:Map'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_4D82A8E4E72B Array_Map
+
+FORWARD ME_67F9FD4545C9
+
+: ME_E795974E33B4
+ CONST UID 'E795974E33B4'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_E795974E33B4 aCtx
+
+: ME_E795974E33B5
+ CONST UID 'E795974E33B5'
+ CONST Name 'aArray'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+
+ @SELF
+; // ME_E795974E33B5 aArray
+
+: ME_E795974E33B6
+ CONST UID 'E795974E33B6'
+ CONST Name 'aLambda'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_E795974E33B6 aLambda
+
+: ME_78836988FFF5
+ CONST UID '78836988FFF5'
+ CONST Name 'Iterate'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта Array:Iterate' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_E795974E33B4 // aCtx
+ ME_E795974E33B5 // aArray
+ ME_E795974E33B6 // aLambda
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_78836988FFF5 Iterate
+
+: ME_42BA8E11C31B
+ CONST UID '42BA8E11C31B'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Array_Iterate' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_42BA8E11C31B Ini_Reg
+
+: ME_67F9FD4545C9
+ CONST UID '67F9FD4545C9'
+ CONST Name 'Array_Iterate'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта Array:Iterate'#13#10'*Пример:*'#13#10'{code}'#13#10' aLambda aArray Array:Iterate'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_78836988FFF5 // Iterate
+ ME_42BA8E11C31B // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'Array:Iterate'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_67F9FD4545C9 Array_Iterate
+
+FORWARD ME_A57E4097FCC5
+
+: ME_277574C28F8A
+ CONST UID '277574C28F8A'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_277574C28F8A aCtx
+
+: ME_277574C28F8B
+ CONST UID '277574C28F8B'
+ CONST Name 'aArray'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+
+ @SELF
+; // ME_277574C28F8B aArray
+
+: ME_277574C28F8C
+ CONST UID '277574C28F8C'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB00A510300 // TtfwStackValue
+ ;
+
+ @SELF
+; // ME_277574C28F8C aValue
+
+: ME_4A28BF387B4A
+ CONST UID '4A28BF387B4A'
+ CONST Name 'Add'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта Array:Add' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_277574C28F8A // aCtx
+ ME_277574C28F8B // aArray
+ ME_277574C28F8C // aValue
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_4A28BF387B4A Add
+
+: ME_43D1F628B768
+ CONST UID '43D1F628B768'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Array_Add' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_43D1F628B768 Ini_Reg
+
+: ME_A57E4097FCC5
+ CONST UID 'A57E4097FCC5'
+ CONST Name 'Array_Add'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта Array:Add'#13#10'*Пример:*'#13#10'{code}'#13#10' aValue aArray Array:Add'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_4A28BF387B4A // Add
+ ME_43D1F628B768 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'Array:Add'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_A57E4097FCC5 Array_Add
+
+INCLUDE '53EDC0E701BC.pas.ms.script'
+
+FORWARD ME_AC4DA64FB94F
+
+: ME_425D9907C90F
+ CONST UID '425D9907C90F'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_425D9907C90F aCtx
+
+: ME_425D9907C910
+ CONST UID '425D9907C910'
+ CONST Name 'aLambda'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_425D9907C910 aLambda
+
+: ME_D84558AB12E8
+ CONST UID 'D84558AB12E8'
+ CONST Name 'FunctorToIterator'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта Array:FunctorToIterator' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+ : Parameters
+   [ ME_425D9907C90F // aCtx
+ ME_425D9907C910 // aLambda
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_D84558AB12E8 FunctorToIterator
+
+: ME_274672CB6B05
+ CONST UID '274672CB6B05'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Array_FunctorToIterator' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_274672CB6B05 Ini_Reg
+
+: ME_AC4DA64FB94F
+ CONST UID 'AC4DA64FB94F'
+ CONST Name 'Array_FunctorToIterator'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта Array:FunctorToIterator'#13#10'*Тип результата:* ItfwValueList'#13#10'*Пример:*'#13#10'{code}'#13#10'ARRAY VAR l_ItfwValueList'#13#10' aLambda Array:FunctorToIterator >>> l_ItfwValueList'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_53EDC0E701BC // TtfwRegisterableWord
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_D84558AB12E8 // FunctorToIterator
+ ME_274672CB6B05 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'Array:FunctorToIterator'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_AC4DA64FB94F Array_FunctorToIterator
+
+FORWARD ME_F83E51FB5EAA
+
+: ME_58C674E7BDFB
+ CONST UID '58C674E7BDFB'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_58C674E7BDFB aCtx
+
+: ME_58C674E7BDFC
+ CONST UID '58C674E7BDFC'
+ CONST Name 'aArray'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+
+ @SELF
+; // ME_58C674E7BDFC aArray
+
+: ME_58C674E7BDFD
+ CONST UID '58C674E7BDFD'
+ CONST Name 'anOther'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+
+ @SELF
+; // ME_58C674E7BDFD anOther
+
+: ME_AE1CCBE76617
+ CONST UID 'AE1CCBE76617'
+ CONST Name 'Join'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта Array:Join' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+ : Parameters
+   [ ME_58C674E7BDFB // aCtx
+ ME_58C674E7BDFC // aArray
+ ME_58C674E7BDFD // anOther
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_AE1CCBE76617 Join
+
+: ME_046419FFD865
+ CONST UID '046419FFD865'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Array_Join' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_046419FFD865 Ini_Reg
+
+: ME_F83E51FB5EAA
+ CONST UID 'F83E51FB5EAA'
+ CONST Name 'Array_Join'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта Array:Join'#13#10'*Тип результата:* ItfwValueList'#13#10'*Пример:*'#13#10'{code}'#13#10'ARRAY VAR l_ItfwValueList'#13#10' anOther aArray Array:Join >>> l_ItfwValueList'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_AE1CCBE76617 // Join
+ ME_046419FFD865 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'Array:Join'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_F83E51FB5EAA Array_Join
+
+FORWARD ME_BD92B7361A83
+
+: ME_557C688BC323
+ CONST UID '557C688BC323'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_557C688BC323 aCtx
+
+: ME_557C688BC324
+ CONST UID '557C688BC324'
+ CONST Name 'aArray'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+
+ @SELF
+; // ME_557C688BC324 aArray
+
+: ME_557C688BC325
+ CONST UID '557C688BC325'
+ CONST Name 'aLambda'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_557C688BC325 aLambda
+
+: ME_3CA55B4BDAA5
+ CONST UID '3CA55B4BDAA5'
+ CONST Name 'Trunc'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта Array:Trunc' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+ : Parameters
+   [ ME_557C688BC323 // aCtx
+ ME_557C688BC324 // aArray
+ ME_557C688BC325 // aLambda
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_3CA55B4BDAA5 Trunc
+
+: ME_28EAF0D17C0C
+ CONST UID '28EAF0D17C0C'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Array_Trunc' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_28EAF0D17C0C Ini_Reg
+
+: ME_BD92B7361A83
+ CONST UID 'BD92B7361A83'
+ CONST Name 'Array_Trunc'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта Array:Trunc'#13#10'*Тип результата:* ItfwValueList'#13#10'*Пример:*'#13#10'{code}'#13#10'ARRAY VAR l_ItfwValueList'#13#10' aLambda aArray Array:Trunc >>> l_ItfwValueList'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_3CA55B4BDAA5 // Trunc
+ ME_28EAF0D17C0C // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'Array:Trunc'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_BD92B7361A83 Array_Trunc
+
+FORWARD ME_2892AD069398
+
+: ME_3576BB448C42
+ CONST UID '3576BB448C42'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_3576BB448C42 aCtx
+
+: ME_3576BB448C43
+ CONST UID '3576BB448C43'
+ CONST Name 'aArray'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+
+ @SELF
+; // ME_3576BB448C43 aArray
+
+: ME_3576BB448C44
+ CONST UID '3576BB448C44'
+ CONST Name 'aCount'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_3576BB448C44 aCount
+
+: ME_A24C2DBFCDED
+ CONST UID 'A24C2DBFCDED'
+ CONST Name 'Slice'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта Array:Slice' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+ : Parameters
+   [ ME_3576BB448C42 // aCtx
+ ME_3576BB448C43 // aArray
+ ME_3576BB448C44 // aCount
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_A24C2DBFCDED Slice
+
+: ME_054DAAF9E71E
+ CONST UID '054DAAF9E71E'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Array_Slice' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_054DAAF9E71E Ini_Reg
+
+: ME_2892AD069398
+ CONST UID '2892AD069398'
+ CONST Name 'Array_Slice'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта Array:Slice'#13#10'{panel}Возвращает итератор, который выдаёт наборы элементов по aCount штук{panel}'#13#10'*Тип результата:* ItfwValueList'#13#10'*Пример:*'#13#10'{code}'#13#10'ARRAY VAR l_ItfwValueList'#13#10' aCount aArray Array:Slice >>> l_ItfwValueList'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_55CCAE000335 // TtfwClassLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_A24C2DBFCDED // Slice
+ ME_054DAAF9E71E // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'Array:Slice'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_2892AD069398 Array_Slice
+
+INCLUDE '5619169603BE.pas.ms.script'
+
+FORWARD ME_F4E1D8EB306A
+
+: ME_6F61D18493C3
+ CONST UID '6F61D18493C3'
+ CONST Name 'aCtx'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB0091E033E // TtfwContext
+ ;
+
+ @SELF
+; // ME_6F61D18493C3 aCtx
+
+: ME_6F61D18493C4
+ CONST UID '6F61D18493C4'
+ CONST Name 'aArray'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+
+ @SELF
+; // ME_6F61D18493C4 aArray
+
+: ME_87ED8662D31C
+ CONST UID '87ED8662D31C'
+ CONST Name 'Count'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ %SUMMARY 'Реализация слова скрипта Array:Count' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ : Parameters
+   [ ME_6F61D18493C3 // aCtx
+ ME_6F61D18493C4 // aArray
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_87ED8662D31C Count
+
+: ME_330085E77356
+ CONST UID '330085E77356'
+ CONST Name 'Ini_Reg'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация Array_Count' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_330085E77356 Ini_Reg
+
+: ME_F4E1D8EB306A
+ CONST UID 'F4E1D8EB306A'
+ CONST Name 'Array_Count'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeyword'
+ %SUMMARY 'Слово скрипта Array:Count'#13#10'*Тип результата:* Integer'#13#10'*Пример:*'#13#10'{code}'#13#10'INTEGER VAR l_Integer'#13#10' aArray Array:Count >>> l_Integer'#13#10'{code} ' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Inherits
+   [ ME_5619169603BE // TtfwPropertyLike
+ ]
+ ; // Inherits
+ : Operations
+   [ ME_87ED8662D31C // Count
+ ME_330085E77356 // Ini_Reg
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4DAEEDE10285 // DoDoIt
+ ]
+ ; // Implemented
+ : Overridden
+   [ ME_4DB0614603C8 // GetWordNameForRegister
+ ME_52D00B00031A // SetValuePrim
+ ME_551544E2001A // GetResultTypeInfo
+ ME_559687E6025A // GetAllParamsCount
+ ME_5617F4D00243 // ParamsTypes
+ ]
+ ; // Overridden
+ CONST "NameForScript" 'Array:Count'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_F4E1D8EB306A Array_Count
+
+INCLUDE '47D810610398.pas.ms.script'
+
+: ME_5510142301A5
+ CONST UID '5510142301A5'
+ CONST Name 'Count'
+ CONST Class 'Attribute'
+ CONST Stereotype 'readonly'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST LinkType 'agr'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "mapped" true
+
+ @SELF
+; // ME_5510142301A5 Count
+
+: ME_551012E802AF
+ CONST UID '551012E802AF'
+ CONST Name 'Clear'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ @SELF
+; // ME_551012E802AF Clear
+
+: ME_551013270376
+ CONST UID '551013270376'
+ CONST Name 'anIndex'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_551013270376 anIndex
+
+: ME_551012F603D4
+ CONST UID '551012F603D4'
+ CONST Name 'Item'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DB00A510300 // TtfwStackValue
+ ;
+ : Parameters
+   [ ME_551013270376 // anIndex
+ ]
+ ; // Parameters
+ CONST "bind params" true
+ CONST "lvalue" true
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_551012F603D4 Item
+
+: ME_5510147F0057
+ CONST UID '5510147F0057'
+ CONST Name 'Reverted'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_5510147F0057 Reverted
+
+: ME_55101AD90248
+ CONST UID '55101AD90248'
+ CONST Name 'aLambda'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_55101AD90248 aLambda
+
+: ME_55101ABC0102
+ CONST UID '55101ABC0102'
+ CONST Name 'Filter'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+ : Parameters
+   [ ME_55101AD90248 // aLambda
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55101ABC0102 Filter
+
+: ME_55101AEF00E8
+ CONST UID '55101AEF00E8'
+ CONST Name 'aLambda'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_55101AEF00E8 aLambda
+
+: ME_55101AE0033E
+ CONST UID '55101AE0033E'
+ CONST Name 'Map'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+ : Parameters
+   [ ME_55101AEF00E8 // aLambda
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55101AE0033E Map
+
+: ME_55101BFA02C7
+ CONST UID '55101BFA02C7'
+ CONST Name 'aLambda'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_55101BFA02C7 aLambda
+
+: ME_55101BDF0235
+ CONST UID '55101BDF0235'
+ CONST Name 'Iterate'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_55101BFA02C7 // aLambda
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55101BDF0235 Iterate
+
+: ME_55102B3B019B
+ CONST UID '55102B3B019B'
+ CONST Name 'aValue'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DB00A510300 // TtfwStackValue
+ ;
+
+ @SELF
+; // ME_55102B3B019B aValue
+
+: ME_55102B2B02D9
+ CONST UID '55102B2B02D9'
+ CONST Name 'Add'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_55102B3B019B // aValue
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ @SELF
+; // ME_55102B2B02D9 Add
+
+: ME_55103908002A
+ CONST UID '55103908002A'
+ CONST Name 'aLambda'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_55103908002A aLambda
+
+: ME_551038F0003A
+ CONST UID '551038F0003A'
+ CONST Name 'FunctorToIterator'
+ CONST Class 'Operation'
+ CONST Stereotype 'creator'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_55103908002A // aLambda
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_551038F0003A FunctorToIterator
+
+: ME_55E02C1E02E2
+ CONST UID '55E02C1E02E2'
+ CONST Name 'anOther'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+
+ @SELF
+; // ME_55E02C1E02E2 anOther
+
+: ME_55E02C110223
+ CONST UID '55E02C110223'
+ CONST Name 'Join'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+ : Parameters
+   [ ME_55E02C1E02E2 // anOther
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55E02C110223 Join
+
+: ME_55E0410D00BE
+ CONST UID '55E0410D00BE'
+ CONST Name 'aLambda'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_4DAEED140007 // TtfwWord
+ ;
+
+ @SELF
+; // ME_55E0410D00BE aLambda
+
+: ME_55E0410603CA
+ CONST UID '55E0410603CA'
+ CONST Name 'Trunc'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+ : Parameters
+   [ ME_55E0410D00BE // aLambda
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55E0410603CA Trunc
+
+: ME_55E5902F0237
+ CONST UID '55E5902F0237'
+ CONST Name 'aCount'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+
+ @SELF
+; // ME_55E5902F0237 aCount
+
+: ME_55E59002038C
+ CONST UID '55E59002038C'
+ CONST Name 'Slice'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ %SUMMARY 'Возвращает итератор, который выдаёт наборы элементов по aCount штук' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Target ME_4DCC12FC0125 // ItfwValueList
+ ;
+ : Parameters
+   [ ME_55E5902F0237 // aCount
+ ]
+ ; // Parameters
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" 'undefined'
+
+ @SELF
+; // ME_55E59002038C Slice
+
+: ME_044C5FFA728B
+ CONST UID '044C5FFA728B'
+ CONST Name 'Count'
+ CONST Class 'Operation'
+ CONST Stereotype 'keyword'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Target ME_46A606AC03B2 // Integer
+ ;
+ CONST "bind params" 'undefined'
+ CONST "lvalue" 'undefined'
+ CONST "mapped" true
+
+ @SELF
+; // ME_044C5FFA728B Count
+
+: ME_572ABCD87400
+ CONST UID '572ABCD87400'
+ CONST Name 'Reg_TtfwContext'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwContext' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_572ABCD87400 Reg_TtfwContext
+
+: ME_7DE0F62648AB
+ CONST UID '7DE0F62648AB'
+ CONST Name 'Reg_ItfwValueList'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа ItfwValueList' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_7DE0F62648AB Reg_ItfwValueList
+
+: ME_2C2541E16FC7
+ CONST UID '2C2541E16FC7'
+ CONST Name 'Reg_Integer'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа Integer' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_2C2541E16FC7 Reg_Integer
+
+: ME_75611B00AA7E
+ CONST UID '75611B00AA7E'
+ CONST Name 'Reg_TtfwStackValue'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwStackValue' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_75611B00AA7E Reg_TtfwStackValue
+
+: ME_8BC236B9941D
+ CONST UID '8BC236B9941D'
+ CONST Name 'Reg_TtfwWord'
+ CONST Class 'Operation'
+ CONST Stereotype 'ini'
+ %SUMMARY 'Регистрация типа TtfwWord' ;
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+
+ @SELF
+; // ME_8BC236B9941D Reg_TtfwWord
+
+: ME_4F50313101D1
+ CONST UID '4F50313101D1'
+ CONST Name 'ArrayProcessingPack'
+ CONST Class 'Class'
+ CONST Stereotype 'ScriptKeywordsPack'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Implements
+   [ ME_4DCC12FC0125 // ItfwValueList
+ ]
+ ; // Implements
+ : Attributes
+   [ ME_5510142301A5 // Count
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_551012E802AF // Clear
+ ME_551012F603D4 // Item
+ ME_5510147F0057 // Reverted
+ ME_55101ABC0102 // Filter
+ ME_55101AE0033E // Map
+ ME_55101BDF0235 // Iterate
+ ME_55102B2B02D9 // Add
+ ME_551038F0003A // FunctorToIterator
+ ME_55E02C110223 // Join
+ ME_55E0410603CA // Trunc
+ ME_55E59002038C // Slice
+ ME_044C5FFA728B // Count
+ ME_572ABCD87400 // Reg_TtfwContext
+ ME_7DE0F62648AB // Reg_ItfwValueList
+ ME_2C2541E16FC7 // Reg_Integer
+ ME_75611B00AA7E // Reg_TtfwStackValue
+ ME_8BC236B9941D // Reg_TtfwWord
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_47D8233603DD // First
+ ME_47D823570315 // Last
+ ME_47D8248802AD // Items
+ ME_47E381E203D2 // Empty
+ ME_482955910076 // IndexOf
+ ME_482958A203D0 // Add
+ ME_4BB08B8902F2 // Count
+ ME_4F62FF5D0327 // Clear
+ ME_52E23B7A00EC // ForEach
+ ME_52E23BB102FA // ForEachBack
+ ME_55CDF40C03D4 // SetItem
+ ME_55E849210175 // ItemsCountInSlice
+ ]
+ ; // Implemented
+ : Children
+   [ ME_4F5037E30231 // OpenArray
+ ME_DB8D8DCA5554 // TArrayProcessingPackResNameGetter
+ ME_878FE88B604D // Array_Clear
+ ME_E14E90E5EF2D // Array_Item
+ ME_68189B4B7D71 // Array_Reverted
+ ME_BE2AD2FE44CF // Array_Filter
+ ME_4D82A8E4E72B // Array_Map
+ ME_67F9FD4545C9 // Array_Iterate
+ ME_A57E4097FCC5 // Array_Add
+ ME_AC4DA64FB94F // Array_FunctorToIterator
+ ME_F83E51FB5EAA // Array_Join
+ ME_BD92B7361A83 // Array_Trunc
+ ME_2892AD069398 // Array_Slice
+ ME_F4E1D8EB306A // Array_Count
+ ]
+ ; // Children
+ CONST "ifndef" 'NoScripts'
+ CONST "needs script" true
+ CONST "no class name" 'undefined'
+ CONST "no hands" false
+ CONST "no_pop" true
+
+ @SELF
+; // ME_4F50313101D1 ArrayProcessingPack

@@ -1,0 +1,1 @@
+"C:\Program Files\Common Files\Microsoft Shared\Help 8\dexplore.exe" /helpcol ms-help://Gnostice.eDocEngine /LaunchNamedUrlTopic DefaultPage /usehelpsettings VisualStudio.8.0

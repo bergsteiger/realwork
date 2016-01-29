@@ -1,0 +1,48 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{7E2191A2-A5E9-4C80-8965-5E6621D11713}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="opEDocExcelEngD14.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="DCLopEDocExcelEngD14.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="opEDocExcelEngD14">
+			<MSBuild Projects="opEDocExcelEngD14.dproj"/>
+		</Target>
+		<Target Name="opEDocExcelEngD14:Clean">
+			<MSBuild Targets="Clean" Projects="opEDocExcelEngD14.dproj"/>
+		</Target>
+		<Target Name="opEDocExcelEngD14:Make">
+			<MSBuild Targets="Make" Projects="opEDocExcelEngD14.dproj"/>
+		</Target>
+		<Target Name="DCLopEDocExcelEngD14">
+			<MSBuild Projects="DCLopEDocExcelEngD14.dproj"/>
+		</Target>
+		<Target Name="DCLopEDocExcelEngD14:Clean">
+			<MSBuild Targets="Clean" Projects="DCLopEDocExcelEngD14.dproj"/>
+		</Target>
+		<Target Name="DCLopEDocExcelEngD14:Make">
+			<MSBuild Targets="Make" Projects="DCLopEDocExcelEngD14.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="opEDocExcelEngD14;DCLopEDocExcelEngD14"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="opEDocExcelEngD14:Clean;DCLopEDocExcelEngD14:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="opEDocExcelEngD14:Make;DCLopEDocExcelEngD14:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

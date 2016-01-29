@@ -1,0 +1,190 @@
+// TDataBaseTester 541957650320 SimpleClass Class
+
+INCLUDE '478CF30500C1.pas.ms.script'
+
+FORWARD ME_541957650320
+
+INCLUDE '4807744200AA.pas.ms.script'
+
+: ME_541FFF93008C
+ CONST UID '541FFF93008C'
+ CONST Name 'f_DataPath'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_541FFF93008C f_DataPath
+
+: ME_541FFFAC039A
+ CONST UID '541FFFAC039A'
+ CONST Name 'f_BasePath'
+ CONST Class 'Attribute'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'regular'
+ CONST LinkType 'agr'
+ : Target ME_476136D3010B // String
+ ;
+
+ @SELF
+; // ME_541FFFAC039A f_BasePath
+
+FORWARD ME_541FFFCB03B7
+
+: ME_541FFFFE0080
+ CONST UID '541FFFFE0080'
+ CONST Name 'CreateSuspended'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_46A603BB0391 // Boolean
+ ;
+
+ @SELF
+; // ME_541FFFFE0080 CreateSuspended
+
+: ME_541FFFFE0090
+ CONST UID '541FFFFE0090'
+ CONST Name 'aDataPath'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_483C2FA400B1 // AnsiString
+ ;
+
+ @SELF
+; // ME_541FFFFE0090 aDataPath
+
+: ME_541FFFFE00A0
+ CONST UID '541FFFFE00A0'
+ CONST Name 'aBaseName'
+ CONST Class 'Parameter'
+ CONST Stereotype 'in'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_483C2FA400B1 // AnsiString
+ ;
+
+ @SELF
+; // ME_541FFFFE00A0 aBaseName
+
+INCLUDE '3DBFDB23006E.pas.ms.script'
+
+: ME_541FFFD600AA
+ CONST UID '541FFFD600AA'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_541FFFFE0080 // CreateSuspended
+ ME_541FFFFE0090 // aDataPath
+ ME_541FFFFE00A0 // aBaseName
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_541FFFD600AA DoIt
+
+: ME_541FFFCB03B7
+ CONST UID '541FFFCB03B7'
+ CONST Name 'Create'
+ CONST Class 'Class'
+ CONST Stereotype 'Constructor'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_541FFFD600AA // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_541FFFCB03B7 Create
+
+FORWARD ME_542003B40317
+
+INCLUDE '4720831F012D.pas.ms.script'
+
+: ME_542003F9024D
+ CONST UID '542003F9024D'
+ CONST Name 'aDB'
+ CONST Class 'Parameter'
+ CONST Stereotype 'const'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Target ME_472084690055 // Im3DB
+ ;
+
+ @SELF
+; // ME_542003F9024D aDB
+
+: ME_542003F302ED
+ CONST UID '542003F302ED'
+ CONST Name 'DoIt'
+ CONST Class 'Operation'
+ CONST Stereotype ''
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Parameters
+   [ ME_542003F9024D // aDB
+ ]
+ ; // Parameters
+
+ @SELF
+; // ME_542003F302ED DoIt
+
+: ME_542003B40317
+ CONST UID '542003B40317'
+ CONST Name 'DoBase'
+ CONST Class 'Class'
+ CONST Stereotype 'method'
+ CONST Visibility 'PrivateAccess'
+ CONST Abstraction 'final'
+ : Operations
+   [ ME_542003F302ED // DoIt
+ ]
+ ; // Operations
+
+ @SELF
+; // ME_542003B40317 DoBase
+
+: ME_541957650320
+ CONST UID '541957650320'
+ CONST Name 'TDataBaseTester'
+ CONST Class 'Class'
+ CONST Stereotype 'SimpleClass'
+ CONST Visibility 'PublicAccess'
+ CONST Abstraction 'regular'
+ : Inherits
+   [ ME_4FFFDF4601F9 // TThread
+ ]
+ ; // Inherits
+ : Attributes
+   [ ME_541FFF93008C // f_DataPath
+ ME_541FFFAC039A // f_BasePath
+ ]
+ ; // Attributes
+ : Operations
+   [ ME_541FFFCB03B7 // Create
+ ME_542003B40317 // DoBase
+ ]
+ ; // Operations
+ : Implemented
+   [ ME_4FFFDF740099 // Execute
+ ]
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+
+ @SELF
+; // ME_541957650320 TDataBaseTester

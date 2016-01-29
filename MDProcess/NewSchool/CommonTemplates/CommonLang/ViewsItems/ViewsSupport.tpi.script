@@ -1,0 +1,70 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/CommonTemplates/CommonLang/ViewsItems/ViewsSupport.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAUtilityPack::Class>> MDProcess$Templates::CommonTemplates::CommonLang::ViewsItems::ViewsSupport
+//
+// вспомогательные функции для генерации стереотипов, поисывающих GUI
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// дампит код инициализации базового класса
+//f _addit_init
+: addit_init OBJECT IN %S
+//#UC START# *47144522033C*
+//	%f_base_dlg_class(%S) ([{%SS!=PropertySheet}{""}[{%Sa=abstract}{%f_type(%S)::IDD}templ_id]][{%S%f_get_wnd_class()=%SS}, 0])
+ [%f] base_dlg_class %( %S )% ' ('
+ if ( ( %S |S ) %!= 'PropertySheet' ) then
+ begin
+  if ( ( %S |a ) %== 'abstract' ) then
+  begin
+   'templ_id' 
+  end // if
+  else
+  begin
+   [%f] type %( %S )% '::IDD' 
+  end // else
+ end // if
+ else
+ begin
+''  end // else
+ if ( ( %S %f get_wnd_class %( )% ) %== ( %S |S ) ) then
+ begin
+  ', 0' 
+ end // if
+ ')'
+//#UC END# *47144522033C*
+; // addit_init
+
+
+// выводит базовый класс для GUI контролов
+//f _base_dlg_class
+: base_dlg_class OBJECT IN %S
+//#UC START# *47185A8C02FD*
+//	[{}{%S%f_get_wnd_class()}<{}{%GS=%SS}%f_type(%G)>]
+ if NOT-EMPTY
+ begin
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%G
+  begin
+   OBJECT IN %G
+   if ( ( %G |S ) %== ( %S |S ) ) then
+   begin
+    [%f] type %( %G )% 
+    ++! l_Counter
+   end // if
+  end // for G
+ end // if
+ NOP
+ else
+ begin
+  %S %f get_wnd_class %( )% 
+ end // else
+//#UC END# *47185A8C02FD*
+; // base_dlg_class
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

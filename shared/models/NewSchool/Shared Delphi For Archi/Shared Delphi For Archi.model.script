@@ -1,0 +1,106 @@
+%DISABLE_CASCADE_DICT
+
+USES
+ 'W:\shared\models\NewSchool\Templates\Implementation1.tpl.script'
+;
+
+USES
+ 'W:\shared\models\NewSchool\Templates\Implementation2.tpl.script'
+;
+
+USES
+ 'W:\shared\models\NewSchool\Templates\EVD.tpl.script'
+;
+
+USES
+ 'W:\shared\models\NewSchool\Templates\VCM.tpl.script'
+;
+
+USES
+ 'w:\shared\models\NewSchool\Shared Delphi\Shared Delphi.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Low Level\Shared Delphi Low Level.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Требования к низкоуровневым библиотекам\Shared Delphi Требования к низкоуровневым библиотекам.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Rtl\Shared Delphi Rtl.model.script'
+;
+
+<<Project>> "Shared Delphi For Archi"
+ %UID '4ABA2360025A'
+ %SUMMARY 'Библиотеки исключительно для нужд Архивариуса' ;
+ %INCLUDES
+  'w:\shared\models\NewSchool\Shared Delphi For Archi\m3\m3.model.script' /* m3 */
+  'w:\shared\models\NewSchool\Shared Delphi For Archi\DA\DA.model.script' /* DA */
+  'w:\shared\models\NewSchool\Shared Delphi For Archi\m3$DB\m3$DB.model.script' /* m3$DB */
+  'w:\shared\models\NewSchool\Shared Delphi For Archi\DT\DT.model.script' /* DT */
+  'w:\shared\models\NewSchool\Shared Delphi For Archi\m4\m4.model.script' /* m4 */
+  'w:\shared\models\NewSchool\Shared Delphi For Archi\m3$Morpho\m3$Morpho.model.script' /* m3$Morpho */
+  'w:\shared\models\NewSchool\Shared Delphi For Archi\HT\HT.model.script' /* HT */
+  'w:\shared\models\NewSchool\Shared Delphi For Archi\PG\PG.model.script' /* PG */
+  'w:\shared\models\NewSchool\Shared Delphi For Archi\cs\cs.model.script' /* cs */
+  'w:\shared\models\NewSchool\Shared Delphi For Archi\TestsSupport\TestsSupport.model.script' /* TestsSupport */
+  'w:\shared\models\NewSchool\Shared Delphi For Archi\m3$Plugin\m3$Plugin.model.script' /* m3$Plugin */
+ ; // %INCLUDES
+ %DEPENDS
+  U$ '4677DDBD0193' /* "Shared Delphi" */
+  U$ '4ABCC25A0322' /* "Shared Delphi Low Level" */
+  U$ '4E5BC50E02E1' /* "Shared Delphi Требования к низкоуровневым библиотекам" */
+  U$ '562E251101C2' /* "Shared Delphi Rtl" */
+ ; // %DEPENDS
+ %META
+  %upv "Full MDP" false
+  %upv "create project" true
+  %upv "defines" 'l3Define.inc'
+  %upv "fix version" 0
+  %upv "force usage" true
+  %upv "full constraint" true
+  %upv "major version" 1
+  %upv "minor version" 0
+  %upv "package prefix" 'ru.garant'
+  %upv "root path suffix" '/components'
+  %upv "space key" 'SHD'
+  %upv "space name" 'Shared (delphi)'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4677DDBD0193' /* "Shared Delphi" */
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677E18600C2' /* dd */
+  U$ '467A8734039C' /* EVD */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '472082480337' /* m3 */
+  U$ '476BBDC80314' /* m4 */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '47BC4FCB0115' /* DT */
+  U$ '4ABCC25A0322' /* "Shared Delphi Low Level" */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '4E5BC50E02E1' /* "Shared Delphi Требования к низкоуровневым библиотекам" */
+  U$ '4FA27916009C' /* m3$Morpho */
+  U$ '5214D28E024C' /* dd$AppConfig */
+  U$ '52F8C27F01AB' /* cs */
+  U$ '537F460C034E' /* Indy */
+  U$ '543244050044' /* DA */
+  U$ '543388C10144' /* HT */
+  U$ '543388FB0261' /* PG */
+  U$ '548712F60101' /* m3$DB */
+  U$ '550012C403C4' /* L3$AFW */
+  U$ '556DD4DE03AB' /* m3$Plugin */
+  U$ '562E251101C2' /* "Shared Delphi Rtl" */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<AdapterTarget>> stg32
+   %UID '556DD57B0063'
+   %SUMMARY 'Библиотека поддержки плагина для FAR' ;
+   %DEPENDS
+    U$ '556DD4DE03AB' /* m3$Plugin */
+   ; // %DEPENDS
+   %META
+    %upv "CONFIG_UC" false
+    %upv "load strategy" 'static'
+    %upv "old format" false
+   ; // %META
+   %TOBEINCLUDED
+    U$ '556DD4DE03AB' /* m3$Plugin */
+   ; // %TOBEINCLUDED
+  ; // stg32
+ ; // %CHILDREN
+; // "Shared Delphi For Archi"

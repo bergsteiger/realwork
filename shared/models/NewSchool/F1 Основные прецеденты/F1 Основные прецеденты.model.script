@@ -1,0 +1,152 @@
+USES
+ 'w:\shared\models\NewSchool\garant6x\garant6x.model.script'
+ 'w:\shared\models\NewSchool\shared\shared.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi\Shared Delphi.model.script'
+ 'w:\shared\models\NewSchool\F1 Базовые определения предметной области\F1 Базовые определения предметной области.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Core\Shared Delphi Core.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Operations\Shared Delphi Operations.model.script'
+ 'w:\shared\models\NewSchool\F1 Common For Shell And Monitoring\F1 Common For Shell And Monitoring.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi For F1\Shared Delphi For F1.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Low Level\Shared Delphi Low Level.model.script'
+ 'w:\shared\models\NewSchool\F1 Core\F1 Core.model.script'
+ 'w:\shared\models\NewSchool\F1 Интерфейсные элементы\F1 Интерфейсные элементы.model.script'
+ 'w:\shared\models\NewSchool\F1 Требования\F1 Требования.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Требования к низкоуровневым библиотекам\Shared Delphi Требования к низкоуровневым библиотекам.model.script'
+ 'w:\shared\models\NewSchool\Shared Delphi Требования\Shared Delphi Требования.model.script'
+ 'w:\shared\models\NewSchool\F1 Оболочка Без Прецедентов\F1 Оболочка Без Прецедентов.model.script'
+;
+
+ABSTRACT <<VCMUseCases>> "F1 Основные прецеденты"
+ %UID '4F7E92C400AF'
+ %SUMMARY 'Основные прецеденты' ;
+ %INCLUDES
+  'w:\shared\models\NewSchool\F1 Основные прецеденты\Folders\Folders.model.script' /* Folders */
+  'w:\shared\models\NewSchool\F1 Основные прецеденты\Filters\Filters.model.script' /* Filters */
+  'w:\shared\models\NewSchool\F1 Основные прецеденты\Search\Search.model.script' /* Search */
+  'w:\shared\models\NewSchool\F1 Основные прецеденты\Rubricator\Rubricator.model.script' /* Rubricator */
+  'w:\shared\models\NewSchool\F1 Основные прецеденты\WorkJournal\WorkJournal.model.script' /* WorkJournal */
+  'w:\shared\models\NewSchool\F1 Основные прецеденты\Settings\Settings.model.script' /* Settings */
+  'w:\shared\models\NewSchool\F1 Основные прецеденты\BaseSearch\BaseSearch.model.script' /* BaseSearch */
+ ; // %INCLUDES
+ %DEPENDS
+  U$ '442BEDF00290' /* garant6x */
+  U$ '45ED6F0303D2' /* shared */
+  U$ '4677DDBD0193' /* "Shared Delphi" */
+  U$ '498B35810374' /* "F1 Базовые определения предметной области" */
+  U$ '49B1511700CA' /* "Shared Delphi Core" */
+  U$ '4A82FE48010A' /* "Shared Delphi Operations" */
+  U$ '4A856C6B0338' /* "F1 Common For Shell And Monitoring" */
+  U$ '4AB1071F01B0' /* "Shared Delphi For F1" */
+  U$ '4ABCC25A0322' /* "Shared Delphi Low Level" */
+  U$ '4AC23B8E0397' /* "F1 Core" */
+  U$ '4C851735010B' /* "F1 Интерфейсные элементы" */
+  U$ '4E366CA201C2' /* "F1 Требования" */
+  U$ '4E5BC50E02E1' /* "Shared Delphi Требования к низкоуровневым библиотекам" */
+  U$ '4E78C3EC018D' /* "Shared Delphi Требования" */
+  U$ '4F7D791203A1' /* "F1 Оболочка Без Прецедентов" */
+ ; // %DEPENDS
+ %META
+  %upv "Full MDP" false
+  %upv "create project" true
+  %upv "defines" 'nsDefine.inc'
+  %upv "fix version" 0
+  %upv "full constraint" false
+  %upv "ifndef" 'Admin,Monitorings'
+  %upv "major version" 7
+  %upv "minor version" 12
+  %upv "package prefix" 'ru.garant'
+  %upv "root path suffix" '/implementation/Garant'
+  %upv "space key" 'NMS'
+  %upv "space name" 'Nemesis'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '442BEDF00290' /* garant6x */
+  U$ '447878770121' /* GCI */
+  U$ '456EA3D2031C' /* GblAdapterLib */
+  U$ '45ED6F0303D2' /* shared */
+  U$ '4677DDBD0193' /* "Shared Delphi" */
+  U$ '4677E16A022A' /* K2 */
+  U$ '4677E18600C2' /* dd */
+  U$ '4677FF4B0036' /* Data */
+  U$ '467A75D90346' /* VT */
+  U$ '467A8734039C' /* EVD */
+  U$ '4680C57D01E9' /* Business */
+  U$ '4680E7D50168' /* "Everest Engine" */
+  U$ '4684F91300DD' /* Vcl */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '47540FF802AC' /* Orpheus */
+  U$ '4790B4F00236' /* AFW */
+  U$ '4790C3B8021E' /* VCM */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4797632D0273' /* Everest */
+  U$ '47E9EEC60260' /* Model */
+  U$ '481EF5C4020D' /* Оболочка */
+  U$ '490838AA02D0' /* Nemesis */
+  U$ '49549627008C' /* LegalDomain */
+  U$ '4954C00703D0' /* OfficeLike */
+  U$ '4954C0500033' /* UserInteraction */
+  U$ '4954F58900E8' /* List */
+  U$ '4954FAA00232' /* Search */
+  U$ '498B35810374' /* "F1 Базовые определения предметной области" */
+  U$ '49B1511700CA' /* "Shared Delphi Core" */
+  U$ '4A69C1290139' /* View */
+  U$ '4A78010000B7' /* Search */
+  U$ '4A78013D01CD' /* "View$For F1 and Monitorings" */
+  U$ '4A7C095601DA' /* "Base Operations" */
+  U$ '4A7C099B004F' /* View */
+  U$ '4A811B89032D' /* View */
+  U$ '4A825D4902F1' /* WorkJournal */
+  U$ '4A82FE48010A' /* "Shared Delphi Operations" */
+  U$ '4A8567F2039C' /* SearchLite */
+  U$ '4A85683403A8' /* View */
+  U$ '4A856C6B0338' /* "F1 Common For Shell And Monitoring" */
+  U$ '4A92C561015D' /* Common */
+  U$ '4A92C59801C7' /* View */
+  U$ '4A9FFD3F01AD' /* Search */
+  U$ '4AA0050F0360' /* Search */
+  U$ '4AA6416E00B4' /* View */
+  U$ '4AA66B2C02FC' /* View */
+  U$ '4AA79F4B0351' /* View */
+  U$ '4AA7A7D903AE' /* Rubricator */
+  U$ '4AB1071F01B0' /* "Shared Delphi For F1" */
+  U$ '4ABA136E0047' /* Config */
+  U$ '4ABB680E0218' /* Common$Lib */
+  U$ '4ABCC25A0322' /* "Shared Delphi Low Level" */
+  U$ '4ABCF16F01CD' /* Consultation$Lib */
+  U$ '4AC23B8E0397' /* "F1 Core" */
+  U$ '4C6A65ED0374' /* F1DocumentProcessing */
+  U$ '4C851735010B' /* "F1 Интерфейсные элементы" */
+  U$ '4CAC58CB03A2' /* Filters */
+  U$ '4CC7FE0401B5' /* NewInterface2010 */
+  U$ '4CC7FE720049' /* Skins */
+  U$ '4CC97B6702A4' /* View */
+  U$ '4CCAA9C9008A' /* View */
+  U$ '4CCAACB5024D' /* Filters */
+  U$ '4CFCE4F203CE' /* VGScene */
+  U$ '4D1B64E70031' /* BusinessInterfaces */
+  U$ '4D4927B5008B' /* VT$Core */
+  U$ '4E13416D0227' /* VCM$Visual */
+  U$ '4E1352670215' /* Nemesis$Tails */
+  U$ '4E200FC9003B' /* VCM$Scripting */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '4E36644A0023' /* "Стандартные компоненты" */
+  U$ '4E366CA201C2' /* "F1 Требования" */
+  U$ '4E5BC50E02E1' /* "Shared Delphi Требования к низкоуровневым библиотекам" */
+  U$ '4E78C3EC018D' /* "Shared Delphi Требования" */
+  U$ '4EEA091C01B4' /* View$Prim */
+  U$ '4F4B8F830023' /* ExternalObjects */
+  U$ '4F7D791203A1' /* "F1 Оболочка Без Прецедентов" */
+  U$ '4F7D7B7F0216' /* "F1 Without Usecases" */
+  U$ '4F7D7B980383' /* View */
+  U$ '51DD5AB6022D' /* Components */
+  U$ '5214D28E024C' /* dd$AppConfig */
+  U$ '5257E836001C' /* View$Strange */
+  U$ '53BA5A5D03A0' /* TabInterface */
+  U$ '547CC9D40158' /* VT$Panels */
+  U$ '54CF97B10370' /* ScriptEngine$Core */
+  U$ '54DB92A80279' /* ScriptEngine$RTLandVCL */
+  U$ '54F9EC3900D6' /* ContextHistory */
+  U$ '550012C403C4' /* L3$AFW */
+  U$ '55B62380030A' /* Logging */
+ ; // %TOBEINCLUDED
+; // "F1 Основные прецеденты"

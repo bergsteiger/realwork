@@ -1,0 +1,1162 @@
+
+(object Petal
+    version    	50
+    _written   	"Rose 2006.0.0.060314"
+    charSet    	204)
+
+(object Class_Category "Templates"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"AbstarctOperation"
+	    value      	"regular")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"IsNative"
+	    value      	"false")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"WikiPageID (wiki)"
+	    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CodeRepositoryView/Templates|49A4FD900201
+	    ))
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"SourceType (wiki)"
+	    value      	"wiki")
+	(object Attribute
+	    tool       	"MDA Generator"
+	    name       	"ElementCreationOrder"
+	    value      	"19036082578"))
+    quid       	"49A4FD900201"
+    documentation 	"ñîäåðæèò VM-íèêè, èñïîëüçóåìûé ðåíäåðåðàìè"
+    stereotype 	"HtmlUnit"
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"49BE236C01FF"
+	    supplier   	"Logical View::MDProcess::ConfluencePlugins::CloakView"
+	    quidu      	"49BE22ED03E3"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "HistoryFisheye"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CodeRepositoryView/Templates/HistoryFisheye|49A4FDC603B0
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/CodeRepositoryView/Templates/HistoryFisheye.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*49A4FDC603B0_CUSTOM_CONTENT*"
+		    value      	"##UC_BEGIN*49A4FDC603B0_CUSTOM_CONTENT*¤##UC_END*49A4FDC603B0_CUSTOM_CONTENT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038683659"))
+	    quid       	"49A4FDC603B0"
+	    documentation 	"äëÿ ðåíäåðåíãà èñòîðèè â ñòèëå FishEye"
+	    stereotype 	"VM"
+	    language   	"MDA Generator")
+	(object Class "RepositoryChanges"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/CodeRepositoryView/Templates/RepositoryChanges.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CodeRepositoryView/Templates/RepositoryChanges|49B91BA8002C
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*49B91BA8002C_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*49B91BA8002C_CUSTOM_CONTENT*¤¤#* Using context parameters:¤	page - contqainer page¤	repositoryChangeKeys - list of string changeset keys¤	repositoryChangeKeysToOpen - list of string changeset keys to open¤	titleIsToggable - åñëè true òî ïî êëèêó ïî òàéòëó ðàñêðûâàåòñÿ âòîðîé óðîâåíü, èíà÷å íå ðàñêðûâàåòñÿ è îñóùåñòâëÿåòñÿ ïåðåõîä ïî ññûëêå¤	markedRevisions - ñïèñîê (set) ðåâèçèé êîòîðûå íàäî ñïåöèàëüíî ïîäñâåòèòü â ñïèñêå¤*#¤¤#includeCss("/includes/css/fisheye_diff.css")¤¤<script type="text/javascript">¤	¤ #set ($actionNameStart = $req.getRequestURL().lastIndexOf('/') + 1)¤ #if ($req.getRequestURL().substring($actionNameStart) != 'linkedrequests.action')¤	Event.observe(window, 'load', function() {¤ #end¤		new GarCloak('${page.id}repositoryChangesCloakContainer', null, '${page.id}repositoryChangesCloakId', ¤			{¤				'cloakTitle' : '$garHelper.escapeJavaScript($cloakTitle)',¤				'titleIsToggable' : $titleIsToggable,¤				'onOpen' : updateRepositoryChanges${page.id},¤				#if($!hasState == 'true')¤				'styleClass' : 'csId',¤				#else¤				'styleClass' : 'csId csFilename',¤				#end¤				'userData' : { requestParameters :  {¤                                        				pageId : '${page.id}',¤                                        				changesetKeys : [¤                                        					#foreach( $key in $repositoryChangeKeys )¤                                        					'${key}'¤                                        					#if($velocityCount < $repositoryChangeKeys.size()),#end¤                                        					#end¤                                        				],¤                                        				changesetKeysToOpen : [¤                                        					#foreach( $key in $repositoryChangeKeysToOpen )¤                                        					'${key}'¤                                        					#if($velocityCount < $repositoryChangeKeysToOpen.size()),#end¤                                        					#end¤                                        				],¤                                        				markedRevisions : [¤                                        					#foreach( $path in $markedRevisions)¤                                        					'${path}'¤                                        					#if($velocityCount < $markedRevisions.size()),#end¤                                        					#end¤                                        				]                                          				¤                                        			}¤							 }¤			}¤		);¤	#if($repositoryChangeKeysToOpen.size() > 0)¤		GarCloak.open('${page.id}repositoryChangesCloakId');¤	#end¤ #if ($req.getRequestURL().substring($actionNameStart) != 'linkedrequests.action')¤	});¤ #end¤	¤	var repositoryChangesActionPath = "/ru/garant/MDProcess/CodeRepositoryView/RequestSupport/RepositoryChangesXPlugin/RepositoryChangesXPackage/renderchangesets.action";¤	¤	if(typeof(repositoryChangesMutex) == 'undefined') {¤	¤	var repositoryChangesMutex = {};¤	¤	}¤	¤	function updateRepositoryChanges${page.id} (event, garCloak) {¤		updateRepositoryChangesCloak(event, garCloak, repositoryChangesActionPath, repositoryChangesMutex);¤	}¤¤</script>¤¤<span id="${page.id}repositoryChangesCloakContainer"></span>¤¤##UC_END*49B91BA8002C_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038689157"))
+	    quid       	"49B91BA8002C"
+	    documentation 	"øàáëîí äëÿ îòîáðàæåíèÿ èçìåíåíèé â ðåïîçèòîðèè"
+	    stereotype 	"VM"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021777317"))
+		    quid       	"49BE237A01D6"
+		    stereotype 	"include"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::CloakView::garcloak"
+		    quidu      	"49BE231F0080")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021777711"))
+		    quid       	"4AE16BDC0263"
+		    stereotype 	"include"
+		    supplier   	"Logical View::MDProcess::CodeRepositoryView::Templates::repcommon"
+		    quidu      	"4AE16B470166"))
+	    language   	"MDA Generator")
+	(object Class "RepositoryChanges_Changesets"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CodeRepositoryView/Templates/RepositoryChanges_Changesets|49BA148603BF
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/CodeRepositoryView/Templates/RepositoryChanges_Changesets.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*49BA148603BF_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*49BA148603BF_CUSTOM_CONTENT*¤¤#* Using context parameters:¤	external css - /includes/css/fisheye_diff.css¤	pageId - id of the container page¤	changesets - list of changesets¤	changesetRenderer - helper class for changeset rendering¤*#¤¤<script type="text/javascript">¤	¤	var renderChangesetActionPath = "/ru/garant/MDProcess/CodeRepositoryView/RequestSupport/RepositoryChangesXPlugin/RepositoryChangesXPackage/renderchangeset.action";¤	¤	if(typeof(changesetsMutex) == 'undefined') {¤	¤	var changesetsMutex = {};¤	¤	}¤	¤	function updateChangeset${pageId} (event, garCloak) {¤		updateRepositoryChangesCloak(event, garCloak, renderChangesetActionPath, changesetsMutex);¤	}¤	¤	#foreach( $changeset in $changesets )¤		new GarCloak('${pageId}${changeset.key}Container', '${pageId}repositoryChangesCloakId', '${pageId}${changeset.key}',¤			{¤				'cloakTitle' : '$garHelper.escapeJavaScript($changesetRenderer.renderHtmlTitle($changeset))',¤				'onOpen' : updateChangeset${pageId},¤				'styleClass' : 'csFilename',¤				'titleComment' : '($garHelper.escapeJavaScript($changesetRenderer.renderHtmlBriefComment($changeset)))',¤				'titleCommentStyleClass' : 'csFilenameComment',¤				'userData' : { 'requestParameters' : {¤                                        				pageId : ${pageId},¤                                        				changesetKeys : ['${changeset.key}'],¤                                        				changesetMode : 'COMMON',¤                                        				markedRevisions : [¤                                        					#foreach( $path in $markedRevisions)¤                                        					'${path}'¤                                        					#if($velocityCount < $markedRevisions.size()),#end¤                                        					#end¤                                        				]                                          				¤                                        			 }¤					¤							}¤			}¤		);¤	#end¤	¤	#if($changesetKeysToOpen.size() > 0)¤		#foreach( $key in $changesetKeysToOpen )¤		GarCloak.open('$pageId$key');¤		#end¤	#end¤	¤</script>¤¤#foreach( $changeset in $changesets )¤    <span id="${pageId}${changeset.key}Container"></span>¤#end¤¤##UC_END*49BA148603BF_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038697254"))
+	    quid       	"49BA148603BF"
+	    documentation 	"øàáëîí äëÿ ðåíäåðèíãà changeset'îâ"
+	    stereotype 	"VM"
+	    language   	"MDA Generator")
+	(object Class "RepositoryChanges_Changeset"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/CodeRepositoryView/Templates/RepositoryChanges_Changeset.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CodeRepositoryView/Templates/RepositoryChanges_Changeset|49BE6CA9022C
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*49BE6CA9022C_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*49BE6CA9022C_CUSTOM_CONTENT*¤¤#* Using context parameters:¤	external css - /includes/css/fisheye_diff.css¤	pageId - current page identifier¤	changeset - current changeset¤	changesetRenderer - helper class for changeset rendering¤	revisionRenderer - helper class for revision rendering¤	fishEyeLinks - helper class for links rendering¤*#¤¤#set ($revisions = [])¤#foreach( $revision in $changeset.revisions )¤	## render all, except cat¤	#if($revision.type.id.equals(2) == false)¤		#set($hasNonModelRevisions = $revisions.add($revision)) ## make set here to prevent output¤	#end¤#end¤¤#set($changesetComment = $changesetRenderer.renderHtmlContent($changeset))¤#set($changesetKey = $changeset.key)¤#set($changesetCsid = $changeset.csid)¤#set($changesetRepo = $changeset.repo)¤#set($changesetKeySuffix = "")¤#parse("/CodeRepositoryView/Templates/RepositoryChanges_Revisions.vm")¤¤#set ($revisions = [])¤#foreach( $revision in $changeset.revisions )¤	## render all, except cat¤	#if($revision.type.id.equals(2) == true)¤		#set($hasModelRevisions = $revisions.add($revision)) ## make set here to prevent output¤	#end¤#end¤¤#if($revisions.size() > 0)¤¤#set($changesetComment = "")¤#set($changesetKeySuffix = "ModelCloak")¤¤#set($modelRevisionsContent = "#parse('/CodeRepositoryView/Templates/RepositoryChanges_Revisions.vm')")¤¤<script type="text/javascript">¤¤	function updateModelContainer(event, garCloak) {¤		garCloak.toggleCloak();¤	}¤	¤	function closeModelContainer(event, garCloak) {¤		garCloak.toggleCloak();¤	}¤¤	new GarCloak('${pageId}${changeset.key}ModelContainer', '${pageId}${changeset.key}', '${pageId}${changeset.key}ModelCloak',¤		{¤				'cloakTitle' : '$garHelper.escapeJavaScript($action.getText("request.history.repositiry.model.changes"))',¤				'cloakContent' : '$garHelper.escapeJavaScript($modelRevisionsContent)',¤				'onOpen' : updateModelContainer,¤				'onClose' : closeModelContainer,¤				'styleClass' : 'csId csFilename',¤				'titleCommentStyleClass' : 'csFilenameComment',¤				'userData' : { 'changesetKey' : '$changesetKey' }¤		}¤	);¤¤</script>¤¤#if($hasNonModelRevisions)¤	<br/>¤#end¤<span id="${pageId}${changeset.key}ModelContainer"></span>¤¤#end¤¤##UC_END*49BE6CA9022C_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038698692"))
+	    quid       	"49BE6CA9022C"
+	    documentation 	"ðåíäåðèò êîíêðåòíûé changeset ñî âñåìè ðåâèçèÿìè"
+	    stereotype 	"VM"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021779222"))
+		    quid       	"49CB1C5D03E3"
+		    stereotype 	"include"
+		    supplier   	"Logical View::MDProcess::CodeRepositoryView::Templates::RepositoryChanges_Revisions"
+		    quidu      	"49CB1C3C0071"))
+	    language   	"MDA Generator")
+	(object Class "RepositoryChanges_Revision"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CodeRepositoryView/Templates/RepositoryChanges_Revision|49BF41BA008D
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/CodeRepositoryView/Templates/RepositoryChanges_Revision.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*49BF41BA008D_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*49BF41BA008D_CUSTOM_CONTENT*¤¤#* Using context parameters:¤	external css - /includes/css/fisheye_diff.css¤	revision - current revision to render¤	revisionRenderer - helper class for revision rendering¤*#¤¤$revisionRenderer.renderHtmlContent($revision)¤¤##UC_END*49BF41BA008D_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038700139"))
+	    quid       	"49BF41BA008D"
+	    documentation 	"øàáëîí ðåíäåðèíãà ðåâèçèè"
+	    stereotype 	"VM"
+	    language   	"MDA Generator")
+	(object Class "RepositoryChanges_Revisions"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/CodeRepositoryView/Templates/RepositoryChanges_Revisions.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CodeRepositoryView/Templates/RepositoryChanges_Revisions|49CB1C3C0071
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*49CB1C3C0071_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*49CB1C3C0071_CUSTOM_CONTENT*¤¤#* Using context parameters:¤	external css - /includes/css/fisheye_diff.css¤	pageId - page identifier¤	changesetKey - current changeset's key¤	changesetCsid - current changeset's fisheye csid¤	changesetRepo - current changeset's repo¤	changesetKeySuffix - special suffix for clock id generation¤	changesetComment - changeset's comment¤	revisions - list of revisions to render¤	revisionRenderer - helper class for revision rendering¤	fishEyeLinks - helper class for links rendering¤*#¤¤#macro( renderRevisionCloak $revision )¤	#set($revisionPath = $revision.path)¤	#set($revisionRepo = $revision.repo)¤	¤	#set($isMarked = false)¤	#foreach( $path in $markedRevisions)¤		#if($path.compareTo($revisionPath)==0)¤			#set($isMarked = true)¤		#end¤	#end¤	¤	#set($fePath = $fishEyeLinks.makeFishEyePathLink_WORKAROUND($revision))¤	#set($mainLink = $fishEyeLinks.main($fePath, $revisionRepo).replace("'", "\'"))¤	#set($mainTitle = $revisionRenderer.renderHtmlTitle($revision).replace("'", "\'"))¤	¤	#if($isMarked == true)¤		#set($title = "<a style=\"color:red\" href=\"$mainLink\">$mainTitle</a>")¤	#else¤		#set($title = "<a href=\"$mainLink\">$mainTitle</a>")¤	#end¤		¤	#set($annotateLink = $fishEyeLinks.annotate($fePath, $revision.rev, $revisionRepo).replace("'", "\'"))¤	#set($title = "${title}&nbsp;<a href=\"$annotateLink\">$revision.rev</a>")		¤		¤	#set($historyIcon = $garIcon.getTypeIcon('forgui_revision_history'))¤	#set($historyIconHtml = $historyIcon.toHtml($historyIcon.tooltip, ""))¤	#set($historyLink = $fishEyeLinks.history($fePath, $revision.rev, $revisionRepo).replace("'", "\'"))¤	#set($title = "${title}&nbsp;<a href=\"$historyLink\">$historyIconHtml</a>")¤		¤	#set($rawIcon = $garIcon.getTypeIcon('forgui_revision_raw'))¤	#set($rawIconHtml = $rawIcon.toHtml($rawIcon.tooltip, ""))¤	#set($rawLink = $fishEyeLinks.raw($fePath, $revision.rev, $revisionRepo).replace("'", "\'"))¤	#set($title = "${title}&nbsp;<a href=\"$rawLink\">$rawIconHtml</a>")¤		¤	#if($revision.linesRemoved.equals(0) == false || $revision.linesAdded.equals(0) == false)¤		#set($title = "${title}&nbsp;(+${revision.linesAdded}&nbsp;-${revision.linesRemoved})")¤	#end¤		¤	#set($isChanged = $revision.state.id.equals(0))¤	#set($isAdded = $revision.state.id.equals(1))¤	#set($isDeleted = $revision.state.id.equals(2))¤	#set($binary = $revision.type.id.equals(3))¤	¤	#set($toggleImgClosedPath = "$garIcon.getTypeIcon('forgui_arrow_right').path")¤	#set($toggleImgOpenedPath = "$garIcon.getTypeIcon('forgui_arrow_down').path")¤	#set($toggleImgClosedTooltip = "")¤	#if($isAdded)¤		#set($toggleImgClosedPath = "$garIcon.getTypeIcon('forgui_revision_new').path")¤		#set($toggleImgClosedTooltip = "$garIcon.getTypeIcon('forgui_revision_new').tooltip")¤	#elseif($isDeleted)¤		#set($toggleImgClosedPath = "$garIcon.getTypeIcon('forgui_revision_deleted').path")¤		#set($toggleImgClosedTooltip = "$garIcon.getTypeIcon('forgui_revision_deleted').tooltip")¤	#end¤	¤	#if($isChanged)¤		#if($binary)¤			#set($toggleImgClosedPath = "$garIcon.getTypeIcon('forgui_revision_binary').path")¤		#else¤			#set($diffLink = $fishEyeLinks.diff($fePath, $revision.rev, $revision.prevRev, $revisionRepo).replace("'", "\'"))¤			#set($title="${title}&nbsp;<a href=\"${diffLink}\">$action.getText('request.history.repositiry.changes.diff')</a>")¤		#end¤	#end¤		¤	#set($revisionPath = $revisionPath.replace("'", "\'"))¤	¤	new GarCloak('${pageId}${changesetKey}${changesetKeySuffix}${revisionPath}Container', '${pageId}${changesetKey}${changesetKeySuffix}', '${pageId}${changesetKey}${changesetKeySuffix}${revisionPath}', ¤			{¤				'cloakTitle' : '$title',¤				'onOpen' : updateRevision${pageId},¤				'styleClass' : 'csFilename',¤				'titleIsToggable' : false,¤				'hasContent' : $isChanged && !$binary,¤				'userData' : { requestParameters : { 'revisionPath' : '${revisionPath}', 'revisionVersion' : '${revision.rev}', 'revisionRepo' : '${revisionRepo}'}},¤				'toggleImgClosedPath' : '$toggleImgClosedPath',¤				'toggleImgOpenedPath' : '$toggleImgOpenedPath',¤				'toggleImgClosedTooltip' : '$toggleImgClosedTooltip'¤			}¤		);¤#end¤¤#if( $revisions.size() > 0 )¤¤<script type="text/javascript">¤	var renderChangesetActionPath = ¤		"/ru/garant/MDProcess/CodeRepositoryView/RequestSupport/RepositoryChangesXPlugin/RepositoryChangesXPackage/renderrevision.action";¤	¤	if(typeof(revisionMutex) == 'undefined') {¤		¤	var revisionMutex = {};	¤	¤	}¤	¤	function updateRevision${pageId} (event, garCloak) {¤		updateRepositoryChangesCloak(event, garCloak, renderChangesetActionPath, revisionMutex);¤	}¤	¤	#foreach( $revision in $revisions )¤		#renderRevisionCloak($revision)¤	#end¤¤</script>¤¤#end¤¤#if($changesetComment)¤<div class="csComment">¤	$changesetComment¤</div>¤#end¤¤#if( $revisions.size() > 0 )¤<div class="csFilenameComment controls">¤	<a href="#" onclick="javascript:GarCloak.openChildren('$pageId$changesetKey$changesetKeySuffix'); return false;">$action.getText("request.history.repositiry.changes.expand.all")</a> | ¤	<a href="#" onclick="javascript:GarCloak.closeChildren('$pageId$changesetKey$changesetKeySuffix'); return false;">$action.getText("request.history.repositiry.changes.collapse.all")</a> |¤	<a href="$fishEyeLinks.changeset($changesetCsid, $changesetRepo)" target="_blank">$action.getText("request.history.repositiry.changes.fisheye")</a>¤</div>¤#foreach( $revision in $revisions )¤	<span id="${pageId}${changesetKey}${changesetKeySuffix}${revision.path}Container"></span>¤#end¤#end¤¤##UC_END*49CB1C3C0071_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19036190176"))
+	    quid       	"49CB1C3C0071"
+	    documentation 	"îòîáðàæàåò ñïèñîê ðåâèçèé"
+	    stereotype 	"VM"
+	    language   	"MDA Generator")
+	(object Class "LinkedRequests"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/CodeRepositoryView/Templates/LinkedRequests.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*4ADDC7FA01D9_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*4ADDC7FA01D9_CUSTOM_CONTENT*¤¤#includeCss("/includes/css/fisheye_diff.css")¤¤<script type="text/javascript">¤	¤	¤	if(typeof(updateRequestsChangesCloak) == 'undefined') {¤	¤	function updateRequestsChangesCloak(event, garCloak, action, mutex) {¤		if(mutex[garCloak.getId()] == true) {¤			return;¤		}¤		mutex[garCloak.getId()] = true;¤	¤		garCloak.toggleWait();¤		new Ajax.Request(action, {¤			method: 'POST',¤			onSuccess: function(transport) {¤				garCloak.updateContent(transport.responseText);¤				garCloak.toggleCloak();¤				garCloak.toggleWait();¤				mutex[garCloak.getId()] = false;¤			},¤			onFailure: function() {¤				garCloak.toggleWait();¤				mutex[cloak.getId()] = false;¤			},¤			parameters: $H(garCloak.getUserData().requestParameters).toQueryString() ¤		});¤	}¤	¤	}¤¤	Event.observe(window, 'load', function() {¤		new GarCloak('${page.id}requestsChangesCloakContainer', null, '${page.id}requestsChangesCloakId', ¤			{¤				'cloakTitle' : '$garHelper.escapeJavaScript($cloakTitle)',¤				'titleIsToggable' : true,¤				'onOpen' : updateRequestsChanges${page.id},¤				'styleClass' : 'csId csFilename',¤				'userData' : { requestParameters :  {¤																								pageId : ${page.id},¤                                        				macrosBody : '${macrosBody}'¤                                        		}¤							 }¤			}¤		);¤	});¤	¤	var requestsChangesActionPath = "/ru/garant/MDProcess/CodeRepositoryView/ModelSupport/ModelSupportXPlugin/ModelSupportXPackage/linkedrequests.action";¤	¤	if(typeof(requestsChangesMutex) == 'undefined') {¤	¤	var requestsChangesMutex = {};¤	¤	}¤	¤	function updateRequestsChanges${page.id} (event, garCloak) {¤		updateRequestsChangesCloak(event, garCloak, requestsChangesActionPath, requestsChangesMutex);¤	}¤¤</script>¤¤<span id="${page.id}requestsChangesCloakContainer"></span>¤¤##UC_END*4ADDC7FA01D9_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CodeRepositoryView/Templates/LinkedRequests|4ADDC7FA01D9
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038414439"))
+	    quid       	"4ADDC7FA01D9"
+	    documentation 	"LinkedRequests"
+	    stereotype 	"VM"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021781150"))
+		    quid       	"4AE16BA50266"
+		    stereotype 	"include"
+		    supplier   	"Logical View::MDProcess::CodeRepositoryView::Templates::repcommon"
+		    quidu      	"4AE16B470166")
+		(object Uses_Relationship
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"AbstarctOperation"
+			    value      	"regular")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"IsNative"
+			    value      	"false")
+			(object Attribute
+			    tool       	"MDA Generator"
+			    name       	"ElementCreationOrder"
+			    value      	"19021781527"))
+		    quid       	"4AE16BD8033A"
+		    stereotype 	"include"
+		    supplier   	"Logical View::MDProcess::ConfluencePlugins::CloakView::garcloak"
+		    quidu      	"49BE231F0080"))
+	    language   	"MDA Generator")
+	(object Class "LinkedRequests_Open"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/CodeRepositoryView/Templates/LinkedRequests_Open.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*4AE05E8300F3_CUSTOM_CONTENT*"
+		    value      	"##UC_BEGIN*4AE05E8300F3_CUSTOM_CONTENT*¤$responseContent¤##UC_END*4AE05E8300F3_CUSTOM_CONTENT*")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CodeRepositoryView/Templates/LinkedRequests_Open|4AE05E8300F3
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19038416660"))
+	    quid       	"4AE05E8300F3"
+	    documentation 	"ðåçëüòàò ïîñëå ðàñêðûòèÿ ñïèñêà Ñâÿçàííûõ çàïðîñîâ"
+	    stereotype 	"VM"
+	    language   	"MDA Generator")
+	(object Class "repcommon"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"AbstarctOperation"
+		    value      	"regular")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsNative"
+		    value      	"false")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SELF GENERATED FILE (vm)"
+		    value      	"w:/MDProcess/java/src/etc/CodeRepositoryView/Templates/repcommon.vm")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (vm)"
+		    value      	"file")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"WikiPageID (wiki)"
+		    value      	(value Text 
+|MDProcess,key:MDP,guid:456C0DD70110/Home/Ìîäåëü ïðîåêòà "MDProcess"/CodeRepositoryView/Templates/repcommon|4AE16B470166
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"SourceType (wiki)"
+		    value      	"wiki")
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"vm:*4AE16B470166_CUSTOM_CONTENT*"
+		    value      	(value Text 
+|##UC_BEGIN*4AE16B470166_CUSTOM_CONTENT*¤<script type="text/javascript">¤	/* This global function uses to update Repository Changes Cloak at all levels */¤	if(typeof(updateRepositoryChangesCloak) == 'undefined') {¤	¤	function updateRepositoryChangesCloak(event, garCloak, action, mutex) {¤		if(mutex[garCloak.getId()] == true) {¤			return;¤		}¤		mutex[garCloak.getId()] = true;¤	¤		garCloak.toggleWait();¤		new Ajax.Request(action, {¤			method: 'POST',¤			onSuccess: function(transport) {¤				garCloak.updateContent(transport.responseText);¤				garCloak.toggleCloak();¤				garCloak.toggleWait();¤				mutex[garCloak.getId()] = false;¤			},¤			onFailure: function() {¤				garCloak.toggleWait();¤				mutex[cloak.getId()] = false;¤			},¤			parameters: $H(garCloak.getUserData().requestParameters).toQueryString() ¤		});¤	}¤	¤	}¤</script>¤##UC_END*4AE16B470166_CUSTOM_CONTENT*
+		    ))
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"ElementCreationOrder"
+		    value      	"19036191255"))
+	    quid       	"4AE16B470166"
+	    documentation 	"ñîäåðæèò ñêðèïò, êîòîðûé íåîáõîäèìî âêëþ÷àòü íà ñàìîì ïåðâîì óðîâíå âûïàäàþùåãî ñïèñêà"
+	    stereotype 	"VM"
+	    language   	"MDA Generator"))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"MDA Generator"
+		    name       	"IsChanged"
+		    value      	""))
+	    quid       	"49A4FDC30396"
+	    title      	"Main"
+	    zoom       	80
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	1784
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::Templates::HistoryFisheye" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(309, 165)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(159, 136)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"HistoryFisheye")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(159, 86)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	300
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"49A4FDC603B0"
+		    width      	318
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object NoteView @2
+		    location   	(978, 147)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(560, 86)
+			fill_color 	13434879
+			nlines     	2
+			max_width  	800
+			justify    	1
+			label      	"ses: íà áóäóùåå, ÷òî áû ñäåëàòü êðàñèâûé ðåíäåðèíã èñòîðèè.")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	860
+		    height     	135)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::Templates::RepositoryChanges" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(531, 837)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(339, 807)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	384
+			justify    	0
+			label      	"RepositoryChanges")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(339, 757)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	384
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"49B91BA8002C"
+		    width      	402
+		    height     	184
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::Templates::RepositoryChanges_Changesets" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(534, 1053)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(218, 1024)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	632
+			justify    	0
+			label      	"RepositoryChanges_Changesets")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@4
+			location   	(218, 974)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	632
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"49BA148603BF"
+		    width      	650
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::ConfluencePlugins::CloakView::garcloak" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    SuppressOperation 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(537, 375)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	13110000
+			default_color 	FALSE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(421, 348)
+			nlines     	1
+			max_width  	232
+			justify    	0
+			label      	"garcloak")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(421, 298)
+			anchor     	10
+			nlines     	1
+			max_width  	232
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    line_color 	13110000
+		    fill_color 	16777215
+		    quidu      	"49BE231F0080"
+		    width      	250
+		    height     	178
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @6
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @7
+			Parent_View 	@6
+			location   	(389, 672)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<include>>"
+			pctDist    	0.249847
+			height     	143
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49BE237A01D6"
+		    client     	@3
+		    supplier   	@5
+		    vertices   	(list Points
+			(531, 744)
+			(535, 464))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::Templates::RepositoryChanges_Changeset" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(516, 1305)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(212, 1274)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	608
+			justify    	0
+			label      	"RepositoryChanges_Changeset")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@8
+			location   	(212, 1224)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	608
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"49BE6CA9022C"
+		    width      	626
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::Templates::RepositoryChanges_Revision" @9
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(483, 1563)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@9
+			location   	(206, 1532)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	554
+			justify    	0
+			label      	"RepositoryChanges_Revision")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@9
+			location   	(206, 1482)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	554
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"49BF41BA008D"
+		    width      	572
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::Templates::RepositoryChanges_Revisions" @10
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1332, 1302)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@10
+			location   	(1044, 1271)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	576
+			justify    	0
+			label      	"RepositoryChanges_Revisions")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@10
+			location   	(1044, 1221)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	576
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"49CB1C3C0071"
+		    width      	594
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @11
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @12
+			Parent_View 	@11
+			location   	(931, 1184)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<include>>"
+			pctDist    	0.500000
+			height     	120
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"49CB1C5D03E3"
+		    client     	@8
+		    supplier   	@10
+		    vertices   	(list Points
+			(829, 1303)
+			(1034, 1302))
+		    line_style 	0)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::Templates::LinkedRequests" @13
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1518, 819)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@13
+			location   	(1362, 790)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	312
+			justify    	0
+			label      	"LinkedRequests")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@13
+			location   	(1362, 740)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	312
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"4ADDC7FA01D9"
+		    width      	330
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::Templates::LinkedRequests_Open" @14
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(441, 1851)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@14
+			location   	(222, 1822)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	438
+			justify    	0
+			label      	"LinkedRequests_Open")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@14
+			location   	(222, 1772)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	438
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"4AE05E8300F3"
+		    width      	456
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MDProcess::CodeRepositoryView::Templates::repcommon" @15
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1515, 360)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@15
+			location   	(1396, 331)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	238
+			justify    	0
+			label      	"repcommon")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@15
+			location   	(1396, 281)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	238
+			justify    	0
+			label      	"<<VM>>")
+		    icon_style 	"Label"
+		    fill_color 	14790645
+		    quidu      	"4AE16B470166"
+		    width      	256
+		    height     	182
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "" @16
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @17
+			Parent_View 	@16
+			location   	(1673, 688)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<include>>"
+			pctDist    	0.137201
+			height     	156
+			orientation 	1)
+		    line_color 	3342489
+		    quidu      	"4AE16BA50266"
+		    client     	@13
+		    supplier   	@15
+		    vertices   	(list Points
+			(1517, 727)
+			(1515, 451))
+		    line_style 	0)
+		(object UsesView "" @18
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @19
+			Parent_View 	@18
+			location   	(701, 657)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<include>>"
+			pctDist    	0.830111
+			height     	190
+			orientation 	0)
+		    line_color 	3342489
+		    quidu      	"4AE16BD8033A"
+		    client     	@13
+		    supplier   	@5
+		    vertices   	(list Points
+			(1352, 743)
+			(662, 431))
+		    line_style 	0)
+		(object UsesView "" @20
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			charSet    	204
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	(object SegLabel @21
+			Parent_View 	@20
+			location   	(1420, 629)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	10
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"<<include>>"
+			pctDist    	0.920631
+			height     	202
+			orientation 	1)
+		    line_color 	3342489
+		    quidu      	"4AE16BDC0263"
+		    client     	@3
+		    supplier   	@15
+		    vertices   	(list Points
+			(719, 744)
+			(1386, 421))
+		    line_style 	0)))))

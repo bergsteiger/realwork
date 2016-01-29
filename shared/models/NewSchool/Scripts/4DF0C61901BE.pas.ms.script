@@ -1,0 +1,179 @@
+// TagViews 4DF0C61901BE Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DF0C61901BE
+
+FORWARD ME_4DF0C6690021
+
+: ME_4DF0C70902FE
+ CONST UID '4DF0C70902FE'
+ CONST Name 'l3ViewListIsTag'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4DF0C6690021 // Tk2CustomTagView
+ ;
+
+ref; // ME_4DF0C70902FE l3ViewListIsTag
+
+: ME_4DF0C68D0254
+ CONST UID '4DF0C68D0254'
+ CONST Name 'ListType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4DF0C6690021 // Tk2CustomTagView
+ ;
+ : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_4DF0C68D0254 ListType
+
+: ME_4DF0C6A0026B
+ CONST UID '4DF0C6A0026B'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4DF0C6690021 // Tk2CustomTagView
+ ;
+ : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_4DF0C6A0026B ItemType
+
+: ME_4DF0C6690021
+ CONST UID '4DF0C6690021'
+ CONST Name 'Tk2CustomTagView'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4DF0C61901BE // TagViews
+ ;
+ : Inherits
+   @ ( WL 'ME_4DEFC3B90061' '4A6D65B9022A.pas.ms.script' // l3OtherTypedListView
+ ) .SequenceCode.It
+ ; // Inherits
+ : Attributes
+   @ ( ME_4DF0C68D0254 // ListType
+ ME_4DF0C6A0026B // ItemType
+ ) .SequenceCode.It
+ ; // Attributes
+ : Children
+   @ ( ME_4DF0C70902FE // l3ViewListIsTag
+ ) .SequenceCode.It
+ ; // Children
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '09.06.2011 17:11'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2CustomTagView.pas'
+
+ref; // ME_4DF0C6690021 Tk2CustomTagView
+
+FORWARD ME_4DF0C6BE0166
+
+: ME_4DF0C6EB0150
+ CONST UID '4DF0C6EB0150'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4DF0C6BE0166 // Tk2TagByHandleView
+ ;
+ : Target WL 'ME_47C69EBC00A8' '47AC75550330.pas.ms.script' // Tk2TagID
+ ;
+
+ref; // ME_4DF0C6EB0150 
+
+: ME_4DEFB2D90167_ME_4DF0C6BE0166
+ CONST UID '4DEFB2D90167'
+ CONST Name 'CompareData'
+ : Original WL 'ME_4DEFB2D90167' '4A6D65B9022A.pas.ms.script' // CompareData
+ ;
+ : Implementor ME_4DF0C6BE0166 // Tk2TagByHandleView
+ ;
+ref; // ME_4DEFB2D90167_ME_4DF0C6BE0166 CompareData
+
+: ME_4DF0C6BE0166
+ CONST UID '4DF0C6BE0166'
+ CONST Name 'Tk2TagByHandleView'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4DF0C61901BE // TagViews
+ ;
+ : Inherits
+   @ ( ME_4DF0C6690021 // Tk2CustomTagView
+ ) .SequenceCode.It
+ ; // Inherits
+ : Implemented
+   @ ( ME_4DEFB2D90167_ME_4DF0C6BE0166 // CompareData
+ ) .SequenceCode.It
+ ; // Implemented
+ : Dependencies
+   @ ( ME_4DF0C6EB0150 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Ëþëèí À.Â.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '09.08.2011 17:17'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\K2\k2TagByHandleView.pas'
+
+ref; // ME_4DF0C6BE0166 Tk2TagByHandleView
+
+: ME_4DF0C61901BE
+ CONST UID '4DF0C61901BE'
+ CONST Name 'TagViews'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
+ ;
+ : Children
+   @ ( ME_4DF0C6690021 // Tk2CustomTagView
+ ME_4DF0C6BE0166 // Tk2TagByHandleView
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4678137501EA' '4678137501EA.pas.ms.script' // k2Interfaces
+ WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
+ WL 'ME_47AC75550330' '47AC75550330.pas.ms.script' // k2Tags
+ WL 'ME_4A6D65B9022A' '4A6D65B9022A.pas.ms.script' // Containers
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DF0C61901BE.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DF0C61901BE.pas.ms.script.runner'
+
+ref; // ME_4DF0C61901BE TagViews

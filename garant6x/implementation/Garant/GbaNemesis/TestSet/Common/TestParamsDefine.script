@@ -1,0 +1,528 @@
+// TestParamsDefine.script
+// Объявление костант/переменных для поддержки парметров в скриптах.
+
+BOOLEAN VAR g_WasInit // Проверка была ли вызвана процедура "Первоначальные параметры"
+( false >>> g_WasInit )
+
+INTEGER VAR g_NumberOfUseCaseToProcess // Вызов прецедента
+
+BOOLEAN VAR g_RunInitialConditions // Выполнить ли проверку предусловий?
+
+INTEGER VAR g_RunCheckDeleteComments // Выполнить ли проверку на лишнии комментарии?
+
+BOOLEAN VAR g_RunFinalConditionsUserFilters // Выполнить проверку на наличие пользовательских фильтров?
+
+BOOLEAN VAR g_DocumentIDToOpen // Открыть ли документ до теста
+
+BOOLEAN VAR g_SaveMouseCoordinate // Запоминать позицию мыши
+
+INTEGER VAR g_How2Prepare // Подготовка размеров
+
+INTEGER VAR g_ClosePageControl // Закрытие вкладок после теста
+
+INTEGER VAR g_SwitchBase // Подготовка база
+
+INTEGER VAR g_SetFocusAfterSwitchBase // Установка фокуса в оболочку после теста
+
+BOOLEAN VAR g_ClearInitialSettings // Восстановить настройки до теста
+
+BOOLEAN VAR g_ClearSettingsAfterTest // Восстановить настройки после теста
+
+INTEGER VAR g_InstallSettings // Подготовка настроек конфигурации
+
+BOOLEAN VAR g_ClearContextEdit // Очистить строку БП перед тестом
+
+INTEGER VAR g_CheckAction // Вид проверки в конце теста
+
+INTEGER VAR g_RunTestOnConfigurations // На каких конфигурациях выполнить тест
+
+BOOLEAN VAR g_NeedImportConsultation // В тесте будет использована импортированная консультация?
+
+BOOLEAN VAR g_CheckMainWindow // Изменился ли индекс основного окна после теста?
+
+BOOLEAN VAR g_CheckCoordMouse // Сохранились ли координаты курсора мыши после теста?
+
+BOOLEAN VAR g_AntiTest // Получает ли тест в конце исключение/ошибку?
+
+BOOLEAN VAR g_TabsNeed // Обязательно ли наличие вкладок для теста
+
+BOOLEAN VAR  g_NeedCloseDialogTipOfTheDay  // закрыть ли перед выполнением теста диалог Совет дня?
+
+BOOLEAN VAR  g_NeedTwoMonitor // необходим ли второй монитор для выполнения теста?
+
+BOOLEAN VAR  g_NeedClearClipboard // необходима ли очистка буфера для выполнения теста?
+
+BOOLEAN VAR  g_NeedCloseDropAHintContextEdit // необходимо ли закрыть выпадающюю подсказку БП после теста?
+
+INTEGER VAR g_TheBitnessOfTheSystem // На каких разрядностях выполнить тест
+
+BOOLEAN VAR  g_ClearJournalWork // Очистить журнал работы до теста?
+
+// ---------------Открыть ли документ до теста?----------------
+
+PROCEDURE "Не открывать документ" 
+  false >>> g_DocumentIDToOpen
+;
+
+INTEGER VAR g_OpenDocID
+
+PROCEDURE "Открыть документ" INTEGER IN aDocID
+ true >>> g_DocumentIDToOpen
+ aDocID >>> g_OpenDocID
+;
+
+// ---------------Конфигурации----------------
+
+CONST cnDontChangeConfigurations 0
+CONST cnRunTestOnExtendedConfiguration 1
+CONST cnRunTestOnBothConfigurations 2
+
+PROCEDURE "Выполнить тест в основной конфигурации"
+ cnDontChangeConfigurations >>> g_RunTestOnConfigurations
+;
+
+PROCEDURE "Выполнить тест в расширенной конфигурации"
+ cnRunTestOnExtendedConfiguration >>> g_RunTestOnConfigurations
+;
+
+PROCEDURE "Выполнить тест в обеих конфигурациях"
+ cnRunTestOnBothConfigurations >>> g_RunTestOnConfigurations
+;
+
+// ------------------- Работа с мышью ------------------------
+
+PROCEDURE "Не запоминать позицию мыши"
+ false >>> g_SaveMouseCoordinate
+;
+
+PROCEDURE "Запоминать позицию мыши"
+ true >>> g_SaveMouseCoordinate
+;
+
+// ------------------- Настройки конфигурации ------------------------
+
+PROCEDURE "Не восстанавливать настройки до теста"
+ false >>> g_ClearInitialSettings
+;
+
+PROCEDURE "Восстановить настройки до теста"
+ true >>> g_ClearInitialSettings
+;
+
+PROCEDURE "Не восстанавливать настройки после теста"
+ false >>> g_ClearSettingsAfterTest
+;
+
+PROCEDURE "Восстановить настройки после теста"
+ true >>> g_ClearSettingsAfterTest
+;
+
+PROCEDURE "Восстановить настройки до и после теста"
+ "Восстановить настройки до теста"
+ "Восстановить настройки после теста"
+;
+
+CONST g_DontInstallSettings 0
+CONST cnInstallOpenDocInCurrentTab 1
+CONST cnInstallSetFontSizeForExportAppearsScreen 2
+CONST cnInstallOpenDocInCurrentTab_AND_cnInstallSetFontSizeForExportAppearsScreen 3
+CONST cnInstallSetFontSizeForExportUserValue 4
+CONST cnInstallCardRequestSearchBySituationStandard 5
+CONST cnInstallOpenDocInNewWindow 6
+CONST cnInstallOpenLinkFromDocInNewTabs 7
+CONST cnInstallGettingStartedSearchOnTheSituation 8
+
+PROCEDURE "Используем умолчательные настройки"
+ g_DontInstallSettings >>> g_InstallSettings
+;
+
+PROCEDURE "Открывать документы из списка в текущем окне" 
+ cnInstallOpenDocInCurrentTab >>> g_InstallSettings
+;
+
+PROCEDURE "Установить размер шрифта для экспорта и печати, как он отображается на экране"
+ cnInstallSetFontSizeForExportAppearsScreen >>> g_InstallSettings
+;
+
+PROCEDURE "Открывать документы из списка в текущем окне и установить размер шрифта для экспорта и печати, как он отображается на экране" 
+ cnInstallOpenDocInCurrentTab_AND_cnInstallSetFontSizeForExportAppearsScreen >>> g_InstallSettings
+;
+
+STRING VAR aSetFontSizeForExportUserValue
+
+PROCEDURE "Использовать для экспорта и печати размер шрифта" INTEGER IN aFontSize
+ cnInstallSetFontSizeForExportUserValue >>> g_InstallSettings
+ aFontSize IntToStr >>> aSetFontSizeForExportUserValue
+;
+
+PROCEDURE "Установить стиль карточки поиска по ситуации - Стандартная"
+ cnInstallCardRequestSearchBySituationStandard >>> g_InstallSettings
+;
+
+PROCEDURE "Открывать документы из списка в новом окне" 
+ cnInstallOpenDocInNewWindow >>> g_InstallSettings
+;
+
+PROCEDURE "Открывать ссылки из документов в новой вкладке"
+ cnInstallOpenLinkFromDocInNewTabs >>> g_InstallSettings
+;
+
+PROCEDURE "Начало работы: Поиск по ситуации"
+ cnInstallGettingStartedSearchOnTheSituation >>> g_InstallSettings
+;
+
+// ----------------Консультации---------------------
+
+PROCEDURE "Импорт консультации не нужен"
+ false >>> g_NeedImportConsultation
+;
+
+PROCEDURE "Импортируем консультацию"
+ true >>> g_NeedImportConsultation
+;
+
+// --------------------Диалог Совет дня----------------------
+
+PROCEDURE "Не закрывать диалог 'Совет дня'"
+ false >>> g_NeedCloseDialogTipOfTheDay
+;
+
+PROCEDURE "Закрыть диалог 'Совет дня'"
+ true >>> g_NeedCloseDialogTipOfTheDay
+;
+
+// --------------------Строка БП в ОМ--------------------------
+
+PROCEDURE "Очистить строку Базового Поиска"
+ true >>> g_ClearContextEdit
+;
+
+PROCEDURE "Не очищать строку Базового Поиска"
+ false >>> g_ClearContextEdit
+;
+
+//---------Работа со строкой БП после теста-----------
+
+PROCEDURE "Не нужно закрывать подсказку БП"
+ false >>> g_NeedCloseDropAHintContextEdit
+;
+
+PROCEDURE "Закрыть выпадающюю подсказку БП после теста"
+ true >>> g_NeedCloseDropAHintContextEdit
+;
+
+// ------------------- Размеры окон ------------------------
+
+CONST cnNotPrepare 0
+CONST cnSetSizeMainWindow 1
+CONST cnSetConstSizeMainWindow 2
+
+PROCEDURE "Без установки размеров"
+ cnNotPrepare >>> g_How2Prepare
+;
+
+INTEGER VAR aSetWidthMainWindow
+INTEGER VAR aSetHeightMainWindow
+
+PROCEDURE "Выставить главной форме размеры" IN aW IN aH 
+ cnSetSizeMainWindow >>> g_How2Prepare
+ aW >>> aSetWidthMainWindow
+ aH >>> aSetHeightMainWindow
+;
+
+PROCEDURE "Размеры окна для проверки форм"
+ cnSetConstSizeMainWindow >>> g_How2Prepare
+;
+
+// ------------------- Переключение баз ------------------------
+
+CONST cnNotSwitchBase 0
+CONST cnInstallBaseTB24 1
+CONST cnInstallBaseTB27 2
+CONST cnInstallBaseName 3
+
+PROCEDURE "Без изменения базы"
+ cnNotSwitchBase >>> g_SwitchBase
+;
+
+USES
+ MainBasic.script
+;
+
+ STRING VAR "Предыдущая база"
+ STRING VAR "Новая база"
+
+PROCEDURE "Разобраться с базами" STRING IN aAllBase
+ "Получить пути к старой и новой базам {(aAllBase)}" 
+ =: "Новая база"
+ =: "Предыдущая база"
+ "Новая база" sysutils:DirectoryExists ?ASSURE
+  [ 'Директория базы не существует: ' "Новая база" ]
+ [ "Новая база" '\' 'data.ndt' ] strings:Cat sysutils:FileExists ?ASSURE
+  [ 'Похоже, что база не существует: ' "Новая база" ]
+;
+
+
+PROCEDURE "Переключиться на ТБ24"
+ cnInstallBaseTB24 >>> g_SwitchBase
+
+;
+
+PROCEDURE "Переключиться на ТБ27"
+ cnInstallBaseTB27 >>> g_SwitchBase
+
+;
+
+PROCEDURE "Переключиться на базу" STRING IN aBase
+ cnInstallBaseName >>> g_SwitchBase
+ "Разобраться с базами {(aBase)}" 
+;
+
+// ----------------После переключения баз-------------------
+
+CONST cnDontProblemSetFocusAfterSwitchBase 0
+CONST cnSetFocusAfterSwitchBaseInBaseSearch 1
+CONST cnSetFocusAfterSwitchBaseInEditor 2
+CONST cnSetFocusAfterSwitchBaseInQueryCard 3
+CONST cnSetFocusAfterSwitchBaseInPrintPreview 4
+CONST cnSetFocusAfterSwitchBaseInOID 5
+
+PROCEDURE "Проблем с фокусом после переключения баз не возникло"
+ cnDontProblemSetFocusAfterSwitchBase >>> g_SetFocusAfterSwitchBase
+;
+
+PROCEDURE "Установить фокус в Базовый поиск после переключения баз"
+ cnSetFocusAfterSwitchBaseInBaseSearch  >>> g_SetFocusAfterSwitchBase
+;
+
+PROCEDURE "Установить фокус в редактор после переключения баз"
+ cnSetFocusAfterSwitchBaseInEditor  >>> g_SetFocusAfterSwitchBase
+;
+
+PROCEDURE "Установить фокус в Карточку запроса после переключения баз"
+ cnSetFocusAfterSwitchBaseInQueryCard  >>> g_SetFocusAfterSwitchBase
+;
+
+PROCEDURE "Установить фокус в Предварительный просмотр после переключения баз"
+ cnSetFocusAfterSwitchBaseInPrintPreview  >>> g_SetFocusAfterSwitchBase
+;
+
+PROCEDURE "Установить фокус в ОИД после переключения баз"
+ cnSetFocusAfterSwitchBaseInOID >>> g_SetFocusAfterSwitchBase
+;
+
+// ------------------- Работа с вкладками ------------------------
+
+CONST cnDontClosePageControl 0
+CONST cnCloseNavigator 1
+CONST cnCloseTasksPanel 2
+CONST cnCloseFolders 3
+CONST cnCloseUnderControl 4
+CONST cnCloseWorkJournal 5
+CONST cnCloseConfigurationList 6
+CONST cnCloseContactList 7
+CONST cnCloseNavigatorAndFolders 8
+
+PROCEDURE "Не закрывать никакую вкладку"
+ cnDontClosePageControl >>> g_ClosePageControl
+;
+
+PROCEDURE "Закрываем вкладку Меню"
+ cnCloseNavigator >>> g_ClosePageControl
+;
+
+PROCEDURE "Закрываем вкладку ПЗ"
+ cnCloseTasksPanel >>> g_ClosePageControl
+;
+
+PROCEDURE "Закрываем вкладку Мои документы"
+ cnCloseFolders >>> g_ClosePageControl
+;
+
+PROCEDURE "Закрываем вкладку Документы на контроле" 
+ cnCloseUnderControl >>> g_ClosePageControl
+;
+
+PROCEDURE "Закрываем вкладку Журнал работы"
+ cnCloseWorkJournal >>> g_ClosePageControl
+;
+
+PROCEDURE "Закрываем вкладку Список конфигураций"
+ cnCloseConfigurationList >>> g_ClosePageControl
+;
+
+PROCEDURE "Закрываем вкладку Совещание онлайн"
+ cnCloseContactList >>> g_ClosePageControl
+;
+
+PROCEDURE "Закрываем вкладки Меню и Мои документы"
+ cnCloseNavigatorAndFolders >>> g_ClosePageControl
+;
+
+// -------------------- Проверочные действия -----------------
+
+CONST cnNoneAction 0
+CONST cnCheckValueAreaCombo 1
+CONST cnBuildPreviewForm 2
+
+
+PROCEDURE "Без проверок"
+ cnNoneAction >>> g_CheckAction
+;
+
+PROCEDURE "Проверка текущего значения контрола AreaCombo"
+ cnCheckValueAreaCombo >>> g_CheckAction
+;
+
+PROCEDURE "Построить Предварительный просмотр"
+ cnBuildPreviewForm >>> g_CheckAction
+;
+
+
+// ------------------- Обязательные предусловия ------------------------
+
+PROCEDURE "Проверить предусловия"
+ true >>> g_RunInitialConditions
+;
+
+PROCEDURE "Не проверять предусловия"
+ false >>> g_RunInitialConditions
+;
+
+// ------------------- Работа с комментариями ------------------------
+
+VAR aNumOpenDoc
+
+CONST cnNoneDeleteComments 0
+CONST cnDeleteCommentsFromOneDocument 1 
+CONST cnDeleteCommentsFromSeveralDocuments 2 
+
+PROCEDURE "Не проверять отсутствие комментариев"
+ cnNoneDeleteComments >>> g_RunCheckDeleteComments
+;
+
+PROCEDURE "В документе не должно остаться комментариев" INTEGER IN aDocNum
+ cnDeleteCommentsFromOneDocument >>> g_RunCheckDeleteComments
+ aDocNum >>> aNumOpenDoc
+;
+
+PROCEDURE "В документах не должно остаться комментариев" IN aDocNum
+ cnDeleteCommentsFromSeveralDocuments >>> g_RunCheckDeleteComments
+ aDocNum >>> aNumOpenDoc
+;
+
+// ------------------- Работа с фильтрами после теста ------------------------
+
+PROCEDURE "Не должны остаться пользовательские фильтры"
+ true >>> g_RunFinalConditionsUserFilters
+;
+
+PROCEDURE "Не проверять отсутствие пользовательских фильтров"
+ false >>> g_RunFinalConditionsUserFilters
+;
+
+// ------------------- Постусловия ------------------------
+
+PROCEDURE "Не должно измениться основное окно"
+ true >>> g_CheckMainWindow
+;
+
+PROCEDURE "Не проверяем смену основного окна"
+ false >>> g_CheckMainWindow
+;
+
+PROCEDURE "Проверить координаты курсора мыши"
+ true >>> g_CheckCoordMouse
+;
+
+PROCEDURE "Не проверять координаты курсора мыши"
+ false >>> g_CheckCoordMouse
+;
+
+// --------------------- Вид теста -----------------------
+
+PROCEDURE "Обычный тест"
+ false >>> g_AntiTest
+;
+
+PROCEDURE "Антитест"
+ true >>> g_AntiTest
+;
+
+// -------------------- Прецеденты --------------------------
+
+CONST cnPrecedentDontHasBeenInitialized 0
+CONST cnPrecedentUnderControl 1
+CONST cnPrecedentWorkJournal 2
+
+PROCEDURE "Не открывать прецедент"
+ cnPrecedentDontHasBeenInitialized >>> g_NumberOfUseCaseToProcess
+;
+
+PROCEDURE "UnderControl"
+ cnPrecedentUnderControl >>> g_NumberOfUseCaseToProcess
+ // {requestlink:238946430}
+;
+
+PROCEDURE "WorkJournal"
+ cnPrecedentWorkJournal >>> g_NumberOfUseCaseToProcess
+ // {requestlink:159356925}
+;
+
+// ---------------------- Вкладки --------------------------
+
+PROCEDURE "Режим с вкладками не обязателен"
+ false >>> g_TabsNeed
+;
+
+PROCEDURE "Режим с вкладками"
+ true >>> g_TabsNeed
+;
+
+//---------------------- Второй монитор -------------------------
+
+PROCEDURE "Количество мониторов не важно"
+ false >>> g_NeedTwoMonitor
+;
+
+PROCEDURE "Необходимо два монитора"
+ true >>> g_NeedTwoMonitor
+;
+
+// --------------------Буфер обмена----------------------
+
+PROCEDURE "Не очищать буфер обмена"
+ false >>> g_NeedClearClipboard
+;
+
+PROCEDURE "Очистить Clipboard"
+ true >>> g_NeedClearClipboard
+;
+
+// -------------------- Разрядность --------------------------
+
+CONST cnAll 0
+CONST cnx32 1
+CONST cnx64 2
+
+PROCEDURE "Все разрядности"
+ cnAll >>> g_TheBitnessOfTheSystem
+;
+
+PROCEDURE "x32"
+ cnx32 >>> g_TheBitnessOfTheSystem
+;
+
+PROCEDURE "x64"
+ cnx64 >>> g_TheBitnessOfTheSystem
+;
+
+// ----------------Журнал работы ---------------------
+
+PROCEDURE "Не очищать журнал работы"
+ false >>> g_ClearJournalWork
+;
+
+PROCEDURE "Удалить журнал работы"
+ true >>> g_ClearJournalWork
+;

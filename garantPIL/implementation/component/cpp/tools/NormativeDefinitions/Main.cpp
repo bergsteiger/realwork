@@ -1,0 +1,106 @@
+//
+// Main.cpp : Defines the entry point for the console application.
+//
+
+#include "ace/ACE.h"
+
+#include <iostream>
+
+#include "shared/GCL/str/str_conv.h"
+#include "shared/Core/sys/AutoInit.h"
+#include "shared/Core/sys/start_stop.h"
+#include "shared/Core/ParamsHelper/ParamConvert.h"
+
+#include "garantServer/src/Global/Core/Common/ParamManagerReg.h"
+#include "garantServer/src/Global/Defines/Common/ProjectConsts.h"
+
+#include "NormDef.h"
+
+enum ExecuteStatus { es_Success, es_Error };
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Executor implementation
+
+class Executor {
+public:
+	Executor (int argc, char* argv []) {
+		Core::ParamManagerInitData id;
+		id.application_name = "NormativeDefinitions";
+		id.registry_subkey = "Core::RegistryHelper::KEY_CURRENT_USER\\";
+
+		Core::ParamManagerReg::instance ();
+		Core::ParamManagerFactory::get ().init (Core::ParamConvert::make_arg_list (argc, argv), id);	
+
+		if (Core::ParamManagerFactory::get ().is_exist ("-in")) {
+			m_properties.in = Core::ParamManagerFactory::get ().get_string ("-in");
+		}
+
+		if (Core::ParamManagerFactory::get ().is_exist ("-out")) {
+			m_properties.out = Core::ParamManagerFactory::get ().get_string ("-out");
+		}
+
+		if (Core::ParamManagerFactory::get ().is_exist ("-path")) {
+			m_path = Core::ParamManagerFactory::get ().get_string ("-path");
+		}
+
+		std::cout 
+			<< std::endl
+			<< "NormativeDefinitions "
+			<< "("
+			<< __DATE__
+			<< ", "
+			<< __TIME__
+			<< ")"
+			<< std::endl
+			<< std::endl
+			<< "in   : " << m_properties.in
+			<< std::endl
+			<< "out  : " << m_properties.out
+			<< std::endl
+			<< "path : " << m_path
+			<< std::endl 
+			<< std::endl;
+	}
+
+	virtual ~Executor () {
+	}
+
+	void execute () {
+		if (m_path.empty ()) {
+			LOG_E (("%s: path to base is not initialized", GDS_CURRENT_FUNCTION));
+			return;
+		}
+
+		try {
+			NormativeDefinitions::NormDef (m_path).execute (m_properties);
+		} catch (...) {
+			LOG_UEX (("%s", GDS_CURRENT_FUNCTION));
+			throw std::exception ();
+		}
+
+		std::cout << std::endl;
+	}
+
+public:
+	std::string m_path;
+
+	NormativeDefinitions::Properties m_properties;
+};
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int main (int argc, char* argv []) {
+	Core::AutoInit init;
+
+	ExecuteStatus ret = es_Success;
+
+	try {
+		Executor (argc, argv).execute ();
+	} catch (...) {
+		std::cout << std::endl << "Abnormal canceled.." << std::endl << std::endl;
+		ret = es_Error;
+	}
+
+	return (int) ret;
+}
+

@@ -1,0 +1,1312 @@
+<<Library>> DT
+ %UID '47BC4FCB0115'
+ %SUMMARY 'Классы для работы с HyTech в Архивариусе и его смежных утилитах.' ;
+ %DEPENDS
+  U$ '4677E18600C2' /* dd */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '543244050044' /* DA */
+  U$ '550012C403C4' /* L3$AFW */
+ ; // %DEPENDS
+ %META
+  %upv "defines" 'DtDefine.inc'
+  %upv "exec mode" 'concluded'
+  %upv "gui" 'rtl'
+  %upv "ifndef" 'Nemesis'
+  %upv "is namespace" true
+  %upv "vendor" '/Garant'
+ ; // %META
+ %TOBEINCLUDED
+  U$ '4677E18600C2' /* dd */
+  U$ '469F3E37025A' /* Rtl */
+  U$ '4790D09A0378' /* L3 */
+  U$ '4E2F0E1B03BB' /* L3$Domain */
+  U$ '543244050044' /* DA */
+  U$ '550012C403C4' /* L3$AFW */
+ ; // %TOBEINCLUDED
+ %CHILDREN
+  
+  <<Unit>> Dictionary
+   %UID '47BC50280350'
+   %SUMMARY 'Классы для работы со словарями.' ;
+   %DEPENDS
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47BB24D30205' /* "Стандартные примеси" */
+    U$ '47BC51FE018B' /* dt_Types */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '4C9CD07701E6' /* AttrSchema */
+    U$ '5432448401BC' /* daTypes */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4677E18600C2' /* dd */
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '47BC4FCB0115' /* DT */
+    U$ '543244050044' /* DA */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TdtCustomDictItem
+      %UID '47BC507501AB'
+      %SUMMARY 'Базовый элемент словаря.' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4677E18600C2' /* dd */
+       U$ '4790D09A0378' /* L3 */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47BC50F5038E' /* Tl3NCString */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '47BC3BFD017F' /* StringID */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+        <<property>> Handle
+         %UID '47BC528601A2'
+         %TARGET U$ '47BC52180382' /* TDictID */
+         %META
+          %upv "needs field" false
+          %upv "pm" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4677E18600C2' /* dd */
+         ; // %TOBEINCLUDED
+        ; // Handle
+      ; // %ATTRIBUTES
+     ; // TdtCustomDictItem
+     <<SimpleClass>> TdtDictItemsPrim
+      %UID '47BC53EE023A'
+      %SUMMARY 'Базовый список элементов словаря.' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '47BC4FCB0115' /* DT */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47B99E920196' /* l3UncomparabeObjectRefList */
+       U$ '47BC3A07027F' /* Tl3SimpleDataContainer */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47B2C42A0163' /* AssignItem */
+       U$ '47B99D4503A2' /* CompareExistingItems */
+      ; // %REALIZES
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> ItemType
+         %UID '47BC5421007E'
+         %TARGET U$ '47BC507501AB' /* TdtCustomDictItem */
+         %TOBEINCLUDED
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+        ; // ItemType
+      ; // %ATTRIBUTES
+     ; // TdtDictItemsPrim
+     <<SimpleClass>> TdtDictItems
+      %UID '47BC55C00240'
+      %SUMMARY 'Список элементов словаря.' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4677E18600C2' /* dd */
+       U$ '4790D09A0378' /* L3 */
+       U$ '47BC4FCB0115' /* DT */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47B47E230134' /* l3Searcher */
+       U$ '47BC53EE023A' /* TdtDictItemsPrim */
+      ; // %INHERITS
+      %OVERRIDES
+       U$ '47B9BAFD01F4' /* CompareItemWithData */
+      ; // %OVERRIDES
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> FindDataType
+         %UID '47BC55F90059'
+         %TARGET U$ '47BC52180382' /* TDictID */
+         %TOBEINCLUDED
+          U$ '4677E18600C2' /* dd */
+         ; // %TOBEINCLUDED
+        ; // FindDataType
+      ; // %ATTRIBUTES
+     ; // TdtDictItems
+     FINAL <<UtilityPack>> DictsSup
+      %UID '4E25307E022D'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '543244050044' /* DA */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        FINAL <<method>> GetDictName
+         %UID '4E253095034C'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '543244050044' /* DA */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '4E25309D027D'
+            %TARGET U$ '476136D3010B' /* String */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '543244050044' /* DA */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aDictID
+               %UID '4E2530AD00AB'
+               %TARGET U$ '55409CB903D4' /* TdaDictionaryType */
+               %TOBEINCLUDED
+                U$ '543244050044' /* DA */
+               ; // %TOBEINCLUDED
+              ; // aDictID
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // GetDictName
+      ; // %OPERATIONS
+     ; // DictsSup
+     FINAL <<UtilityPack>> dt_DictTypes
+      %UID '55E6B6330367'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '47BC4FCB0115' /* DT */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<Struct>> TDictMessageRec
+         %UID '55E6B69701C1'
+         %META
+          %upv "finished" false
+         ; // %META
+        ; // TDictMessageRec
+        <<Facet>> IDictChangeNotifyRecipient
+         %UID '55E6B64E030E'
+         %TOBEINCLUDED
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           ABSTRACT <<Operation>> dcn__DictionaryChange
+            %UID '55E6B66A036E'
+            %TOBEINCLUDED
+             U$ '47BC4FCB0115' /* DT */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<const>> Info
+               %UID '55E6B6890215'
+               %TARGET U$ '55E6B69701C1' /* TDictMessageRec */
+               %TOBEINCLUDED
+                U$ '47BC4FCB0115' /* DT */
+               ; // %TOBEINCLUDED
+              ; // Info
+            ; // %PARAMETERS
+           ; // dcn__DictionaryChange
+         ; // %OPERATIONS
+        ; // IDictChangeNotifyRecipient
+      ; // %CHILDREN
+     ; // dt_DictTypes
+     FINAL <<UtilityPack>> dt_Dict
+      %UID '55E6DBED01B3'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '47BC4FCB0115' /* DT */
+       U$ '543244050044' /* DA */
+      ; // %TOBEINCLUDED
+      %OPERATIONS
+        <<method>> DictServer
+         %UID '55E6DC0802A7'
+         %META
+          %upv "finished" false
+         ; // %META
+         %TOBEINCLUDED
+          U$ '47BC4FCB0115' /* DT */
+          U$ '543244050044' /* DA */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '55E6DC37006A'
+            %TARGET U$ '55E6DC5C02C0' /* TDictionaryServer */
+            %TOBEINCLUDED
+             U$ '47BC4FCB0115' /* DT */
+             U$ '543244050044' /* DA */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aFamily
+               %UID '55E6DC4C0134'
+               %TARGET U$ '551E7DD302E0' /* TdaFamilyID */
+               %TOBEINCLUDED
+                U$ '543244050044' /* DA */
+               ; // %TOBEINCLUDED
+              ; // aFamily
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // DictServer
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<SimpleClass>> TDictionaryServer
+         %UID '55E6DC5C02C0'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TDictionaryServer
+      ; // %CHILDREN
+     ; // dt_Dict
+     FINAL <<UtilityPack>> dt_DictConst
+      %UID '55E7042003D3'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %CHILDREN
+       
+        <<Constants>> cLengths
+         %UID '55E94F580288'
+         %META
+          %upv "spell names" false
+         ; // %META
+         %ATTRIBUTES
+           <<Attribute>> cPublInNumLen
+            %UID '55E94F65037D'
+            %VALUE 30
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // cPublInNumLen
+           <<Attribute>> cSourceNameLen
+            %UID '55E94F8E02C6'
+            %VALUE 200
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // cSourceNameLen
+           <<Attribute>> cSourceShortNameLen
+            %UID '55E94FA40006'
+            %VALUE 70
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // cSourceShortNameLen
+           <<Attribute>> cSourceSynonimsLen
+            %UID '55E94FB2010A'
+            %VALUE 800
+            %META
+             %upv "AutoInc" false
+             %upv "forced type" 'none'
+             %upv "is define" false
+            ; // %META
+           ; // cSourceSynonimsLen
+         ; // %ATTRIBUTES
+        ; // cLengths
+      ; // %CHILDREN
+     ; // dt_DictConst
+   ; // %CHILDREN
+  ; // Dictionary
+  <<Unit>> Autolink
+   %UID '5069A3DE03D5'
+   %DEPENDS
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '552BF68E0188' /* AutoLink */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '550012C403C4' /* L3$AFW */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> ddAutoLinkFilter
+      %UID '505C064A02A4'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %LINKS
+        <<uses>> "552BF793035A"
+         %UID '552BF793035A'
+         %TARGET U$ '552BF78902EE' /* ddAutoLinkServices */
+        ; // 552BF793035A
+      ; // %LINKS
+     ; // ddAutoLinkFilter
+     FINAL <<UtilityPack>> ddAutoLinkServices
+      %UID '552BF78902EE'
+      %META
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '550012C403C4' /* L3$AFW */
+      ; // %TOBEINCLUDED
+      %LINKS
+        <<uses>> "552BF79C0244"
+         %UID '552BF79C0244'
+         %TARGET U$ '505C064A02A4' /* ddAutoLinkFilter */
+        ; // 552BF79C0244
+      ; // %LINKS
+      %CHILDREN
+       
+        FINAL <<ServiceImplementation>> TddAutolinkService
+         %UID '552BF7B201EE'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+          %upv "singleton" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '4790D09A0378' /* L3 */
+          U$ '550012C403C4' /* L3$AFW */
+         ; // %TOBEINCLUDED
+         %IMPLEMENTS
+          U$ 'DA0E680BD126' /* Il3AutolinkService */
+         ; // %IMPLEMENTS
+         %INHERITS
+          U$ '49E7754802A9' /* Tl3ProtoObject */
+         ; // %INHERITS
+         %REALIZES
+          U$ '27BE83734EFD' /* GetAutolinkFilter */
+          U$ 'A18BB0B1A222' /* CleanAutolinkFilter */
+         ; // %REALIZES
+         %LINKS
+           <<implements>> "552BF7BB011A"
+            %UID '552BF7BB011A'
+            %TARGET U$ '552BF69B039B' /* Tl3AutolinkService */
+           ; // 552BF7BB011A
+           <<uses>> "552BF7C8008A"
+            %UID '552BF7C8008A'
+            %TARGET U$ '505C064A02A4' /* ddAutoLinkFilter */
+           ; // 552BF7C8008A
+         ; // %LINKS
+         %OPERATIONS
+           SUMMONED PRIVATE FINAL <<ini>> bind
+            %UID 'E57BE08F2819'
+            %SUMMARY 'Регистрация TddAutolinkService' ;
+           ; // bind
+           SUMMONED FINAL <<static>> Exists
+            %UID '885869F50F6C'
+            %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Exists
+         ; // %OPERATIONS
+        ; // TddAutolinkService
+      ; // %CHILDREN
+     ; // ddAutoLinkServices
+   ; // %CHILDREN
+  ; // Autolink
+  <<Unit>> DataAccess
+   %UID '519B70FC02AB'
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> dt_Sab
+      %UID '519B719002F1'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %OPERATIONS
+        FINAL <<method>> MakeSab
+         %UID '559D266C032B'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID '3ABFA89841A4'
+            %SUMMARY 'Сигнатура метода MakeSab' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // MakeSab
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<Facet>> IValueSetFiller
+         %UID '519B71FD024C'
+        ; // IValueSetFiller
+      ; // %CHILDREN
+     ; // dt_Sab
+     FINAL <<UtilityPack>> dt_List
+      %UID '559E5F4702B7'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %CHILDREN
+       
+        <<SimpleClass>> TAbstractList
+         %UID '559E5F6802C5'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TAbstractList
+      ; // %CHILDREN
+     ; // dt_List
+   ; // %CHILDREN
+  ; // DataAccess
+  <<Unit>> Tables
+   %UID '519B75D1009E'
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> dt_Renum
+      %UID '519B75E200C7'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+     ; // dt_Renum
+   ; // %CHILDREN
+  ; // Tables
+  <<Unit>> Servers
+   %UID '519B797A0048'
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> dt_LinkServ
+      %UID '519B79940228'
+      %META
+       %upv "finished" false
+       %upv "ifdef" 'Archi'
+       %upv "no hands" false
+      ; // %META
+      %OPERATIONS
+        FINAL <<method>> LinkServer
+         %UID '52E8BA5101A7'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID '44D2D8443D9A'
+            %SUMMARY 'Сигнатура метода LinkServer' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // LinkServer
+      ; // %OPERATIONS
+     ; // dt_LinkServ
+     FINAL <<UtilityPack>> dt_Lock
+      %UID '51B1B8BD018E'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+     ; // dt_Lock
+     FINAL <<UtilityPack>> dt_Jour
+      %UID '51B6C800005F'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %CHILDREN
+       
+        <<SimpleClass>> TAbstractJournal
+         %UID '51B6C83A03E4'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TAbstractJournal
+        <<Exception>> EdtBrokenFileLock
+         %UID '5281F3A90273'
+        ; // EdtBrokenFileLock
+      ; // %CHILDREN
+     ; // dt_Jour
+     FINAL <<UtilityPack>> dt_Doc
+      %UID '51B6CE6100D8'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+     ; // dt_Doc
+     FINAL <<UtilityPack>> dt_Serv
+      %UID '5406A83E013E'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+     ; // dt_Serv
+     FINAL <<UtilityPack>> dt_BBLog
+      %UID '5540E6D302BE'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %CHILDREN
+       
+        <<SimpleClass>> TBigBrotherTbl
+         %UID '5549F31C03AC'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TBigBrotherTbl
+      ; // %CHILDREN
+     ; // dt_BBLog
+   ; // %CHILDREN
+  ; // Servers
+  <<Unit>> ImportExport
+   %UID '51B1C73B0056'
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> dt_IFltr
+      %UID '51B1C74F010F'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+     ; // dt_IFltr
+   ; // %CHILDREN
+  ; // ImportExport
+  <<Unit>> Users
+   %UID '52FBA554014B'
+   %DEPENDS
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '47BC4FCB0115' /* DT */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> dt_UserTypes
+      %UID '52FBA55F0289'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<SimpleClass>> TArchiUser
+         %UID '52FBA57600AB'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '49E7754802A9' /* Tl3ProtoObject */
+         ; // %INHERITS
+        ; // TArchiUser
+      ; // %CHILDREN
+     ; // dt_UserTypes
+     <<SimpleClass>> TArchiUserList
+      %UID '52FBA7D00393'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '47BC4FCB0115' /* DT */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47B99E920196' /* l3UncomparabeObjectRefList */
+       U$ '4A54DD4E036F' /* Tl3ProtoDataContainer */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47B2C42A0163' /* AssignItem */
+       U$ '47B99D4503A2' /* CompareExistingItems */
+      ; // %REALIZES
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> ItemType
+         %UID '52FBA7D90378'
+         %TARGET U$ '52FBA57600AB' /* TArchiUser */
+         %TOBEINCLUDED
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+        ; // ItemType
+      ; // %ATTRIBUTES
+     ; // TArchiUserList
+     FINAL <<UtilityPack>> dt_User
+      %UID '53CD0E83039E'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '47BC4FCB0115' /* DT */
+      ; // %TOBEINCLUDED
+      %ATTRIBUTES
+        <<Attribute>> UserManager
+         %UID '559399F10324'
+         %TARGET U$ '53CD0EC701F6' /* TUserManager */
+         %TOBEINCLUDED
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+        ; // UserManager
+      ; // %ATTRIBUTES
+      %CHILDREN
+       
+        <<SimpleClass>> TUserManager
+         %UID '53CD0EC701F6'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+          %upv "singleton" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           SUMMONED FINAL <<static>> Exists
+            %UID 'B6CF43CD0E1D'
+            %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // Exists
+         ; // %OPERATIONS
+        ; // TUserManager
+      ; // %CHILDREN
+     ; // dt_User
+   ; // %CHILDREN
+  ; // Users
+  <<Unit>> Query
+   %UID '52FCABBD02EE'
+   %DEPENDS
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '47BB24D30205' /* "Стандартные примеси" */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '4790D09A0378' /* L3 */
+    U$ '47BC4FCB0115' /* DT */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TSavedQuery
+      %UID '52FCABD0022E'
+      %META
+       %upv "finished" false
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '49E7754802A9' /* Tl3ProtoObject */
+      ; // %INHERITS
+     ; // TSavedQuery
+     <<SimpleClass>> TQueryListPrim
+      %UID '52FCAC0E0384'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '47BC4FCB0115' /* DT */
+      ; // %TOBEINCLUDED
+      %IMPLEMENTS
+       U$ '47B99E920196' /* l3UncomparabeObjectRefList */
+       U$ '48FCA1F20259' /* l3ChangingChangedNotifier */
+       U$ '492ABDE901A7' /* l3LockedChange */
+       U$ '4B86890E0307' /* l3OpenArray */
+      ; // %IMPLEMENTS
+      %INHERITS
+       U$ '4A54DD4E036F' /* Tl3ProtoDataContainer */
+       U$ '4A5CBFAB03AF' /* l3Changing */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47B2C42A0163' /* AssignItem */
+       U$ '47B99D4503A2' /* CompareExistingItems */
+      ; // %REALIZES
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> ItemType
+         %UID '52FCAC2B02FA'
+         %TARGET U$ '52FCABD0022E' /* TSavedQuery */
+         %TOBEINCLUDED
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+        ; // ItemType
+      ; // %ATTRIBUTES
+      %CHILDREN
+       
+        FINAL <<Define>> l3Items_IsProto
+         %UID '52FCB2F403E2'
+        ; // l3Items_IsProto
+        FINAL <<Define>> l3Items_HasChanging
+         %UID '52FCB31C01E0'
+        ; // l3Items_HasChanging
+      ; // %CHILDREN
+     ; // TQueryListPrim
+     FINAL <<UtilityPack>> DT_AskList
+      %UID '52FCB4700035'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %LINKS
+        <<uses>> "52FCB4770122"
+         %UID '52FCB4770122'
+         %TARGET U$ '52FCAC0E0384' /* TQueryListPrim */
+        ; // 52FCB4770122
+      ; // %LINKS
+     ; // DT_AskList
+   ; // %CHILDREN
+  ; // Query
+  <<Unit>> Containers
+   %UID '537F6D320018'
+   %DEPENDS
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4AB0C3C60310' /* Sys */
+    U$ '537B83AD01F0' /* l3Math */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '47BC4FCB0115' /* DT */
+    U$ '4E2F0E1B03BB' /* L3$Domain */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TdtNumRange
+      %UID '537F6DA00036'
+      %SUMMARY 'вспомогательный тип для TNumSet' ;
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+       U$ '47BC4FCB0115' /* DT */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '49E7754802A9' /* Tl3ProtoObject */
+      ; // %INHERITS
+      %LINKS
+        <<uses>> "537F72D60064"
+         %UID '537F72D60064'
+         %TARGET U$ '4787A405013D' /* Exception */
+        ; // 537F72D60064
+        <<uses>> "537F72EF00A3"
+         %UID '537F72EF00A3'
+         %TARGET U$ '47A066980016' /* l3MinMax */
+        ; // 537F72EF00A3
+      ; // %LINKS
+      %ATTRIBUTES
+        <<Attribute>> LowNum
+         %UID '537F6DE8030B'
+         %TARGET U$ '47BC524C0245' /* LongWord */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // LowNum
+        <<Attribute>> HiNum
+         %UID '537F6DF302D4'
+         %TARGET U$ '47BC524C0245' /* LongWord */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // HiNum
+      ; // %ATTRIBUTES
+      %OPERATIONS
+        FINAL <<Constructor>> Create
+         %UID '537F6E030167'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '537F6E0E02D6'
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aLowNum
+               %UID '537F6E1A00CB'
+               %TARGET U$ '47BC524C0245' /* LongWord */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aLowNum
+              <<in>> aHiNum
+               %UID '537F6E1A00F4'
+               %TARGET U$ '47BC524C0245' /* LongWord */
+               %TOBEINCLUDED
+                U$ '469F3E37025A' /* Rtl */
+               ; // %TOBEINCLUDED
+              ; // aHiNum
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Create
+        FINAL <<method>> HasIntersectionWith
+         %UID '537F6E2A0377'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '537F6E380119'
+            %TARGET U$ '46A603BB0391' /* Boolean */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+             U$ '47BC4FCB0115' /* DT */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aRange
+               %UID '537F6E40029C'
+               %TARGET U$ '537F6DA00036' /* TdtNumRange */
+               %TOBEINCLUDED
+                U$ '47BC4FCB0115' /* DT */
+               ; // %TOBEINCLUDED
+              ; // aRange
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // HasIntersectionWith
+        FINAL <<method>> JoinWith
+         %UID '537F6E4E0207'
+         %TOBEINCLUDED
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '537F6E610259'
+            %TOBEINCLUDED
+             U$ '47BC4FCB0115' /* DT */
+            ; // %TOBEINCLUDED
+            %PARAMETERS
+              <<in>> aRange
+               %UID '537F6E6702D3'
+               %TARGET U$ '537F6DA00036' /* TdtNumRange */
+               %TOBEINCLUDED
+                U$ '47BC4FCB0115' /* DT */
+               ; // %TOBEINCLUDED
+              ; // aRange
+            ; // %PARAMETERS
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // JoinWith
+        FINAL <<method>> Amount
+         %UID '537F6ED601AE'
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+         %OPERATIONS
+           PRIVATE FINAL <<Operation>> DoIt
+            %UID '537F6EDE002E'
+            %TARGET U$ '46A606AC03B2' /* Integer */
+            %TOBEINCLUDED
+             U$ '469F3E37025A' /* Rtl */
+            ; // %TOBEINCLUDED
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // Amount
+      ; // %OPERATIONS
+     ; // TdtNumRange
+     <<SimpleClass>> TdtNumRangeList
+      %UID '537F6EED0090'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '47BC4FCB0115' /* DT */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47B99E920196' /* l3UncomparabeObjectRefList */
+       U$ '4A54DD4E036F' /* Tl3ProtoDataContainer */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47B2C42A0163' /* AssignItem */
+       U$ '47B99D4503A2' /* CompareExistingItems */
+      ; // %REALIZES
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> ItemType
+         %UID '537F6F040072'
+         %TARGET U$ '537F6DA00036' /* TdtNumRange */
+         %TOBEINCLUDED
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+        ; // ItemType
+      ; // %ATTRIBUTES
+     ; // TdtNumRangeList
+     FINAL <<UtilityPack>> Dt_containers
+      %UID '537F6D3F0319'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '47BC4FCB0115' /* DT */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<SimpleClass>> TNumSet
+         %UID '537F6D5E0136'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '49E7754802A9' /* Tl3ProtoObject */
+         ; // %INHERITS
+         %ATTRIBUTES
+           PRIVATE <<Attribute>> f_Ranges
+            %UID '537F6F740241'
+            %TARGET U$ '537F6EED0090' /* TdtNumRangeList */
+            %TOBEINCLUDED
+             U$ '47BC4FCB0115' /* DT */
+            ; // %TOBEINCLUDED
+           ; // f_Ranges
+         ; // %ATTRIBUTES
+        ; // TNumSet
+      ; // %CHILDREN
+     ; // Dt_containers
+   ; // %CHILDREN
+  ; // Containers
+  <<Unit>> DbInfo
+   %UID '537F78280242'
+   %DEPENDS
+    U$ '47913B47006E' /* l3CoreObjects */
+    U$ '4AB0C3C60310' /* Sys */
+   ; // %DEPENDS
+   %TOBEINCLUDED
+    U$ '469F3E37025A' /* Rtl */
+    U$ '4790D09A0378' /* L3 */
+    U$ '47BC4FCB0115' /* DT */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     <<SimpleClass>> TdtFamilyInfo
+      %UID '537F78410340'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '469F3E37025A' /* Rtl */
+       U$ '4790D09A0378' /* L3 */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '49E7754802A9' /* Tl3ProtoObject */
+      ; // %INHERITS
+      %ATTRIBUTES
+        <<Attribute>> Number
+         %UID '537F78AB01D1'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Number
+        <<Attribute>> Name
+         %UID '537F78B50368'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Name
+        <<Attribute>> Path
+         %UID '537F78BF00E0'
+         %TARGET U$ '476136D3010B' /* String */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Path
+        <<Attribute>> DocGroup
+         %UID '537F78CA0329'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // DocGroup
+        <<Attribute>> Attributes
+         %UID '537F78D6036A'
+         %TARGET U$ '46A606AC03B2' /* Integer */
+         %TOBEINCLUDED
+          U$ '469F3E37025A' /* Rtl */
+         ; // %TOBEINCLUDED
+        ; // Attributes
+      ; // %ATTRIBUTES
+     ; // TdtFamilyInfo
+     <<SimpleClass>> TdtFamilyInfoList
+      %UID '537F78F50118'
+      %META
+       %upv "needs InstanceR" 'undefined'
+       %upv "needs script" 'undefined'
+       %upv "no hands" false
+       %upv "register in scripts" 'undefined'
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '47BC4FCB0115' /* DT */
+      ; // %TOBEINCLUDED
+      %INHERITS
+       U$ '47B99E920196' /* l3UncomparabeObjectRefList */
+       U$ '4A54DD4E036F' /* Tl3ProtoDataContainer */
+      ; // %INHERITS
+      %REALIZES
+       U$ '47B2C42A0163' /* AssignItem */
+       U$ '47B99D4503A2' /* CompareExistingItems */
+      ; // %REALIZES
+      %ATTRIBUTES
+        PRIVATE ABSTRACT <<impurity_value>> ItemType
+         %UID '537F790300F8'
+         %TARGET U$ '537F78410340' /* TdtFamilyInfo */
+         %TOBEINCLUDED
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+        ; // ItemType
+      ; // %ATTRIBUTES
+     ; // TdtFamilyInfoList
+     FINAL <<UtilityPack>> DT_DbInfo
+      %UID '537F79160044'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '4790D09A0378' /* L3 */
+       U$ '47BC4FCB0115' /* DT */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<SimpleClass>> TDbInfo
+         %UID '537F79270038'
+         %META
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+         %TOBEINCLUDED
+          U$ '4790D09A0378' /* L3 */
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '49E7754802A9' /* Tl3ProtoObject */
+         ; // %INHERITS
+         %ATTRIBUTES
+           PRIVATE <<Attribute>> f_FamiliesData
+            %UID '537F794303D7'
+            %TARGET U$ '537F78F50118' /* TdtFamilyInfoList */
+            %TOBEINCLUDED
+             U$ '47BC4FCB0115' /* DT */
+            ; // %TOBEINCLUDED
+           ; // f_FamiliesData
+         ; // %ATTRIBUTES
+        ; // TDbInfo
+      ; // %CHILDREN
+     ; // DT_DbInfo
+   ; // %CHILDREN
+  ; // DbInfo
+  <<Unit>> Mail
+   %UID '5450CFDA02FF'
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> dt_Mail
+      %UID '5450D0130072'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %CHILDREN
+       
+        <<SimpleClass>> TMailServer
+         %UID '5450D05B00F7'
+         %META
+          %upv "finished" false
+          %upv "needs InstanceR" 'undefined'
+          %upv "needs script" 'undefined'
+          %upv "no hands" false
+          %upv "register in scripts" 'undefined'
+         ; // %META
+        ; // TMailServer
+      ; // %CHILDREN
+     ; // dt_Mail
+   ; // %CHILDREN
+  ; // Mail
+  <<Unit>> Core
+   %UID '555331D10378'
+   %TOBEINCLUDED
+    U$ '47BC4FCB0115' /* DT */
+   ; // %TOBEINCLUDED
+   %CHILDREN
+    
+     FINAL <<UtilityPack>> HT_Const
+      %UID '5553320F016B'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %TOBEINCLUDED
+       U$ '47BC4FCB0115' /* DT */
+      ; // %TOBEINCLUDED
+      %CHILDREN
+       
+        <<Struct>> SAB
+         %UID '5553322F03C9'
+         %META
+          %upv "finished" false
+         ; // %META
+        ; // SAB
+        <<Typedef>> ThtTblHandle
+         %UID '555C84FC0026'
+         %META
+          %upv "finished" false
+         ; // %META
+        ; // ThtTblHandle
+        <<Struct>> OPEL
+         %UID '559FA10A0133'
+         %META
+          %upv "finished" false
+         ; // %META
+        ; // OPEL
+        <<Typedef>> LPOPEL
+         %UID '559FA11803DC'
+         %META
+          %upv "isPointer" true
+         ; // %META
+         %TOBEINCLUDED
+          U$ '47BC4FCB0115' /* DT */
+         ; // %TOBEINCLUDED
+         %INHERITS
+          U$ '559FA10A0133' /* OPEL */
+         ; // %INHERITS
+        ; // LPOPEL
+      ; // %CHILDREN
+     ; // HT_Const
+     FINAL <<UtilityPack>> HT_DLL
+      %UID '55533C7600A0'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %OPERATIONS
+        FINAL <<method>> htClearResults
+         %UID '55533C9001BE'
+         %META
+          %upv "finished" false
+         ; // %META
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID 'E0819084F536'
+            %SUMMARY 'Сигнатура метода htClearResults' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // htClearResults
+      ; // %OPERATIONS
+     ; // HT_DLL
+     FINAL <<UtilityPack>> dt_Err
+      %UID '555F034A01B6'
+      %META
+       %upv "finished" false
+       %upv "no hands" false
+      ; // %META
+      %OPERATIONS
+        FINAL <<method>> HT
+         %UID '555F035A031E'
+         %OPERATIONS
+           SUMMONED FINAL <<Operation>> DoIt
+            %UID '11590E1AD349'
+            %SUMMARY 'Сигнатура метода HT' ;
+           ; // DoIt
+         ; // %OPERATIONS
+        ; // HT
+      ; // %OPERATIONS
+      %CHILDREN
+       
+        <<Exception>> EHtErrors
+         %UID '55D47A1500CB'
+         %META
+          %upv "finished" false
+         ; // %META
+        ; // EHtErrors
+      ; // %CHILDREN
+     ; // dt_Err
+   ; // %CHILDREN
+  ; // Core
+  <<Interfaces>> dtIntf
+   %UID '559D0BE101B4'
+   %META
+    %upv "finished" false
+    %upv "is namespace" true
+    %upv "no hands" false
+   ; // %META
+   %CHILDREN
+    
+     <<Facet>> ISab
+      %UID '519B71CF03DC'
+     ; // ISab
+   ; // %CHILDREN
+  ; // dtIntf
+ ; // %CHILDREN
+; // DT

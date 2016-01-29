@@ -1,0 +1,55 @@
+USES     
+	QuickTestsUtils.script 
+;
+
+CONST cnBlockCount 7
+CONST cnTextLineCount 8
+
+PROCEDURE "Начальный текст"
+	"Набить текст {('Текст')}"
+	"Нажать Enter"
+;
+
+PROCEDURE "Набить текст для блоков"
+	 INTEGER VAR l_BlockID
+	 1 >>> l_BlockID 
+	 cnTextLineCount LOOP (
+	  'Текст блока ' l_BlockID IntToStr + emitstring 
+	  1 +! l_BlockID 
+	  "Нажать Enter"
+	 ) 
+;
+
+PROCEDURE "Вернуться наверх"
+	cnTextLineCount раз "Нажать вверх"
+;
+
+OBJECT VAR l_Editor
+
+PROCEDURE "Установить блоки и присвоить им стили" 
+	 focused:control:push >>> l_Editor
+	 INTEGER VAR l_StyleID
+	 ev_saHLE1 >>> l_StyleID
+	 cnBlockCount LOOP (
+	  "Создать блок из одной строки" 
+	  "Установить стиль на блок {(l_StyleID)} {(l_Editor)}"
+	  Если ( l_StyleID ev_saHLE6 == ) то
+	   ( "Нажать вниз"
+		ev_saAttention >>> l_StyleID ) 
+	  иначе
+	   ( -1 +! l_StyleID )
+	  "Нажать вниз"
+	 )
+;
+
+Тест TK371196695 
+	Параметры: ( "Пустой документ" "Размеры для отрисовки" "Проверка отрисованного" ) 
+	Выполнить ( "Начальный текст"
+				"Набить текст для блоков"
+				"Вернуться наверх"
+				"Установить блоки и присвоить им стили" 
+				"В начало документа" 
+				)
+;
+
+TK371196695

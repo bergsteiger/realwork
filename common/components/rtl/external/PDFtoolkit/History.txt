@@ -1,0 +1,27 @@
+PDFtoolkit VCL 3.4.6.131
+************************
+
+Enhancement
+-----------
+   PDF Content Creation
+     - Text outs in Unicode.
+     - Optimized text outs.
+   PDF Processing
+     - Optimized font substitution.
+     - New SavetoStreamA method, a non-Unicode ANSI alternative for
+       ExtractText method - to support old IDEs
+
+Resolved
+--------
+   PDF Processing
+     - Access violaton in CCITTFaxDecode
+   PDF Viewing
+     - "Font Family Not Found" error for some documents with Type1
+       non-embedded fonts - Substituted with nearest alternatives
+       available in the system
+     - Improper or blank output for some documents with Type1
+       non-embedded fonts
+     - Incorrect rendering of documents with embedded TrueType fonts
+       with MacRoman and Custom encoding
+   PDF Forms Processing
+     - Form fields without appearance stream did not render properly

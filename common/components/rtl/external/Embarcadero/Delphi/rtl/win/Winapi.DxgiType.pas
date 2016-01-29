@@ -1,0 +1,189 @@
+{*******************************************************}
+{                                                       }
+{                Delphi Runtime Library                 }
+{                                                       }
+{ Copyright(c) 1995-2013 Embarcadero Technologies, Inc. }
+{                                                       }
+{*******************************************************}
+
+unit Winapi.DxgiType;
+
+{$ALIGN ON}
+{$MINENUMSIZE 4}
+{$WEAKPACKAGEUNIT}
+
+interface
+
+uses Winapi.Windows, Winapi.DxgiFormat;
+
+(*==========================================================================;
+ *  File:    DXGIType.h
+ *  Content: DXGI types include file
+ ****************************************************************************)
+
+{$HPPEMIT '#include "DXGIType.h"'}
+
+const
+  _FACDXGI    = $87a;
+{$EXTERNALSYM _FACDXGI}
+
+//#define MAKE_DXGI_HRESULT( code )    MAKE_HRESULT( 1, _FACDXGI, code )
+function MAKE_DXGI_HRESULT(Code: LongWord): LongWord; inline;
+{$EXTERNALSYM MAKE_DXGI_HRESULT}
+//#define MAKE_DXGI_STATUS( code )    MAKE_HRESULT( 0, _FACDXGI, code )
+function MAKE_DXGI_STATUS(Code: LongWord): LongWord; inline;
+{$EXTERNALSYM MAKE_DXGI_STATUS}
+
+const
+  MAKE_DXGI_HRESULT_R     = (1 shl 31) or (_FACDXGI shl 16);
+  {$EXTERNALSYM MAKE_DXGI_HRESULT_R}
+  MAKE_DXGI_STATUS_R      = (0 shl 31) or (_FACDXGI shl 16);
+  {$EXTERNALSYM MAKE_DXGI_STATUS_R}
+
+  (* DXGI Errors *)
+
+  DXGI_STATUS_OCCLUDED                     = HResult(MAKE_DXGI_STATUS_R or 1);
+  {$EXTERNALSYM DXGI_STATUS_OCCLUDED}
+  DXGI_STATUS_CLIPPED                      = HResult(MAKE_DXGI_STATUS_R or 2);
+  {$EXTERNALSYM DXGI_STATUS_CLIPPED}
+  DXGI_STATUS_NO_REDIRECTION               = HResult(MAKE_DXGI_STATUS_R or 4);
+  {$EXTERNALSYM DXGI_STATUS_NO_REDIRECTION}
+  DXGI_STATUS_NO_DESKTOP_ACCESS            = HResult(MAKE_DXGI_STATUS_R or 5);
+  {$EXTERNALSYM DXGI_STATUS_NO_DESKTOP_ACCESS}
+  DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE = HResult(MAKE_DXGI_STATUS_R or 6);
+  {$EXTERNALSYM DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE}
+  DXGI_STATUS_MODE_CHANGED                 = HResult(MAKE_DXGI_STATUS_R or 7);
+  {$EXTERNALSYM DXGI_STATUS_MODE_CHANGED}
+  DXGI_STATUS_MODE_CHANGE_IN_PROGRESS      = HResult(MAKE_DXGI_STATUS_R or 8);
+  {$EXTERNALSYM DXGI_STATUS_MODE_CHANGE_IN_PROGRESS}
+
+
+  DXGI_ERROR_INVALID_CALL                  = HResult(MAKE_DXGI_HRESULT_R or 1);
+  {$EXTERNALSYM DXGI_ERROR_INVALID_CALL}
+  DXGI_ERROR_NOT_FOUND                     = HResult(MAKE_DXGI_HRESULT_R or 2);
+  {$EXTERNALSYM DXGI_ERROR_NOT_FOUND}
+  DXGI_ERROR_MORE_DATA                     = HResult(MAKE_DXGI_HRESULT_R or 3);
+  {$EXTERNALSYM DXGI_ERROR_MORE_DATA}
+  DXGI_ERROR_UNSUPPORTED                   = HResult(MAKE_DXGI_HRESULT_R or 4);
+  {$EXTERNALSYM DXGI_ERROR_UNSUPPORTED}
+  DXGI_ERROR_DEVICE_REMOVED                = HResult(MAKE_DXGI_HRESULT_R or 5);
+  {$EXTERNALSYM DXGI_ERROR_DEVICE_REMOVED}
+  DXGI_ERROR_DEVICE_HUNG                   = HResult(MAKE_DXGI_HRESULT_R or 6);
+  {$EXTERNALSYM DXGI_ERROR_DEVICE_HUNG}
+  DXGI_ERROR_DEVICE_RESET                  = HResult(MAKE_DXGI_HRESULT_R or 7);
+  {$EXTERNALSYM DXGI_ERROR_DEVICE_RESET}
+  DXGI_ERROR_WAS_STILL_DRAWING             = HResult(MAKE_DXGI_HRESULT_R or 10);
+  {$EXTERNALSYM DXGI_ERROR_WAS_STILL_DRAWING}
+  DXGI_ERROR_FRAME_STATISTICS_DISJOINT     = HResult(MAKE_DXGI_HRESULT_R or 11);
+  {$EXTERNALSYM DXGI_ERROR_FRAME_STATISTICS_DISJOINT}
+  DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE  = HResult(MAKE_DXGI_HRESULT_R or 12);
+  {$EXTERNALSYM DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE}
+  DXGI_ERROR_DRIVER_INTERNAL_ERROR         = HResult(MAKE_DXGI_HRESULT_R or 32);
+  {$EXTERNALSYM DXGI_ERROR_DRIVER_INTERNAL_ERROR}
+  DXGI_ERROR_NONEXCLUSIVE                  = HResult(MAKE_DXGI_HRESULT_R or 33);
+  {$EXTERNALSYM DXGI_ERROR_NONEXCLUSIVE}
+  DXGI_ERROR_NOT_CURRENTLY_AVAILABLE       = HResult(MAKE_DXGI_HRESULT_R or 34);
+  {$EXTERNALSYM DXGI_ERROR_NOT_CURRENTLY_AVAILABLE}
+  DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED    = HResult(MAKE_DXGI_HRESULT_R or 35);
+  {$EXTERNALSYM DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED}
+  DXGI_ERROR_REMOTE_OUTOFMEMORY            = HResult(MAKE_DXGI_HRESULT_R or 36);
+  {$EXTERNALSYM DXGI_ERROR_REMOTE_OUTOFMEMORY}
+
+type
+  DXGI_RGB = record
+    Red: Single;
+    Green: Single;
+    Blue: Single;
+  end;
+  {$EXTERNALSYM DXGI_RGB}
+  TDXGIRGB = DXGI_RGB;
+
+  DXGI_GAMMA_CONTROL = record
+    Scale: DXGI_RGB;
+    Offset: DXGI_RGB;
+    GammaCurve: array[0..1024] of DXGI_RGB;
+  end;
+  {$EXTERNALSYM DXGI_GAMMA_CONTROL}
+  TDXGIGammaControl = DXGI_GAMMA_CONTROL;
+
+  DXGI_GAMMA_CONTROL_CAPABILITIES = record
+    ScaleAndOffsetSupported: BOOL;
+    MaxConvertedValue: Single;
+    MinConvertedValue: Single;
+    NumGammaControlPoints: UINT;
+    ControlPointPositions: array[0..1024] of Single;
+  end;
+  {$EXTERNALSYM DXGI_GAMMA_CONTROL_CAPABILITIES}
+  TDXGIGammaControlCapabilities = DXGI_GAMMA_CONTROL_CAPABILITIES;
+  PDXGIGammaControlCapabilities = ^DXGI_GAMMA_CONTROL_CAPABILITIES;
+
+  DXGI_RATIONAL = record
+    Numerator: UINT;
+    Denominator: UINT;
+  end;
+  {$EXTERNALSYM DXGI_RATIONAL}
+  TDXGIRational = DXGI_RATIONAL;
+
+  DXGI_MODE_SCANLINE_ORDER = (
+    DXGI_MODE_SCANLINE_ORDER_UNSPECIFIED = 0,
+    DXGI_MODE_SCANLINE_ORDER_PROGRESSIVE = 1,
+    DXGI_MODE_SCANLINE_ORDER_UPPER_FIELD_FIRST = 2,
+    DXGI_MODE_SCANLINE_ORDER_LOWER_FIELD_FIRST = 3
+  );
+  {$EXTERNALSYM DXGI_MODE_SCANLINE_ORDER}
+  TDXGIModeScanlineOrder = DXGI_MODE_SCANLINE_ORDER;
+  PDXGIModeScanlineOrder = ^DXGI_MODE_SCANLINE_ORDER;
+
+  DXGI_MODE_SCALING = (
+    DXGI_MODE_SCALING_UNSPECIFIED = 0,
+    DXGI_MODE_SCALING_CENTERED = 1,
+    DXGI_MODE_SCALING_STRETCHED = 2
+  );
+  {$EXTERNALSYM DXGI_MODE_SCALING}
+  TDXGIModeScaling = DXGI_MODE_SCALING;
+  PDXGIModeScaling = ^DXGI_MODE_SCALING;
+
+  DXGI_MODE_ROTATION = (
+    DXGI_MODE_ROTATION_UNSPECIFIED = 0,
+    DXGI_MODE_ROTATION_IDENTITY = 1,
+    DXGI_MODE_ROTATION_ROTATE90 = 2,
+    DXGI_MODE_ROTATION_ROTATE180 = 3,
+    DXGI_MODE_ROTATION_ROTATE270= 4
+  );
+  {$EXTERNALSYM DXGI_MODE_ROTATION}
+  TDXGIModeRotation = DXGI_MODE_ROTATION;
+  PDXGIModeRotation = ^DXGI_MODE_ROTATION;
+
+  DXGI_MODE_DESC = record
+    Width: UINT;
+    Height: UINT;
+    RefreshRate: DXGI_RATIONAL;
+    Format: DXGI_FORMAT;
+    ScanlineOrdering: DXGI_MODE_SCANLINE_ORDER;
+    Scaling: DXGI_MODE_SCALING;
+  end;
+  {$EXTERNALSYM DXGI_MODE_DESC}
+  TDXGIModeDesc = DXGI_MODE_DESC;
+  PDXGIModeDesc = ^DXGI_MODE_DESC;
+
+  DXGI_SAMPLE_DESC = record
+    Count: UINT;
+    Quality: UINT;
+  end;
+  {$EXTERNALSYM DXGI_SAMPLE_DESC}
+  TDXGI_SampleDesc = DXGI_SAMPLE_DESC;
+  PDXGI_SampleDesc = ^DXGI_SAMPLE_DESC;
+
+implementation
+
+function MAKE_DXGI_HRESULT(Code: LongWord): LongWord;
+begin
+  Result:= DWord((1 shl 31) or (_FACDXGI shl 16)) or Code;
+end;
+
+function MAKE_DXGI_STATUS(Code: LongWord): LongWord;
+begin
+  Result:= DWord((0 shl 31) or (_FACDXGI shl 16)) or Code;
+end;
+
+end.

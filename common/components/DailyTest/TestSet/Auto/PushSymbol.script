@@ -1,0 +1,33 @@
+PROGRAM PushSymbol.script
+
+USES
+ Testing.ms.dict
+;
+
+Test&Dump PushSymbolTest
+
+MACRO DoPush
+ axiom:PushSymbol PROCEDURE
+ 'A' Ctx:Parser:PushString
+ axiom:PushSymbol VAR
+ 'X' Ctx:Parser:PushString
+ axiom:PushSymbol ;
+; // DoPush
+
+MACRO DoPush1
+ axiom:PushSymbol :
+ 'B' Ctx:Parser:PushString
+ axiom:PushSymbol VAR
+ 'X' Ctx:Parser:PushString
+ axiom:PushSymbol ;
+; // DoPush1
+
+DoPush
+DoPush1
+
+A
+B
+
+; // PushSymbolTest
+
+PushSymbolTest

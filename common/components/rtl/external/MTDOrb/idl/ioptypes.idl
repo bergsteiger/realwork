@@ -1,0 +1,254 @@
+/* -*- c++ -*- */
+
+//module CORBA {
+    module IOP {
+	typedef unsigned long ServiceID;
+
+	struct ServiceContext {
+	    ServiceID context_id;
+	    sequence<octet> context_data;
+	};
+	typedef sequence<ServiceContext> ServiceContextList;
+
+	const ServiceID TransactionService = 0;
+	const ServiceID CodeSets = 1;
+	const ServiceID BI_DIR_IIOP = 5;
+
+#ifdef NOTNEEDED
+	typedef unsigned long ProfileId;
+	const ProfileId TAG_INTERNET_IOP = 0;
+	const ProfileId TAG_MULTIPLE_COMPONENTS = 1;
+
+	struct TaggedProfile {
+	    ProfileId tag;
+	    sequence<octet> profile_data;
+	};
+
+	struct IOR {
+	    string type_id;
+	    sequence<TaggedProfile> profiles;
+	};
+#endif
+	typedef unsigned long ComponentId;
+	struct TaggedComponent {
+	    ComponentId tag;
+	    sequence<octet> component_data;
+	};
+	typedef sequence<TaggedComponent> MultipleComponentProfile;
+    };
+
+
+    module GIOP {
+#if 0
+	enum MsgType_1_0 {
+	    Request, Reply, CancelRequest,
+	    LocateRequest, LocateReply,
+	    CloseConnection, MessageError
+	};
+#endif
+	enum MsgType_1_1 {
+	    Request, Reply, CancelRequest,
+	    LocateRequest, LocateReply,
+	    CloseConnection, MessageError,
+	    Fragment
+	};
+
+	typedef MsgType_1_1 MsgType;
+
+	
+#if 0
+	enum ReplyStatusType_1_0 {
+	    NO_EXCEPTION, USER_EXCEPTION,
+	    SYSTEM_EXCEPTION, LOCATION_FORWARD
+	};
+#endif
+
+	enum ReplyStatusType_1_2 {
+	    NO_EXCEPTION,
+	    USER_EXCEPTION,
+	    SYSTEM_EXCEPTION,
+	    LOCATION_FORWARD,
+	    LOCATION_FORWARD_PERM,
+	    NEEDS_ADDRESSING_MODE
+	};
+
+	typedef ReplyStatusType_1_2 ReplyStatusType;
+
+
+#if 0
+	enum LocateStatusType_1_0 {
+	    UNKNOWN_OBJECT,
+	    OBJECT_HERE,
+	    OBJECT_FORWARD
+	};
+#endif
+
+	enum LocateStatusType_1_2 {
+	    UNKNOWN_OBJECT,
+	    OBJECT_HERE,
+	    OBJECT_FORWARD,
+	    OBJECT_FORWARD_PERM,
+	    LOC_SYSTEM_EXCEPTION,
+	    LOC_NEEDS_ADDRESSING_MODE
+	};
+
+	typedef LocateStatusType_1_2 LocateStatusType;
+
+
+	typedef short AddressingDisposition;
+	const AddressingDisposition KeyAddr = 0;
+	const AddressingDisposition ProfileAddr = 1;
+	const AddressingDisposition ReferenceAddr = 2;
+
+#ifdef NOTNEEDED
+	struct Version {
+	    char major;
+	    char minor;
+	};
+
+	struct MessageHeader_1_0 {
+	    char magic[4];
+	    Version GIOP_version;
+	    boolean byte_order;
+	    octet message_type;
+	    unsigned long message_size;
+	};
+
+	struct MessageHeader_1_1 {
+	    char magic[4];
+	    Version GIOP_version;
+	    octet flags;
+	    octet message_type;
+	    unsigned long message_size;
+	};
+
+	
+	typedef MessageHeader_1_1 MessageHeader_1_2;
+
+	struct RequestHeader_1_0 {
+	    IOP::ServiceContextList service_context;
+	    unsigned long request_id;
+	    boolean response_expected;
+	    sequence<octet> object_key;
+	    string operation;
+	    CORBA::Principal requesting_principal;
+	};
+
+	struct RequestHeader_1_1 {
+	    IOP::ServiceContextList service_context;
+	    unsigned long request_id;
+	    boolean response_expected;
+	    octet reserved[3];
+	    sequence<octet> object_key;
+	    string operation;
+	    CORBA::Principal requesting_principal;
+	};
+
+	struct IORAdressingInfo {
+	    unsigned long selected_profile_index;
+	    IOP::IOR ior;
+	};
+
+	union TargetAddress switch (AddressingDisposition) {
+	case KeyAddr:       sequence<octet> object_key;
+	case ProfileAddr:   IOP::TaggedProfile profile;
+	case ReferenceAddr: IORAddressingInfo ior;
+	};
+
+	struct RequestHeader_1_2 {
+	    unsigned long request_id;
+	    octet response_flags;
+	    octet reserved[3];
+	    TragetAddress target;
+	    string operation;
+	    IOP::ServiceContextList service_context;
+	};
+
+	typedef RequestHeader_1_2 RequestHeader;
+
+	
+	struct ReplyHeader_1_0 {
+	    IOP::ServiceContextList service_context;
+	    unsigned long request_id;
+	    ReplyStatusType reply_status;
+	};
+
+	struct ReplyHeader_1_2 {
+	    unsigned long request_id;
+	    ReplyStatusType reply_status;
+	    IOP::ServiceContextList service_context;
+	};
+
+	typedef ReplyHeader_1_2 ReplyHeader;
+
+	
+	struct CancelRequestHeader {
+	    unsigned long request_id;
+	};
+
+	
+	struct LocateRequestHeader_1_0 {
+	    unsigned long request_id;
+	    sequence<octet> object_key;
+	};
+
+	struct LocateRequestHeader_1_2 {
+	    unsigned long request_id;
+	    TargetAddress target;
+	};
+
+	typedef LocateRequestHeader_1_2 LocateRequestHeader;
+
+	
+	struct LocateReplyHeader {
+	    unsigned long request_id;
+	    LocateStatusType locate_status;
+	};
+
+	
+	struct FragmentHeader_1_2 {
+	    unsigned long request_id;
+	};
+
+	typedef FragmentHeader_1_2 FragmentHeader;
+#endif
+    };
+
+    module IIOP {
+	struct Version {
+	    char major;
+	    char minor;
+	};
+#ifdef NOTNEEDED
+
+	struct ProfileBody_1_0 {
+	    Version iiop_version;
+	    string host;
+	    unsigned short port;
+	    sequence<octet> object_key;
+	};
+
+	struct ProfileBody_1_1 {
+	    Version iiop_version;
+	    string host;
+	    unsigned short port;
+	    sequence<octet> object_key;
+	    sequence<IOP::TaggedComponent> components;
+	};
+
+	typedef ProfileBody_1_1 ProfileBody;
+
+
+	struct ListenPoint {
+	    string host;
+	    unsigned short port;
+	};
+
+	typedef sequence<ListenPoint> ListenPointList;
+
+	struct BiDirIIOPServiceContext {
+	    ListenPointList listen_points;
+	};
+#endif
+    };
+//};

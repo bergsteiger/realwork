@@ -1,0 +1,70 @@
+// Design 4AB22E9B0071 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AB22E9B0071
+
+: ME_4AB22E5E003E
+ CONST UID '4AB22E5E003E'
+ CONST Name 'TvcmApplicationRef'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Хак для подключения сгенерированных модулей' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4AB22E9B0071 // Design
+ ;
+ : Inherits
+   @ ( WL 'ME_4AB22E140136' '50883A2E00B3.pas.ms.script' // TvcmApplication
+ ) .SequenceCode.It
+ ; // Inherits
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '17.09.2009 16:41'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Design\vcmApplicationRef.pas'
+
+ref; // ME_4AB22E5E003E TvcmApplicationRef
+
+: ME_4AB22E9B0071
+ CONST UID '4AB22E9B0071'
+ CONST Name 'Design'
+ CONST Class class_Category
+ : Stereotype st_Unit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4E13416D0227' '4E13416D0227.pas.ms.script' // VCM$Visual
+ ;
+ : Children
+   @ ( ME_4AB22E5E003E // TvcmApplicationRef
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_467BAB7F021E' '467BAB7F021E.pas.ms.script' // vcmExternalInterfaces
+ WL 'ME_47B9727603BE' '47B9727603BE.pas.ms.script' // FormSets
+ WL 'ME_47D0E1500033' '47D0E1500033.pas.ms.script' // Implementation
+ WL 'ME_4AADF9450143' '4AADF9450143.pas.ms.script' // Visual
+ WL 'ME_4AB34028023E' '4AB34028023E.pas.ms.script' // Components
+ WL 'ME_50883A2E00B3' '50883A2E00B3.pas.ms.script' // Application
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "ifdef" 'DesignTimeLibrary'
+ CONST "path prefix" '/implementation/Design'
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4AB22E9B0071.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4AB22E9B0071.pas.ms.script.runner'
+
+ref; // ME_4AB22E9B0071 Design

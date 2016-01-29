@@ -1,0 +1,29 @@
+#include "CCS.idl"
+
+#ifndef _MTDORBORBCCS_IDL_
+#define _MTDORBORBCCS_IDL_
+
+#pragma prefix "mtdorb.org"
+
+module CCS
+{	
+	exception LockSetNotFound{};
+	
+	interface LockSetFactory : CosConcurrencyControl::LockSetFactory
+	{
+		/**
+		 * creates a new lock set or retrieve the existing lock set if existing
+		 */
+		CosConcurrencyControl::LockSet create_lockset(in string object_name);
+		
+		/**
+		 * retrieves the lock set of an object. you can precise to create it if it doesn't exist
+		 */
+		CosConcurrencyControl::LockSet get_lockset(in string object_name, in boolean create) raises (LockSetNotFound);
+	};
+		
+};
+
+#pragma prefix ""
+
+#endif

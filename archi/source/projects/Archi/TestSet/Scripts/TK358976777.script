@@ -1,0 +1,21 @@
+USES
+	QuickTestsUtils.script
+;
+
+PROCEDURE "Заполнять сообщение"
+  "Набить цифры" 
+  INTEGER VAR l_X 
+  INTEGER VAR l_Y
+  OBJECT VAR l_MemMsg  
+  "Контрол по имени {(carMemMessage)}" >>> l_MemMsg
+  l_MemMsg pop:Control:Top 10 + >>> l_Y
+  l_MemMsg pop:Control:Left 10 + >>> l_X
+  l_X l_Y l_MemMsg pop:Control:MouseLeftClick
+;
+
+Тест TK358976777
+	Параметры: ( "Параметры для создания нового сообщения" "Проверка имени контрола" "Закрывать Реестр Объектов и все окна" )
+	Выполнить ( "Заполнять сообщение" )
+;
+
+TK358976777

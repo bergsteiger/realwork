@@ -1,0 +1,64 @@
+// EVD 467A8734039C Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_467A8734039C
+ CONST UID '467A8734039C'
+ CONST Name 'EVD'
+ CONST Class class_Category
+ : Stereotype st_Library ;
+ %SUMMARY 'Содержит классы и методы для обработки документов в формате EVD.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4677DDBD0193' '4677DDBD0193.pas.ms.script' // Shared Delphi
+ ;
+ : Children
+   @ ( WL 'ME_469D0AC7005E' '469D0AC7005E.pas.ms.script' // Types
+ WL 'ME_476C0699010D' '476C0699010D.pas.ms.script' // Const
+ WL 'ME_476BE0350329' '476BE0350329.pas.ms.script' // Styles
+ WL 'ME_48F4E61C0060' '48F4E61C0060.pas.ms.script' // Interfaces
+ WL 'ME_4C1B915E0261' '4C1B915E0261.pas.ms.script' // Version Info
+ WL 'ME_4860B0120014' '4860B0120014.pas.ms.script' // Core Objects
+ WL 'ME_484A470100DD' '484A470100DD.pas.ms.script' // Standard
+ WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.pas.ms.script' // Generators
+ WL 'ME_4A23D24F0125' '4A23D24F0125.pas.ms.script' // DOM
+ WL 'ME_47CFDC160002' '47CFDC160002.pas.ms.script' // Paragraphs
+ WL 'ME_483E80C9025F' '483E80C9025F.pas.ms.script' // Readers
+ WL 'ME_53B15D5603E3' '53B15D5603E3.pas.ms.script' // TagHolder
+ WL 'ME_53C51B390355' '53C51B390355.pas.ms.script' // TasksTuning
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4677E16A022A' '4677E16A022A.pas.ms.script' // K2
+ WL 'ME_4684F91300DD' '4684F91300DD.pas.ms.script' // Vcl
+ WL 'ME_469F3E37025A' '469F3E37025A.pas.ms.script' // Rtl
+ WL 'ME_4790D09A0378' '4790D09A0378.pas.ms.script' // L3
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
+ ) .SequenceCode.It
+ ; // Depends
+ CONST "defines" 'evdDefine.inc'
+ CONST "elements prefix" 'evd'
+ CONST "exec mode" 'concluded'
+ CONST "gui" 'rtl'
+ CONST "is namespace" true
+ CONST "vendor" '/Garant'
+ : Generators
+ @ (
+ gen_cpp
+ gen_forth_structure
+ gen_h
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST cpp:Path 'common\components\rtl\Garant\EVD\LibHome.cpp'
+ CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi\EVD\EVD.model.script'
+ CONST h:Path 'common\components\rtl\Garant\EVD\LibHome.h'
+ CONST intf.pas:Path 'common\components\rtl\Garant\EVD\EVD_lib.info'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\467A8734039C.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\467A8734039C.pas.ms.script.runner'
+ CONST extprop:pas:ElementPrefixBase 'evd'
+ CONST extprop:pas:ElementPrefix 'evd_'
+
+ref; // ME_467A8734039C EVD

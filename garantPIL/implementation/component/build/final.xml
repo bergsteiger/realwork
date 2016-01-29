@@ -1,0 +1,30 @@
+<project name="final">
+    <target name="final.all" depends="final.build.zip,final.services.stop_build" description="Common finalization">
+    </target>
+    
+    <target name="final.services.stop_build" description="Stop build-intranet services">
+        <echo message="Stop dev-intranet" level="info"/>
+        <exec executable="python" output="${log.service}" error="${log.service}" failonerror="true" timeout="180000">
+            <arg value="bin/ServiceHelper.py"/>
+            <arg value="--action=stop"/>
+            <arg value="--port-corba=${intranet.dev.portCorba}"/>
+            <arg value="--port-zope=${intranet.dev.portZope}"/>
+        </exec>
+        
+        <echo message="Stop build-intranet" level="info"/>        
+        <exec executable="python" output="${log.service}" error="${log.service}" failonerror="true" timeout="180000">
+            <arg value="bin/ServiceHelper.py"/>
+            <arg value="--action=stop"/>
+            <arg value="--port-corba=${intranet.build.portCorba}"/>
+            <arg value="--port-zope=${intranet.build.portZope}"/>
+        </exec>
+    </target>
+    
+    <target name="final.build.zip" description="Delete files after zip">
+        <delete dir="${javascript.compress.storage}"/>
+        <delete dir="${help.storage}"/>
+        <delete file="${build.storage}/intranet.zip" />    
+        <delete dir="${build.storage}/${build.type}" />    
+        <delete dir="${build.storage}/${build.type}_${build.version.major}.${build.version.minor}/web/settings/etaloncopy" />    
+    </target>
+</project>

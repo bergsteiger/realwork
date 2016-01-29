@@ -1,0 +1,153 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/DelphiSpecific/DelphiLang/Implementation/ExeTarget.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$ForDelphi::DelphiSpecific::DelphiLang::Implementation::ExeTarget
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: ExeTarget::Category (redefinition)
+implementation @ <<ExeTarget>>
+//> SimpleClass::Class
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p console:b=false ? 
+//p need UC in project:b=false ? 
+//p path suffix:s ? 
+//p defines:s ? определяет файл с условиями компиляции
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	[{"%S{need UC in project}"!="%S{!need UC in project}"}%f_up_prefix(%S) *need UC in project* = *%S{need UC in project}*
+ if ( ( %S get_up ( 'need UC in project' ) ) %!= ( %S get_up_def ( 'need UC in project' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *need UC in project* = *'
+  %S get_up ( 'need UC in project' ) '*'
+//	][{"%S{console}"!="%S{!console}"}%f_up_prefix(%S) *console* = *%S{console}*
+ end // if
+ if ( ( %S get_up ( 'console' ) ) %!= ( %S get_up_def ( 'console' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *console* = *'
+  %S get_up ( 'console' ) '*'
+//	][{"%S{path suffix}"!="%S{!path suffix}"}%f_up_prefix(%S) *path suffix* = *%S{path suffix}*
+ end // if
+ if ( ( %S get_up ( 'path suffix' ) ) %!= ( %S get_up_def ( 'path suffix' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *path suffix* = *'
+  %S get_up ( 'path suffix' ) '*'
+//	][{"%S{defines}"!="%S{!defines}"}%f_up_prefix(%S) *defines* = *%S{defines}* - определяет файл с условиями компиляции
+ end // if
+ if ( ( %S get_up ( 'defines' ) ) %!= ( %S get_up_def ( 'defines' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *defines* = *'
+  %S get_up ( 'defines' ) '* - определяет файл с условиями компиляции'
+//	]
+ end // if
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// Вызывается для генерации специфических cpp-шников (например хидере реализации хранения)
+//%f _specific_cpp_files_list
+; // wiki_up_print
+
+: specific_cpp_files_list OBJECT IN %S
+//#UC START# *47EA208B0009for4E2582920072*
+//#UC END# *47EA208B0009for4E2582920072*
+; // specific_cpp_files_list
+
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// Вызывается для генерации специфических хидеров (например хидере реализации хранения)
+//%f _specific_h_files_list
+: specific_h_files_list OBJECT IN %S
+//#UC START# *47EA1ED00157for4E2582920072*
+//#UC END# *47EA1ED00157for4E2582920072*
+; // specific_h_files_list
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor4E2582920072*
+//#UC END# *47022C88029Ffor4E2582920072*
+; // h
+
+
+// реализация абстрактного стереотипа C++ интерфейсы и реализация::MDAGenerator
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor4E2582920072*
+//#UC END# *47022CCF00EAfor4E2582920072*
+; // i.h
+
+
+// реализация абстрактного стереотипа Java::MDAGenerator
+// генератор реализации фабрик интерфейсов на java (.java)
+//+ fctr.java
+<<generator>> fctr.java OBJECT IN %S
+//#UC START# *470321C1038Afor4E2582920072*
+//#UC END# *470321C1038Afor4E2582920072*
+; // fctr.java
+
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// дополнительные файлы проектов (mpc)
+//+ mpc2
+<<generator>> mpc2 OBJECT IN %S
+//#UC START# *47031E850177for4E2582920072*
+//#UC END# *47031E850177for4E2582920072*
+; // mpc2
+
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// Файлы ресурсов (rc)
+//+ rc
+<<generator>> rc OBJECT IN %S
+//#UC START# *471442BE033Cfor4E2582920072*
+//#UC END# *471442BE033Cfor4E2582920072*
+; // rc
+
+
+// реализация абстрактного стереотипа Проектные файлы C++::MDAGenerator
+// файл настроек (.ini)
+//+ s.ini
+<<generator>> s.ini OBJECT IN %S
+//#UC START# *47031EDE0138for4E2582920072*
+//#UC END# *47031EDE0138for4E2582920072*
+; // s.ini
+
+
+// реализация абстрактного стереотипа Проектные файлы Java::MDAGenerator
+// генератор файлов с описанием плагинов для Confluence
+//+ output.xml
+<<generator>> output.xml OBJECT IN %S
+//#UC START# *4703223D01A5for4E2582920072*
+//#UC END# *4703223D01A5for4E2582920072*
+; // output.xml
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<ExeTarget>>
+

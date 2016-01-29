@@ -1,0 +1,23 @@
+<Html><Head><Title>TBlockSocket.RecvTerminated</Title></Head><Body BGCOLOR="#FFFAEC" LINK="Red" ALINK="Blue" VLINK="Purple">
+<!---1--->
+<font face="Arial">
+<P Align="left"><BIG><B>TBlockSocket.RecvTerminated</B></BIG><BR>
+
+<A href="TBlockSocket.html">TBlockSocket</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</P><B>function</B> RecvTerminated(Timeout: Integer; Const Terminator: string): string;<B> virtual;</B><BR>
+<BR>
+<B>Unit</B><BR>
+<A href="blcksock.html">blcksock</A><BR>
+<BR>
+<B>Description</B><BR>
+Note: This is high-level receive function. It using internal LineBuffer and you can combine this function freely with other high-level functions.<BR>
+<BR>
+Method waits until data string is received. This string is terminated by Terminator string. The resulting string is returned without this termination. <BR>
+<BR>
+If no data is received within TIMEOUT (in milliseconds) period, LastError is set to WSAETIMEDOUT. <BR>
+<BR>
+You may also specify maximum length of reading data by MaxLineLength property.<BR>
+<BR>
+<BR>
+<B>See also:</B><BR>
+<A href="TBlockSocket.LineBuffer.html">LineBuffer</A>, <A href="TBlockSocket.MaxLineLength.html">MaxLineLength</A>, <A href="TBlockSocket.RecvBufferEx.html">RecvBufferEx</A>, <A href="TBlockSocket.RecvByte.html">RecvByte</A>, <A href="TBlockSocket.RecvPacket.html">RecvPacket</A>, <A href="TBlockSocket.RecvString.html">RecvString</A><BR>
+</font></Body></Html>

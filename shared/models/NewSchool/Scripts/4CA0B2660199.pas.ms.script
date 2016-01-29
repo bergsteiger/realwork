@@ -1,0 +1,297 @@
+// TFWTests 4CA0B2660199 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CA0B2660199
+
+FORWARD ME_4CA0B27401E4
+
+: ME_4CA0B2AC0096
+ CONST UID '4CA0B2AC0096'
+ CONST Name 'DoIt'
+ CONST Class class_Class
+ : Stereotype st_Test ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4CA0B27401E4 // TSuccessTest
+ ;
+
+ref; // ME_4CA0B2AC0096 DoIt
+
+: ME_8232CCF6C74A
+ CONST UID '8232CCF6C74A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CA0B27401E4 // TSuccessTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_8232CCF6C74A 
+
+: ME_4C937013031D_ME_4CA0B27401E4
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4CA0B27401E4 // TSuccessTest
+ ;
+ref; // ME_4C937013031D_ME_4CA0B27401E4 GetFolder
+
+: ME_4DAED6F60146_ME_4CA0B27401E4
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4CA0B27401E4 // TSuccessTest
+ ;
+ref; // ME_4DAED6F60146_ME_4CA0B27401E4 GetModelElementGUID
+
+: ME_4CA0B27401E4
+ CONST UID '4CA0B27401E4'
+ CONST Name 'TSuccessTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Успешный тест' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4CA0B2660199 // TFWTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4CA0B2AC0096 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4C937013031D_ME_4CA0B27401E4 // GetFolder
+ ME_4DAED6F60146_ME_4CA0B27401E4 // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_8232CCF6C74A // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '27.09.2010 19:04'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\TestForTFW\SuccessTest.pas'
+
+ref; // ME_4CA0B27401E4 TSuccessTest
+
+FORWARD ME_4CA0B2BA01AC
+
+: ME_4CA0B2E40378
+ CONST UID '4CA0B2E40378'
+ CONST Name 'DoIt'
+ CONST Class class_Class
+ : Stereotype st_Test ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4CA0B2BA01AC // TFailedTest
+ ;
+
+ref; // ME_4CA0B2E40378 DoIt
+
+: ME_368B50DD4DE4
+ CONST UID '368B50DD4DE4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CA0B2BA01AC // TFailedTest
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_368B50DD4DE4 
+
+: ME_4C937013031D_ME_4CA0B2BA01AC
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4CA0B2BA01AC // TFailedTest
+ ;
+ref; // ME_4C937013031D_ME_4CA0B2BA01AC GetFolder
+
+: ME_4DAED6F60146_ME_4CA0B2BA01AC
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4CA0B2BA01AC // TFailedTest
+ ;
+ref; // ME_4DAED6F60146_ME_4CA0B2BA01AC GetModelElementGUID
+
+: ME_4CA0B2BA01AC
+ CONST UID '4CA0B2BA01AC'
+ CONST Name 'TFailedTest'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4CA0B2660199 // TFWTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4CA0B2E40378 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4C937013031D_ME_4CA0B2BA01AC // GetFolder
+ ME_4DAED6F60146_ME_4CA0B2BA01AC // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_368B50DD4DE4 // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '27.09.2010 19:05'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\TestForTFW\FailedTest.pas'
+
+ref; // ME_4CA0B2BA01AC TFailedTest
+
+FORWARD ME_4CAC95AC011D
+
+: ME_4CAC95F60396
+ CONST UID '4CAC95F60396'
+ CONST Name 'DoIt'
+ CONST Class class_Class
+ : Stereotype st_Test ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4CAC95AC011D // K235868845
+ ;
+
+ref; // ME_4CAC95F60396 DoIt
+
+: ME_F135413F966F
+ CONST UID 'F135413F966F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4CAC95AC011D // K235868845
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_F135413F966F 
+
+: ME_4C937013031D_ME_4CAC95AC011D
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_4CAC95AC011D // K235868845
+ ;
+ref; // ME_4C937013031D_ME_4CAC95AC011D GetFolder
+
+: ME_4DAED6F60146_ME_4CAC95AC011D
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_4CAC95AC011D // K235868845
+ ;
+ref; // ME_4DAED6F60146_ME_4CAC95AC011D GetModelElementGUID
+
+: ME_4CAC95AC011D
+ CONST UID '4CAC95AC011D'
+ CONST Name 'K235868845'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:235868845}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4CA0B2660199 // TFWTests
+ ;
+ : Inherits
+   @ ( WL 'ME_4B2A11BC0255' '4B2A112B011A.pas.ms.script' // TBaseTest
+ ) .SequenceCode.It
+ ; // Inherits
+ : Operations
+   @ ( ME_4CAC95F60396 // DoIt
+ ) .SequenceCode.It
+ ; // Operations
+ : Overridden
+   @ ( ME_4C937013031D_ME_4CAC95AC011D // GetFolder
+ ME_4DAED6F60146_ME_4CAC95AC011D // GetModelElementGUID
+ ) .SequenceCode.It
+ ; // Overridden
+ : Dependencies
+   @ ( ME_F135413F966F // 
+ ) .SequenceCode.It
+ ; // Dependencies
+ CONST "author" 'Люлин А.В.'
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" true
+ CONST "register in scripts" 'undefined'
+ CONST "started" '06.10.2010 19:29'
+ : Generators
+ @ (
+ gen_intf.pas
+ ) .SequenceCode.It
+ ; // Generators
+ CONST intf.pas:Path 'common\components\rtl\Garant\TestForTFW\K235868845.pas'
+ CONST extprop:pas:TypeName 'TK235868845'
+
+ref; // ME_4CAC95AC011D K235868845
+
+: ME_4CA0B2660199
+ CONST UID '4CA0B2660199'
+ CONST Name 'TFWTests'
+ CONST Class class_Category
+ : Stereotype st_TestUnit ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_4CA0B1CA00A3' '4CA0B1CA00A3.pas.ms.script' // TestForTFW
+ ;
+ : Children
+   @ ( ME_4CA0B27401E4 // TSuccessTest
+ ME_4CA0B2BA01AC // TFailedTest
+ ME_4CAC95AC011D // K235868845
+ ) .SequenceCode.It
+ ; // Children
+ : Depends
+   @ ( WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.pas.ms.script' // Source
+ WL 'ME_4B2A112B011A' '4B2A112B011A.pas.ms.script' // Source
+ ) .SequenceCode.It
+ ; // Depends
+ : Generators
+ @ (
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\4CA0B2660199.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4CA0B2660199.pas.ms.script.runner'
+
+ref; // ME_4CA0B2660199 TFWTests

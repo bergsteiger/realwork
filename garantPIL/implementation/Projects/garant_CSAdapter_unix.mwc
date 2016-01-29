@@ -1,0 +1,21 @@
+workspace (CSAdapter) {
+	cmdline += -ti dll_exe:make-garant-server
+	cmdline += -ti dll:make-garant-server
+
+	static_projects {
+		cmdline += -ti lib:make-garant-server
+		cmdline += -static
+
+		../../../shared/project/Core.mpc
+		../../../shared/project/GCL.mpc
+		../../../shared/project/ContextSearch.mpc
+		../../../shared/project/Morpho.mpc
+
+		../../../garantPIL/implementation/component/cpp/garantCore/project/DBExt.mpc
+		../../../garantPIL/implementation/component/cpp/garantCore/project/SearchAdapterLib.mpc
+		../../../garantPIL/implementation/Projects/libs/zlib.mpc
+
+	}
+
+	./targets/T_CSAdapter.mpc
+}

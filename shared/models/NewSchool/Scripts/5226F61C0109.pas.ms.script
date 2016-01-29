@@ -1,0 +1,36 @@
+// Samples 5226F61C0109 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+: ME_5226F61C0109
+ CONST UID '5226F61C0109'
+ CONST Name 'Samples'
+ CONST Class class_Category
+ : Stereotype st_Library ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_49B1511700CA' '49B1511700CA.pas.ms.script' // Shared Delphi Core
+ ;
+ : Children
+   @ ( WL 'ME_5226F7CC03C6' '5226F7CC03C6.pas.ms.script' // Samples
+ ) .SequenceCode.It
+ ; // Children
+ CONST "exec mode" 'concluded'
+ CONST "finished" false
+ CONST "gui" 'rtl'
+ CONST "is namespace" true
+ CONST "vendor" '/external/NotFinished/Borland/Delphi'
+ : Generators
+ @ (
+ gen_forth_structure
+ gen_intf.pas
+ gen_pas.script
+ gen_pas.script.runner
+ ) .SequenceCode.It
+ ; // Generators
+ CONST forth_structure:Path 'shared\models\NewSchool\Shared Delphi Core\Samples\Samples.model.script'
+ CONST intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Samples\Samples_lib.info'
+ CONST pas.script:Path 'shared\models\NewSchool\Scripts\5226F61C0109.pas.ms.script'
+ CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5226F61C0109.pas.ms.script.runner'
+
+ref; // ME_5226F61C0109 Samples

@@ -1,0 +1,20 @@
+USES
+	QuickTestsUtils.script
+;
+
+CONST cnFirstBlockLabelInAACTextDoc 3
+
+PROCEDURE "Выставляем первому блоку тип 'слева' с ошибкой"
+	@ ( cnFirstBlockLabelInAACTextDoc окно_редактора:изменить_саб ) MODAL "Тип слева с ошибкой"
+;
+
+Тест TK380608001_1	
+	Параметры: ( 
+				 "Документ ААК-текст" 
+				 "Проверка EVD документа" 
+				 "Переходить к метке с номером {(cnFirstBlockLabelInAACTextDoc)}" 
+			) 
+	Выполнить ( "Выставляем первому блоку тип 'слева' с ошибкой" )	
+; 
+
+TK380608001_1
