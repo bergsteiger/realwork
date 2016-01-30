@@ -1,0 +1,36 @@
+//#UC START# *2B70B2B2422D__impl*
+   if l3Same(l_Name, anItem.ReqName) then
+   begin
+    Result := false;
+    l_F := anItem.FirstField;
+    l_LogicOp := (l_F As IevEditorFieldWithTree).LogicalState; 
+    Exit;
+   end else
+    Result := true;
+//#UC END# *2B70B2B2422D__impl*
+//#UC START# *2B70B2B2422D__var*
+  var
+   l_F : IevEditorControlField;
+//#UC END# *2B70B2B2422D__var*
+//#UC START# *4E808E8B01BB_50EFDD1802BC_impl*
+ DoModelImpl(aCtx, aCard);
+//#UC END# *4E808E8B01BB_50EFDD1802BC_impl*
+//#UC START# *4E808E8B01BB_50EFDD1802BC_var*
+//#UC END# *4E808E8B01BB_50EFDD1802BC_var*
+//#UC START# *50EFE12701AD_50EFDD1802BC_impl*
+ l_Name := aCtx.rEngine.PopString;
+ l_Op := aCard.StartOp;
+ try
+  CallIterator;
+ finally
+  l_Op := nil;
+ end;//try..finally
+ aCtx.rEngine.PushInt(l_LogicOp);
+//#UC END# *50EFE12701AD_50EFDD1802BC_impl*
+//#UC START# *50EFE12701AD_50EFDD1802BC_var*
+//#UC END# *50EFE12701AD_50EFDD1802BC_var*
+//#UC START# *50EFE2330224__var*
+//#UC END# *50EFE2330224__var*
+//#UC START# *50EFE2330224iter*
+  TevReqIterator.Make(aCard).
+//#UC END# *50EFE2330224iter*

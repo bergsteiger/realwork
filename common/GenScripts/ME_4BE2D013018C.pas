@@ -1,10 +1,19 @@
-unit evNSRCConst;
+unit NOT_FINISHED_evNSRCConst;
+ {* Константы для формата NSRC }
+
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_evNSRCConst.pas"
+// Стереотип: "UtilityPack"
+
+{$Include ddDefine.inc}
 
 interface
 
 uses
  l3IntfUses
 ;
+
+const
+ ev_NSRCSoftEnter = #29;
 
 implementation
 

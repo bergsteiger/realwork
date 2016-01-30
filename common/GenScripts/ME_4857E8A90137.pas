@@ -1,4 +1,10 @@
 unit QueryCard_Const;
+ {* Новая КЗ }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\QueryCard_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -9,7 +15,7 @@ uses
 ;
 
  // QueryCardTag
- 
+
 implementation
 
 uses

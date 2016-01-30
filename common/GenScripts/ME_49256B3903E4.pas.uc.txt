@@ -1,0 +1,149 @@
+//#UC START# *47F465F80149_49256B3903E4_impl*
+ Result := vtMakeImageListWrapper(nsDocumentRes.DocumentItemsImageList);
+//#UC END# *47F465F80149_49256B3903E4_impl*
+//#UC START# *47F465F80149_49256B3903E4_var*
+//#UC END# *47F465F80149_49256B3903E4_var*
+//#UC START# *492566F7019F_49256B3903E4get_impl*
+ Assert(Assigned(SDS));
+ Result := SDS.DocInfo;
+//#UC END# *492566F7019F_49256B3903E4get_impl*
+//#UC START# *492566F7019F_49256B3903E4get_var*
+//#UC END# *492566F7019F_49256B3903E4get_var*
+//#UC START# *492ACF630072_49256B3903E4_impl*
+ inherited;
+ pm_SetSimpleTree(PartData.Contents);
+//#UC END# *492ACF630072_49256B3903E4_impl*
+//#UC START# *492ACF630072_49256B3903E4_var*
+//#UC END# *492ACF630072_49256B3903E4_var*
+//#UC START# *4D2DEA3B0176_49256B3903E4get_impl*
+ if (PartData = nil) then
+  Result := nil
+ else
+  Result := PartData.Bookmarks;
+//#UC END# *4D2DEA3B0176_49256B3903E4get_impl*
+//#UC START# *4D2DEA3B0176_49256B3903E4get_var*
+//#UC END# *4D2DEA3B0176_49256B3903E4get_var*
+//#UC START# *4D2DEA3F012E_49256B3903E4get_impl*
+ if (PartData = nil) then
+  Result := nil
+ else
+  Result := PartData.Comments;
+//#UC END# *4D2DEA3F012E_49256B3903E4get_impl*
+//#UC START# *4D2DEA3F012E_49256B3903E4get_var*
+//#UC END# *4D2DEA3F012E_49256B3903E4get_var*
+//#UC START# *4D2DEA430044_49256B3903E4get_impl*
+ if (PartData = nil) then
+  Result := nil
+ else
+  Result := PartData.ExternalObjects;
+//#UC END# *4D2DEA430044_49256B3903E4get_impl*
+//#UC START# *4D2DEA430044_49256B3903E4get_var*
+//#UC END# *4D2DEA430044_49256B3903E4get_var*
+//#UC START# *4D3089A80114_49256B3903E4get_impl*
+ if (PartData = nil) then
+  Result := nil
+ else
+  Result := PartData.Adornments;
+//#UC END# *4D3089A80114_49256B3903E4get_impl*
+//#UC START# *4D3089A80114_49256B3903E4get_var*
+//#UC END# *4D3089A80114_49256B3903E4get_var*
+//#UC START# *4D404C490215_49256B3903E4get_impl*
+ Case aListType of
+  ns_cltBookmarks:
+   if (Get_Bookmarks = nil) then
+    Result := 0
+   else
+    Result := Get_Bookmarks.Count;
+  ns_cltComments:
+   if (Get_Comments = nil) OR
+      (Get_Adornments = nil) then
+    Result := 0
+   else
+    Result := Get_Comments.Count;
+  ns_cltExternalObjects:
+   if (Get_ExternalObjects = nil) then
+    Result := 0
+   else
+    Result := Get_ExternalObjects.Count;
+  else
+  begin
+   Result := 0;
+   Assert(false);
+  end;//else
+ end;//Case aListType
+//#UC END# *4D404C490215_49256B3903E4get_impl*
+//#UC START# *4D404C490215_49256B3903E4get_var*
+//#UC END# *4D404C490215_49256B3903E4get_var*
+//#UC START# *4D416629016B_49256B3903E4get_impl*
+ Result.rIString := nil;
+ Result.rIl3CString := nil;
+ Case anIndex.rListType of
+  ns_cltBookmarks:
+  begin
+   if (Get_Bookmarks.Count > anIndex.rIndex) then
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=290953453
+   begin
+    Get_Bookmarks.pm_GetItem(anIndex.rIndex, l_BM);
+    Result.rIString := l_BM.rName;
+   end;//Get_Bookmarks.Count > anIndex.rIndex
+  end;//ns_cltBookmarks
+  ns_cltComments:
+  begin
+   l_ID := Get_Comments.Items[anIndex.rIndex];
+   if (Get_Adornments = nil) then
+    Result.rIl3CString := vcmFmt(str_CommentStub, [anIndex.rIndex, l_ID])
+   else
+   begin
+    Result.rIl3CString :=
+     Get_Adornments.As_InevCommentTextProvider.
+      GetCommentTextByParaID(l_ID);
+    if l3IsNil(Result.rIl3CString) then
+     Result.rIl3CString := vcmFmt(str_CommentStub, [anIndex.rIndex, l_ID]);
+   end;//Get_Adornments = nil
+  end;//ns_cltComments
+  ns_cltExternalObjects:
+  begin
+   Get_ExternalObjects.pm_GetItem(anIndex.rIndex, l_EO);
+   Result.rIString := l_EO.rName;
+  end;//ns_cltExternalObjects
+  else
+   Assert(false);
+ end;//Case anIndex.rListType
+//#UC END# *4D416629016B_49256B3903E4get_impl*
+//#UC START# *4D416629016B_49256B3903E4get_var*
+var
+ l_BM : TBookmark2;
+ l_EO : TExternalObjectData;
+ l_ID : Integer;
+//#UC END# *4D416629016B_49256B3903E4get_var*
+//#UC START# *4D4173FE02CC_49256B3903E4get_impl*
+ Result := 0;
+ Case anIndex.rListType of
+  ns_cltBookmarks:
+  begin
+   Get_Bookmarks.pm_GetItem(anIndex.rIndex, l_BM);
+   Result := l_BM.rParaID;
+  end;//ns_cltBookmarks
+  ns_cltComments:
+  begin
+   Result := Get_Comments.Items[anIndex.rIndex];
+  end;//ns_cltComments
+  ns_cltExternalObjects:
+  begin
+   Get_ExternalObjects.pm_GetItem(anIndex.rIndex, l_EO);
+   Result := l_EO.rParaID;
+  end;//ns_cltExternalObjects
+  else
+   Assert(false);
+ end;//Case anIndex.rListType
+//#UC END# *4D4173FE02CC_49256B3903E4get_impl*
+//#UC START# *4D4173FE02CC_49256B3903E4get_var*
+var
+ l_BM : TBookmark2;
+ l_EO : TExternalObjectData;
+//#UC END# *4D4173FE02CC_49256B3903E4get_var*
+//#UC START# *4E7B5DED03A2_49256B3903E4get_impl*
+ Result := (PartData = nil) OR PartData.Empty; 
+//#UC END# *4E7B5DED03A2_49256B3903E4get_impl*
+//#UC START# *4E7B5DED03A2_49256B3903E4get_var*
+//#UC END# *4E7B5DED03A2_49256B3903E4get_var*

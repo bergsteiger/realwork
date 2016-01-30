@@ -1,4 +1,9 @@
-unit m3IdxCla;
+unit NOT_FINISHED_m3IdxCla;
+
+// Модуль: "w:\common\components\rtl\Garant\m3\NOT_FINISHED_m3IdxCla.pas"
+// Стереотип: "UtilityPack"
+
+{$Include m3Define.inc}
 
 interface
 

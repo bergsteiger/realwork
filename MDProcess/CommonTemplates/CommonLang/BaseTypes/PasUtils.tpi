@@ -76,7 +76,8 @@ r {"%SS"=""}: {%SN}
 r {%S#f_evd_IsSchemaElement()=true}: {[{}{[{%SS=TagOverride}%PN_]}%S#f_pas_ElementPrefixBase()]%SN_Const}
 // - файл с константами от предопределённых значений тега
 r {%S#f_IsPureMixIn()=true}: {}
-r {true}: {!ERROR!%SN.%SS}
+r {true}: {}
+//r {true}: {!ERROR!%SN.%SS}
 
 f _SpellFieldPrim
 	%f_set_var(PARENT_CLASS,"")\
@@ -298,7 +299,6 @@ t _pas_InPrefix
 @ %SU
 c {}
 r {%SS=Typedef}: {[{%S{isPointer}=true}{%t_pas_InPrefix(%G)}]}
-r {%SS=InitedTypedef}: {%f_error("Недопустимый стереотип %SS")%t_pas_InPrefix(%G)}
 r {%S#f_IsStruct()=true}: {const }
 r {%SS=Union}: {const }
 r {%SS=Vector}: {const }
@@ -348,7 +348,6 @@ t _pas_ParamType
 //#UC START# *47217567007D*
 c {}
 r {%SS=Vector}: {[{%S{array type}=open}{%f_pas_TypeName(%S)}array of %f_pas_TypeName(%C%T)]}
-r {%SS=InitedTypedef}: {%f_pas_TypeName(%G) = %CN}
 r {true}: {%f_pas_TypeName(%S)}
 //#UC END# *47217567007D*
 

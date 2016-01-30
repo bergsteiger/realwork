@@ -1,0 +1,99 @@
+//#UC START# *479731C50290_48076E9D013E_impl*
+  FreeAndNil(f_ParamList);
+  FreeAndNil(f_ChildOperations);
+  inherited;
+//#UC END# *479731C50290_48076E9D013E_impl*
+//#UC START# *479731C50290_48076E9D013E_var*
+//#UC END# *479731C50290_48076E9D013E_var*
+//#UC START# *47A042E100E2_48076E9D013E_impl*
+  inherited;
+  f_ParamList := TatOperationParametersList.Create;
+  f_ChildOperations := TatOperationsList.Create(true);
+  InitParamList;
+//#UC END# *47A042E100E2_48076E9D013E_impl*
+//#UC START# *47A042E100E2_48076E9D013E_var*
+//#UC END# *47A042E100E2_48076E9D013E_var*
+//#UC START# *48089F3701B4_48076E9D013E_impl*
+  with f_ParamList do
+    Add( ParamType.Create('iterations', 'Количество итераций', '1') );
+//#UC END# *48089F3701B4_48076E9D013E_impl*
+//#UC START# *48089F3701B4_48076E9D013E_var*
+//#UC END# *48089F3701B4_48076E9D013E_var*
+//#UC START# *48089F660238_48076E9D013E_impl*
+  childsCount := f_ChildOperations.Count;
+  if (childsCount <> 0) then
+  begin
+    Logger.Info('Начинаем выполнять детей операции "' + GetName + '"');
+    for i := 0 to childsCount-1 do
+      f_ChildOperations.Items[i].Execute(ExecutionContext);
+    Logger.Info('Закончили выполнять детей операции "' + GetName + '"');
+  end;
+//#UC END# *48089F660238_48076E9D013E_impl*
+//#UC START# *48089F660238_48076E9D013E_var*
+    var
+      i, childsCount : integer;
+//#UC END# *48089F660238_48076E9D013E_var*
+//#UC START# *48089F8B00C5_48076E9D013E_impl*
+  Result := Copy(ClassName, 4, Length(ClassName));
+//#UC END# *48089F8B00C5_48076E9D013E_impl*
+//#UC START# *48089F8B00C5_48076E9D013E_var*
+//#UC END# *48089F8B00C5_48076E9D013E_var*
+//#UC START# *48089FA50390_48076E9D013E_impl*
+  Assert(eCtxt <> nil, 'eCtxt <> nil');
+  ExecutionContext := eCtxt;
+  //
+  sleepTime := RandomRange(eCtxt.MinDelay, eCtxt.MaxDelay);
+  if (sleepTime > 0) then
+  begin
+    Logger.Info('Задержка на ' + IntToStr(sleepTime) + ' мс.');
+    Sleep(sleepTime);
+  end;
+  //
+  iterCount := Parameters['iterations'].AsInt;
+  for i := 1 to iterCount do
+  begin
+    // выполняем себя
+    Logger.Info('Начинаем выполнять операцию "' + GetName + '". Итерация ' + IntToStr(i) + '/' + IntToStr(iterCount));
+    try
+      ExecuteSelf;
+    except
+      on EAbort do
+      begin
+        Logger.Info('Выполнение операций прервано');
+        Raise;
+      end;
+      on ex : Exception do
+      begin
+        Logger.Exception(ex, 'Исключение во время выполнения операции "' + GetName + '"');
+        Raise;
+      end;
+    end;
+    Logger.Info('Закончили выполнять операцию "' + GetName + '"');
+    // выполняем детей
+    ExecuteChilds;
+  end;
+//#UC END# *48089FA50390_48076E9D013E_impl*
+//#UC START# *48089FA50390_48076E9D013E_var*
+    var
+      i, iterCount, sleepTime : Integer;
+//#UC END# *48089FA50390_48076E9D013E_var*
+//#UC START# *48089FBE0004_48076E9D013E_impl*
+  f_ChildOperations.Add(childOperation);
+//#UC END# *48089FBE0004_48076E9D013E_impl*
+//#UC START# *48089FBE0004_48076E9D013E_var*
+//#UC END# *48089FBE0004_48076E9D013E_var*
+//#UC START# *4808A004003A_48076E9D013Eget_impl*
+    Result := f_ParamList.ParamByName[aName];
+//#UC END# *4808A004003A_48076E9D013Eget_impl*
+//#UC START# *4808A004003A_48076E9D013Eget_var*
+//#UC END# *4808A004003A_48076E9D013Eget_var*
+//#UC START# *492188F70140_48076E9D013E_impl*
+  // ничего не делаем
+//#UC END# *492188F70140_48076E9D013E_impl*
+//#UC START# *492188F70140_48076E9D013E_var*
+//#UC END# *492188F70140_48076E9D013E_var*
+//#UC START# *5396F1F60329_48076E9D013Eget_impl*
+  Result := TatOperationEnv.Instance;
+//#UC END# *5396F1F60329_48076E9D013Eget_impl*
+//#UC START# *5396F1F60329_48076E9D013Eget_var*
+//#UC END# *5396F1F60329_48076E9D013Eget_var*

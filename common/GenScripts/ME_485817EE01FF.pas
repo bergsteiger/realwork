@@ -1,4 +1,10 @@
 unit XML_Const;
+ {* XML-документ }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\XML_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -9,7 +15,7 @@ uses
 ;
 
  // XMLTag
- 
+
 implementation
 
 uses

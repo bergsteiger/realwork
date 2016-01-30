@@ -1,5 +1,10 @@
 unit csDIsconnectReply_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\csDIsconnectReply_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -8,7 +13,7 @@ uses
 ;
 
  // csDIsconnectReplyTag
- 
+
 implementation
 
 uses

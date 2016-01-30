@@ -1,0 +1,142 @@
+//#UC START# *0EBF330C06BD_652B805E6BDC_impl*
+ with aControl.BoundsRect do
+  l_Pos := Point(Left + aPoint.X, Top + aPoint.Y);
+ l_MousePos := PointToSmallPoint(l_Pos);
+
+ SendMessage(aControl.Handle, WM_MBUTTONDOWN, 0, Longint(l_MousePos));
+ SendMessage(aControl.Handle, WM_MBUTTONUP, 0, Longint(l_MousePos));
+//#UC END# *0EBF330C06BD_652B805E6BDC_impl*
+//#UC START# *0EBF330C06BD_652B805E6BDC_var*
+var
+ l_Pos      : TPoint;
+ l_MousePos : TSmallPoint;
+//#UC END# *0EBF330C06BD_652B805E6BDC_var*
+//#UC START# *2F3D3440A024_60259FDDB2DC_impl*
+ SendMessage(aControl.Handle, WM_VSCROLL, MakeWParam(SB_LINEUP, 0), 0);
+//#UC END# *2F3D3440A024_60259FDDB2DC_impl*
+//#UC START# *2F3D3440A024_60259FDDB2DC_var*
+//#UC END# *2F3D3440A024_60259FDDB2DC_var*
+//#UC START# *31CD1215C543_5676987B6AD8_impl*
+ SendMessage(aControl.Handle, WM_VSCROLL, MakeWParam(SB_LINEDOWN, 0), 0);
+//#UC END# *31CD1215C543_5676987B6AD8_impl*
+//#UC START# *31CD1215C543_5676987B6AD8_var*
+//#UC END# *31CD1215C543_5676987B6AD8_var*
+//#UC START# *50D08C92A338_89E1228A3BE4_impl*
+ Result := DoFindControl(aControl);
+//#UC END# *50D08C92A338_89E1228A3BE4_impl*
+//#UC START# *50D08C92A338_89E1228A3BE4_var*
+ function DoFindControl(aControl: TWinControl): TComponent{TControl};
+ var
+  l_Index : Integer;
+  l_C : TControl;
+  l_Cmp : TComponent;
+ begin//DoFindControl
+  if (aControl.Name = aName) then
+   Result := aControl
+  else
+  begin
+   Result := nil;
+   for l_Index := 0 to Pred(aControl.ControlCount) do
+   begin
+    l_C := aControl.Controls[l_Index];
+    if (l_C.Name = aName) then
+    begin
+     Result := l_C;
+     Exit;
+    end//l_C.Name = l_Name
+    else
+    begin
+     if (l_C Is TWinControl) then
+     begin
+      Result := DoFindControl(TWinControl(l_C));
+      if (Result <> nil) then
+       Exit;
+     end;//l_C Is TWinControl
+    end;//l_C.Name = l_Name
+   end;//for l_Index
+   if (Result = nil) then
+    for l_Index := 0 to Pred(aControl.ComponentCount) do
+    begin
+     l_Cmp := aControl.Components[l_Index];
+     if (l_Cmp Is TControl) AND (l_Cmp.Name = aName) then
+     begin
+      Result := {TControl}(l_Cmp);
+      Exit;
+     end//l_C.Name = aName
+     else
+     if (l_Cmp Is TWinControl) then
+     begin
+      Result := DoFindControl(TWinControl(l_Cmp));
+      if (Result <> nil) then
+       Exit;
+     end;//l_C Is TWinControl
+     Result := l_Cmp.FindComponent(aName);
+     if (Result <> nil) then
+      Exit;
+     if (l_Cmp.Name = aName) then
+     begin
+      Result := l_Cmp;
+      Exit;
+     end;//l_C.Name = aName
+    end;//for l_Index
+  end;//aControl.Name = l_Name
+ end;//DoFindControl
+//#UC END# *50D08C92A338_89E1228A3BE4_var*
+//#UC START# *700C331C0034_01A83C03B567_impl*
+ with aControl.BoundsRect do
+  l_Pos := Point(Left + aPoint.X, Top + aPoint.Y);
+ l_MousePos := PointToSmallPoint(l_Pos);
+
+ SendMessage(aControl.Handle, WM_RBUTTONDOWN, 0, Longint(l_MousePos));
+ SendMessage(aControl.Handle, WM_RBUTTONUP, 0, Longint(l_MousePos));
+//#UC END# *700C331C0034_01A83C03B567_impl*
+//#UC START# *700C331C0034_01A83C03B567_var*
+var
+ l_Pos      : TPoint;
+ l_MousePos : TSmallPoint;
+//#UC END# *700C331C0034_01A83C03B567_var*
+//#UC START# *D86EEEFC03D7_207CDF6BFC46_impl*
+ with aControl.BoundsRect do
+  l_Pos := Point(Left + aPoint.X, Top + aPoint.Y);
+ l_MousePos := PointToSmallPoint(l_Pos);
+
+ SendMessage(aControl.Handle, WM_LBUTTONDOWN, 0, Longint(l_MousePos));
+ SendMessage(aControl.Handle, WM_LBUTTONUP, 0, Longint(l_MousePos));
+//#UC END# *D86EEEFC03D7_207CDF6BFC46_impl*
+//#UC START# *D86EEEFC03D7_207CDF6BFC46_var*
+var
+ l_Pos      : TPoint;
+ l_MousePos : TSmallPoint;
+//#UC END# *D86EEEFC03D7_207CDF6BFC46_var*
+//#UC START# *E30431C2D5CE_52E34524FDF7_impl*
+ if aControl.CanFocus then
+  aControl.SetFocus;
+ Result := aControl.Focused;
+//#UC END# *E30431C2D5CE_52E34524FDF7_impl*
+//#UC START# *E30431C2D5CE_52E34524FDF7_var*
+//#UC END# *E30431C2D5CE_52E34524FDF7_var*
+//#UC START# *E69FBA5A5B0F_7A8A3BB834BD_impl*
+ with aControl.BoundsRect do
+ begin
+  l_Pos := Point(Left + aPoint.X, Top + aPoint.Y);
+  l_Pos1 := Point(l_Pos.X + aDelta.X, l_Pos.Y + aDelta.Y);
+ end;//with aControl.BoundsRect 
+ l_MousePos := PointToSmallPoint(l_Pos);
+ l_MousePos1 := PointToSmallPoint(l_Pos1);
+
+ SendMessage(aControl.Handle, WM_LBUTTONDOWN, 0, Longint(l_MousePos));
+ SendMessage(aControl.Handle, WM_MOUSEMOVE, 0, Longint(l_MousePos1));
+ SendMessage(aControl.Handle, WM_LBUTTONUP, 0, Longint(l_MousePos1));
+//#UC END# *E69FBA5A5B0F_7A8A3BB834BD_impl*
+//#UC START# *E69FBA5A5B0F_7A8A3BB834BD_var*
+var
+ l_Pos       : TPoint;
+ l_Pos1      : TPoint;
+ l_MousePos  : TSmallPoint;
+ l_MousePos1 : TSmallPoint;
+//#UC END# *E69FBA5A5B0F_7A8A3BB834BD_var*
+//#UC START# *F53158879374_0EDEBD14C685_impl*
+ Result := aControl.Controls[anIndex];
+//#UC END# *F53158879374_0EDEBD14C685_impl*
+//#UC START# *F53158879374_0EDEBD14C685_var*
+//#UC END# *F53158879374_0EDEBD14C685_var*

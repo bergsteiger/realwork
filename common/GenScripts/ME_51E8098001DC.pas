@@ -1,25 +1,47 @@
-unit InterfacePtrList.imp;
+{$IfNDef InterfacePtrList_imp}
 
-interface
+// Модуль: "w:\common\components\SandBox\InterfacePtrList.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define InterfacePtrList_imp}
 
-type
+ _InterfaceList_Parent_ = _InterfacePtrList_Parent_;
+ {$Include InterfaceList.imp.pas}
  _InterfacePtrList_ = class(_InterfaceList_)
   {* Список УКАЗАТЕЛЕЙ на интерфейсы. Не владеет своими элементами }
-  procedure FreeItem(var thePlace: _ItemType_);
-  procedure FillItem(var thePlace: _ItemType_;
-   const aFrom: _ItemType_);
  end;//_InterfacePtrList_
- 
-implementation
 
-uses
- l3ImplUses
- , RTLConsts
- , l3MemorySizeUtils
-;
+{$Else InterfacePtrList_imp}
 
-end.
+{$IfNDef InterfacePtrList_imp_impl}
+
+{$Define InterfacePtrList_imp_impl}
+
+procedure FillItem(var thePlace: _ItemType_;
+ const aFrom: _ItemType_); forward;
+
+procedure FreeItem(var thePlace: _ItemType_);
+//#UC START# *51DEC20B01D7_51E8098001DC_var*
+//#UC END# *51DEC20B01D7_51E8098001DC_var*
+begin
+//#UC START# *51DEC20B01D7_51E8098001DC_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *51DEC20B01D7_51E8098001DC_impl*
+end;//FreeItem
+
+procedure FillItem(var thePlace: _ItemType_;
+ const aFrom: _ItemType_);
+//#UC START# *51DECB440087_51E8098001DC_var*
+//#UC END# *51DECB440087_51E8098001DC_var*
+begin
+//#UC START# *51DECB440087_51E8098001DC_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *51DECB440087_51E8098001DC_impl*
+end;//FillItem
+
+{$Include InterfaceList.imp.pas}
+
+{$EndIf InterfacePtrList_imp_impl}
+
+{$EndIf InterfacePtrList_imp}
+

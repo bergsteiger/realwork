@@ -1,5 +1,10 @@
 unit ServerStatusRequest_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\ServerStatusRequest_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -8,7 +13,7 @@ uses
 ;
 
  // ServerStatusRequestTag
- 
+
 implementation
 
 uses

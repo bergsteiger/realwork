@@ -1,4 +1,10 @@
 unit moParentAndChild;
+ {* Поддержка работы с родительской и дочерней зонами }
+
+// Модуль: "w:\common\components\gui\Garant\VCM\View\ParentAndChild\moParentAndChild.pas"
+// Стереотип: "VCMFormsPack"
+
+{$Include f1LikeAppDefine.inc}
 
 interface
 
@@ -8,10 +14,10 @@ uses
 ;
 
 type
- Tmo_ParentAndChild = class(TParentAndChildPrimModule)
+ Tmo_ParentAndChild = {final} class(TParentAndChildPrimModule)
   {* Поддержка работы с родительской и дочерней зонами }
  end;//Tmo_ParentAndChild
- 
+
 implementation
 
 uses

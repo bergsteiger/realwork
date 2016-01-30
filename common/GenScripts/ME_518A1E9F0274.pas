@@ -1,4 +1,9 @@
-unit RTFtypes;
+unit NOT_FINISHED_RTFtypes;
+
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_RTFtypes.pas"
+// Стереотип: "UtilityPack"
+
+{$Include ddDefine.inc}
 
 interface
 
@@ -6,10 +11,13 @@ uses
  l3IntfUses
 ;
 
+const
+ rtfTwip = 1440;
+
 type
  TddBorderRules = (
  );//TddBorderRules
- 
+
  TPropType = (
   propNone
   , propChp
@@ -28,9 +36,9 @@ type
   , propList
   , propColorTable
  );//TPropType
- 
+
  TIProp = Integer;
- 
+
  TRDS = (
   rdsSkip
   , rdsNorm
@@ -82,16 +90,16 @@ type
   , rdsLevelNumbers
   , rdsOldParaNumbering
  );//TRDS
- 
+
  TddBreakType = (
   breakPage
   , breakColumn
   , breakSection
  );//TddBreakType
- 
+
  TddBorderType = (
  );//TddBorderType
- 
+
  TddBorderParts = (
   bpTop
   , bpLeft
@@ -101,14 +109,14 @@ type
   , bpVertical
   , bpBox
  );//TddBorderParts
- 
+
  TrtfCharacterSet = (
   rtfANSI
   , rtfMac
   , rtfPC
   , rtfPCA
  );//TrtfCharacterSet
- 
+
  TPGN = (
   pgDec
   , pgURom
@@ -117,7 +125,7 @@ type
   , pgLLtr
   , pgNotDefined
  );//TPGN
- 
+
  TSBK = (
   sbkNon
   , sbkCol
@@ -126,20 +134,20 @@ type
   , sbkPg
   , sbkNotDefined
  );//TSBK
- 
+
  TddStyleDef = (
   sdParagraph
   , sdCharacter
   , sdSection
  );//TddStyleDef
- 
+
  TCharPosition = (
   cpNone
   , cpSuperScript
   , cpSubScript
   , cpNotDefined
  );//TCharPosition
- 
+
  TUnderline = (
   utNone
   , utThick
@@ -152,7 +160,7 @@ type
   , utWave
   , utNotDefined
  );//TUnderline
- 
+
  TFontFamily = (
   ffNil
   , ffRoman
@@ -164,19 +172,19 @@ type
   , ffBidi
   , ffNotDefined
  );//TFontFamily
- 
+
  TFontType = (
   ftNil
   , ftTrueType
   , ftNotDefined
  );//TFontType
- 
+
  TRTFPictureSkip = (
   rtf_psNo
   , rtf_psYes
   , rtf_psWMF
  );//TRTFPictureSkip
- 
+
  TddFieldType = (
   dd_fieldUnknown
   , dd_fieldHyperlink
@@ -185,7 +193,7 @@ type
   , dd_fieldHyperlinkMailTo
   , dd_fieldPAGE
  );//TddFieldType
- 
+
 implementation
 
 uses

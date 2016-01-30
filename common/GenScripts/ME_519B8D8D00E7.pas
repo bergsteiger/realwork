@@ -1,4 +1,9 @@
-unit ExportPipe;
+unit NOT_FINISHED_ExportPipe;
+
+// Модуль: "w:\common\components\rtl\Garant\dd\PipeOut\NOT_FINISHED_ExportPipe.pas"
+// Стереотип: "UtilityPack"
+
+{$Include ddDefine.inc}
 
 interface
 
@@ -9,7 +14,7 @@ uses
 type
  TExportPipe = class
  end;//TExportPipe
- 
+
 implementation
 
 uses

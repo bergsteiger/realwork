@@ -1,22 +1,28 @@
-unit tfwSysUtilsWordUses.imp;
+{$IfNDef tfwSysUtilsWordUses_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwSysUtilsWordUses.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define tfwSysUtilsWordUses_imp}
 
-type
- _tfwSysUtilsWordUses_ = class
+{$If NOT Defined(NoScripts)}
+ _tfwSysUtilsWordUses_ = class(_tfwSysUtilsWordUses_Parent_)
  end;//_tfwSysUtilsWordUses_
- 
-implementation
 
-uses
- l3ImplUses
- , SysUtils
- , l3String
- , l3Base
-;
+{$Else NOT Defined(NoScripts)}
 
-end.
+_tfwSysUtilsWordUses_ = _tfwSysUtilsWordUses_Parent_;
+
+{$IfEnd} // NOT Defined(NoScripts)
+{$Else tfwSysUtilsWordUses_imp}
+
+{$IfNDef tfwSysUtilsWordUses_imp_impl}
+
+{$Define tfwSysUtilsWordUses_imp_impl}
+
+{$If NOT Defined(NoScripts)}
+{$IfEnd} // NOT Defined(NoScripts)
+{$EndIf tfwSysUtilsWordUses_imp_impl}
+
+{$EndIf tfwSysUtilsWordUses_imp}
+

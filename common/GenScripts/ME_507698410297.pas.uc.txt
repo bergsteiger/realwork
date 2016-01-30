@@ -1,0 +1,97 @@
+//#UC START# *4D07D0C5DD70_529CD18EA056_impl*
+ TypInfo.SetFloatProp(aObject, aName, aValue);
+//#UC END# *4D07D0C5DD70_529CD18EA056_impl*
+//#UC START# *4D07D0C5DD70_529CD18EA056_var*
+//#UC END# *4D07D0C5DD70_529CD18EA056_var*
+//#UC START# *695731F3434Eci*
+//#UC END# *695731F3434Eci*
+//#UC START# *695731F3434Ecit*
+//#UC END# *695731F3434Ecit*
+//#UC START# *695731F3434Epubl*
+//#UC END# *695731F3434Epubl*
+//#UC START# *8E2028C997CB_C6231F1FCA26_impl*
+ Case aClass.rType of
+  tfw_vtClass:
+   if (aObject = nil) then
+    Result := false
+   else
+    Result := aObject.ClassType.InheritsFrom(aClass.AsClass);
+  tfw_vtStr:
+   if (aObject = nil) then
+    Result := false
+   else
+    Result := IsInherits(aObject.ClassType, aClass.AsDelphiString);
+  else
+  begin
+   Result := false;
+   BadValueType(aClass.rType, aCtx);
+  end;//else
+ end;//Case aClass.rType
+//#UC END# *8E2028C997CB_C6231F1FCA26_impl*
+//#UC START# *8E2028C997CB_C6231F1FCA26_var*
+
+ function IsInherits(anObject: TClass; const aClass: AnsiString): Boolean;
+ begin//IsInherits
+  if (anObject = nil) then
+   Result := false
+  else
+  if AnsiSameText(anObject.ClassName, aClass) then
+   Result := true
+  else
+   Result := IsInherits(anObject.ClassParent, aClass);
+ end;//IsInherits
+
+//#UC END# *8E2028C997CB_C6231F1FCA26_var*
+//#UC START# *902589FCB14D_AB11F1E6DB9D_impl*
+ Result := TypInfo.GetOrdProp(aObject, aName);
+//#UC END# *902589FCB14D_AB11F1E6DB9D_impl*
+//#UC START# *902589FCB14D_AB11F1E6DB9D_var*
+//#UC END# *902589FCB14D_AB11F1E6DB9D_var*
+//#UC START# *A6C646A9D4FA_AB78BA187455_impl*
+ Result := TypInfo.GetInterfaceProp(aObject, aName);
+//#UC END# *A6C646A9D4FA_AB78BA187455_impl*
+//#UC START# *A6C646A9D4FA_AB78BA187455_var*
+//#UC END# *A6C646A9D4FA_AB78BA187455_var*
+//#UC START# *B092970B7218_EDA57987A3B6_impl*
+ Result := Trunc(TypInfo.GetFloatProp(aObject, aName));
+//#UC END# *B092970B7218_EDA57987A3B6_impl*
+//#UC START# *B092970B7218_EDA57987A3B6_var*
+//#UC END# *B092970B7218_EDA57987A3B6_var*
+//#UC START# *C3A777545BCF_BA0E0748BC5D_impl*
+ Result := TypInfo.GetObjectProp(aObject, aName);
+//#UC END# *C3A777545BCF_BA0E0748BC5D_impl*
+//#UC START# *C3A777545BCF_BA0E0748BC5D_var*
+//#UC END# *C3A777545BCF_BA0E0748BC5D_var*
+//#UC START# *C4DA28B83595_6EBCA1F985F5_impl*
+ Result := TypInfo.IsPublishedProp(aObject, aName);
+//#UC END# *C4DA28B83595_6EBCA1F985F5_impl*
+//#UC START# *C4DA28B83595_6EBCA1F985F5_var*
+//#UC END# *C4DA28B83595_6EBCA1F985F5_var*
+//#UC START# *C6405BCAA6A5_0725EE68AD3B_impl*
+ Result := l3FormatRTTIInfo(aObject);
+//#UC END# *C6405BCAA6A5_0725EE68AD3B_impl*
+//#UC START# *C6405BCAA6A5_0725EE68AD3B_var*
+//#UC END# *C6405BCAA6A5_0725EE68AD3B_var*
+//#UC START# *D79D3014F0CB_798893499F18_impl*
+ TypInfo.SetStrProp(aObject, aName, aValue);
+//#UC END# *D79D3014F0CB_798893499F18_impl*
+//#UC START# *D79D3014F0CB_798893499F18_var*
+//#UC END# *D79D3014F0CB_798893499F18_var*
+//#UC START# *DB3E01510FFF_7B6D4B0B5715_impl*
+ if (aObject = nil) then
+  Result := 'Запросили имя класса у nil'
+ else
+  Result := aObject.ClassName;
+//#UC END# *DB3E01510FFF_7B6D4B0B5715_impl*
+//#UC START# *DB3E01510FFF_7B6D4B0B5715_var*
+//#UC END# *DB3E01510FFF_7B6D4B0B5715_var*
+//#UC START# *F069028D7CFF_A2938530A58A_impl*
+ TypInfo.SetOrdProp(aObject, aName, aValue);
+//#UC END# *F069028D7CFF_A2938530A58A_impl*
+//#UC START# *F069028D7CFF_A2938530A58A_var*
+//#UC END# *F069028D7CFF_A2938530A58A_var*
+//#UC START# *FA828528EED2_B3D2E54183FE_impl*
+ Result := TypInfo.GetStrProp(aObject, aName);
+//#UC END# *FA828528EED2_B3D2E54183FE_impl*
+//#UC START# *FA828528EED2_B3D2E54183FE_var*
+//#UC END# *FA828528EED2_B3D2E54183FE_var*

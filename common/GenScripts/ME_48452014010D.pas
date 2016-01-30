@@ -1,4 +1,9 @@
-unit evMemoContextMenu;
+unit NOT_FINISHED_evMemoContextMenu;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evMemoContextMenu.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -9,7 +14,7 @@ uses
 type
  TevMemoContextMenu = class
  end;//TevMemoContextMenu
- 
+
 implementation
 
 uses

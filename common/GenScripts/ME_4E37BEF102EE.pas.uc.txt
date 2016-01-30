@@ -1,0 +1,15 @@
+//#UC START# *4E32CA120170_4E37BEF102EE_impl*
+ l_Value := ItfwScriptEngine(f_Engine).PopInt;
+ case l_Value of
+  0: Result := [];
+  1: Result := [ssShift];
+  2: Result := [ssAlt];
+  3: Result := [ssCtrl];
+  else
+   Assert(False, 'Другие значения не поддерживаются.')
+ end;
+//#UC END# *4E32CA120170_4E37BEF102EE_impl*
+//#UC START# *4E32CA120170_4E37BEF102EE_var*
+var
+ l_Value: Integer;
+//#UC END# *4E32CA120170_4E37BEF102EE_var*

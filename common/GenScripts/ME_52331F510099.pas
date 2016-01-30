@@ -1,4 +1,10 @@
 unit DocumentQuery_Const;
+ {* Запрос для поиска документа }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\DocumentQuery_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -8,7 +14,7 @@ uses
 ;
 
  // DocumentQueryTag
- 
+
 implementation
 
 uses

@@ -1,4 +1,10 @@
 unit FramePart_Const;
+ {* Часть рамки вокруг объекта }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\FramePart_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -11,7 +17,7 @@ uses
 ;
 
  // FramePartTag
- 
+
 implementation
 
 uses

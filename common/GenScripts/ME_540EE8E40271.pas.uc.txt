@@ -1,0 +1,683 @@
+//#UC START# *479731C50290_540EE8E40271_impl*
+ FreeAllocatedFATElements;
+ FreeAllocatedClusters;
+ FreeAndNil(f_RootStream);
+ Assert(not HasLockedRegions);
+ FreeAndNil(f_LockedRegions);
+ FreeAndNil(f_AllocatedClusters);
+ FreeAndNil(f_AllocatedFATElements);
+ inherited;
+//#UC END# *479731C50290_540EE8E40271_impl*
+//#UC START# *479731C50290_540EE8E40271_var*
+//#UC END# *479731C50290_540EE8E40271_var*
+//#UC START# *540EED370362_540EE8E40271_impl*
+ Assert(aStream <> nil);
+ aStream.SetRefTo(f_RootStream);
+ if m2COMIsLocksSupported(f_RootStream, LOCK_EXCLUSIVE) then
+ begin
+  f_NeedLocks := true;
+  l_FileName := m2COMGetStatStgName(aStream);
+  Assert(l_FileName <> '');
+  if ANSISameText(ExtractFileExt(l_FileName), '.tmp') then
+   l_FileName := ''
+  else
+   l_FileName := l_FileName + cLockLogExt;
+ end//m2COMIsLocksSupported(f_RootStream, LOCK_EXCLUSIVE)
+ else
+ begin
+  f_NeedLocks := false;
+  l_FileName := '';
+ end;//m2COMIsLocksSupported(f_RootStream, LOCK_EXCLUSIVE)
+ if f_NeedLocks then
+  f_LockedRegions := Tl3Int64List.Create;
+ if (l_FileName = '') then
+  l_Logger := nil
+ else
+  l_Logger := Tl3Logger.Create(l_FileName);
+ try
+  inherited Create(l_Logger);
+  aStream.Logger := l_Logger;
+ finally
+  FreeAndNil(l_Logger);
+ end;//try..finally
+ if Self.ReadOnly then
+  ValidateAllocatedSize;
+//#UC END# *540EED370362_540EE8E40271_impl*
+//#UC START# *540EED370362_540EE8E40271_var*
+var
+ l_FileName : WideString;
+ l_Logger : Tl3Logger;
+//#UC END# *540EED370362_540EE8E40271_var*
+//#UC START# *540EFD500389_540EE8E40271_impl*
+ Result := inherited DoIsValidPosition(aPosition, aName);
+
+ if Result then
+  Exit;
+
+ ReloadHeader(aName);
+ // - тут перечитываем заголовок, мало ли кто его поправил
+
+ if Self.ReadOnly then
+  l_Size := Self.AllocatedStreamSize + 1
+ else
+  l_Size := m2COMGetSize(RootStream);
+  
+ Result := (aPosition < l_Size);
+ 
+(* if not Result then
+ begin
+  if Self.ReadOnly then
+   Exit;
+  l_Res := S_OK;
+  RootStream.Commit(STGC_DEFAULT, l_Res);
+  Sleep(100);
+  l_Size := m2COMGetSize(RootStream);
+  Result := (aPosition < l_Size);
+  if Result then
+   l3System.Stack2Log('Ложная тревога')
+  else
+  begin
+   Sleep(200);
+   l_Size := m2COMGetSize(RootStream);
+   Result := (aPosition < l_Size);
+   if Result then
+    l3System.Stack2Log('Ложная тревога №2')
+   else
+   begin
+    l3System.Stack2Log(Format('Позиция %d больше размера потока (%d). Расхождение = %d. rAllocatedStreamSize = %d. Расхождение = %d. ', [aPosition, l_Size, aPosition - l_Size, RootStream.HeaderData.rAllocatedStreamSize, RootStream.HeaderData.rAllocatedStreamSize - l_Size]));
+    if (RootStream.HeaderData.rAllocatedStreamSize >= aPosition + Self.ClusterSize) then
+    begin
+     Result := true;
+     l3System.Stack2Log('Попали в границу кластера');
+     Exit;
+    end;//RootStream.HeaderData.rAllocatedStreamSize >= aPosition + Self.ClusterSize
+    if (aPosition > High(Integer)) then
+    // - позиция явно больше "разумных пределов"
+     Exit;
+    if (aPosition div cDiv > l_Size div cDiv) then
+    // - позиция "сильно" отличается от размера потока
+     Exit;
+    l_Res := S_OK; 
+    RootStream.Commit(STGC_DEFAULT, l_Res);
+    Sleep(200);
+    l_Size := m2COMGetSize(RootStream);
+    Result := (aPosition < l_Size);
+    if Result then
+     l3System.Stack2Log('Ложная тревога №3')
+    else
+     l3System.Stack2Log('Расхождение признано незначительным');
+    Result := true;
+    // - костыль, для ловли ошибки
+   end;//Result
+  end;//Result
+ end;//not Result*)
+//#UC END# *540EFD500389_540EE8E40271_impl*
+//#UC START# *540EFD500389_540EE8E40271_var*
+(*const
+ cDiv = 10000;*)
+var
+ l_Size : Int64;
+ //l_Res : hResult;
+//#UC END# *540EFD500389_540EE8E40271_var*
+//#UC START# *541021B90213_540EE8E40271_impl*
+ Assert(Self <> nil);
+ if not f_NeedLocks then
+  Exit;
+ Self.Lock;
+ try
+  Assert(f_LockedRegions <> nil);
+  try
+   if (f_LockedRegions.IndexOf(aRegion.rPosition) >= 0) then
+    raise Exception.Create('Регион ' + IntToStr(aRegion.rPosition) + ' уже якобы залочен');
+   f_LockedRegions.Add(aRegion.rPosition);
+   //Assert(f_LockedRegions.IndexOf(aPosition) >= 0);
+   try
+    l_Locked := m2COMTimeLock(RootStream, aRegion.rPosition, aRegion.rSize);
+   except
+    f_LockedRegions.Remove(aRegion.rPosition);
+    raise;
+   end;//try..except 
+   if l_Locked then
+   begin
+    if (Logger <> nil) then
+     if (aRegion.rPosition = Self.RootStorageFATElement) then
+      Logger.ToLog('Locked for ' + cMode[aForRead] + ' : ' + IntToStr(aRegion.rPosition));
+   end;//m2COMTimeLock(RootStream, aPosition, aSize)
+  except
+   on E: Exception do
+   begin
+    if (Logger <> nil) then
+    begin
+     Logger.ToLog('Исключение: ' + E.ClassName + ' ' + E.Message);
+     Logger.ToLog('При попытке залочить ' + IntToStr(aRegion.rPosition));
+    end;//Logger <> nil
+    raise;
+   end;//on E: Exception
+  end;//try..except
+ finally
+  Self.Unlock;
+ end;//try..finally
+//#UC END# *541021B90213_540EE8E40271_impl*
+//#UC START# *541021B90213_540EE8E40271_var*
+const
+ cMode : array [Boolean] of AnsiString = ('write', 'read');
+var
+ l_Locked : Boolean; 
+//#UC END# *541021B90213_540EE8E40271_var*
+//#UC START# *541021E4022F_540EE8E40271_impl*
+ Assert(Self <> nil);
+ if not f_NeedLocks then
+  Exit;
+ Self.Lock;
+ try
+  Assert(f_LockedRegions <> nil);
+  if (f_LockedRegions.IndexOf(aRegion.rPosition) < 0) then
+   raise Exception.Create('Регион ' + IntToStr(aRegion.rPosition) + ' якобы не был залочен');
+  f_LockedRegions.Remove(aRegion.rPosition);
+  //Assert(f_LockedRegions.IndexOf(aPosition) < 0);
+  if m2COMTimeUnlock(RootStream, aRegion.rPosition, aRegion.rSize) then
+  begin
+   if (Logger <> nil) then
+    if (aRegion.rPosition = Self.RootStorageFATElement) then
+     Logger.ToLog('Unlocked for ' + cMode[aForRead] + ' : ' + IntToStr(aRegion.rPosition));
+  end;//m2COMTimeUnlock(RootStream, aPosition, aSize)
+ finally
+  Self.Unlock;
+ end;//try..finally
+//#UC END# *541021E4022F_540EE8E40271_impl*
+//#UC START# *541021E4022F_540EE8E40271_var*
+const
+ cMode : array [Boolean] of AnsiString = ('write', 'read');
+//#UC END# *541021E4022F_540EE8E40271_var*
+//#UC START# *5411B3280387_540EE8E40271get_impl*
+ Result := RootStream.HeaderData.rRootStorageFATElement;
+//#UC END# *5411B3280387_540EE8E40271get_impl*
+//#UC START# *5411B3280387_540EE8E40271get_var*
+//#UC END# *5411B3280387_540EE8E40271get_var*
+//#UC START# *5423BF3603A1_540EE8E40271_impl*
+ Assert(Self <> nil);
+ Assert(RootStream <> nil);
+ Assert(not Self.ReadOnly);
+ Self.Lock;
+ try
+  if (f_AllocatedFATElements <> nil) then
+   if not f_AllocatedFATElements.Empty then
+   begin
+    Result := f_AllocatedFATElements.Last;
+    Assert(Result >= 0);
+    f_AllocatedFATElements.DeleteLast;
+    Exit;
+   end;//not f_AllocatedFATElements.Empty
+  RootStream.ForceLockHeader;
+  try
+   RootStream.LoadHeader;
+   try
+    if (Logger <> nil) then
+     Logger.ToLog('Распределяем элементы FAT');
+    if (f_AllocatedFATElements = nil) then
+     f_AllocatedFATElements := Tl3RevertedInt64List.MakeSorted(l3_dupError);
+    Result := DoAllocNewFATElement(false);
+    Assert(Result >= 0);
+
+    l_GotFromFree := 0;
+
+    while true do
+    // - тут вычитываем цепочу свободных
+    begin
+     l_Pos := DoAllocNewFATElement(true);
+     if (l_Pos >= 0) then
+     begin
+      f_AllocatedFATElements.Add(l_Pos);
+      Inc(l_GotFromFree);
+      if (l_GotFromFree > 20) then
+       break;
+     end//l_Pos >= 0
+     else
+      break;
+    end;//while true
+
+    if (l_GotFromFree <= 2) then
+    // - пополняем запас
+     for l_Index := 0 to 20 - l_GotFromFree do
+     begin
+      l_Pos := DoAllocNewFATElement(false);
+      if (l_Pos >= 0) then
+       f_AllocatedFATElements.Add(l_Pos)
+      else
+       break;
+     end;//for l_Index
+   finally
+    RootStream.SaveHeader;
+   end;//try..finally 
+   l_Res := S_Ok;
+   RootStream.Commit(STGC_DEFAULT, l_Res);
+  finally
+   RootStream.UnlockHeader;
+  end;//try..finally
+ finally
+  Self.Unlock;
+ end;//try..finally
+//#UC END# *5423BF3603A1_540EE8E40271_impl*
+//#UC START# *5423BF3603A1_540EE8E40271_var*
+var
+ l_Index : Integer;
+ l_Pos   : Int64;
+ l_Res   : hResult;
+ l_GotFromFree : Integer;
+//#UC END# *5423BF3603A1_540EE8E40271_var*
+//#UC START# *5423BF5A00DC_540EE8E40271_impl*
+(* DoRemoveFATElementAtPos(aPosition);
+ Exit;*)
+ if (aPosition < 0) then
+  Exit;
+ Assert(aPosition > 0, 'Нельзя удалять заголовок корневого потока'); 
+ Assert(Self <> nil);
+ Assert(RootStream <> nil);
+ Assert(not Self.ReadOnly);
+ Self.Lock;
+ try
+  if (f_AllocatedFATElements = nil) then
+   f_AllocatedFATElements := Tl3RevertedInt64List.MakeSorted(l3_dupError);
+  f_AllocatedFATElements.Add(aPosition);
+  DoClearFATElement(aPosition); 
+ finally
+  Self.Unlock;
+ end;//try..finally
+//#UC END# *5423BF5A00DC_540EE8E40271_impl*
+//#UC START# *5423BF5A00DC_540EE8E40271_var*
+//#UC END# *5423BF5A00DC_540EE8E40271_var*
+//#UC START# *5423BFA1031A_540EE8E40271_impl*
+ Assert(Self <> nil);
+ if (f_AllocatedFATElements = nil) then
+  Exit;
+ Self.Lock;
+ try
+  if (f_AllocatedFATElements <> nil) then
+  begin
+   if not f_AllocatedFATElements.Empty then
+   begin
+    RootStream.ForceLockHeader;
+    try
+     RootStream.LoadHeader;
+     try
+      if (Logger <> nil) then
+       Logger.ToLog('begin: Возвращаем элементы FAT: ' + IntToStr(f_AllocatedFATElements.Count));
+      try
+       while not f_AllocatedFATElements.Empty do
+       begin
+        Assert(f_AllocatedFATElements.Last >= 0);
+        DoRemoveFATElementAtPos(f_AllocatedFATElements.Last);
+        f_AllocatedFATElements.DeleteLast;
+       end;//while not f_AllocatedFATElements.Empty
+      finally
+       if (Logger <> nil) then
+        Logger.ToLog('end: Возвращаем элементы FAT');
+      end;//try..finally
+     finally
+      RootStream.SaveHeader;
+     end;//try..finally 
+    finally
+     RootStream.UnlockHeader;
+    end;//try..finally 
+   end;//not f_AllocatedFATElements.Empty
+  end;//f_AllocatedFATElements <> nil
+ finally
+  Self.Unlock;
+ end;//try..finally
+//#UC END# *5423BFA1031A_540EE8E40271_impl*
+//#UC START# *5423BFA1031A_540EE8E40271_var*
+//#UC END# *5423BFA1031A_540EE8E40271_var*
+//#UC START# *5425479101D1_540EE8E40271_impl*
+ Result := RootStream.HeaderData.rClusterBodySize;
+//#UC END# *5425479101D1_540EE8E40271_impl*
+//#UC START# *5425479101D1_540EE8E40271_var*
+//#UC END# *5425479101D1_540EE8E40271_var*
+//#UC START# *54256B7B00F4_540EE8E40271_impl*
+ l_TryCount := 0;
+ while (l_TryCount < cMaxTry) do
+ begin
+  Inc(l_TryCount);
+  RootStream.LockHeader;
+  try
+   RootStream.LoadHeader;
+   try
+    Em3InvalidStreamSize.Check(RootStream.HeaderData.rAllocatedStreamSize >= 0, 'Отрицательный размер хранилища');
+    l_Size := m2COMGetSize(RootStream);
+    if (RootStream.HeaderData.rAllocatedStreamSize <= l_Size) then
+     break
+    else
+    begin
+     l3System.Msg2Log('Обходной манёвр проверки rAllocatedStreamSize');
+     // - по идее после отладки это можно будет убрать
+     OleCheck(IStream(RootStream).Seek(0, STREAM_SEEK_END, l_Current));
+     if (l_Current >= RootStream.HeaderData.rAllocatedStreamSize) then
+      break;
+     if (l_TryCount < cMaxTry) then
+     begin
+      l3System.Msg2Log('Попытка проверки валидности хранилища номер ' + IntToStr(l_TryCount));
+      Sleep(Random(500));
+      continue;
+     end//l_TryCount < cMaxTry
+     else
+     begin
+      l_Delta := RootStream.HeaderData.rAllocatedStreamSize - l_Size;
+      if (l_Size > 0) AND ((l_Delta / l_Size * 100) < 5 {%}) then
+       l3System.Msg2Log('Возможно битое хранилище с расхождением менее 5%. Size = ' + IntToStr(l_Size) + ' RootSize = ' + IntToStr(RootStream.HeaderData.rAllocatedStreamSize) + ' Delta = ' + IntToStr(l_Delta))
+      else
+       Em3InvalidStreamSize.Check(false, 'Возможно битое хранилище. Size = ' + IntToStr(l_Size) + ' RootSize = ' + IntToStr(RootStream.HeaderData.rAllocatedStreamSize) + ' Delta = ' + IntToStr(l_Delta));
+     end;//l_TryCount < cMaxTry
+    end;//RootStream.HeaderData.rAllocatedStreamSize <= l_Size 
+   finally
+    RootStream.SaveHeader;
+   end;//try..finally
+  finally
+   RootStream.UnlockHeader;
+  end;//try..finally
+ end;//while (l_TryCount < cMaxTry)
+//#UC END# *54256B7B00F4_540EE8E40271_impl*
+//#UC START# *54256B7B00F4_540EE8E40271_var*
+const
+ cMaxTry = 10;
+var 
+ l_Size     : Int64;
+ l_TryCount : Integer;
+ l_Delta    : Int64;
+ l_Current  : Int64;
+//#UC END# *54256B7B00F4_540EE8E40271_var*
+//#UC START# *5429114F00E8_540EE8E40271_impl*
+ Result := -1;
+ Assert(Self <> nil);
+ Assert(RootStream <> nil);
+ Assert(not Self.ReadOnly);
+ Self.Lock;
+ try
+  if (f_AllocatedClusters <> nil) then
+  begin
+   if not f_AllocatedClusters.Empty then
+   begin
+    Result := f_AllocatedClusters.Last;
+    Assert(Result >= 0);
+    f_AllocatedClusters.DeleteLast;
+    Exit;
+   end;//not f_AllocatedClusters.Empty
+  end;//f_AllocatedClusters <> nil
+  RootStream.ForceLockHeader;
+  try
+   RootStream.LoadHeader;
+   try
+    Result := RootStream.HeaderData.rFirstFreeCluster;
+    Em3InvalidStreamPos.Check(Self.IsValidLink,
+                              nil,
+                              Result);
+    if (Result = -1) then
+    begin
+     if (Logger <> nil) then
+      Logger.ToLog('Распределяем кластеры');
+     Result := DoAlloc;
+     Assert(Result >= 0); 
+    end//Result = -1
+    else
+    begin
+     if (Logger <> nil) then
+      Logger.ToLog('Зачитываем цепочку свободных кластеров');
+     Self.ReadData(Result,
+                   l_Next,
+                   SizeOf(l_Next));
+     Em3InvalidStreamPos.Check(Self.IsValidLink,
+                               nil,
+                               l_Next);
+     // - вычитываем позицию следующего свободного блока - rNextPosition
+
+     if (l_Next <> -1) then
+     begin
+      if (f_AllocatedClusters = nil) then
+       f_AllocatedClusters := Tl3RevertedInt64List.MakeSorted(l3_dupError);
+      while (l_Next <> -1) do
+      begin
+       f_AllocatedClusters.Add(l_Next);
+
+       Self.ReadData(l_Next,
+                     l_NextOfNext,
+                     SizeOf(l_NextOfNext));
+       Em3InvalidStreamPos.Check(Self.IsValidLink,
+                                 nil,
+                                 l_NextOfNext);
+       // - вычитываем позицию следующего свободного блока - rNextPosition
+
+       l_Filler := -1;
+       Self.WriteData(l_Next,
+                      l_Filler,
+                      SizeOf(l_Filler));
+       // - на всякий случай - "зачищаем данные"
+
+       l_Next := l_NextOfNext;
+       if (f_AllocatedClusters.Count >= 2048) then
+        break;
+      end;//l_Next <> -1
+     end;//l_Next <> -1
+
+     RootStream.HeaderData.rFirstFreeCluster := l_Next;
+     // - объявляем следующую позицию первым свободным кластером
+     Assert(RootStream.HeaderData.rFirstFreeCluster <> Result);
+     Em3InvalidStreamPos.Check(Self.IsValidLink,
+                               nil,
+                               RootStream.HeaderData.rFirstFreeCluster);
+
+     l_Filler := -1;
+     Self.WriteData(Result,
+                    l_Filler,
+                    SizeOf(l_Filler));
+     // - на всякий случай - "зачищаем данные"
+
+     if (Logger <> nil) then
+     begin
+      if (f_AllocatedClusters <> nil) then
+       Logger.ToLog('Зачитано свободных кластеров: ' + IntToStr(f_AllocatedClusters.Count + 1))
+      else
+       Logger.ToLog('Зачитан один свободный кластер');
+     end;//Logger <> nil
+    end;//Result = -1
+   finally
+    RootStream.SaveHeader;
+   end;//try..finally
+  finally
+   RootStream.UnlockHeader;
+  end;//try..finally
+ finally
+  Self.Unlock;
+ end;//try..finally
+//#UC END# *5429114F00E8_540EE8E40271_impl*
+//#UC START# *5429114F00E8_540EE8E40271_var*
+
+ function DoAlloc: Int64;
+
+  function WriteNewCluster: Int64;
+  var
+   l_Size : Int64;
+   l_Ptr  : Pointer;
+   l_Position : Int64;
+
+   procedure DoWrite;
+   begin//DoWrite
+    l3FillChar(l_Ptr^, l_Size, $FF);
+    Self.WriteData(l_Position, l_Ptr^, l_Size);
+   end;//DoWrite
+
+  var
+   l_Buff : array [0..255] of AnsiChar;
+   l_ToWrite : Tl3Ptr;
+  begin//WriteNewCluster
+   Result := -1;
+   m2COMSeek(RootStream, RootStream.HeaderData.rAllocatedStreamSize, STREAM_SEEK_SET);
+   l_Position := m2COMGetPosition(RootStream);
+   Em3InvalidOldPositionOfRoot.Check(l_Position, RootStream.HeaderData.rAllocatedStreamSize);
+   l_Size := Self.ClusterSize;
+   if (l_Size <= SizeOf(l_Buff)) then
+   begin
+    l_Ptr := @l_Buff;
+    DoWrite;
+   end//l_Size <= SizeOf(l_Buff)
+   else
+   begin
+    l3FillChar(l_ToWrite, SizeOf(l_ToWrite));
+    l_ToWrite.SetSize(l_Size);
+    try
+     l_Ptr := l_ToWrite.AsPointer;
+     DoWrite;
+    finally
+     l_ToWrite.SetSize(0);
+    end;//try..finally
+   end;//l_Size <= SizeOf(l_Buff)
+   Inc(RootStream.HeaderData.rAllocatedStreamSize, l_Size);
+   Result := l_Position;
+  end;//WriteNewCluster
+
+ var
+  l_Index : Integer;
+  l_Pos   : Int64;
+  l_Res   : hResult;
+ begin//DoAlloc
+  Result := WriteNewCluster;
+  if (f_AllocatedClusters = nil) then
+   f_AllocatedClusters := Tl3RevertedInt64List.MakeSorted(l3_dupError);
+  for l_Index := 0 to 2048 - 2 do
+  begin
+   l_Pos := WriteNewCluster;
+   Assert(l_Pos >= 0);
+   f_AllocatedClusters.Add(l_Pos);
+  end;//for l_Index
+  l_Res := S_Ok;
+  RootStream.Commit(STGC_DEFAULT, l_Res);
+ end;//DoAlloc
+
+var
+ l_Filler : Int64;
+ l_Next   : Int64;
+ l_NextOfNext : Int64;
+//#UC END# *5429114F00E8_540EE8E40271_var*
+//#UC START# *54292A3101CF_540EE8E40271_impl*
+ Assert(Self <> nil);
+ if (f_AllocatedClusters = nil) then
+  Exit;
+ Self.Lock;
+ try
+  if (f_AllocatedClusters <> nil) then
+  begin
+   if not f_AllocatedClusters.Empty then
+   begin
+    while not f_AllocatedClusters.Empty do
+    begin
+     RootStream.ForceLockHeader;
+     try
+      RootStream.LoadHeader;
+      try
+       if (Logger <> nil) then
+        Logger.ToLog('begin: Возвращаем кластеры: ' + IntToStr(f_AllocatedClusters.Count));
+       l_Start := GetTickCount; 
+       try
+        while not f_AllocatedClusters.Empty do
+        begin
+         l_Pos := f_AllocatedClusters.Last;
+         Assert(l_Pos >= 0);
+         DoRemove(l_Pos);
+         f_AllocatedClusters.DeleteLast;
+         if l3IsTimeElapsed(l_Start, 3000) then
+         // - это чтобы дать другим remote пользователям поработать
+         begin
+          if (Logger <> nil) then
+           Logger.ToLog('break: Возвращаем кластеры');
+          break;
+         end;//l3IsTimeElapsed(l_Start, 3000)
+        end;//while not f_AllocatedClusters.Empty
+       finally
+        if (Logger <> nil) then
+         Logger.ToLog('end: Возвращаем кластеры');
+       end;//try..finally
+      finally
+       RootStream.SaveHeader;
+      end;//try..finally
+     finally
+      RootStream.UnlockHeader;
+     end;//try..finally
+    end;//while not f_AllocatedClusters.Empty
+   end;//not f_AllocatedClusters.Empty
+  end;// <> nil
+ finally
+  Self.Unlock;
+ end;//try..finally
+//#UC END# *54292A3101CF_540EE8E40271_impl*
+//#UC START# *54292A3101CF_540EE8E40271_var*
+
+ procedure DoRemove(aPos: Int64);
+ begin//DoRemove
+  Self.WriteData(aPos,
+                 RootStream.HeaderData.rFirstFreeCluster,
+                 SizeOf(RootStream.HeaderData.rFirstFreeCluster));
+  // - записываем позицию следующего свободного блока - rNextPosition
+  RootStream.HeaderData.rFirstFreeCluster := aPos;
+  // - наш освобождаемый кластер - теперь является первым свободным
+ end;//DoRemove
+
+var
+ l_Pos : Int64;
+ l_Start : LongWord;
+//#UC END# *54292A3101CF_540EE8E40271_var*
+//#UC START# *542E69CA007F_540EE8E40271_impl*
+ Result := RootStream.ReadOnly;
+//#UC END# *542E69CA007F_540EE8E40271_impl*
+//#UC START# *542E69CA007F_540EE8E40271_var*
+//#UC END# *542E69CA007F_540EE8E40271_var*
+//#UC START# *542EB26E0220_540EE8E40271_impl*
+ Result := (f_LockedRegions <> nil) AND (f_LockedRegions.Count > 0);
+//#UC END# *542EB26E0220_540EE8E40271_impl*
+//#UC START# *542EB26E0220_540EE8E40271_var*
+//#UC END# *542EB26E0220_540EE8E40271_var*
+//#UC START# *543F8E8F0358_540EE8E40271_impl*
+ Assert(Self.RootStream <> nil);
+ m2COMReadBufferSafe(Self.RootStream, aPosition, aData, aSize);
+//#UC END# *543F8E8F0358_540EE8E40271_impl*
+//#UC START# *543F8E8F0358_540EE8E40271_var*
+//#UC END# *543F8E8F0358_540EE8E40271_var*
+//#UC START# *543F8ED700E2_540EE8E40271_impl*
+ Assert(Self.RootStream <> nil);
+ m2COMWriteBufferSafe(Self.RootStream, aPosition, aData, aSize);
+//#UC END# *543F8ED700E2_540EE8E40271_impl*
+//#UC START# *543F8ED700E2_540EE8E40271_var*
+//#UC END# *543F8ED700E2_540EE8E40271_var*
+//#UC START# *543F90700143_540EE8E40271_impl*
+ Assert(Self.RootStream <> nil);
+ Result := RootStream.HeaderData.rAllocatedStreamSize;
+//#UC END# *543F90700143_540EE8E40271_impl*
+//#UC START# *543F90700143_540EE8E40271_var*
+//#UC END# *543F90700143_540EE8E40271_var*
+//#UC START# *543F960901AE_540EE8E40271_impl*
+ Assert(Self.RootStream <> nil);
+ m2COMSeek(Self.RootStream, aPosition, STREAM_SEEK_SET);
+ thePosition := m2COMGetPosition(Self.RootStream);
+ Em3InvalidOldPositionOfRoot.Check(thePosition, aPosition);
+//#UC END# *543F960901AE_540EE8E40271_impl*
+//#UC START# *543F960901AE_540EE8E40271_var*
+//#UC END# *543F960901AE_540EE8E40271_var*
+//#UC START# *543FAEB90303_540EE8E40271_impl*
+ l_S := 'Перечитываем заголовок для валидации данных потока: ' + aName.AsString;
+ if (Logger <> nil) then
+  Logger.ToLog(l_S);
+ //l3System.Stack2Log(l_S);
+ RootStream.LockHeader;
+ try
+  RootStream.LoadHeader;
+  RootStream.SaveHeader;
+ finally
+  RootStream.UnlockHeader;
+ end;//try..finally
+//#UC END# *543FAEB90303_540EE8E40271_impl*
+//#UC START# *543FAEB90303_540EE8E40271_var*
+var
+ l_S : String;
+//#UC END# *543FAEB90303_540EE8E40271_var*
+//#UC START# *54411B71009B_540EE8E40271_impl*
+ Assert(Self.RootStream <> nil);
+ m2COMReadBufferSafe(Self.RootStream, aData, aSize);
+//#UC END# *54411B71009B_540EE8E40271_impl*
+//#UC START# *54411B71009B_540EE8E40271_var*
+//#UC END# *54411B71009B_540EE8E40271_var*

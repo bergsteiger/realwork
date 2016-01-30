@@ -1,4 +1,10 @@
 unit TableCell_Const;
+ {* Ячейка таблицы }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\TableCell_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -13,7 +19,7 @@ uses
 ;
 
  // TableCellTag
- 
+
 implementation
 
 uses

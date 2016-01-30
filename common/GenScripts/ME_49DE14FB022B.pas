@@ -1,23 +1,42 @@
-unit nevMostInner.imp;
+{$IfNDef nevMostInner_imp}
 
-interface
+// Модуль: "w:\common\components\gui\Garant\Everest\nevMostInner.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
- , nevTools
-;
+{$Define nevMostInner_imp}
 
-type
- _nevMostInner_ = class
+{$If Defined(evUseVisibleCursors)}
+ _nevMostInner_ = class(_nevMostInner_Parent_)
   {* Самая внутренняя точка объекта }
-  function MostInner: InevBasePoint;
-   {* дочерний якорь самого нижнего уровня. }
+  protected
+   function pm_GetMostInner: InevBasePoint;
  end;//_nevMostInner_
- 
-implementation
 
-uses
- l3ImplUses
-;
+{$Else Defined(evUseVisibleCursors)}
 
-end.
+_nevMostInner_ = _nevMostInner_Parent_;
+
+{$IfEnd} // Defined(evUseVisibleCursors)
+{$Else nevMostInner_imp}
+
+{$IfNDef nevMostInner_imp_impl}
+
+{$Define nevMostInner_imp_impl}
+
+{$If Defined(evUseVisibleCursors)}
+function _nevMostInner_.pm_GetMostInner: InevBasePoint;
+//#UC START# *49DE123A031F_49DE14FB022Bget_var*
+//#UC END# *49DE123A031F_49DE14FB022Bget_var*
+begin
+//#UC START# *49DE123A031F_49DE14FB022Bget_impl*
+ Result := _Instance_R_(Self);
+ while Result.HasInner do
+  Result := Result.Inner;
+//#UC END# *49DE123A031F_49DE14FB022Bget_impl*
+end;//_nevMostInner_.pm_GetMostInner
+{$IfEnd} // Defined(evUseVisibleCursors)
+
+{$EndIf nevMostInner_imp_impl}
+
+{$EndIf nevMostInner_imp}
+

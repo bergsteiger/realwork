@@ -1,5 +1,10 @@
 unit csGetTaskDescriptionReply_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\csGetTaskDescriptionReply_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -10,7 +15,7 @@ uses
 ;
 
  // csGetTaskDescriptionReplyTag
- 
+
 implementation
 
 uses

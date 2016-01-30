@@ -1,7 +1,14 @@
-unit LibPQ;
+unit NOT_FINISHED_LibPQ;
+ {* И никогда не будет Finished - бо импортирует функции из dll. А модель так не умеет. }
+
+// Модуль: "w:\common\components\rtl\Garant\PG\NOT_FINISHED_LibPQ.pas"
+// Стереотип: "UtilityPack"
+
+{$Include pgDefine.inc}
 
 interface
 
+{$If Defined(UsePostgres)}
 uses
  l3IntfUses
 ;
@@ -25,17 +32,17 @@ type
   , CONNECTION_NEEDED
    {* Internal state: connect() needed }
  );//TpgConnectStatusType
- 
+
  TPGconn = record
  end;//TPGconn
- 
+
  PPGconn = ^TPGconn;
- 
+
  TPGresult = record
  end;//TPGresult
- 
+
  PPGresult = ^TPGresult;
- 
+
  TpgExecStatusType = (
   PGRES_EMPTY_QUERY
   , PGRES_COMMAND_OK
@@ -54,11 +61,14 @@ PGresult contains the result tuples }
   , PGRES_NONFATAL_ERROR
   , PGRES_FATAL_ERROR
  );//TpgExecStatusType
- 
+{$IfEnd} // Defined(UsePostgres)
+
 implementation
 
+{$If Defined(UsePostgres)}
 uses
  l3ImplUses
 ;
+{$IfEnd} // Defined(UsePostgres)
 
 end.

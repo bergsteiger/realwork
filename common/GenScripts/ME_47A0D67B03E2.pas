@@ -1,21 +1,32 @@
 unit l3CastablePersistent;
+ {* TPersistent с методом QueryInterface. }
+
+// Модуль: "w:\common\components\rtl\Garant\L3\l3CastablePersistent.pas"
+// Стереотип: "SimpleClass"
+
+{$Include l3Define.inc}
 
 interface
 
 uses
  l3IntfUses
  , Classes
+ , l3Interfaces
 ;
 
 type
- Tl3CastablePersistent = class(TPersistent)
+ _l3Castable_Parent_ = TPersistent;
+ {$Include l3Castable.imp.pas}
+ Tl3CastablePersistent = {abstract} class(_l3Castable_)
   {* TPersistent с методом QueryInterface. }
  end;//Tl3CastablePersistent
- 
+
 implementation
 
 uses
  l3ImplUses
 ;
+
+{$Include l3Castable.imp.pas}
 
 end.

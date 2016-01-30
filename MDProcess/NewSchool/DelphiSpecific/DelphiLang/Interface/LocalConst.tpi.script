@@ -306,8 +306,8 @@ implementation @ <<LocalConst>>
    ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifdef' %, %C get_up ( 'ifdef' ) )% ) 
 //	%{Attr_Inst}%f_set_up(ifndef,%C{ifndef})\
    ( get_global_var ( 'Attr_Inst' ) %f set_up %( 'ifndef' %, %C get_up ( 'ifndef' ) )% ) 
-//	%{PARENT}%f_add_operation(%CU_Init,ini,Init_%f_N(%{Attr_Inst}) (),Op_Instance)\
-   ( get_global_var ( 'PARENT' ) %f add_operation %( %C |U '_Init' %, 'ini' %, 'Init_'
+//	%{PARENT}%f_add_operation(%CU_Init,ini,Init_Str_%f_N(%{Attr_Inst}) (),Op_Instance)\
+   ( get_global_var ( 'PARENT' ) %f add_operation %( %C |U '_Init' %, 'ini' %, 'Init_Str_'
    [%f] N %( ( get_global_var ( 'Attr_Inst' ) ) )% ' ()' %, 'Op_Instance' )% ) 
 //	%{Op_Instance}%f_set_documentation(Инициализация %{Attr_Inst}%f_pas_Prefix()%f_N(%{Attr_Inst}))\
    ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Инициализация '
@@ -316,6 +316,10 @@ implementation @ <<LocalConst>>
    ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
 //	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
    ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	%{Op_Instance}%f_set_var(Speller,C)\
+   ( get_global_var ( 'Op_Instance' ) %f set_var %( 'Speller' %, 'C' )% ) 
+//	%{Op_Instance}%f_set_var(SpelledFor,{Attr_Inst})\
+   ( get_global_var ( 'Op_Instance' ) %f set_var %( 'SpelledFor' %, '{Attr_Inst}' )% ) 
 
 //	[{"%S{ifdef}"!=""}{\
    if ( ( %S get_up ( 'ifdef' ) ) %!= '' ) then
@@ -468,46 +472,6 @@ implementation @ <<LocalConst>>
 ; // idl_ami
 
 
-// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-//+ intf2.pas
-<<generator>> intf2.pas OBJECT IN %S
-//R  
-//#UC START# *477398E501C0for4B386A11030E*
-//#UC END# *477398E501C0for4B386A11030E*
-; // intf2.pas
-
-
-// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Ресурсы (.rc)
-//+ rc.pas
-<<generator>> rc.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D28B0157for4B386A11030E*
-//#UC END# *55B8D28B0157for4B386A11030E*
-; // rc.pas
-
-
-// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Скрипты в ресурсах (.rc.script)
-//+ rc.script.pas
-<<generator>> rc.script.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D2F80145for4B386A11030E*
-//#UC END# *55B8D2F80145for4B386A11030E*
-; // rc.script.pas
-
-
-// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Компилятор ресурса (.res.cmd)
-//+ res.cmd.pas
-<<generator>> res.cmd.pas OBJECT IN %S
-//R  
-//#UC START# *55B8DD9C0301for4B386A11030E*
-//#UC END# *55B8DD9C0301for4B386A11030E*
-; // res.cmd.pas
-
-
 // реализация абстрактного стереотипа Java::MDAGenerator
 // генератор реализации фабрик интерфейсов на java (.java)
 //+ fctr.java
@@ -623,42 +587,6 @@ implementation @ :: <<LocalConst>> <<Attribute>> ;
 //#UC START# *470F15B800CBfor4DC1281403A3*
 //#UC END# *470F15B800CBfor4DC1281403A3*
 ; // impl.pas
-
-
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-//+ intf2.pas
-<<generator>> intf2.pas OBJECT IN %S
-//R  
-//#UC START# *477398E501C0for4DC1281403A3*
-//#UC END# *477398E501C0for4DC1281403A3*
-; // intf2.pas
-
-
-// Ресурсы (.rc)
-//+ rc.pas
-<<generator>> rc.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D28B0157for4DC1281403A3*
-//#UC END# *55B8D28B0157for4DC1281403A3*
-; // rc.pas
-
-
-// Скрипты в ресурсах (.rc.script)
-//+ rc.script.pas
-<<generator>> rc.script.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D2F80145for4DC1281403A3*
-//#UC END# *55B8D2F80145for4DC1281403A3*
-; // rc.script.pas
-
-
-// Компилятор ресурса (.res.cmd)
-//+ res.cmd.pas
-<<generator>> res.cmd.pas OBJECT IN %S
-//R  
-//#UC START# *55B8DD9C0301for4DC1281403A3*
-//#UC END# *55B8DD9C0301for4DC1281403A3*
-; // res.cmd.pas
 
 
 // Функции стереотипа

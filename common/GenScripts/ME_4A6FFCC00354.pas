@@ -1,27 +1,38 @@
-unit l3InterfacePtrListPrim.imp;
+{$IfNDef l3InterfacePtrListPrim_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\L3\l3InterfacePtrListPrim.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define l3InterfacePtrListPrim_imp}
 
-type
+ _l3PtrListPrim_Parent_ = _l3InterfacePtrListPrim_Parent_;
+ {$Include l3PtrListPrim.imp.pas}
  _l3InterfacePtrListPrim_ = class(_l3PtrListPrim_)
-  procedure FillItem(var aPlace: _ItemType_;
-   const anItem: _ItemType_;
-   anItems: _l3Items_);
-   {* Заполняет элемент списка. }
  end;//_l3InterfacePtrListPrim_
- 
-implementation
 
-uses
- l3ImplUses
- , l3Base
- , l3MinMax
- , RTLConsts
- , SysUtils
-;
+{$Else l3InterfacePtrListPrim_imp}
 
-end.
+{$IfNDef l3InterfacePtrListPrim_imp_impl}
+
+{$Define l3InterfacePtrListPrim_imp_impl}
+
+procedure FillItem(var aPlace: _ItemType_;
+ const anItem: _ItemType_;
+ anItems: _l3Items_);
+ {* Заполняет элемент списка. }
+//#UC START# *47B935AF0066_4A6FFCC00354_var*
+//#UC END# *47B935AF0066_4A6FFCC00354_var*
+begin
+//#UC START# *47B935AF0066_4A6FFCC00354_impl*
+ Pointer(aPlace) := Pointer(anItem);
+//#UC END# *47B935AF0066_4A6FFCC00354_impl*
+end;//FillItem
+
+type _Instance_R_ = _l3InterfacePtrListPrim_;
+
+{$Include l3PtrListPrim.imp.pas}
+
+{$EndIf l3InterfacePtrListPrim_imp_impl}
+
+{$EndIf l3InterfacePtrListPrim_imp}
+

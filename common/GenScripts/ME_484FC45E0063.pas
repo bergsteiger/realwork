@@ -1,4 +1,10 @@
 unit Segment_Const;
+ {* Отрезок оформления }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\Segment_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -11,7 +17,7 @@ uses
 ;
 
  // SegmentTag
- 
+
 implementation
 
 uses

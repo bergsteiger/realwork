@@ -1,0 +1,143 @@
+//#UC START# *48077504027E_53319C7502F4_impl*
+ if Assigned(f_RemindersLine) then
+  IvgRemindersLine(f_RemindersLine).RemindersLineFormDestroyed;
+ f_RemindersLine := nil;
+ FreeAndNil(f_Background);
+ FreeAndNil(f_Scene);
+ inherited;
+//#UC END# *48077504027E_53319C7502F4_impl*
+//#UC START# *48077504027E_53319C7502F4_var*
+//#UC END# *48077504027E_53319C7502F4_var*
+//#UC START# *48C7925A02E5_53319C7502F4_impl*
+ inherited;
+ Params.ExStyle := Params.ExStyle and not (WS_EX_APPWINDOW) or WS_EX_TOOLWINDOW or WS_EX_TOPMOST or WS_EX_NOACTIVATE;
+//#UC END# *48C7925A02E5_53319C7502F4_impl*
+//#UC START# *48C7925A02E5_53319C7502F4_var*
+//#UC END# *48C7925A02E5_53319C7502F4_var*
+//#UC START# *4980403E021E_53319C7502F4_impl*
+ Result := False;
+//#UC END# *4980403E021E_53319C7502F4_impl*
+//#UC START# *4980403E021E_53319C7502F4_var*
+//#UC END# *4980403E021E_53319C7502F4_var*
+//#UC START# *4F2A599E0283_53319C7502F4_impl*
+ if Assigned(f_RemindersLine) then
+  IvgRemindersLine(f_RemindersLine).CorrectBounds(ALeft, ATop, AWidth, AHeight);
+ inherited SetBounds(ALeft, ATop, AWidth, AHeight);
+//#UC END# *4F2A599E0283_53319C7502F4_impl*
+//#UC START# *4F2A599E0283_53319C7502F4_var*
+//#UC END# *4F2A599E0283_53319C7502F4_var*
+//#UC START# *4F8851380274_53319C7502F4_impl*
+ Assert(Assigned(f_RemindersLine));
+ IvgRemindersLine(f_RemindersLine).ControlDropped(Source.Control);
+//#UC END# *4F8851380274_53319C7502F4_impl*
+//#UC START# *4F8851380274_53319C7502F4_var*
+//#UC END# *4F8851380274_53319C7502F4_var*
+//#UC START# *4F9007B20376_53319C7502F4_impl*
+ inherited;
+
+ f_ParentControl := nil;
+ Visible := False;
+
+ BorderStyle := bsNone;
+
+ f_BackGround := TvgBackGround.Create(Self);
+ f_BackGround.Align := vaClient;
+
+ f_Scene := TvgScene.Create(Self);
+ with f_Scene do
+ begin
+  Parent := Self;
+  AddObject(f_BackGround);
+  Align := alClient;
+  Transparency := True;
+ end;//with f_Scene
+//#UC END# *4F9007B20376_53319C7502F4_impl*
+//#UC START# *4F9007B20376_53319C7502F4_var*
+//#UC END# *4F9007B20376_53319C7502F4_var*
+//#UC START# *533AA4B4006B_53319C7502F4_impl*
+ inherited;
+ if Assigned(f_RemindersLine) then
+  IvgRemindersLine(f_RemindersLine).UpdateActions;
+//#UC END# *533AA4B4006B_53319C7502F4_impl*
+//#UC START# *533AA4B4006B_53319C7502F4_var*
+//#UC END# *533AA4B4006B_53319C7502F4_var*
+//#UC START# *534FDC010298_53319C7502F4_impl*
+ Msg.Result := MA_NOACTIVATE;
+//#UC END# *534FDC010298_53319C7502F4_impl*
+//#UC START# *534FDC010298_53319C7502F4_var*
+//#UC END# *534FDC010298_53319C7502F4_var*
+//#UC START# *535E45FB007C_53319C7502F4_impl*
+ l_OtherHandle := Msg.ActiveWindow;
+ if (Msg.Active = WA_ACTIVE) or (Msg.Active = WA_CLICKACTIVE) then // медали получили фокус
+  if (Scene <> GetCaptureControl) and (not IsActivateProcessingLocked) then
+  begin
+   l_Control := FindControl(l_OtherHandle);
+   if l_Control <> nil then
+   begin
+    if l_Control.Visible and
+      (l_Control is TWinControl) and
+      not (GetMainForm(l_Control as TWinControl) is TvtPopupForm) then
+     PostMessage(l_OtherHandle, WM_ACTIVATE, WA_ACTIVE, 0) //535903432. Хер его знает, почему по-нормальному не работает
+    else
+    if ParentControl.Visible then
+    begin
+     l_MainForm := GetMainForm(ParentControl);
+     if (l_MainForm <> nil) and
+        l_MainForm.HandleAllocated then
+        // - http://mdp.garant.ru/pages/viewpage.action?pageId=587161029
+      PostMessage(GetMainForm(ParentControl).Handle, WM_ACTIVATE, WA_ACTIVE, 0); //535903432. Хер его знает, почему по-нормальному не работает
+    end;
+   end else
+    SetActiveWindow(GetMainForm(ParentControl).Handle);
+  end;
+//#UC END# *535E45FB007C_53319C7502F4_impl*
+//#UC START# *535E45FB007C_53319C7502F4_var*
+ function GetMainForm(aControl: TWinControl): TWinControl;
+ begin
+  Result := aControl;
+  while Assigned(Result.Parent) do
+   Result := Result.Parent;
+ end;
+
+var
+ l_OtherHandle: THandle;
+ l_Control: TControl;
+ l_MainForm: TWinControl;
+//#UC END# *535E45FB007C_53319C7502F4_var*
+//#UC START# *535E4AF101D7_53319C7502F4_impl*
+ Msg.Result := 1;
+//#UC END# *535E4AF101D7_53319C7502F4_impl*
+//#UC START# *535E4AF101D7_53319C7502F4_var*
+//#UC END# *535E4AF101D7_53319C7502F4_var*
+//#UC START# *535E4B38022D_53319C7502F4_impl*
+ if Assigned(f_RemindersLine) then
+  IvgRemindersLine(f_RemindersLine).SyncPosition;
+//#UC END# *535E4B38022D_53319C7502F4_impl*
+//#UC START# *535E4B38022D_53319C7502F4_var*
+//#UC END# *535E4B38022D_53319C7502F4_var*
+//#UC START# *54100FBD0074_53319C7502F4_impl*
+ Inc(f_ActivateProcessingLockCount);
+//#UC END# *54100FBD0074_53319C7502F4_impl*
+//#UC START# *54100FBD0074_53319C7502F4_var*
+//#UC END# *54100FBD0074_53319C7502F4_var*
+//#UC START# *54100FD20042_53319C7502F4_impl*
+ Dec(f_ActivateProcessingLockCount);
+//#UC END# *54100FD20042_53319C7502F4_impl*
+//#UC START# *54100FD20042_53319C7502F4_var*
+//#UC END# *54100FD20042_53319C7502F4_var*
+//#UC START# *5410102B01CD_53319C7502F4get_impl*
+ Result := (f_ActivateProcessingLockCount > 0);
+//#UC END# *5410102B01CD_53319C7502F4get_impl*
+//#UC START# *5410102B01CD_53319C7502F4get_var*
+//#UC END# *5410102B01CD_53319C7502F4get_var*
+//#UC START# *54477AC100E5_53319C7502F4_impl*
+ if Showing then
+  ShowWindow(Handle, SW_SHOWNOACTIVATE)
+ // - незачем все-таки медалям активироваться. Хотя бы когда зовут Show().
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=530833653
+ // заодно помогает против этого - http://mdp.garant.ru/pages/viewpage.action?pageId=568163184
+ else
+  inherited;
+//#UC END# *54477AC100E5_53319C7502F4_impl*
+//#UC START# *54477AC100E5_53319C7502F4_var*
+//#UC END# *54477AC100E5_53319C7502F4_var*

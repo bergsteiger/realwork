@@ -1,0 +1,139 @@
+//#UC START# *2EA08C0CC8B4_C919B8A4B92C_impl*
+ Result := aNewWordDefinitor.KeywordFinder(aCtx);
+//#UC END# *2EA08C0CC8B4_C919B8A4B92C_impl*
+//#UC START# *2EA08C0CC8B4_C919B8A4B92C_var*
+//#UC END# *2EA08C0CC8B4_C919B8A4B92C_var*
+//#UC START# *479731C50290_5673DCB101B4_impl*
+ if (f_Value.rType = tfw_vtObj) then
+ begin
+  f_Value.AsObject.Free;
+  f_Value.rInteger := 0;
+ end;//f_Value.rType = tfw_vtObj
+ inherited;
+//#UC END# *479731C50290_5673DCB101B4_impl*
+//#UC START# *479731C50290_5673DCB101B4_var*
+//#UC END# *479731C50290_5673DCB101B4_var*
+//#UC START# *52D00B00031A_5673DCB101B4_impl*
+ if (f_Value.rType = tfw_vtObj) then
+ begin
+  if (aValue.rType = tfw_vtObj) AND (f_Value.AsObject = aValue.AsObject) then
+   Exit;
+  f_Value.AsObject.Free;
+ end;//f_Value.rType = tfw_vtObj
+ f_Value := aValue;
+ if (aValue.rType = tfw_vtObj) then
+ begin
+  l3Use(aValue.AsObject);
+ end;//aValue.rType = tfw_vtObj
+//#UC END# *52D00B00031A_5673DCB101B4_impl*
+//#UC START# *52D00B00031A_5673DCB101B4_var*
+//#UC END# *52D00B00031A_5673DCB101B4_var*
+//#UC START# *52D7DC84019E_5673DCB101B4_impl*
+ Result := false; 
+//#UC END# *52D7DC84019E_5673DCB101B4_impl*
+//#UC START# *52D7DC84019E_5673DCB101B4_var*
+//#UC END# *52D7DC84019E_5673DCB101B4_var*
+//#UC START# *559A470F0288_559A4C070092_impl*
+ Result := false;
+//#UC END# *559A470F0288_559A4C070092_impl*
+//#UC START# *559A470F0288_559A4C070092_var*
+//#UC END# *559A470F0288_559A4C070092_var*
+//#UC START# *559A470F0288_5673DD44029E_impl*
+ Result := false;
+//#UC END# *559A470F0288_5673DD44029E_impl*
+//#UC START# *559A470F0288_5673DD44029E_var*
+//#UC END# *559A470F0288_5673DD44029E_var*
+//#UC START# *55C399C9009B_559A4C070092_impl*
+ Result := false;
+//#UC END# *55C399C9009B_559A4C070092_impl*
+//#UC START# *55C399C9009B_559A4C070092_var*
+//#UC END# *55C399C9009B_559A4C070092_var*
+//#UC START# *55C399C9009B_5673DD44029E_impl*
+ Result := false;
+//#UC END# *55C399C9009B_5673DD44029E_impl*
+//#UC START# *55C399C9009B_5673DD44029E_var*
+//#UC END# *55C399C9009B_5673DD44029E_var*
+//#UC START# *56096688024A_5673DCB101B4_impl*
+ inherited;
+//#UC END# *56096688024A_5673DCB101B4_impl*
+//#UC START# *56096688024A_5673DCB101B4_var*
+//#UC END# *56096688024A_5673DCB101B4_var*
+//#UC START# *56456DDD037D_559A4C070092_impl*
+ Result := true;
+//#UC END# *56456DDD037D_559A4C070092_impl*
+//#UC START# *56456DDD037D_559A4C070092_var*
+//#UC END# *56456DDD037D_559A4C070092_var*
+//#UC START# *56456DDD037D_5673DD44029E_impl*
+ Result := true;
+//#UC END# *56456DDD037D_5673DD44029E_impl*
+//#UC START# *56456DDD037D_5673DD44029E_var*
+//#UC END# *56456DDD037D_5673DD44029E_var*
+//#UC START# *B2F36CF00AB7_CDFCC0A90AF7_impl*
+ Result := aNewWordDefinitor.DefineInParameter(aCtx, aParamName, aStereo, aCtx.rTypeInfo);
+//#UC END# *B2F36CF00AB7_CDFCC0A90AF7_impl*
+//#UC START# *B2F36CF00AB7_CDFCC0A90AF7_var*
+//#UC END# *B2F36CF00AB7_CDFCC0A90AF7_var*
+//#UC START# *D57528D8717B_0518A66C4F49_impl*
+ l_KW := aNewWordDefinitor.CheckWord(aName);
+ l_W := l_KW.Word;
+ if (l_W = nil) then
+ begin
+  if aLocal then
+   l_W := TkwCompiledVar.Create(Self,
+                                aNewWordDefinitor.KeywordFinder(aCtx){PrevFinder},
+                                aCtx.rTypeInfo,
+                                aCtx,
+                                l_KW)
+  else
+   l_W := TkwGlobalVar.Create(Self,
+                              aNewWordDefinitor.KeywordFinder(aCtx){PrevFinder},
+                              aCtx.rTypeInfo,
+                              aCtx,
+                              l_KW);
+  try
+   l_KW.SetWord(aCtx, l_W);
+   Result := l_W;
+  finally
+   FreeAndNil(l_W);
+  end;//try..finally
+ end//l_W = nil
+ else
+  Result := l_W;
+//#UC END# *D57528D8717B_0518A66C4F49_impl*
+//#UC START# *D57528D8717B_0518A66C4F49_var*
+var
+ l_KW : TtfwKeyWord;
+ l_W : TtfwWord;
+//#UC END# *D57528D8717B_0518A66C4F49_var*
+//#UC START# *FB5BD5AE3D3A_61662B3659A7_impl*
+ l_KW := aNewWordDefinitor.CheckWord(aName);
+ l_W := l_KW.Word;
+ if (l_W = nil) then
+ begin
+  if aLocal then
+   l_W := TkwRefcountVar.Create(Self,
+                                aNewWordDefinitor.KeywordFinder(aCtx){PrevFinder},
+                                aCtx.rTypeInfo,
+                                aCtx,
+                                l_KW)
+  else
+   l_W := TkwRefcountGlobalVar.Create(Self,
+                              aNewWordDefinitor.KeywordFinder(aCtx){PrevFinder},
+                              aCtx.rTypeInfo,
+                              aCtx,
+                              l_KW);
+  try
+   l_KW.SetWord(aCtx, l_W);
+   Result := l_W;
+  finally
+   FreeAndNil(l_W);
+  end;//try..finally
+ end//l_W = nil
+ else
+  Result := l_W;
+//#UC END# *FB5BD5AE3D3A_61662B3659A7_impl*
+//#UC START# *FB5BD5AE3D3A_61662B3659A7_var*
+var
+ l_KW : TtfwKeyWord;
+ l_W : TtfwWord;
+//#UC END# *FB5BD5AE3D3A_61662B3659A7_var*

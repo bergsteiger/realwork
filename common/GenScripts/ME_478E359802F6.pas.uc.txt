@@ -1,0 +1,65 @@
+//#UC START# *46A5F1EC031F_47A1E9B503DD_impl*
+ if f_Factories.IndexOf(aFactory) = -1 then
+  begin
+   if aPreferred then
+    f_Factories.Insert(0,aFactory)
+   else
+    f_Factories.Add(aFactory);
+  end;
+//#UC END# *46A5F1EC031F_47A1E9B503DD_impl*
+//#UC START# *46A5F1EC031F_47A1E9B503DD_var*
+//#UC END# *46A5F1EC031F_47A1E9B503DD_var*
+//#UC START# *46A5F21F02DD_47A1E9B503DD_impl*
+ f_Factories.Remove(aFactory);
+//#UC END# *46A5F21F02DD_47A1E9B503DD_impl*
+//#UC START# *46A5F21F02DD_47A1E9B503DD_var*
+//#UC END# *46A5F21F02DD_47A1E9B503DD_var*
+//#UC START# *46A5F24B03B2_47A1E9B503DDget_impl*
+ Result := Map[aID] as Il3StringValueMap;
+//#UC END# *46A5F24B03B2_47A1E9B503DDget_impl*
+//#UC START# *46A5F24B03B2_47A1E9B503DDget_var*
+//#UC END# *46A5F24B03B2_47A1E9B503DDget_var*
+//#UC START# *479731C50290_47A1E9B503DD_impl*
+ l3Free(f_Factories);
+ inherited;
+//#UC END# *479731C50290_47A1E9B503DD_impl*
+//#UC START# *479731C50290_47A1E9B503DD_var*
+//#UC END# *479731C50290_47A1E9B503DD_var*
+//#UC START# *47A042E100E2_47A1E9B503DD_impl*
+ inherited;
+ Duplicates := l3_dupError;
+ SortIndex := l3_siByID;
+ Sorted := True;
+ f_Factories := Tl3StringValueMapFactories.Make;
+//#UC END# *47A042E100E2_47A1E9B503DD_impl*
+//#UC START# *47A042E100E2_47A1E9B503DD_var*
+//#UC END# *47A042E100E2_47A1E9B503DD_var*
+//#UC START# *47A1C42301B5_47A1E9B503DD_impl*
+ Result := nil;
+ for l_Idx := 0 to f_Factories.Count-1 do
+ begin
+  Result := f_Factories.Items[l_Idx].MakeMap(aID);
+  if Assigned(Result) then
+   Exit;
+ end;
+ Result := inherited MakeDefaultMap(aID);
+//#UC END# *47A1C42301B5_47A1E9B503DD_impl*
+//#UC START# *47A1C42301B5_47A1E9B503DD_var*
+var
+ l_Idx: Integer;
+//#UC END# *47A1C42301B5_47A1E9B503DD_var*
+//#UC START# *47A1E96201B4_478E359802F6_impl*
+ if g_l3StringMapManager = nil then
+ begin
+  g_l3StringMapManager := Tl3StringValueMapManager.Create;
+  l3System.AddExitProc(DoneManager);
+ end;
+ Result := g_l3StringMapManager;
+//#UC END# *47A1E96201B4_478E359802F6_impl*
+//#UC START# *47A1E96201B4_478E359802F6_var*
+//#UC END# *47A1E96201B4_478E359802F6_var*
+//#UC START# *47A1E97500BB_478E359802F6_impl*
+ l3Free(g_l3StringMapManager);
+//#UC END# *47A1E97500BB_478E359802F6_impl*
+//#UC START# *47A1E97500BB_478E359802F6_var*
+//#UC END# *47A1E97500BB_478E359802F6_var*

@@ -1,0 +1,153 @@
+//#UC START# *4A7C0AFD02BA_4A7C0BF5008Bexec_impl*
+ with _Instance_R_(Self).Text do
+  ShowComments := not(ShowComments);
+//#UC END# *4A7C0AFD02BA_4A7C0BF5008Bexec_impl*
+//#UC START# *4A7C0AFD02BA_4A7C0BF5008Bexec_var*
+//#UC END# *4A7C0AFD02BA_4A7C0BF5008Bexec_var*
+//#UC START# *4A7C0AFD02BA_4A7C0BF5008Bgetstate_impl*
+ if DocumentIsValid then
+  if _Instance_R_(Self).Text.ShowComments then
+   State := st_user_Document_ShowJurorComments_Hide
+  else
+   State := st_user_Document_ShowJurorComments_Show
+ else
+  State := vcm_DefaultOperationState
+//#UC END# *4A7C0AFD02BA_4A7C0BF5008Bgetstate_impl*
+//#UC START# *4A7C0AFD02BA_4A7C0BF5008Bgetstate_var*
+//#UC END# *4A7C0AFD02BA_4A7C0BF5008Bgetstate_var*
+//#UC START# *4A7C0AFD02BA_4A7C0BF5008Btest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := DocumentIsValid;
+//#UC END# *4A7C0AFD02BA_4A7C0BF5008Btest_impl*
+//#UC START# *4A7C0AFD02BA_4A7C0BF5008Btest_var*
+//#UC END# *4A7C0AFD02BA_4A7C0BF5008Btest_var*
+//#UC START# *4A7C0B1D0319_4A7C0BF5008Bexec_impl*
+ with _Instance_R_(Self).Text do
+  ShowUserComments := not(ShowUserComments);
+//#UC END# *4A7C0B1D0319_4A7C0BF5008Bexec_impl*
+//#UC START# *4A7C0B1D0319_4A7C0BF5008Bexec_var*
+//#UC END# *4A7C0B1D0319_4A7C0BF5008Bexec_var*
+//#UC START# *4A7C0B1D0319_4A7C0BF5008Bgetstate_impl*
+ if DocumentIsValid then
+  if _Instance_R_(Self).Text.ShowUserComments then
+   State := st_user_Document_ShowUserComments_Hide
+  else
+   State := st_user_Document_ShowUserComments_Show
+ else
+  State := vcm_DefaultOperationState
+//#UC END# *4A7C0B1D0319_4A7C0BF5008Bgetstate_impl*
+//#UC START# *4A7C0B1D0319_4A7C0BF5008Bgetstate_var*
+//#UC END# *4A7C0B1D0319_4A7C0BF5008Bgetstate_var*
+//#UC START# *4A7C0B1D0319_4A7C0BF5008Btest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := DocumentIsValid;
+//#UC END# *4A7C0B1D0319_4A7C0BF5008Btest_impl*
+//#UC START# *4A7C0B1D0319_4A7C0BF5008Btest_var*
+//#UC END# *4A7C0B1D0319_4A7C0BF5008Btest_var*
+//#UC START# *4A7C0B4503AB_4A7C0BF5008Bexec_impl*
+ InvertVersionCommentsVisibleByUser;
+//#UC END# *4A7C0B4503AB_4A7C0BF5008Bexec_impl*
+//#UC START# *4A7C0B4503AB_4A7C0BF5008Bexec_var*
+//#UC END# *4A7C0B4503AB_4A7C0BF5008Bexec_var*
+//#UC START# *4A7C0B4503AB_4A7C0BF5008Bgetstate_impl*
+ if DocumentIsValid then
+  if _Instance_R_(Self).Text.ShowVersionComments then
+   State := st_user_Document_ShowVersionComments_Hide
+  else
+   State := st_user_Document_ShowVersionComments_Show
+ else
+  State := vcm_DefaultOperationState
+//#UC END# *4A7C0B4503AB_4A7C0BF5008Bgetstate_impl*
+//#UC START# *4A7C0B4503AB_4A7C0BF5008Bgetstate_var*
+//#UC END# *4A7C0B4503AB_4A7C0BF5008Bgetstate_var*
+//#UC START# *4A7C0B4503AB_4A7C0BF5008Btest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := DocumentIsValid;
+//#UC END# *4A7C0B4503AB_4A7C0BF5008Btest_impl*
+//#UC START# *4A7C0B4503AB_4A7C0BF5008Btest_var*
+//#UC END# *4A7C0B4503AB_4A7C0BF5008Btest_var*
+//#UC START# *4A7C14810289_4A7C0BF5008Bexec_impl*
+ // - ничего не делаем
+//#UC END# *4A7C14810289_4A7C0BF5008Bexec_impl*
+//#UC START# *4A7C14810289_4A7C0BF5008Bexec_var*
+//#UC END# *4A7C14810289_4A7C0BF5008Bexec_var*
+//#UC START# *4A7C14810289_4A7C0BF5008Btest_impl*
+ if aParams.Op.SubItems.Count = 0 then
+  with aParams.Op.SubItems do
+  begin
+   AddOp(TdmStdRes.opcode_Document_ShowJurorComments);
+   AddOp(TdmStdRes.opcode_Document_ShowVersionComments);
+   AddOp(TdmStdRes.opcode_Document_ShowUserComments);
+  end;
+//#UC END# *4A7C14810289_4A7C0BF5008Btest_impl*
+//#UC START# *4A7C14810289_4A7C0BF5008Btest_var*
+var
+ l_List: IvcmItems;
+//#UC END# *4A7C14810289_4A7C0BF5008Btest_var*
+//#UC START# *4A7C18B20241_4A7C0BF5008Bexec_impl*
+ with _Instance_R_(Self).Text do
+  DrawSpecial := not DrawSpecial;
+//#UC END# *4A7C18B20241_4A7C0BF5008Bexec_impl*
+//#UC START# *4A7C18B20241_4A7C0BF5008Bexec_var*
+//#UC END# *4A7C18B20241_4A7C0BF5008Bexec_var*
+//#UC START# *4A7C18B20241_4A7C0BF5008Btest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := DefDataAdapter.IsInternal;
+ aParams.Op.Flag[vcm_ofChecked] := _Instance_R_(Self).Text.DrawSpecial;
+//#UC END# *4A7C18B20241_4A7C0BF5008Btest_impl*
+//#UC START# *4A7C18B20241_4A7C0BF5008Btest_var*
+//#UC END# *4A7C18B20241_4A7C0BF5008Btest_var*
+//#UC START# *4A7C1F420169_4A7C0BF5008Bexec_impl*
+ with _Instance_R_(Self).Text do
+  ShowDocumentParts := not ShowDocumentParts;
+//#UC END# *4A7C1F420169_4A7C0BF5008Bexec_impl*
+//#UC START# *4A7C1F420169_4A7C0BF5008Bexec_var*
+//#UC END# *4A7C1F420169_4A7C0BF5008Bexec_var*
+//#UC START# *4A7C1F420169_4A7C0BF5008Btest_impl*
+ aParams.Op.Flag[vcm_ofVisible] := DefDataAdapter.IsInternal;
+ aParams.Op.Flag[vcm_ofEnabled] := DefDataAdapter.IsInternal;
+ aParams.Op.Flag[vcm_ofChecked] := _Instance_R_(Self).Text.ShowDocumentParts;
+//#UC END# *4A7C1F420169_4A7C0BF5008Btest_impl*
+//#UC START# *4A7C1F420169_4A7C0BF5008Btest_var*
+//#UC END# *4A7C1F420169_4A7C0BF5008Btest_var*
+//#UC START# *4A82C33A0105_4A7C0BF5008Bexec_impl*
+ DoDocumentShowTechCommentsExecute;
+//#UC END# *4A82C33A0105_4A7C0BF5008Bexec_impl*
+//#UC START# *4A82C33A0105_4A7C0BF5008Bexec_var*
+//#UC END# *4A82C33A0105_4A7C0BF5008Bexec_var*
+//#UC START# *4A82C33A0105_4A7C0BF5008Bgetstate_impl*
+ if DocumentIsValid then
+  if _Instance_R_(Self).Text.ShowTechComments then
+   State := st_user_Document_ShowTechComments_Hide
+  else
+   State := st_user_Document_ShowTechComments_Show
+ else
+  State := vcm_DefaultOperationState
+//#UC END# *4A82C33A0105_4A7C0BF5008Bgetstate_impl*
+//#UC START# *4A82C33A0105_4A7C0BF5008Bgetstate_var*
+//#UC END# *4A82C33A0105_4A7C0BF5008Bgetstate_var*
+//#UC START# *4A82C33A0105_4A7C0BF5008Btest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := afw.Application.IsInternal and DocumentIsValid;
+//#UC END# *4A82C33A0105_4A7C0BF5008Btest_impl*
+//#UC START# *4A82C33A0105_4A7C0BF5008Btest_var*
+//#UC END# *4A82C33A0105_4A7C0BF5008Btest_var*
+//#UC START# *4AAA14D80350_4A7C0BF5008B_impl*
+ with _Instance_R_(Self).Text do
+ begin
+  l_State := ShowVersionComments;
+  ShowVersionComments := not(ShowVersionComments);
+  if l_State <> ShowVersionComments then
+   VersionCommentsVisibleInvertedByUser(ShowVersionComments);
+ end;
+//#UC END# *4AAA14D80350_4A7C0BF5008B_impl*
+//#UC START# *4AAA14D80350_4A7C0BF5008B_var*
+var
+ l_State: Boolean;
+//#UC END# *4AAA14D80350_4A7C0BF5008B_var*
+//#UC START# *4AAA150A0244_4A7C0BF5008B_impl*
+ // Do nothing;
+//#UC END# *4AAA150A0244_4A7C0BF5008B_impl*
+//#UC START# *4AAA150A0244_4A7C0BF5008B_var*
+//#UC END# *4AAA150A0244_4A7C0BF5008B_var*
+//#UC START# *4C8DCD3B015C_4A7C0BF5008B_impl*
+ with _Instance_R_(Self).Text do
+  ShowTechComments := not ShowTechComments;
+//#UC END# *4C8DCD3B015C_4A7C0BF5008B_impl*
+//#UC START# *4C8DCD3B015C_4A7C0BF5008B_var*
+//#UC END# *4C8DCD3B015C_4A7C0BF5008B_var*

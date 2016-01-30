@@ -1,0 +1,17 @@
+//#UC START# *484CEAD301AE_53C0068E01BC_impl*
+ if (aValue Is Tl3PrimString) then
+ begin
+  l_Pool := Tk2RawData.CreateFromString(Tl3PrimString(aValue));
+  try
+   Result := l_Pool.AsRef;
+  finally
+   FreeAndNil(l_Pool);
+  end;//try..finally
+ end//aValue Is Tl3PrimString
+ else
+  Result := inherited ObjToTag(aValue);
+//#UC END# *484CEAD301AE_53C0068E01BC_impl*
+//#UC START# *484CEAD301AE_53C0068E01BC_var*
+var
+ l_Pool : Tk2RawData;
+//#UC END# *484CEAD301AE_53C0068E01BC_var*

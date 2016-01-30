@@ -1,0 +1,507 @@
+//#UC START# *479731C50290_493126130280_impl*
+ f_Profile := nil;
+ inherited;
+//#UC END# *479731C50290_493126130280_impl*
+//#UC START# *479731C50290_493126130280_var*
+//#UC END# *479731C50290_493126130280_var*
+//#UC START# *47A042E100E2_493126130280_impl*
+ inherited;
+ f_CurrentGroupID := -1;
+//#UC END# *47A042E100E2_493126130280_impl*
+//#UC START# *47A042E100E2_493126130280_var*
+//#UC END# *47A042E100E2_493126130280_var*
+//#UC START# *493121A10045_493126130280_impl*
+ if (f_dsUserProperty <> nil) then
+  f_dsUserProperty.Referred := nil;
+ f_Profile := aProfile;
+ Refresh(vcmMakeDataRefreshParams);
+//#UC END# *493121A10045_493126130280_impl*
+//#UC START# *493121A10045_493126130280_var*
+//#UC END# *493121A10045_493126130280_var*
+//#UC START# *4931222C03DE_493126130280_impl*
+ l_UID := GetUID(aNode);
+ if l_UID <> cBadUID then
+ begin
+  l_UserManager := defDataAdapter.NativeAdapter.MakeUserManager;
+  try
+   try
+    l_UserManager.DeleteUser(l_UID);
+   except
+    //http://mdp.garant.ru/pages/viewpage.action?pageId=508180160
+    on EUserActive do
+     aFailed := True;
+   end;
+  finally
+   l_UserManager := nil;
+  end; // try
+ end; // l_UID <> cBadUID
+//#UC END# *4931222C03DE_493126130280_impl*
+//#UC START# *4931222C03DE_493126130280_var*
+var
+ l_UserManager: IUserManager;
+ l_UID: LongInt;
+//#UC END# *4931222C03DE_493126130280_var*
+//#UC START# *493122380020_493126130280_impl*
+ l_UserManager := defDataAdapter.NativeAdapter.MakeUserManager;
+ try
+  l_UserManager.DeleteUsers(EncodeUIDList(anList), l_Failed);
+  aFailed := DecodeUIDList(aUserTree, l_Failed);
+ finally
+  l_UserManager := nil;
+ end; // try
+//#UC END# *493122380020_493126130280_impl*
+//#UC START# *493122380020_493126130280_var*
+var
+ l_UserManager: IUserManager;
+ l_Failed: IUidList;
+//#UC END# *493122380020_493126130280_var*
+//#UC START# *49312258036D_493126130280_impl*
+ l_UserManager := defDataAdapter.NativeAdapter.MakeUserManager;
+ try
+  l_UserManager.SetConsultingPaymentForAll(IsAllowed);
+ finally
+  l_UserManager := nil;
+ end;
+//#UC END# *49312258036D_493126130280_impl*
+//#UC START# *49312258036D_493126130280_var*
+var
+ l_UserManager: IUserManager;
+//#UC END# *49312258036D_493126130280_var*
+//#UC START# *4931226101A3_493126130280_impl*
+ l_UserManager := defDataAdapter.NativeAdapter.MakeUserManager;
+ try
+  l_UserManager.SetConsultingRights(EncodeUIDList(anList), IsAllowed);
+ finally
+  l_UserManager := nil;
+ end; // try
+//#UC END# *4931226101A3_493126130280_impl*
+//#UC START# *4931226101A3_493126130280_var*
+var
+ l_UserManager: IUserManager;
+//#UC END# *4931226101A3_493126130280_var*
+//#UC START# *493122770111_493126130280_impl*
+ l_UserManager := defDataAdapter.NativeAdapter.MakeUserManager;
+ try
+  l_UserManager.GetSelfProfile(l_SelfProfile);
+  try
+   if l_SelfProfile.GetUID <> GetUID(aNode) then
+     l_UserManager.LogoutUser(GetUID(aNode))
+   else
+    raise ETryLogoutCurrentUser.Create('');
+  finally
+   l_SelfProfile := nil;
+  end;
+ finally
+  l_UserManager := nil;
+ end;
+//#UC END# *493122770111_493126130280_impl*
+//#UC START# *493122770111_493126130280_var*
+var
+ l_UserManager: IUserManager;
+ l_SelfProfile: IUserProfile;
+//#UC END# *493122770111_493126130280_var*
+//#UC START# *4931229500C5_493126130280_impl*
+ l_UserManager := defDataAdapter.NativeAdapter.MakeUserManager;
+ try
+  l_List := EncodeUIDList(anList);
+  try
+   l_UserManager.GetSelfProfile(l_SelfProfile);
+   try
+    l_SelfUID := l_SelfProfile.GetUID;
+   finally
+    l_SelfProfile := nil;
+   end;
+   for l_IDX := 0 to l_List.Count - 1 do
+    if l_SelfUID = l_List[l_IDX] then
+     raise ETryLogoutCurrentUser.Create('');
+   l_UserManager.LogoutUsers(l_List);
+  finally
+   l_List := nil;
+  end;
+ finally
+  l_UserManager := nil;
+ end; // try
+//#UC END# *4931229500C5_493126130280_impl*
+//#UC START# *4931229500C5_493126130280_var*
+var
+ l_UserManager: IUserManager;
+ l_List: IUIDList;
+ l_IDX: Integer;
+ l_SelfProfile: IUserProfile;
+ l_SelfUID: LongInt;
+//#UC END# *4931229500C5_493126130280_var*
+//#UC START# *493122D301EB_493126130280_impl*
+ l_UserManager := defDataAdapter.NativeAdapter.MakeUserManager;
+ try
+  l_UserManager.UserIsPrivileged(GetUID(aNode), IsPrivileged);
+ finally
+  l_UserManager := nil;
+ end;
+//#UC END# *493122D301EB_493126130280_impl*
+//#UC START# *493122D301EB_493126130280_var*
+var
+ l_UserManager: IUserManager;
+//#UC END# *493122D301EB_493126130280_var*
+//#UC START# *493122E402DC_493126130280_impl*
+ l_UserManager := defDataAdapter.NativeAdapter.MakeUserManager;
+ try
+  l_UserManager.SetPrivilegedRights(EncodeUIDList(anList), IsPrivileged);
+ finally
+  l_UserManager := nil;
+ end; // try
+//#UC END# *493122E402DC_493126130280_impl*
+//#UC START# *493122E402DC_493126130280_var*
+var
+ l_UserManager: IUserManager;
+//#UC END# *493122E402DC_493126130280_var*
+//#UC START# *4931230801FC_493126130280get_impl*
+ l_UserManager := defDataAdapter.NativeAdapter.MakeUserManager;
+ try
+  Result := l_UserManager.GetConsultingPaymentForNewbies;
+ finally
+  l_UserManager := nil;
+ end;
+//#UC END# *4931230801FC_493126130280get_impl*
+//#UC START# *4931230801FC_493126130280get_var*
+var
+ l_UserManager: IUserManager;
+//#UC END# *4931230801FC_493126130280get_var*
+//#UC START# *4931230801FC_493126130280set_impl*
+ l_UserManager := defDataAdapter.NativeAdapter.MakeUserManager;
+ try
+  l_UserManager.SetConsultingPaymentForNewbies(aValue);
+ finally
+  l_UserManager := nil;
+ end;
+//#UC END# *4931230801FC_493126130280set_impl*
+//#UC START# *4931230801FC_493126130280set_var*
+var
+ l_UserManager: IUserManager;
+//#UC END# *4931230801FC_493126130280set_var*
+//#UC START# *4931291701BD_493126130280_impl*
+ if Supports(aNode, IProfileNode, l_Node) then
+  Result := l_Node.GetUid
+ else
+  Result := cBadUID;
+//#UC END# *4931291701BD_493126130280_impl*
+//#UC START# *4931291701BD_493126130280_var*
+var
+ l_Node: IProfileNode;
+//#UC END# *4931291701BD_493126130280_var*
+//#UC START# *4931295B0260_493126130280get_impl*
+ Result := nsCStr(AT_BASES);
+//#UC END# *4931295B0260_493126130280get_impl*
+//#UC START# *4931295B0260_493126130280get_var*
+//#UC END# *4931295B0260_493126130280get_var*
+//#UC START# *4931297703B0_493126130280get_impl*
+ Result := TnsAttributeTreeCacheNew.Instance.AttributeRoot[BaseAccessRootTag];
+//#UC END# *4931297703B0_493126130280get_impl*
+//#UC START# *4931297703B0_493126130280get_var*
+//#UC END# *4931297703B0_493126130280get_var*
+//#UC START# *49312C9E0289_493126130280_impl*
+ DropAllOperations(BaseAccessRoot);
+ BaseAccessRoot.SetAllFlag(FM_SELECTION, False);
+ if Assigned(aList) then
+  for l_IDX := 0 to aList.Count - 1 do
+  begin
+   l_Node := FindNode(aList[l_IDX]);
+   if Assigned(l_Node) then
+    nsLogicOperationToFlags.SetLogicOperation(l_Node, loNot);
+  end;
+//#UC END# *49312C9E0289_493126130280_impl*
+//#UC START# *49312C9E0289_493126130280_var*
+var
+ l_IDX: Integer;
+ l_Node: INodeBase;
+//#UC END# *49312C9E0289_493126130280_var*
+//#UC START# *49339B8A016C_493126130280_impl*
+ Result := nil;
+ BaseAccessRoot.IterateNodes(0, l_NodeIterator);
+ l_NodeIterator.GetNext(l_ChildNode);
+ while l_ChildNode <> nil do
+ begin
+  if l_ChildNode.GetNodeId = anID then
+  begin
+   Result := l_ChildNode;
+   Break;
+  end;
+  l_NodeIterator.GetNext(l_ChildNode);
+ end;//while l_ChildNode <> nil
+//#UC END# *49339B8A016C_493126130280_impl*
+//#UC START# *49339B8A016C_493126130280_var*
+var
+ l_NodeIterator: INodeIterator;
+ l_ChildNode: INodeBase;
+//#UC END# *49339B8A016C_493126130280_var*
+//#UC START# *49339DC90212_493126130280_impl*
+ Assert(Assigned(aList));
+ Result := defDataAdapter.NativeAdapter.MakeUIDList;
+ for l_IDX := 0 to aList.Count - 1 do
+  Result.Add(GetUID(aList[l_IDX]));
+//#UC END# *49339DC90212_493126130280_impl*
+//#UC START# *49339DC90212_493126130280_var*
+var
+ l_IDX: Integer;
+//#UC END# *49339DC90212_493126130280_var*
+//#UC START# *49339DFE00BD_493126130280_impl*
+ l_ResultList := TadminUserNodeList.Create;
+ try
+  Result := l_ResultList;
+  if Assigned(aList) and (aList.Count > 0) then
+  begin
+   l_UIDList := TvcmLongintList.Make;
+   try
+    for l_IDX := 0 to aList.Count - 1 do
+     l_UIDList.Add(aList[l_IDX]);
+    aUserTree.SimpleIterateF(l3L2SNA(@CheckUID), imCheckResult);
+   finally
+    vcmFree(l_UIDList);
+   end;
+  end;
+ finally
+  FreeAndNil(l_ResultList);
+ end;
+//#UC END# *49339DFE00BD_493126130280_impl*
+//#UC START# *49339DFE00BD_493126130280_var*
+var
+ l_ResultList: TadminUserNodeList;
+ l_UIDList: TvcmLongintList;
+
+ function CheckUID(const aNode: Il3SimpleNode): Boolean;
+ var
+  l_IDX: Integer;
+  l_UID: LongInt;
+ begin
+  Result := False;
+  l_UID := GetUID(aNode);
+  for l_IDX := 0 to l_UIDList.Count - 1 do
+   if l_UID = l_UIDList[l_IDX] then
+   begin
+    l_ResultList.Add(aNode);
+    l_UIDList.Delete(l_IDX);
+    Result := l_UIDList.Count = 0;
+    Break;
+   end;
+ end;
+
+var
+ l_IDX : Integer;
+//#UC END# *49339DFE00BD_493126130280_var*
+//#UC START# *4933A3DE0399_493126130280area_impl*
+ Result := TdsUserList.Make(Self, InitialUseCaseData.Users);
+//#UC END# *4933A3DE0399_493126130280area_impl*
+//#UC START# *4933A3DE0399_493126130280area_var*
+//#UC END# *4933A3DE0399_493126130280area_var*
+//#UC START# *4933A3DE0399_493126130280get_init*
+  // - код инициализации ссылки на ViewArea
+//#UC END# *4933A3DE0399_493126130280get_init*
+//#UC START# *4933A3DE0399_493126130280get_need*
+  // - условие создания ViewArea
+//#UC END# *4933A3DE0399_493126130280get_need*
+//#UC START# *4933A3DE0399_493126130280get_var*
+//#UC END# *4933A3DE0399_493126130280get_var*
+//#UC START# *4933A42A000B_493126130280area_impl*
+ Result := TdsAdmin.Make(Self);
+//#UC END# *4933A42A000B_493126130280area_impl*
+//#UC START# *4933A42A000B_493126130280area_var*
+//#UC END# *4933A42A000B_493126130280area_var*
+//#UC START# *4933A42A000B_493126130280get_init*
+  // - код инициализации ссылки на ViewArea
+//#UC END# *4933A42A000B_493126130280get_init*
+//#UC START# *4933A42A000B_493126130280get_need*
+  // - условие создания ViewArea
+//#UC END# *4933A42A000B_493126130280get_need*
+//#UC START# *4933A42A000B_493126130280get_var*
+//#UC END# *4933A42A000B_493126130280get_var*
+//#UC START# *4933A4B2026A_493126130280area_impl*
+ Result := TdsUserProperty.Make(Self, f_Profile);
+//#UC END# *4933A4B2026A_493126130280area_impl*
+//#UC START# *4933A4B2026A_493126130280area_var*
+//#UC END# *4933A4B2026A_493126130280area_var*
+//#UC START# *4933A4B2026A_493126130280get_init*
+  // - код инициализации ссылки на ViewArea
+//#UC END# *4933A4B2026A_493126130280get_init*
+//#UC START# *4933A4B2026A_493126130280get_need*
+  // - условие создания ViewArea
+//#UC END# *4933A4B2026A_493126130280get_need*
+//#UC START# *4933A4B2026A_493126130280get_var*
+//#UC END# *4933A4B2026A_493126130280get_var*
+//#UC START# *49EC52D1019D_493126130280area_impl*
+ Result := TdsGroupsList.Make(Self, InitialUseCaseData.Groups);
+//#UC END# *49EC52D1019D_493126130280area_impl*
+//#UC START# *49EC52D1019D_493126130280area_var*
+//#UC END# *49EC52D1019D_493126130280area_var*
+//#UC START# *49EC52D1019D_493126130280get_init*
+  // - код инициализации ссылки на ViewArea
+//#UC END# *49EC52D1019D_493126130280get_init*
+//#UC START# *49EC52D1019D_493126130280get_need*
+  // - условие создания ViewArea
+//#UC END# *49EC52D1019D_493126130280get_need*
+//#UC START# *49EC52D1019D_493126130280get_var*
+//#UC END# *49EC52D1019D_493126130280get_var*
+//#UC START# *49EC53DA01C9_493126130280_impl*
+ l_UID := GetUID(aNode);
+ if l_UID <> cBadUID then
+  Result := ChangeBaseAccessForGroup(l_UID)
+ else
+  Result := False;
+//#UC END# *49EC53DA01C9_493126130280_impl*
+//#UC START# *49EC53DA01C9_493126130280_var*
+var
+ l_UID: LongInt;
+//#UC END# *49EC53DA01C9_493126130280_var*
+//#UC START# *49EC53FE0039_493126130280_impl*
+ l_UID := GetUID(aNode);
+ if l_UID <> cBadUID then
+ begin
+  l_UserManager := defDataAdapter.NativeAdapter.MakeUserManager;
+  try
+   l_UserManager.DeleteGroup(l_UID);
+  finally
+   l_UserManager := nil;
+  end; // try
+ end; // l_UID <> cBadUID
+//#UC END# *49EC53FE0039_493126130280_impl*
+//#UC START# *49EC53FE0039_493126130280_var*
+var
+ l_UserManager: IUserManager;
+ l_UID: LongInt;
+//#UC END# *49EC53FE0039_493126130280_var*
+//#UC START# *49EC5423006B_493126130280_impl*
+ if EditGroupName(nil, l_Name) then
+  try
+   defDataAdapter.NativeAdapter.MakeUserManager.CreateGroup(nsAStr(l_Name).S);
+  except
+   on ELoginDuplicate do
+    raise EDuplicateGroupName.Create(nsEStr(l_Name));
+  end
+//#UC END# *49EC5423006B_493126130280_impl*
+//#UC START# *49EC5423006B_493126130280_var*
+var
+ l_Name: Il3CString;
+ l_UserManager: IUserManager;
+//#UC END# *49EC5423006B_493126130280_var*
+//#UC START# *49EC5B7D023E_493126130280_impl*
+ if anUID <> cBadUID then
+ begin
+  defDataAdapter.NativeAdapter.MakeUserManager.GetNonsearchableBlocksForGroup(anUID, l_List);
+  PrepareBasesTree(l_List);
+  Result := ChangeBaseAccess;
+  if Result then
+  begin
+   l_List := defDataAdapter.NativeAdapter.MakeNodeIdList;
+   l_Iterator := GetOperationIterator(BaseAccessRoot, loNot);
+   l_Iterator.GetNext(l_NodeBase);
+   while Assigned(l_NodeBase) do
+   begin
+    l_List.Add(l_NodeBase.GetNodeId);
+    l_Iterator.GetNext(l_NodeBase);
+   end;//while Assigned(l_NodeBase) do
+   defDataAdapter.NativeAdapter.MakeUserManager.SetNonsearchableBlocksForGroup(anUID, l_List);
+  end;
+ end
+ else
+  Result := False;
+//#UC END# *49EC5B7D023E_493126130280_impl*
+//#UC START# *49EC5B7D023E_493126130280_var*
+var
+ l_UserManager: IUserManager;
+ l_List: INodeIdList;
+ l_Iterator: INodeIterator;
+ l_NodeBase: INodeBase;
+//#UC END# *49EC5B7D023E_493126130280_var*
+//#UC START# *49EEDC8F02C1_493126130280_impl*
+ if f_CurrentGroupID <> GetUID(aNode) then
+ begin
+  f_CurrentGroupID := GetUID(aNode);
+  InternalUserList.NotifyGroupChanged(f_CurrentGroupID)
+ end;
+//#UC END# *49EEDC8F02C1_493126130280_impl*
+//#UC START# *49EEDC8F02C1_493126130280_var*
+//#UC END# *49EEDC8F02C1_493126130280_var*
+//#UC START# *49EEDEB10042_493126130280get_impl*
+ Result := f_CurrentGroupID;
+//#UC END# *49EEDEB10042_493126130280get_impl*
+//#UC START# *49EEDEB10042_493126130280get_var*
+//#UC END# *49EEDEB10042_493126130280get_var*
+//#UC START# *49EEEB1D0215_493126130280_impl*
+ l_Data := TbsEditGroupName.Make(l3CStr(aNode));
+ if (TdmStdRes.ShowRenameGroupDialog(l_Data) = mrOk) then
+ begin
+  aName := l_Data.Name;
+  Result := true
+ end//TdmStdRes.ShowRenameGroupDialog(TbsEditGroupName.Make(l_Name))  = mrOk
+ else
+  Result := false;
+//#UC END# *49EEEB1D0215_493126130280_impl*
+//#UC START# *49EEEB1D0215_493126130280_var*
+var
+ l_Data : IbsEditGroupName;
+//#UC END# *49EEEB1D0215_493126130280_var*
+//#UC START# *49EEEBD40313_493126130280_impl*
+ if EditGroupName(aNode, l_Name) then
+ try
+  if Supports(f_dsUserProperty, IdsUserProperty, l_UP) then
+   l_UP.IsReadOnlyFor268342582 := True;
+  try
+   defDataAdapter.NativeAdapter.MakeUserManager.ChangeGroupName(GetUID(aNode),nsAStr(l_Name).S);
+   Sleep(200); // этот sleep вместе с l_UP.IsReadOnly - это "костыль" к К268342582 
+  except
+   on ELoginDuplicate do
+    raise EDuplicateGroupName.Create(nsEStr(l_Name));
+  end;
+
+ finally
+  if l_UP <> nil then
+   l_UP.IsReadOnlyFor268342582 := False;
+ end;
+//#UC END# *49EEEBD40313_493126130280_impl*
+//#UC START# *49EEEBD40313_493126130280_var*
+var
+ l_Name: Il3CString;
+ l_UP: IdsUserProperty;
+//#UC END# *49EEEBD40313_493126130280_var*
+//#UC START# *49F021CE03E6_493126130280_impl*
+ InternalUserList.NotifyCreateUserFinished(Successfull);
+//#UC END# *49F021CE03E6_493126130280_impl*
+//#UC START# *49F021CE03E6_493126130280_var*
+//#UC END# *49F021CE03E6_493126130280_var*
+//#UC START# *49F0282D02AA_493126130280get_impl*
+ Result := pm_GetDsUserList;
+//#UC END# *49F0282D02AA_493126130280get_impl*
+//#UC START# *49F0282D02AA_493126130280get_var*
+//#UC END# *49F0282D02AA_493126130280get_var*
+//#UC START# *49F6DB7B0165_493126130280_impl*
+ InternalUserProperty.CheckUnsavedUserProperty;
+//#UC END# *49F6DB7B0165_493126130280_impl*
+//#UC START# *49F6DB7B0165_493126130280_var*
+//#UC END# *49F6DB7B0165_493126130280_var*
+//#UC START# *49F6E0E901BA_493126130280_impl*
+ InternalUserList.RequestUpdateCureent;
+//#UC END# *49F6E0E901BA_493126130280_impl*
+//#UC START# *49F6E0E901BA_493126130280_var*
+//#UC END# *49F6E0E901BA_493126130280_var*
+//#UC START# *49F6E384028E_493126130280get_impl*
+ Result := pm_GetDsUserProperty;
+//#UC END# *49F6E384028E_493126130280get_impl*
+//#UC START# *49F6E384028E_493126130280get_var*
+//#UC END# *49F6E384028E_493126130280get_var*
+//#UC START# *4AAF58000352_493126130280_impl*
+ Result := TdmStdRes.OpenTreeSelection(BaseAccessRootTag, ns_ftNone,
+                                       TdsBasesAccess.Make(nil,
+                                                           TdeSearch.Make(BaseAccessRootTag, nil))) = mrOk;
+//#UC END# *4AAF58000352_493126130280_impl*
+//#UC START# *4AAF58000352_493126130280_var*
+//#UC END# *4AAF58000352_493126130280_var*
+//#UC START# *4F3BE8370292_493126130280_impl*
+ l_UserManager := defDataAdapter.NativeAdapter.MakeUserManager;
+ try
+  l_UserManager.SetErasableState(GetUID(aNode), not aValue);
+ finally
+  l_UserManager := nil;
+ end;
+//#UC END# *4F3BE8370292_493126130280_impl*
+//#UC START# *4F3BE8370292_493126130280_var*
+var
+ l_UserManager: IUserManager;
+//#UC END# *4F3BE8370292_493126130280_var*

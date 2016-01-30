@@ -1,5 +1,8 @@
 unit MaskUtils;
 
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\MaskUtils.pas"
+// Стереотип: "UtilityPack"
+
 interface
 
 uses

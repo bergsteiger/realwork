@@ -1,0 +1,36 @@
+//#UC START# *479731C50290_4D3430A7028D_impl*
+ FreeAndNil(f_Groups);
+ inherited;
+//#UC END# *479731C50290_4D3430A7028D_impl*
+//#UC START# *479731C50290_4D3430A7028D_var*
+//#UC END# *479731C50290_4D3430A7028D_var*
+//#UC START# *4992FE89024F_4D3430A7028D_impl*
+ while true do
+ begin
+  Inc(f_Current);
+  if (f_Current < f_Groups.Count) then
+  begin
+   if f_Groups[f_Current].rControl.Visible then
+   begin
+    Result := TnscTasksPanelGroup.Make(f_Current, f_Groups[f_Current]);
+    break;
+   end//f_Groups[f_Current].rControl.Visible
+   else
+    continue;
+  end//f_Current < f_Groups.Count
+  else
+  begin
+   Result := nil;
+   break;
+  end;//f_Current < f_Groups.Count
+ end;//while true
+//#UC END# *4992FE89024F_4D3430A7028D_impl*
+//#UC START# *4992FE89024F_4D3430A7028D_var*
+//#UC END# *4992FE89024F_4D3430A7028D_var*
+//#UC START# *4D343C3502B5_4D3430A7028D_impl*
+ inherited Create;
+ f_Current := -1;
+ l3Set(f_Groups, aGroups);
+//#UC END# *4D343C3502B5_4D3430A7028D_impl*
+//#UC START# *4D343C3502B5_4D3430A7028D_var*
+//#UC END# *4D343C3502B5_4D3430A7028D_var*

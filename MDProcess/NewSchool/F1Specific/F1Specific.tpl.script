@@ -118,24 +118,6 @@
 //			Description: 
 //			lid: script
 //		}
-//		generator "rc.pas" {
-//			Description: Ресурсы (.rc)
-//			lid: delphi
-//		}
-//		generator "rc.script.pas" {
-//			Description: Скрипты в ресурсах (.rc.script)
-//			lid: delphi
-//		}
-//		generator "res.cmd.pas" {
-//			Description: Компилятор ресурса (.res.cmd)
-//			lid: delphi
-//		}
-//		group "Delphi ST" {
-//			generator "pascal" {
-//				Description: 
-//				lid: delphi
-//			}
-//		}
 //	}
 
 //	group "Java" {
@@ -237,12 +219,6 @@
 //	group "Документация" {
 //		generator "wiki" {
 //			Description: Генерация модели в MDKnow
-//		}
-//		group "ModelSerialize" {
-//			generator "forth_structure" {
-//				Description: генератор структуры модели в описание на языке FORTH
-//				lid: forth
-//			}
 //		}
 //	}
 
@@ -560,59 +536,8 @@ implementation @ <<default>>
   end // if
  end // for C
 
-//+ rc.pas
-; // pas.script.runner
-
-<<generator>> rc.pas OBJECT IN %S
-//P
-//	<%CX>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if true then
-  begin
-   %C |X 
-   ++! l_Counter
-  end // if
- end // for C
-
-//+ rc.script.pas
-; // rc.pas
-
-<<generator>> rc.script.pas OBJECT IN %S
-//P
-//	<%CX>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if true then
-  begin
-   %C |X 
-   ++! l_Counter
-  end // if
- end // for C
-
-//+ res.cmd.pas
-; // rc.script.pas
-
-<<generator>> res.cmd.pas OBJECT IN %S
-//P
-//	<%CX>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if true then
-  begin
-   %C |X 
-   ++! l_Counter
-  end // if
- end // for C
-
 //+ fctr.java
-; // res.cmd.pas
+; // pas.script.runner
 
 <<generator>> fctr.java OBJECT IN %S
 //P
@@ -1053,25 +978,8 @@ implementation @ <<default>>
   end // if
  end // for C
 
-//+ forth_structure
-; // spell
-
-<<generator>> forth_structure OBJECT IN %S
-//P
-//	<%CX>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if true then
-  begin
-   %C |X 
-   ++! l_Counter
-  end // if
- end // for C
-
 //+ wiki
-; // forth_structure
+; // spell
 
 <<generator>> wiki OBJECT IN %S
 //P
@@ -1087,26 +995,9 @@ implementation @ <<default>>
   end // if
  end // for C
 
-//+ pascal
-; // wiki
-
-<<generator>> pascal OBJECT IN %S
-//P
-//	<%CX>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if true then
-  begin
-   %C |X 
-   ++! l_Counter
-  end // if
- end // for C
-
 
 //# ./F1Specific.inc.tpi
-; // pascal
+; // wiki
 
 end. // <<default>>
 
@@ -1146,8 +1037,6 @@ USES
   [%f] add_to_list %( 'ALL_GENERATORS_ID' %, 'fctr.h' )% 
 //	%f_add_to_list(ALL_GENERATORS_ID,"fctr.java")
   [%f] add_to_list %( 'ALL_GENERATORS_ID' %, 'fctr.java' )% 
-//	%f_add_to_list(ALL_GENERATORS_ID,"forth_structure")
-  [%f] add_to_list %( 'ALL_GENERATORS_ID' %, 'forth_structure' )% 
 //	%f_add_to_list(ALL_GENERATORS_ID,"h")
   [%f] add_to_list %( 'ALL_GENERATORS_ID' %, 'h' )% 
 //	%f_add_to_list(ALL_GENERATORS_ID,"i.h")
@@ -1192,16 +1081,8 @@ USES
   [%f] add_to_list %( 'ALL_GENERATORS_ID' %, 'pas.script' )% 
 //	%f_add_to_list(ALL_GENERATORS_ID,"pas.script.runner")
   [%f] add_to_list %( 'ALL_GENERATORS_ID' %, 'pas.script.runner' )% 
-//	%f_add_to_list(ALL_GENERATORS_ID,"pascal")
-  [%f] add_to_list %( 'ALL_GENERATORS_ID' %, 'pascal' )% 
 //	%f_add_to_list(ALL_GENERATORS_ID,"rc")
   [%f] add_to_list %( 'ALL_GENERATORS_ID' %, 'rc' )% 
-//	%f_add_to_list(ALL_GENERATORS_ID,"rc.pas")
-  [%f] add_to_list %( 'ALL_GENERATORS_ID' %, 'rc.pas' )% 
-//	%f_add_to_list(ALL_GENERATORS_ID,"rc.script.pas")
-  [%f] add_to_list %( 'ALL_GENERATORS_ID' %, 'rc.script.pas' )% 
-//	%f_add_to_list(ALL_GENERATORS_ID,"res.cmd.pas")
-  [%f] add_to_list %( 'ALL_GENERATORS_ID' %, 'res.cmd.pas' )% 
 //	%f_add_to_list(ALL_GENERATORS_ID,"s.ini")
   [%f] add_to_list %( 'ALL_GENERATORS_ID' %, 's.ini' )% 
 //	%f_add_to_list(ALL_GENERATORS_ID,"s.reg")

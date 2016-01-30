@@ -1,0 +1,29 @@
+//#UC START# *479731C50290_5284E9510053_impl*
+ FreeAndNil(f_Condition);
+ inherited;
+//#UC END# *479731C50290_5284E9510053_impl*
+//#UC START# *479731C50290_5284E9510053_var*
+//#UC END# *479731C50290_5284E9510053_var*
+//#UC START# *4DAEEDE10285_5284E9510053_impl*
+ f_Condition.DoIt(aCtx);
+ inherited;
+//#UC END# *4DAEEDE10285_5284E9510053_impl*
+//#UC START# *4DAEEDE10285_5284E9510053_var*
+//#UC END# *4DAEEDE10285_5284E9510053_var*
+//#UC START# *5284EED900B6_5284E9510053_impl*
+ inherited Create(anIf, anElse, aCtx);
+ aCondition.SetRefTo(f_Condition);
+//#UC END# *5284EED900B6_5284E9510053_impl*
+//#UC START# *5284EED900B6_5284E9510053_var*
+//#UC END# *5284EED900B6_5284E9510053_var*
+//#UC START# *5284FE8F025F_5284E9510053_impl*
+ if (f_ElseBranch Is TkwCompiledIfElse) then
+  TkwCompiledIfElse(f_ElseBranch).SetElse(anElse)
+ else
+ begin
+  Assert(f_ElseBranch = nil);
+  anElse.SetRefTo(f_ElseBranch);
+ end;//f_Else Is TkwCompiledIfElse
+//#UC END# *5284FE8F025F_5284E9510053_impl*
+//#UC START# *5284FE8F025F_5284E9510053_var*
+//#UC END# *5284FE8F025F_5284E9510053_var*

@@ -1,0 +1,34 @@
+//#UC START# *4DAEEDE10285_4F51EC380222_impl*
+ if (Code <> nil) then
+ begin
+  l_I := 0;
+  l_C := Code.Count - 1;
+  while (l_I < l_C) do
+  begin
+   if Code[l_I].IsDefaultBranch then
+   begin
+    Code[l_I + 1].DoIt(aCtx);
+    RunnerAssert(l_I + 1 = l_C, 'ѕосле выполнени€ секции DEFAULT осталс€ лишний код', aCtx);
+    break;
+   end//Code[l_I].IsDefaultBranch
+   else
+   begin
+    Code[l_I].DoIt(aCtx);
+    if aCtx.rEngine.PopBool then
+    // - правило выполнилось
+    begin
+     Code[l_I + 1].DoIt(aCtx);
+     // - выполн€ем код
+     break;
+     // - выходим
+    end;//aCtx.rEngine.PopBoo
+   end;//Code[l_I].IsDefaultBranch
+   Inc(l_I, 2);
+  end;//l_I < l_C
+ end;//Code <> nil
+//#UC END# *4DAEEDE10285_4F51EC380222_impl*
+//#UC START# *4DAEEDE10285_4F51EC380222_var*
+var
+ l_I : Integer;
+ l_C : Integer;
+//#UC END# *4DAEEDE10285_4F51EC380222_var*

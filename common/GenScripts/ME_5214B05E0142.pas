@@ -1,4 +1,9 @@
-unit ddAppConfigWFrame;
+unit NOT_FINISHED_ddAppConfigWFrame;
+
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddAppConfigWFrame.pas"
+// Стереотип: "UtilityPack"
+
+{$Include ddDefine.inc}
 
 interface
 
@@ -9,7 +14,7 @@ uses
 type
  TWorkFrame = class
  end;//TWorkFrame
- 
+
 implementation
 
 uses

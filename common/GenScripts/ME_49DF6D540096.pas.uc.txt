@@ -1,0 +1,73 @@
+//#UC START# *479731C50290_49DF6D540096_impl*
+ FreeAndNil(f_Map);
+ inherited;
+//#UC END# *479731C50290_49DF6D540096_impl*
+//#UC START# *479731C50290_49DF6D540096_var*
+//#UC END# *479731C50290_49DF6D540096_var*
+//#UC START# *47FB320102A6_49DF6D540096_impl*
+ DoInitPointByPt(aView, aPoint, aMap);
+//#UC END# *47FB320102A6_49DF6D540096_impl*
+//#UC START# *47FB320102A6_49DF6D540096_var*
+//#UC END# *47FB320102A6_49DF6D540096_var*
+//#UC START# *49DF6F2F0190_49DF6D540096_impl*
+ Result := 0;
+//#UC END# *49DF6F2F0190_49DF6D540096_impl*
+//#UC START# *49DF6F2F0190_49DF6D540096_var*
+//#UC END# *49DF6F2F0190_49DF6D540096_var*
+//#UC START# *49DF703901BA_49DF6D540096_impl*
+ Assert(aMap <> nil);
+ aMap.FI.SetRefTo(f_Map);
+//#UC END# *49DF703901BA_49DF6D540096_impl*
+//#UC START# *49DF703901BA_49DF6D540096_var*
+//#UC END# *49DF703901BA_49DF6D540096_var*
+//#UC START# *49DF741401DF_49DF6D540096get_impl*
+ Result := Self;
+//#UC END# *49DF741401DF_49DF6D540096get_impl*
+//#UC START# *49DF741401DF_49DF6D540096get_var*
+//#UC END# *49DF741401DF_49DF6D540096get_var*
+//#UC START# *49DF74B0005C_49DF6D540096_impl*
+ if (f_Map <> nil) then
+ begin
+  if (f_Map.ParentInfo = nil) then
+   FreeAndNil(f_Map);
+   // - надо будет переполучить форматирование, ибо, то, что мы запомнили - "битое"
+ end;//f_Map <> nil
+ if (f_Map = nil) then
+ begin
+  if (aView <> nil) then
+  begin
+   aView.FormatInfoByPoint(Self).SetRefTo(f_Map);
+   Assert((f_Map = nil) OR (f_Map.ParentInfo <> nil));
+  end;//aView <> nil
+ end;//f_Map = nil
+ Result := f_Map;
+//#UC END# *49DF74B0005C_49DF6D540096_impl*
+//#UC START# *49DF74B0005C_49DF6D540096_var*
+//#UC END# *49DF74B0005C_49DF6D540096_var*
+//#UC START# *49E3153B017D_49DF6D540096_impl*
+ Result := true;
+//#UC END# *49E3153B017D_49DF6D540096_impl*
+//#UC START# *49E3153B017D_49DF6D540096_var*
+//#UC END# *49E3153B017D_49DF6D540096_var*
+//#UC START# *49E31657038E_49DF6D540096_impl*
+ Result := inherited DoMovePrim(aView, aCode, anOp, aCount);
+ if (Result = ev_dcNotDone) AND (Self.pm_GetParentPoint <> nil) then
+  Case aCode of
+   ev_ocParaUp,
+   ev_ocParaDown,
+   ev_ocParaLeft,
+   ev_ocParaRight,
+   ev_ocPrevParaBottomRight,
+   ev_ocNextParaTopLeft,
+   ev_ocPrevParaBottomRightInThisBlock,
+   ev_ocParaDownWithEmptyRow:
+    Result := Self.pm_GetParentPoint.DoMove(aView, aCode, anOp, aCount);
+  end;//Case aCode
+//#UC END# *49E31657038E_49DF6D540096_impl*
+//#UC START# *49E31657038E_49DF6D540096_var*
+//#UC END# *49E31657038E_49DF6D540096_var*
+//#UC START# *4A5CDCAC0230_49DF6D540096_impl*
+ Result := GetPaintOffsetY(aView, aMap);
+//#UC END# *4A5CDCAC0230_49DF6D540096_impl*
+//#UC START# *4A5CDCAC0230_49DF6D540096_var*
+//#UC END# *4A5CDCAC0230_49DF6D540096_var*

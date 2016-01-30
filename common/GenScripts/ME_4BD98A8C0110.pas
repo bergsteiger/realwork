@@ -1,0 +1,78 @@
+unit PostingOrder_FormDefinitions_Controls;
+
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PostingOrder_FormDefinitions_Controls.pas"
+// Стереотип: "VCMControls"
+
+{$Include nsDefine.inc}
+
+interface
+
+{$If NOT Defined(Admin)}
+uses
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , tfwString
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+const
+ fm_enPostingsList: TvcmFormDescriptor = (rFormID : (rName : 'enPostingsList'; rID : 0); rFactory : nil);
+  {* Идентификатор формы TenPostingsList }
+
+type
+ PostingsListFormDef = interface
+  ['{69D1C6BF-ECE3-4BB1-8DA5-998AB45694C7}']
+ end;//PostingsListFormDef
+{$IfEnd} // NOT Defined(Admin)
+
+implementation
+
+{$If NOT Defined(Admin)}
+uses
+ l3ImplUses
+;
+
+type
+ {$If NOT Defined(NoScripts)}
+ Tkw_Form_PostingsList_ID = {final} class(TtfwString)
+  {* Слово словаря для идентификатора формы PostingsList
+----
+*Пример использования*:
+[code]
+'aControl' форма::PostingsList TryFocus ASSERT
+[code] }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   function GetString: AnsiString; override;
+ end;//Tkw_Form_PostingsList_ID
+ {$IfEnd} // NOT Defined(NoScripts)
+
+{$If NOT Defined(NoScripts)}
+class function Tkw_Form_PostingsList_ID.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::PostingsList';
+end;//Tkw_Form_PostingsList_ID.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
+
+{$If NOT Defined(NoScripts)}
+function Tkw_Form_PostingsList_ID.GetString: AnsiString;
+//#UC START# *4DDFD2EA0116_90CA7495E0C6_var*
+//#UC END# *4DDFD2EA0116_90CA7495E0C6_var*
+begin
+//#UC START# *4DDFD2EA0116_90CA7495E0C6_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DDFD2EA0116_90CA7495E0C6_impl*
+end;//Tkw_Form_PostingsList_ID.GetString
+{$IfEnd} // NOT Defined(NoScripts)
+
+initialization
+{$If NOT Defined(NoScripts)}
+ Tkw_Form_PostingsList_ID.RegisterInEngine;
+ {* Регистрация Tkw_Form_PostingsList_ID }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin)
+
+end.

@@ -1,0 +1,28 @@
+//#UC START# *47A042E100E2_559F828102D8_impl*
+ inherited;
+ Sorted := true;
+//#UC END# *47A042E100E2_559F828102D8_impl*
+//#UC START# *47A042E100E2_559F828102D8_var*
+//#UC END# *47A042E100E2_559F828102D8_var*
+//#UC START# *559F82A60110_559F828102D8_impl*
+ if aModifiers.Empty then
+  Result := TtfwWordInfoE.Instance
+ else
+ if FindData(aModifiers, l_Index) then
+  Result := Items[l_Index]
+ else
+ begin
+  l_TI := TtfwWordInfoF.Create(aModifiers);
+  try
+   Add(l_TI);
+   Result := l_TI;
+  finally
+   FreeAndNil(l_TI);
+  end;//try..finally
+ end;//FindData(aModifiers, l_Index)
+//#UC END# *559F82A60110_559F828102D8_impl*
+//#UC START# *559F82A60110_559F828102D8_var*
+var
+ l_Index : Integer;
+ l_TI : TtfwWordInfoF;
+//#UC END# *559F82A60110_559F828102D8_var*

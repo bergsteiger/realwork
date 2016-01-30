@@ -1,0 +1,44 @@
+//#UC START# *5320088202FB_53214BA801AC_impl*
+ Result := TcsExport;
+//#UC END# *5320088202FB_53214BA801AC_impl*
+//#UC START# *5320088202FB_53214BA801AC_var*
+//#UC END# *5320088202FB_53214BA801AC_var*
+//#UC START# *532008D203BA_53214BA801AC_impl*
+ inherited InitTask(Task);
+ with (Task as TcsExport) do
+ begin
+  AnnoTopicFileName := ClassName;
+  DiapasonType := tdSearch;
+  DocID := IntConst;
+  DocumentFileNameMask := ClassName;
+  ExportAnnoTopics := true;
+  ExportDirectory := ClassName;
+  ExportDocImage := true;
+  ExportDocument := true;
+  ExportEmptyKW := true;
+  ExportKW := true;
+  ExportRTFBody := true;
+  Family := IntConst;
+  InternalFormat := true;
+  KWFileName := ClassName;
+  MultiUser := true;
+  ObjTopicFileName := ClassName;
+  OnlyStructure := true;
+  OutFileType := outEVDtext;
+  OutputFileSize := IntConst;
+  ReferenceFileNameMask := ClassName;
+  SeparateFiles := divTopic;
+  ToRegion := IntConst;
+  ExportReferences := true;
+  ExportEditions := true;
+  FormulaAsPicture := true;
+  SABStream.Add(1000300);
+  SABStream.Add(10064072);
+ end;//Task as TcsExport
+//#UC END# *532008D203BA_53214BA801AC_impl*
+//#UC START# *532008D203BA_53214BA801AC_var*
+const
+ IntConst = 123;
+var
+ l_str: string;
+//#UC END# *532008D203BA_53214BA801AC_var*

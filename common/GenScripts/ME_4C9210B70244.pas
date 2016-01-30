@@ -1,24 +1,32 @@
-unit Navigator.imp;
+{$IfNDef Navigator_imp}
 
-interface
+// Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\Navigator.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
- , evCustomEditorWindow
- , l3Variant
-;
+{$Define Navigator_imp}
 
-type
- _Navigator_ = class
-  procedure Navigate(aText: TevCustomEditorWindow;
-   const anOp: Il3OpPack);
-   {* Устанавливает курсор или выделение }
+{$If NOT Defined(NoScripts)}
+ _Navigator_ = class(_Navigator_Parent_)
+  protected
+   procedure Navigate(aText: TevCustomEditorWindow;
+    const anOp: Il3OpPack); virtual; abstract;
+    {* Устанавливает курсор или выделение }
  end;//_Navigator_
- 
-implementation
 
-uses
- l3ImplUses
-;
+{$Else NOT Defined(NoScripts)}
 
-end.
+_Navigator_ = _Navigator_Parent_;
+
+{$IfEnd} // NOT Defined(NoScripts)
+{$Else Navigator_imp}
+
+{$IfNDef Navigator_imp_impl}
+
+{$Define Navigator_imp_impl}
+
+{$If NOT Defined(NoScripts)}
+{$IfEnd} // NOT Defined(NoScripts)
+{$EndIf Navigator_imp_impl}
+
+{$EndIf Navigator_imp}
+

@@ -1,0 +1,14 @@
+//#UC START# *4909DCCD018E_4909DC950238_impl*
+ Result := nil;
+ l_Node := TnsAttributeTreeCacheNew.Instance.AttributeRootClosed[aTag];
+ try
+  if (l_Node <> nil) then
+   Result := inherited Make(l_Node, aTag, aShowRoot);
+ finally
+  l_Node := nil;
+ end;//try..finally
+//#UC END# *4909DCCD018E_4909DC950238_impl*
+//#UC START# *4909DCCD018E_4909DC950238_var*
+var
+ l_Node: INodeBase;
+//#UC END# *4909DCCD018E_4909DC950238_var*

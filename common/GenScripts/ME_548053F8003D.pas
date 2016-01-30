@@ -1,4 +1,9 @@
-unit evFont;
+unit NOT_FINISHED_evFont;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evFont.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -10,7 +15,7 @@ uses
 type
  TevFont = class(TevCustomFont)
  end;//TevFont
- 
+
 implementation
 
 uses

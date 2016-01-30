@@ -338,6 +338,7 @@ CONST cnStructDoc 25
 CONST cnSpecSymbol 26
 CONST cnViborkaSize 27
 CONST cnWorkWithJournals 28
+CONST cnPrepareWideFormOnly 29
 
 INTEGER VAR aSizeWidth
 INTEGER VAR aSizeHeight
@@ -467,6 +468,10 @@ PROCEDURE "Включить режим 'Спецсимволы'"
 	cnWorkWithJournals >>> g_How2Prepare
  ;
  
+ PROCEDURE "Подготовка только широкой главной формы"
+ 	cnPrepareWideForm >>> g_How2Prepare
+ ;
+ 
 // -------------------- Проверочные действия -----------------
 
 CONST cnNoneAction cnAnyParamDefValue
@@ -502,6 +507,7 @@ CONST cnCheckComboboxMetka 29
 CONST cnExport2HTMLAndCheckWithEtalon 30
 CONST cnRTFWithPCName 31
 CONST cnExport2RTFAndCheckWithEtalon 32
+CONST cnCheckDrawingWithPC 33
 
 PROCEDURE "Без проверок"
 	cnNoneAction >>> g_CheckAction
@@ -657,6 +663,11 @@ PROCEDURE "Проверка RTF и привязка к ПК"
 PROCEDURE "Вылить в RTF и сравнить c эталоном"
 	cnExport2RTFAndCheckWithEtalon >>> g_CheckAction
 ;
+
+PROCEDURE "Эталон отрисованного с привязкой к ПК"
+	cnCheckDrawingWithPC >>> g_CheckAction
+;
+
 // --------------- Предварительные операции -----------
 
 CONST cnNoStartAction cnAnyParamDefValue
@@ -1027,5 +1038,20 @@ PROCEDURE "Документ ААК-содержание со сворачивающимся блоком"
 
 PROCEDURE "Документ для поиска Assert при прокрукте"
 	"Документ с Assert в таблицах" >>> glNumDoc
+	"Открывать документ из базы"	
+;
+
+PROCEDURE "Документ без меток"
+	"Документ для расстановки блоков" >>> glNumDoc
+	"Открывать документ из базы"	
+;
+
+PROCEDURE "Документ с картинкой без данных"
+	"Документ с кривой картинкой" >>> glNumDoc
+	"Открывать документ из базы"	
+;
+
+PROCEDURE "Документ для проверки мягких переносов"
+	"Документ Проверки Мягких Переносов" >>> glNumDoc
 	"Открывать документ из базы"	
 ;

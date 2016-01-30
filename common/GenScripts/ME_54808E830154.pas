@@ -1,4 +1,9 @@
-unit m3FileStreamMapView;
+unit NOT_FINISHED_m3FileStreamMapView;
+
+// Модуль: "w:\common\components\rtl\Garant\m3\NOT_FINISHED_m3FileStreamMapView.pas"
+// Стереотип: "SimpleClass"
+
+{$Include m3Define.inc}
 
 interface
 
@@ -10,7 +15,7 @@ uses
 type
  Tm3FileStreamMapView = class(Tl3CProtoObject)
  end;//Tm3FileStreamMapView
- 
+
 implementation
 
 uses

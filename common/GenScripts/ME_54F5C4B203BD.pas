@@ -1,7 +1,13 @@
 unit WinControlsProcessingPack;
 
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\WinControlsProcessingPack.pas"
+// Стереотип: "ScriptKeywordsPack"
+
+{$Include seDefine.inc}
+
 interface
 
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3IntfUses
  , Controls
@@ -13,9 +19,11 @@ uses
  , tfwPropertyLike
  , tfwTypeInfo
 ;
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 implementation
 
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3ImplUses
  , Messages
@@ -26,46 +34,67 @@ uses
 ;
 
 type
- TkwPopControlMouseLeftClick = class(TtfwClassLike)
+ TkwPopControlMouseLeftClick = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Control:MouseLeftClick
 *Пример:*
 [code]
  aPoint aControl pop:Control:MouseLeftClick
 [code]  }
-  procedure MouseLeftClick(const aCtx: TtfwContext;
-   aControl: TWinControl;
-   const aPoint: TPoint);
-   {* Реализация слова скрипта pop:Control:MouseLeftClick }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   procedure MouseLeftClick(const aCtx: TtfwContext;
+    aControl: TWinControl;
+    const aPoint: TPoint);
+    {* Реализация слова скрипта pop:Control:MouseLeftClick }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopControlMouseLeftClick
- 
- TkwPopControlMouseMiddleClick = class(TtfwClassLike)
+
+ TkwPopControlMouseMiddleClick = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Control:MouseMiddleClick
 *Пример:*
 [code]
  aPoint aControl pop:Control:MouseMiddleClick
 [code]  }
-  procedure MouseMiddleClick(const aCtx: TtfwContext;
-   aControl: TWinControl;
-   const aPoint: TPoint);
-   {* Реализация слова скрипта pop:Control:MouseMiddleClick }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   procedure MouseMiddleClick(const aCtx: TtfwContext;
+    aControl: TWinControl;
+    const aPoint: TPoint);
+    {* Реализация слова скрипта pop:Control:MouseMiddleClick }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopControlMouseMiddleClick
- 
- TkwPopControlMouseRightClick = class(TtfwClassLike)
+
+ TkwPopControlMouseRightClick = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Control:MouseRightClick
 *Пример:*
 [code]
  aPoint aControl pop:Control:MouseRightClick
 [code]  }
-  procedure MouseRightClick(const aCtx: TtfwContext;
-   aControl: TWinControl;
-   const aPoint: TPoint);
-   {* Реализация слова скрипта pop:Control:MouseRightClick }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   procedure MouseRightClick(const aCtx: TtfwContext;
+    aControl: TWinControl;
+    const aPoint: TPoint);
+    {* Реализация слова скрипта pop:Control:MouseRightClick }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopControlMouseRightClick
- 
- TkwPopControlFindControlByName = class(TtfwClassLike)
+
+ TkwPopControlFindControlByName = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Control:FindControlByName
 *Тип результата:* TComponent
 *Пример:*
@@ -73,14 +102,21 @@ type
 OBJECT VAR l_TComponent
  aName aControl pop:Control:FindControlByName >>> l_TComponent
 [code]  }
-  function FindControlByName(const aCtx: TtfwContext;
-   aControl: TWinControl;
-   const aName: AnsiString): TComponent;
-   {* Реализация слова скрипта pop:Control:FindControlByName }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function FindControlByName(const aCtx: TtfwContext;
+    aControl: TWinControl;
+    const aName: AnsiString): TComponent;
+    {* Реализация слова скрипта pop:Control:FindControlByName }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopControlFindControlByName
- 
- TkwPopControlGetControl = class(TtfwClassLike)
+
+ TkwPopControlGetControl = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Control:GetControl
 *Тип результата:* TControl
 *Пример:*
@@ -88,38 +124,59 @@ OBJECT VAR l_TComponent
 OBJECT VAR l_TControl
  anIndex aControl pop:Control:GetControl >>> l_TControl
 [code]  }
-  function GetControl(const aCtx: TtfwContext;
-   aControl: TWinControl;
-   anIndex: Integer): TControl;
-   {* Реализация слова скрипта pop:Control:GetControl }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function GetControl(const aCtx: TtfwContext;
+    aControl: TWinControl;
+    anIndex: Integer): TControl;
+    {* Реализация слова скрипта pop:Control:GetControl }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopControlGetControl
- 
- TkwPopControlMouseWheelUp = class(TtfwClassLike)
+
+ TkwPopControlMouseWheelUp = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Control:MouseWheelUp
 *Пример:*
 [code]
  aControl pop:Control:MouseWheelUp
 [code]  }
-  procedure MouseWheelUp(const aCtx: TtfwContext;
-   aControl: TWinControl);
-   {* Реализация слова скрипта pop:Control:MouseWheelUp }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   procedure MouseWheelUp(const aCtx: TtfwContext;
+    aControl: TWinControl);
+    {* Реализация слова скрипта pop:Control:MouseWheelUp }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopControlMouseWheelUp
- 
- TkwPopControlMouseWheelDown = class(TtfwClassLike)
+
+ TkwPopControlMouseWheelDown = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Control:MouseWheelDown
 *Пример:*
 [code]
  aControl pop:Control:MouseWheelDown
 [code]  }
-  procedure MouseWheelDown(const aCtx: TtfwContext;
-   aControl: TWinControl);
-   {* Реализация слова скрипта pop:Control:MouseWheelDown }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   procedure MouseWheelDown(const aCtx: TtfwContext;
+    aControl: TWinControl);
+    {* Реализация слова скрипта pop:Control:MouseWheelDown }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopControlMouseWheelDown
- 
- TkwPopControlSetFocus = class(TtfwClassLike)
+
+ TkwPopControlSetFocus = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Control:SetFocus
 *Тип результата:* Boolean
 *Пример:*
@@ -127,27 +184,41 @@ OBJECT VAR l_TControl
 BOOLEAN VAR l_Boolean
  aControl pop:Control:SetFocus >>> l_Boolean
 [code]  }
-  function SetFocus(const aCtx: TtfwContext;
-   aControl: TWinControl): Boolean;
-   {* Реализация слова скрипта pop:Control:SetFocus }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function SetFocus(const aCtx: TtfwContext;
+    aControl: TWinControl): Boolean;
+    {* Реализация слова скрипта pop:Control:SetFocus }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopControlSetFocus
- 
- TkwPopControlMouseLeftDragAndDrop = class(TtfwClassLike)
+
+ TkwPopControlMouseLeftDragAndDrop = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Control:MouseLeftDragAndDrop
 *Пример:*
 [code]
  aPoint aDelta aControl pop:Control:MouseLeftDragAndDrop
 [code]  }
-  procedure MouseLeftDragAndDrop(const aCtx: TtfwContext;
-   aControl: TWinControl;
-   const aDelta: TPoint;
-   const aPoint: TPoint);
-   {* Реализация слова скрипта pop:Control:MouseLeftDragAndDrop }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   procedure MouseLeftDragAndDrop(const aCtx: TtfwContext;
+    aControl: TWinControl;
+    const aDelta: TPoint;
+    const aPoint: TPoint);
+    {* Реализация слова скрипта pop:Control:MouseLeftDragAndDrop }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopControlMouseLeftDragAndDrop
- 
- TkwPopControlControlCount = class(TtfwPropertyLike)
+
+ TkwPopControlControlCount = {final} class(TtfwPropertyLike)
   {* Слово скрипта pop:Control:ControlCount
 *Тип результата:* Integer
 *Пример:*
@@ -155,13 +226,22 @@ BOOLEAN VAR l_Boolean
 INTEGER VAR l_Integer
  aControl pop:Control:ControlCount >>> l_Integer
 [code]  }
-  function ControlCount(const aCtx: TtfwContext;
-   aControl: TWinControl): Integer;
-   {* Реализация слова скрипта pop:Control:ControlCount }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function ControlCount(const aCtx: TtfwContext;
+    aControl: TWinControl): Integer;
+    {* Реализация слова скрипта pop:Control:ControlCount }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopControlControlCount
- 
- TkwPopControlHandle = class(TtfwPropertyLike)
+
+ TkwPopControlHandle = {final} class(TtfwPropertyLike)
   {* Слово скрипта pop:Control:Handle
 *Тип результата:* Cardinal
 *Пример:*
@@ -169,13 +249,22 @@ INTEGER VAR l_Integer
 CARDINAL VAR l_Cardinal
  aControl pop:Control:Handle >>> l_Cardinal
 [code]  }
-  function Handle(const aCtx: TtfwContext;
-   aControl: TWinControl): Cardinal;
-   {* Реализация слова скрипта pop:Control:Handle }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function Handle(const aCtx: TtfwContext;
+    aControl: TWinControl): Cardinal;
+    {* Реализация слова скрипта pop:Control:Handle }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopControlHandle
- 
- TkwPopControlFocused = class(TtfwPropertyLike)
+
+ TkwPopControlFocused = {final} class(TtfwPropertyLike)
   {* Слово скрипта pop:Control:Focused
 *Тип результата:* Boolean
 *Пример:*
@@ -183,13 +272,22 @@ CARDINAL VAR l_Cardinal
 BOOLEAN VAR l_Boolean
  aControl pop:Control:Focused >>> l_Boolean
 [code]  }
-  function Focused(const aCtx: TtfwContext;
-   aControl: TWinControl): Boolean;
-   {* Реализация слова скрипта pop:Control:Focused }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function Focused(const aCtx: TtfwContext;
+    aControl: TWinControl): Boolean;
+    {* Реализация слова скрипта pop:Control:Focused }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopControlFocused
- 
- TkwPopControlCanFocus = class(TtfwPropertyLike)
+
+ TkwPopControlCanFocus = {final} class(TtfwPropertyLike)
   {* Слово скрипта pop:Control:CanFocus
 *Тип результата:* Boolean
 *Пример:*
@@ -197,10 +295,886 @@ BOOLEAN VAR l_Boolean
 BOOLEAN VAR l_Boolean
  aControl pop:Control:CanFocus >>> l_Boolean
 [code]  }
-  function CanFocus(const aCtx: TtfwContext;
-   aControl: TWinControl): Boolean;
-   {* Реализация слова скрипта pop:Control:CanFocus }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function CanFocus(const aCtx: TtfwContext;
+    aControl: TWinControl): Boolean;
+    {* Реализация слова скрипта pop:Control:CanFocus }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopControlCanFocus
- 
+
+procedure TkwPopControlMouseLeftClick.MouseLeftClick(const aCtx: TtfwContext;
+ aControl: TWinControl;
+ const aPoint: TPoint);
+ {* Реализация слова скрипта pop:Control:MouseLeftClick }
+//#UC START# *D86EEEFC03D7_207CDF6BFC46_var*
+var
+ l_Pos      : TPoint;
+ l_MousePos : TSmallPoint;
+//#UC END# *D86EEEFC03D7_207CDF6BFC46_var*
+begin
+//#UC START# *D86EEEFC03D7_207CDF6BFC46_impl*
+ with aControl.BoundsRect do
+  l_Pos := Point(Left + aPoint.X, Top + aPoint.Y);
+ l_MousePos := PointToSmallPoint(l_Pos);
+
+ SendMessage(aControl.Handle, WM_LBUTTONDOWN, 0, Longint(l_MousePos));
+ SendMessage(aControl.Handle, WM_LBUTTONUP, 0, Longint(l_MousePos));
+//#UC END# *D86EEEFC03D7_207CDF6BFC46_impl*
+end;//TkwPopControlMouseLeftClick.MouseLeftClick
+
+procedure TkwPopControlMouseLeftClick.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_207CDF6BFC46_var*
+//#UC END# *4DAEEDE10285_207CDF6BFC46_var*
+begin
+//#UC START# *4DAEEDE10285_207CDF6BFC46_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_207CDF6BFC46_impl*
+end;//TkwPopControlMouseLeftClick.DoDoIt
+
+class function TkwPopControlMouseLeftClick.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:MouseLeftClick';
+end;//TkwPopControlMouseLeftClick.GetWordNameForRegister
+
+function TkwPopControlMouseLeftClick.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_207CDF6BFC46_var*
+//#UC END# *551544E2001A_207CDF6BFC46_var*
+begin
+//#UC START# *551544E2001A_207CDF6BFC46_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_207CDF6BFC46_impl*
+end;//TkwPopControlMouseLeftClick.GetResultTypeInfo
+
+function TkwPopControlMouseLeftClick.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_207CDF6BFC46_var*
+//#UC END# *559687E6025A_207CDF6BFC46_var*
+begin
+//#UC START# *559687E6025A_207CDF6BFC46_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_207CDF6BFC46_impl*
+end;//TkwPopControlMouseLeftClick.GetAllParamsCount
+
+function TkwPopControlMouseLeftClick.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_207CDF6BFC46_var*
+//#UC END# *5617F4D00243_207CDF6BFC46_var*
+begin
+//#UC START# *5617F4D00243_207CDF6BFC46_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_207CDF6BFC46_impl*
+end;//TkwPopControlMouseLeftClick.ParamsTypes
+
+procedure TkwPopControlMouseMiddleClick.MouseMiddleClick(const aCtx: TtfwContext;
+ aControl: TWinControl;
+ const aPoint: TPoint);
+ {* Реализация слова скрипта pop:Control:MouseMiddleClick }
+//#UC START# *0EBF330C06BD_652B805E6BDC_var*
+var
+ l_Pos      : TPoint;
+ l_MousePos : TSmallPoint;
+//#UC END# *0EBF330C06BD_652B805E6BDC_var*
+begin
+//#UC START# *0EBF330C06BD_652B805E6BDC_impl*
+ with aControl.BoundsRect do
+  l_Pos := Point(Left + aPoint.X, Top + aPoint.Y);
+ l_MousePos := PointToSmallPoint(l_Pos);
+
+ SendMessage(aControl.Handle, WM_MBUTTONDOWN, 0, Longint(l_MousePos));
+ SendMessage(aControl.Handle, WM_MBUTTONUP, 0, Longint(l_MousePos));
+//#UC END# *0EBF330C06BD_652B805E6BDC_impl*
+end;//TkwPopControlMouseMiddleClick.MouseMiddleClick
+
+procedure TkwPopControlMouseMiddleClick.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_652B805E6BDC_var*
+//#UC END# *4DAEEDE10285_652B805E6BDC_var*
+begin
+//#UC START# *4DAEEDE10285_652B805E6BDC_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_652B805E6BDC_impl*
+end;//TkwPopControlMouseMiddleClick.DoDoIt
+
+class function TkwPopControlMouseMiddleClick.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:MouseMiddleClick';
+end;//TkwPopControlMouseMiddleClick.GetWordNameForRegister
+
+function TkwPopControlMouseMiddleClick.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_652B805E6BDC_var*
+//#UC END# *551544E2001A_652B805E6BDC_var*
+begin
+//#UC START# *551544E2001A_652B805E6BDC_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_652B805E6BDC_impl*
+end;//TkwPopControlMouseMiddleClick.GetResultTypeInfo
+
+function TkwPopControlMouseMiddleClick.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_652B805E6BDC_var*
+//#UC END# *559687E6025A_652B805E6BDC_var*
+begin
+//#UC START# *559687E6025A_652B805E6BDC_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_652B805E6BDC_impl*
+end;//TkwPopControlMouseMiddleClick.GetAllParamsCount
+
+function TkwPopControlMouseMiddleClick.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_652B805E6BDC_var*
+//#UC END# *5617F4D00243_652B805E6BDC_var*
+begin
+//#UC START# *5617F4D00243_652B805E6BDC_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_652B805E6BDC_impl*
+end;//TkwPopControlMouseMiddleClick.ParamsTypes
+
+procedure TkwPopControlMouseRightClick.MouseRightClick(const aCtx: TtfwContext;
+ aControl: TWinControl;
+ const aPoint: TPoint);
+ {* Реализация слова скрипта pop:Control:MouseRightClick }
+//#UC START# *700C331C0034_01A83C03B567_var*
+var
+ l_Pos      : TPoint;
+ l_MousePos : TSmallPoint;
+//#UC END# *700C331C0034_01A83C03B567_var*
+begin
+//#UC START# *700C331C0034_01A83C03B567_impl*
+ with aControl.BoundsRect do
+  l_Pos := Point(Left + aPoint.X, Top + aPoint.Y);
+ l_MousePos := PointToSmallPoint(l_Pos);
+
+ SendMessage(aControl.Handle, WM_RBUTTONDOWN, 0, Longint(l_MousePos));
+ SendMessage(aControl.Handle, WM_RBUTTONUP, 0, Longint(l_MousePos));
+//#UC END# *700C331C0034_01A83C03B567_impl*
+end;//TkwPopControlMouseRightClick.MouseRightClick
+
+procedure TkwPopControlMouseRightClick.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_01A83C03B567_var*
+//#UC END# *4DAEEDE10285_01A83C03B567_var*
+begin
+//#UC START# *4DAEEDE10285_01A83C03B567_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_01A83C03B567_impl*
+end;//TkwPopControlMouseRightClick.DoDoIt
+
+class function TkwPopControlMouseRightClick.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:MouseRightClick';
+end;//TkwPopControlMouseRightClick.GetWordNameForRegister
+
+function TkwPopControlMouseRightClick.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_01A83C03B567_var*
+//#UC END# *551544E2001A_01A83C03B567_var*
+begin
+//#UC START# *551544E2001A_01A83C03B567_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_01A83C03B567_impl*
+end;//TkwPopControlMouseRightClick.GetResultTypeInfo
+
+function TkwPopControlMouseRightClick.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_01A83C03B567_var*
+//#UC END# *559687E6025A_01A83C03B567_var*
+begin
+//#UC START# *559687E6025A_01A83C03B567_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_01A83C03B567_impl*
+end;//TkwPopControlMouseRightClick.GetAllParamsCount
+
+function TkwPopControlMouseRightClick.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_01A83C03B567_var*
+//#UC END# *5617F4D00243_01A83C03B567_var*
+begin
+//#UC START# *5617F4D00243_01A83C03B567_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_01A83C03B567_impl*
+end;//TkwPopControlMouseRightClick.ParamsTypes
+
+function TkwPopControlFindControlByName.FindControlByName(const aCtx: TtfwContext;
+ aControl: TWinControl;
+ const aName: AnsiString): TComponent;
+ {* Реализация слова скрипта pop:Control:FindControlByName }
+//#UC START# *50D08C92A338_89E1228A3BE4_var*
+ function DoFindControl(aControl: TWinControl): TComponent{TControl};
+ var
+  l_Index : Integer;
+  l_C : TControl;
+  l_Cmp : TComponent;
+ begin//DoFindControl
+  if (aControl.Name = aName) then
+   Result := aControl
+  else
+  begin
+   Result := nil;
+   for l_Index := 0 to Pred(aControl.ControlCount) do
+   begin
+    l_C := aControl.Controls[l_Index];
+    if (l_C.Name = aName) then
+    begin
+     Result := l_C;
+     Exit;
+    end//l_C.Name = l_Name
+    else
+    begin
+     if (l_C Is TWinControl) then
+     begin
+      Result := DoFindControl(TWinControl(l_C));
+      if (Result <> nil) then
+       Exit;
+     end;//l_C Is TWinControl
+    end;//l_C.Name = l_Name
+   end;//for l_Index
+   if (Result = nil) then
+    for l_Index := 0 to Pred(aControl.ComponentCount) do
+    begin
+     l_Cmp := aControl.Components[l_Index];
+     if (l_Cmp Is TControl) AND (l_Cmp.Name = aName) then
+     begin
+      Result := {TControl}(l_Cmp);
+      Exit;
+     end//l_C.Name = aName
+     else
+     if (l_Cmp Is TWinControl) then
+     begin
+      Result := DoFindControl(TWinControl(l_Cmp));
+      if (Result <> nil) then
+       Exit;
+     end;//l_C Is TWinControl
+     Result := l_Cmp.FindComponent(aName);
+     if (Result <> nil) then
+      Exit;
+     if (l_Cmp.Name = aName) then
+     begin
+      Result := l_Cmp;
+      Exit;
+     end;//l_C.Name = aName
+    end;//for l_Index
+  end;//aControl.Name = l_Name
+ end;//DoFindControl
+//#UC END# *50D08C92A338_89E1228A3BE4_var*
+begin
+//#UC START# *50D08C92A338_89E1228A3BE4_impl*
+ Result := DoFindControl(aControl);
+//#UC END# *50D08C92A338_89E1228A3BE4_impl*
+end;//TkwPopControlFindControlByName.FindControlByName
+
+procedure TkwPopControlFindControlByName.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_89E1228A3BE4_var*
+//#UC END# *4DAEEDE10285_89E1228A3BE4_var*
+begin
+//#UC START# *4DAEEDE10285_89E1228A3BE4_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_89E1228A3BE4_impl*
+end;//TkwPopControlFindControlByName.DoDoIt
+
+class function TkwPopControlFindControlByName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:FindControlByName';
+end;//TkwPopControlFindControlByName.GetWordNameForRegister
+
+function TkwPopControlFindControlByName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_89E1228A3BE4_var*
+//#UC END# *551544E2001A_89E1228A3BE4_var*
+begin
+//#UC START# *551544E2001A_89E1228A3BE4_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_89E1228A3BE4_impl*
+end;//TkwPopControlFindControlByName.GetResultTypeInfo
+
+function TkwPopControlFindControlByName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_89E1228A3BE4_var*
+//#UC END# *559687E6025A_89E1228A3BE4_var*
+begin
+//#UC START# *559687E6025A_89E1228A3BE4_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_89E1228A3BE4_impl*
+end;//TkwPopControlFindControlByName.GetAllParamsCount
+
+function TkwPopControlFindControlByName.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_89E1228A3BE4_var*
+//#UC END# *5617F4D00243_89E1228A3BE4_var*
+begin
+//#UC START# *5617F4D00243_89E1228A3BE4_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_89E1228A3BE4_impl*
+end;//TkwPopControlFindControlByName.ParamsTypes
+
+function TkwPopControlGetControl.GetControl(const aCtx: TtfwContext;
+ aControl: TWinControl;
+ anIndex: Integer): TControl;
+ {* Реализация слова скрипта pop:Control:GetControl }
+//#UC START# *F53158879374_0EDEBD14C685_var*
+//#UC END# *F53158879374_0EDEBD14C685_var*
+begin
+//#UC START# *F53158879374_0EDEBD14C685_impl*
+ Result := aControl.Controls[anIndex];
+//#UC END# *F53158879374_0EDEBD14C685_impl*
+end;//TkwPopControlGetControl.GetControl
+
+procedure TkwPopControlGetControl.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_0EDEBD14C685_var*
+//#UC END# *4DAEEDE10285_0EDEBD14C685_var*
+begin
+//#UC START# *4DAEEDE10285_0EDEBD14C685_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_0EDEBD14C685_impl*
+end;//TkwPopControlGetControl.DoDoIt
+
+class function TkwPopControlGetControl.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:GetControl';
+end;//TkwPopControlGetControl.GetWordNameForRegister
+
+function TkwPopControlGetControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_0EDEBD14C685_var*
+//#UC END# *551544E2001A_0EDEBD14C685_var*
+begin
+//#UC START# *551544E2001A_0EDEBD14C685_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_0EDEBD14C685_impl*
+end;//TkwPopControlGetControl.GetResultTypeInfo
+
+function TkwPopControlGetControl.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_0EDEBD14C685_var*
+//#UC END# *559687E6025A_0EDEBD14C685_var*
+begin
+//#UC START# *559687E6025A_0EDEBD14C685_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_0EDEBD14C685_impl*
+end;//TkwPopControlGetControl.GetAllParamsCount
+
+function TkwPopControlGetControl.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_0EDEBD14C685_var*
+//#UC END# *5617F4D00243_0EDEBD14C685_var*
+begin
+//#UC START# *5617F4D00243_0EDEBD14C685_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_0EDEBD14C685_impl*
+end;//TkwPopControlGetControl.ParamsTypes
+
+procedure TkwPopControlMouseWheelUp.MouseWheelUp(const aCtx: TtfwContext;
+ aControl: TWinControl);
+ {* Реализация слова скрипта pop:Control:MouseWheelUp }
+//#UC START# *2F3D3440A024_60259FDDB2DC_var*
+//#UC END# *2F3D3440A024_60259FDDB2DC_var*
+begin
+//#UC START# *2F3D3440A024_60259FDDB2DC_impl*
+ SendMessage(aControl.Handle, WM_VSCROLL, MakeWParam(SB_LINEUP, 0), 0);
+//#UC END# *2F3D3440A024_60259FDDB2DC_impl*
+end;//TkwPopControlMouseWheelUp.MouseWheelUp
+
+procedure TkwPopControlMouseWheelUp.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_60259FDDB2DC_var*
+//#UC END# *4DAEEDE10285_60259FDDB2DC_var*
+begin
+//#UC START# *4DAEEDE10285_60259FDDB2DC_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_60259FDDB2DC_impl*
+end;//TkwPopControlMouseWheelUp.DoDoIt
+
+class function TkwPopControlMouseWheelUp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:MouseWheelUp';
+end;//TkwPopControlMouseWheelUp.GetWordNameForRegister
+
+function TkwPopControlMouseWheelUp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_60259FDDB2DC_var*
+//#UC END# *551544E2001A_60259FDDB2DC_var*
+begin
+//#UC START# *551544E2001A_60259FDDB2DC_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_60259FDDB2DC_impl*
+end;//TkwPopControlMouseWheelUp.GetResultTypeInfo
+
+function TkwPopControlMouseWheelUp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_60259FDDB2DC_var*
+//#UC END# *559687E6025A_60259FDDB2DC_var*
+begin
+//#UC START# *559687E6025A_60259FDDB2DC_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_60259FDDB2DC_impl*
+end;//TkwPopControlMouseWheelUp.GetAllParamsCount
+
+function TkwPopControlMouseWheelUp.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_60259FDDB2DC_var*
+//#UC END# *5617F4D00243_60259FDDB2DC_var*
+begin
+//#UC START# *5617F4D00243_60259FDDB2DC_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_60259FDDB2DC_impl*
+end;//TkwPopControlMouseWheelUp.ParamsTypes
+
+procedure TkwPopControlMouseWheelDown.MouseWheelDown(const aCtx: TtfwContext;
+ aControl: TWinControl);
+ {* Реализация слова скрипта pop:Control:MouseWheelDown }
+//#UC START# *31CD1215C543_5676987B6AD8_var*
+//#UC END# *31CD1215C543_5676987B6AD8_var*
+begin
+//#UC START# *31CD1215C543_5676987B6AD8_impl*
+ SendMessage(aControl.Handle, WM_VSCROLL, MakeWParam(SB_LINEDOWN, 0), 0);
+//#UC END# *31CD1215C543_5676987B6AD8_impl*
+end;//TkwPopControlMouseWheelDown.MouseWheelDown
+
+procedure TkwPopControlMouseWheelDown.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_5676987B6AD8_var*
+//#UC END# *4DAEEDE10285_5676987B6AD8_var*
+begin
+//#UC START# *4DAEEDE10285_5676987B6AD8_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_5676987B6AD8_impl*
+end;//TkwPopControlMouseWheelDown.DoDoIt
+
+class function TkwPopControlMouseWheelDown.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:MouseWheelDown';
+end;//TkwPopControlMouseWheelDown.GetWordNameForRegister
+
+function TkwPopControlMouseWheelDown.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_5676987B6AD8_var*
+//#UC END# *551544E2001A_5676987B6AD8_var*
+begin
+//#UC START# *551544E2001A_5676987B6AD8_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_5676987B6AD8_impl*
+end;//TkwPopControlMouseWheelDown.GetResultTypeInfo
+
+function TkwPopControlMouseWheelDown.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_5676987B6AD8_var*
+//#UC END# *559687E6025A_5676987B6AD8_var*
+begin
+//#UC START# *559687E6025A_5676987B6AD8_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_5676987B6AD8_impl*
+end;//TkwPopControlMouseWheelDown.GetAllParamsCount
+
+function TkwPopControlMouseWheelDown.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_5676987B6AD8_var*
+//#UC END# *5617F4D00243_5676987B6AD8_var*
+begin
+//#UC START# *5617F4D00243_5676987B6AD8_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_5676987B6AD8_impl*
+end;//TkwPopControlMouseWheelDown.ParamsTypes
+
+function TkwPopControlSetFocus.SetFocus(const aCtx: TtfwContext;
+ aControl: TWinControl): Boolean;
+ {* Реализация слова скрипта pop:Control:SetFocus }
+//#UC START# *E30431C2D5CE_52E34524FDF7_var*
+//#UC END# *E30431C2D5CE_52E34524FDF7_var*
+begin
+//#UC START# *E30431C2D5CE_52E34524FDF7_impl*
+ if aControl.CanFocus then
+  aControl.SetFocus;
+ Result := aControl.Focused;
+//#UC END# *E30431C2D5CE_52E34524FDF7_impl*
+end;//TkwPopControlSetFocus.SetFocus
+
+procedure TkwPopControlSetFocus.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_52E34524FDF7_var*
+//#UC END# *4DAEEDE10285_52E34524FDF7_var*
+begin
+//#UC START# *4DAEEDE10285_52E34524FDF7_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_52E34524FDF7_impl*
+end;//TkwPopControlSetFocus.DoDoIt
+
+class function TkwPopControlSetFocus.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:SetFocus';
+end;//TkwPopControlSetFocus.GetWordNameForRegister
+
+function TkwPopControlSetFocus.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_52E34524FDF7_var*
+//#UC END# *551544E2001A_52E34524FDF7_var*
+begin
+//#UC START# *551544E2001A_52E34524FDF7_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_52E34524FDF7_impl*
+end;//TkwPopControlSetFocus.GetResultTypeInfo
+
+function TkwPopControlSetFocus.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_52E34524FDF7_var*
+//#UC END# *559687E6025A_52E34524FDF7_var*
+begin
+//#UC START# *559687E6025A_52E34524FDF7_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_52E34524FDF7_impl*
+end;//TkwPopControlSetFocus.GetAllParamsCount
+
+function TkwPopControlSetFocus.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_52E34524FDF7_var*
+//#UC END# *5617F4D00243_52E34524FDF7_var*
+begin
+//#UC START# *5617F4D00243_52E34524FDF7_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_52E34524FDF7_impl*
+end;//TkwPopControlSetFocus.ParamsTypes
+
+procedure TkwPopControlMouseLeftDragAndDrop.MouseLeftDragAndDrop(const aCtx: TtfwContext;
+ aControl: TWinControl;
+ const aDelta: TPoint;
+ const aPoint: TPoint);
+ {* Реализация слова скрипта pop:Control:MouseLeftDragAndDrop }
+//#UC START# *E69FBA5A5B0F_7A8A3BB834BD_var*
+var
+ l_Pos       : TPoint;
+ l_Pos1      : TPoint;
+ l_MousePos  : TSmallPoint;
+ l_MousePos1 : TSmallPoint;
+//#UC END# *E69FBA5A5B0F_7A8A3BB834BD_var*
+begin
+//#UC START# *E69FBA5A5B0F_7A8A3BB834BD_impl*
+ with aControl.BoundsRect do
+ begin
+  l_Pos := Point(Left + aPoint.X, Top + aPoint.Y);
+  l_Pos1 := Point(l_Pos.X + aDelta.X, l_Pos.Y + aDelta.Y);
+ end;//with aControl.BoundsRect 
+ l_MousePos := PointToSmallPoint(l_Pos);
+ l_MousePos1 := PointToSmallPoint(l_Pos1);
+
+ SendMessage(aControl.Handle, WM_LBUTTONDOWN, 0, Longint(l_MousePos));
+ SendMessage(aControl.Handle, WM_MOUSEMOVE, 0, Longint(l_MousePos1));
+ SendMessage(aControl.Handle, WM_LBUTTONUP, 0, Longint(l_MousePos1));
+//#UC END# *E69FBA5A5B0F_7A8A3BB834BD_impl*
+end;//TkwPopControlMouseLeftDragAndDrop.MouseLeftDragAndDrop
+
+procedure TkwPopControlMouseLeftDragAndDrop.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_7A8A3BB834BD_var*
+//#UC END# *4DAEEDE10285_7A8A3BB834BD_var*
+begin
+//#UC START# *4DAEEDE10285_7A8A3BB834BD_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_7A8A3BB834BD_impl*
+end;//TkwPopControlMouseLeftDragAndDrop.DoDoIt
+
+class function TkwPopControlMouseLeftDragAndDrop.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:MouseLeftDragAndDrop';
+end;//TkwPopControlMouseLeftDragAndDrop.GetWordNameForRegister
+
+function TkwPopControlMouseLeftDragAndDrop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_7A8A3BB834BD_var*
+//#UC END# *551544E2001A_7A8A3BB834BD_var*
+begin
+//#UC START# *551544E2001A_7A8A3BB834BD_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_7A8A3BB834BD_impl*
+end;//TkwPopControlMouseLeftDragAndDrop.GetResultTypeInfo
+
+function TkwPopControlMouseLeftDragAndDrop.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_7A8A3BB834BD_var*
+//#UC END# *559687E6025A_7A8A3BB834BD_var*
+begin
+//#UC START# *559687E6025A_7A8A3BB834BD_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_7A8A3BB834BD_impl*
+end;//TkwPopControlMouseLeftDragAndDrop.GetAllParamsCount
+
+function TkwPopControlMouseLeftDragAndDrop.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_7A8A3BB834BD_var*
+//#UC END# *5617F4D00243_7A8A3BB834BD_var*
+begin
+//#UC START# *5617F4D00243_7A8A3BB834BD_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_7A8A3BB834BD_impl*
+end;//TkwPopControlMouseLeftDragAndDrop.ParamsTypes
+
+function TkwPopControlControlCount.ControlCount(const aCtx: TtfwContext;
+ aControl: TWinControl): Integer;
+ {* Реализация слова скрипта pop:Control:ControlCount }
+//#UC START# *15126CA3381C_8E3044782C31_var*
+//#UC END# *15126CA3381C_8E3044782C31_var*
+begin
+//#UC START# *15126CA3381C_8E3044782C31_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *15126CA3381C_8E3044782C31_impl*
+end;//TkwPopControlControlCount.ControlCount
+
+procedure TkwPopControlControlCount.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_8E3044782C31_var*
+//#UC END# *4DAEEDE10285_8E3044782C31_var*
+begin
+//#UC START# *4DAEEDE10285_8E3044782C31_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_8E3044782C31_impl*
+end;//TkwPopControlControlCount.DoDoIt
+
+class function TkwPopControlControlCount.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:ControlCount';
+end;//TkwPopControlControlCount.GetWordNameForRegister
+
+procedure TkwPopControlControlCount.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_8E3044782C31_var*
+//#UC END# *52D00B00031A_8E3044782C31_var*
+begin
+//#UC START# *52D00B00031A_8E3044782C31_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_8E3044782C31_impl*
+end;//TkwPopControlControlCount.SetValuePrim
+
+function TkwPopControlControlCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_8E3044782C31_var*
+//#UC END# *551544E2001A_8E3044782C31_var*
+begin
+//#UC START# *551544E2001A_8E3044782C31_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_8E3044782C31_impl*
+end;//TkwPopControlControlCount.GetResultTypeInfo
+
+function TkwPopControlControlCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_8E3044782C31_var*
+//#UC END# *559687E6025A_8E3044782C31_var*
+begin
+//#UC START# *559687E6025A_8E3044782C31_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_8E3044782C31_impl*
+end;//TkwPopControlControlCount.GetAllParamsCount
+
+function TkwPopControlControlCount.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_8E3044782C31_var*
+//#UC END# *5617F4D00243_8E3044782C31_var*
+begin
+//#UC START# *5617F4D00243_8E3044782C31_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_8E3044782C31_impl*
+end;//TkwPopControlControlCount.ParamsTypes
+
+function TkwPopControlHandle.Handle(const aCtx: TtfwContext;
+ aControl: TWinControl): Cardinal;
+ {* Реализация слова скрипта pop:Control:Handle }
+//#UC START# *532C0148B0EB_3CF2D3C5A0DB_var*
+//#UC END# *532C0148B0EB_3CF2D3C5A0DB_var*
+begin
+//#UC START# *532C0148B0EB_3CF2D3C5A0DB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *532C0148B0EB_3CF2D3C5A0DB_impl*
+end;//TkwPopControlHandle.Handle
+
+procedure TkwPopControlHandle.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_3CF2D3C5A0DB_var*
+//#UC END# *4DAEEDE10285_3CF2D3C5A0DB_var*
+begin
+//#UC START# *4DAEEDE10285_3CF2D3C5A0DB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_3CF2D3C5A0DB_impl*
+end;//TkwPopControlHandle.DoDoIt
+
+class function TkwPopControlHandle.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:Handle';
+end;//TkwPopControlHandle.GetWordNameForRegister
+
+procedure TkwPopControlHandle.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_3CF2D3C5A0DB_var*
+//#UC END# *52D00B00031A_3CF2D3C5A0DB_var*
+begin
+//#UC START# *52D00B00031A_3CF2D3C5A0DB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_3CF2D3C5A0DB_impl*
+end;//TkwPopControlHandle.SetValuePrim
+
+function TkwPopControlHandle.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_3CF2D3C5A0DB_var*
+//#UC END# *551544E2001A_3CF2D3C5A0DB_var*
+begin
+//#UC START# *551544E2001A_3CF2D3C5A0DB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_3CF2D3C5A0DB_impl*
+end;//TkwPopControlHandle.GetResultTypeInfo
+
+function TkwPopControlHandle.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_3CF2D3C5A0DB_var*
+//#UC END# *559687E6025A_3CF2D3C5A0DB_var*
+begin
+//#UC START# *559687E6025A_3CF2D3C5A0DB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_3CF2D3C5A0DB_impl*
+end;//TkwPopControlHandle.GetAllParamsCount
+
+function TkwPopControlHandle.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_3CF2D3C5A0DB_var*
+//#UC END# *5617F4D00243_3CF2D3C5A0DB_var*
+begin
+//#UC START# *5617F4D00243_3CF2D3C5A0DB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_3CF2D3C5A0DB_impl*
+end;//TkwPopControlHandle.ParamsTypes
+
+function TkwPopControlFocused.Focused(const aCtx: TtfwContext;
+ aControl: TWinControl): Boolean;
+ {* Реализация слова скрипта pop:Control:Focused }
+//#UC START# *5F41D8EA1D19_171FB83EF557_var*
+//#UC END# *5F41D8EA1D19_171FB83EF557_var*
+begin
+//#UC START# *5F41D8EA1D19_171FB83EF557_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5F41D8EA1D19_171FB83EF557_impl*
+end;//TkwPopControlFocused.Focused
+
+procedure TkwPopControlFocused.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_171FB83EF557_var*
+//#UC END# *4DAEEDE10285_171FB83EF557_var*
+begin
+//#UC START# *4DAEEDE10285_171FB83EF557_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_171FB83EF557_impl*
+end;//TkwPopControlFocused.DoDoIt
+
+class function TkwPopControlFocused.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:Focused';
+end;//TkwPopControlFocused.GetWordNameForRegister
+
+procedure TkwPopControlFocused.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_171FB83EF557_var*
+//#UC END# *52D00B00031A_171FB83EF557_var*
+begin
+//#UC START# *52D00B00031A_171FB83EF557_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_171FB83EF557_impl*
+end;//TkwPopControlFocused.SetValuePrim
+
+function TkwPopControlFocused.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_171FB83EF557_var*
+//#UC END# *551544E2001A_171FB83EF557_var*
+begin
+//#UC START# *551544E2001A_171FB83EF557_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_171FB83EF557_impl*
+end;//TkwPopControlFocused.GetResultTypeInfo
+
+function TkwPopControlFocused.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_171FB83EF557_var*
+//#UC END# *559687E6025A_171FB83EF557_var*
+begin
+//#UC START# *559687E6025A_171FB83EF557_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_171FB83EF557_impl*
+end;//TkwPopControlFocused.GetAllParamsCount
+
+function TkwPopControlFocused.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_171FB83EF557_var*
+//#UC END# *5617F4D00243_171FB83EF557_var*
+begin
+//#UC START# *5617F4D00243_171FB83EF557_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_171FB83EF557_impl*
+end;//TkwPopControlFocused.ParamsTypes
+
+function TkwPopControlCanFocus.CanFocus(const aCtx: TtfwContext;
+ aControl: TWinControl): Boolean;
+ {* Реализация слова скрипта pop:Control:CanFocus }
+//#UC START# *B0AD1D898340_8BEC198C8027_var*
+//#UC END# *B0AD1D898340_8BEC198C8027_var*
+begin
+//#UC START# *B0AD1D898340_8BEC198C8027_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *B0AD1D898340_8BEC198C8027_impl*
+end;//TkwPopControlCanFocus.CanFocus
+
+procedure TkwPopControlCanFocus.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_8BEC198C8027_var*
+//#UC END# *4DAEEDE10285_8BEC198C8027_var*
+begin
+//#UC START# *4DAEEDE10285_8BEC198C8027_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_8BEC198C8027_impl*
+end;//TkwPopControlCanFocus.DoDoIt
+
+class function TkwPopControlCanFocus.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Control:CanFocus';
+end;//TkwPopControlCanFocus.GetWordNameForRegister
+
+procedure TkwPopControlCanFocus.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_8BEC198C8027_var*
+//#UC END# *52D00B00031A_8BEC198C8027_var*
+begin
+//#UC START# *52D00B00031A_8BEC198C8027_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_8BEC198C8027_impl*
+end;//TkwPopControlCanFocus.SetValuePrim
+
+function TkwPopControlCanFocus.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_8BEC198C8027_var*
+//#UC END# *551544E2001A_8BEC198C8027_var*
+begin
+//#UC START# *551544E2001A_8BEC198C8027_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_8BEC198C8027_impl*
+end;//TkwPopControlCanFocus.GetResultTypeInfo
+
+function TkwPopControlCanFocus.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_8BEC198C8027_var*
+//#UC END# *559687E6025A_8BEC198C8027_var*
+begin
+//#UC START# *559687E6025A_8BEC198C8027_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_8BEC198C8027_impl*
+end;//TkwPopControlCanFocus.GetAllParamsCount
+
+function TkwPopControlCanFocus.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_8BEC198C8027_var*
+//#UC END# *5617F4D00243_8BEC198C8027_var*
+begin
+//#UC START# *5617F4D00243_8BEC198C8027_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_8BEC198C8027_impl*
+end;//TkwPopControlCanFocus.ParamsTypes
+
+initialization
+ TkwPopControlMouseLeftClick.RegisterInEngine;
+ {* Регистрация pop_Control_MouseLeftClick }
+ TkwPopControlMouseMiddleClick.RegisterInEngine;
+ {* Регистрация pop_Control_MouseMiddleClick }
+ TkwPopControlMouseRightClick.RegisterInEngine;
+ {* Регистрация pop_Control_MouseRightClick }
+ TkwPopControlFindControlByName.RegisterInEngine;
+ {* Регистрация pop_Control_FindControlByName }
+ TkwPopControlGetControl.RegisterInEngine;
+ {* Регистрация pop_Control_GetControl }
+ TkwPopControlMouseWheelUp.RegisterInEngine;
+ {* Регистрация pop_Control_MouseWheelUp }
+ TkwPopControlMouseWheelDown.RegisterInEngine;
+ {* Регистрация pop_Control_MouseWheelDown }
+ TkwPopControlSetFocus.RegisterInEngine;
+ {* Регистрация pop_Control_SetFocus }
+ TkwPopControlMouseLeftDragAndDrop.RegisterInEngine;
+ {* Регистрация pop_Control_MouseLeftDragAndDrop }
+ TkwPopControlControlCount.RegisterInEngine;
+ {* Регистрация pop_Control_ControlCount }
+ TkwPopControlHandle.RegisterInEngine;
+ {* Регистрация pop_Control_Handle }
+ TkwPopControlFocused.RegisterInEngine;
+ {* Регистрация pop_Control_Focused }
+ TkwPopControlCanFocus.RegisterInEngine;
+ {* Регистрация pop_Control_CanFocus }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
+ {* Регистрация типа TtfwContext }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TWinControl));
+ {* Регистрация типа TWinControl }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
+ {* Регистрация типа TPoint }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа String }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TComponent));
+ {* Регистрация типа TComponent }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
+ {* Регистрация типа Integer }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TControl));
+ {* Регистрация типа TControl }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
+ {* Регистрация типа Boolean }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Cardinal));
+ {* Регистрация типа Cardinal }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+
 end.

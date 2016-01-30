@@ -1,4 +1,10 @@
 unit ControlPara_Const;
+ {* Параграф представляющий собой контрол ввода }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\ControlPara_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -13,7 +19,7 @@ uses
 ;
 
  // ControlParaTag
- 
+
 implementation
 
 uses

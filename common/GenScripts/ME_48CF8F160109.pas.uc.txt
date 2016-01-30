@@ -1,0 +1,30 @@
+//#UC START# *48CF8F3C02C9_48CF8F160109_impl*
+ if Supports(aProcessorSource, Ik2Processor, l_Processor) then
+  try
+   Result := l_Processor.StartOp(anOpCode);
+  finally
+   l_Processor := nil;
+  end
+ else
+  Result := nil;
+//#UC END# *48CF8F3C02C9_48CF8F160109_impl*
+//#UC START# *48CF8F3C02C9_48CF8F160109_var*
+var
+ l_Processor : Ik2Processor;
+//#UC END# *48CF8F3C02C9_48CF8F160109_var*
+//#UC START# *48CF8F6103E5_48CF8F160109_impl*
+ if (aProcessor = nil) then
+  Result := nil
+ else
+  Result := aProcessor.StartOp(anOpCode);
+//#UC END# *48CF8F6103E5_48CF8F160109_impl*
+//#UC START# *48CF8F6103E5_48CF8F160109_var*
+//#UC END# *48CF8F6103E5_48CF8F160109_var*
+//#UC START# *48CF8F8B0388_48CF8F160109_impl*
+ if (anOp = nil) then
+  Result := nil
+ else
+  Result := anOp.Processor; 
+//#UC END# *48CF8F8B0388_48CF8F160109_impl*
+//#UC START# *48CF8F8B0388_48CF8F160109_var*
+//#UC END# *48CF8F8B0388_48CF8F160109_var*

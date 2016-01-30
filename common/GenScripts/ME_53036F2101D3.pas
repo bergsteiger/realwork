@@ -1,25 +1,37 @@
-unit l3Dictionary.imp;
+{$IfNDef l3Dictionary_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\L3\l3Dictionary.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
- , l3IDIndex
- , l3Interfaces
-;
+{$Define l3Dictionary_imp}
 
-type
- _l3Dictionary_ = class(_l3DictionaryPrim_)
-  function ItemToWStr(const anItem: _ItemType_): Tl3WString;
+ _StringType_ = _ItemType_;
+ _IDIndexType_ = Tl3IDIndex;
+ _l3DictionaryPrim_Parent_ = _l3Dictionary_Parent_;
+ {$Include l3DictionaryPrim.imp.pas}
+ _l3Dictionary_ = {abstract} class(_l3DictionaryPrim_)
  end;//_l3Dictionary_
- 
-implementation
 
-uses
- l3ImplUses
- , l3Base
- , SysUtils
- , l3String
-;
+{$Else l3Dictionary_imp}
 
-end.
+{$IfNDef l3Dictionary_imp_impl}
+
+{$Define l3Dictionary_imp_impl}
+
+function ItemToWStr(const anItem: _ItemType_): Tl3WString;
+//#UC START# *5304D6C5002B_53036F2101D3_var*
+//#UC END# *5304D6C5002B_53036F2101D3_var*
+begin
+//#UC START# *5304D6C5002B_53036F2101D3_impl*
+ Result := anItem.AsWStr;
+//#UC END# *5304D6C5002B_53036F2101D3_impl*
+end;//ItemToWStr
+
+type _Instance_R_ = _l3Dictionary_;
+
+{$Include l3DictionaryPrim.imp.pas}
+
+{$EndIf l3Dictionary_imp_impl}
+
+{$EndIf l3Dictionary_imp}
+

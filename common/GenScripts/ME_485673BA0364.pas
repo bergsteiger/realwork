@@ -1,4 +1,10 @@
 unit SectionBreak_Const;
+ {* Разрыв раздела }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\SectionBreak_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -9,7 +15,7 @@ uses
 ;
 
  // SectionBreakTag
- 
+
 implementation
 
 uses

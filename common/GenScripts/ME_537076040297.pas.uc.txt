@@ -1,0 +1,10 @@
+//#UC START# *4DAEEDE10285_537076040297_impl*
+ RunnerAssert(aCtx.rEngine.IsTopString, 'Не задано расширение!', aCtx);
+ l_FileName := aCtx.rEngine.PopDelphiString;
+ l_FileName := aCtx.rCaller.ResolveInputFilePath(l_FileName);
+ AcSaveDocAs(l_FileName);
+//#UC END# *4DAEEDE10285_537076040297_impl*
+//#UC START# *4DAEEDE10285_537076040297_var*
+var
+ l_FileName: AnsiString;
+//#UC END# *4DAEEDE10285_537076040297_var*

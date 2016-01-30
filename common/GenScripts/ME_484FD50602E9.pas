@@ -1,4 +1,10 @@
 unit TabStop_Const;
+ {* Позиция табуляции }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\TabStop_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -11,7 +17,7 @@ uses
 ;
 
  // TabStopTag
- 
+
 implementation
 
 uses

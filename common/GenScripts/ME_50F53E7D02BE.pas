@@ -1,7 +1,14 @@
 unit K423621421;
+ {* [RequestLink:423621421] }
+
+// Модуль: "w:\common\components\rtl\Garant\Daily\K423621421.pas"
+// Стереотип: "TestCase"
+
+{$Include TestDefine.inc.pas}
 
 interface
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
  , EVDtoXMLWiterTest
@@ -10,13 +17,36 @@ uses
 type
  TK423621421 = class(TEVDtoXMLWiterTest)
   {* [RequestLink:423621421] }
+  protected
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK423621421
- 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+
 implementation
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
  , TestFrameWork
 ;
+
+function TK423621421.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := '7.8';
+end;//TK423621421.GetFolder
+
+function TK423621421.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '50F53E7D02BE';
+end;//TK423621421.GetModelElementGUID
+
+initialization
+ TestFramework.RegisterTest(TK423621421.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

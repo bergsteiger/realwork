@@ -1,4 +1,10 @@
 unit Font_Const;
+ {* Шрифт }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\Font_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -14,7 +20,7 @@ uses
 ;
 
  // FontTag
- 
+
 implementation
 
 uses

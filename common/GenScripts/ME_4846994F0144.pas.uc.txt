@@ -1,0 +1,100 @@
+//#UC START# *48089F3701B4_4846994F0144_impl*
+  inherited;
+  with f_ParamList do
+  begin
+    Add( ParamType.Create('folders_count', 'Максимальное количество папок', '1') );
+    Add( ParamType.Create('name_prefix', 'Префикс имени папки', '') ); // имя папки генерируется как префикс + номер, если префикс пуст, то генерируется случайнм образом
+    Add( ParamType.Create('n_order', 'Папок на каждом уровне', '-1') );
+  end;
+//#UC END# *48089F3701B4_4846994F0144_impl*
+//#UC START# *48089F3701B4_4846994F0144_var*
+//#UC END# *48089F3701B4_4846994F0144_var*
+//#UC START# *48089F460352_4846994F0144_impl*
+  f_TotalFoldersAdded := 0;
+  l_FoldersCount := Parameters['folders_count'].AsInt;
+  l_NOrder := Parameters['n_order'].AsInt;
+  f_NamePrefix := Parameters['name_prefix'].AsStr;
+  //
+  if (l_NOrder = -1) then
+    l_NOrder := l_FoldersCount; // это чтобы положить все папки на один уровень в "Мои документы"
+  // получаем папку Мои документы
+  l_MyDocs := TatFoldersHelper.GetMyDocuments;
+  Assert(l_MyDocs <> nil, 'l_MyDocs <> nil');
+  // добавляем в нее папки
+  f_MaxFoldersCount := l_FoldersCount;
+  CreateAsNTree(l_MyDocs, l_FoldersCount, l_NOrder);
+//#UC END# *48089F460352_4846994F0144_impl*
+//#UC START# *48089F460352_4846994F0144_var*
+  var
+    l_FoldersCount, l_NOrder : Integer;
+    l_MyDocs : IFoldersNode;
+//#UC END# *48089F460352_4846994F0144_var*
+//#UC START# *48089F660238_4846994F0144_impl*
+  // ничего не делаем. Дочерние операции будут явно выполняться в FolderHasBeenAdded после добавления каждой папки
+//#UC END# *48089F660238_4846994F0144_impl*
+//#UC START# *48089F660238_4846994F0144_var*
+//#UC END# *48089F660238_4846994F0144_var*
+//#UC START# *48469BEB00C7_4846994F0144_impl*
+  Assert(aRootNode <> nil, 'aRootNode <> nil');
+  Assert(aN > 0, 'aN > 0');
+
+  Result := 0;
+  l_NodesAdded := 0;
+  l_MaxChildNodesCount := 1 + ((aMaxFoldersCount - aN) div aN);
+  SetLength(l_SubNodes, aN);
+  // сначала добавляем папки к рутовой
+  for i := Low(l_SubNodes) to High(l_SubNodes) do
+    if (l_NodesAdded < aMaxFoldersCount) then
+    begin
+      if (f_NamePrefix <> '') then
+        l_Name := f_NamePrefix + IntToStr(i)
+      else
+        l_Name := 'Папка созданная ' + GetTimeStamp;
+      l_Comment := 'Комментарий к папке';
+      TatFoldersHelper.CreateFolder(aRootNode, l_Name, l_Comment, l_SubNodes[i]);
+      Inc(l_NodesAdded);
+      FolderHasBeenAdded(l_SubNodes[i] as IFoldersNode);
+    end
+    else
+      break;
+
+  // а теперь, если еще есть чего добавлять, то добавляем папки к каждой из добавленных
+  for i := Low(l_SubNodes) to High(l_SubNodes) do
+    if (l_NodesAdded < aMaxFoldersCount) then
+    begin
+      // число дочерних нод орпеделяем как меньшее между максимально возможным и тем сколько еще можно добавить
+      l_ChildNodesCount := Min(l_MaxChildNodesCount, aMaxFoldersCount - l_NodesAdded);
+      // добавляем дочерние папки
+      Inc(l_NodesAdded, CreateAsNTree(l_SubNodes[i] as IFoldersNode, l_ChildNodesCount, aN) );
+      //
+      l_SubNodes[i] := nil;
+    end
+    else
+      break;
+
+  Result := l_NodesAdded;
+//#UC END# *48469BEB00C7_4846994F0144_impl*
+//#UC START# *48469BEB00C7_4846994F0144_var*
+  var
+    l_SubNodes : array of INode;
+    l_Name, l_Comment : String;
+    i, l_ChildNodesCount, l_MaxChildNodesCount, l_NodesAdded : Integer;
+//#UC END# *48469BEB00C7_4846994F0144_var*
+//#UC START# *484A715B032F_4846994F0144_impl*
+  Assert(aFolder <> nil, 'aFolder <> nil');
+  //
+  Inc(f_TotalFoldersAdded);
+  // делаем добавленную папку текущей
+  ExecutionContext.UserWorkContext.CurrFolder := aFolder;
+  // пишем сообщение в лог если надо
+  if ( ((f_TotalFoldersAdded mod (Max(PARTN, f_MaxFoldersCount) div PARTN)) = 0) // если добавлена очередная PARTN-я часть от общего количества папок
+        OR (f_TotalFoldersAdded = f_MaxFoldersCount) ) // или добавлена последняя папка
+  then
+    Logger.Info('Добавлено папок: %d. Осталось: %d.', [f_TotalFoldersAdded, f_MaxFoldersCount - f_TotalFoldersAdded]);
+  // вызываем дочерние операции...
+  inherited ExecuteChilds;
+//#UC END# *484A715B032F_4846994F0144_impl*
+//#UC START# *484A715B032F_4846994F0144_var*
+  const
+    PARTN = 5;
+//#UC END# *484A715B032F_4846994F0144_var*

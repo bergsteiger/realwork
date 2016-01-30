@@ -1,0 +1,48 @@
+//#UC START# *47B07CF403D0_51D128930090_impl*
+ Result := (A = B);
+//#UC END# *47B07CF403D0_51D128930090_impl*
+//#UC START# *47B07CF403D0_51D128930090_var*
+//#UC END# *47B07CF403D0_51D128930090_var*
+//#UC START# *47B2C42A0163_51D128930090_impl*
+ assert(false);
+//#UC END# *47B2C42A0163_51D128930090_impl*
+//#UC START# *47B2C42A0163_51D128930090_var*
+//#UC END# *47B2C42A0163_51D128930090_var*
+//#UC START# *47B99D4503A2_51D128930090_impl*
+  Result := CI.rA.ContextMenuWeight - CI.rB.ContextMenuWeight;
+//#UC END# *47B99D4503A2_51D128930090_impl*
+//#UC START# *47B99D4503A2_51D128930090_var*
+//#UC END# *47B99D4503A2_51D128930090_var*
+//#UC START# *49956DB300D6_51D128930090get_impl*
+ if (f_Index >= Self.Count) then
+  Result := nil
+ else
+ begin
+  Result := TvcmEntityDefForContextMenu.Make(Self.Items[f_Index]);
+  Inc(f_Index);
+ end;
+//#UC END# *49956DB300D6_51D128930090get_impl*
+//#UC START# *49956DB300D6_51D128930090get_var*
+//#UC END# *49956DB300D6_51D128930090get_var*
+//#UC START# *51D12A5F02EE_51D128930090_impl*
+ inherited Create;
+ f_Index := 0;
+ f_Iter := anIter;
+
+ // Это нужно здесь, потому что иначе меняется порядок операций с
+ // незаданными (нулевыми) весами
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=467276976
+ Self.Duplicates := l3_dupAccept;
+ Self.Sorted := true;
+ while true do
+ begin
+  l_E := anIter.Next;
+  if (l_E = nil) then
+   break;
+  Self.Add(l_E);
+ end;
+//#UC END# *51D12A5F02EE_51D128930090_impl*
+//#UC START# *51D12A5F02EE_51D128930090_var*
+var
+ l_E : IvcmEntityDef;
+//#UC END# *51D12A5F02EE_51D128930090_var*

@@ -1,5 +1,10 @@
 unit operation_Const;
 
+// Модуль: "w:\common\components\SandBox\operation_Const.pas"
+// Стереотип: "Tag"
+
+{$Include sbDefine.inc}
+
 interface
 
 uses
@@ -8,7 +13,7 @@ uses
 ;
 
  // operationTag
- 
+
 implementation
 
 uses

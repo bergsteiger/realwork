@@ -1,4 +1,10 @@
 unit SubLayer_Const;
+ {* Слой меток }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\SubLayer_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -11,7 +17,7 @@ uses
 ;
 
  // SubLayerTag
- 
+
 implementation
 
 uses

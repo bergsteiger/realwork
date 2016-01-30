@@ -1,18 +1,31 @@
-unit vcmPopupMenuPrim;
+unit NOT_FINISHED_vcmPopupMenuPrim;
+
+// Модуль: "w:\common\components\gui\Garant\VCM\NOT_FINISHED_vcmPopupMenuPrim.pas"
+// Стереотип: "SimpleClass"
+
+{$Include vcmDefine.inc}
 
 interface
 
+{$If NOT Defined(NoVCM)}
 uses
  l3IntfUses
+ {$If NOT Defined(NoVCL)}
  , Menus
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3PureMixIns
 ;
 
 type
- TvcmPopupMenuPrim = class(TPopupMenu)
+ _l3Unknown_Parent_ = TPopupMenu;
+ {$Include l3Unknown.imp.pas}
+ TvcmPopupMenuPrim = class(_l3Unknown_)
  end;//TvcmPopupMenuPrim
- 
+{$IfEnd} // NOT Defined(NoVCM)
+
 implementation
 
+{$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
  , SysUtils
@@ -23,5 +36,8 @@ uses
  , l3MemUtils
  , l3Interlocked
 ;
+
+{$Include l3Unknown.imp.pas}
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

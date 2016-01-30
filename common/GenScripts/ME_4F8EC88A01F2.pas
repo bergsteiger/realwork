@@ -1,13 +1,21 @@
 unit MouseInputPack;
 
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\MouseInputPack.pas"
+// Стереотип: "ScriptKeywordsPack"
+
+{$Include seDefine.inc}
+
 interface
 
+{$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
 ;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
+{$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
  , kwMouseLeftDown
@@ -24,5 +32,6 @@ uses
  , kwMouseWheelDown
  , tfwScriptingTypes
 ;
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

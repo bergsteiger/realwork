@@ -1,13 +1,21 @@
 unit VCMWordsPack;
 
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
+
+{$Include vcmDefine.inc}
+
 interface
 
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
  l3IntfUses
 ;
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 implementation
 
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
  , kwVcmDispatcherLock
@@ -38,5 +46,6 @@ uses
  , kwVcmDispatcherUnlockInOp
  , tfwScriptingTypes
 ;
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 end.

@@ -1,5 +1,10 @@
 unit evBitmapParaBitmapContainer;
 
+// Модуль: "w:\common\components\gui\Garant\Everest\evBitmapParaBitmapContainer.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
+
 interface
 
 uses
@@ -8,19 +13,33 @@ uses
  , k2Base
  , k2BaseStruct
  , l3Variant
+ , k2TagList
+ , k2Prim
+ , l3IID
+ , k2BaseTypes
+ , l3Types
+ , l3Interfaces
 ;
 
  {$Define k2TagNoAssign}
- 
+
  {$Define k2Tag_No_f_TagType}
- 
+
 type
+ _k2Tag_Parent_ = Tl3IEBitmapContainer;
+ {$Include k2Tag.imp.pas}
  TevBitmapParaBitmapContainer = class(_k2Tag_)
-  procedure Create(aType: Tk2Type);
-  function SetAtomPrim(const aProp: _PropIn_;
-   var V: Tk2Values): Boolean;
+  protected
+   {$If NOT Defined(k2TagIsAtomic)}
+   function SetAtomPrim(const aProp: _PropIn_;
+    var V: Tk2Values): Boolean; override;
+   {$IfEnd} // NOT Defined(k2TagIsAtomic)
+   function GetIsOrd: Boolean; override;
+   function GetTagType: Tl3VariantDef; override;
+  public
+   constructor Create(aType: Tk2Type); reintroduce;
  end;//TevBitmapParaBitmapContainer
- 
+
 implementation
 
 uses
@@ -34,7 +53,6 @@ uses
  , l3String
  , k2Except
  , k2Strings
- , k2TagList
  , TypInfo
  , l3Stream
  , l3Base
@@ -51,5 +69,50 @@ uses
  , k2DictionaryPrim
  , k2InterfaceFactory
 ;
+
+type _Instance_R_ = TevBitmapParaBitmapContainer;
+
+{$Include k2Tag.imp.pas}
+
+constructor TevBitmapParaBitmapContainer.Create(aType: Tk2Type);
+//#UC START# *53075BB9030D_4858153B023B_var*
+//#UC END# *53075BB9030D_4858153B023B_var*
+begin
+//#UC START# *53075BB9030D_4858153B023B_impl*
+ inherited Create;
+ //f_TagType := aType;
+//#UC END# *53075BB9030D_4858153B023B_impl*
+end;//TevBitmapParaBitmapContainer.Create
+
+{$If NOT Defined(k2TagIsAtomic)}
+function TevBitmapParaBitmapContainer.SetAtomPrim(const aProp: _PropIn_;
+ var V: Tk2Values): Boolean;
+//#UC START# *49A545580241_4858153B023B_var*
+//#UC END# *49A545580241_4858153B023B_var*
+begin
+//#UC START# *49A545580241_4858153B023B_impl*
+ Assert(false);
+ Result := false;
+//#UC END# *49A545580241_4858153B023B_impl*
+end;//TevBitmapParaBitmapContainer.SetAtomPrim
+{$IfEnd} // NOT Defined(k2TagIsAtomic)
+
+function TevBitmapParaBitmapContainer.GetIsOrd: Boolean;
+//#UC START# *532AE8F2009A_4858153B023B_var*
+//#UC END# *532AE8F2009A_4858153B023B_var*
+begin
+//#UC START# *532AE8F2009A_4858153B023B_impl*
+ Result := false;
+//#UC END# *532AE8F2009A_4858153B023B_impl*
+end;//TevBitmapParaBitmapContainer.GetIsOrd
+
+function TevBitmapParaBitmapContainer.GetTagType: Tl3VariantDef;
+//#UC START# *533121AF0203_4858153B023B_var*
+//#UC END# *533121AF0203_4858153B023B_var*
+begin
+//#UC START# *533121AF0203_4858153B023B_impl*
+ Result := k2_typBitmapPara_Object;
+//#UC END# *533121AF0203_4858153B023B_impl*
+end;//TevBitmapParaBitmapContainer.GetTagType
 
 end.

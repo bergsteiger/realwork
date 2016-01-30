@@ -1,0 +1,30 @@
+//#UC START# *503E3A040395_50005E6B0318_impl*
+  SetLength(f_ConvertMap, Ord(High(_SecondType_)) - Ord(Low(_SecondType_)) + 1);
+  l_TI := TypeInfo(_SecondType_);
+  i := 0;
+  for l_Value := Low(_SecondType_) to High(_SecondType_) do
+  begin
+    f_ConvertMap[i].First := GetEnumName(l_TI, Ord(l_Value));
+    f_ConvertMap[i].Second := l_Value;
+    Inc(i);
+  end;
+//#UC END# *503E3A040395_50005E6B0318_impl*
+//#UC START# *503E3A040395_50005E6B0318_var*
+ var
+  l_TI : PTypeInfo;
+  l_Value : _SecondType_;
+  i : Integer;
+//#UC END# *503E3A040395_50005E6B0318_var*
+//#UC START# *503E3CC102AE_50005E6B0318_impl*
+  l_TI := TypeInfo(_SecondType_);
+  Raise EConvertError.CreateFmt('Ошибка конвертации перечисления типа %s в имя: не найдено соответствие для значения %d!', [l_TI^.Name, Ord(aSecond)]);
+//#UC END# *503E3CC102AE_50005E6B0318_impl*
+//#UC START# *503E3CC102AE_50005E6B0318_var*
+  var
+    l_TI : PTypeInfo;
+//#UC END# *503E3CC102AE_50005E6B0318_var*
+//#UC START# *503E67610170_50005E6B0318_impl*
+  Result := ToName(_EnumType_(aValueOrd));
+//#UC END# *503E67610170_50005E6B0318_impl*
+//#UC START# *503E67610170_50005E6B0318_var*
+//#UC END# *503E67610170_50005E6B0318_var*

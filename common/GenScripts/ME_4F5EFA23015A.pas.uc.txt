@@ -1,0 +1,392 @@
+//#UC START# *025851A67EF2_46A105452BD6_impl*
+ Result := SysUtils.SetCurrentDir(aDir); 
+//#UC END# *025851A67EF2_46A105452BD6_impl*
+//#UC START# *025851A67EF2_46A105452BD6_var*
+//#UC END# *025851A67EF2_46A105452BD6_var*
+//#UC START# *177FD19E027A_5C2417DB86EF_impl*
+ Result := SysUtils.RemoveDir(aDir);
+//#UC END# *177FD19E027A_5C2417DB86EF_impl*
+//#UC START# *177FD19E027A_5C2417DB86EF_var*
+//#UC END# *177FD19E027A_5C2417DB86EF_var*
+//#UC START# *1922D633B85B_9F4966698005_impl*
+ Windows.GetLocalTime(l_Time);
+ with l_Time do
+  l_DelphiTime := EncodeDateTime(wYear, wMonth, wDay, wHour, wMinute, wSecond, wMilliseconds);
+ l_DelphiTime := IncMilliSecond(l_DelphiTime, aDeltaMilli);
+ with l_Time do
+  DecodeDateTime(l_DelphiTime, wYear, wMonth, wDay, wHour, wMinute, wSecond, wMilliseconds);
+ Windows.SetLocalTime(l_Time);
+//#UC END# *1922D633B85B_9F4966698005_impl*
+//#UC START# *1922D633B85B_9F4966698005_var*
+var
+ l_Time: TSystemTime;
+ l_DelphiTime: TDateTime;
+//#UC END# *1922D633B85B_9F4966698005_var*
+//#UC START# *1CD228A2D1EA_1C56158F55E7_impl*
+ l_S2 := Mangle(aSubName);
+ l_S1 := Mangle(aName);
+ aCtx.rCaller.TimeToLog(aValue, l_S1, l_S2);
+//#UC END# *1CD228A2D1EA_1C56158F55E7_impl*
+//#UC START# *1CD228A2D1EA_1C56158F55E7_var*
+
+ function Mangle(const aStr: AnsiString): AnsiString;
+(* const
+  cLimit = 30;*)
+ begin
+  Result := aStr;
+(*  Result := l3Transliterate(aStr);
+  l3Replace(Result, ' ', '_');
+  l3Replace(Result, '''', '_');
+  l3Replace(Result, '(', '_');
+  l3Replace(Result, ')', '_');
+  l3Replace(Result, '.', '_');
+  if (Length(Result) > cLimit) then
+   SetLength(Result, cLimit);*)
+ end;
+ 
+var
+ l_S1 : AnsiString;
+ l_S2 : AnsiString;
+//#UC END# *1CD228A2D1EA_1C56158F55E7_var*
+//#UC START# *20FE7F32818E_E438AFCDC08A_impl*
+ Result := System.Random(aMax);
+//#UC END# *20FE7F32818E_E438AFCDC08A_impl*
+//#UC START# *20FE7F32818E_E438AFCDC08A_var*
+//#UC END# *20FE7F32818E_E438AFCDC08A_var*
+//#UC START# *3D183F3BE41C_F086F3387CB5_impl*
+ {$If Declared(Clipboard)}
+ l3System.SetClipboardData(Tl3CStringDataObject.Make(aValue));
+ //Clipboard.AsText := l3Str(aValue);
+ {$Else}
+ Assert(false);
+ {$IfEnd}
+//#UC END# *3D183F3BE41C_F086F3387CB5_impl*
+//#UC START# *3D183F3BE41C_F086F3387CB5_var*
+//#UC END# *3D183F3BE41C_F086F3387CB5_var*
+//#UC START# *3FC73A87B28A_1BF05B2801A2_impl*
+ l_Color := TColor(RGB(aR, aG, aB));
+ Result := ColorToString(l_Color);
+//#UC END# *3FC73A87B28A_1BF05B2801A2_impl*
+//#UC START# *3FC73A87B28A_1BF05B2801A2_var*
+var
+ l_Color : TColor;
+//#UC END# *3FC73A87B28A_1BF05B2801A2_var*
+//#UC START# *430363D4F3AC_C64998CA8748_impl*
+ Result := aCtx.rStreamFactory.FileName;
+//#UC END# *430363D4F3AC_C64998CA8748_impl*
+//#UC START# *430363D4F3AC_C64998CA8748_var*
+//#UC END# *430363D4F3AC_C64998CA8748_var*
+//#UC START# *48BEA5CAB9AB_35FFB5DF4CE1_impl*
+ Result := ExtractFileName(aName);
+//#UC END# *48BEA5CAB9AB_35FFB5DF4CE1_impl*
+//#UC START# *48BEA5CAB9AB_35FFB5DF4CE1_var*
+//#UC END# *48BEA5CAB9AB_35FFB5DF4CE1_var*
+//#UC START# *4DAEEDE10285_084854089DF8_impl*
+ aCtx.rCaller.StartTimer;
+//#UC END# *4DAEEDE10285_084854089DF8_impl*
+//#UC START# *4DAEEDE10285_084854089DF8_var*
+//#UC END# *4DAEEDE10285_084854089DF8_var*
+//#UC START# *4DAEEDE10285_1FE2F18F76F6_impl*
+ Windows.GetLocalTime(l_Time);
+ aCtx.rEngine.PushInt(l_Time.wYear);
+ aCtx.rEngine.PushInt(l_Time.wMonth);
+ aCtx.rEngine.PushInt(l_Time.wDay);
+ aCtx.rEngine.PushInt(l_Time.wHour);
+ aCtx.rEngine.PushInt(l_Time.wMinute);
+ aCtx.rEngine.PushInt(l_Time.wSecond);
+ aCtx.rEngine.PushInt(l_Time.wMilliseconds);
+//#UC END# *4DAEEDE10285_1FE2F18F76F6_impl*
+//#UC START# *4DAEEDE10285_1FE2F18F76F6_var*
+var
+  l_Time: TSystemTime;
+//#UC END# *4DAEEDE10285_1FE2F18F76F6_var*
+//#UC START# *4DAEEDE10285_21D0FBE864A6_impl*
+ SetCurrentDir(ExtractFilePath(ParamStr(0)));
+//#UC END# *4DAEEDE10285_21D0FBE864A6_impl*
+//#UC START# *4DAEEDE10285_21D0FBE864A6_var*
+//#UC END# *4DAEEDE10285_21D0FBE864A6_var*
+//#UC START# *4DAEEDE10285_2761B617CA85_impl*
+ l3System.ClearClipboard;
+//#UC END# *4DAEEDE10285_2761B617CA85_impl*
+//#UC START# *4DAEEDE10285_2761B617CA85_var*
+//#UC END# *4DAEEDE10285_2761B617CA85_var*
+//#UC START# *4DAEEDE10285_4321FF105F4A_impl*
+ try
+  {$IfDef l3HackedVCL}
+  {$IfNDef NoVCL}
+  Forms.Application.CallActionIdle;
+  {$Else   NoVCL}
+  Assert(false);
+  {$EndIf  NoVCL}
+  {$EndIf l3HackedVCL}
+ except
+  on EListError do;  //541670158
+ end;//try..except
+//#UC END# *4DAEEDE10285_4321FF105F4A_impl*
+//#UC START# *4DAEEDE10285_4321FF105F4A_var*
+//#UC END# *4DAEEDE10285_4321FF105F4A_var*
+//#UC START# *4DAEEDE10285_47E01D1A49DA_impl*
+ Windows.GetLocalTime(l_Time); 
+ aCtx.rEngine.PushInt(l_Time.wHour);
+ aCtx.rEngine.PushInt(l_Time.wMinute);
+ aCtx.rEngine.PushInt(l_Time.wSecond);
+ aCtx.rEngine.PushInt(l_Time.wMilliseconds);
+//#UC END# *4DAEEDE10285_47E01D1A49DA_impl*
+//#UC START# *4DAEEDE10285_47E01D1A49DA_var*
+var
+  l_Time: TSystemTime;
+//#UC END# *4DAEEDE10285_47E01D1A49DA_var*
+//#UC START# *4DAEEDE10285_EA3D9826565B_impl*
+ System.Randomize;
+//#UC END# *4DAEEDE10285_EA3D9826565B_impl*
+//#UC START# *4DAEEDE10285_EA3D9826565B_var*
+//#UC END# *4DAEEDE10285_EA3D9826565B_var*
+//#UC START# *4DAEEDE10285_F6C5E61F680C_impl*
+ Windows.GetLocalTime(l_Time);
+ aCtx.rEngine.PushInt(l_Time.wYear);
+ aCtx.rEngine.PushInt(l_Time.wMonth);
+ aCtx.rEngine.PushInt(l_Time.wDay);
+//#UC END# *4DAEEDE10285_F6C5E61F680C_impl*
+//#UC START# *4DAEEDE10285_F6C5E61F680C_var*
+var
+  l_Time: TSystemTime;
+//#UC END# *4DAEEDE10285_F6C5E61F680C_var*
+//#UC START# *545B4C0C78E1_B4A35E44526B_impl*
+ if (aFormat.rType = tfw_vtInt) then
+  l_Format := Cardinal(aFormat.AsInt)
+ else
+  {$If Declared(l3GetClipboardByFormatName)}
+  l_Format := Cardinal(l3GetClipboardByFormatName(l3Str(aFormat.AsString)));
+  {$Else}
+  RunnerAssert(false, 'Не определена функция l3GetClipboardByFormatName', aCtx);
+  {$IfEnd}
+
+ {$If Declared(Clipboard)}
+ if Clipboard.HasFormat(l_Format) then
+ begin
+  l_ClipbrdHandle := Clipboard.GetAsHandle(l_Format);
+  l_String := GlobalLock(l_ClipbrdHandle);
+  try
+   //aCtx.rEngine.PushString( StrPas(l_String));
+   if (l_Format = CF_UnicodeText) then
+    Result := TtfwCStringFactory.C(l3PCharLen(PWideChar(l_String){, GlobalSize(l_ClipbrdHandle) div SizeOf(WideChar)}))
+   else
+   if (l_Format = CF_Text) OR (l_Format = CF_OEMTExt) then
+    Result := TtfwCStringFactory.C(l3PCharLen(l_String{, GlobalSize(l_ClipbrdHandle)}))
+   else 
+    Result := TtfwCStringFactory.C(l3PCharLen(l_String, GlobalSize(l_ClipbrdHandle)));
+  finally
+   GlobalUnLock(l_ClipbrdHandle);
+  end;
+ end//Clipboard.HasFormat(l_Format)
+ else
+  // plain text
+  Result := TtfwCStringFactory.C(Clipboard.AsText);
+ {$Else}
+ Assert(false);
+ {$IfEnd}
+//#UC END# *545B4C0C78E1_B4A35E44526B_impl*
+//#UC START# *545B4C0C78E1_B4A35E44526B_var*
+var
+ l_Format: Cardinal;
+ l_ClipbrdHandle: THandle;
+ l_String: PChar;
+//#UC END# *545B4C0C78E1_B4A35E44526B_var*
+//#UC START# *59381C9832D8_8B86F9435925_impl*
+ {$IfDef XE}
+ Result := true;
+ {$Else  XE}
+ Result := false;
+ {$EndIf XE}
+//#UC END# *59381C9832D8_8B86F9435925_impl*
+//#UC START# *59381C9832D8_8B86F9435925_var*
+//#UC END# *59381C9832D8_8B86F9435925_var*
+//#UC START# *5AB6E7F355A8_453F93ACCEA3_impl*
+ Windows.GetLocalTime(l_Time);
+
+ l_Time.wMilliseconds := aMilli;
+ l_Time.wSecond := aSecond;
+ l_Time.wMinute := aMinute;
+ l_Time.wHour := anHour;
+
+ Windows.SetLocalTime(l_Time);
+//#UC END# *5AB6E7F355A8_453F93ACCEA3_impl*
+//#UC START# *5AB6E7F355A8_453F93ACCEA3_var*
+var
+ l_Time: TSystemTime;
+//#UC END# *5AB6E7F355A8_453F93ACCEA3_var*
+//#UC START# *5D9DF8E375F9_68C847BC1029_impl*
+ Result := ChangeFileExt(aName, anExt);
+//#UC END# *5D9DF8E375F9_68C847BC1029_impl*
+//#UC START# *5D9DF8E375F9_68C847BC1029_var*
+//#UC END# *5D9DF8E375F9_68C847BC1029_var*
+//#UC START# *5DDD1E88CFCD_283A1C53257F_impl*
+ Result := Windows.GetTickCount;
+//#UC END# *5DDD1E88CFCD_283A1C53257F_impl*
+//#UC START# *5DDD1E88CFCD_283A1C53257F_var*
+//#UC END# *5DDD1E88CFCD_283A1C53257F_var*
+//#UC START# *5E9E901ED18F_3606634B9E3C_impl*
+ Result := ParamStr(anIndex);
+//#UC END# *5E9E901ED18F_3606634B9E3C_impl*
+//#UC START# *5E9E901ED18F_3606634B9E3C_var*
+//#UC END# *5E9E901ED18F_3606634B9E3C_var*
+//#UC START# *61B70695D7A5_153639A6E4C3_impl*
+ RandSeed := aValue;
+//#UC END# *61B70695D7A5_153639A6E4C3_impl*
+//#UC START# *61B70695D7A5_153639A6E4C3_var*
+//#UC END# *61B70695D7A5_153639A6E4C3_var*
+//#UC START# *67A0331D6030_0D7A9FAE3386_impl*
+ l_CompSize := MAX_COMPUTERNAME_LENGTH + 1;
+ SetLength(l_S, l_CompSize);
+
+ Win32Check(GetComputerNameA(PAnsiChar(l_S), LongWord(l_CompSize)));
+ SetLength(l_S, l_CompSize);
+ Result := l_S;
+//#UC END# *67A0331D6030_0D7A9FAE3386_impl*
+//#UC START# *67A0331D6030_0D7A9FAE3386_var*
+var
+ l_CompSize : Integer;
+ l_S : AnsiString;
+//#UC END# *67A0331D6030_0D7A9FAE3386_var*
+//#UC START# *75D135739708_117748A67531_impl*
+ Result := SysUtils.IntToStr(aValue);
+//#UC END# *75D135739708_117748A67531_impl*
+//#UC START# *75D135739708_117748A67531_var*
+//#UC END# *75D135739708_117748A67531_var*
+//#UC START# *7607F0C19FA3_968E4E29A5EA_impl*
+ Result := ExtractFileDrive(aName);
+//#UC END# *7607F0C19FA3_968E4E29A5EA_impl*
+//#UC START# *7607F0C19FA3_968E4E29A5EA_var*
+//#UC END# *7607F0C19FA3_968E4E29A5EA_var*
+//#UC START# *80C1D574516D_E5B80654F1A7_impl*
+ Result := ExtractFilePath(aName);
+//#UC END# *80C1D574516D_E5B80654F1A7_impl*
+//#UC START# *80C1D574516D_E5B80654F1A7_var*
+//#UC END# *80C1D574516D_E5B80654F1A7_var*
+//#UC START# *86288D38BB4F_CC86921D0E73_impl*
+ Windows.GetLocalTime(l_Time);
+
+ l_Time.wMilliseconds := aMilli;
+ l_Time.wSecond := aSecond;
+ l_Time.wMinute := aMinute;
+ l_Time.wHour := anHour;
+ l_Time.wDay := aDay;
+ l_Time.wMonth := aMonth;
+ l_Time.wYear := anYear;
+
+ Windows.SetLocalTime(l_Time);
+//#UC END# *86288D38BB4F_CC86921D0E73_impl*
+//#UC START# *86288D38BB4F_CC86921D0E73_var*
+var
+ l_Time: TSystemTime;
+//#UC END# *86288D38BB4F_CC86921D0E73_var*
+//#UC START# *880D1E65813C_8709A220B763_impl*
+ Result := FileExists(aPath);
+//#UC END# *880D1E65813C_8709A220B763_impl*
+//#UC START# *880D1E65813C_8709A220B763_var*
+//#UC END# *880D1E65813C_8709A220B763_var*
+//#UC START# *8B165BF2764A_3FBA7C4F7F80_impl*
+ Result := Tl3TabService.Instance.HasTabs;
+//#UC END# *8B165BF2764A_3FBA7C4F7F80_impl*
+//#UC START# *8B165BF2764A_3FBA7C4F7F80_var*
+//#UC END# *8B165BF2764A_3FBA7C4F7F80_var*
+//#UC START# *90D645BF4786_7411EFEEC0A2_impl*
+ Windows.GetLocalTime(l_Time);
+ with l_Time do
+  l_DelphiTime := EncodeDateTime(wYear, wMonth, wDay, wHour, wMinute, wSecond, wMilliseconds);
+ l_DelphiTime := IncYear(l_DelphiTime, aDeltaY);
+ l_DelphiTime := IncMonth(l_DelphiTime, aDeltaM);
+ l_DelphiTime := IncDay(l_DelphiTime, aDeltaD);
+ with l_Time do
+  DecodeDateTime(l_DelphiTime, wYear, wMonth, wDay, wHour, wMinute, wSecond, wMilliseconds);
+ Windows.SetLocalTime(l_Time);
+//#UC END# *90D645BF4786_7411EFEEC0A2_impl*
+//#UC START# *90D645BF4786_7411EFEEC0A2_var*
+var
+ l_Time: TSystemTime;
+ l_DelphiTime: TDateTime;
+//#UC END# *90D645BF4786_7411EFEEC0A2_var*
+//#UC START# *9630E77C53F3_861A2BB899E3_impl*
+ Result := aCtx.rCaller.StopTimer(aName, aSubName)
+//#UC END# *9630E77C53F3_861A2BB899E3_impl*
+//#UC START# *9630E77C53F3_861A2BB899E3_var*
+//#UC END# *9630E77C53F3_861A2BB899E3_var*
+//#UC START# *A6E45D572442_ACB27923B254_impl*
+ Result := DirectoryExists(aPath);
+//#UC END# *A6E45D572442_ACB27923B254_impl*
+//#UC START# *A6E45D572442_ACB27923B254_var*
+//#UC END# *A6E45D572442_ACB27923B254_var*
+//#UC START# *B7280416B2E0_E4DA6191960A_impl*
+ Result := aCtx.rEngine.ExceptionStack;
+//#UC END# *B7280416B2E0_E4DA6191960A_impl*
+//#UC START# *B7280416B2E0_E4DA6191960A_var*
+//#UC END# *B7280416B2E0_E4DA6191960A_var*
+//#UC START# *BBBD58864003_B3D96AECB8FC_impl*
+ Result := ParamStr(0);
+//#UC END# *BBBD58864003_B3D96AECB8FC_impl*
+//#UC START# *BBBD58864003_B3D96AECB8FC_var*
+//#UC END# *BBBD58864003_B3D96AECB8FC_var*
+//#UC START# *CA1C227465CDci*
+//#UC END# *CA1C227465CDci*
+//#UC START# *CA1C227465CDcit*
+//#UC END# *CA1C227465CDcit*
+//#UC START# *CA1C227465CDpubl*
+//#UC END# *CA1C227465CDpubl*
+//#UC START# *D00C735B4A0F_A28B96AFE5F4_impl*
+ Result := SysUtils.GetCurrentDir;
+//#UC END# *D00C735B4A0F_A28B96AFE5F4_impl*
+//#UC START# *D00C735B4A0F_A28B96AFE5F4_var*
+//#UC END# *D00C735B4A0F_A28B96AFE5F4_var*
+//#UC START# *D41B4A8BB159_E113BA65B398_impl*
+ Result := aCtx.rCaller.StopTimer(aName);
+//#UC END# *D41B4A8BB159_E113BA65B398_impl*
+//#UC START# *D41B4A8BB159_E113BA65B398_var*
+//#UC END# *D41B4A8BB159_E113BA65B398_var*
+//#UC START# *DF7BBEF65068_4F6F96722B37_impl*
+ Result := ForceDirectories(aPath);
+//#UC END# *DF7BBEF65068_4F6F96722B37_impl*
+//#UC START# *DF7BBEF65068_4F6F96722B37_var*
+//#UC END# *DF7BBEF65068_4F6F96722B37_var*
+//#UC START# *E0BDBA6E01AC_B3CBD7A00B4E_impl*
+ Result := SysUtils.CreateDir(aDir);
+//#UC END# *E0BDBA6E01AC_B3CBD7A00B4E_impl*
+//#UC START# *E0BDBA6E01AC_B3CBD7A00B4E_var*
+//#UC END# *E0BDBA6E01AC_B3CBD7A00B4E_var*
+//#UC START# *E7960C7CE4B0_F9F8F376A6AB_impl*
+ Result := l3Is64System;
+//#UC END# *E7960C7CE4B0_F9F8F376A6AB_impl*
+//#UC START# *E7960C7CE4B0_F9F8F376A6AB_var*
+//#UC END# *E7960C7CE4B0_F9F8F376A6AB_var*
+//#UC START# *F86B14A38365_7B3EE646F965_impl*
+ l_S := aPath;
+ if (ExtractFilePath(l_S) = '') then
+  l_S := ExtractFilePath(ParamStr(0)) + l_S;
+ Windows.WinExec(PAnsiChar(l_S), {SW_HIDE}SW_SHOWNORMAL);
+//#UC END# *F86B14A38365_7B3EE646F965_impl*
+//#UC START# *F86B14A38365_7B3EE646F965_var*
+var
+ l_S : AnsiString;
+//#UC END# *F86B14A38365_7B3EE646F965_var*
+//#UC START# *FCCD09033538_8A50690C658A_impl*
+ Windows.GetLocalTime(l_Time);
+ 
+ l_Time.wDay := aDay;
+ l_Time.wMonth := aMonth;
+ l_Time.wYear := anYear;
+
+ Windows.SetLocalTime(l_Time);
+//#UC END# *FCCD09033538_8A50690C658A_impl*
+//#UC START# *FCCD09033538_8A50690C658A_var*
+var
+ l_Time: TSystemTime;
+//#UC END# *FCCD09033538_8A50690C658A_var*
+//#UC START# *FD0E945E9EFD_20F254F4B4BB_impl*
+ Result := GetWindowsVersionString;
+//#UC END# *FD0E945E9EFD_20F254F4B4BB_impl*
+//#UC START# *FD0E945E9EFD_20F254F4B4BB_var*
+//#UC END# *FD0E945E9EFD_20F254F4B4BB_var*
+//#UC START# *FD31A8AD6225_DD119E13D005_impl*
+ Result := ParamCount;
+//#UC END# *FD31A8AD6225_DD119E13D005_impl*
+//#UC START# *FD31A8AD6225_DD119E13D005_var*
+//#UC END# *FD31A8AD6225_DD119E13D005_var*

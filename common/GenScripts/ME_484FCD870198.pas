@@ -1,4 +1,10 @@
 unit Check_Const;
+ {* Вычитка }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\Check_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -11,7 +17,7 @@ uses
 ;
 
  // CheckTag
- 
+
 implementation
 
 uses

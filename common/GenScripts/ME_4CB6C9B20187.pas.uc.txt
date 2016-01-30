@@ -1,0 +1,17 @@
+//#UC START# *4CB6C9330040_4CB6C9B20187get_impl*
+ Result := nsGetQueryName(PartData.Query);
+//#UC END# *4CB6C9330040_4CB6C9B20187get_impl*
+//#UC START# *4CB6C9330040_4CB6C9B20187get_var*
+//#UC END# *4CB6C9330040_4CB6C9B20187get_var*
+//#UC START# *4CB6C9490358_4CB6C9B20187_impl*
+ //TnsFiltersContainer.ConvertToFilter(PartData.Query, aName);
+ defDataAdapter.NativeAdapter.MakeFiltersManager.CreateFilter(PartData.Query, nsIStr(aName));
+//#UC END# *4CB6C9490358_4CB6C9B20187_impl*
+//#UC START# *4CB6C9490358_4CB6C9B20187_var*
+//#UC END# *4CB6C9490358_4CB6C9B20187_var*
+//#UC START# *4CB6C966029D_4CB6C9B20187_impl*
+ //TnsFiltersContainer.RenameFilter(PartData.Filter, aName);
+ PartData.Filter.SetName(nsIStr(aName));
+//#UC END# *4CB6C966029D_4CB6C9B20187_impl*
+//#UC START# *4CB6C966029D_4CB6C9B20187_var*
+//#UC END# *4CB6C966029D_4CB6C9B20187_var*

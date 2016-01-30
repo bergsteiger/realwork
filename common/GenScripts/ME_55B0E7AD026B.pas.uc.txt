@@ -1,0 +1,29 @@
+//#UC START# *55B0FEC503CE_55B0E7AD026B_impl*
+ if FindData(l3PCharLen(aName), l_Index) then
+  Result := Items[l_Index]
+ else
+ begin
+  l_D := TtfwStandardDictionary.Create(aName, []);
+  try
+   DirectInsert(l_Index, l_D);
+   Result := l_D;
+  finally
+   FreeAndNil(l_D);
+  end;//try..finally
+ end;//FindData(l3PCharLen(aName), l_Index)
+//#UC END# *55B0FEC503CE_55B0E7AD026B_impl*
+//#UC START# *55B0FEC503CE_55B0E7AD026B_var*
+var
+ l_Index : Integer;
+ l_D : TtfwStandardDictionary;
+//#UC END# *55B0FEC503CE_55B0E7AD026B_var*
+//#UC START# *55B1E6EC0088_55B0E7AD026B_impl*
+ if FindData(l3PCharLen(aName), l_Index) then
+  Result := Items[l_Index]
+ else
+  Result := nil;
+//#UC END# *55B1E6EC0088_55B0E7AD026B_impl*
+//#UC START# *55B1E6EC0088_55B0E7AD026B_var*
+var
+ l_Index : Integer;
+//#UC END# *55B1E6EC0088_55B0E7AD026B_var*

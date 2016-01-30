@@ -1,0 +1,19 @@
+//#UC START# *4BED2C510339_4BED2BFE0092_impl*
+ StartTimer;
+ try
+  Check(l3Pos(l3PCharLen(AnsiString(S)), l3PCharLen(AnsiString(SS))) = 3);
+  Check(l3Pos(l3PCharLen(WS), l3PCharLen(WSS)) = 3);
+  Check(l3Pos(l3PCharLen(WS), l3PCharLen(AnsiString(SS))) = 3);
+  Check(l3Pos(l3PCharLen(AnsiString(S)), l3PCharLen(WSS)) = 3);
+ finally
+  StopTimer;
+ end;//try..finally
+//#UC END# *4BED2C510339_4BED2BFE0092_impl*
+//#UC START# *4BED2C510339_4BED2BFE0092_var*
+const
+ S = '‡‡‡···‚‚‚';
+ SS = '···';
+const
+ WS : WideString = '‡‡‡···‚‚‚';
+ WSS : WideString = '···';
+//#UC END# *4BED2C510339_4BED2BFE0092_var*

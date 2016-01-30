@@ -1,4 +1,10 @@
 unit ReqGroup_Const;
+ {* Группа реквизитов }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\ReqGroup_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -10,7 +16,7 @@ uses
 ;
 
  // ReqGroupTag
- 
+
 implementation
 
 uses

@@ -1,4 +1,9 @@
-unit dt_AttrSchema;
+unit NOT_FINISHED_dt_AttrSchema;
+
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dt_AttrSchema.pas"
+// Стереотип: "UtilityPack"
+
+{$Include ddDefine.inc}
 
 interface
 
@@ -45,10 +50,10 @@ type
   , atRenum
   , atVersions
  );//TdtAttribute
- 
+
  TDoc2DocLinkRec = record
  end;//TDoc2DocLinkRec
- 
+
 implementation
 
 uses

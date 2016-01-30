@@ -1,4 +1,9 @@
-unit vtOutlinerWithDragDrop;
+unit NOT_FINISHED_vtOutlinerWithDragDrop;
+
+// Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtOutlinerWithDragDrop.pas"
+// Стереотип: "GuiControl"
+
+{$Include vtDefine.inc}
 
 interface
 
@@ -12,26 +17,55 @@ uses
 type
  Tl3CanBeginDrag = procedure(const aNode: Il3SimpleNode;
   var aOkEffect: LongInt) of object;
- 
+
  Tl3CanAcceptData = function(const aData: IDataObject): Boolean of object;
- 
+
  Tl3DoDrop = function(const aData: Il3SimpleNode;
   aWantMenu: Boolean;
   var dwEffect: LongInt): Boolean of object;
- 
+
+ {$If NOT Defined(DesignTimeLibrary)}
  RvtNodeDataObject = ;
- 
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+
  TvtOutlinerWithDragDrop = class(TvtOutlinerWithQuickSearch)
-  function CanAcceptData(const aData: IDataObject): Boolean;
-  function DataObjectClass: RvtNodeDataObject;
+  protected
+   function CanAcceptData(const aData: IDataObject): Boolean; virtual;
+   function DataObjectClass: RvtNodeDataObject; virtual;
  end;//TvtOutlinerWithDragDrop
- 
+
 implementation
 
 uses
  l3ImplUses
  , vtOutlinerWithDragDropRes
+ {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
+
+function TvtOutlinerWithDragDrop.CanAcceptData(const aData: IDataObject): Boolean;
+//#UC START# *51EEB81F017C_4B97E8130272_var*
+//#UC END# *51EEB81F017C_4B97E8130272_var*
+begin
+//#UC START# *51EEB81F017C_4B97E8130272_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *51EEB81F017C_4B97E8130272_impl*
+end;//TvtOutlinerWithDragDrop.CanAcceptData
+
+function TvtOutlinerWithDragDrop.DataObjectClass: RvtNodeDataObject;
+//#UC START# *52DD106403D3_4B97E8130272_var*
+//#UC END# *52DD106403D3_4B97E8130272_var*
+begin
+//#UC START# *52DD106403D3_4B97E8130272_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52DD106403D3_4B97E8130272_impl*
+end;//TvtOutlinerWithDragDrop.DataObjectClass
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvtOutlinerWithDragDrop);
+ {* Регистрация TvtOutlinerWithDragDrop }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

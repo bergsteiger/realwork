@@ -1,5 +1,10 @@
 unit daLogicCondition;
 
+// Модуль: "w:\common\components\rtl\Garant\DA\daLogicCondition.pas"
+// Стереотип: "SimpleClass"
+
+{$Include daDefine.inc}
+
 interface
 
 uses
@@ -11,21 +16,92 @@ uses
 
 type
  TdaLogicCondition = class(TdaCondition, IdaCondition)
-  procedure Create(const aLeft: IdaCondition;
-   anOperation: TdaLogicOperation;
-   const aRight: IdaCondition);
-  function Make(const aLeft: IdaCondition;
-   anOperation: TdaLogicOperation;
-   const aRight: IdaCondition): IdaCondition;
-  procedure IterateX;
-  function DoBuildSQL(const aHelper: IdaParamListHelper): AnsiString;
+  private
+   f_Left: IdaCondition;
+   f_Right: IdaCondition;
+   f_Operation: TdaLogicOperation;
+  protected
+   function DoBuildSQL(const aHelper: IdaParamListHelper): AnsiString; override;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
+   constructor Create(const aLeft: IdaCondition;
+    anOperation: TdaLogicOperation;
+    const aRight: IdaCondition); reintroduce;
+   class function Make(const aLeft: IdaCondition;
+    anOperation: TdaLogicOperation;
+    const aRight: IdaCondition): IdaCondition; reintroduce;
+   procedure IterateX; virtual;
  end;//TdaLogicCondition
- 
+
 implementation
 
 uses
  l3ImplUses
  , SysUtils
 ;
+
+constructor TdaLogicCondition.Create(const aLeft: IdaCondition;
+ anOperation: TdaLogicOperation;
+ const aRight: IdaCondition);
+//#UC START# *564059E50042_5640598000F0_var*
+//#UC END# *564059E50042_5640598000F0_var*
+begin
+//#UC START# *564059E50042_5640598000F0_impl*
+ inherited Create;
+ f_Left := aLeft;
+ f_Right := aRight;
+ f_Operation := anOperation;
+//#UC END# *564059E50042_5640598000F0_impl*
+end;//TdaLogicCondition.Create
+
+class function TdaLogicCondition.Make(const aLeft: IdaCondition;
+ anOperation: TdaLogicOperation;
+ const aRight: IdaCondition): IdaCondition;
+var
+ l_Inst : TdaLogicCondition;
+begin
+ l_Inst := Create(aLeft, anOperation, aRight);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TdaLogicCondition.Make
+
+procedure TdaLogicCondition.IterateX;
+//#UC START# *5641CAC802C3_5640598000F0_var*
+//#UC END# *5641CAC802C3_5640598000F0_var*
+begin
+//#UC START# *5641CAC802C3_5640598000F0_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5641CAC802C3_5640598000F0_impl*
+end;//TdaLogicCondition.IterateX
+
+function TdaLogicCondition.DoBuildSQL(const aHelper: IdaParamListHelper): AnsiString;
+//#UC START# *56408E7F01A1_5640598000F0_var*
+const
+ cMap: array [TdaLogicOperation] of String = (
+  'AND', // da_loAnd
+  'OR'   // da_loOr
+ );
+//#UC END# *56408E7F01A1_5640598000F0_var*
+begin
+//#UC START# *56408E7F01A1_5640598000F0_impl*
+ Result := Format('(&s) &s (%s)', [f_Left.BuildSQLValue(aHelper), cMap[f_Operation], f_Right.BuildSQLValue(aHelper)]);
+//#UC END# *56408E7F01A1_5640598000F0_impl*
+end;//TdaLogicCondition.DoBuildSQL
+
+procedure TdaLogicCondition.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_5640598000F0_var*
+//#UC END# *479731C50290_5640598000F0_var*
+begin
+//#UC START# *479731C50290_5640598000F0_impl*
+ f_Left := nil;
+ f_Right := nil;
+ inherited;
+//#UC END# *479731C50290_5640598000F0_impl*
+end;//TdaLogicCondition.Cleanup
 
 end.

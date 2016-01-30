@@ -1,0 +1,61 @@
+//#UC START# *479731C50290_49071BFA03A4_impl*
+ FreeAndNil(f_MFSubscribers);
+ inherited;
+//#UC END# *479731C50290_49071BFA03A4_impl*
+//#UC START# *479731C50290_49071BFA03A4_var*
+//#UC END# *479731C50290_49071BFA03A4_var*
+//#UC START# *48FF64E700E5_49071BFA03A4_impl*
+ inherited;
+ NotifyMedicFirmsRecipients;
+//#UC END# *48FF64E700E5_49071BFA03A4_impl*
+//#UC START# *48FF64E700E5_49071BFA03A4_var*
+//#UC END# *48FF64E700E5_49071BFA03A4_var*
+//#UC START# *48FF64F60078_49071BFA03A4_impl*
+ Result := DefDataAdapter.NativeAdapter.MakeNodeBase(nsAStr(AT_PHARM_COUNTRY_FOR_FILTER));
+//#UC END# *48FF64F60078_49071BFA03A4_impl*
+//#UC START# *48FF64F60078_49071BFA03A4_var*
+//#UC END# *48FF64F60078_49071BFA03A4_var*
+//#UC START# *49071B0F0100_49071BFA03A4_impl*
+ if (f_MFSubscribers = nil) then
+  f_MFSubscribers := TnsMedicFirmsSubscribersList.Make;
+ f_MFSubscribers.Add(aSubscriber);
+//#UC END# *49071B0F0100_49071BFA03A4_impl*
+//#UC START# *49071B0F0100_49071BFA03A4_var*
+//#UC END# *49071B0F0100_49071BFA03A4_var*
+//#UC START# *49071B1D0098_49071BFA03A4_impl*
+ if (f_MFSubscribers <> nil) then
+  f_MFSubscribers.Remove(aSubscriber);
+//#UC END# *49071B1D0098_49071BFA03A4_impl*
+//#UC START# *49071B1D0098_49071BFA03A4_var*
+//#UC END# *49071B1D0098_49071BFA03A4_var*
+//#UC START# *49071D400235_49071BFA03A4_impl*
+ inherited Create(ReAqurieUnfilteredRoot, False);
+//#UC END# *49071D400235_49071BFA03A4_impl*
+//#UC START# *49071D400235_49071BFA03A4_var*
+//#UC END# *49071D400235_49071BFA03A4_var*
+//#UC START# *49071D53036B_49071BFA03A4_impl*
+ if not defDataAdapter.IsInpharmExists then
+ begin
+  Result := nil;
+  Exit;
+ end;
+ l_Tree := Create;
+ try
+  Result := l_Tree;
+ finally;
+  FreeAndNil(l_Tree);
+ end;
+//#UC END# *49071D53036B_49071BFA03A4_impl*
+//#UC START# *49071D53036B_49071BFA03A4_var*
+Var
+ l_Tree: TnsMedicFirmsCountryFilterTreeBase;
+//#UC END# *49071D53036B_49071BFA03A4_var*
+//#UC START# *49071EDC0216_49071BFA03A4_impl*
+ if (f_MFSubscribers <> nil) then
+  for l_Index := 0 to Pred(f_MFSubscribers.Count) do
+   f_MFSubscribers[l_Index].CountryFilterResetted;
+//#UC END# *49071EDC0216_49071BFA03A4_impl*
+//#UC START# *49071EDC0216_49071BFA03A4_var*
+var
+ l_Index : Integer;
+//#UC END# *49071EDC0216_49071BFA03A4_var*

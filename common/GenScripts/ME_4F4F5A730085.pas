@@ -1,7 +1,19 @@
 unit kwPopEditorWheelScroll;
+ {* *Формат:* aUp aVeritcal anEditorControl pop:editor:WheelScroll
+*Описание:* Прокручивает документ к позиции скроллера. aVeritcal - если true, то скроллируем повертикали. aUp - сроллировать вверх, если true
+*Пример:*
+[code] 
+false true focused:control:push anEditorControl pop:editor:WheelScroll
+[code] }
+
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorWheelScroll.pas"
+// Стереотип: "ScriptKeyword"
+
+{$Include seDefine.inc}
 
 interface
 
+{$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
  , kwEditorFromStackWord
@@ -10,21 +22,60 @@ uses
 ;
 
 type
- TkwPopEditorWheelScroll = class(TkwEditorFromStackWord)
+ TkwPopEditorWheelScroll = {final} class(TkwEditorFromStackWord)
   {* *Формат:* aUp aVeritcal anEditorControl pop:editor:WheelScroll
 *Описание:* Прокручивает документ к позиции скроллера. aVeritcal - если true, то скроллируем повертикали. aUp - сроллировать вверх, если true
 *Пример:*
 [code] 
 false true focused:control:push anEditorControl pop:editor:WheelScroll
 [code] }
-  procedure DoWithEditor(const aCtx: TtfwContext;
-   anEditor: TevCustomEditorWindow);
+  protected
+   procedure DoWithEditor(const aCtx: TtfwContext;
+    anEditor: TevCustomEditorWindow); override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorWheelScroll
- 
+{$IfEnd} // NOT Defined(NoScripts)
+
 implementation
 
+{$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
 ;
+
+procedure TkwPopEditorWheelScroll.DoWithEditor(const aCtx: TtfwContext;
+ anEditor: TevCustomEditorWindow);
+//#UC START# *4F4CB81200CA_4F4F5A730085_var*
+var
+ l_Up       : Boolean;
+ l_Vertical : Boolean;
+//#UC END# *4F4CB81200CA_4F4F5A730085_var*
+begin
+//#UC START# *4F4CB81200CA_4F4F5A730085_impl*
+ if aCtx.rEngine.IsTopBool then
+  l_Vertical := aCtx.rEngine.PopBool
+ else
+  Assert(False, 'Не задана ориентация прокрукти!');
+ if aCtx.rEngine.IsTopBool then
+  l_Up := aCtx.rEngine.PopBool
+ else
+  Assert(False, 'Не задано направление прокрукти!');
+ with anEditor.View.Scroller[l_Vertical] do
+  if l_Up then
+   WheelUp
+  else
+   WheelDown;
+//#UC END# *4F4CB81200CA_4F4F5A730085_impl*
+end;//TkwPopEditorWheelScroll.DoWithEditor
+
+class function TkwPopEditorWheelScroll.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:editor:WheelScroll';
+end;//TkwPopEditorWheelScroll.GetWordNameForRegister
+
+initialization
+ TkwPopEditorWheelScroll.RegisterInEngine;
+ {* Регистрация pop_editor_WheelScroll }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

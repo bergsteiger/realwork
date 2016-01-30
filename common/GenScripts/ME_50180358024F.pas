@@ -1,22 +1,40 @@
-unit vcmFormDataSourceWithFlexUseCaseControllerType.imp;
+{$IfNDef vcmFormDataSourceWithFlexUseCaseControllerType_imp}
 
-interface
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourceWithFlexUseCaseControllerType.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define vcmFormDataSourceWithFlexUseCaseControllerType_imp}
 
-type
- _vcmFormDataSourceWithFlexUseCaseControllerType_ = class(_vcmFormDataSourcePrimWithFlexUseCaseControllerType_)
+{$If NOT Defined(NoVCM)}
+ {$Include vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
+ _vcmFormDataSourceWithData_Parent_ = _vcmFormDataSourcePrimWithFlexUseCaseControllerType_;
+ {$Include vcmFormDataSourceWithData.imp.pas}
+ _vcmFormDataSourceWithFlexUseCaseControllerType_ = class(_vcmFormDataSourceWithData_)
  end;//_vcmFormDataSourceWithFlexUseCaseControllerType_
- 
-implementation
 
-uses
- l3ImplUses
- , SysUtils
- , l3InterfacesMisc
- , l3Base
-;
+{$Else NOT Defined(NoVCM)}
 
-end.
+{$Include vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
+_vcmFormDataSourceWithData_Parent_ = _vcmFormDataSourcePrimWithFlexUseCaseControllerType_;
+{$Include vcmFormDataSourceWithData.imp.pas}
+_vcmFormDataSourceWithFlexUseCaseControllerType_ = _vcmFormDataSourceWithData_;
+
+{$IfEnd} // NOT Defined(NoVCM)
+{$Else vcmFormDataSourceWithFlexUseCaseControllerType_imp}
+
+{$IfNDef vcmFormDataSourceWithFlexUseCaseControllerType_imp_impl}
+
+{$Define vcmFormDataSourceWithFlexUseCaseControllerType_imp_impl}
+
+{$If NOT Defined(NoVCM)}
+type _Instance_R_ = _vcmFormDataSourceWithFlexUseCaseControllerType_;
+
+{$Include vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
+
+{$Include vcmFormDataSourceWithData.imp.pas}
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$EndIf vcmFormDataSourceWithFlexUseCaseControllerType_imp_impl}
+
+{$EndIf vcmFormDataSourceWithFlexUseCaseControllerType_imp}
+

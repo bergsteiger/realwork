@@ -1,4 +1,9 @@
-unit vtGroupBox;
+unit NOT_FINISHED_vtGroupBox;
+
+// Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtGroupBox.pas"
+// Стереотип: "GuiControl"
+
+{$Include vtDefine.inc}
 
 interface
 
@@ -9,7 +14,7 @@ uses
 type
  TvtGroupBox = class
  end;//TvtGroupBox
- 
+
 implementation
 
 uses

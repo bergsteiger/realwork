@@ -1,0 +1,23 @@
+//#UC START# *4BE419AF0217_4C383752005F_impl*
+ inherited DoVisit(aForm);
+ l_Range := aForm.Text.View.Control.Selection.GetBlock;
+ l_Range := l_Range.GetChildSel(aForm.Text.View, 1, False); // Таблица...
+ l_Range := l_Range.GetChildSel(aForm.Text.View, 1, False); // Строка...
+ l_Range := l_Range.GetChildSel(aForm.Text.View, 2, False); // Ячейка...
+ CheckTrue((l_Range <> nil) and (l_Range.Obj.PID = 2) and (l_Range.Obj^.OwnerObj.PID = 1), 'Не выделили среднюю ячейку в последней колонке!');
+//#UC END# *4BE419AF0217_4C383752005F_impl*
+//#UC START# *4BE419AF0217_4C383752005F_var*
+var
+ l_Range : InevRange;
+//#UC END# *4BE419AF0217_4C383752005F_var*
+//#UC START# *4C346D4B0351_4C383752005F_impl*
+ Result := aDocument.Para[1].AsList;
+//#UC END# *4C346D4B0351_4C383752005F_impl*
+//#UC START# *4C346D4B0351_4C383752005F_var*
+//#UC END# *4C346D4B0351_4C383752005F_var*
+//#UC START# *4C382DC50185_4C383752005F_impl*
+ Result := True;
+ aColID := 2;
+//#UC END# *4C382DC50185_4C383752005F_impl*
+//#UC START# *4C382DC50185_4C383752005F_var*
+//#UC END# *4C382DC50185_4C383752005F_var*

@@ -1,19 +1,37 @@
 unit vcmUserFriendlyControlList;
 
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\vcmUserFriendlyControlList.pas"
+// Стереотип: "SimpleClass"
+
+{$Include vcmDefine.inc}
+
 interface
 
+{$If NOT Defined(NoVCM)}
 uses
  l3IntfUses
  , l3ProtoDataContainer
  , vcmUserControls
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
 ;
 
 type
- TvcmUserFriendlyControlList = class(Tl3ProtoDataContainer)
+ _ItemType_ = IvcmUserFriendlyControl;
+ _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
+ {$Define l3Items_IsProto}
+ {$Include l3InterfaceRefList.imp.pas}
+ TvcmUserFriendlyControlList = class(_l3InterfaceRefList_)
  end;//TvcmUserFriendlyControlList
- 
+{$IfEnd} // NOT Defined(NoVCM)
+
 implementation
 
+{$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
  , l3Base
@@ -21,5 +39,10 @@ uses
  , RTLConsts
  , SysUtils
 ;
+
+type _Instance_R_ = TvcmUserFriendlyControlList;
+
+{$Include l3InterfaceRefList.imp.pas}
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

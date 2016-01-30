@@ -1,0 +1,246 @@
+//#UC START# *479731C50290_4A93DDAE0396_impl*
+ Finalize(f_Data);
+ inherited;
+//#UC END# *479731C50290_4A93DDAE0396_impl*
+//#UC START# *479731C50290_4A93DDAE0396_var*
+//#UC END# *479731C50290_4A93DDAE0396_var*
+//#UC START# *48C7925A02E5_4A93DDAE0396_impl*
+ inherited;
+ if not (csDesigning in ComponentState) then
+ begin
+  with Params do
+  begin
+   ExStyle := ExStyle or WS_EX_APPWINDOW;
+   WndParent := GetDesktopWindow;
+  end;
+  l_ExtendedStyle := GetWindowLong(Application.Handle, GWL_EXSTYLE);
+  SetWindowLong(Application.Handle,
+                GWL_EXSTYLE,
+                l_ExtendedStyle or WS_EX_TOOLWINDOW {AND NOT WS_EX_APPWINDOW}); 
+ end;
+//#UC END# *48C7925A02E5_4A93DDAE0396_impl*
+//#UC START# *48C7925A02E5_4A93DDAE0396_var*
+var
+ l_ExtendedStyle: Integer;
+//#UC END# *48C7925A02E5_4A93DDAE0396_var*
+//#UC START# *4A8E8F2E0195_4A93DDAE0396_impl*
+ BorderIcons := [];
+ BorderStyle := bsDialog;
+ ClientHeight := 143;
+ ClientWidth := 362;
+ Position := poScreenCenter;
+ OnCloseQuery := vcmEntityFormCloseQuery;
+
+ with ClientPanel do
+ begin
+  Align := alClient;
+  BevelOuter := bvNone;
+  BorderWidth := 4;
+  TabOrder := 0;
+ end;
+
+ with MessageLabel do
+ begin
+  Align := alClient;
+  WordWrap := True;
+ end;
+
+ with BottomPanel do
+ begin
+  Height := 26;
+  Align := alBottom;
+  BevelInner := bvLowered;
+  BevelOuter := bvNone;
+  TabOrder := 1;
+ end;
+
+ with ProgressBar do
+ begin
+  Left := 2;
+  Top := 2;
+  Width := 358;
+  Height := 22;
+  Active := False;
+  Color1 := clSkyBlue;
+  Color2 := clBlue;
+  Anchors := [akLeft, akTop, akRight, akBottom];
+ end;
+
+ with LeftPanel do
+ begin
+  Width := 49;
+  Align := alLeft;
+  BevelOuter := bvNone;
+  TabOrder := 2;
+ end;
+
+ with Image do
+ begin
+  Left := 8;
+  Top := 8;
+  Width := 32;
+  Height := 32;
+ end;
+
+ with ButtonPanel do
+ begin
+  Height := 30;
+  Align := alBottom;
+  BevelOuter := bvNone;
+  TabOrder := 3;
+  Top := BottomPanel.Top - 1; // ButtonPanel должна быть выше BottomPanel
+ end;
+
+ with btnExit do
+ begin
+  Left := 280;
+  Top := 1;
+  Width := 75;
+  Height := 25;
+  //Anchors := [akRight, akBottom];
+  TabOrder := 0;
+  OnClick := btnExitClick;
+ end;
+//#UC END# *4A8E8F2E0195_4A93DDAE0396_impl*
+//#UC START# *4A8E8F2E0195_4A93DDAE0396_var*
+//#UC END# *4A8E8F2E0195_4A93DDAE0396_var*
+//#UC START# *4AC4E25E0258_4A93DDAE0396_impl*
+   f_Data := aData;
+   //Assert(f_Data <> nil);
+   Prepare;
+//#UC END# *4AC4E25E0258_4A93DDAE0396_impl*
+//#UC START# *4B17B6FA024F_498C7D4301A5_impl*
+ Result.rMessage := aMessage;
+ Result.rMessageType := aMessageType;
+ Result.rIconName := anIconName;
+//#UC END# *4B17B6FA024F_498C7D4301A5_impl*
+//#UC START# *4B17B6FA024F_498C7D4301A5_var*
+//#UC END# *4B17B6FA024F_498C7D4301A5_var*
+//#UC START# *520B42AF0115_4A93DDAE0396_impl*
+ {$IfDef InsiderTest}
+ Inc(Self.g_AllowModal);
+ try
+ {$EndIf InsiderTest}
+  Result := inherited ShowModal;
+ {$IfDef InsiderTest}
+ finally
+  Dec(Self.g_AllowModal);
+ end;//try..finally
+ {$EndIf InsiderTest}
+//#UC END# *520B42AF0115_4A93DDAE0396_impl*
+//#UC START# *520B42AF0115_4A93DDAE0396_var*
+//#UC END# *520B42AF0115_4A93DDAE0396_var*
+//#UC START# *523ABFDC0014_4A93DDAE0396_impl*
+ //if f_Data <> nil then
+ begin
+  Image.Picture.Icon.Handle := LoadIconA(0, f_Data.rIconName);
+  // в дальнейшем нужно икону как-то получать от главной формы
+  ProgressBar.Active := True;
+  FormStyle := fsNormal;
+  f_InLongProcess := True;
+  case f_Data.rMessageType of
+   lptUpdate:
+    begin
+     CCaption := vcmCStr(str_lpUpdateCaption);
+     MessageLabel.CCaption := l3Cat([vcmCStr(str_lpUpdateMessage), vcmCStr(str_lpExitMessage)]);
+    end;
+   lptProcessWithExit,
+   lptProcessWithoutExit:
+    begin
+     if not l3IsNil(f_Data.rMessage) then
+      MessageLabel.CCaption := l3Cat([f_Data.rMessage, vcmCStr(str_lpWaitMessage)])
+     else
+      MessageLabel.CCaption := l3Cat([str_l3mmLongOperation.AsCStr, vcmCStr(str_lpWaitMessage)]);
+     if f_Data.rMessageType = lptProcessWithoutExit then
+     begin
+      ButtonPanel.Visible := False;
+      Height := Height - ButtonPanel.Height;
+     end
+     else
+      MessageLabel.CCaption := l3Cat([MessageLabel.CCaption, vcmCStr(str_lpExitMessage)]);
+    end;
+   else
+    MessageLabel.CCaption := vcmCStr(str_lpWaitMessage);
+  end;
+ end;
+//#UC END# *523ABFDC0014_4A93DDAE0396_impl*
+//#UC START# *523ABFDC0014_4A93DDAE0396_var*
+//#UC END# *523ABFDC0014_4A93DDAE0396_var*
+//#UC START# *523AC062006F_4A93DDAE0396_impl*
+ Result := False;
+//#UC END# *523AC062006F_4A93DDAE0396_impl*
+//#UC START# *523AC062006F_4A93DDAE0396_var*
+//#UC END# *523AC062006F_4A93DDAE0396_var*
+//#UC START# *523AC0AA0039_4A93DDAE0396_impl*
+ if not (csDesigning in ComponentState) then
+ begin
+  with Message do begin
+   if (CmdType and $FFF0 = SC_MINIMIZE) then
+    DefaultHandler(Message)
+   else
+    inherited;
+  end;//with Message
+ end
+ else
+  inherited;
+//#UC END# *523AC0AA0039_4A93DDAE0396_impl*
+//#UC START# *523AC0AA0039_4A93DDAE0396_var*
+//#UC END# *523AC0AA0039_4A93DDAE0396_var*
+//#UC START# *523AC0C700E6_4A93DDAE0396_impl*
+ inherited Create(nil);
+ f_Data := aData;
+ Prepare;
+//#UC END# *523AC0C700E6_4A93DDAE0396_impl*
+//#UC START# *523AC0C700E6_4A93DDAE0396_var*
+//#UC END# *523AC0C700E6_4A93DDAE0396_var*
+//#UC START# *523AC9A902C2_4A93DDAE0396_impl*
+ {$IfNDef nsWithoutLogin}
+ if defDataAdapter.Authorization.IsServerAlive then
+ {$EndIf nsWithoutLogin}
+ begin
+  Hide; // прячем текущую форму
+  afw.ProcessMessages; // делаем так, чтобы форма спряталась, т.к. после этого мы уже не попадем в состояние Idle
+
+  {$If not defined(NoTabs)}
+  if TvcmTabbedContainerFormDispatcher.Instance.NeedUseTabs then
+   TvcmTabbedContainerFormDispatcher.Instance.CloseAll
+  else
+  {$IfEnd}
+   if Assigned(g_Dispatcher) then
+    with g_Dispatcher do
+    begin
+     BeginCancelModal;
+     try
+      CloseAllWindows;
+     finally
+      EndCancelModal;
+     end;
+    end;
+ end;//defDataAdapter.Authorization.IsServerAlive
+
+ try
+  try
+   g_ShowFinalSplash := False;
+   GlobalCrashCleanup;
+  finally
+   GlobalDone;
+  end;
+ finally
+  TerminateProcess(GetCurrentProcess, 255);
+ end;
+//#UC END# *523AC9A902C2_4A93DDAE0396_impl*
+//#UC START# *523AC9A902C2_4A93DDAE0396_var*
+//#UC END# *523AC9A902C2_4A93DDAE0396_var*
+//#UC START# *523ADA5A023D_4A93DDAE0396_impl*
+ {$IfDef l3HackedVCL}
+ if f_InLongProcess 
+    and
+    NeedCancelModal then
+  f_InLongProcess := false;
+ {$EndIf l3HackedVCL} 
+
+ if f_InLongProcess then
+  CanClose := false;
+//#UC END# *523ADA5A023D_4A93DDAE0396_impl*
+//#UC START# *523ADA5A023D_4A93DDAE0396_var*
+//#UC END# *523ADA5A023D_4A93DDAE0396_var*

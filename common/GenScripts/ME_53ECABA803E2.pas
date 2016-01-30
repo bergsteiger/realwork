@@ -1,5 +1,10 @@
 unit CourtDecisionSabCheckerParams_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\CourtDecisionSabCheckerParams_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -13,7 +18,7 @@ uses
 ;
 
  // CourtDecisionSabCheckerParamsTag
- 
+
 implementation
 
 uses

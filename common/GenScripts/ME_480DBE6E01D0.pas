@@ -1,4 +1,9 @@
-unit evResultFont;
+unit NOT_FINISHED_evResultFont;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evResultFont.pas"
+// Стереотип: "UtilityPack"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -9,15 +14,12 @@ uses
 
 type
  TevFontArray = array [Tk2FontParam] of Integer;
- 
+
  TevResultFont = object
  end;//TevResultFont
- 
- TevResultFontEx = object(TevResultFont)
- end;//TevResultFontEx
- 
+
  PevResultFontEx = ^TevResultFontEx;
- 
+
 implementation
 
 uses

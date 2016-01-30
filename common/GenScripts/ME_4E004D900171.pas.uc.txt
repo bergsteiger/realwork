@@ -1,0 +1,96 @@
+//#UC START# *479731C50290_4E004D900171_impl*
+ f_ContentsTree := nil;
+ FreeAndNil(f_LeftSubID);
+ FreeAndNil(f_RightSubID);
+ inherited;
+//#UC END# *479731C50290_4E004D900171_impl*
+//#UC START# *479731C50290_4E004D900171_var*
+//#UC END# *479731C50290_4E004D900171_var*
+//#UC START# *47A042E100E2_4E004D900171_impl*
+ inherited;
+ f_LeftSubID := Tl3LongintList.Create;
+ f_RightSubID := Tl3LongintList.Create;
+//#UC END# *47A042E100E2_4E004D900171_impl*
+//#UC START# *47A042E100E2_4E004D900171_var*
+//#UC END# *47A042E100E2_4E004D900171_var*
+//#UC START# *47F0BA6E0019_4E004D900171_impl*
+ MakeContentsTree;
+ inherited;
+//#UC END# *47F0BA6E0019_4E004D900171_impl*
+//#UC START# *47F0BA6E0019_4E004D900171_var*
+//#UC END# *47F0BA6E0019_4E004D900171_var*
+//#UC START# *47F226170180_4E004D900171_impl*
+ Result := inherited DoBeforeFinishAtom1(aGenerator, anAtom);
+ if anAtom.IsKindOf(k2_typSub) and anAtom.IsKindOf(k2_typBlock) then
+  if anAtom.Box.Attr[k2_tiViewKind].IsValid then
+  begin
+   if anAtom.Box.IntA[k2_tiViewKind] = Ord(ev_bvkLeft) then
+    f_LeftSubID.Add(anAtom.Box.IntA[k2_tiHandle]);
+   if anAtom.Box.IntA[k2_tiViewKind] = Ord(ev_bvkRight) then
+    f_RightSubID.Add(anAtom.Box.IntA[k2_tiHandle]);
+  end; // if anAtom.Box.Attr[k2_tiViewKind].IsValid then
+//#UC END# *47F226170180_4E004D900171_impl*
+//#UC START# *47F226170180_4E004D900171_var*
+//#UC END# *47F226170180_4E004D900171_var*
+//#UC START# *47F2802003C4_4E004D900171_impl*
+ Result := f_ContentsTree; 
+//#UC END# *47F2802003C4_4E004D900171_impl*
+//#UC START# *47F2802003C4_4E004D900171_var*
+//#UC END# *47F2802003C4_4E004D900171_var*
+//#UC START# *49184A180301_4E004D900171_impl*
+ if not anOpPack.InIOProcess and ((Prop.TagIndex = k2_tiContentsLevel6) or (Prop.TagIndex = k2_tiShortName)) AND V.rTag.IsKindOf(k2_typBlock) then
+ begin
+  f_ContentsTree.Changing;
+  try
+   f_ContentsTree.Notify(ntDataChange, nil);
+  finally
+   f_ContentsTree.Changed;
+  end;
+ end//Prop.TagIndex = k2_tiContentsLevel6
+ else
+  inherited;
+//#UC END# *49184A180301_4E004D900171_impl*
+//#UC START# *49184A180301_4E004D900171_var*
+//#UC END# *49184A180301_4E004D900171_var*
+//#UC START# *4E0056E503BE_4E004D900171_impl*
+ if f_ContentsTree = nil then
+ begin
+  f_ContentsTree := TevContentsTree.Make(Document.AsObject);
+  if Supports(f_ContentsTree, InevContentsNodeFilter, l_Filter) then
+   l_Filter.FilteredNodeFlag := nfContens;
+  if Supports(f_ContentsTree, InevSubChangeListener, l_Listener) then
+   LinkSubChangeListener(l_Listener);
+ end; //if not f_TreeWasInit then
+ if f_ContentsTree.RootNode.HasChild and
+    not f_ContentsTree.IsExpanded(f_ContentsTree.RootNode.Child) then
+  f_ContentsTree.CRootNode.ChildNode.ReleaseChilds;
+//#UC END# *4E0056E503BE_4E004D900171_impl*
+//#UC START# *4E0056E503BE_4E004D900171_var*
+var
+ l_Listener : InevSubChangeListener;
+ l_Filter  : InevContentsNodeFilter;
+//#UC END# *4E0056E503BE_4E004D900171_var*
+//#UC START# *527384840253_4E004D900171_impl*
+ if f_LeftSubID.Remove(aSubID) = -1 then
+  f_RightSubID.Remove(aSubID);
+//#UC END# *527384840253_4E004D900171_impl*
+//#UC START# *527384840253_4E004D900171_var*
+//#UC END# *527384840253_4E004D900171_var*
+//#UC START# *52738B050043_4E004D900171_impl*
+ if aLeft then
+  Result := f_LeftSubID.Count > 0
+ else
+  Result := f_RightSubID.Count > 0;
+//#UC END# *52738B050043_4E004D900171_impl*
+//#UC START# *52738B050043_4E004D900171_var*
+//#UC END# *52738B050043_4E004D900171_var*
+//#UC START# *52738B2F02B7_4E004D900171_impl*
+ if (aNewSubID = - 1) then Exit;
+ SubDeleted(aOldSubID);
+ case aBlockKind of
+  ev_bvkLeft: f_LeftSubID.Add(aNewSubID);
+  ev_bvkRight: f_RightSubID.Add(aNewSubID);
+ end; // case aBlockKind of
+//#UC END# *52738B2F02B7_4E004D900171_impl*
+//#UC START# *52738B2F02B7_4E004D900171_var*
+//#UC END# *52738B2F02B7_4E004D900171_var*

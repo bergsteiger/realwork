@@ -1,7 +1,13 @@
 unit ObjectFromstackWords;
 
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ObjectFromstackWords.pas"
+// Стереотип: "ScriptKeywordsPack"
+
+{$Include seDefine.inc}
+
 interface
 
+{$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
  , tfwScriptingInterfaces
@@ -9,9 +15,11 @@ uses
  , tfwClassLike
  , TypInfo
 ;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
+{$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
  , kwPopClassInherits
@@ -22,12 +30,19 @@ uses
 ;
 
 type
- TObjectFromstackWordsResNameGetter = class(TtfwAxiomaticsResNameGetter)
+ //#UC START# *695731F3434Eci*
+ //#UC END# *695731F3434Eci*
+ //#UC START# *695731F3434Ecit*
+ //#UC END# *695731F3434Ecit*
+ TObjectFromstackWordsResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
-  function ResName: AnsiString;
+  public
+   class function ResName: AnsiString; override;
+ //#UC START# *695731F3434Epubl*
+ //#UC END# *695731F3434Epubl*
  end;//TObjectFromstackWordsResNameGetter
- 
- TkwPopObjectInherits = class(TtfwClassLike)
+
+ TkwPopObjectInherits = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Object:Inherits
 *Тип результата:* Boolean
 *Пример:*
@@ -35,14 +50,21 @@ type
 BOOLEAN VAR l_Boolean
  aClass aObject pop:Object:Inherits >>> l_Boolean
 [code]  }
-  function Inherits(const aCtx: TtfwContext;
-   aObject: TObject;
-   const aClass: TtfwStackValue): Boolean;
-   {* Реализация слова скрипта pop:Object:Inherits }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function Inherits(const aCtx: TtfwContext;
+    aObject: TObject;
+    const aClass: TtfwStackValue): Boolean;
+    {* Реализация слова скрипта pop:Object:Inherits }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopObjectInherits
- 
- TkwPopObjectClassName = class(TtfwClassLike)
+
+ TkwPopObjectClassName = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Object:ClassName
 *Тип результата:* String
 *Пример:*
@@ -50,13 +72,20 @@ BOOLEAN VAR l_Boolean
 STRING VAR l_String
  aObject pop:Object:ClassName >>> l_String
 [code]  }
-  function ClassName(const aCtx: TtfwContext;
-   aObject: TObject): AnsiString;
-   {* Реализация слова скрипта pop:Object:ClassName }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function ClassName(const aCtx: TtfwContext;
+    aObject: TObject): AnsiString;
+    {* Реализация слова скрипта pop:Object:ClassName }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopObjectClassName
- 
- TkwPopObjectGetFloatProp = class(TtfwClassLike)
+
+ TkwPopObjectGetFloatProp = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Object:GetFloatProp
 *Тип результата:* Integer
 *Пример:*
@@ -64,14 +93,21 @@ STRING VAR l_String
 INTEGER VAR l_Integer
  aName aObject pop:Object:GetFloatProp >>> l_Integer
 [code]  }
-  function GetFloatProp(const aCtx: TtfwContext;
-   aObject: TObject;
-   const aName: AnsiString): Integer;
-   {* Реализация слова скрипта pop:Object:GetFloatProp }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function GetFloatProp(const aCtx: TtfwContext;
+    aObject: TObject;
+    const aName: AnsiString): Integer;
+    {* Реализация слова скрипта pop:Object:GetFloatProp }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopObjectGetFloatProp
- 
- TkwPopObjectGetInterfaceProp = class(TtfwClassLike)
+
+ TkwPopObjectGetInterfaceProp = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Object:GetInterfaceProp
 *Тип результата:* IUnknown
 *Пример:*
@@ -79,14 +115,21 @@ INTEGER VAR l_Integer
 INTERFACE VAR l_IUnknown
  aName aObject pop:Object:GetInterfaceProp >>> l_IUnknown
 [code]  }
-  function GetInterfaceProp(const aCtx: TtfwContext;
-   aObject: TObject;
-   const aName: AnsiString): IUnknown;
-   {* Реализация слова скрипта pop:Object:GetInterfaceProp }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function GetInterfaceProp(const aCtx: TtfwContext;
+    aObject: TObject;
+    const aName: AnsiString): IUnknown;
+    {* Реализация слова скрипта pop:Object:GetInterfaceProp }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopObjectGetInterfaceProp
- 
- TkwPopObjectGetObjProp = class(TtfwClassLike)
+
+ TkwPopObjectGetObjProp = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Object:GetObjProp
 *Тип результата:* TObject
 *Пример:*
@@ -94,14 +137,21 @@ INTERFACE VAR l_IUnknown
 OBJECT VAR l_TObject
  aName aObject pop:Object:GetObjProp >>> l_TObject
 [code]  }
-  function GetObjProp(const aCtx: TtfwContext;
-   aObject: TObject;
-   const aName: AnsiString): TObject;
-   {* Реализация слова скрипта pop:Object:GetObjProp }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function GetObjProp(const aCtx: TtfwContext;
+    aObject: TObject;
+    const aName: AnsiString): TObject;
+    {* Реализация слова скрипта pop:Object:GetObjProp }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopObjectGetObjProp
- 
- TkwPopObjectGetOrdProp = class(TtfwClassLike)
+
+ TkwPopObjectGetOrdProp = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Object:GetOrdProp
 *Тип результата:* Integer
 *Пример:*
@@ -109,14 +159,21 @@ OBJECT VAR l_TObject
 INTEGER VAR l_Integer
  aName aObject pop:Object:GetOrdProp >>> l_Integer
 [code]  }
-  function GetOrdProp(const aCtx: TtfwContext;
-   aObject: TObject;
-   const aName: AnsiString): Integer;
-   {* Реализация слова скрипта pop:Object:GetOrdProp }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function GetOrdProp(const aCtx: TtfwContext;
+    aObject: TObject;
+    const aName: AnsiString): Integer;
+    {* Реализация слова скрипта pop:Object:GetOrdProp }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopObjectGetOrdProp
- 
- TkwPopObjectGetStrProp = class(TtfwClassLike)
+
+ TkwPopObjectGetStrProp = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Object:GetStrProp
 *Тип результата:* String
 *Пример:*
@@ -124,14 +181,21 @@ INTEGER VAR l_Integer
 STRING VAR l_String
  aName aObject pop:Object:GetStrProp >>> l_String
 [code]  }
-  function GetStrProp(const aCtx: TtfwContext;
-   aObject: TObject;
-   const aName: AnsiString): AnsiString;
-   {* Реализация слова скрипта pop:Object:GetStrProp }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function GetStrProp(const aCtx: TtfwContext;
+    aObject: TObject;
+    const aName: AnsiString): AnsiString;
+    {* Реализация слова скрипта pop:Object:GetStrProp }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopObjectGetStrProp
- 
- TkwPopObjectHasProp = class(TtfwClassLike)
+
+ TkwPopObjectHasProp = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Object:HasProp
 *Тип результата:* Boolean
 *Пример:*
@@ -139,14 +203,21 @@ STRING VAR l_String
 BOOLEAN VAR l_Boolean
  aName aObject pop:Object:HasProp >>> l_Boolean
 [code]  }
-  function HasProp(const aCtx: TtfwContext;
-   aObject: TObject;
-   const aName: AnsiString): Boolean;
-   {* Реализация слова скрипта pop:Object:HasProp }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function HasProp(const aCtx: TtfwContext;
+    aObject: TObject;
+    const aName: AnsiString): Boolean;
+    {* Реализация слова скрипта pop:Object:HasProp }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopObjectHasProp
- 
- TkwPopObjectRTTIInfo = class(TtfwClassLike)
+
+ TkwPopObjectRTTIInfo = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Object:RTTIInfo
 *Тип результата:* String
 *Пример:*
@@ -154,52 +225,798 @@ BOOLEAN VAR l_Boolean
 STRING VAR l_String
  aObject pop:Object:RTTIInfo >>> l_String
 [code]  }
-  function RTTIInfo(const aCtx: TtfwContext;
-   aObject: TObject): AnsiString;
-   {* Реализация слова скрипта pop:Object:RTTIInfo }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function RTTIInfo(const aCtx: TtfwContext;
+    aObject: TObject): AnsiString;
+    {* Реализация слова скрипта pop:Object:RTTIInfo }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopObjectRTTIInfo
- 
- TkwPopObjectSetFloatProp = class(TtfwClassLike)
+
+ TkwPopObjectSetFloatProp = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Object:SetFloatProp
 *Пример:*
 [code]
  aValue aName aObject pop:Object:SetFloatProp
 [code]  }
-  procedure SetFloatProp(const aCtx: TtfwContext;
-   aObject: TObject;
-   const aName: AnsiString;
-   aValue: Integer);
-   {* Реализация слова скрипта pop:Object:SetFloatProp }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   procedure SetFloatProp(const aCtx: TtfwContext;
+    aObject: TObject;
+    const aName: AnsiString;
+    aValue: Integer);
+    {* Реализация слова скрипта pop:Object:SetFloatProp }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopObjectSetFloatProp
- 
- TkwPopObjectSetOrdProp = class(TtfwClassLike)
+
+ TkwPopObjectSetOrdProp = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Object:SetOrdProp
 *Пример:*
 [code]
  aValue aName aObject pop:Object:SetOrdProp
 [code]  }
-  procedure SetOrdProp(const aCtx: TtfwContext;
-   aObject: TObject;
-   const aName: AnsiString;
-   aValue: Integer);
-   {* Реализация слова скрипта pop:Object:SetOrdProp }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   procedure SetOrdProp(const aCtx: TtfwContext;
+    aObject: TObject;
+    const aName: AnsiString;
+    aValue: Integer);
+    {* Реализация слова скрипта pop:Object:SetOrdProp }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopObjectSetOrdProp
- 
- TkwPopObjectSetStrProp = class(TtfwClassLike)
+
+ TkwPopObjectSetStrProp = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Object:SetStrProp
 *Пример:*
 [code]
  aValue aName aObject pop:Object:SetStrProp
 [code]  }
-  procedure SetStrProp(const aCtx: TtfwContext;
-   aObject: TObject;
-   const aName: AnsiString;
-   const aValue: AnsiString);
-   {* Реализация слова скрипта pop:Object:SetStrProp }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   procedure SetStrProp(const aCtx: TtfwContext;
+    aObject: TObject;
+    const aName: AnsiString;
+    const aValue: AnsiString);
+    {* Реализация слова скрипта pop:Object:SetStrProp }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopObjectSetStrProp
- 
+
+class function TObjectFromstackWordsResNameGetter.ResName: AnsiString;
+begin
+  Result := 'ObjectFromstackWords';
+end;//TObjectFromstackWordsResNameGetter.ResName
+
+ {$R ObjectFromstackWords.res}
+
+function TkwPopObjectInherits.Inherits(const aCtx: TtfwContext;
+ aObject: TObject;
+ const aClass: TtfwStackValue): Boolean;
+ {* Реализация слова скрипта pop:Object:Inherits }
+//#UC START# *8E2028C997CB_C6231F1FCA26_var*
+
+ function IsInherits(anObject: TClass; const aClass: AnsiString): Boolean;
+ begin//IsInherits
+  if (anObject = nil) then
+   Result := false
+  else
+  if AnsiSameText(anObject.ClassName, aClass) then
+   Result := true
+  else
+   Result := IsInherits(anObject.ClassParent, aClass);
+ end;//IsInherits
+
+//#UC END# *8E2028C997CB_C6231F1FCA26_var*
+begin
+//#UC START# *8E2028C997CB_C6231F1FCA26_impl*
+ Case aClass.rType of
+  tfw_vtClass:
+   if (aObject = nil) then
+    Result := false
+   else
+    Result := aObject.ClassType.InheritsFrom(aClass.AsClass);
+  tfw_vtStr:
+   if (aObject = nil) then
+    Result := false
+   else
+    Result := IsInherits(aObject.ClassType, aClass.AsDelphiString);
+  else
+  begin
+   Result := false;
+   BadValueType(aClass.rType, aCtx);
+  end;//else
+ end;//Case aClass.rType
+//#UC END# *8E2028C997CB_C6231F1FCA26_impl*
+end;//TkwPopObjectInherits.Inherits
+
+procedure TkwPopObjectInherits.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_C6231F1FCA26_var*
+//#UC END# *4DAEEDE10285_C6231F1FCA26_var*
+begin
+//#UC START# *4DAEEDE10285_C6231F1FCA26_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_C6231F1FCA26_impl*
+end;//TkwPopObjectInherits.DoDoIt
+
+class function TkwPopObjectInherits.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:Inherits';
+end;//TkwPopObjectInherits.GetWordNameForRegister
+
+function TkwPopObjectInherits.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_C6231F1FCA26_var*
+//#UC END# *551544E2001A_C6231F1FCA26_var*
+begin
+//#UC START# *551544E2001A_C6231F1FCA26_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_C6231F1FCA26_impl*
+end;//TkwPopObjectInherits.GetResultTypeInfo
+
+function TkwPopObjectInherits.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_C6231F1FCA26_var*
+//#UC END# *559687E6025A_C6231F1FCA26_var*
+begin
+//#UC START# *559687E6025A_C6231F1FCA26_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_C6231F1FCA26_impl*
+end;//TkwPopObjectInherits.GetAllParamsCount
+
+function TkwPopObjectInherits.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_C6231F1FCA26_var*
+//#UC END# *5617F4D00243_C6231F1FCA26_var*
+begin
+//#UC START# *5617F4D00243_C6231F1FCA26_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_C6231F1FCA26_impl*
+end;//TkwPopObjectInherits.ParamsTypes
+
+function TkwPopObjectClassName.ClassName(const aCtx: TtfwContext;
+ aObject: TObject): AnsiString;
+ {* Реализация слова скрипта pop:Object:ClassName }
+//#UC START# *DB3E01510FFF_7B6D4B0B5715_var*
+//#UC END# *DB3E01510FFF_7B6D4B0B5715_var*
+begin
+//#UC START# *DB3E01510FFF_7B6D4B0B5715_impl*
+ if (aObject = nil) then
+  Result := 'Запросили имя класса у nil'
+ else
+  Result := aObject.ClassName;
+//#UC END# *DB3E01510FFF_7B6D4B0B5715_impl*
+end;//TkwPopObjectClassName.ClassName
+
+procedure TkwPopObjectClassName.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_7B6D4B0B5715_var*
+//#UC END# *4DAEEDE10285_7B6D4B0B5715_var*
+begin
+//#UC START# *4DAEEDE10285_7B6D4B0B5715_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_7B6D4B0B5715_impl*
+end;//TkwPopObjectClassName.DoDoIt
+
+class function TkwPopObjectClassName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:ClassName';
+end;//TkwPopObjectClassName.GetWordNameForRegister
+
+function TkwPopObjectClassName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_7B6D4B0B5715_var*
+//#UC END# *551544E2001A_7B6D4B0B5715_var*
+begin
+//#UC START# *551544E2001A_7B6D4B0B5715_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_7B6D4B0B5715_impl*
+end;//TkwPopObjectClassName.GetResultTypeInfo
+
+function TkwPopObjectClassName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_7B6D4B0B5715_var*
+//#UC END# *559687E6025A_7B6D4B0B5715_var*
+begin
+//#UC START# *559687E6025A_7B6D4B0B5715_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_7B6D4B0B5715_impl*
+end;//TkwPopObjectClassName.GetAllParamsCount
+
+function TkwPopObjectClassName.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_7B6D4B0B5715_var*
+//#UC END# *5617F4D00243_7B6D4B0B5715_var*
+begin
+//#UC START# *5617F4D00243_7B6D4B0B5715_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_7B6D4B0B5715_impl*
+end;//TkwPopObjectClassName.ParamsTypes
+
+function TkwPopObjectGetFloatProp.GetFloatProp(const aCtx: TtfwContext;
+ aObject: TObject;
+ const aName: AnsiString): Integer;
+ {* Реализация слова скрипта pop:Object:GetFloatProp }
+//#UC START# *B092970B7218_EDA57987A3B6_var*
+//#UC END# *B092970B7218_EDA57987A3B6_var*
+begin
+//#UC START# *B092970B7218_EDA57987A3B6_impl*
+ Result := Trunc(TypInfo.GetFloatProp(aObject, aName));
+//#UC END# *B092970B7218_EDA57987A3B6_impl*
+end;//TkwPopObjectGetFloatProp.GetFloatProp
+
+procedure TkwPopObjectGetFloatProp.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_EDA57987A3B6_var*
+//#UC END# *4DAEEDE10285_EDA57987A3B6_var*
+begin
+//#UC START# *4DAEEDE10285_EDA57987A3B6_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_EDA57987A3B6_impl*
+end;//TkwPopObjectGetFloatProp.DoDoIt
+
+class function TkwPopObjectGetFloatProp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:GetFloatProp';
+end;//TkwPopObjectGetFloatProp.GetWordNameForRegister
+
+function TkwPopObjectGetFloatProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_EDA57987A3B6_var*
+//#UC END# *551544E2001A_EDA57987A3B6_var*
+begin
+//#UC START# *551544E2001A_EDA57987A3B6_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_EDA57987A3B6_impl*
+end;//TkwPopObjectGetFloatProp.GetResultTypeInfo
+
+function TkwPopObjectGetFloatProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_EDA57987A3B6_var*
+//#UC END# *559687E6025A_EDA57987A3B6_var*
+begin
+//#UC START# *559687E6025A_EDA57987A3B6_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_EDA57987A3B6_impl*
+end;//TkwPopObjectGetFloatProp.GetAllParamsCount
+
+function TkwPopObjectGetFloatProp.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_EDA57987A3B6_var*
+//#UC END# *5617F4D00243_EDA57987A3B6_var*
+begin
+//#UC START# *5617F4D00243_EDA57987A3B6_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_EDA57987A3B6_impl*
+end;//TkwPopObjectGetFloatProp.ParamsTypes
+
+function TkwPopObjectGetInterfaceProp.GetInterfaceProp(const aCtx: TtfwContext;
+ aObject: TObject;
+ const aName: AnsiString): IUnknown;
+ {* Реализация слова скрипта pop:Object:GetInterfaceProp }
+//#UC START# *A6C646A9D4FA_AB78BA187455_var*
+//#UC END# *A6C646A9D4FA_AB78BA187455_var*
+begin
+//#UC START# *A6C646A9D4FA_AB78BA187455_impl*
+ Result := TypInfo.GetInterfaceProp(aObject, aName);
+//#UC END# *A6C646A9D4FA_AB78BA187455_impl*
+end;//TkwPopObjectGetInterfaceProp.GetInterfaceProp
+
+procedure TkwPopObjectGetInterfaceProp.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_AB78BA187455_var*
+//#UC END# *4DAEEDE10285_AB78BA187455_var*
+begin
+//#UC START# *4DAEEDE10285_AB78BA187455_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_AB78BA187455_impl*
+end;//TkwPopObjectGetInterfaceProp.DoDoIt
+
+class function TkwPopObjectGetInterfaceProp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:GetInterfaceProp';
+end;//TkwPopObjectGetInterfaceProp.GetWordNameForRegister
+
+function TkwPopObjectGetInterfaceProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_AB78BA187455_var*
+//#UC END# *551544E2001A_AB78BA187455_var*
+begin
+//#UC START# *551544E2001A_AB78BA187455_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_AB78BA187455_impl*
+end;//TkwPopObjectGetInterfaceProp.GetResultTypeInfo
+
+function TkwPopObjectGetInterfaceProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_AB78BA187455_var*
+//#UC END# *559687E6025A_AB78BA187455_var*
+begin
+//#UC START# *559687E6025A_AB78BA187455_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_AB78BA187455_impl*
+end;//TkwPopObjectGetInterfaceProp.GetAllParamsCount
+
+function TkwPopObjectGetInterfaceProp.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_AB78BA187455_var*
+//#UC END# *5617F4D00243_AB78BA187455_var*
+begin
+//#UC START# *5617F4D00243_AB78BA187455_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_AB78BA187455_impl*
+end;//TkwPopObjectGetInterfaceProp.ParamsTypes
+
+function TkwPopObjectGetObjProp.GetObjProp(const aCtx: TtfwContext;
+ aObject: TObject;
+ const aName: AnsiString): TObject;
+ {* Реализация слова скрипта pop:Object:GetObjProp }
+//#UC START# *C3A777545BCF_BA0E0748BC5D_var*
+//#UC END# *C3A777545BCF_BA0E0748BC5D_var*
+begin
+//#UC START# *C3A777545BCF_BA0E0748BC5D_impl*
+ Result := TypInfo.GetObjectProp(aObject, aName);
+//#UC END# *C3A777545BCF_BA0E0748BC5D_impl*
+end;//TkwPopObjectGetObjProp.GetObjProp
+
+procedure TkwPopObjectGetObjProp.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_BA0E0748BC5D_var*
+//#UC END# *4DAEEDE10285_BA0E0748BC5D_var*
+begin
+//#UC START# *4DAEEDE10285_BA0E0748BC5D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_BA0E0748BC5D_impl*
+end;//TkwPopObjectGetObjProp.DoDoIt
+
+class function TkwPopObjectGetObjProp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:GetObjProp';
+end;//TkwPopObjectGetObjProp.GetWordNameForRegister
+
+function TkwPopObjectGetObjProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_BA0E0748BC5D_var*
+//#UC END# *551544E2001A_BA0E0748BC5D_var*
+begin
+//#UC START# *551544E2001A_BA0E0748BC5D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_BA0E0748BC5D_impl*
+end;//TkwPopObjectGetObjProp.GetResultTypeInfo
+
+function TkwPopObjectGetObjProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_BA0E0748BC5D_var*
+//#UC END# *559687E6025A_BA0E0748BC5D_var*
+begin
+//#UC START# *559687E6025A_BA0E0748BC5D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_BA0E0748BC5D_impl*
+end;//TkwPopObjectGetObjProp.GetAllParamsCount
+
+function TkwPopObjectGetObjProp.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_BA0E0748BC5D_var*
+//#UC END# *5617F4D00243_BA0E0748BC5D_var*
+begin
+//#UC START# *5617F4D00243_BA0E0748BC5D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_BA0E0748BC5D_impl*
+end;//TkwPopObjectGetObjProp.ParamsTypes
+
+function TkwPopObjectGetOrdProp.GetOrdProp(const aCtx: TtfwContext;
+ aObject: TObject;
+ const aName: AnsiString): Integer;
+ {* Реализация слова скрипта pop:Object:GetOrdProp }
+//#UC START# *902589FCB14D_AB11F1E6DB9D_var*
+//#UC END# *902589FCB14D_AB11F1E6DB9D_var*
+begin
+//#UC START# *902589FCB14D_AB11F1E6DB9D_impl*
+ Result := TypInfo.GetOrdProp(aObject, aName);
+//#UC END# *902589FCB14D_AB11F1E6DB9D_impl*
+end;//TkwPopObjectGetOrdProp.GetOrdProp
+
+procedure TkwPopObjectGetOrdProp.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_AB11F1E6DB9D_var*
+//#UC END# *4DAEEDE10285_AB11F1E6DB9D_var*
+begin
+//#UC START# *4DAEEDE10285_AB11F1E6DB9D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_AB11F1E6DB9D_impl*
+end;//TkwPopObjectGetOrdProp.DoDoIt
+
+class function TkwPopObjectGetOrdProp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:GetOrdProp';
+end;//TkwPopObjectGetOrdProp.GetWordNameForRegister
+
+function TkwPopObjectGetOrdProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_AB11F1E6DB9D_var*
+//#UC END# *551544E2001A_AB11F1E6DB9D_var*
+begin
+//#UC START# *551544E2001A_AB11F1E6DB9D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_AB11F1E6DB9D_impl*
+end;//TkwPopObjectGetOrdProp.GetResultTypeInfo
+
+function TkwPopObjectGetOrdProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_AB11F1E6DB9D_var*
+//#UC END# *559687E6025A_AB11F1E6DB9D_var*
+begin
+//#UC START# *559687E6025A_AB11F1E6DB9D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_AB11F1E6DB9D_impl*
+end;//TkwPopObjectGetOrdProp.GetAllParamsCount
+
+function TkwPopObjectGetOrdProp.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_AB11F1E6DB9D_var*
+//#UC END# *5617F4D00243_AB11F1E6DB9D_var*
+begin
+//#UC START# *5617F4D00243_AB11F1E6DB9D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_AB11F1E6DB9D_impl*
+end;//TkwPopObjectGetOrdProp.ParamsTypes
+
+function TkwPopObjectGetStrProp.GetStrProp(const aCtx: TtfwContext;
+ aObject: TObject;
+ const aName: AnsiString): AnsiString;
+ {* Реализация слова скрипта pop:Object:GetStrProp }
+//#UC START# *FA828528EED2_B3D2E54183FE_var*
+//#UC END# *FA828528EED2_B3D2E54183FE_var*
+begin
+//#UC START# *FA828528EED2_B3D2E54183FE_impl*
+ Result := TypInfo.GetStrProp(aObject, aName);
+//#UC END# *FA828528EED2_B3D2E54183FE_impl*
+end;//TkwPopObjectGetStrProp.GetStrProp
+
+procedure TkwPopObjectGetStrProp.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_B3D2E54183FE_var*
+//#UC END# *4DAEEDE10285_B3D2E54183FE_var*
+begin
+//#UC START# *4DAEEDE10285_B3D2E54183FE_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_B3D2E54183FE_impl*
+end;//TkwPopObjectGetStrProp.DoDoIt
+
+class function TkwPopObjectGetStrProp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:GetStrProp';
+end;//TkwPopObjectGetStrProp.GetWordNameForRegister
+
+function TkwPopObjectGetStrProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_B3D2E54183FE_var*
+//#UC END# *551544E2001A_B3D2E54183FE_var*
+begin
+//#UC START# *551544E2001A_B3D2E54183FE_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_B3D2E54183FE_impl*
+end;//TkwPopObjectGetStrProp.GetResultTypeInfo
+
+function TkwPopObjectGetStrProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_B3D2E54183FE_var*
+//#UC END# *559687E6025A_B3D2E54183FE_var*
+begin
+//#UC START# *559687E6025A_B3D2E54183FE_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_B3D2E54183FE_impl*
+end;//TkwPopObjectGetStrProp.GetAllParamsCount
+
+function TkwPopObjectGetStrProp.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_B3D2E54183FE_var*
+//#UC END# *5617F4D00243_B3D2E54183FE_var*
+begin
+//#UC START# *5617F4D00243_B3D2E54183FE_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_B3D2E54183FE_impl*
+end;//TkwPopObjectGetStrProp.ParamsTypes
+
+function TkwPopObjectHasProp.HasProp(const aCtx: TtfwContext;
+ aObject: TObject;
+ const aName: AnsiString): Boolean;
+ {* Реализация слова скрипта pop:Object:HasProp }
+//#UC START# *C4DA28B83595_6EBCA1F985F5_var*
+//#UC END# *C4DA28B83595_6EBCA1F985F5_var*
+begin
+//#UC START# *C4DA28B83595_6EBCA1F985F5_impl*
+ Result := TypInfo.IsPublishedProp(aObject, aName);
+//#UC END# *C4DA28B83595_6EBCA1F985F5_impl*
+end;//TkwPopObjectHasProp.HasProp
+
+procedure TkwPopObjectHasProp.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_6EBCA1F985F5_var*
+//#UC END# *4DAEEDE10285_6EBCA1F985F5_var*
+begin
+//#UC START# *4DAEEDE10285_6EBCA1F985F5_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_6EBCA1F985F5_impl*
+end;//TkwPopObjectHasProp.DoDoIt
+
+class function TkwPopObjectHasProp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:HasProp';
+end;//TkwPopObjectHasProp.GetWordNameForRegister
+
+function TkwPopObjectHasProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_6EBCA1F985F5_var*
+//#UC END# *551544E2001A_6EBCA1F985F5_var*
+begin
+//#UC START# *551544E2001A_6EBCA1F985F5_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_6EBCA1F985F5_impl*
+end;//TkwPopObjectHasProp.GetResultTypeInfo
+
+function TkwPopObjectHasProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_6EBCA1F985F5_var*
+//#UC END# *559687E6025A_6EBCA1F985F5_var*
+begin
+//#UC START# *559687E6025A_6EBCA1F985F5_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_6EBCA1F985F5_impl*
+end;//TkwPopObjectHasProp.GetAllParamsCount
+
+function TkwPopObjectHasProp.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_6EBCA1F985F5_var*
+//#UC END# *5617F4D00243_6EBCA1F985F5_var*
+begin
+//#UC START# *5617F4D00243_6EBCA1F985F5_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_6EBCA1F985F5_impl*
+end;//TkwPopObjectHasProp.ParamsTypes
+
+function TkwPopObjectRTTIInfo.RTTIInfo(const aCtx: TtfwContext;
+ aObject: TObject): AnsiString;
+ {* Реализация слова скрипта pop:Object:RTTIInfo }
+//#UC START# *C6405BCAA6A5_0725EE68AD3B_var*
+//#UC END# *C6405BCAA6A5_0725EE68AD3B_var*
+begin
+//#UC START# *C6405BCAA6A5_0725EE68AD3B_impl*
+ Result := l3FormatRTTIInfo(aObject);
+//#UC END# *C6405BCAA6A5_0725EE68AD3B_impl*
+end;//TkwPopObjectRTTIInfo.RTTIInfo
+
+procedure TkwPopObjectRTTIInfo.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_0725EE68AD3B_var*
+//#UC END# *4DAEEDE10285_0725EE68AD3B_var*
+begin
+//#UC START# *4DAEEDE10285_0725EE68AD3B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_0725EE68AD3B_impl*
+end;//TkwPopObjectRTTIInfo.DoDoIt
+
+class function TkwPopObjectRTTIInfo.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:RTTIInfo';
+end;//TkwPopObjectRTTIInfo.GetWordNameForRegister
+
+function TkwPopObjectRTTIInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_0725EE68AD3B_var*
+//#UC END# *551544E2001A_0725EE68AD3B_var*
+begin
+//#UC START# *551544E2001A_0725EE68AD3B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_0725EE68AD3B_impl*
+end;//TkwPopObjectRTTIInfo.GetResultTypeInfo
+
+function TkwPopObjectRTTIInfo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_0725EE68AD3B_var*
+//#UC END# *559687E6025A_0725EE68AD3B_var*
+begin
+//#UC START# *559687E6025A_0725EE68AD3B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_0725EE68AD3B_impl*
+end;//TkwPopObjectRTTIInfo.GetAllParamsCount
+
+function TkwPopObjectRTTIInfo.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_0725EE68AD3B_var*
+//#UC END# *5617F4D00243_0725EE68AD3B_var*
+begin
+//#UC START# *5617F4D00243_0725EE68AD3B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_0725EE68AD3B_impl*
+end;//TkwPopObjectRTTIInfo.ParamsTypes
+
+procedure TkwPopObjectSetFloatProp.SetFloatProp(const aCtx: TtfwContext;
+ aObject: TObject;
+ const aName: AnsiString;
+ aValue: Integer);
+ {* Реализация слова скрипта pop:Object:SetFloatProp }
+//#UC START# *4D07D0C5DD70_529CD18EA056_var*
+//#UC END# *4D07D0C5DD70_529CD18EA056_var*
+begin
+//#UC START# *4D07D0C5DD70_529CD18EA056_impl*
+ TypInfo.SetFloatProp(aObject, aName, aValue);
+//#UC END# *4D07D0C5DD70_529CD18EA056_impl*
+end;//TkwPopObjectSetFloatProp.SetFloatProp
+
+procedure TkwPopObjectSetFloatProp.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_529CD18EA056_var*
+//#UC END# *4DAEEDE10285_529CD18EA056_var*
+begin
+//#UC START# *4DAEEDE10285_529CD18EA056_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_529CD18EA056_impl*
+end;//TkwPopObjectSetFloatProp.DoDoIt
+
+class function TkwPopObjectSetFloatProp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:SetFloatProp';
+end;//TkwPopObjectSetFloatProp.GetWordNameForRegister
+
+function TkwPopObjectSetFloatProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_529CD18EA056_var*
+//#UC END# *551544E2001A_529CD18EA056_var*
+begin
+//#UC START# *551544E2001A_529CD18EA056_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_529CD18EA056_impl*
+end;//TkwPopObjectSetFloatProp.GetResultTypeInfo
+
+function TkwPopObjectSetFloatProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_529CD18EA056_var*
+//#UC END# *559687E6025A_529CD18EA056_var*
+begin
+//#UC START# *559687E6025A_529CD18EA056_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_529CD18EA056_impl*
+end;//TkwPopObjectSetFloatProp.GetAllParamsCount
+
+function TkwPopObjectSetFloatProp.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_529CD18EA056_var*
+//#UC END# *5617F4D00243_529CD18EA056_var*
+begin
+//#UC START# *5617F4D00243_529CD18EA056_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_529CD18EA056_impl*
+end;//TkwPopObjectSetFloatProp.ParamsTypes
+
+procedure TkwPopObjectSetOrdProp.SetOrdProp(const aCtx: TtfwContext;
+ aObject: TObject;
+ const aName: AnsiString;
+ aValue: Integer);
+ {* Реализация слова скрипта pop:Object:SetOrdProp }
+//#UC START# *F069028D7CFF_A2938530A58A_var*
+//#UC END# *F069028D7CFF_A2938530A58A_var*
+begin
+//#UC START# *F069028D7CFF_A2938530A58A_impl*
+ TypInfo.SetOrdProp(aObject, aName, aValue);
+//#UC END# *F069028D7CFF_A2938530A58A_impl*
+end;//TkwPopObjectSetOrdProp.SetOrdProp
+
+procedure TkwPopObjectSetOrdProp.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_A2938530A58A_var*
+//#UC END# *4DAEEDE10285_A2938530A58A_var*
+begin
+//#UC START# *4DAEEDE10285_A2938530A58A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_A2938530A58A_impl*
+end;//TkwPopObjectSetOrdProp.DoDoIt
+
+class function TkwPopObjectSetOrdProp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:SetOrdProp';
+end;//TkwPopObjectSetOrdProp.GetWordNameForRegister
+
+function TkwPopObjectSetOrdProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_A2938530A58A_var*
+//#UC END# *551544E2001A_A2938530A58A_var*
+begin
+//#UC START# *551544E2001A_A2938530A58A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_A2938530A58A_impl*
+end;//TkwPopObjectSetOrdProp.GetResultTypeInfo
+
+function TkwPopObjectSetOrdProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_A2938530A58A_var*
+//#UC END# *559687E6025A_A2938530A58A_var*
+begin
+//#UC START# *559687E6025A_A2938530A58A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_A2938530A58A_impl*
+end;//TkwPopObjectSetOrdProp.GetAllParamsCount
+
+function TkwPopObjectSetOrdProp.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_A2938530A58A_var*
+//#UC END# *5617F4D00243_A2938530A58A_var*
+begin
+//#UC START# *5617F4D00243_A2938530A58A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_A2938530A58A_impl*
+end;//TkwPopObjectSetOrdProp.ParamsTypes
+
+procedure TkwPopObjectSetStrProp.SetStrProp(const aCtx: TtfwContext;
+ aObject: TObject;
+ const aName: AnsiString;
+ const aValue: AnsiString);
+ {* Реализация слова скрипта pop:Object:SetStrProp }
+//#UC START# *D79D3014F0CB_798893499F18_var*
+//#UC END# *D79D3014F0CB_798893499F18_var*
+begin
+//#UC START# *D79D3014F0CB_798893499F18_impl*
+ TypInfo.SetStrProp(aObject, aName, aValue);
+//#UC END# *D79D3014F0CB_798893499F18_impl*
+end;//TkwPopObjectSetStrProp.SetStrProp
+
+procedure TkwPopObjectSetStrProp.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_798893499F18_var*
+//#UC END# *4DAEEDE10285_798893499F18_var*
+begin
+//#UC START# *4DAEEDE10285_798893499F18_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_798893499F18_impl*
+end;//TkwPopObjectSetStrProp.DoDoIt
+
+class function TkwPopObjectSetStrProp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Object:SetStrProp';
+end;//TkwPopObjectSetStrProp.GetWordNameForRegister
+
+function TkwPopObjectSetStrProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_798893499F18_var*
+//#UC END# *551544E2001A_798893499F18_var*
+begin
+//#UC START# *551544E2001A_798893499F18_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_798893499F18_impl*
+end;//TkwPopObjectSetStrProp.GetResultTypeInfo
+
+function TkwPopObjectSetStrProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_798893499F18_var*
+//#UC END# *559687E6025A_798893499F18_var*
+begin
+//#UC START# *559687E6025A_798893499F18_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_798893499F18_impl*
+end;//TkwPopObjectSetStrProp.GetAllParamsCount
+
+function TkwPopObjectSetStrProp.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_798893499F18_var*
+//#UC END# *5617F4D00243_798893499F18_var*
+begin
+//#UC START# *5617F4D00243_798893499F18_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_798893499F18_impl*
+end;//TkwPopObjectSetStrProp.ParamsTypes
+
+initialization
+ TObjectFromstackWordsResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
+ TkwPopObjectInherits.RegisterInEngine;
+ {* Регистрация pop_Object_Inherits }
+ TkwPopObjectClassName.RegisterInEngine;
+ {* Регистрация pop_Object_ClassName }
+ TkwPopObjectGetFloatProp.RegisterInEngine;
+ {* Регистрация pop_Object_GetFloatProp }
+ TkwPopObjectGetInterfaceProp.RegisterInEngine;
+ {* Регистрация pop_Object_GetInterfaceProp }
+ TkwPopObjectGetObjProp.RegisterInEngine;
+ {* Регистрация pop_Object_GetObjProp }
+ TkwPopObjectGetOrdProp.RegisterInEngine;
+ {* Регистрация pop_Object_GetOrdProp }
+ TkwPopObjectGetStrProp.RegisterInEngine;
+ {* Регистрация pop_Object_GetStrProp }
+ TkwPopObjectHasProp.RegisterInEngine;
+ {* Регистрация pop_Object_HasProp }
+ TkwPopObjectRTTIInfo.RegisterInEngine;
+ {* Регистрация pop_Object_RTTIInfo }
+ TkwPopObjectSetFloatProp.RegisterInEngine;
+ {* Регистрация pop_Object_SetFloatProp }
+ TkwPopObjectSetOrdProp.RegisterInEngine;
+ {* Регистрация pop_Object_SetOrdProp }
+ TkwPopObjectSetStrProp.RegisterInEngine;
+ {* Регистрация pop_Object_SetStrProp }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
+ {* Регистрация типа TtfwContext }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TObject));
+ {* Регистрация типа TObject }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
+ {* Регистрация типа TtfwStackValue }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
+ {* Регистрация типа Boolean }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа String }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
+ {* Регистрация типа Integer }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(IUnknown));
+ {* Регистрация типа IUnknown }
+{$IfEnd} // NOT Defined(NoScripts)
+
 end.

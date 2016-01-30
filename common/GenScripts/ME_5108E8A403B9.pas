@@ -1,26 +1,59 @@
-unit DeletingRowCorrector.imp;
+{$IfNDef DeletingRowCorrector_imp}
 
-interface
+// Модуль: "w:\common\components\gui\Garant\Everest\DeletingRowCorrector.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
- , nevTools
- , nevBase
-;
+{$Define DeletingRowCorrector_imp}
 
-type
- _DeletingRowCorrector_ = class
-  procedure CheckRow(const aCheckingRow: InevPara;
-   const anOpPack: InevOp);
+{$If Defined(k2ForEditor)}
+ _DeletingRowCorrector_ = class(_DeletingRowCorrector_Parent_)
+  protected
+   procedure CheckRow(const aCheckingRow: InevPara;
+    const anOpPack: InevOp);
  end;//_DeletingRowCorrector_
- 
-implementation
 
-uses
- l3ImplUses
- , k2Base
- , evdTypes
- , l3Variant
-;
+{$Else Defined(k2ForEditor)}
 
-end.
+_DeletingRowCorrector_ = _DeletingRowCorrector_Parent_;
+
+{$IfEnd} // Defined(k2ForEditor)
+{$Else DeletingRowCorrector_imp}
+
+{$IfNDef DeletingRowCorrector_imp_impl}
+
+{$Define DeletingRowCorrector_imp_impl}
+
+{$If Defined(k2ForEditor)}
+procedure _DeletingRowCorrector_.CheckRow(const aCheckingRow: InevPara;
+ const anOpPack: InevOp);
+//#UC START# *5108E8D80063_5108E8A403B9_var*
+
+  function lp_CheckCell(aCell: Tl3Variant; Index: LongInt): Boolean;
+  var
+   l_Cell: InevTableCell;
+  begin
+   Result := True;
+   if TevMergeStatus(aCell.IntA[k2_tiMergeStatus]) = ev_msContinue then
+   begin
+    aCell.QT(InevTableCell, l_Cell);
+    if l_Cell.GetContinueCell(True, fc_Down) = nil then
+     l_Cell.AsObject.IntW[k2_tiMergeStatus, anOpPack] := Ord(ev_msNone)
+    else
+     l_Cell.AsObject.IntW[k2_tiMergeStatus, anOpPack] := Ord(ev_msHead);
+    evInsertPara(anOpPack, l_Cell.MakePoint, Tk2Type(aCell.TagType).ArrayProp[k2_tiChildren].DefaultChildType.MakeTag.AsObject);
+   end; // if TevMergeStatus(aCell.IntA[k2_tiMergeStatus]) = ev_msContinue then
+  end;
+
+//#UC END# *5108E8D80063_5108E8A403B9_var*
+begin
+//#UC START# *5108E8D80063_5108E8A403B9_impl*
+ aCheckingRow.AsObject.IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@lp_CheckCell));
+ aCheckingRow.Invalidate([nev_spExtent]);
+//#UC END# *5108E8D80063_5108E8A403B9_impl*
+end;//_DeletingRowCorrector_.CheckRow
+{$IfEnd} // Defined(k2ForEditor)
+
+{$EndIf DeletingRowCorrector_imp_impl}
+
+{$EndIf DeletingRowCorrector_imp}
+

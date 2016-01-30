@@ -1,0 +1,37 @@
+//#UC START# *4E808E8B01BB_4FEF23900010_impl*
+ l_Name := aCtx.rEngine.PopString;
+ l_Found := False;
+ l_Op := aCard.StartOp;
+ try
+  CallIterator;
+ finally
+  l_Op := nil;
+ end;//try..finally
+ RunnerAssert(l_Found, 'Поле не найдено', aCtx);
+//#UC END# *4E808E8B01BB_4FEF23900010_impl*
+//#UC START# *4E808E8B01BB_4FEF23900010_var*
+var
+ l_Op: InevOp;
+ l_Name: Il3CString;
+ l_Value: Boolean;
+ l_Found: Boolean;
+
+ procedure CallIterator;
+
+  function DoIt(const anItem: IevReq): Boolean;
+  begin
+   if l3Same(l_Name, anItem.ReqName) then
+   begin
+    Result := False;
+    l_Found := True;
+    aCtx.rEngine.PushBool(anItem.Group.Expanded);
+    Exit;
+   end//l3Same(l_Name, anItem.ReqName)
+   else
+    Result := True;
+  end;//DoIt
+
+ begin
+  TevReqIterator.Make(aCard).DoReqF(L2IevReqIteratorDoReqAction(@DoIt));
+ end;//CallIterator
+//#UC END# *4E808E8B01BB_4FEF23900010_var*

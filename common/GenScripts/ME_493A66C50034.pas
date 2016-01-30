@@ -1,0 +1,148 @@
+unit dMedicFirmList;
+
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\dMedicFirmList.pas"
+// Стереотип: "SimpleClass"
+
+{$Include nsDefine.inc}
+
+interface
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3IntfUses
+ , MedicInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmControllers
+ {$IfEnd} // NOT Defined(NoVCM)
+ , BaseDocumentWithAttributesInterfaces
+ , l3Types
+ , DocumentAndListInterfaces
+ , DocumentInterfaces
+ , l3ProtoObject
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
+
+type
+ _IvcmRealData_ = IdMedicFirmList;
+ {$Include dMedicFirmDocument.imp.pas}
+ TdMedicFirmList = class(_dMedicFirmDocument_, IdMedicFirmList)
+  private
+   f_dsSynchroViewRef: IvcmFormDataSourceRef;
+    {* Поле для свойства dsSynchroViewRef }
+   f_MedicFirmList_SynchroView_Form: TMedicFirmList_SynchroView_Areas;
+    {* Поле для свойства MedicFirmList_SynchroView_Form }
+   f_dsFirmListRef: IvcmFormDataSourceRef;
+    {* Поле для свойства dsFirmListRef }
+  protected
+   function pm_GetdsSynchroViewRef: IvcmFormDataSourceRef;
+   function pm_GetMedicFirmList_SynchroView_Form: TMedicFirmList_SynchroView_Areas;
+   procedure pm_SetMedicFirmList_SynchroView_Form(aValue: TMedicFirmList_SynchroView_Areas);
+   function pm_GetdsFirmListRef: IvcmFormDataSourceRef;
+   procedure InitFields; override;
+   {$If NOT Defined(NoVCM)}
+   procedure AssignData(const aData: _IvcmRealData_); override;
+   {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+  public
+   class function Make: IdMedicFirmList; reintroduce;
+ end;//TdMedicFirmList
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
+implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmFormDataSourceRef
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Utils
+;
+
+type _Instance_R_ = TdMedicFirmList;
+
+{$Include dMedicFirmDocument.imp.pas}
+
+class function TdMedicFirmList.Make: IdMedicFirmList;
+var
+ l_Inst : TdMedicFirmList;
+begin
+ l_Inst := Create;
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TdMedicFirmList.Make
+
+function TdMedicFirmList.pm_GetdsSynchroViewRef: IvcmFormDataSourceRef;
+//#UC START# *2A46ABCE9C2A_493A66C50034get_var*
+//#UC END# *2A46ABCE9C2A_493A66C50034get_var*
+begin
+//#UC START# *2A46ABCE9C2A_493A66C50034get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *2A46ABCE9C2A_493A66C50034get_impl*
+end;//TdMedicFirmList.pm_GetdsSynchroViewRef
+
+function TdMedicFirmList.pm_GetMedicFirmList_SynchroView_Form: TMedicFirmList_SynchroView_Areas;
+//#UC START# *9B8E07D2C1BA_493A66C50034get_var*
+//#UC END# *9B8E07D2C1BA_493A66C50034get_var*
+begin
+//#UC START# *9B8E07D2C1BA_493A66C50034get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *9B8E07D2C1BA_493A66C50034get_impl*
+end;//TdMedicFirmList.pm_GetMedicFirmList_SynchroView_Form
+
+procedure TdMedicFirmList.pm_SetMedicFirmList_SynchroView_Form(aValue: TMedicFirmList_SynchroView_Areas);
+//#UC START# *9B8E07D2C1BA_493A66C50034set_var*
+//#UC END# *9B8E07D2C1BA_493A66C50034set_var*
+begin
+//#UC START# *9B8E07D2C1BA_493A66C50034set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *9B8E07D2C1BA_493A66C50034set_impl*
+end;//TdMedicFirmList.pm_SetMedicFirmList_SynchroView_Form
+
+function TdMedicFirmList.pm_GetdsFirmListRef: IvcmFormDataSourceRef;
+//#UC START# *DD81AF5E2804_493A66C50034get_var*
+//#UC END# *DD81AF5E2804_493A66C50034get_var*
+begin
+//#UC START# *DD81AF5E2804_493A66C50034get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *DD81AF5E2804_493A66C50034get_impl*
+end;//TdMedicFirmList.pm_GetdsFirmListRef
+
+procedure TdMedicFirmList.InitFields;
+//#UC START# *47A042E100E2_493A66C50034_var*
+//#UC END# *47A042E100E2_493A66C50034_var*
+begin
+//#UC START# *47A042E100E2_493A66C50034_impl*
+ inherited;
+ f_MedicFirmList_SynchroView_Form := sva_MedicFirmList_SynchroView_Document;
+//#UC END# *47A042E100E2_493A66C50034_impl*
+end;//TdMedicFirmList.InitFields
+
+{$If NOT Defined(NoVCM)}
+procedure TdMedicFirmList.AssignData(const aData: _IvcmRealData_);
+//#UC START# *4B16B8CF0307_493A66C50034_var*
+//#UC END# *4B16B8CF0307_493A66C50034_var*
+begin
+//#UC START# *4B16B8CF0307_493A66C50034_impl*
+ pm_GetDsSynchroViewRef.Assign(aData.dsSynchroViewRef);
+ pm_GetDsFirmListRef.Assign(aData.dsFirmListRef);
+ inherited;
+//#UC END# *4B16B8CF0307_493A66C50034_impl*
+end;//TdMedicFirmList.AssignData
+{$IfEnd} // NOT Defined(NoVCM)
+
+procedure TdMedicFirmList.ClearFields;
+begin
+ f_dsSynchroViewRef := nil;
+ f_dsFirmListRef := nil;
+ inherited;
+end;//TdMedicFirmList.ClearFields
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
+end.

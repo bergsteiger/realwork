@@ -1,0 +1,31 @@
+//#UC START# *502A7A0A03E7_502A79B80186_impl*
+  Result := false;
+  //
+  if anQuery.Name <> '' then
+    Logger.Info('Выполняем запрос с именем "%s"', [anQuery.Name]);
+  //  
+  with TatSearchHelper.Create(anQuery.Use) do // .Use потому что известно, что TatSearchHelper становится owner'ом запроса и удалит его, а это не нужно, т.к. здесь неизвестно кто создал запрос и что еще планирует с ним делать
+  try
+    if ExecuteAndBuildList then
+    begin
+      ExecutionContext.UserWorkContext.AddListToHistory(List);
+      Result := true;
+    end;
+  finally
+    Free;
+  end;
+//#UC END# *502A7A0A03E7_502A79B80186_impl*
+//#UC START# *502A7A0A03E7_502A79B80186_var*
+//#UC END# *502A7A0A03E7_502A79B80186_var*
+//#UC START# *502A7A4701EC_502A79B80186_impl*
+  l_Query := TatQuery.Create(anQuery);
+  try
+    Result := ExecuteQuery(l_Query);
+  finally
+    FreeAndNil(l_Query);
+  end;
+//#UC END# *502A7A4701EC_502A79B80186_impl*
+//#UC START# *502A7A4701EC_502A79B80186_var*
+  var
+    l_Query : TatQuery;
+//#UC END# *502A7A4701EC_502A79B80186_var*

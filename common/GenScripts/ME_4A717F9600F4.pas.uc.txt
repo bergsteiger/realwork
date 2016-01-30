@@ -1,0 +1,74 @@
+//#UC START# *479731C50290_4A717F9600F4_impl*
+ f_PrevEditions := nil;
+ inherited;
+ f_OwnDocument := nil;
+//#UC END# *479731C50290_4A717F9600F4_impl*
+//#UC START# *479731C50290_4A717F9600F4_var*
+//#UC END# *479731C50290_4A717F9600F4_var*
+//#UC START# *4A80573D03A7_4A717F9600F4_impl*
+ l_EID := ucc_CompareEditions.EditionForCompare;
+ if (f_OwnDocument <> nil) then
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=185828256&focusedCommentId=185829892#comment-185829892
+ // - проверка на безобразие с рассинхронизацией состояний
+ begin
+  if not f_OwnDocument.IsAlive then
+  begin
+   Result := f_OwnDocument;
+   Exit;
+  end;
+  f_OwnDocument.GetCurrentState(l_State);
+  l_State.GetCurrentRedaction(l_Info);
+  Assert(l_Info.rId = l_EID);
+  if (l_Info.rId <> l_EID) then
+   f_OwnDocument := nil;
+ end;//f_OwnDocument <> nil
+ if (f_OwnDocument = nil) then
+ begin
+  l_Doc := OriginalDocument;
+  Assert(l_Doc <> nil);
+  l_Doc.GetCurrentState(l_PrevState);
+  l_PrevState.Clone(l_State);
+  Assert(l_EID <> -1);
+  // - т.к. архитектура поменялась и EditionForCompare д.б. определена ВСЕГДА
+  //   см. обработку f_EditionForCompare в TsdsCompareEditions.CheckCompare
+  if (l_EID <> -1) then
+   l_State.SetRedactionOnId(l_EID)
+  else
+   l_State.SetPrevActiveRedaction;
+  l_Doc.CreateView(l_State, f_OwnDocument);
+  Assert(f_OwnDocument <> nil);
+  Assert(not f_OwnDocument.IsSameView(l_Doc));
+ end;//f_OwnDocument = nil
+ Result := f_OwnDocument;
+//#UC END# *4A80573D03A7_4A717F9600F4_impl*
+//#UC START# *4A80573D03A7_4A717F9600F4_var*
+var
+ l_Doc       : IDocument;
+ l_PrevState : IDocumentState;
+ l_State     : IDocumentState;
+ l_EID       : TRedactionID;
+ l_Info      : TRedactionInfo; 
+//#UC END# *4A80573D03A7_4A717F9600F4_var*
+//#UC START# *4A83D4CA00D0_4A717F9600F4get_impl*
+ if (f_PrevEditions = nil) then
+  f_PrevEditions := TnsEditionsRoot.MakeForPrevEditions(OriginalDocument);
+ Result := f_PrevEditions;
+//#UC END# *4A83D4CA00D0_4A717F9600F4get_impl*
+//#UC START# *4A83D4CA00D0_4A717F9600F4get_var*
+//#UC END# *4A83D4CA00D0_4A717F9600F4get_var*
+//#UC START# *4A83D53600CD_4A717F9600F4get_impl*
+ Result := inherited DoGetDocument;
+//#UC END# *4A83D53600CD_4A717F9600F4get_impl*
+//#UC START# *4A83D53600CD_4A717F9600F4get_var*
+//#UC END# *4A83D53600CD_4A717F9600F4get_var*
+//#UC START# *4A8426C0002A_4A717F9600F4_impl*
+ inherited;
+ f_OwnDocument := nil;
+//#UC END# *4A8426C0002A_4A717F9600F4_impl*
+//#UC START# *4A8426C0002A_4A717F9600F4_var*
+//#UC END# *4A8426C0002A_4A717F9600F4_var*
+//#UC START# *4A8443C30125_4A717F9600F4_impl*
+ Result := true;
+//#UC END# *4A8443C30125_4A717F9600F4_impl*
+//#UC START# *4A8443C30125_4A717F9600F4_var*
+//#UC END# *4A8443C30125_4A717F9600F4_var*

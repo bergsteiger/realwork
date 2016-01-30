@@ -1,0 +1,76 @@
+//#UC START# *469F9954029C_4D63C2420229_impl*
+ Result := PreCOMQueryTool(aTag, Tl3GUID_C(IID), Tool, aProcessor);
+ if not Result then
+  Result := COMQueryTool(aTag, Tl3GUID_C(IID), Tool, aProcessor);
+//#UC END# *469F9954029C_4D63C2420229_impl*
+//#UC START# *469F9954029C_4D63C2420229_var*
+//#UC END# *469F9954029C_4D63C2420229_var*
+//#UC START# *47678ABF00C1_4D63C2420229_impl*
+ IA := l3L2IA(@_IA);
+ try
+  Tk2Type(Tag.TagType).InterfaceFactory.IterateCursors(IA);
+ finally
+  l3FreeIA(IA);
+ end;{try..finally}
+//#UC END# *47678ABF00C1_4D63C2420229_impl*
+//#UC START# *47678ABF00C1_4D63C2420229_var*
+
+ type
+  Pk2TagPointer = ^Tk2TagPointer;
+
+ function _IA(I: Pk2TagPointer; Index: Long): Bool;
+ begin//_IA
+  if I^.GetRedirect.IsSame(Tag) then
+   Result := Action(I, Index)
+  else
+   Result := true;
+ end;//_IA
+ 
+var
+ IA : Tl3IteratorAction;
+//#UC END# *47678ABF00C1_4D63C2420229_var*
+//#UC START# *479731C50290_4D63C2420229_impl*
+ f_Interfaces.Clear;
+ inherited;
+//#UC END# *479731C50290_4D63C2420229_impl*
+//#UC START# *479731C50290_4D63C2420229_var*
+//#UC END# *479731C50290_4D63C2420229_var*
+//#UC START# *4BCC45AA02CE_4D63C2420229_impl*
+ f_Interfaces.IterateInterfaces(ev_iidCursor, anAction);
+//#UC END# *4BCC45AA02CE_4D63C2420229_impl*
+//#UC START# *4BCC45AA02CE_4D63C2420229_var*
+//#UC END# *4BCC45AA02CE_4D63C2420229_var*
+//#UC START# *4D63D26D033F_4D63C2420229_impl*
+ I := nil;
+ Result := false;
+//#UC END# *4D63D26D033F_4D63C2420229_impl*
+//#UC START# *4D63D26D033F_4D63C2420229_var*
+//#UC END# *4D63D26D033F_4D63C2420229_var*
+//#UC START# *531F02030218_4D63C2420229_impl*
+ Result := f_Interfaces.GetInterface(ID);
+//#UC END# *531F02030218_4D63C2420229_impl*
+//#UC START# *531F02030218_4D63C2420229_var*
+//#UC END# *531F02030218_4D63C2420229_var*
+//#UC START# *531F022801F6_4D63C2420229_impl*
+ if I.StoreToOldCache then
+ begin
+  f_Interfaces.SetInterface(ID, I);
+  Result := true;
+ end//I.StoreToOldCache
+ else
+  Result := false;
+//#UC END# *531F022801F6_4D63C2420229_impl*
+//#UC START# *531F022801F6_4D63C2420229_var*
+//#UC END# *531F022801F6_4D63C2420229_var*
+//#UC START# *53CCBDA5026D_4D63C2420229_impl*
+ IUnknown(theTool) := nil;
+ Result := false;
+//#UC END# *53CCBDA5026D_4D63C2420229_impl*
+//#UC START# *53CCBDA5026D_4D63C2420229_var*
+//#UC END# *53CCBDA5026D_4D63C2420229_var*
+//#UC START# *53D8E1970262_4D63C2420229_impl*
+ IUnknown(theTool) := nil;
+ Result := false;
+//#UC END# *53D8E1970262_4D63C2420229_impl*
+//#UC START# *53D8E1970262_4D63C2420229_var*
+//#UC END# *53D8E1970262_4D63C2420229_var*

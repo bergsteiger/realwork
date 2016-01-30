@@ -1,5 +1,10 @@
 unit DictEditQuery_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\DictEditQuery_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -9,7 +14,7 @@ uses
 ;
 
  // DictEditQueryTag
- 
+
 implementation
 
 uses

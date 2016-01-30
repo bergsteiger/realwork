@@ -1,7 +1,13 @@
 unit kwTryFocusOnForm;
 
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwTryFocusOnForm.pas"
+// Стереотип: "ScriptKeyword"
+
+{$Include vcmDefine.inc}
+
 interface
 
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
  l3IntfUses
  , tfwRegisterableWord
@@ -9,25 +15,162 @@ uses
 ;
 
 type
- TkwTryFocusOnForm = class(TtfwRegisterableWord)
-  procedure DoDoIt(const aCtx: TtfwContext);
+ _VCMWord_Parent_ = TtfwRegisterableWord;
+ {$Include VCMWord.imp.pas}
+ TkwTryFocusOnForm = {final} class(_VCMWord_)
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//TkwTryFocusOnForm
- 
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
+
 implementation
 
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
  , vcmInterfaces
  , afwFacade
  , SysUtils
+ {$If NOT Defined(NoVCL)}
  , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
  , vcmEntityForm
  , Windows
  , vcmForm
+ {$If NOT Defined(NoVCL)}
  , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  , StdRes
  , vcmBase
  , afwAnswer
 ;
+
+{$Include VCMWord.imp.pas}
+
+procedure TkwTryFocusOnForm.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_507BDC31028B_var*
+var
+ l_Res : Boolean;
+ l_N  : AnsiString;
+ l_F  : AnsiString;
+ l_ID : TvcmFormID;
+ l_EF : IvcmEntityForm;
+ l_CF : IvcmEntityForm;
+ l_CCF : IvcmContainer;
+ l_C  : TWinControl;
+ l_UT : Integer;
+ l_Form  : TafwCustomForm;
+ l_Force : Boolean;
+ l_TryAgain : Boolean;
+//#UC END# *4DAEEDE10285_507BDC31028B_var*
+begin
+//#UC START# *4DAEEDE10285_507BDC31028B_impl*
+ l_Res := false;
+ try
+  l_F := aCtx.rEngine.PopDelphiString;
+  l_N := aCtx.rEngine.PopDelphiString;
+  l_UT := aCtx.rEngine.PopInt;
+  l_Force := aCtx.rEngine.PopBool;
+  l_ID.rName := l_F;
+  l_ID.rID := 0;
+
+  repeat
+   l_TryAgain := false;
+   l_Res := false;
+
+   l_EF := nil;
+   if not l_Res then
+    l_Res := vcmDispatcher.FormDispatcher.
+     CurrentMainForm.AsContainer.HasForm(l_ID, vcm_ztAny, true,  @l_EF, l_UT);
+
+   if not l_Res then
+   begin
+    //это для модальных форм
+    l_EF := nil;
+    if Supports(Screen.ActiveForm, IvcmEntityForm, l_CF) then
+    begin
+     if l_CF.SameName(l_ID) then
+      if (l_UT = vcm_utAny) OR
+         ((l_CF.CurUsertypeDef <> nil) AND (l_CF.CurUsertypeDef.ID = l_UT)) then
+      begin
+       l_Res := true;
+       l_EF := l_CF;
+      end;//l_UT = vcm_utAny
+     if not l_Res then
+     begin
+      l_EF := nil;
+      if Supports(l_CF, IvcmContainer, l_CCF) then
+       l_Res := l_CCF.HasForm(l_ID, vcm_ztAny, true,  @l_EF, l_UT);
+     end;//not l_Res
+    end;//Supports(Screen.ActiveForm, IvcmEntityForm, l_CF)
+   end;//not l_Res
+
+   if l_Res then
+   begin
+    l_C := l_EF.VCLWinControl.FindComponent(l_N) As TWinControl;
+    RunnerAssert(l_C <> nil, '', aCtx);
+    if l_C.CanFocus OR l_Force then
+    begin
+     l_Form := l_EF.VCLWinControl As TafwCustomForm;
+     while (l_Form <> nil) do
+     begin
+      l_Form.Visible := true;
+      // - иначе плавающее окно оглавления может быть скрыто, ну и огребаем
+      if l_Force AND (l_Form Is TvcmEntityForm) then
+      begin
+       TvcmEntityForm(l_Form).SetActiveAndShowInParent;
+       afw.ProcessMessages;
+       if (l_EF.VCLWinControl = nil) then
+       // - в результате afw.ProcessMessages - форма закрылась
+       //   надо будет повторить процесс ещё раз
+       // http://mdp.garant.ru/pages/viewpage.action?pageId=380623943&focusedCommentId=382411099#comment-382411099
+       begin
+        l_TryAgain := true;
+        l_C := nil;
+        l_Form := nil;
+        l_EF := nil;
+        l_Res := false;
+        Sleep(300);
+        afw.ProcessMessages;
+        Sleep(300);
+        break;
+       end;//l_EF.VCLWinControl = nil
+      end;//l_Force
+      l_Form := afw.GetAnotherParentForm(l_Form);
+     end;//while (l_F <> nil)
+     if l_TryAgain then
+      continue;
+     if l_C.CanFocus then
+      l_C.SetFocus;
+     l_Res := l_C.Focused;
+     if not l_Res then
+      if l_C.CanFocus then
+      begin
+       Windows.SetFocus(l_C.Handle);
+       //l_Res := l_C.Focused;
+       l_Res := true;
+       // http://mdp.garant.ru/pages/viewpage.action?pageId=342859090&focusedCommentId=342862607#comment-342862607
+      end;//l_C.CanFocus
+    end//l_C.CanFocus
+    else
+     l_Res := false;
+   end;//l_Res
+  until not l_TryAgain; 
+ finally
+  aCtx.rEngine.PushBool(l_Res);
+ end;//try..finally
+//#UC END# *4DAEEDE10285_507BDC31028B_impl*
+end;//TkwTryFocusOnForm.DoDoIt
+
+class function TkwTryFocusOnForm.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'TryFocusOnForm';
+end;//TkwTryFocusOnForm.GetWordNameForRegister
+
+initialization
+ TkwTryFocusOnForm.RegisterInEngine;
+ {* Регистрация TryFocusOnForm }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 end.

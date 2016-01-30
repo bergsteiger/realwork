@@ -1,4 +1,10 @@
-unit dd_lcTextStyleCorrector;
+unit NOT_FINISHED_dd_lcTextStyleCorrector;
+ {* Преобразование стилей и замена опечаток }
+
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcTextStyleCorrector.pas"
+// Стереотип: "SimpleClass"
+
+{$Include ddDefine.inc}
 
 interface
 
@@ -11,7 +17,7 @@ type
  Tdd_lcTextStyleCorrector = class(Tdd_lcBaseFormatter)
   {* Преобразование стилей и замена опечаток }
  end;//Tdd_lcTextStyleCorrector
- 
+
 implementation
 
 uses

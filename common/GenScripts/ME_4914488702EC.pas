@@ -1,0 +1,46 @@
+unit InsUserSettingsEditListenerPtrList;
+ {* Список указателей на InsUserSettingsEditListener }
+
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\InsUserSettingsEditListenerPtrList.pas"
+// Стереотип: "SimpleClass"
+
+{$Include nsDefine.inc}
+
+interface
+
+uses
+ l3IntfUses
+ , l3ProtoDataContainer
+ , bsInterfaces
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
+
+type
+ _ItemType_ = InsUserSettingsEditListener;
+ _l3InterfacePtrList_Parent_ = Tl3ProtoDataContainer;
+ {$Define l3Items_IsProto}
+ {$Include l3InterfacePtrList.imp.pas}
+ TInsUserSettingsEditListenerPtrList = class(_l3InterfacePtrList_)
+  {* Список указателей на InsUserSettingsEditListener }
+ end;//TInsUserSettingsEditListenerPtrList
+
+implementation
+
+uses
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
+
+type _Instance_R_ = TInsUserSettingsEditListenerPtrList;
+
+{$Include l3InterfacePtrList.imp.pas}
+
+end.

@@ -1,5 +1,10 @@
 unit AutoClassTaskResult_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\AutoClassTaskResult_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -10,7 +15,7 @@ uses
 ;
 
  // AutoClassTaskResultTag
- 
+
 implementation
 
 uses

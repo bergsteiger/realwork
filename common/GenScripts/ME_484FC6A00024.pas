@@ -1,4 +1,10 @@
 unit ActiveInterval_Const;
+ {* Интервал действия }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\ActiveInterval_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -12,7 +18,7 @@ uses
 ;
 
  // ActiveIntervalTag
- 
+
 implementation
 
 uses

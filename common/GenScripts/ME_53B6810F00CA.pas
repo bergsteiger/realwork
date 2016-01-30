@@ -1,5 +1,10 @@
 unit DeleteDocsQuery_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\DeleteDocsQuery_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -8,7 +13,7 @@ uses
 ;
 
  // DeleteDocsQueryTag
- 
+
 implementation
 
 uses

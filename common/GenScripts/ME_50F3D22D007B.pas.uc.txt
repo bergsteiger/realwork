@@ -1,0 +1,20 @@
+//#UC START# *4DAEEDE10285_50F3D22D007B_impl*
+ if aCtx.rEngine.IsTopObj then
+ begin
+  l_Editor := aCtx.rEngine.PopObj as TevCustomEditorWindow;
+  l_Editor.View.ClearShapes;
+  try
+   WordToWork.DoIt(aCtx);
+  finally
+   ExecuteWithEditor(aCtx, l_Editor);
+  end;//try..finally
+ end; // if aCtx.rEngine.IsTopObj then
+//#UC END# *4DAEEDE10285_50F3D22D007B_impl*
+//#UC START# *4DAEEDE10285_50F3D22D007B_var*
+var
+ l_Editor: TevCustomEditorWindow;
+//#UC END# *4DAEEDE10285_50F3D22D007B_var*
+//#UC START# *4EB100CE0160_50F3D22D007B_impl*
+//#UC END# *4EB100CE0160_50F3D22D007B_impl*
+//#UC START# *4EB100CE0160_50F3D22D007B_var*
+//#UC END# *4EB100CE0160_50F3D22D007B_var*

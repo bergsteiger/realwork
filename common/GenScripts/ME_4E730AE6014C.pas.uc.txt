@@ -1,0 +1,31 @@
+//#UC START# *47A869BB02DE_4E730AE6014C_impl*
+ if (f_Caption = nil) then
+ begin
+  f_SectionItem.GetCaption(l_S);
+  if (l_S = nil) then
+   f_Caption := l3CStr('')
+  else
+   f_Caption := nsCStr(l_S); 
+ end;//f_Caption = nil
+ Result := l3PCharLen(f_Caption);
+//#UC END# *47A869BB02DE_4E730AE6014C_impl*
+//#UC START# *47A869BB02DE_4E730AE6014C_var*
+var
+ l_S : IString;
+//#UC END# *47A869BB02DE_4E730AE6014C_var*
+//#UC START# *4A60B23E00C3_4E730AE6014C_impl*
+ Result.SetOk;
+ if IID.EQ(ISectionItem) then
+  ISectionItem(Obj) := f_SectionItem
+ else
+  Result := inherited COMQueryInterface(IID, Obj);
+//#UC END# *4A60B23E00C3_4E730AE6014C_impl*
+//#UC START# *4A60B23E00C3_4E730AE6014C_var*
+//#UC END# *4A60B23E00C3_4E730AE6014C_var*
+//#UC START# *4E730CD20352_4E730AE6014C_impl*
+ inherited Create(nil);
+ Assert(aSectionItem <> nil);
+ f_SectionItem := aSectionItem;
+//#UC END# *4E730CD20352_4E730AE6014C_impl*
+//#UC START# *4E730CD20352_4E730AE6014C_var*
+//#UC END# *4E730CD20352_4E730AE6014C_var*

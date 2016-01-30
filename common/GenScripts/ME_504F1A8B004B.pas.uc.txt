@@ -1,0 +1,89 @@
+//#UC START# *48089F3701B4_504F1A8B004B_impl*
+  inherited;
+  with f_ParamList do
+  begin
+    Add( ParamType.Create('op_type', 'Что делать') );
+  end;
+//#UC END# *48089F3701B4_504F1A8B004B_impl*
+//#UC START# *48089F3701B4_504F1A8B004B_var*
+//#UC END# *48089F3701B4_504F1A8B004B_var*
+//#UC START# *48089F460352_504F1A8B004B_impl*
+
+  ExecutionContext.GblAdapterWorker.ControlManager.UpdateStatus(false);
+
+  l_OpTypeStr := Parameters['op_type'].AsStr;
+  try
+    l_OpType := TatOpTypeConverter.Instance.ToValueCI(l_OpTypeStr);
+  except
+    on ex : EConvertError do
+    begin
+      Logger.Error('Неизвестная операция: %s', [l_OpTypeStr]);
+      Exit;
+    end;
+  end;
+
+  l_Doc := ExecutionContext.UserWorkContext.CurrDoc;
+  if l_Doc = nil then
+  begin
+    Logger.Error('Нет открытого документа');
+    Exit;
+  end;
+
+  l_Controllable := l_Doc as IControllable;
+  if l_Controllable.GetControlled then
+    Logger.Info('Обрабатываем документ %d, он на контроле и его статус "%s"',
+      [l_Doc.GetInternalId, TatControlStatusConverter.Instance.ToValues(l_Controllable.GetControlStatus, '; ')])
+  else
+    Logger.Info('Обрабатываем документ %d, он не на контроле', [l_Doc.GetInternalId]);
+
+  with l_Controllable do
+  begin
+    case l_OpType of
+      SET_CONTROL:
+        begin
+          if NOT GetCanSetToControl then
+          begin
+            Logger.Error('Нельзя ставить на контроль!');
+            Exit;
+          end;
+          Logger.Info('Ставии документ на контроль');
+          if NOT GetControlled then SetControlled(true);
+        end;
+      UNSET_CONTROL:
+        begin
+          Logger.Info('Снимаем документ с контроля');
+          if GetControlled then SetControlled(false);
+        end;
+      INVERT_CONTROL:
+        begin
+          if (NOT GetControlled) AND (NOT GetCanSetToControl) then
+          begin
+            Logger.Error('Нельзя ставить на контроль!');
+            Exit;
+          end;
+          Logger.Info('Изменяем признак контроля на противоположный');          
+          SetControlled(NOT GetControlled);
+        end;
+      RESET_CONTROL_STATUS:
+        begin
+          Logger.Info('Сбрасываем статус измененности');
+          if GetControlled then
+            ResetControlStatus;
+        end;
+    end;
+    //
+    if GetControlled then
+      l_Str := ''
+    else
+      l_Str := 'не ';
+    Logger.Info('Документ в состоянии "%s" и его статус "%s"',
+      [l_Str + 'на контроле', TatControlStatusConverter.Instance.ToValues(GetControlStatus, '; ')]);
+  end;
+//#UC END# *48089F460352_504F1A8B004B_impl*
+//#UC START# *48089F460352_504F1A8B004B_var*
+  var
+    l_OpTypeStr, l_Str : String;
+    l_OpType : OpType;
+    l_Doc : IDocument;
+    l_Controllable : IControllable;
+//#UC END# *48089F460352_504F1A8B004B_var*

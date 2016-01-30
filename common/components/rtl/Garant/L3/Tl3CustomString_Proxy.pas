@@ -1,5 +1,8 @@
 unit Tl3CustomString_Proxy;
 
+// Модуль: "w:\common\components\rtl\Garant\L3\Tl3CustomString_Proxy.pas"
+// Стереотип: "ClassProxy"
+
 interface
 
 uses

@@ -1,0 +1,42 @@
+//#UC START# *4E808E8B01BB_4E82D4F60180_impl*
+ DoModelImpl(aCtx, aCard);
+//#UC END# *4E808E8B01BB_4E82D4F60180_impl*
+//#UC START# *4E808E8B01BB_4E82D4F60180_var*
+//#UC END# *4E808E8B01BB_4E82D4F60180_var*
+//#UC START# *4E82D58E02D1_4E82D4F60180_impl*
+ l_Value := aCtx.rEngine.PopString;
+ l_Name := aCtx.rEngine.PopString;
+ l_LogicOp := aCtx.rEngine.PopInt;
+ l_Op := aCard.StartOp;
+ try
+  CallIterator;
+ finally
+  l_Op := nil;
+ end;//try..finally
+//#UC END# *4E82D58E02D1_4E82D4F60180_impl*
+//#UC START# *4E82D58E02D1_4E82D4F60180_var*
+//#UC END# *4E82D58E02D1_4E82D4F60180_var*
+//#UC START# *4E82D5F601E2__var*
+//#UC END# *4E82D5F601E2__var*
+//#UC START# *4E82D5F601E2iter*
+  TevReqIterator.Make(aCard).
+//#UC END# *4E82D5F601E2iter*
+//#UC START# *64362B31BF0F__impl*
+   if l3Same(l_Name, anItem.ReqName) then
+   begin
+    Result := false;
+    l_F := anItem.FirstField;
+    if not l3IsNil(anItem.FirstField.Text) then
+     l_F := anItem.AddField(aCard.View, true);
+    l_F.Text := l_Value;
+    l_F.SynchronizeSelectedValueWithText{TextChange(aCard.View, l_F.Para, l_Op)};
+    (l_F As IevEditorFieldWithTree).LogicalState := l_LogicOp; 
+    Exit;
+   end//l3Same(l_Name, anItem.ReqName)
+   else
+    Result := true;
+//#UC END# *64362B31BF0F__impl*
+//#UC START# *64362B31BF0F__var*
+  var
+   l_F : IevEditorControlField;
+//#UC END# *64362B31BF0F__var*

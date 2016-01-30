@@ -1,7 +1,13 @@
-unit dt_BBLog;
+unit NOT_FINISHED_dt_BBLog;
+
+// Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_dt_BBLog.pas"
+// Стереотип: "UtilityPack"
+
+{$Include DtDefine.inc}
 
 interface
 
+{$If NOT Defined(Nemesis)}
 uses
  l3IntfUses
 ;
@@ -9,11 +15,14 @@ uses
 type
  TBigBrotherTbl = class
  end;//TBigBrotherTbl
- 
+{$IfEnd} // NOT Defined(Nemesis)
+
 implementation
 
+{$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
 ;
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

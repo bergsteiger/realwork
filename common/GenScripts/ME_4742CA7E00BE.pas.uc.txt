@@ -1,0 +1,42 @@
+//#UC START# *49BFD4CE0235_4742CA7E00BE_impl*
+ Result := nil;
+//#UC END# *49BFD4CE0235_4742CA7E00BE_impl*
+//#UC START# *49BFD4CE0235_4742CA7E00BE_var*
+//#UC END# *49BFD4CE0235_4742CA7E00BE_var*
+//#UC START# *49BFD4F3013E_4742CA7E00BE_impl*
+ if NeedCreateVersionsStorage(aMode) then
+ begin
+  l_US := Tm3StorageService.Instance.SetUseSplitted(false);;
+  try
+   Result := inherited GetVersionsStorage(aMode);
+  finally
+   Tm3StorageService.Instance.SetUseSplitted(l_US);
+  end;//try..finally
+ end//NeedCreateVersionsStorage(aMode)
+ else
+  Result := inherited GetVersionsStorage(aMode);
+//#UC END# *49BFD4F3013E_4742CA7E00BE_impl*
+//#UC START# *49BFD4F3013E_4742CA7E00BE_var*
+var
+ l_US : Boolean;
+//#UC END# *49BFD4F3013E_4742CA7E00BE_var*
+//#UC START# *49BFD52D0076_4742CA7E00BE_impl*
+ Result := nil;
+//#UC END# *49BFD52D0076_4742CA7E00BE_impl*
+//#UC START# *49BFD52D0076_4742CA7E00BE_var*
+//#UC END# *49BFD52D0076_4742CA7E00BE_var*
+//#UC START# *5540ECC800D2_4742CA7E00BE_impl*
+ Result := false;
+//#UC END# *5540ECC800D2_4742CA7E00BE_impl*
+//#UC START# *5540ECC800D2_4742CA7E00BE_var*
+//#UC END# *5540ECC800D2_4742CA7E00BE_var*
+//#UC START# *5540F2810201_4742CA7E00BE_impl*
+ Result := MakeExclusive(aBaseName);
+//#UC END# *5540F2810201_4742CA7E00BE_impl*
+//#UC START# *5540F2810201_4742CA7E00BE_var*
+//#UC END# *5540F2810201_4742CA7E00BE_var*
+//#UC START# *5551EC2101DB_4742CA7E00BE_impl*
+ Result := true;
+//#UC END# *5551EC2101DB_4742CA7E00BE_impl*
+//#UC START# *5551EC2101DB_4742CA7E00BE_var*
+//#UC END# *5551EC2101DB_4742CA7E00BE_var*

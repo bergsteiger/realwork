@@ -1,4 +1,10 @@
 unit Time_Const;
+ {* Время }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\Time_Const.pas"
+// Стереотип: "Atom"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -8,7 +14,7 @@ uses
 ;
 
  // TimeAtom
- 
+
 implementation
 
 uses

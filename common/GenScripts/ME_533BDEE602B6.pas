@@ -1,29 +1,55 @@
 unit vcmGlassForm;
 
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmGlassForm.pas"
+// Стереотип: "SimpleClass"
+
+{$Include vcmDefine.inc}
+
 interface
 
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 uses
  l3IntfUses
  , vcmEntityForm
+ , vcmGlassFrame
+ , Types
+ , Classes
+ , Messages
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 type
- TvcmGlassForm = class(TvcmEntityForm)
+ _vcmGlassForm_Parent_ = TvcmEntityForm;
+ {$Include vcmGlassForm.imp.pas}
+ TvcmGlassForm = class(_vcmGlassForm_)
  end;//TvcmGlassForm
- 
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+
 implementation
 
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
- , Types
- , vcmGlassFrame
+ {$IfEnd} // NOT Defined(NoScripts)
  , l3DwmApi
- , Windows
  , l3Base
- , Controls
  , SysUtils
- , Messages
 ;
+
+type _Instance_R_ = TvcmGlassForm;
+
+{$Include vcmGlassForm.imp.pas}
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvcmGlassForm);
+ {* Регистрация TvcmGlassForm }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 end.

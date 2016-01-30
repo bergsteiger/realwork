@@ -1,0 +1,37 @@
+//#UC START# *4E1D97080355_4E1D96B8035A_impl*
+ Assert(aPara <> nil);
+ inherited Create(anActive);
+ f_Para := aPara;
+//#UC END# *4E1D97080355_4E1D96B8035A_impl*
+//#UC START# *4E1D97080355_4E1D96B8035A_var*
+//#UC END# *4E1D97080355_4E1D96B8035A_var*
+//#UC START# *4E1DB90E005B_4E1D96B8035Aget_impl*
+ Result := f_Para;
+//#UC END# *4E1DB90E005B_4E1D96B8035Aget_impl*
+//#UC START# *4E1DB90E005B_4E1D96B8035Aget_var*
+//#UC END# *4E1DB90E005B_4E1D96B8035Aget_var*
+//#UC START# *4E1DB93401C4_4E1D96B8035A_impl*
+ Result := inherited DoIsSame(anElement);
+ if Result then
+  if Supports(anElement, InevDecorActiveHyperlink, l_DAH) then
+   try
+    Result := f_Para.AsObject.Box.IsSame(l_DAH.Obj.AsObject.Box);
+   finally
+    l_DAH := nil;
+   end//try..finally
+  else
+   Result := false;
+//#UC END# *4E1DB93401C4_4E1D96B8035A_impl*
+//#UC START# *4E1DB93401C4_4E1D96B8035A_var*
+var
+ l_DAH : InevDecorActiveHyperlink;
+//#UC END# *4E1DB93401C4_4E1D96B8035A_var*
+//#UC START# *4FBF5D0203DC_4E1D96B8035A_impl*
+ inherited;
+ if f_Para.AsObject.QT(InevPara, l_P) then
+  l_P.Invalidate([]);
+//#UC END# *4FBF5D0203DC_4E1D96B8035A_impl*
+//#UC START# *4FBF5D0203DC_4E1D96B8035A_var*
+var
+ l_P : InevPara;
+//#UC END# *4FBF5D0203DC_4E1D96B8035A_var*

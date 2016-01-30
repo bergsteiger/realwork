@@ -1,7 +1,11 @@
-unit imageenview;
+unit NOT_FINISHED_imageenview;
+
+// Модуль: "w:\common\components\rtl\external\ImageEn\src\NOT_FINISHED_imageenview.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
+{$If NOT Defined(NoImageEn)}
 uses
  l3IntfUses
 ;
@@ -9,13 +13,26 @@ uses
 type
  TImageEnView = class
  end;//TImageEnView
- 
+{$IfEnd} // NOT Defined(NoImageEn)
+
 implementation
 
+{$If NOT Defined(NoImageEn)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
  , ImageEnPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TImageEnView);
+ {* Регистрация TImageEnView }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoImageEn)
 
 end.

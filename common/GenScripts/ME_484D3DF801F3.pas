@@ -1,4 +1,10 @@
 unit NSRCTag_Const;
+ {* Атрибут точки входа }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\NSRCTag_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -9,7 +15,7 @@ uses
 ;
 
  // NSRCTagTag
- 
+
 implementation
 
 uses

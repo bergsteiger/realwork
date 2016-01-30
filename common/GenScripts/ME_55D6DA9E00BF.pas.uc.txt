@@ -1,0 +1,418 @@
+//#UC START# *479731C50290_55D6DA9E00BF_impl*
+ Assert(not f_Connection.Connected);
+
+ FreeAndNil(f_BaseLang);
+ FreeAndNil(f_Params);
+ FreeAndNil(f_LongProcessList);
+ FreeAndNil(f_ProgressList);
+ f_Factory := nil;
+ f_UserManager := nil;
+ f_Journal := nil;
+ f_DataConverter := nil;
+// f_Helper := nil;
+// !!! Needs to be implemented !!!
+ FreeANdNil(f_Connection);
+ inherited;
+//#UC END# *479731C50290_55D6DA9E00BF_impl*
+//#UC START# *479731C50290_55D6DA9E00BF_var*
+//#UC END# *479731C50290_55D6DA9E00BF_var*
+//#UC START# *551A929E02D5_55D6DA9E00BFget_impl*
+ Result := f_Params.UserID;
+//#UC END# *551A929E02D5_55D6DA9E00BFget_impl*
+//#UC START# *551A929E02D5_55D6DA9E00BFget_var*
+//#UC END# *551A929E02D5_55D6DA9E00BFget_var*
+//#UC START# *551A933F02AE_55D6DA9E00BFget_impl*
+ Result := f_RegionID;
+//#UC END# *551A933F02AE_55D6DA9E00BFget_impl*
+//#UC START# *551A933F02AE_55D6DA9E00BFget_var*
+//#UC END# *551A933F02AE_55D6DA9E00BFget_var*
+//#UC START# *551BE2D701DE_55D6DA9E00BF_impl*
+ try
+  Result := Get_UserManager.CheckPassword(aLogin, aPassword, IsRequireAdminRights, l_UserID);
+  if Result = da_leOk then
+   f_Params.UserID := l_UserID;
+ except
+  on E: Exception do
+  begin
+   l3System.Exception2Log(E);
+   Result := da_leSQLError;
+  end;
+ end;
+
+ (* l_Result:= GlobalHtServer.xxxCheckArchivariusPassword(aLogin, aPassword, IsRequireAdminRights);
+ f_Params.UserID := GlobalHTServer.xxxUserID;
+ if l_Result then
+  Result := da_leOk
+ else
+ begin
+  if IsRequireAdminRights and GlobalHtServer.xxxCheckArchivariusPassword(aLogin, aPassword, False) then
+   Result := da_leInsufficientRights
+  else
+   Result := da_leUserParamsWrong;
+ end;*)
+//#UC END# *551BE2D701DE_55D6DA9E00BF_impl*
+//#UC START# *551BE2D701DE_55D6DA9E00BF_var*
+var
+ l_UserID: TdaUserID;
+//#UC END# *551BE2D701DE_55D6DA9E00BF_var*
+//#UC START# *551D25D00024_55D6DA9E00BF_impl*
+ Assert(Assigned(f_Params));
+ l_BaseIni := f_Params.MakeBaseIni;
+ try
+  l_BaseIni.Section:= 'Tables';
+  f_RegionID := l_BaseIni.ReadParamIntDef('Region', aDefaultRegion);
+ finally
+  FreeAndNil(l_BaseIni);
+ end;
+//#UC END# *551D25D00024_55D6DA9E00BF_impl*
+//#UC START# *551D25D00024_55D6DA9E00BF_var*
+var
+ l_BaseIni: TCfgList;
+//#UC END# *551D25D00024_55D6DA9E00BF_var*
+//#UC START# *551D2C300060_55D6DA9E00BF_impl*
+ Result := False;
+ Assert(False);
+// !!! Needs to be implemented !!!
+//#UC END# *551D2C300060_55D6DA9E00BF_impl*
+//#UC START# *551D2C300060_55D6DA9E00BF_var*
+//#UC END# *551D2C300060_55D6DA9E00BF_var*
+//#UC START# *551D2C3603E0_55D6DA9E00BF_impl*
+ Result := '';
+ Assert(False);
+// !!! Needs to be implemented !!!
+//#UC END# *551D2C3603E0_55D6DA9E00BF_impl*
+//#UC START# *551D2C3603E0_55D6DA9E00BF_var*
+//#UC END# *551D2C3603E0_55D6DA9E00BF_var*
+//#UC START# *551D35040362_55D6DA9E00BF_impl*
+ Assert(False);
+// !!! Needs to be implemented !!!
+//#UC END# *551D35040362_55D6DA9E00BF_impl*
+//#UC START# *551D35040362_55D6DA9E00BF_var*
+//#UC END# *551D35040362_55D6DA9E00BF_var*
+//#UC START# *551E636F0314_55D6DA9E00BFget_impl*
+ Result := f_BaseName;
+//#UC END# *551E636F0314_55D6DA9E00BFget_impl*
+//#UC START# *551E636F0314_55D6DA9E00BFget_var*
+//#UC END# *551E636F0314_55D6DA9E00BFget_var*
+//#UC START# *551E6389027F_55D6DA9E00BFget_impl*
+ Result := f_RequireAdminRights;
+//#UC END# *551E6389027F_55D6DA9E00BFget_impl*
+//#UC START# *551E6389027F_55D6DA9E00BFget_var*
+//#UC END# *551E6389027F_55D6DA9E00BFget_var*
+//#UC START# *551E63A1025A_55D6DA9E00BFget_impl*
+ Result := UserIsService(Get_UserID);
+//#UC END# *551E63A1025A_55D6DA9E00BFget_impl*
+//#UC START# *551E63A1025A_55D6DA9E00BFget_var*
+//#UC END# *551E63A1025A_55D6DA9E00BFget_var*
+//#UC START# *551E63B5008C_55D6DA9E00BF_impl*
+ f_RequireAdminRights := True;
+ f_Params.UserID := usServerService;
+//#UC END# *551E63B5008C_55D6DA9E00BF_impl*
+//#UC START# *551E63B5008C_55D6DA9E00BF_var*
+//#UC END# *551E63B5008C_55D6DA9E00BF_var*
+//#UC START# *551E7E1501D8_55D6DA9E00BF_impl*
+ Result := 0;
+ Assert(False);
+// !!! Needs to be implemented !!!
+//#UC END# *551E7E1501D8_55D6DA9E00BF_impl*
+//#UC START# *551E7E1501D8_55D6DA9E00BF_var*
+//#UC END# *551E7E1501D8_55D6DA9E00BF_var*
+//#UC START# *551E7E35030B_55D6DA9E00BF_impl*
+ Result := 0;
+ Assert(False);
+// !!! Needs to be implemented !!!
+//#UC END# *551E7E35030B_55D6DA9E00BF_impl*
+//#UC START# *551E7E35030B_55D6DA9E00BF_var*
+//#UC END# *551E7E35030B_55D6DA9E00BF_var*
+//#UC START# *5522326E0355_55D6DA9E00BF_impl*
+ Result := False;
+ Assert(False);
+// !!! Needs to be implemented !!!
+//#UC END# *5522326E0355_55D6DA9E00BF_impl*
+//#UC START# *5522326E0355_55D6DA9E00BF_var*
+//#UC END# *5522326E0355_55D6DA9E00BF_var*
+//#UC START# *5522327B01D9_55D6DA9E00BF_impl*
+ Assert(False);
+// !!! Needs to be implemented !!!
+//#UC END# *5522327B01D9_55D6DA9E00BF_impl*
+//#UC START# *5522327B01D9_55D6DA9E00BF_var*
+//#UC END# *5522327B01D9_55D6DA9E00BF_var*
+//#UC START# *5522496C00CD_55D6DA9E00BFget_impl*
+
+ if f_BaseLang = nil then
+ begin
+  f_BaseLang:= TLanguageObj.Create;
+  l_BaseIni := f_Params.MakeBaseIni;
+  try
+   l_BaseIni.Section:= 'Settings';
+   f_BaseLang.LanguageID := l_BaseIni.ReadParamIntDef('Language', -1);
+  finally
+   FreeAndNil(l_BaseIni);
+  end;
+ end;
+ Result:= f_BaseLang;
+//#UC END# *5522496C00CD_55D6DA9E00BFget_impl*
+//#UC START# *5522496C00CD_55D6DA9E00BFget_var*
+var
+ l_BaseIni: TCfgList;
+//#UC END# *5522496C00CD_55D6DA9E00BFget_var*
+//#UC START# *55226E4B01E0_55D6DA9E00BFget_impl*
+ Result := '';
+ Assert(False);
+// !!! Needs to be implemented !!!
+//#UC END# *55226E4B01E0_55D6DA9E00BFget_impl*
+//#UC START# *55226E4B01E0_55D6DA9E00BFget_var*
+//#UC END# *55226E4B01E0_55D6DA9E00BFget_var*
+//#UC START# *552391490184_55D6DA9E00BF_impl*
+ Result := '';
+ Assert(False);
+// !!! Needs to be implemented !!!
+//#UC END# *552391490184_55D6DA9E00BF_impl*
+//#UC START# *552391490184_55D6DA9E00BF_var*
+//#UC END# *552391490184_55D6DA9E00BF_var*
+//#UC START# *552391830231_55D6DA9E00BF_impl*
+ Result := '';
+ Assert(False);
+// !!! Needs to be implemented !!!
+//#UC END# *552391830231_55D6DA9E00BF_impl*
+//#UC START# *552391830231_55D6DA9E00BF_var*
+//#UC END# *552391830231_55D6DA9E00BF_var*
+//#UC START# *5523983D0254_55D6DA9E00BFget_impl*
+ Result := '';
+ Assert(False);
+// !!! Needs to be implemented !!!
+//#UC END# *5523983D0254_55D6DA9E00BFget_impl*
+//#UC START# *5523983D0254_55D6DA9E00BFget_var*
+//#UC END# *5523983D0254_55D6DA9E00BFget_var*
+//#UC START# *5523984A0349_55D6DA9E00BFget_impl*
+ Result := '';
+ Assert(False);
+// !!! Needs to be implemented !!!
+//#UC END# *5523984A0349_55D6DA9E00BFget_impl*
+//#UC START# *5523984A0349_55D6DA9E00BFget_var*
+//#UC END# *5523984A0349_55D6DA9E00BFget_var*
+//#UC START# *5523BD100174_55D6DA9E00BF_impl*
+ Result := '';
+ Assert(False);
+// !!! Needs to be implemented !!!
+//#UC END# *5523BD100174_55D6DA9E00BF_impl*
+//#UC START# *5523BD100174_55D6DA9E00BF_var*
+//#UC END# *5523BD100174_55D6DA9E00BF_var*
+//#UC START# *5524D30D007F_55D6DA9E00BF_impl*
+ if f_LongProcessList.IndexOf(aSubscriber) = -1 then
+  f_LongProcessList.Add(aSubscriber);
+//#UC END# *5524D30D007F_55D6DA9E00BF_impl*
+//#UC START# *5524D30D007F_55D6DA9E00BF_var*
+//#UC END# *5524D30D007F_55D6DA9E00BF_var*
+//#UC START# *5524D33101AC_55D6DA9E00BF_impl*
+ if Self <> nil then
+  f_LongProcessList.Remove(aSubscriber);
+//#UC END# *5524D33101AC_55D6DA9E00BF_impl*
+//#UC START# *5524D33101AC_55D6DA9E00BF_var*
+//#UC END# *5524D33101AC_55D6DA9E00BF_var*
+//#UC START# *552514320149_55D6DA9E00BF_impl*
+ if f_ProgressList.IndexOf(aSubscriber) = -1 then
+  f_ProgressList.Add(aSubscriber);
+//#UC END# *552514320149_55D6DA9E00BF_impl*
+//#UC START# *552514320149_55D6DA9E00BF_var*
+//#UC END# *552514320149_55D6DA9E00BF_var*
+//#UC START# *5525144701F3_55D6DA9E00BF_impl*
+ if Self <> nil then
+  f_ProgressList.Remove(aSubscriber);
+//#UC END# *5525144701F3_55D6DA9E00BF_impl*
+//#UC START# *5525144701F3_55D6DA9E00BF_var*
+//#UC END# *5525144701F3_55D6DA9E00BF_var*
+//#UC START# *5526537A00CE_55D6DA9E00BF_impl*
+ if f_IsStarted then
+  Exit;
+ Assert(GlobalDataProvider = nil);
+ if GlobalDataProvider = nil then
+ begin
+  SetGlobalDataProvider(Self);
+  f_NeedClearGlobalDataProvider := True;
+ end;
+ try
+  f_Connection.Connect(f_Params);
+ except
+  Stop;
+  raise;
+ end;
+ ReadIniFile;
+ if not f_ForCheckLogin then
+  Get_Journal.UserID := f_Params.UserID;
+ f_IsStarted := True;
+//#UC END# *5526537A00CE_55D6DA9E00BF_impl*
+//#UC START# *5526537A00CE_55D6DA9E00BF_var*
+//#UC END# *5526537A00CE_55D6DA9E00BF_var*
+//#UC START# *5526538202A5_55D6DA9E00BF_impl*
+ if not f_IsStarted then
+  Exit;
+ if f_NeedClearGlobalDataProvider then
+  SetGlobalDataProvider(nil);
+ if Assigned(f_Journal) then
+  f_Journal.SessionDone;
+ f_Journal := nil;
+ if f_Connection.Connected then
+  f_Connection.Disconnect;
+ FreeAndNil(f_BaseLang);
+//#UC END# *5526538202A5_55D6DA9E00BF_impl*
+//#UC START# *5526538202A5_55D6DA9E00BF_var*
+//#UC END# *5526538202A5_55D6DA9E00BF_var*
+//#UC START# *55409258013F_55D6DA9E00BFget_impl*
+ if f_Journal = nil then
+ begin
+  f_Journal := TpgJournal.Make(Get_TableQueryFactory);
+  f_Journal.UserID := Get_UserID;
+  f_UserManager := nil; // ???
+ end;
+ Result := f_Journal;
+//#UC END# *55409258013F_55D6DA9E00BFget_impl*
+//#UC START# *55409258013F_55D6DA9E00BFget_var*
+//#UC END# *55409258013F_55D6DA9E00BFget_var*
+//#UC START# *554C7A3002BF_55D6DA9E00BFget_impl*
+ if f_Factory = nil then
+  f_Factory := TpgTableQueryFactory.Make(f_DataConverter, f_Connection);
+ Result := f_Factory;
+//#UC END# *554C7A3002BF_55D6DA9E00BFget_impl*
+//#UC START# *554C7A3002BF_55D6DA9E00BFget_var*
+//#UC END# *554C7A3002BF_55D6DA9E00BFget_var*
+//#UC START# *555995CF0292_55D6DA9E00BFget_impl*
+ Result := f_DataConverter;
+//#UC END# *555995CF0292_55D6DA9E00BFget_impl*
+//#UC START# *555995CF0292_55D6DA9E00BFget_var*
+//#UC END# *555995CF0292_55D6DA9E00BFget_var*
+//#UC START# *55E00D5A0297_55D6DA9E00BF_impl*
+ inherited Create;
+ f_Connection := TpgConnection.Create;
+ f_DataConverter := TpgDataConverter.Make;
+ f_ForCheckLogin := ForCheckLogin;
+ f_LongProcessList := TdaLongProcessSubscriberList.Make;
+ f_ProgressList := TdaProgressSubscriberList.Make;
+ aParams.SetRefTo(f_Params);
+// f_Helper := ThtDataSchemeHelper.Make(f_Params);
+ f_AllowClearLocks := AllowClearLocks;
+ f_ImpersonatedUserID := 0;
+//#UC END# *55E00D5A0297_55D6DA9E00BF_impl*
+//#UC START# *55E00D5A0297_55D6DA9E00BF_var*
+//#UC END# *55E00D5A0297_55D6DA9E00BF_var*
+//#UC START# *55F7F8080115_55D6DA9E00BF_impl*
+ if f_RegionID = 0 then
+  InitRegionFromIni(0);
+
+ l_BaseIni := f_Params.MakeBaseIni;
+ try
+  l_BaseIni.Section:= 'Base';
+  f_BaseName := l_BaseIni.ReadParamStrDef('Name', '');
+ finally
+  FreeAndNil(l_BaseIni);
+ end;
+//#UC END# *55F7F8080115_55D6DA9E00BF_impl*
+//#UC START# *55F7F8080115_55D6DA9E00BF_var*
+var
+ l_BaseIni: TCfgList;
+//#UC END# *55F7F8080115_55D6DA9E00BF_var*
+//#UC START# *561795EA02BF_55D6DA9E00BFget_impl*
+ if f_ImpersonatedUserID = usNone then
+  Result := Get_UserID
+ else
+  Result := f_ImpersonatedUserID;
+//#UC END# *561795EA02BF_55D6DA9E00BFget_impl*
+//#UC START# *561795EA02BF_55D6DA9E00BFget_var*
+//#UC END# *561795EA02BF_55D6DA9E00BFget_var*
+//#UC START# *561796070253_55D6DA9E00BF_impl*
+ if f_ImpersonatedUserID <> usNone then
+  l3System.Msg2Log('ALERT ImpersonateUser');
+ f_ImpersonatedUserID := anUserID;
+//#UC END# *561796070253_55D6DA9E00BF_impl*
+//#UC START# *561796070253_55D6DA9E00BF_var*
+//#UC END# *561796070253_55D6DA9E00BF_var*
+//#UC START# *5617961F0105_55D6DA9E00BF_impl*
+ f_ImpersonatedUserID := usNone;
+//#UC END# *5617961F0105_55D6DA9E00BF_impl*
+//#UC START# *5617961F0105_55D6DA9E00BF_var*
+//#UC END# *5617961F0105_55D6DA9E00BF_var*
+//#UC START# *5628D25600E6_55D6DA9E00BFget_impl*
+ if f_UserManager = nil then
+  f_UserManager := TpgUserManager.Make(Get_TableQueryFactory);
+ Result := f_UserManager;
+//#UC END# *5628D25600E6_55D6DA9E00BFget_impl*
+//#UC START# *5628D25600E6_55D6DA9E00BFget_var*
+//#UC END# *5628D25600E6_55D6DA9E00BFget_var*
+//#UC START# *56448A910213_55D6DA9E00BF_impl*
+ if f_RegionQuery = nil then
+ begin
+  f_RegionQuery := f_Factory.MakeTabledQuery(TdaScheme.Instance.Table(da_mtRegions));
+  f_RegionQuery.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtRegions).Field['Name']));
+  f_RegionQuery.WhereCondition := f_Factory.MakeParamsCondition('', TdaScheme.Instance.Table(da_mtRegions).Field['ID'], da_copEqual, 'p_RegionID');
+  f_RegionQuery.Prepare;
+ end;
+ Result := f_RegionQuery;
+//#UC END# *56448A910213_55D6DA9E00BF_impl*
+//#UC START# *56448A910213_55D6DA9E00BF_var*
+//#UC END# *56448A910213_55D6DA9E00BF_var*
+//#UC START# *56448ABA03B4_55D6DA9E00BF_impl*
+ RegionQuery.Param['p_RegionID'].AsInteger := anID;
+ Result := RegionQuery.OpenResultSet;
+//#UC END# *56448ABA03B4_55D6DA9E00BF_impl*
+//#UC START# *56448ABA03B4_55D6DA9E00BF_var*
+//#UC END# *56448ABA03B4_55D6DA9E00BF_var*
+//#UC START# *5645BD9C0153_55D6DA9E00BF_impl*
+ if f_FamilyHelper = nil then
+  f_FamilyHelper := TpgFamilyHelper.Create(f_Factory);
+ Result := f_FamilyHelper;
+//#UC END# *5645BD9C0153_55D6DA9E00BF_impl*
+//#UC START# *5645BD9C0153_55D6DA9E00BF_var*
+//#UC END# *5645BD9C0153_55D6DA9E00BF_var*
+//#UC START# *56499CBF03D2_55D6DA9E00BF_impl*
+ Result := '';
+ if f_Params.AliasesList.Count > 0 then
+  Result := f_Params.AliasesList.Values[aAlias];
+
+ if (Result = '') and  (aAlias = 'FamilyPath') then
+  Result := f_Params.DocStoragePath;
+
+ if (Result = '') then
+  raise EPgError.Create('ѕуть не найден');
+//#UC END# *56499CBF03D2_55D6DA9E00BF_impl*
+//#UC START# *56499CBF03D2_55D6DA9E00BF_var*
+//#UC END# *56499CBF03D2_55D6DA9E00BF_var*
+//#UC START# *5652B5DD02FA_55D6DA9E00BF_impl*
+ if f_Renum = nil then
+  f_Renum := TpgRenumerator.Create(f_Factory);
+ Result := f_Renum;
+//#UC END# *5652B5DD02FA_55D6DA9E00BF_impl*
+//#UC START# *5652B5DD02FA_55D6DA9E00BF_var*
+//#UC END# *5652B5DD02FA_55D6DA9E00BF_var*
+//#UC START# *56556F42021A_55D6DA9E00BFget_impl*
+ case aFamilyID of
+  MainTblsFamily:
+   begin
+    if f_MainFreeIDHelper = nil then
+     f_MainFreeIDHelper := TpgFreeIDHelper.Create(f_Connection, f_Factory, f_FunctionFactory, aFamilyID);
+    Result := f_MainFreeIDHelper;
+   end;
+  CurrentFamily:
+   begin
+    if f_CurrentFreeIDHelper = nil then
+     f_CurrentFreeIDHelper := TpgFreeIDHelper.Create(f_Connection, f_Factory, f_FunctionFactory, aFamilyID);
+    Result := f_CurrentFreeIDHelper;
+   end;
+  else
+  begin
+   Result := nil;
+   Assert(False);
+  end; 
+ end;
+//#UC END# *56556F42021A_55D6DA9E00BFget_impl*
+//#UC START# *56556F42021A_55D6DA9E00BFget_var*
+//#UC END# *56556F42021A_55D6DA9E00BFget_var*
+//#UC START# *56558A1600EA_55D6DA9E00BF_impl*
+ Result := CheckFreeResource(CurrentFamily, ftnDocIDExternal);
+//#UC END# *56558A1600EA_55D6DA9E00BF_impl*
+//#UC START# *56558A1600EA_55D6DA9E00BF_var*
+//#UC END# *56558A1600EA_55D6DA9E00BF_var*
+//#UC START# *56558A4A01D1_55D6DA9E00BF_impl*
+ Result := FreeIDHelper[aFamilyID].AnyRangesPresent(aKey);
+//#UC END# *56558A4A01D1_55D6DA9E00BF_impl*
+//#UC START# *56558A4A01D1_55D6DA9E00BF_var*
+//#UC END# *56558A4A01D1_55D6DA9E00BF_var*

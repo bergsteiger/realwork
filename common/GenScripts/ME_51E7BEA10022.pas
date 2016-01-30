@@ -1,4 +1,9 @@
-unit ddLowLevelRTF;
+unit NOT_FINISHED_ddLowLevelRTF;
+
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddLowLevelRTF.pas"
+// Стереотип: "UtilityPack"
+
+{$Include ddDefine.inc}
 
 interface
 
@@ -9,12 +14,35 @@ uses
 
 type
  TddRTFParser = class(Tk2CustomFileParser)
+  protected
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure Read; override;
  end;//TddRTFParser
- 
+
 implementation
 
 uses
  l3ImplUses
 ;
+
+procedure TddRTFParser.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_51E7BEC302DB_var*
+//#UC END# *479731C50290_51E7BEC302DB_var*
+begin
+//#UC START# *479731C50290_51E7BEC302DB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *479731C50290_51E7BEC302DB_impl*
+end;//TddRTFParser.Cleanup
+
+procedure TddRTFParser.Read;
+//#UC START# *4F68343D038D_51E7BEC302DB_var*
+//#UC END# *4F68343D038D_51E7BEC302DB_var*
+begin
+//#UC START# *4F68343D038D_51E7BEC302DB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4F68343D038D_51E7BEC302DB_impl*
+end;//TddRTFParser.Read
 
 end.

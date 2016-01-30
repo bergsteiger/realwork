@@ -1,5 +1,10 @@
 unit csSendTask_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\csSendTask_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -9,7 +14,7 @@ uses
 ;
 
  // csSendTaskTag
- 
+
 implementation
 
 uses

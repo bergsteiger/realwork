@@ -1,0 +1,59 @@
+//#UC START# *479731C50290_55A4E9940396_impl*
+ FreeandNil(f_Code);
+ inherited;
+//#UC END# *479731C50290_55A4E9940396_impl*
+//#UC START# *479731C50290_55A4E9940396_var*
+//#UC END# *479731C50290_55A4E9940396_var*
+//#UC START# *4DB6CB1703AD_55A4E9940396_impl*
+ CompilerAssert(aWord <> Self, 'Циклическая ссылка', aCtx);
+ // - чтобы избежать циклических ссылок
+ if (f_Code = nil) then
+  f_Code := TtfwWordRefList.Create;
+(* if aWord.IsForwardDeclaration {AND
+    (TkwForwardDeclaration(aWord).RealWord = Self)}
+    // - проверка специально убрана, т.к. бывает вложенность
+    then
+ // - чтобы избежать циклических ссылок*)
+ begin
+  l_Holder := aWord.MakeRefForCompile(aCtx, aSNI);
+  try
+   f_Code.Add(l_Holder);
+  finally
+   FreeAndNil(l_Holder);
+  end;//try..finally
+ end//aWord.IsForwardDeclaration
+(* else
+  f_Code.Add(aWord)*)
+ ;
+//#UC END# *4DB6CB1703AD_55A4E9940396_impl*
+//#UC START# *4DB6CB1703AD_55A4E9940396_var*
+var
+ l_Holder : TtfwWord;
+//#UC END# *4DB6CB1703AD_55A4E9940396_var*
+//#UC START# *52D40F640308_55A4E9940396_impl*
+ Result := (Code <> nil) AND not Code.Empty;
+//#UC END# *52D40F640308_55A4E9940396_impl*
+//#UC START# *52D40F640308_55A4E9940396_var*
+//#UC END# *52D40F640308_55A4E9940396_var*
+//#UC START# *52D4191402A2_55A4E9940396_impl*
+ if (Code = nil) then
+  Result := 0
+ else
+  Result := Code.Count; 
+//#UC END# *52D4191402A2_55A4E9940396_impl*
+//#UC START# *52D4191402A2_55A4E9940396_var*
+//#UC END# *52D4191402A2_55A4E9940396_var*
+//#UC START# *52D523A40118_55A4E9940396_impl*
+ Result := Self;
+//#UC END# *52D523A40118_55A4E9940396_impl*
+//#UC START# *52D523A40118_55A4E9940396_var*
+//#UC END# *52D523A40118_55A4E9940396_var*
+//#UC START# *55A4EA4402A7_55A4E9940396_impl*
+ if (Code <> nil) then
+  for l_Index := 0 to Pred(Code.Count) do
+   Code[l_Index].DoIt(aCtx);
+//#UC END# *55A4EA4402A7_55A4E9940396_impl*
+//#UC START# *55A4EA4402A7_55A4E9940396_var*
+var
+ l_Index : Integer;
+//#UC END# *55A4EA4402A7_55A4E9940396_var*

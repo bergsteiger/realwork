@@ -1,23 +1,49 @@
-unit l3InterfacedList.imp;
+{$IfNDef l3InterfacedList_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\L3\l3InterfacedList.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
- , l3PureMixIns
-;
+{$Define l3InterfacedList_imp}
 
-type
+ _l3ListAssign_Parent_ = _l3InterfacedList_Parent_;
+ {$Include l3ListAssign.imp.pas}
  _l3InterfacedList_ = class(_l3ListAssign_, _ListType_)
-  procedure MakeI;
-  function Count: Integer;
-   {* Число элементов. }
+  protected
+   function pm_GetCount: Integer;
+  public
+   class function MakeI: _ListType_; reintroduce;
  end;//_l3InterfacedList_
- 
-implementation
 
-uses
- l3ImplUses
-;
+{$Else l3InterfacedList_imp}
 
-end.
+{$IfNDef l3InterfacedList_imp_impl}
+
+{$Define l3InterfacedList_imp_impl}
+
+{$Include l3ListAssign.imp.pas}
+
+class function _l3InterfacedList_.MakeI: _ListType_;
+var
+ l_Inst : _l3InterfacedList_;
+begin
+ l_Inst := Create;
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//_l3InterfacedList_.MakeI
+
+function _l3InterfacedList_.pm_GetCount: Integer;
+//#UC START# *4BB08B8902F2_47CED1980057get_var*
+//#UC END# *4BB08B8902F2_47CED1980057get_var*
+begin
+//#UC START# *4BB08B8902F2_47CED1980057get_impl*
+ Result := Count;
+//#UC END# *4BB08B8902F2_47CED1980057get_impl*
+end;//_l3InterfacedList_.pm_GetCount
+
+{$EndIf l3InterfacedList_imp_impl}
+
+{$EndIf l3InterfacedList_imp}
+

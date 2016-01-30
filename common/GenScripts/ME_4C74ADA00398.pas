@@ -1,22 +1,54 @@
 unit K233019435;
+ {* [$233019435] }
+
+// Модуль: "w:\common\components\rtl\Garant\Daily\K233019435.pas"
+// Стереотип: "TestCase"
+
+{$Include TestDefine.inc.pas}
 
 interface
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ {$If NOT Defined(NoVCM)}
  , ScrollTest
+ {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
  TK233019435 = class(TScrollTest)
   {* [$233019435] }
+  protected
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK233019435
- 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+
 implementation
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
  , TestFrameWork
 ;
+
+function TK233019435.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := '7.6';
+end;//TK233019435.GetFolder
+
+function TK233019435.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '4C74ADA00398';
+end;//TK233019435.GetModelElementGUID
+
+initialization
+ TestFramework.RegisterTest(TK233019435.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

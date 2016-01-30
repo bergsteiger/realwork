@@ -1,0 +1,35 @@
+//#UC START# *47914F960008_51DBBE7802D5_impl*
+ inherited Create;
+ Clear;
+//#UC END# *47914F960008_51DBBE7802D5_impl*
+//#UC START# *47914F960008_51DBBE7802D5_var*
+//#UC END# *47914F960008_51DBBE7802D5_var*
+//#UC START# *518A13330058_51DBBE7802D5_impl*
+ inherited;
+ cCols:= 1;                  { number of column }
+ ColsSpace:= 720;    { пространство между колонками }
+ LineBetween:= False;  { линия между колонками }
+ SBK:= sbkPg;                    { section break type  }
+ pgnFormat:= pgDec;              { how the page number is formatted      }
+ EndHere:= False; { конечные сноски в конце секции }
+ Unlocked:= True; { раздел открыт для форм }
+ Landscape:= False;
+//#UC END# *518A13330058_51DBBE7802D5_impl*
+//#UC START# *518A13330058_51DBBE7802D5_var*
+//#UC END# *518A13330058_51DBBE7802D5_var*
+//#UC START# *5301DFE6002C_51DBBE7802D5_impl*
+ if (anOther Is TddSectionProperty) then
+ begin
+  cCols:= TddSectionProperty(anOther).cCols;
+  ColsSpace:= TddSectionProperty(anOther).ColsSpace;
+  EndHere:= TddSectionProperty(anOther).EndHere;
+  Landscape:= TddSectionProperty(anOther).Landscape;
+  LineBetween:= TddSectionProperty(anOther).LineBetween;
+  pgnFormat:= TddSectionProperty(anOther).pgnFormat;
+  SBK:= TddSectionProperty(anOther).SBK;
+  Unlocked:= TddSectionProperty(anOther).Unlocked;
+ end else
+  inherited AssignFrom(anOther);
+//#UC END# *5301DFE6002C_51DBBE7802D5_impl*
+//#UC START# *5301DFE6002C_51DBBE7802D5_var*
+//#UC END# *5301DFE6002C_51DBBE7802D5_var*

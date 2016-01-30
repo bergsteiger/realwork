@@ -1,4 +1,10 @@
-unit dd_lcVASCodeCorrector;
+unit NOT_FINISHED_dd_lcVASCodeCorrector;
+ {* Добавляет недостающий номер документам ВАС }
+
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcVASCodeCorrector.pas"
+// Стереотип: "SimpleClass"
+
+{$Include ddDefine.inc}
 
 interface
 
@@ -11,7 +17,7 @@ type
  Tdd_lcVASCodeCorrector = class(Tdd_lcCodeCorrector)
   {* Добавляет недостающий номер документам ВАС }
  end;//Tdd_lcVASCodeCorrector
- 
+
 implementation
 
 uses

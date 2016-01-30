@@ -1,4 +1,9 @@
-unit evRangeTools;
+unit NOT_FINISHED_evRangeTools;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_evRangeTools.pas"
+// Стереотип: "UtilityPack"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -6,10 +11,21 @@ uses
  l3IntfUses
 ;
 
+procedure evCompareBlocks;
+
 implementation
 
 uses
  l3ImplUses
 ;
+
+procedure evCompareBlocks;
+//#UC START# *4A263CAD0337_4A23BF6402DA_var*
+//#UC END# *4A263CAD0337_4A23BF6402DA_var*
+begin
+//#UC START# *4A263CAD0337_4A23BF6402DA_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4A263CAD0337_4A23BF6402DA_impl*
+end;//evCompareBlocks
 
 end.

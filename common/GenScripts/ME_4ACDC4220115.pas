@@ -1,7 +1,11 @@
-unit hyiedefs;
+unit NOT_FINISHED_hyiedefs;
+
+// Модуль: "w:\common\components\rtl\external\ImageEn\src\NOT_FINISHED_hyiedefs.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
+{$If NOT Defined(NoImageEn)}
 uses
  l3IntfUses
 ;
@@ -9,11 +13,14 @@ uses
 type
  TResampleFilter = (
  );//TResampleFilter
- 
+{$IfEnd} // NOT Defined(NoImageEn)
+
 implementation
 
+{$If NOT Defined(NoImageEn)}
 uses
  l3ImplUses
 ;
+{$IfEnd} // NOT Defined(NoImageEn)
 
 end.

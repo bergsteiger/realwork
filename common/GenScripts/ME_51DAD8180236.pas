@@ -1,5 +1,10 @@
 unit l3MemorySizeUtils;
 
+// Модуль: "w:\common\components\rtl\Garant\L3\l3MemorySizeUtils.pas"
+// Стереотип: "UtilityPack"
+
+{$Include l3Define.inc}
+
 interface
 
 uses
@@ -9,7 +14,16 @@ uses
 
 type
  PMem = PANSIChar;
- 
+
+{$If NOT Defined(XE)}
+var l3MemorySize: l3MemorySizeDelphi7;
+ {* функция для получения размера куска памяти }
+{$IfEnd} // NOT Defined(XE)
+{$If Defined(XE)}
+var l3MemorySize: l3MemorySizeXE;
+ {* функция для получения размера куска памяти }
+{$IfEnd} // Defined(XE)
+
 implementation
 
 uses

@@ -1,19 +1,24 @@
-unit Stack.imp;
+{$IfNDef Stack_imp}
 
-interface
+// Модуль: "w:\common\components\SandBox\Stack.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define Stack_imp}
 
-type
- _Stack_ = class(TObject)
+ _StackPrim_Parent_ = TObject;
+ {$Include StackPrim.imp.pas}
+ _Stack_ = class(_StackPrim_)
  end;//_Stack_
- 
-implementation
 
-uses
- l3ImplUses
-;
+{$Else Stack_imp}
 
-end.
+{$IfNDef Stack_imp_impl}
+
+{$Define Stack_imp_impl}
+
+{$Include StackPrim.imp.pas}
+
+{$EndIf Stack_imp_impl}
+
+{$EndIf Stack_imp}
+

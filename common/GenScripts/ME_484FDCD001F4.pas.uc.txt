@@ -1,0 +1,44 @@
+//#UC START# *48089F3701B4_484FDCD001F4_impl*
+  inherited;
+  with f_ParamList do
+  begin
+    Add( ParamType.Create('is_from_current_folder', 'Читать из текущей папки', 'false') );
+    Add( ParamType.Create('is_recursive', 'Читать рекурсивно', 'false') );
+  end;
+//#UC END# *48089F3701B4_484FDCD001F4_impl*
+//#UC START# *48089F3701B4_484FDCD001F4_var*
+//#UC END# *48089F3701B4_484FDCD001F4_var*
+//#UC START# *48089F460352_484FDCD001F4_impl*
+  f_ProcessedObjects := 0;
+  InitMatcher;
+  //
+  l_IsFromCurrentFolder := Parameters['is_from_current_folder'].AsBool;
+  l_IsRecursive := Parameters['is_recursive'].AsBool;
+  //
+  if l_IsFromCurrentFolder then
+    l_RootFolder := ExecutionContext.USerWorkContext.CurrFolder
+  else
+    l_RootFolder := TatFoldersHelper.GetMyDocuments;
+  Assert(l_RootFolder <> nil, 'l_RootFolder <> nil');
+  // обрабатывем объекты
+  TatFoldersHelper.IterateAllChildFoldersNode(l_RootFolder, Self as IatFoldersNodeCallback, f_Matcher, l_IsRecursive );
+//#UC END# *48089F460352_484FDCD001F4_impl*
+//#UC START# *48089F460352_484FDCD001F4_var*
+  var
+    l_IsFromCurrentFolder : Boolean;
+    l_IsRecursive : Boolean;
+    l_RootFolder : IFoldersNode;
+//#UC END# *48089F460352_484FDCD001F4_var*
+//#UC START# *484FDD22003E_484FDCD001F4_impl*
+  // здесь просто создаем сравниватель
+  f_Matcher := _FoldersNodeMatcher_.Make;
+  Assert(f_Matcher <> nil, 'f_Matcher <> nil');
+//#UC END# *484FDD22003E_484FDCD001F4_impl*
+//#UC START# *484FDD22003E_484FDCD001F4_var*
+//#UC END# *484FDD22003E_484FDCD001F4_var*
+//#UC START# *4FCF8EE001D4_484FDCD001F4_impl*
+  inherited;
+  Inc(f_ProcessedObjects);
+//#UC END# *4FCF8EE001D4_484FDCD001F4_impl*
+//#UC START# *4FCF8EE001D4_484FDCD001F4_var*
+//#UC END# *4FCF8EE001D4_484FDCD001F4_var*

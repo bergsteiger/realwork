@@ -1,5 +1,10 @@
 unit k2Context;
 
+// Модуль: "w:\common\components\rtl\Garant\K2\k2Context.pas"
+// Стереотип: "SimpleClass"
+
+{$Include k2Define.inc}
+
 interface
 
 uses
@@ -10,7 +15,7 @@ uses
 type
  Tk2Context = class(Tk2OperationContainer)
  end;//Tk2Context
- 
+
 implementation
 
 uses

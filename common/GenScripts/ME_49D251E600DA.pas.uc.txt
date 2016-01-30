@@ -1,0 +1,45 @@
+//#UC START# *49D218B9032C_49D251E600DA_impl*
+ Result := _Instance_R_(Self);
+ l_CursorTarget := _Instance_R_(Self).ParaX;
+ if (aThisTarget = nil) OR aThisTarget.AsObject.IsNull then
+  l_ThisTarget := l_CursorTarget.OwnerObj.AsObject
+ else
+  l_ThisTarget := aThisTarget.AsObject;
+ while not l_CursorTarget.AsObject.IsSame(l_ThisTarget) do
+ begin
+  {-курсор нижнего уровня}
+  l_ParentCursor := nil;
+  try
+   l_ParentCursor := Result.ParentPoint;
+   if (l_ParentCursor = nil) OR not l_ParentCursor.Obj.AsObject.IsValid then
+   begin
+    l_ParentCursor := l_CursorTarget.OwnerObj.MakePoint;
+    if (l_ParentCursor = nil) then
+    begin
+     Result := nil;
+     break;
+    end;//l_ParentCursor = nil
+    l_ParentCursor.ShowCollapsed := aNeedShowCollapsed;
+    l_ParentCursor.Inner := Result;
+    // -  поднимаемся на уровень вверх.
+   end;//l_ParentCursor = nil
+   Result := l_ParentCursor;
+   l_CursorTarget := Result.Obj^;
+  finally
+   l_ParentCursor := nil;
+  end;//try..finally
+ end;//while not CursorTarget.IsSame(l_ThisTarget)
+//#UC END# *49D218B9032C_49D251E600DA_impl*
+//#UC START# *49D218B9032C_49D251E600DA_var*
+var
+ l_ParentCursor  : InevBasePoint;
+ l_CursorTarget  : InevObject;
+ l_ThisTarget    : Tl3Tag;
+//#UC END# *49D218B9032C_49D251E600DA_var*
+//#UC START# *49D24386014E_49D251E600DAget_impl*
+ Result := _Instance_R_(Self);
+ while (Result.ParentPoint <> nil) do
+  Result := Result.ParentPoint;
+//#UC END# *49D24386014E_49D251E600DAget_impl*
+//#UC START# *49D24386014E_49D251E600DAget_var*
+//#UC END# *49D24386014E_49D251E600DAget_var*

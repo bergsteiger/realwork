@@ -1,4 +1,9 @@
-unit evAbortFilter;
+unit NOT_FINISHED_evAbortFilter;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evAbortFilter.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -9,7 +14,7 @@ uses
 type
  TevAbortFilter = class
  end;//TevAbortFilter
- 
+
 implementation
 
 uses

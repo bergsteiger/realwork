@@ -1,7 +1,14 @@
 unit K206079417;
+ {* [RequestLink:206079417] }
+
+// Модуль: "w:\common\components\rtl\Garant\Daily\K206079417.pas"
+// Стереотип: "TestCase"
+
+{$Include TestDefine.inc.pas}
 
 interface
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
  , TextMetricsAfterCopyPasteTest
@@ -10,13 +17,36 @@ uses
 type
  TK206079417 = class(TTextMetricsAfterCopyPasteTest)
   {* [RequestLink:206079417] }
+  protected
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK206079417
- 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+
 implementation
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
  , TestFrameWork
 ;
+
+function TK206079417.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := '7.7';
+end;//TK206079417.GetFolder
+
+function TK206079417.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '4D076ADA00B9';
+end;//TK206079417.GetModelElementGUID
+
+initialization
+ TestFramework.RegisterTest(TK206079417.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

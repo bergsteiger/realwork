@@ -1,0 +1,23 @@
+//#UC START# *47B4895F01BE_4773DBBD000D_impl*
+ // !!! отличается от _l3Items_.DoDelete только отсутствием FreeSlot
+ //     это можно со временем почистить
+ {$IfNDef l3Items_NoChanging}
+ Changing;
+ try
+ {$EndIf l3Items_NoChanging}
+  l_P := ItemSlot(Index);
+  Dec(f_Count);
+  if (Index = f_Count) then
+   l_P^ := nil
+  else
+   MoveItems(Index, Succ(Index), f_Count-Index, Self);
+ {$IfNDef l3Items_NoChanging}
+ finally
+  Changed;
+ end;//try..finally
+ {$EndIf  l3Items_NoChanging}
+//#UC END# *47B4895F01BE_4773DBBD000D_impl*
+//#UC START# *47B4895F01BE_4773DBBD000D_var*
+var
+ l_P : PItemType;
+//#UC END# *47B4895F01BE_4773DBBD000D_var*

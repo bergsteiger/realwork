@@ -1,0 +1,56 @@
+unit evDocument_Wrap;
+
+// ћодуль: "w:\common\components\gui\Garant\Everest\evDocument_Wrap.pas"
+// —тереотип: "Wrapper"
+
+{$Include evDefine.inc}
+
+interface
+
+uses
+ l3IntfUses
+ , evPara_Wrap
+ , Document_Const
+ , l3Variant
+ , k2Base
+;
+
+type
+ WevDocument = class(WevPara)
+  protected
+   function GetAtomData(AE: Tl3Variant;
+    aProp: Tk2CustomProperty;
+    out Data: Tl3Variant): Boolean; override;
+ end;//WevDocument
+
+implementation
+
+uses
+ l3ImplUses
+ , k2Tags
+ , evdTypes
+ , Para_Const
+;
+
+function WevDocument.GetAtomData(AE: Tl3Variant;
+ aProp: Tk2CustomProperty;
+ out Data: Tl3Variant): Boolean;
+//#UC START# *4857A995029E_4857B5D901D7_var*
+//#UC END# *4857A995029E_4857B5D901D7_var*
+begin
+//#UC START# *4857A995029E_4857B5D901D7_impl*
+ if (aProp.TagIndex = k2_tiFixedWidth) then
+ begin
+  if AE.Owner.IsKindOf(k2_typPara) then
+  // - вложенные документы не должны задавать свою ширину при форматировании
+  begin
+   Result := true;
+   Data := aProp.MakeTag(Ord(false)).AsObject;
+   Exit;
+  end;//IsKindOf(k2_typPara)
+ end;//aProp.TagIndex = k2_tiFixedWidth
+ Result := inherited GetAtomData(AE, aProp, Data);
+//#UC END# *4857A995029E_4857B5D901D7_impl*
+end;//WevDocument.GetAtomData
+
+end.

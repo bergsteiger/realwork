@@ -1,4 +1,10 @@
 unit Formula_Const;
+ {* Формула }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\Formula_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -9,7 +15,7 @@ uses
 ;
 
  // FormulaTag
- 
+
 implementation
 
 uses

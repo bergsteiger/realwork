@@ -1,4 +1,9 @@
-unit evPageBreakEliminator;
+unit NOT_FINISHED_evPageBreakEliminator;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evPageBreakEliminator.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -10,7 +15,7 @@ uses
 type
  TevPageBreakEliminator = class(TevdLeafParaFilter)
  end;//TevPageBreakEliminator
- 
+
 implementation
 
 uses

@@ -1,0 +1,134 @@
+//#UC START# *479731C50290_4AAF6F4E010E_impl*
+ f_Preview := nil;
+ inherited;
+//#UC END# *479731C50290_4AAF6F4E010E_impl*
+//#UC START# *479731C50290_4AAF6F4E010E_var*
+//#UC END# *479731C50290_4AAF6F4E010E_var*
+//#UC START# *47A042E100E2_4AAF6F4E010E_impl*
+ inherited;
+ Position := poScreenCenter;
+//#UC END# *47A042E100E2_4AAF6F4E010E_impl*
+//#UC START# *47A042E100E2_4AAF6F4E010E_var*
+//#UC END# *47A042E100E2_4AAF6F4E010E_var*
+//#UC START# *49521D8E0295_4AAF6F4E010Etest_impl*
+ aParams.CallControl;
+ if not IsReady then
+  aParams.Op.Flag[vcm_ofEnabled] := false;
+ {$If not defined(Admin) AND not defined(Monitorings)} 
+ nsDisableOperationInTrialMode(aParams);
+ {$IfEnd} //not Admin AND not Monitorings
+//#UC END# *49521D8E0295_4AAF6F4E010Etest_impl*
+//#UC START# *49521D8E0295_4AAF6F4E010Etest_var*
+//#UC END# *49521D8E0295_4AAF6F4E010Etest_var*
+//#UC START# *495220DE0298_4AAF6F4E010Etest_impl*
+ aParams.CallControl;
+ if not IsReady then
+  aParams.Op.Flag[vcm_ofEnabled] := false;
+ {$If not defined(Admin) AND not defined(Monitorings)} 
+ nsDisableOperationInTrialMode(aParams);
+ {$IfEnd} //not Admin AND not Monitorings
+//#UC END# *495220DE0298_4AAF6F4E010Etest_impl*
+//#UC START# *495220DE0298_4AAF6F4E010Etest_var*
+//#UC END# *495220DE0298_4AAF6F4E010Etest_var*
+//#UC START# *4980407F0076_4AAF6F4E010E_impl*
+ Result := inherited CallCloseQuery(aCaller);
+ if Result AND (Preview <> nil) AND Preview.InProcess then
+ begin
+  // Разрешаем удалять во время подготовки печати, потому, что защитили
+  // соответствующие методы в Preview вызовами afw.BeginOp, afw.EndOp;
+  //Result := false;
+  Preview.Stop(Handle);
+ end;//Result
+//#UC END# *4980407F0076_4AAF6F4E010E_impl*
+//#UC START# *4980407F0076_4AAF6F4E010E_var*
+//#UC END# *4980407F0076_4AAF6F4E010E_var*
+//#UC START# *4A8AD46D0226_4AAF6F4E010Eexec_impl*
+ if IsModalForm then
+  ModalResult := mrCancel
+ else
+  Dispatcher.History.Back;
+//#UC END# *4A8AD46D0226_4AAF6F4E010Eexec_impl*
+//#UC START# *4A8AD46D0226_4AAF6F4E010Eexec_var*
+//#UC END# *4A8AD46D0226_4AAF6F4E010Eexec_var*
+//#UC START# *4A8E8F2E0195_4AAF6F4E010E_impl*
+ ActiveControl := PreviewPanel;
+ with PreviewPanel do
+ begin
+  Cursor := 1;
+  Align := alClient;
+  BevelOuter := bvNone;
+  Constraints.MinHeight := 120;
+  Constraints.MinWidth := 160;
+  UseDockManager := False;
+  TabOrder := 0;
+  TabStop := True;
+ end;
+//#UC END# *4A8E8F2E0195_4AAF6F4E010E_impl*
+//#UC START# *4A8E8F2E0195_4AAF6F4E010E_var*
+//#UC END# *4A8E8F2E0195_4AAF6F4E010E_var*
+//#UC START# *4A97EBE702F8_4AAF6F4E010Eexec_impl*
+ l_Printed := PreviewPanel.Print;
+ if IsModalForm then
+  ModalResult := mrOk
+ else
+  if l_Printed then
+   Dispatcher.History.Back;
+//#UC END# *4A97EBE702F8_4AAF6F4E010Eexec_impl*
+//#UC START# *4A97EBE702F8_4AAF6F4E010Eexec_var*
+var
+ l_Printed: Boolean;
+//#UC END# *4A97EBE702F8_4AAF6F4E010Eexec_var*
+//#UC START# *4A97EBE702F8_4AAF6F4E010Egetstate_impl*
+ State := st_user_Result_Ok_Print;
+//#UC END# *4A97EBE702F8_4AAF6F4E010Egetstate_impl*
+//#UC START# *4A97EBE702F8_4AAF6F4E010Egetstate_var*
+//#UC END# *4A97EBE702F8_4AAF6F4E010Egetstate_var*
+//#UC START# *4A97EBE702F8_4AAF6F4E010Etest_impl*
+ if not IsReady then
+  aParams.Op.Flag[vcm_ofEnabled] := false;
+ {$If not defined(Admin) AND not defined(Monitorings)}
+ nsDisableOperationInTrialMode(aParams);
+ {$IfEnd} //not Admin AND not Monitorings
+//#UC END# *4A97EBE702F8_4AAF6F4E010Etest_impl*
+//#UC START# *4A97EBE702F8_4AAF6F4E010Etest_var*
+//#UC END# *4A97EBE702F8_4AAF6F4E010Etest_var*
+//#UC START# *4AC610DF03A7_4AAF6F4E010E_impl*
+   f_Preview := aData;
+   PreviewPanel.Preview := f_Preview;
+//#UC END# *4AC610DF03A7_4AAF6F4E010E_impl*
+//#UC START# *4AC61241009B_4AAF6F4E010E_impl*
+ Result := (PreviewPanel <> nil) AND PreviewPanel.IsReady and
+           PreviewPanel.Preview.Printer.HasPrinter and
+           not PreviewPanel.Preview.InPrinting;
+//#UC END# *4AC61241009B_4AAF6F4E010E_impl*
+//#UC START# *4AC61241009B_4AAF6F4E010E_var*
+//#UC END# *4AC61241009B_4AAF6F4E010E_var*
+//#UC START# *4AC612AF032F_4AAF6F4E010E_impl*
+ if (f_Preview = nil) AND (PreviewPanel <> nil) then
+  f_Preview := PreviewPanel.Preview;
+ Result := f_Preview;
+//#UC END# *4AC612AF032F_4AAF6F4E010E_impl*
+//#UC START# *4AC612AF032F_4AAF6F4E010E_var*
+//#UC END# *4AC612AF032F_4AAF6F4E010E_var*
+//#UC START# *4BB32C1401C0_4AAF6F4E010Eexec_impl*
+ Result := False;
+//#UC END# *4BB32C1401C0_4AAF6F4E010Eexec_impl*
+//#UC START# *4BB32C1401C0_4AAF6F4E010Eexec_var*
+//#UC END# *4BB32C1401C0_4AAF6F4E010Eexec_var*
+//#UC START# *4BB366A901D7_4AAF6F4E010Eexec_impl*
+ Result := cCanChangeScaleArr[SHevStyles.PrintAndExportDefaultSetting];
+//#UC END# *4BB366A901D7_4AAF6F4E010Eexec_impl*
+//#UC START# *4BB366A901D7_4AAF6F4E010Eexec_var*
+const
+ cCanChangeScaleArr : array[Boolean] of TCanChangeScale = (ccsNo, ccsYesIfPossible);
+//#UC END# *4BB366A901D7_4AAF6F4E010Eexec_var*
+//#UC START# *53F1C6EF02C9_4AAF6F4E010E_impl*
+ Result := str_PrintPreviewTabCaption.AsCStr;
+//#UC END# *53F1C6EF02C9_4AAF6F4E010E_impl*
+//#UC START# *53F1C6EF02C9_4AAF6F4E010E_var*
+//#UC END# *53F1C6EF02C9_4AAF6F4E010E_var*
+//#UC START# *543E3AA801D0_4AAF6F4E010E_impl*
+ Result := NsTabIconIndex(titPrintPreview);
+//#UC END# *543E3AA801D0_4AAF6F4E010E_impl*
+//#UC START# *543E3AA801D0_4AAF6F4E010E_var*
+//#UC END# *543E3AA801D0_4AAF6F4E010E_var*

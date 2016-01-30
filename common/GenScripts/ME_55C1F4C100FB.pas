@@ -1,4 +1,9 @@
-unit MakeCO;
+program MakeCO;
+
+// Модуль: "w:\common\components\MakeCO\MakeCO.dpr"
+// Стереотип: "ExeTarget"
+
+{$Include MakeCO.inc}
 
 interface
 

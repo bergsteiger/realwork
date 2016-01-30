@@ -1,4 +1,9 @@
-unit ExprDraw;
+unit NOT_FINISHED_ExprDraw;
+
+// Модуль: "w:\common\components\rtl\external\Expr\NOT_FINISHED_ExprDraw.pas"
+// Стереотип: "UtilityPack"
+
+{$Include l3Define.inc}
 
 interface
 
@@ -18,7 +23,7 @@ type
   , ecTilde
   , ecLine
  );//TExprCapStyle
- 
+
  TExprBracket = (
   ebNone
   , ebRound
@@ -26,24 +31,24 @@ type
   , ebFigure
   , ebModule
  );//TExprBracket
- 
+
  TExprVertAlign = (
   evTop
   , evCenter
   , evBottom
  );//TExprVertAlign
- 
+
  TExprHorAlign = (
   ehLeft
   , ehCenter
   , ehRight
  );//TExprHorAlign
- 
+
  TExprOrigin = (
   eoTop
   , eoBottom
  );//TExprOrigin
- 
+
  Tl3ExprMetric = (
   tcWidth
   , tcHeight
@@ -58,7 +63,7 @@ type
   , tcSymbolWidth
   , tcSymbolHeight
  );//Tl3ExprMetric
- 
+
  Tl3Expr = class(Tl3Base)
   {* Базовым классом для всех классов библиотеки ExprDraw является Tl3Expr. Он поддерживает следующую
 функциональность: сообщает свои геометрические размеры (свойства Width и Height), параметры,
@@ -76,74 +81,178 @@ PowerYPos, IndexXPos, IndexYPos, CapDXRight, CapDXLeft, CapDY). Если узел не явл
 верхнего или нижнего индекса). Канва также назначается корневому узлу и передаётся всем остальным
 узлам. Геометрические размеры и параметры не могут быть вычислены до того, как дереву назначены
 шрифт и канва. }
-  function FTType: Integer;
-   {* Функция FTType возвращает комбинацию флагов efXXXX, которые используются в библиотеке ExprMake при
+  private
+   f_Next: Tl3Expr;
+    {* Поле для свойства Next }
+   f_Font: TFont;
+    {* Поле для свойства Font }
+   f_Canvas: TCanvas;
+    {* Поле для свойства Canvas }
+  protected
+   procedure pm_SetNext(aValue: Tl3Expr); virtual;
+   function pm_GetColor: Tl3Color; virtual;
+   procedure pm_SetColor(aValue: Tl3Color); virtual;
+   procedure pm_SetFont(aValue: TFont); virtual;
+   procedure pm_SetCanvas(aValue: TCanvas); virtual;
+   function pm_GetWidth: Integer; virtual;
+   function pm_GetHeight: Integer; virtual;
+   function pm_GetMidLineUp: Integer; virtual;
+   function pm_GetMidLineDn: Integer; virtual;
+   function pm_GetPowerXPos: Integer; virtual;
+   function pm_GetPowerYPos: Integer; virtual;
+   function pm_GetIndexXPos: Integer; virtual;
+   function pm_GetIndexYPos: Integer; virtual;
+   function pm_GetCapDXLeft: Integer; virtual;
+   function pm_GetCapDXRight: Integer; virtual;
+   function pm_GetCapDY: Integer; virtual;
+  public
+   function FTType: Integer; virtual;
+    {* Функция FTType возвращает комбинацию флагов efXXXX, которые используются в библиотеке ExprMake при
 перемножении выражений с помощью символа "*". Данные флаги показывают, может ли выражение быть
 умножено без знака слева, справа, является ли оно числом и т.д. }
-  procedure Create;
-  procedure AddNext(aValue: Tl3Expr);
-  function CutOff: Tl3Expr;
-  procedure Draw(X: Integer;
-   Y: Integer;
-   HorAlign: TExprHorAlign;
-   VertAlign: TExprVertAlign);
-   {* Рисует формулу. }
+   constructor Create; reintroduce; virtual;
+   procedure AddNext(aValue: Tl3Expr); virtual;
+   function CutOff: Tl3Expr; virtual;
+   procedure Draw(X: Integer;
+    Y: Integer;
+    HorAlign: TExprHorAlign;
+    VertAlign: TExprVertAlign); virtual;
+    {* Рисует формулу. }
+  public
+   property Next: Tl3Expr
+    read f_Next
+    write pm_SetNext;
+    {* Свойство Next используется для построения цепочек классов. Изменение шрифта или канвы передаются далее по цепочке. }
+   property Color: Tl3Color
+    read pm_GetColor
+    write pm_SetColor;
+    {* Свойство Color определяет цвет, которым будет отображаться выражение. Если задан цвет clNone,
+используется цвет родительского узла. Если для корневого узла задан цвет clNone, используется
+чёрный цвет. }
+   property Font: TFont
+    read f_Font
+    write pm_SetFont;
+    {* Свойства Font и Canvas
+используются для задания шрифта и канвы отображения. По умолчанию используется шрифт Times New Roman,
+использование других гарнитур нежелательно, так как все размеры отсупов рассчитывались именно для
+этой гарнитуры. Изменение стилей шрифта не имеет смысла, так как каждый узел сам устанавливает себе
+стили, определяемые его смысловой нагрузкой. Единственный параметр шрифта, которым имеет смысл
+управлять - это его размер. Размер задаётся только для корневого узла дерева, далее установки
+передаются всем ветвям (узлы ветвей не обязательно получают такой же размер шрифта, что и корень: в
+некоторых случаях предусмотрено изменение размеров шрифта дочерних узлов, например, при добавлении
+верхнего или нижнего индекса). Канва также назначается корневому узлу и передаётся всем остальным
+узлам. Геометрические размеры и параметры не могут быть вычислены до того, как дереву назначены
+шрифт и канва. }
+   property Canvas: TCanvas
+    read f_Canvas
+    write pm_SetCanvas;
+    {* Свойства Font и Canvas
+используются для задания шрифта и канвы отображения. По умолчанию используется шрифт Times New Roman,
+использование других гарнитур нежелательно, так как все размеры отсупов рассчитывались именно для
+этой гарнитуры. Изменение стилей шрифта не имеет смысла, так как каждый узел сам устанавливает себе
+стили, определяемые его смысловой нагрузкой. Единственный параметр шрифта, которым имеет смысл
+управлять - это его размер. Размер задаётся только для корневого узла дерева, далее установки
+передаются всем ветвям (узлы ветвей не обязательно получают такой же размер шрифта, что и корень: в
+некоторых случаях предусмотрено изменение размеров шрифта дочерних узлов, например, при добавлении
+верхнего или нижнего индекса). Канва также назначается корневому узлу и передаётся всем остальным
+узлам. Геометрические размеры и параметры не могут быть вычислены до того, как дереву назначены
+шрифт и канва. }
+   property Width: Integer
+    read pm_GetWidth;
+    {* Ширина отрендеренной формулы. }
+   property Height: Integer
+    read pm_GetHeight;
+    {* Высота отрендеренной формулы. }
+   property MidLineUp: Integer
+    read pm_GetMidLineUp;
+    {* MidLineUp, MidLineDown - расстояния (в пихелях) от средней линии до верхнего и нижнего края выражения.
+Средняя линия - это линия, на которой должен стоять знак "-", если его поставить перед выражением. }
+   property MidLineDn: Integer
+    read pm_GetMidLineDn;
+    {* MidLineUp, MidLineDown - расстояния (в пихелях) от средней линии до верхнего и нижнего края выражения.
+Средняя линия - это линия, на которой должен стоять знак "-", если его поставить перед выражением. }
+   property PowerXPos: Integer
+    read pm_GetPowerXPos;
+    {* PowerXPos, PowerYPos - если выражению добавляется верхний индекс, то эти параметры используются при
+расчёте его положения. }
+   property PowerYPos: Integer
+    read pm_GetPowerYPos;
+    {* PowerXPos, PowerYPos - если выражению добавляется верхний индекс, то эти параметры используются при
+расчёте его положения. }
+   property IndexXPos: Integer
+    read pm_GetIndexXPos;
+    {* IndexXPos, IndexYPos - аналогичная пара для нижнего индекса. }
+   property IndexYPos: Integer
+    read pm_GetIndexYPos;
+    {* IndexXPos, IndexYPos - аналогичная пара для нижнего индекса. }
+   property CapDXLeft: Integer
+    read pm_GetCapDXLeft;
+    {* CapDXLeft, CapDXRight, CapDY - параметры, использующиеся для позиционирования диакритического знака
+(вектора, тильды и т.п.), если он ставится над выражением. }
+   property CapDXRight: Integer
+    read pm_GetCapDXRight;
+    {* CapDXLeft, CapDXRight, CapDY - параметры, использующиеся для позиционирования диакритического знака
+(вектора, тильды и т.п.), если он ставится над выражением. }
+   property CapDY: Integer
+    read pm_GetCapDY;
+    {* CapDXLeft, CapDXRight, CapDY - параметры, использующиеся для позиционирования диакритического знака
+(вектора, тильды и т.п.), если он ставится над выражением. }
  end;//Tl3Expr
- 
+
  TExprStrokes = class(Tl3Expr)
   {* Класс TExprStrokes предназначен для отображения чёрточек, которыми обозначается производная.
 Используется совместно с классом TExprIndex: функция задаётся в TExprIndex.Son, TExprStrokes
 используется как верхний индекс. }
  end;//TExprStrokes
- 
+
  TExprSpace = class(Tl3Expr)
   {* Класс TExprSpace предназначен для разрядки, вставки в формулу пустого пространства. Параметр
 конструктора Space задаёт ширину этого пробела в единицах ширины (одна единица ширины примерно равна
 ширине вертикальной линии в символе "+"). }
  end;//TExprSpace
- 
+
  TExprNumber = class(Tl3Expr)
   {* Класс TExprNumber предназначен для отображения чисел в обычной или экспоненциальной форме. Если
 параметр конструктора ExpVal равен True, используется экспоненциальная форма, в противном случае -
 обычная. }
  end;//TExprNumber
- 
+
  TExprExpNumber = class(TExprNumber)
   {* Класс TExprExpNumber является наследником TExprNumber. Служит для отображения чисел с возможностью
 гибкого управления форматированием числа. }
  end;//TExprExpNumber
- 
+
  TExprEmpty = class(Tl3Expr)
   {* Класс TExprEmpty используется для отображения выражения с нулевой шириной, но высотой, равной высоте
 обычного текста. Используется вместе с TExprIndex для создания индексов, "висящих в воздухе". }
  end;//TExprEmpty
- 
+
  TExprSimple = class(Tl3Expr)
   {* Класс TExprSimple служит для отображения плоского текста. Текст выводится прямым шрифтом. }
  end;//TExprSimple
- 
+
  TExprFuncName = class(TExprSimple)
   {* Класс TExprFuncName является наследником класса TExprSimple. Он реализует имя функции в том случае,
 когда оно пишется прямым шрифтом. Переопределена функция ArgNeedBrackets таким образом, чтобы аргумент
 не заключался в скобки, если это не является необходимым. Чтобы аргумент мог воспользоваться
 результатом, возвращаемым функцией TExprFuncName.ArgNeedBrackets, он должен иметь тип TExprArgument. }
  end;//TExprFuncName
- 
+
  TExprCustomText = class(TExprSimple)
   {* Класс TExprCustomText является наследником TExprSimple. С его помощью можно вывести текст с любыми атрибутами и любой гарнитурой. }
  end;//TExprCustomText
- 
+
  TExprVar = class(TExprSimple)
   {* Класс TExprVar является наследником TExprSimple. Главное отличие - текст выводится не прямым шрифтом,
 а курсивом, как это принято при отображении переменных в выражениях. }
  end;//TExprVar
- 
+
  TExprAsterix = class(TExprSimple)
   {* Класс TExprAsterix является наследником класса TExprSimple. Предназначен для отображения звёздочки (*),
 смещённой по горизонтали. Эта звёздочка используется в качестве верхнего индекса (в квантовой механике
 звёздочкой в верхнем индексе принято обозначать сопряжённые величины). }
  end;//TExprAsterix
- 
+
  TExprParent = class(Tl3Expr)
   {* Класс TExprParent является базовым классом для всех компонентов-родителей. Свойство Son этого класса
 хранит указатель на дочерний узел дерева выражения. Создавать экземпляры TExprParent не имеет смысла,
@@ -164,7 +273,7 @@ PowerYPos, IndexXPos, IndexYPos, CapDXRight, CapDXLeft, CapDY). Если узел не явл
 А свойство Son используется для задания выражения, являющегося частью того выражения, которое
 задаётся классом. }
  end;//TExprParent
- 
+
  TExprCap = class(TExprParent)
   {* Класс TExprCap является наследником TExprParent. Рисует над выражением, на которое указывает Son,
 диакритический знак. Возможны следующие знаки:
@@ -178,7 +287,7 @@ ecLine - прямая линия
 Конструктор содержит параметр Count, который задаёт число точек при стиле ecPoints. При прочих стилях
 этот параметр игнорируется. }
  end;//TExprCap
- 
+
  TExprMatrix = class(TExprParent)
   {* TExprMatrix является наследником TExprParent. Предназначен для вывода матрицы. Размеры матрицы
 определяются параметрами конструктора HorSize и VertSize. Левый верхний элемент матрицы задаётся
@@ -188,7 +297,7 @@ ecLine - прямая линия
 Если цепочка содержит меньше элементов, чем HorSize*VertSize, ячейки, на которые не хватило узлов,
 будут пустыми. }
  end;//TExprMatrix
- 
+
  TExprCase = class(TExprParent)
   {* Класс TExprCase является наслдеником TExprParent. Этот класс используется для отображения вариантной
 конструкции: несколько выражений обводятся слева фигурной скобкой, после каждого ставится условие,
@@ -196,14 +305,14 @@ ecLine - прямая линия
 применимости, Son.Next.Next - на второй вариант, Son.Next.Next.Next - на условие его применимости
 и т.д. Если цепочка содержит нечётное число узлов, последний вариант остаётся без условия. }
  end;//TExprCase
- 
+
  TExprStand = class(TExprParent)
   {* Класс TExprStand является наследником TExprParent. Предназначен для вывода нескольких выражений в
 виде столбика. Первым выводится выражение, на которое указывает Son, под ним - Son.Next, ещё ниже -
 Son.Next.Next и так далее до конца цепочки. Параметр конструктора Align показывает, будут ли выражения
 выравниваться по левому краю, по правому краю или по центру. }
  end;//TExprStand
- 
+
  TExprExtSymbol = class(Tl3Expr)
   {* Класс TExprExtSymbol используется для отображения одиночных символов, которых нет в стандартной
 кодировке ANSI. В TExprExtSymbol используется кодировка Unicode. Символы выводятся прямым шрифтом.
@@ -229,30 +338,30 @@ esEllipsis - многоточие
 esInfinum - бесконечность
 esPartDiff - знак "частного дифференциала" (округлая d) }
  end;//TExprExtSymbol
- 
+
  TExprPlank = class(TExprExtSymbol)
   {* Класс TExprPlank является наследником TExprExtSymbol. Предназначен для отображения "h с чертой",
 которая часто используется в квантовой механике. Выводится курсивом. }
  end;//TExprPlank
- 
+
  TExprNabla = class(TExprExtSymbol)
   {* Класс TExprNabla является наследником TExprExtSymbol. Предназначен для отображения символа "набла".
 Такой символ отсутсвует в кодировке Unicode, поэтому для отображения используется заглавная греческая
 дельта, повёрнутая на 180 градусов. }
  end;//TExprNabla
- 
+
  TExprLambda = class(TExprExtSymbol)
   {* Класс TExprLambda является наследником TExprExtSymbol. Предназначен для отображения "лямбды с чертой",
 которая часто используется в квантовой механике. Такой символ отсутсвует в наборе Unicode, поэтому
 черта к лямбде пририсовывается вручную. }
  end;//TExprLambda
- 
+
  TExprComma = class(TExprExtSymbol)
   {* Класс TExprComma является наслдеником TExprExtSymbol. Предназначен для отображения запятой.
 Переопределена функция NeedBrackets (чтобы выражения, содержащие запятую, заключались при необходимости
 в скобки). }
  end;//TExprComma
- 
+
  TExprSign = class(TExprExtSymbol)
   {* Класс TExprSign является наследником TExprExtSymbol. Предназначен для отображения различных символов,
 в том числе и тех, которых нет в кодировке Unicode. Некоторыеиз таких символов получаются из имеющихся
@@ -274,41 +383,41 @@ esParallel - знак "параллельно" (две вертикальные черты)
 esPerpendicular - знак "перпендикулярно" (горизонтальная черта внизу и вертикальная посередине)
 esAngle - знак угла }
  end;//TExprSign
- 
+
  TExprChain = class(TExprParent)
   {* Класс TExprChain является наследником TExprParent. Этот класс служит для отображения цепочки выражений.
 Первым в цепочке выводится Son, затем Son.Next, затем - Son.Next.Next и так далее, пока не будет
 достигнут конец цепочки. }
  end;//TExprChain
- 
+
  TExprBigParent = class(TExprParent)
   {* Класс TExprBigParent является наследником класса TExprParent. В нём добавлена ссылка на ещё один
 дочерний узел - свойство Daughter. Этот класс является базовым для реализации выражений, в которых
 есть две составные части. Примером такого выражения может служить простая дробь, в которой одно из
 дочерних выражений определяет числитель, а другое - знаменатель. }
  end;//TExprBigParent
- 
+
  TExprLim = class(TExprParent)
   {* Класс TExprLim является наследником TExprParent. Этот класс реализует знак предела (lim), а под ним -
 выражение, на которое указывает Son. Класс разработан для совместного использования с TExprCommonFunc:
 TExprCommonFunc.Son указывает на экземпляр TExprLim, а TExprCommonFunc.Daughter - на выражение, для
 которого вычисляется предел. }
  end;//TExprLim
- 
+
  TExprTwinParent = class(TExprParent)
   {* Класс TExprTwinParent является наследником класса TExprParent. В нём добавлены указатели на два
 дочерних узла-близнеца. Примером выражения, для которого может понадобиться такой класс, является
 индексированное выражение. Son ссылается на то выражение, которому добавляются индексы, а Twin1 и
 Twin2 - на верхний и нижний индексы. }
  end;//TExprTwinParent
- 
+
  TExprIndex = class(TExprTwinParent)
   {* Класс TExprIndex является наследником TExprTwinParent. Используется для отображения выражений с верхним
 или нижним индексом. Son указывает на выражение, которому добавляются индексы, Twin1 - нижний индекс,
 Twin2 - верхний индекс. Twin1 или Twin2 могут быть равны nil - в этом случае выражению добаляется
 только один индекс. Верхний индекс также используется как показатель степени. }
  end;//TExprIndex
- 
+
  TExprGroupOp = class(TExprTwinParent)
   {* Класс TExprGroupOp является наследником класса TExprTwinParent. Это базовый класс для всех выражений
 типа суммы или интеграла. Все эти выражения характеризуются строятся одинаково: Son указывает на
@@ -316,26 +425,26 @@ Twin2 - верхний индекс. Twin1 или Twin2 могут быть равны nil - в этом случае выр
 Twin1 и Twin2 могут быть равны nil одновременно или по одному. В этом случае под знаком и/или над
 ним ничего не пишется. }
  end;//TExprGroupOp
- 
+
  TExprIntegral = class(TExprGroupOp)
   {* Класс TExprIntegral яаляется наследником TExprGroupOp. Реализует однократный или многократный
 интеграл. Параметр коснтруктора Mult задаёт кратность интеграла. Если Mult<=0, рисуется символ
 интеграла неопределённой кратности (два символа интеграла, многоточие, ещё один символ интеграла). }
  end;//TExprIntegral
- 
+
  TExprSumma = class(TExprGroupOp)
   {* Класс TExprSumma является наследником TExprGroupOp. Реализует сумму (с помощью греческой буквы сигма). }
  end;//TExprSumma
- 
+
  TExprProd = class(TExprGroupOp)
   {* Класс TExprProd является наследником TExprGroupOp. Реализует произведение (с помощью греческой буквы
 пи). }
  end;//TExprProd
- 
+
  TExprCirc = class(TExprGroupOp)
   {* Класс TExprCirc является наследником TExprGroupOp. Реализует циркуляцию (интеграл с колечком). }
  end;//TExprCirc
- 
+
  TExprBracketed = class(TExprChain)
   {* Класс TExprBracketed является наследником TExprChain. Он выводит цепочку выражений, заключённую в
 скобки. Возможны круглые, квадратные, фигурные и прямые скобки (задаются константами ebXXXX).
@@ -343,30 +452,30 @@ Twin1 и Twin2 могут быть равны nil одновременно или по одному. В этом случае под
 Возможен также вариант, когда скобка стоит только с одной стороны выражения. Выражение заключается
 в скобки только в том случае, если функция IsBracketed возвращает True. }
  end;//TExprBracketed
- 
+
  TExprRatio = class(TExprBigParent)
   {* Класс TExprRatio является наследником класса TExprBigParent. Реализует простую дробь. Son указывает на
 числитель, Daughter - на знаменатель. }
  end;//TExprRatio
- 
+
  TExprRoot = class(TExprBigParent)
   {* Класс TExprRoot является наследником класса TExprBigParent. Реализует извлечение корня. Son указывает
 на подкоренное выражение, Daughter - на показатель степени корня. Для Daughter допускается значение
 nil. В этом случае показатель степени перед корнем не ставится (квадратный корень). }
  end;//TExprRoot
- 
+
  TExprAtValue = class(TExprBigParent)
   {* Класс TExprAtValue является наследником класса TExprBigParent. Реализует "значение при условии".
 Отображается это следующим образом: после выражения, на которое указывает Son, ставится вертикальная
 черта, а справа от неё внизу пишется выражение, на которое указывает Daughter. }
  end;//TExprAtValue
- 
+
  TExprCommonFunc = class(TExprBigParent)
   {* Класс TExprCommonFunc является наследником класса TExprBigParent. Он реализует "общую" функцию,
 в качестве "имени" которой может использоваться любое выражение. Son указывает на "имя" функции,
 Daughter - на её аргумент. }
  end;//TExprCommonFunc
- 
+
  TExprFunc = class(TExprCommonFunc)
   {* Класс TExprFunc является наследником TExprCommonFunc. Он реализует традиционную функцию, имя которой
 является обычной комбинацией букв. Конструктор сам создаёт класс нужного типа для отображения имени
@@ -375,12 +484,12 @@ TExprFuncName. В первом случае имя функции пишется курсивом, а аргумент всегда з
 так как в классе TExprVar функция ArgNeedBrackets не переопределена соответствующим образом. Во втором
 случае имя функции пишется прямым шрифтом, а аргумент заключается в скобки лишь при необходимости. }
  end;//TExprFunc
- 
+
  TExprRound = class(TExprBracketed)
   {* Класс TExprRound является наследником TExprBracketed. Он переопределяет функцию FTType. Этот класс
 используется библиотекой ExprMake при сокращении лишних скобок. }
  end;//TExprRound
- 
+
  TExprArgument = class(TExprBracketed)
   {* Класс TExprArgument является наследником TExprBracketed. В нём переопределён конструктор таким образом,
 чтобы скобки всегда были круглыми. Кроме того, переопределена функция IsBracketed таким образом, чтобы
@@ -404,7 +513,7 @@ Son, нуждается в скобках (т.е. его функция NeedBrackets возвращает True). В скоб
 TExprChain. Но при автоматизированном построении дерева (например, с помощью библиотеки ExprMake)
 данный класс может быть очень полезным. }
  end;//TExprArgument
- 
+
  TExprBase = class(TExprBracketed)
   {* Класс TExprBase является наследником TExprBracketed. Он отображает выражение, заключённое в круглые
 скобки, если цепочка, на которую указывает Son, содержит более одного узла. В противном случае
@@ -413,15 +522,211 @@ TExprChain. Но при автоматизированном построении дерева (например, с помощью биб
 
 Класс TExprBase, как и TExprArgument, предназначен только для автоматизации построения дерева. }
  end;//TExprBase
- 
+
  TExprContainer = class
  end;//TExprContainer
- 
+
 implementation
 
 uses
  l3ImplUses
  , l3Drawer
 ;
+
+procedure Tl3Expr.pm_SetNext(aValue: Tl3Expr);
+//#UC START# *473DB85F009F_47398921031Eset_var*
+//#UC END# *473DB85F009F_47398921031Eset_var*
+begin
+//#UC START# *473DB85F009F_47398921031Eset_impl*
+ f_Next := aValue;
+//#UC END# *473DB85F009F_47398921031Eset_impl*
+end;//Tl3Expr.pm_SetNext
+
+function Tl3Expr.pm_GetColor: Tl3Color;
+//#UC START# *473DB86E0051_47398921031Eget_var*
+//#UC END# *473DB86E0051_47398921031Eget_var*
+begin
+//#UC START# *473DB86E0051_47398921031Eget_impl*
+ assert(false, 'Tl3Expr.pm_GetColor not implemented');
+//#UC END# *473DB86E0051_47398921031Eget_impl*
+end;//Tl3Expr.pm_GetColor
+
+procedure Tl3Expr.pm_SetColor(aValue: Tl3Color);
+//#UC START# *473DB86E0051_47398921031Eset_var*
+//#UC END# *473DB86E0051_47398921031Eset_var*
+begin
+//#UC START# *473DB86E0051_47398921031Eset_impl*
+ assert(false, 'Tl3Expr.pm_SetColor not implemented');
+//#UC END# *473DB86E0051_47398921031Eset_impl*
+end;//Tl3Expr.pm_SetColor
+
+procedure Tl3Expr.pm_SetFont(aValue: TFont);
+//#UC START# *473DB87F03DA_47398921031Eset_var*
+//#UC END# *473DB87F03DA_47398921031Eset_var*
+begin
+//#UC START# *473DB87F03DA_47398921031Eset_impl*
+ f_Font := aValue;
+//#UC END# *473DB87F03DA_47398921031Eset_impl*
+end;//Tl3Expr.pm_SetFont
+
+procedure Tl3Expr.pm_SetCanvas(aValue: TCanvas);
+//#UC START# *473DB88D0113_47398921031Eset_var*
+//#UC END# *473DB88D0113_47398921031Eset_var*
+begin
+//#UC START# *473DB88D0113_47398921031Eset_impl*
+ f_Canvas := aValue;
+//#UC END# *473DB88D0113_47398921031Eset_impl*
+end;//Tl3Expr.pm_SetCanvas
+
+function Tl3Expr.pm_GetWidth: Integer;
+//#UC START# *473DB89D02ED_47398921031Eget_var*
+//#UC END# *473DB89D02ED_47398921031Eget_var*
+begin
+//#UC START# *473DB89D02ED_47398921031Eget_impl*
+ assert(false, 'Tl3Expr.pm_GetWidth not implemented');
+//#UC END# *473DB89D02ED_47398921031Eget_impl*
+end;//Tl3Expr.pm_GetWidth
+
+function Tl3Expr.pm_GetHeight: Integer;
+//#UC START# *473DB8B30353_47398921031Eget_var*
+//#UC END# *473DB8B30353_47398921031Eget_var*
+begin
+//#UC START# *473DB8B30353_47398921031Eget_impl*
+ assert(false, 'Tl3Expr.pm_GetHeight not implemented');
+//#UC END# *473DB8B30353_47398921031Eget_impl*
+end;//Tl3Expr.pm_GetHeight
+
+function Tl3Expr.pm_GetMidLineUp: Integer;
+//#UC START# *473DB8FE02D9_47398921031Eget_var*
+//#UC END# *473DB8FE02D9_47398921031Eget_var*
+begin
+//#UC START# *473DB8FE02D9_47398921031Eget_impl*
+ assert(false, 'Tl3Expr.pm_GetMidLineUp not implemented');
+//#UC END# *473DB8FE02D9_47398921031Eget_impl*
+end;//Tl3Expr.pm_GetMidLineUp
+
+function Tl3Expr.pm_GetMidLineDn: Integer;
+//#UC START# *473DB90D0135_47398921031Eget_var*
+//#UC END# *473DB90D0135_47398921031Eget_var*
+begin
+//#UC START# *473DB90D0135_47398921031Eget_impl*
+ assert(false, 'Tl3Expr.pm_GetMidLineDn not implemented');
+//#UC END# *473DB90D0135_47398921031Eget_impl*
+end;//Tl3Expr.pm_GetMidLineDn
+
+function Tl3Expr.pm_GetPowerXPos: Integer;
+//#UC START# *473DB91702CA_47398921031Eget_var*
+//#UC END# *473DB91702CA_47398921031Eget_var*
+begin
+//#UC START# *473DB91702CA_47398921031Eget_impl*
+ assert(false, 'Tl3Expr.pm_GetPowerXPos not implemented');
+//#UC END# *473DB91702CA_47398921031Eget_impl*
+end;//Tl3Expr.pm_GetPowerXPos
+
+function Tl3Expr.pm_GetPowerYPos: Integer;
+//#UC START# *473DB92400E8_47398921031Eget_var*
+//#UC END# *473DB92400E8_47398921031Eget_var*
+begin
+//#UC START# *473DB92400E8_47398921031Eget_impl*
+ assert(false, 'Tl3Expr.pm_GetPowerYPos not implemented');
+//#UC END# *473DB92400E8_47398921031Eget_impl*
+end;//Tl3Expr.pm_GetPowerYPos
+
+function Tl3Expr.pm_GetIndexXPos: Integer;
+//#UC START# *473DB92F0134_47398921031Eget_var*
+//#UC END# *473DB92F0134_47398921031Eget_var*
+begin
+//#UC START# *473DB92F0134_47398921031Eget_impl*
+ assert(false, 'Tl3Expr.pm_GetIndexXPos not implemented');
+//#UC END# *473DB92F0134_47398921031Eget_impl*
+end;//Tl3Expr.pm_GetIndexXPos
+
+function Tl3Expr.pm_GetIndexYPos: Integer;
+//#UC START# *473DB93C01DD_47398921031Eget_var*
+//#UC END# *473DB93C01DD_47398921031Eget_var*
+begin
+//#UC START# *473DB93C01DD_47398921031Eget_impl*
+ assert(false, 'Tl3Expr.pm_GetIndexYPos not implemented');
+//#UC END# *473DB93C01DD_47398921031Eget_impl*
+end;//Tl3Expr.pm_GetIndexYPos
+
+function Tl3Expr.pm_GetCapDXLeft: Integer;
+//#UC START# *473DB94602C8_47398921031Eget_var*
+//#UC END# *473DB94602C8_47398921031Eget_var*
+begin
+//#UC START# *473DB94602C8_47398921031Eget_impl*
+ assert(false, 'Tl3Expr.pm_GetCapDXLeft not implemented');
+//#UC END# *473DB94602C8_47398921031Eget_impl*
+end;//Tl3Expr.pm_GetCapDXLeft
+
+function Tl3Expr.pm_GetCapDXRight: Integer;
+//#UC START# *473DB9560299_47398921031Eget_var*
+//#UC END# *473DB9560299_47398921031Eget_var*
+begin
+//#UC START# *473DB9560299_47398921031Eget_impl*
+ assert(false, 'Tl3Expr.pm_GetCapDXRight not implemented');
+//#UC END# *473DB9560299_47398921031Eget_impl*
+end;//Tl3Expr.pm_GetCapDXRight
+
+function Tl3Expr.pm_GetCapDY: Integer;
+//#UC START# *473DB97D0187_47398921031Eget_var*
+//#UC END# *473DB97D0187_47398921031Eget_var*
+begin
+//#UC START# *473DB97D0187_47398921031Eget_impl*
+ assert(false, 'Tl3Expr.pm_GetCapDY not implemented');
+//#UC END# *473DB97D0187_47398921031Eget_impl*
+end;//Tl3Expr.pm_GetCapDY
+
+function Tl3Expr.FTType: Integer;
+ {* Функция FTType возвращает комбинацию флагов efXXXX, которые используются в библиотеке ExprMake при
+перемножении выражений с помощью символа "*". Данные флаги показывают, может ли выражение быть
+умножено без знака слева, справа, является ли оно числом и т.д. }
+//#UC START# *473DB9890039_47398921031E_var*
+//#UC END# *473DB9890039_47398921031E_var*
+begin
+//#UC START# *473DB9890039_47398921031E_impl*
+ assert(false, 'Tl3Expr.FTType not implemented');
+//#UC END# *473DB9890039_47398921031E_impl*
+end;//Tl3Expr.FTType
+
+constructor Tl3Expr.Create;
+//#UC START# *473DB99802C6_47398921031E_var*
+//#UC END# *473DB99802C6_47398921031E_var*
+begin
+//#UC START# *473DB99802C6_47398921031E_impl*
+ assert(false, 'Tl3Expr.Create not implemented');
+//#UC END# *473DB99802C6_47398921031E_impl*
+end;//Tl3Expr.Create
+
+procedure Tl3Expr.AddNext(aValue: Tl3Expr);
+//#UC START# *473DB9A80279_47398921031E_var*
+//#UC END# *473DB9A80279_47398921031E_var*
+begin
+//#UC START# *473DB9A80279_47398921031E_impl*
+ assert(false, 'Tl3Expr.AddNext not implemented');
+//#UC END# *473DB9A80279_47398921031E_impl*
+end;//Tl3Expr.AddNext
+
+function Tl3Expr.CutOff: Tl3Expr;
+//#UC START# *473DB9B700A4_47398921031E_var*
+//#UC END# *473DB9B700A4_47398921031E_var*
+begin
+//#UC START# *473DB9B700A4_47398921031E_impl*
+ assert(false, 'Tl3Expr.CutOff not implemented');
+//#UC END# *473DB9B700A4_47398921031E_impl*
+end;//Tl3Expr.CutOff
+
+procedure Tl3Expr.Draw(X: Integer;
+ Y: Integer;
+ HorAlign: TExprHorAlign;
+ VertAlign: TExprVertAlign);
+ {* Рисует формулу. }
+//#UC START# *473DBBB100F1_47398921031E_var*
+//#UC END# *473DBBB100F1_47398921031E_var*
+begin
+//#UC START# *473DBBB100F1_47398921031E_impl*
+ assert(false, 'Tl3Expr.Draw not implemented');
+//#UC END# *473DBBB100F1_47398921031E_impl*
+end;//Tl3Expr.Draw
 
 end.

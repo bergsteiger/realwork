@@ -1,4 +1,10 @@
-unit evNSRCGenerator;
+unit NOT_FINISHED_evNSRCGenerator;
+ {* Фильтр для записи текста в формате NSRC. Для конечного использования. }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evNSRCGenerator.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -11,7 +17,7 @@ type
  TevNSRCGenerator = class(TevCustomNSRCWriter)
   {* Фильтр для записи текста в формате NSRC. Для конечного использования. }
  end;//TevNSRCGenerator
- 
+
 implementation
 
 uses

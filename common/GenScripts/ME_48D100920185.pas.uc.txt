@@ -1,0 +1,107 @@
+//#UC START# *479731C50290_48D103950150_impl*
+ f_Para := nil;
+ inherited; 
+//#UC END# *479731C50290_48D103950150_impl*
+//#UC START# *479731C50290_48D103950150_var*
+//#UC END# *479731C50290_48D103950150_var*
+//#UC START# *47C68E0C02E2_48D103950150_impl*
+ l_Segment := aMap.ViewSegments.rAtomEx([k2_tiChildren, l3_siNative, f_Position]);
+ if l_Segment.IsValid then
+  Result := TnevFontPrim.Make(aMap.InfoForChild(TnevSegmentObject.Make(l_Segment)).GetObjFont(false).Font)
+ else
+  Result := TnevFontPrim.Make(aMap.GetObjFont(false).Font);
+//#UC END# *47C68E0C02E2_48D103950150_impl*
+//#UC START# *47C68E0C02E2_48D103950150_var*
+var
+ l_Segment : Tl3Variant;
+//#UC END# *47C68E0C02E2_48D103950150_var*
+//#UC START# *47C68E3402A5_48D103950150_impl*
+ Result := f_Para.AsObject.Attr[k2_tiStyle];
+//#UC END# *47C68E3402A5_48D103950150_impl*
+//#UC START# *47C68E3402A5_48D103950150_var*
+//#UC END# *47C68E3402A5_48D103950150_var*
+//#UC START# *47C68E3D0279_48D103950150_impl*
+ Result := nil;
+//#UC END# *47C68E3D0279_48D103950150_impl*
+//#UC START# *47C68E3D0279_48D103950150_var*
+//#UC END# *47C68E3D0279_48D103950150_var*
+//#UC START# *47C6AB76032D_48D100920185get_impl*
+ Result := TnevTextParaFormatting.Make(Self, aPosition);
+//#UC END# *47C6AB76032D_48D100920185get_impl*
+//#UC START# *47C6AB76032D_48D100920185get_var*
+//#UC END# *47C6AB76032D_48D100920185get_var*
+//#UC START# *48CF9F4F01D0_48D100920185_impl*
+ Result := l3IsNil(pm_GetText);
+//#UC END# *48CF9F4F01D0_48D100920185_impl*
+//#UC START# *48CF9F4F01D0_48D100920185_var*
+//#UC END# *48CF9F4F01D0_48D100920185_var*
+//#UC START# *48CFB17F03A2_48D100920185_impl*
+ Result := (GetRedirect.IntA[k2_tiJustification] = Ord(ev_itPreformatted));
+//#UC END# *48CFB17F03A2_48D100920185_impl*
+//#UC START# *48CFB17F03A2_48D100920185_var*
+//#UC END# *48CFB17F03A2_48D100920185_var*
+//#UC START# *48D0F8DF01AF_48D100920185_impl*
+ if (aHiddenStyles <> []) then
+ begin
+  Result := inherited GetIsHidden(aMap, aHiddenStyles);
+  if not Result then
+  begin
+   if (aMap <> nil) then
+    with aMap.ViewSegments do
+     if IsValid then
+      IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@CheckSegment));
+  end;//not Result
+ end//aHiddenStyles <> []
+ else
+  Result := false;
+//#UC END# *48D0F8DF01AF_48D100920185_impl*
+//#UC START# *48D0F8DF01AF_48D100920185_var*
+var
+ l_Hidden : Boolean absolute Result;
+
+ function CheckSegment(aSegment: Tl3Variant; Index: Integer): Boolean;
+ begin//CheckSegment
+  Result := false;
+  l_Hidden := (Pred(aSegment.IntA[k2_tiStart]) <= 0) AND
+              SegmentIsHidden(aSegment, aHiddenStyles);
+ end;//CheckSegment
+
+//#UC END# *48D0F8DF01AF_48D100920185_var*
+//#UC START# *48D10D19009B_48D103950150_impl*
+ inherited Create;
+ f_Para := aPara;
+ f_Position := aPosition;
+//#UC END# *48D10D19009B_48D103950150_impl*
+//#UC START# *48D10D19009B_48D103950150_var*
+//#UC END# *48D10D19009B_48D103950150_var*
+//#UC START# *49E59D7F009F_48D100920185_impl*
+ Result := false;
+ if (aHiddenStyles <> []) then
+ begin
+  if (-aSegment.IntA[k2_tiStyle] in aHiddenStyles) then
+  begin
+   Result := true;
+  end//-aSegment.IntA[k2_tiStyle]..
+  else
+  begin
+   // - заплатка для отключения ссылок в комментариях юристов
+   l_Layer := evSegments_GetLayer(TagInst.Attr[k2_tiSegments], ev_slView);
+   if l_Layer.IsValid AND (l_Layer.ChildrenCount >= 1) then
+   begin
+    l_Child := l_Layer.Child[0];
+    if (l_Child.IntA[k2_tiStart] <= 1) AND
+       TagIsHidden(l_Child, aHiddenStyles) then
+    begin
+     Result := true;
+    end;//IntA[k2_tiStart] <= 1..
+   end;//l_Layer.IsValid
+  end;//aSegment.IntA[k2_tiStyle]..
+ end;//aHiddenStyles <> []
+//#UC END# *49E59D7F009F_48D100920185_impl*
+//#UC START# *49E59D7F009F_48D100920185_var*
+//#UC END# *49E59D7F009F_48D100920185_var*
+//#UC START# *4D7255870102_48D100920185_impl*
+ Result := TagInst.PCharLenA[k2_tiText];
+//#UC END# *4D7255870102_48D100920185_impl*
+//#UC START# *4D7255870102_48D100920185_var*
+//#UC END# *4D7255870102_48D100920185_var*

@@ -1,0 +1,23 @@
+//#UC START# *5628D14D0151_5629E343023B_impl*
+ l_Result:= GlobalHtServer.xxxCheckArchivariusPassword(aLogin, aPassword, RequireAdminRights);
+ if l_Result then
+  Result := da_leOk
+ else
+ begin
+  if RequireAdminRights and GlobalHtServer.xxxCheckArchivariusPassword(aLogin, aPassword, False) then
+   Result := da_leInsufficientRights
+  else
+   Result := da_leUserParamsWrong;
+ end;
+ theUserID := GlobalHTServer.xxxUserID;
+//#UC END# *5628D14D0151_5629E343023B_impl*
+//#UC START# *5628D14D0151_5629E343023B_var*
+var
+ l_Result: Boolean;
+//#UC END# *5628D14D0151_5629E343023B_var*
+//#UC START# *5629F0F901C8_5629E343023B_impl*
+ inherited Create;
+// !!! Needs to be implemented !!!
+//#UC END# *5629F0F901C8_5629E343023B_impl*
+//#UC START# *5629F0F901C8_5629E343023B_var*
+//#UC END# *5629F0F901C8_5629E343023B_var*

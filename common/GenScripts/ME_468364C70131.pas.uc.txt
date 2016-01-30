@@ -1,0 +1,75 @@
+//#UC START# *48FF458602EC_468364C70131_impl*
+ inherited;
+ if aSource is TnsAttributeTreeStruct then
+  AssignInfo(aSource as InsTaggedTreeInfo);
+//#UC END# *48FF458602EC_468364C70131_impl*
+//#UC START# *48FF458602EC_468364C70131_var*
+//#UC END# *48FF458602EC_468364C70131_var*
+//#UC START# *48FF4C25031E_468364C70131_impl*
+ Result := TnsAttributeTreeFilters.Make;
+//#UC END# *48FF4C25031E_468364C70131_impl*
+//#UC START# *48FF4C25031E_468364C70131_var*
+//#UC END# *48FF4C25031E_468364C70131_var*
+//#UC START# *48FF520E03A0_468364C70131_impl*
+ inherited;
+ if Supports(aFilters, InsAttributeTreeFilters, l_Filters) then
+  case l_Filters.FIlterType of
+   ns_ftTrim: anAdapterFilters.Trim.SetIsTrimmed(True);
+   ns_ftTrimLeaf: anAdapterFilters.MakeTrimLeafFilter;
+   ns_ftBlocks: anAdapterFilters.MakeBlocksFilter;
+   ns_ftInpharm: anAdapterFilters.MakeInpharmFilter;
+  end;
+//#UC END# *48FF520E03A0_468364C70131_impl*
+//#UC START# *48FF520E03A0_468364C70131_var*
+var
+ l_Filters: InsAttributeTreeFilters;
+//#UC END# *48FF520E03A0_468364C70131_var*
+//#UC START# *48FF56D003E6_468364C70131_impl*
+ Result := nsEStr(Tag);
+//#UC END# *48FF56D003E6_468364C70131_impl*
+//#UC START# *48FF56D003E6_468364C70131_var*
+//#UC END# *48FF56D003E6_468364C70131_var*
+//#UC START# *48FF64E700E5_468364C70131_impl*
+ TnsAttributeTreeCacheNew.Instance.Clear;
+ inherited;
+//#UC END# *48FF64E700E5_468364C70131_impl*
+//#UC START# *48FF64E700E5_468364C70131_var*
+//#UC END# *48FF64E700E5_468364C70131_var*
+//#UC START# *48FF64F60078_468364C70131_impl*
+ if not l3IsNil(Tag) then
+  case BeenReseted of
+   rtsRoot :
+    Result := TnsAttributeTreeCacheNew.Instance.AttributeRoot[Tag];
+   else
+    Result := inherited ReAqurieUnfilteredRoot;
+  end
+ else
+  Result := inherited ReAqurieUnfilteredRoot;
+//#UC END# *48FF64F60078_468364C70131_impl*
+//#UC START# *48FF64F60078_468364C70131_var*
+//#UC END# *48FF64F60078_468364C70131_var*
+//#UC START# *490071C401C8_468364C70131_impl*
+ inherited;
+ ReAquireContextFilterParams;
+//#UC END# *490071C401C8_468364C70131_impl*
+//#UC START# *490071C401C8_468364C70131_var*
+//#UC END# *490071C401C8_468364C70131_var*
+//#UC START# *49086BA900AA_468364C70131_impl*
+ Result := nil;
+ l_Node := TnsAttributeTreeCacheNew.Instance.AttributeRoot[aTag];
+ try
+  if (l_Node <> nil) then
+  begin
+   Result := inherited Make(l_Node, aShowRoot);
+   if Supports(Result, InsTaggedTreeInfo, l_Interface) then
+    l_Interface.Tag := aTag;
+  end;//l_Node <> nil
+ finally
+  l_Node := nil;
+ end;//try..finally
+//#UC END# *49086BA900AA_468364C70131_impl*
+//#UC START# *49086BA900AA_468364C70131_var*
+var
+ l_Node: INodeBase;
+ l_Interface: InsTaggedTreeInfo;
+//#UC END# *49086BA900AA_468364C70131_var*

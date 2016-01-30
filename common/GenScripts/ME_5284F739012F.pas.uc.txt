@@ -1,0 +1,28 @@
+//#UC START# *4DB9B446039A_5284F739012F_impl*
+ Result := 1;
+//#UC END# *4DB9B446039A_5284F739012F_impl*
+//#UC START# *4DB9B446039A_5284F739012F_var*
+//#UC END# *4DB9B446039A_5284F739012F_var*
+//#UC START# *4DB9BBD6024F_5284F739012F_impl*
+ CompilerAssert(not aWord.IsForwardDeclaration, 'Недоделано', aContext);
+ CompilerAssert(aContext.rWordCompilingNow Is TkwCompiledWordPrim, 'Нужно компилируемое слово', aContext);
+ CompilerAssert(TkwCompiledWordPrim(aContext.rWordCompilingNow).GetCode(aContext).Last Is TkwCompiledIfElse, 'Нужен if перед else', aContext);
+ TkwCompiledIfElse(TkwCompiledWordPrim(aContext.rWordCompilingNow).GetCode(aContext).Last).SetElse(aWord);
+ //inherited;
+//#UC END# *4DB9BBD6024F_5284F739012F_impl*
+//#UC START# *4DB9BBD6024F_5284F739012F_var*
+//#UC END# *4DB9BBD6024F_5284F739012F_var*
+//#UC START# *4DCBD67C0362_5284F739012F_impl*
+ RunnerError('Не должны сюда попадать', aCtx);
+ Result := nil;
+//#UC END# *4DCBD67C0362_5284F739012F_impl*
+//#UC START# *4DCBD67C0362_5284F739012F_var*
+//#UC END# *4DCBD67C0362_5284F739012F_var*
+//#UC START# *5284D8180211_5284F739012F_impl*
+ CompilerAssert((aRightParams.CodeCount = 1),
+                'Допустим только один параметр после слова',
+                aContext);
+ Result := aRightParams.GetCode(aContext)[0].Use;
+//#UC END# *5284D8180211_5284F739012F_impl*
+//#UC START# *5284D8180211_5284F739012F_var*
+//#UC END# *5284D8180211_5284F739012F_var*

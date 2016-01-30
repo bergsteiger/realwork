@@ -1,0 +1,24 @@
+//#UC START# *4ABB94DE033F_4AA7A1F80027_impl*
+ if CheckContainer(aContainer).NativeMainForm.HasForm(fm_en_MainMenuNew.rFormID,
+  vcm_ztParent) then
+  Exit;
+{$If not (defined(Monitorings) or defined(Admin))}
+ {$IfDef vcmUseProfilers}
+ ProfilersManager.MainMenu.Start;
+ {$EndIf vcmUseProfilers}
+ DefDataAdapter.TimeMachine.SwitchOff(True); // выключаем машину времени при открытии основного меню (CQ: OIT5-25116)
+
+ l_Params := vcmCheckAggregate(vcmMakeParams(nil, CheckContainer(aContainer)));
+
+ Ten_MainMenuNew.Make(l_Params);
+{$IfEnd not (defined(Monitorings) or defined(Admin))}
+ TnsOpenMainMenuEvent.Log;
+//#UC END# *4ABB94DE033F_4AA7A1F80027_impl*
+//#UC START# *4ABB94DE033F_4AA7A1F80027_var*
+ l_Params: IvcmMakeParams;
+//#UC END# *4ABB94DE033F_4AA7A1F80027_var*
+//#UC START# *4B151A5B0057_4B151A2302D2_impl*
+ GetLogger.AddEvent(LE_OPEN_MAIN_MENU, MakeParamsList);
+//#UC END# *4B151A5B0057_4B151A2302D2_impl*
+//#UC START# *4B151A5B0057_4B151A2302D2_var*
+//#UC END# *4B151A5B0057_4B151A2302D2_var*

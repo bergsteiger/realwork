@@ -1,0 +1,13 @@
+//#UC START# *4A60B23E00C3_48F744610382_impl*
+ if IID.EQ(INodesClipboard) then
+ begin
+  if Supports(Block, IID.IID, Obj) then
+   Result.SetOk
+  else
+   Result.SetNoInterface;
+ end//IID.EQ(INodesClipboard)
+ else
+  Result := inherited COMQueryInterface(IID, Obj);
+//#UC END# *4A60B23E00C3_48F744610382_impl*
+//#UC START# *4A60B23E00C3_48F744610382_var*
+//#UC END# *4A60B23E00C3_48F744610382_var*

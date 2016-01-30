@@ -1,22 +1,28 @@
-unit nevParaTool.imp;
+{$IfNDef nevParaTool_imp}
 
-interface
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevParaTool.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
- , nevTools
-;
+{$Define nevParaTool_imp}
 
-type
+ _X_ = InevPara;
+ _nevParaXTool_Parent_ = _nevParaTool_Parent_;
+ {$Include nevParaXTool.imp.pas}
  _nevParaTool_ = class(_nevParaXTool_)
   {* Инструмент для InevPara }
  end;//_nevParaTool_
- 
-implementation
 
-uses
- l3ImplUses
- , SysUtils
-;
+{$Else nevParaTool_imp}
 
-end.
+{$IfNDef nevParaTool_imp_impl}
+
+{$Define nevParaTool_imp_impl}
+
+type _Instance_R_ = _nevParaTool_;
+
+{$Include nevParaXTool.imp.pas}
+
+{$EndIf nevParaTool_imp_impl}
+
+{$EndIf nevParaTool_imp}
+

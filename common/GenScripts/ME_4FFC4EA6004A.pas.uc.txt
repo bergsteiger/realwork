@@ -1,0 +1,26 @@
+//#UC START# *4FFC4EDE01B9_4FFC4EA6004A_impl*
+ CheckChilds;
+ Result := TvcmFormSetFormsCollectionPrim(Childs).AddZone(aName, aZoneType, aFormDescriptor);
+ Result.FormList := FormList;
+//#UC END# *4FFC4EDE01B9_4FFC4EA6004A_impl*
+//#UC START# *4FFC4EDE01B9_4FFC4EA6004A_var*
+//#UC END# *4FFC4EDE01B9_4FFC4EA6004A_var*
+//#UC START# *528DB966026A_4FFC4EA6004Aget_impl*
+ Result := f_FormList;
+//#UC END# *528DB966026A_4FFC4EA6004Aget_impl*
+//#UC START# *528DB966026A_4FFC4EA6004Aget_var*
+//#UC END# *528DB966026A_4FFC4EA6004Aget_var*
+//#UC START# *528DB966026A_4FFC4EA6004Aset_impl*
+ f_FormList := aValue;
+//#UC END# *528DB966026A_4FFC4EA6004Aset_impl*
+//#UC START# *528DB966026A_4FFC4EA6004Aset_var*
+//#UC END# *528DB966026A_4FFC4EA6004Aset_var*
+//#UC START# *528DB98D00C0_4FFC4EA6004A_impl*
+ Result := AddZone(aName, aZoneType, aFormDescriptor);
+ Result.UserType := aUserType;
+ if (FormList <> nil) then
+  FormList.Add(TvcmFormSetFormItem_C(TvcmFormSetFormItemDescr_C(aFormDescriptor.rFormID,
+   aZoneType, aUserType), aNeedMakeDS));
+//#UC END# *528DB98D00C0_4FFC4EA6004A_impl*
+//#UC START# *528DB98D00C0_4FFC4EA6004A_var*
+//#UC END# *528DB98D00C0_4FFC4EA6004A_var*

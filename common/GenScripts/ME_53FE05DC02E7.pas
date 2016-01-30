@@ -1,4 +1,9 @@
-unit m2AddPrc;
+unit NOT_FINISHED_m2AddPrc;
+
+// Модуль: "w:\common\components\rtl\Garant\L3\m2\NOT_FINISHED_m2AddPrc.pas"
+// Стереотип: "UtilityPack"
+
+{$Include m2Define.inc}
 
 interface
 

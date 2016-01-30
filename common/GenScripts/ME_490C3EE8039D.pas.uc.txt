@@ -1,0 +1,27 @@
+//#UC START# *4909EF6E0361_490C3EE8039D_impl*
+ Result := inherited MakeRoot;
+ l_Inpharm := nsFindNavigatorItem(ns_nipInpharm);
+ if l_Inpharm <> nil then
+ begin
+  nsAddMainMenuItem(Result,
+                    Ord(ns_mntAllDrugList),
+                    ns_nipInpharmDrugList,
+                    l_Inpharm);
+  nsAddMainMenuItem(Result,
+                    Ord(ns_mntSearchDrug),
+                    {ns_nipInpharmSearch}
+                    str_InpharmSearchCaption.AsCStr);
+  nsAddMainMenuItem(Result,
+                    Ord(ns_mntFirms),
+                    ns_nipInpharmFirms,
+                    l_Inpharm);
+  nsAddMainMenuItem(Result,
+                    Ord(ns_mntDiction),
+                    ns_nipInpharmDiction,
+                    l_Inpharm);
+ end;//if l_Inpharm <> nil then
+//#UC END# *4909EF6E0361_490C3EE8039D_impl*
+//#UC START# *4909EF6E0361_490C3EE8039D_var*
+var
+ l_Inpharm: INodeBase;
+//#UC END# *4909EF6E0361_490C3EE8039D_var*

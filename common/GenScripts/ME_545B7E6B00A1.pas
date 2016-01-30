@@ -1,29 +1,69 @@
-unit m3ListWithFind.imp;
+{$IfNDef m3ListWithFind_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\m3\m3ListWithFind.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define m3ListWithFind_imp}
 
 type
  // _KeyType_
- 
+
+ {$Include m3AutoAllocList.imp.pas}
  _m3ListWithFind_ = class(_m3AutoAllocList_)
-  function FindItemByKey(const aKey: _KeyType_;
-   var theIndex: Integer): Boolean;
-  function CompareKeyByItem(const aKey: _KeyType_;
-   const anItem: _ItemType_): Integer;
+  protected
+   function CompareKeyByItem(const aKey: _KeyType_;
+    const anItem: _ItemType_): Integer; virtual; abstract;
+  public
+   function FindItemByKey(const aKey: _KeyType_;
+    var theIndex: Integer): Boolean;
  end;//_m3ListWithFind_
- 
-implementation
 
-uses
- l3ImplUses
- , l3Base
- , l3MinMax
- , RTLConsts
- , SysUtils
-;
+{$Else m3ListWithFind_imp}
 
-end.
+{$IfNDef m3ListWithFind_imp_impl}
+
+{$Define m3ListWithFind_imp_impl}
+
+type _Instance_R_ = _m3ListWithFind_;
+
+{$Include m3AutoAllocList.imp.pas}
+
+function _m3ListWithFind_.FindItemByKey(const aKey: _KeyType_;
+ var theIndex: Integer): Boolean;
+//#UC START# *54538E130272_545B7E6B00A1_var*
+var
+  L, H, i, C: Longint;
+//#UC END# *54538E130272_545B7E6B00A1_var*
+begin
+//#UC START# *54538E130272_545B7E6B00A1_impl*
+ theIndex := 0;
+ Result := false;
+ if not Empty then
+ begin
+  L := 0;
+  H := Pred(Count);
+  while (L <= H) do
+  begin
+   i := (L + H) shr 1;
+   C := CompareKeyByItem(aKey, ItemSlot(i)^{Items[i]});
+   if (C > 0) then
+    L := Succ(i)
+   else
+   begin
+    H := Pred(i);
+    if (C = 0) then
+    begin
+     Result := true;
+     L := i;
+    end;//C = 0
+   end;//C < 0
+  end;{while (L..}
+  theIndex := L;
+ end;//not Empty
+//#UC END# *54538E130272_545B7E6B00A1_impl*
+end;//_m3ListWithFind_.FindItemByKey
+
+{$EndIf m3ListWithFind_imp_impl}
+
+{$EndIf m3ListWithFind_imp}
+

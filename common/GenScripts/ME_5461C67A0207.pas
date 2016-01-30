@@ -1,5 +1,10 @@
 unit destSkip;
 
+// Модуль: "w:\common\components\rtl\Garant\dd\destSkip.pas"
+// Стереотип: "SimpleClass"
+
+{$Include ddDefine.inc}
+
 interface
 
 uses
@@ -12,17 +17,38 @@ uses
 
 type
  TdestSkip = class(TddRTFDestination)
-  procedure Close(aState: TddRTFState;
-   aNewDest: TddRTFDestination);
-  procedure WriteText(aRDS: TRDS;
-   aText: Tl3String;
-   aState: TddRTFState);
+  public
+   procedure Close(aState: TddRTFState;
+    aNewDest: TddRTFDestination); override;
+   procedure WriteText(aRDS: TRDS;
+    aText: Tl3String;
+    aState: TddRTFState); override;
  end;//TdestSkip
- 
+
 implementation
 
 uses
  l3ImplUses
 ;
+
+procedure TdestSkip.Close(aState: TddRTFState;
+ aNewDest: TddRTFDestination);
+//#UC START# *5461BEC2017D_5461C67A0207_var*
+//#UC END# *5461BEC2017D_5461C67A0207_var*
+begin
+//#UC START# *5461BEC2017D_5461C67A0207_impl*
+//#UC END# *5461BEC2017D_5461C67A0207_impl*
+end;//TdestSkip.Close
+
+procedure TdestSkip.WriteText(aRDS: TRDS;
+ aText: Tl3String;
+ aState: TddRTFState);
+//#UC START# *54E1F08400F9_5461C67A0207_var*
+//#UC END# *54E1F08400F9_5461C67A0207_var*
+begin
+//#UC START# *54E1F08400F9_5461C67A0207_impl*
+ Assert(False);
+//#UC END# *54E1F08400F9_5461C67A0207_impl*
+end;//TdestSkip.WriteText
 
 end.

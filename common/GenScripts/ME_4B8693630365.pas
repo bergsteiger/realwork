@@ -1,34 +1,47 @@
 unit nevShapePrim;
+ {* Информация об отрисованном объекте }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevShapePrim.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
 
 interface
 
 uses
  l3IntfUses
  , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
 ;
 
  {$Define l3Items_NoChanging}
- 
+
  {$Define l3Items_NoSort}
- 
+
 type
- TnevShapePrim = class(_l3ObjectRefListPrim_)
+ _ItemType_ = Tl3ProtoDataContainer;
+ _l3ObjectRefListPrim_Parent_ = Tl3ProtoDataContainer;
+ {$Define l3Items_IsProto}
+ {$Include l3ObjectRefListPrim.imp.pas}
+ _l3OpenArray_Parent_ = _l3ObjectRefListPrim_;
+ {$Include l3OpenArray.imp.pas}
+ TnevShapePrim = class(_l3OpenArray_)
   {* Информация об отрисованном объекте }
-  procedure CleanupRefs;
-   {* Очищает ссылки на сторонние объекты }
-  procedure AssignItem(const aTo: _ItemType_;
-   const aFrom: _ItemType_);
-  procedure FillItem(var aPlace: _ItemType_;
-   const anItem: _ItemType_;
-   anItems: _l3Items_);
-   {* Заполняет элемент списка. }
-  procedure FreeItem(var aPlace: _ItemType_;
-   aList: _l3Items_);
-   {* Очищает элемент списка }
-  function CompareExistingItems(const CI: CompareItemsRec): Integer;
-   {* Сравнивает два существующих элемента. }
+  protected
+   {$If NOT Defined(DesignTimeLibrary)}
+   class function IsCacheable: Boolean; override;
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  public
+   procedure CleanupRefs; virtual; abstract;
+    {* Очищает ссылки на сторонние объекты }
  end;//TnevShapePrim
- 
+
 implementation
 
 uses
@@ -39,5 +52,80 @@ uses
  , RTLConsts
  , SysUtils
 ;
+
+procedure FillItem(var aPlace: _ItemType_;
+ const anItem: _ItemType_;
+ anItems: _l3Items_); forward;
+
+procedure FreeItem(var aPlace: _ItemType_;
+ aList: _l3Items_); forward;
+
+function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
+
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
+procedure AssignItem(const aTo: _ItemType_;
+ const aFrom: _ItemType_);
+//#UC START# *47B2C42A0163_4B8693630365_var*
+//#UC END# *47B2C42A0163_4B8693630365_var*
+begin
+//#UC START# *47B2C42A0163_4B8693630365_impl*
+ Assert(false);
+//#UC END# *47B2C42A0163_4B8693630365_impl*
+end;//AssignItem
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
+
+procedure FillItem(var aPlace: _ItemType_;
+ const anItem: _ItemType_;
+ anItems: _l3Items_);
+ {* Заполняет элемент списка. }
+//#UC START# *47B935AF0066_4B8693630365_var*
+//#UC END# *47B935AF0066_4B8693630365_var*
+begin
+//#UC START# *47B935AF0066_4B8693630365_impl*
+ aPlace := anItem.Use;
+//#UC END# *47B935AF0066_4B8693630365_impl*
+end;//FillItem
+
+procedure FreeItem(var aPlace: _ItemType_;
+ aList: _l3Items_);
+ {* Очищает элемент списка }
+//#UC START# *47B94A5C006E_4B8693630365_var*
+//#UC END# *47B94A5C006E_4B8693630365_var*
+begin
+//#UC START# *47B94A5C006E_4B8693630365_impl*
+ if (aPlace <> nil) then
+  TnevShapePrim(aPlace).CleanupRefs;
+ FreeAndNil(aPlace);
+//#UC END# *47B94A5C006E_4B8693630365_impl*
+end;//FreeItem
+
+function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
+//#UC START# *47B99D4503A2_4B8693630365_var*
+//#UC END# *47B99D4503A2_4B8693630365_var*
+begin
+//#UC START# *47B99D4503A2_4B8693630365_impl*
+ Result := -1;
+ Assert(false);
+//#UC END# *47B99D4503A2_4B8693630365_impl*
+end;//CompareExistingItems
+
+type _Instance_R_ = TnevShapePrim;
+
+{$Include l3ObjectRefListPrim.imp.pas}
+
+{$Include l3OpenArray.imp.pas}
+
+{$If NOT Defined(DesignTimeLibrary)}
+class function TnevShapePrim.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+//#UC START# *47A6FEE600FC_4B8693630365_var*
+//#UC END# *47A6FEE600FC_4B8693630365_var*
+begin
+//#UC START# *47A6FEE600FC_4B8693630365_impl*
+ Result := true;
+//#UC END# *47A6FEE600FC_4B8693630365_impl*
+end;//TnevShapePrim.IsCacheable
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 end.

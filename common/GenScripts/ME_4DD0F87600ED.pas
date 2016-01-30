@@ -1,7 +1,14 @@
 unit kwPopEditorHasComment;
+ {* editor:HasComment. Помещает в стек true, если текущий параграф содержит комментарий. }
+
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorHasComment.pas"
+// Стереотип: "ScriptKeyword"
+
+{$Include seDefine.inc}
 
 interface
 
+{$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
  , kwEditorFromStackNextParaWord
@@ -13,15 +20,40 @@ uses
 type
  TkwPopEditorHasComment = class(TkwEditorFromStackNextParaWord)
   {* editor:HasComment. Помещает в стек true, если текущий параграф содержит комментарий. }
-  procedure DoNextPara(const aCtx: TtfwContext;
-   anEditor: TevCustomEditorWindow;
-   const aPara: InevPara);
+  protected
+   procedure DoNextPara(const aCtx: TtfwContext;
+    anEditor: TevCustomEditorWindow;
+    const aPara: InevPara); override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorHasComment
- 
+{$IfEnd} // NOT Defined(NoScripts)
+
 implementation
 
+{$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
 ;
+
+procedure TkwPopEditorHasComment.DoNextPara(const aCtx: TtfwContext;
+ anEditor: TevCustomEditorWindow;
+ const aPara: InevPara);
+//#UC START# *50BA0CC800CA_4DD0F87600ED_var*
+//#UC END# *50BA0CC800CA_4DD0F87600ED_var*
+begin
+//#UC START# *50BA0CC800CA_4DD0F87600ED_impl*
+ aCtx.rEngine.PushBool(aPara.AsObject.IsKindOf(k2_typCommentPara));
+//#UC END# *50BA0CC800CA_4DD0F87600ED_impl*
+end;//TkwPopEditorHasComment.DoNextPara
+
+class function TkwPopEditorHasComment.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:editor:HasComment';
+end;//TkwPopEditorHasComment.GetWordNameForRegister
+
+initialization
+ TkwPopEditorHasComment.RegisterInEngine;
+ {* Регистрация pop_editor_HasComment }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

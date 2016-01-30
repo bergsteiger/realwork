@@ -1,0 +1,13 @@
+//#UC START# *48DD0CE60313_4D63FD5001D5_impl*
+ {$IfDef evReqGroupNeedsRadio}
+ if (aProp.TagIndex = k2_tiBackColor) AND not AE.BoolA[k2_tiChecked] then
+ begin
+  Data := $F7F6F5{clSilver};
+  Result := true;
+  Exit;
+ end;//aProp.TagIndex = k2_tiBackColor
+ {$EndIf evReqGroupNeedsRadio}
+ Result := inherited PreGetAtomData(AE, aProp, Data);
+//#UC END# *48DD0CE60313_4D63FD5001D5_impl*
+//#UC START# *48DD0CE60313_4D63FD5001D5_var*
+//#UC END# *48DD0CE60313_4D63FD5001D5_var*

@@ -1,4 +1,9 @@
-unit nevTextSourcePool;
+unit NOT_FINISHED_nevTextSourcePool;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_nevTextSourcePool.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -9,7 +14,7 @@ uses
 type
  TnevTextSourcePool = class
  end;//TnevTextSourcePool
- 
+
 implementation
 
 uses

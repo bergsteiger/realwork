@@ -1,4 +1,10 @@
 unit ContentsElement_Const;
+ {* элемент структуры документа }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\ContentsElement_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -11,7 +17,7 @@ uses
 ;
 
  // ContentsElementTag
- 
+
 implementation
 
 uses

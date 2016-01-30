@@ -1,4 +1,10 @@
 unit AttrName_Const;
+ {* Имя атрибута }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\AttrName_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -8,7 +14,7 @@ uses
 ;
 
  // AttrNameTag
- 
+
 implementation
 
 uses

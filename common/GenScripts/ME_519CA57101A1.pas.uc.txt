@@ -1,0 +1,27 @@
+//#UC START# *5195F73400EE_519CA57101A1_impl*
+ aPipe.NeedLockBase := False;
+ aPipe.CheckDocuments := True;
+ aPipe.SameDocuments := sdrDelete;
+ // лочим один из документов
+ f_LockJournal := TAbstractJournal.Create(c_TestStationID, GetLockJournalName(CurrentFamily));
+ l_DocID := 70213052;
+ LinkServer(CurrentFamily).Renum.GetRNumber(l_DocID);
+ DocumentServer(CurrentFamily).FileTbl.ClearFullRec;
+ DocumentServer(CurrentFamily).FileTbl.PutToFullRec(fId_Fld, l_DocID);
+ DocumentServer(CurrentFamily).FileTbl.AddFRec; // это необходимо, потому что если нет записи, то документ нельзя залочить
+ l_Mask := acFullBlock;
+ f_LockJournal.Lock(l_DocID, l_Mask, dtlExclusive);
+ //f_LockHandle := LockServer.FullLockDoc(CurrentFamily, 70213052);
+//#UC END# *5195F73400EE_519CA57101A1_impl*
+//#UC START# *5195F73400EE_519CA57101A1_var*
+var
+ l_Mask   : LongInt;
+ l_DocID  : TDocID;
+const
+ c_TestStationID: TStationID = 'TEST    ';
+//#UC END# *5195F73400EE_519CA57101A1_var*
+//#UC START# *5195F75F02CB_519CA57101A1_impl*
+ FreeAndNil(f_LockJournal);
+//#UC END# *5195F75F02CB_519CA57101A1_impl*
+//#UC START# *5195F75F02CB_519CA57101A1_var*
+//#UC END# *5195F75F02CB_519CA57101A1_var*

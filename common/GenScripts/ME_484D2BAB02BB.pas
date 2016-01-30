@@ -1,4 +1,10 @@
 unit evdFrame_Const;
+ {* Рамка вокруг объекта }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\evdFrame_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -13,23 +19,23 @@ uses
 
 type
  // TevdEmpty
- 
+
  // TevdFrameLeft
- 
+
  // TevdFrameRight
- 
+
  // TevdFrameUp
- 
+
  // TevdFrameDown
- 
+
  // TevdSolid
- 
+
  // TevdFrameDown
- 
+
  // TevdDown
- 
+
  // FrameTag
- 
+
 implementation
 
 uses

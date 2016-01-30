@@ -1,7 +1,13 @@
 unit K460275638Suite;
 
+// Модуль: "w:\common\components\rtl\Garant\Daily\K460275638Suite.pas"
+// Стереотип: "SimpleClass"
+
+{$Include TestDefine.inc.pas}
+
 interface
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
  , CustomFolderTestSuite
@@ -9,12 +15,26 @@ uses
 
 type
  TK460275638Suite = class(TCustomFolderTestSuite)
+  protected
+   function GetExt: AnsiString; override;
  end;//TK460275638Suite
- 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+
 implementation
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
 ;
+
+function TK460275638Suite.GetExt: AnsiString;
+//#UC START# *4EA50C04021B_51BB0020030A_var*
+//#UC END# *4EA50C04021B_51BB0020030A_var*
+begin
+//#UC START# *4EA50C04021B_51BB0020030A_impl*
+ Result := '.regexp';
+//#UC END# *4EA50C04021B_51BB0020030A_impl*
+end;//TK460275638Suite.GetExt
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

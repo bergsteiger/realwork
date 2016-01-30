@@ -1,0 +1,24 @@
+//#UC START# *480784C30322_48078A03039C_impl*
+    if (@f_FireProc <> nil) then
+      f_FireProc(sender, notification)
+    else if (@f_FireProcOfObject <> nil) then
+      f_FireProcOfObject(sender, notification)
+    else
+      Assert(false, 'Nothing of all!');
+//#UC END# *480784C30322_48078A03039C_impl*
+//#UC START# *480784C30322_48078A03039C_var*
+//#UC END# *480784C30322_48078A03039C_var*
+//#UC START# *48078AD3036C_48078A03039C_impl*
+    inherited Create;
+    Assert((@fireProc <> nil), 'fireProc <> nil!');
+    f_FireProc := fireProc;
+//#UC END# *48078AD3036C_48078A03039C_impl*
+//#UC START# *48078AD3036C_48078A03039C_var*
+//#UC END# *48078AD3036C_48078A03039C_var*
+//#UC START# *48078AE001CE_48078A03039C_impl*
+    inherited Create;
+    Assert((@fireProcOfObject <> nil), 'fireProcOfObject <> nil!');
+    f_FireProcOfObject := fireProcOfObject;
+//#UC END# *48078AE001CE_48078A03039C_impl*
+//#UC START# *48078AE001CE_48078A03039C_var*
+//#UC END# *48078AE001CE_48078A03039C_var*

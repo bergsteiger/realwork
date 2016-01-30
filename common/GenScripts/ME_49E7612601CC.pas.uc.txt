@@ -1,0 +1,21 @@
+//#UC START# *479731C50290_49E7612601CC_impl*
+ f_ParaX := nil;
+ inherited;
+//#UC END# *479731C50290_49E7612601CC_impl*
+//#UC START# *479731C50290_49E7612601CC_var*
+//#UC END# *479731C50290_49E7612601CC_var*
+//#UC START# *47A6FEE600FC_49E7612601CC_impl*
+ Result := true;
+//#UC END# *47A6FEE600FC_49E7612601CC_impl*
+//#UC START# *47A6FEE600FC_49E7612601CC_var*
+//#UC END# *47A6FEE600FC_49E7612601CC_var*
+//#UC START# *49E7692B0058_49E7612601CC_impl*
+ inherited Create;
+ //if aTag.IsValid then
+ // - эта идиотская проверка для Painter'ов и FontTool
+  if not aTag.QT(_X_, f_ParaX) then
+   Assert(false, Format('Не поддерживается интерфейс %s [%s]',
+                        [GUIDToString(_X_),  ClassName]));
+//#UC END# *49E7692B0058_49E7612601CC_impl*
+//#UC START# *49E7692B0058_49E7612601CC_var*
+//#UC END# *49E7692B0058_49E7612601CC_var*

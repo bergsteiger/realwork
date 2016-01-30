@@ -1,5 +1,10 @@
 unit CourtDescription_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\CourtDescription_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -12,7 +17,7 @@ uses
 ;
 
  // CourtDescriptionTag
- 
+
 implementation
 
 uses

@@ -1,0 +1,46 @@
+//#UC START# *4DA3361A0305_52F21A610247_impl*
+ if not g_InRun then
+ begin
+  g_InRun := true;
+  try
+   KTestRunner.RunRegisteredTests;
+  except
+   // - давим все исключения, чтобы нормально выйти
+  end;//try..except
+  Application.Terminate;
+  l3System.ClearClipboard;
+ end;//not g_InRun
+//#UC END# *4DA3361A0305_52F21A610247_impl*
+//#UC START# *4DA3361A0305_52F21A610247_var*
+//#UC END# *4DA3361A0305_52F21A610247_var*
+//#UC START# *4DA476580343_52F21A610247_impl*
+ if not g_IsBatchModeValid then
+ begin
+  g_IsBatchMode := CalcBatchMode;
+  g_IsBatchModeValid := true;
+ end;//not g_IsBatchModeValid
+ Result := g_IsBatchMode;
+//#UC END# *4DA476580343_52F21A610247_impl*
+//#UC START# *4DA476580343_52F21A610247_var*
+//#UC END# *4DA476580343_52F21A610247_var*
+//#UC START# *4F79B9D500D7_52F21A610247_impl*
+ if IsBatchMode then
+ begin
+  Application.OnIdle := {_Instance_R_(dmStdRes)}Self.DoIdle;
+  Tl3BatchService.Instance.EnterBatchMode;
+ end//IsBatchMode
+ else
+ begin
+  Application.CreateForm(TGUITestRunner, g_TestsForm);
+  g_TestsForm.DisableClose := true;
+  g_TestsForm.Suite := registeredTests;
+  //g_TestsForm.FormStyle := fsStayOnTop;
+  g_TestsForm.Show;
+  g_TestsForm.LoadFormPlacement;
+  Application.CreateForm(TtfwScriptDebugger_Form, g_Debugger);
+  g_DebuggerForm := g_Debugger;
+  g_TestsForm.ShowDebugForm;
+ end;//IsBatchMode
+//#UC END# *4F79B9D500D7_52F21A610247_impl*
+//#UC START# *4F79B9D500D7_52F21A610247_var*
+//#UC END# *4F79B9D500D7_52F21A610247_var*

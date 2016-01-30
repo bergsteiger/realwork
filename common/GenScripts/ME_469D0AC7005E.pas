@@ -1,10 +1,79 @@
 unit evdTypes;
+ {* Базовые типы, используемые форматом EVD. }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\evdTypes.pas"
+// Стереотип: "Interfaces"
+
+{$Include evdDefine.inc}
 
 interface
 
 uses
  l3IntfUses
 ;
+
+const
+ CI_TOPIC = 65537;
+  {* для всех ссылок на документы }
+ CI_BLOB = 65538;
+  {* для ссылок на двоичные объекты }
+ CI_MULT = 65539;
+  {* для мультиссылок на документы/двоичные объекты }
+ CI_REF = 65540;
+  {* для ссылок на внешние интернет-ресурсы }
+ CI_FolderLink = 65544;
+ CI_ExternalOperation = 65545;
+ CI_PHARM_MULTI = 65547;
+  {* для мультиссылок на документы инфарма }
+ CI_PIC = 65541;
+  {* для ссылок на внешние картинки }
+ CI_SCRIPT = 65552;
+ CI_EDITION = 65543;
+ CI_SHELL_INTERNAL = 65554;
+  {* Ссылки с раскрывающихся блоков и т.п. Не должны передаваться на адаптер. [Requestlink:607263536] }
+ ev_NullAddressType = 0;
+ ev_defAddressType = CI_TOPIC;
+ {* Слои меток. }
+ ev_sbtNone = None;
+  {* несуществующий слой меток. }
+ ev_sbtSub = Sub;
+  {* слой Sub'ов. }
+ ev_sbtMarker = Marker;
+  {* слой закладок. }
+ ev_sbtBookmark = Bookmark;
+  {* слой именованных закладок (зарезервированно). }
+ ev_sbtMark = Mark;
+  {* слой вспомогательных значков (зарезервированно). }
+ ev_sbtPara = 10;
+  {* параграф (псевдослой). }
+ ev_sbtDocumentPlace = 11;
+  {* место в документе (псевдослой) см. [TevDocumentPlace]. }
+ ev_sbtBySearcher = 14;
+  {* условие по Searcher'у (псевдослой). }
+ ev_cUserCommentFlags = 2;
+  {* Флаги пользовательских комментариев }
+ ev_cCommentsFlag = 1;
+  {* Флаги комментариев юристов }
+ ev_cVersionCommentsFlag = 4;
+  {* Флаги версионных комментариев }
+ {* Слои сегментов оформления }
+ ev_slSuperposition = Superposition;
+  {* слой суперпозиции сегментов. }
+ ev_slView = View;
+  {* слой оформления. }
+ ev_slHyperlinks = Hyperlinks;
+  {* слой гиперссылок. }
+ ev_slFoundWords = FoundWords;
+  {* слой слов найденных по контексту. }
+ ev_slFound = Found;
+  {* слой найденных слов (зарезервированно). }
+ ev_slObjects = Objects;
+  {* слой объектов, вставленных в параграф. }
+ ev_slMistakes = Mistakes;
+  {* слой сегментов для покраски опечаток. }
+ ev_slDiff = Diff;
+  {* Разница двух сравниваемых документов }
+ POSITION_TYPE_PARA_ID = 2147483648;
 
 type
  TevIndentType = (
@@ -21,7 +90,7 @@ type
    {* "преформатированный". }
   , ev_itNone
  );//TevIndentType
- 
+
  TevPageOrientation = (
   {* Ориентация страницы. }
   ev_poPortrait
@@ -29,21 +98,21 @@ type
   , ev_poLandscape
    {* альбомная. }
  );//TevPageOrientation
- 
+
  TevMergeStatus = (
   {* признак объединения ячеек. }
   ev_msNone
   , ev_msHead
   , ev_msContinue
  );//TevMergeStatus
- 
+
  TevVerticalAligment = (
   {* Выравнивание объекта по вертикали. }
   ev_valTop
   , ev_valCenter
   , ev_valBottom
  );//TevVerticalAligment
- 
+
  TevControlType = (
   {* Тип контрола. }
   ev_ctLabel
@@ -80,7 +149,7 @@ type
   , ev_ctUnknown
    {* неизвестный тип контрола }
  );//TevControlType
- 
+
  TevReqKind = (
   {* Тип реквизита. }
   ev_rkSimple
@@ -90,14 +159,14 @@ type
   , ev_rkDescription
    {* информационный атрибут (НЕ попадает в модель (ev_rkDescription). }
  );//TevReqKind
- 
+
  TevSubPlace = (
   ev_spNoWhere
   , ev_spOnlyInContents
   , ev_spInContentsAndOnSubPanel
   , ev_spOnlyOnSubPanel
  );//TevSubPlace
- 
+
  TevLinkViewKind = (
   ev_lvkUnknown
    {* Неизвестно }
@@ -118,7 +187,7 @@ type
   , ev_lvkScript
   , ev_lvkShellInternal
  );//TevLinkViewKind
- 
+
  TevSubHandle = (
   {* Слои меток. }
   None
@@ -127,7 +196,7 @@ type
   , Bookmark
   , Mark
  );//TevSubHandle
- 
+
  TevDocumentPlace = (
   {* Место в документе. }
   ev_dpNone
@@ -135,7 +204,7 @@ type
   , ev_dpEnd
    {* В конце. }
  );//TevDocumentPlace
- 
+
  TevHFType = (
   {* Тип колонтитула }
   evd_hftOrdinal
@@ -143,9 +212,9 @@ type
   , evd_hftRight
   , evd_hftFirst
  );//TevHFType
- 
+
  // Tevev_spInContents
- 
+
  TevSegmentHandle = (
   Superposition
   , View
@@ -156,17 +225,17 @@ type
   , Mistakes
   , Diff
  );//TevSegmentHandle
- 
- // TevNormalSegLayerHandleP
- 
+
+ TevNormalSegLayerHandleP = View .. Mistakes;
+
  TevBlockViewKind = (
   ev_bvkNone
   , ev_bvkLeft
   , ev_bvkRight
  );//TevBlockViewKind
- 
+
  TevNormalSegLayerHandleSet = set of TevNormalSegLayerHandleP;
- 
+
 implementation
 
 uses

@@ -1,4 +1,9 @@
-unit SynCrypto;
+unit NOT_FINISHED_SynCrypto;
+
+// Модуль: "w:\common\components\rtl\external\SynPDF\NOT_FINISHED_SynCrypto.pas"
+// Стереотип: "UtilityPack"
+
+{$Include Synopse.inc}
 
 interface
 
@@ -8,9 +13,9 @@ uses
 
 type
  TRC4InternalKey = ;
- 
+
  TMD5Digest = ;
- 
+
 implementation
 
 uses

@@ -1,31 +1,71 @@
-unit l3InterfaceRefList.imp;
+{$IfNDef l3InterfaceRefList_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define l3InterfaceRefList_imp}
 
-type
+ _l3InterfaceRefListPrim_Parent_ = _l3InterfaceRefList_Parent_;
+ {$Include l3InterfaceRefListPrim.imp.pas}
  _l3InterfaceRefList_ = class(_l3InterfaceRefListPrim_)
   {* Список ссылок на интерфейсы. }
-  function IsSameItems(const A: _ItemType_;
-   const B: _ItemType_): Boolean;
-   {* Сравнивает элементы списка }
-  procedure AssignItem(const aTo: _ItemType_;
-   const aFrom: _ItemType_);
-  function CompareExistingItems(const CI: CompareItemsRec): Integer;
-   {* Сравнивает два существующих элемента. }
  end;//_l3InterfaceRefList_
- 
-implementation
 
-uses
- l3ImplUses
- , l3Base
- , l3MinMax
- , RTLConsts
- , SysUtils
-;
+{$Else l3InterfaceRefList_imp}
 
-end.
+{$IfNDef l3InterfaceRefList_imp_impl}
+
+{$Define l3InterfaceRefList_imp_impl}
+
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
+procedure AssignItem(const aTo: _ItemType_;
+ const aFrom: _ItemType_); forward;
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
+function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
+
+{$If NOT Defined(l3Items_IsAtomic)}
+function IsSameItems(const A: _ItemType_;
+ const B: _ItemType_): Boolean;
+ {* Сравнивает элементы списка }
+//#UC START# *47B07CF403D0_47B57D830369_var*
+//#UC END# *47B07CF403D0_47B57D830369_var*
+begin
+//#UC START# *47B07CF403D0_47B57D830369_impl*
+ Result := (A = B);
+//#UC END# *47B07CF403D0_47B57D830369_impl*
+end;//IsSameItems
+{$IfEnd} // NOT Defined(l3Items_IsAtomic)
+
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
+procedure AssignItem(const aTo: _ItemType_;
+ const aFrom: _ItemType_);
+//#UC START# *47B2C42A0163_47B57D830369_var*
+//#UC END# *47B2C42A0163_47B57D830369_var*
+begin
+//#UC START# *47B2C42A0163_47B57D830369_impl*
+ Assert(false);
+//#UC END# *47B2C42A0163_47B57D830369_impl*
+end;//AssignItem
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
+
+function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
+//#UC START# *47B99D4503A2_47B57D830369_var*
+//#UC END# *47B99D4503A2_47B57D830369_var*
+begin
+//#UC START# *47B99D4503A2_47B57D830369_impl*
+ {$IfDef l3Items_HasCustomSort}
+ Assert(CI.rSortIndex = l3_siNative);
+ {$EndIf l3Items_HasCustomSort}
+ Result := Integer(CI.rA^) - Integer(CI.rB^);
+//#UC END# *47B99D4503A2_47B57D830369_impl*
+end;//CompareExistingItems
+
+type _Instance_R_ = _l3InterfaceRefList_;
+
+{$Include l3InterfaceRefListPrim.imp.pas}
+
+{$EndIf l3InterfaceRefList_imp_impl}
+
+{$EndIf l3InterfaceRefList_imp}
+

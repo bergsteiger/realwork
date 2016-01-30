@@ -1,4 +1,10 @@
 unit Bullet_Const;
+ {* Тип маркера }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\Bullet_Const.pas"
+// Стереотип: "Atom"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -8,7 +14,7 @@ uses
 ;
 
  // BulletAtom
- 
+
 implementation
 
 uses

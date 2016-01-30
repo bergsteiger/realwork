@@ -1,0 +1,77 @@
+//#UC START# *4680FC190114_55E5CAA801A1get_impl*
+ Result := false;
+//#UC END# *4680FC190114_55E5CAA801A1get_impl*
+//#UC START# *4680FC190114_55E5CAA801A1get_var*
+//#UC END# *4680FC190114_55E5CAA801A1get_var*
+//#UC START# *48F37AC50290_55E5CAA801A1_impl*
+ if (aPool = nil) then
+  Result := false
+ else
+ begin
+  l_S := f_String.AsWStr;
+  Case aFormat of
+   CF_TEXT:
+    if l3IsANSI(l_S.SCodePage) then
+     Result := DoStore(l_S.SCodePage, l_S)
+    else
+     Result := DoStore(CP_ANSI, l_S);
+   CF_OEMTEXT:
+    if l3IsOEM(l_S.SCodePage) then
+     Result := DoStore(l_S.SCodePage, l_S)
+    else
+     Result := DoStore(CP_OEM, l_S);
+   CF_UNICODETEXT:
+    Result := DoStore(CP_UNICODE, l_S);
+   else
+    Result := false;
+  end;//Case aFormat
+ end;//aPool = nil
+//#UC END# *48F37AC50290_55E5CAA801A1_impl*
+//#UC START# *48F37AC50290_55E5CAA801A1_var*
+
+ function DoStore(aCodePage : Integer; const aStr: Tl3WString): Boolean;
+ var
+  l_S : Tl3_String;
+  l_SizeToWrite : Integer;
+  l_Written : Integer;
+ begin//DoStore
+  if (aStr.SCodePage <> aCodePage) then
+  begin
+   l_S := Tl3_String.Make(aStr);
+   try
+    l_S.CodePage := aCodePage;
+    Assert(l_S.CodePage = aCodePage);
+    Result := DoStore(aCodePage, l_S.AsWStr);
+    Exit;
+   finally
+    FreeAndNil(l_S);
+   end;//try..finally
+  end;//aStr.SCodePage <> aCodePage
+
+  l_SizeToWrite := (aStr.SLen + 1);
+  // +1 - чтобы терминирующий ноль записать
+
+  if (aCodePage = CP_Unicode) then
+   l_SizeToWrite := l_SizeToWrite * SizeOf(WideChar);
+  
+  if SUCCEEDED(aPool.Write(aStr.S, l_SizeToWrite, @l_Written)) then
+   Result := (l_SizeToWrite = l_Written)
+  else
+   Result := false;
+ end;//DoStore
+
+var
+ l_S : Tl3WString;
+//#UC END# *48F37AC50290_55E5CAA801A1_var*
+//#UC START# *55E5CB0A0231_55E5CAA801A1_impl*
+ SetLength(l_F, 3);
+ l_F[0] := CF_UNICODETEXT;
+ l_F[1] := CF_TEXT;
+ l_F[2] := CF_OEMTEXT;
+ inherited Create(l_F);
+ f_String := aString;
+//#UC END# *55E5CB0A0231_55E5CAA801A1_impl*
+//#UC START# *55E5CB0A0231_55E5CAA801A1_var*
+var
+ l_F : Tl3ClipboardFormats;
+//#UC END# *55E5CB0A0231_55E5CAA801A1_var*

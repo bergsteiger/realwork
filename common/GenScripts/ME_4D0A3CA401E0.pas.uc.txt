@@ -1,0 +1,20 @@
+//#UC START# *532C4D4102D8_4D0A3CA401E0_impl*
+ Result := false;
+ Pointer(Obj) := nil;
+ l_Type := Tk2Type(_Instance_R_(Self).pm_GetTagType);
+ if (l_Type <> nil) then
+ begin
+  l_Factory := l_Type.InterfaceFactory;
+  if (l_Factory <> nil) then
+   try
+    Result := l_Factory.QueryToolN(_Instance_R_(Self), IID, Obj, aProcessor);
+   finally
+    l_Factory := nil;
+   end;{try..finally}
+ end;//l_Type <> nil
+//#UC END# *532C4D4102D8_4D0A3CA401E0_impl*
+//#UC START# *532C4D4102D8_4D0A3CA401E0_var*
+var
+ l_Type    : Tk2Type;
+ l_Factory : Tk2InterfaceFactory;
+//#UC END# *532C4D4102D8_4D0A3CA401E0_var*

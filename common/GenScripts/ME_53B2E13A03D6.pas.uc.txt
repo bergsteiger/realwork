@@ -1,0 +1,13 @@
+//#UC START# *53B2E1D201CE_53B2E13A03D6_impl*
+ RunnerAssert(aCtx.rEngine.IsTopIntf, 'Не передана конфигурация!', aCtx);
+ l_Unk := aCtx.rEngine.PopIntf;
+ if Supports(l_Unk, IConfiguration, l_Conf) then
+  DoWithConfiguration(l_Conf, aCtx)
+ else
+  RunnerAssert(False, 'Не передана конфигурация!', aCtx);
+//#UC END# *53B2E1D201CE_53B2E13A03D6_impl*
+//#UC START# *53B2E1D201CE_53B2E13A03D6_var*
+var
+ l_Unk: IUnknown;
+ l_Conf: IConfiguration;
+//#UC END# *53B2E1D201CE_53B2E13A03D6_var*

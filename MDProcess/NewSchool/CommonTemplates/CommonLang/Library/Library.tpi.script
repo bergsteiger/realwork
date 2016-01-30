@@ -26,7 +26,6 @@ implementation @ <<Library>>
 //> Unit::Category
 
 //= LibraryGenerator::MDAGenerator
-//= ModelSerialize::MDAGenerator
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Параметры стереотипа
@@ -1504,14 +1503,6 @@ implementation @ <<Library>>
 //R  
 //P
 //C %S%f_pas_LibPath()
-//O %S%f_pas_LibUnitName()
-//	[{"%SO"!=""}%SN : %SS - %SD]
- if ( ( %S |O ) %!= '' ) then
- begin
-  %S |N ' : '
-  %S |S ' - '
-  %S |D 
- end // if
 //	<%CX>
  INTEGER VAR l_Counter l_Counter := 0
  for %S%C
@@ -1525,85 +1516,6 @@ implementation @ <<Library>>
  end // for C
 //#UC END# *470F1571031Cfor470361CD0148*
 ; // intf.pas
-
-
-// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-//+ intf2.pas
-<<generator>> intf2.pas OBJECT IN %S
-//R  
-//#UC START# *477398E501C0for470361CD0148*
-//#UC END# *477398E501C0for470361CD0148*
-; // intf2.pas
-
-
-// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Ресурсы (.rc)
-//+ rc.pas
-<<generator>> rc.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D28B0157for470361CD0148*
-//P
-//C %S%f_pas_LibPath()
-//	<%CX>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if true then
-  begin
-   %C |X 
-   ++! l_Counter
-  end // if
- end // for C
-//#UC END# *55B8D28B0157for470361CD0148*
-; // rc.pas
-
-
-// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Скрипты в ресурсах (.rc.script)
-//+ rc.script.pas
-<<generator>> rc.script.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D2F80145for470361CD0148*
-//P
-//C %S%f_pas_LibPath()
-//	<%CX>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if true then
-  begin
-   %C |X 
-   ++! l_Counter
-  end // if
- end // for C
-//#UC END# *55B8D2F80145for470361CD0148*
-; // rc.script.pas
-
-
-// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Компилятор ресурса (.res.cmd)
-//+ res.cmd.pas
-<<generator>> res.cmd.pas OBJECT IN %S
-//R  
-//#UC START# *55B8DD9C0301for470361CD0148*
-//P
-//C %S%f_pas_LibPath()
-//	<%CX>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if true then
-  begin
-   %C |X 
-   ++! l_Counter
-  end // if
- end // for C
-//#UC END# *55B8DD9C0301for470361CD0148*
-; // res.cmd.pas
 
 
 // реализация абстрактного стереотипа Java::MDAGenerator
@@ -1903,22 +1815,10 @@ end. // <<Library>>
 ; // dump_all_fctr_mng_unreg_java
 
 
-// реализация абстрактного стереотипа ModelSerialize::MDAGenerator
-// генератор структуры модели в описание на языке FORTH
-//+ forth_structure
-implementation @ <<Library>>
-<<generator>> forth_structure OBJECT IN %S
-//R  
-//#UC START# *4F368B80039Efor470361CD0148*
-//= Requirements::Category;forth_structure
-%call-other-gen ( 'Requirements' 'forth_structure' )
-//#UC END# *4F368B80039Efor470361CD0148*
-; // forth_structure
-
-
 // реализация абстрактного стереотипа Дельфи-DLL Адаптер::MDAGenerator
 // С++ TIE-обвязка для DLL (_tie.cpp)
 //+ dll.cpp
+implementation @ <<Library>>
 <<generator>> dll.cpp OBJECT IN %S
 //#UC START# *47032ED002DEfor470361CD0148*
 //= fctr.cpp

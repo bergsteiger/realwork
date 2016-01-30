@@ -1,4 +1,10 @@
 unit SegmentsLayer_Const;
+ {* Слой отрезков оформления }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\SegmentsLayer_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -11,7 +17,7 @@ uses
 ;
 
  // SegmentsLayerTag
- 
+
 implementation
 
 uses

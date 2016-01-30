@@ -1,0 +1,39 @@
+//#UC START# *49E488070386_4E85A869034E_impl*
+ Result := k2_typTextPara;
+//#UC END# *49E488070386_4E85A869034E_impl*
+//#UC START# *49E488070386_4E85A869034E_var*
+//#UC END# *49E488070386_4E85A869034E_var*
+//#UC START# *49E4883E0176_4E85A869034E_impl*
+ l_Style := aLeaf.Attr[k2_tiStyle];
+ if not evAACStyle(l_Style.IntA[k2_tiHandle]) then
+  if l_Style.BoolA[k2_tiHeaderHasOwnSpace] then
+  begin
+   l_Str := l_Style.PCharLenA[k2_tiShortName];
+   if not l3IsNil(l_Str) then
+   begin
+    if aLeaf.BoolA[k2_tiCollapsed] then
+     if aLeaf.QT(InevPara, l_Para) then
+      if l_Para.TreatCollapsedAsHidden then
+      begin
+       inherited;
+       Exit;
+       // - не пишем довесок, к выкидываемому параграфу
+      end;//l_Para.TreatCollapsedAsHidden
+     Generator.StartChild(k2_typTextPara);
+     try
+      if (l_Style.IntA[k2_tiHandle] = ev_saChangesInfo) then
+       Generator.AddIntegerAtom(k2_tiStyle, ev_saSubHeaderForChangesInfo);
+      Generator.AddStringAtom(k2_tiText, l_Str);
+     finally
+      Generator.Finish;
+     end;//try..finally
+   end;//not l3IsNil(l_Str)
+  end;//l_Style.BoolA[k2_tiHeaderHasOwnSpace]
+ inherited;
+//#UC END# *49E4883E0176_4E85A869034E_impl*
+//#UC START# *49E4883E0176_4E85A869034E_var*
+var
+ l_Style     : Tl3Variant;
+ l_Str       : Tl3PCharLen;
+ l_Para      : InevPara;
+//#UC END# *49E4883E0176_4E85A869034E_var*

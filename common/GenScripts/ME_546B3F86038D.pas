@@ -1,5 +1,10 @@
 unit csReply_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\csReply_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -8,7 +13,7 @@ uses
 ;
 
  // csReplyTag
- 
+
 implementation
 
 uses

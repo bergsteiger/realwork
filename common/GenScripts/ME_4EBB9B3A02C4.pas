@@ -1,4 +1,10 @@
-unit dd_lcStartDocFormatter;
+unit NOT_FINISHED_dd_lcStartDocFormatter;
+ {* Форматирование текста постановлений судов }
+
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcStartDocFormatter.pas"
+// Стереотип: "SimpleClass"
+
+{$Include ddDefine.inc}
 
 interface
 
@@ -11,7 +17,7 @@ type
  Tdd_lcStartDocFormatter = class(Tdd_lcBaseFormatter)
   {* Форматирование текста постановлений судов }
  end;//Tdd_lcStartDocFormatter
- 
+
 implementation
 
 uses

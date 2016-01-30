@@ -1,0 +1,50 @@
+//#UC START# *479731C50290_53848F4F00E4_impl*
+ FreeAndNil(f_ClassList);
+ inherited;
+//#UC END# *479731C50290_53848F4F00E4_impl*
+//#UC START# *479731C50290_53848F4F00E4_var*
+//#UC END# *479731C50290_53848F4F00E4_var*
+//#UC START# *47A042E100E2_53848F4F00E4_impl*
+ inherited;
+ f_ClassList := TddTaskRecordList.Create;
+//#UC END# *47A042E100E2_53848F4F00E4_impl*
+//#UC START# *47A042E100E2_53848F4F00E4_var*
+//#UC END# *47A042E100E2_53848F4F00E4_var*
+//#UC START# *538490A701EF_53848F4F00E4_impl*
+ Result := nil;
+ for I := 0 to f_ClassList.Count - 1 do
+ begin
+  if (f_ClassList[I].TaskType = aClassType) then
+  begin
+   Result := f_ClassList[I].TaskClass;
+   aDescription := f_ClassList[I].Description;
+   Exit;
+  end;//f_ClassList[I].TaskType = aClassType
+ end;//for I
+//#UC END# *538490A701EF_53848F4F00E4_impl*
+//#UC START# *538490A701EF_53848F4F00E4_var*
+var
+  I: Integer;
+//#UC END# *538490A701EF_53848F4F00E4_var*
+//#UC START# *538490D80145_53848F4F00E4_impl*
+ l_ClassRef:= TddTaskRecord.Create;
+ try
+  l_ClassRef.TaskType := aType;
+  l_ClassRef.TaskClass := aClass;
+  l_ClassRef.Description := aDescription;
+  f_ClassList.Add(l_ClassRef);
+ finally
+  FreeAndNil(l_ClassRef);
+ end;//try..finally
+//#UC END# *538490D80145_53848F4F00E4_impl*
+//#UC START# *538490D80145_53848F4F00E4_var*
+var
+ l_ClassRef: TddTaskRecord;
+//#UC END# *538490D80145_53848F4F00E4_var*
+//#UC START# *5384910E011E_53848F4F00E4_impl*
+ Result:= GetClass(aTaskType, l_Descript) <> nil;
+//#UC END# *5384910E011E_53848F4F00E4_impl*
+//#UC START# *5384910E011E_53848F4F00E4_var*
+var
+ l_Descript: AnsiString;
+//#UC END# *5384910E011E_53848F4F00E4_var*

@@ -1,4 +1,10 @@
 unit DictItem_Const;
+ {* Элемент словаря }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\DictItem_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -10,7 +16,7 @@ uses
 ;
 
  // DictItemTag
- 
+
 implementation
 
 uses

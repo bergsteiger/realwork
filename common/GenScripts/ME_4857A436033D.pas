@@ -1,4 +1,10 @@
 unit Footer_Const;
+ {* Нижний колонтитул }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\Footer_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -8,7 +14,7 @@ uses
 ;
 
  // FooterTag
- 
+
 implementation
 
 uses

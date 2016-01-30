@@ -1,5 +1,10 @@
 unit eeCustomMemo;
 
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeCustomMemo.pas"
+// Стереотип: "UtilityPack"
+
+{$Include eeDefine.inc}
+
 interface
 
 uses
@@ -9,7 +14,7 @@ uses
 
 type
  TeeCustomMemo = eeMemo.TeeCustomMemo;
- 
+
 implementation
 
 uses

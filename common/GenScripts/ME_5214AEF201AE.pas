@@ -1,5 +1,8 @@
 unit ddConfigStorages;
 
+// Модуль: "w:\common\components\rtl\Garant\dd\ddConfigStorages.pas"
+// Стереотип: "UtilityPack"
+
 interface
 
 uses
@@ -10,6 +13,9 @@ uses
 type
  IddConfigStorage = interface
   {* Интерфейс для чтения-записи данных конфигурации }
+  ['{86F1D5B0-F190-4497-AA2E-1E9F453F7066}']
+  function Get_Section: AnsiString; stdcall;
+  procedure Set_Section(const aValue: AnsiString); stdcall;
   function ReadBool(const Alias: AnsiString;
    Default: Boolean): Boolean; stdcall;
   function ReadDateTime(const Alias: AnsiString;
@@ -26,8 +32,11 @@ type
    I: Integer); stdcall;
   procedure WriteString(const Alias: AnsiString;
    const S: AnsiString); stdcall;
+  property Section: AnsiString
+   read Get_Section
+   write Set_Section;
  end;//IddConfigStorage
- 
+
 implementation
 
 uses

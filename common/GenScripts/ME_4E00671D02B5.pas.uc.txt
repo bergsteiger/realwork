@@ -1,0 +1,32 @@
+//#UC START# *47C6B3040133_4E00671D02B5_impl*
+ if (MainForm.ActiveMDIChild <> nil) and (MainForm.ActiveMDIChild is TDocEditorWindow) then
+  with (MainForm.ActiveMDIChild as TDocEditorWindow) do
+  begin
+   otlBlocks.TreeStruct := aContainer.ContentsTree;
+   cbClassSubs.TreeStruct := aContainer.ContentsTree;
+   otlBlocks.Changed;
+  end; // with (MainForm.ActiveMDIChild as TDocEditorWindow) do
+//#UC END# *47C6B3040133_4E00671D02B5_impl*
+//#UC START# *47C6B3040133_4E00671D02B5_var*
+//#UC END# *47C6B3040133_4E00671D02B5_var*
+//#UC START# *47C6B30F0277_4E00671D02B5_impl*
+//#UC END# *47C6B30F0277_4E00671D02B5_impl*
+//#UC START# *47C6B30F0277_4E00671D02B5_var*
+//#UC END# *47C6B30F0277_4E00671D02B5_var*
+//#UC START# *4E008700020B_4E00671D02B5_impl*
+ if (aControl = nil) then
+  Result := nil
+ else
+ begin
+  l_Waiter := Create(aControl As Il3ToolOwner);
+  try
+   Result := l_Waiter;
+  finally
+   l3Free(l_Waiter);
+  end;//try..finally
+ end;
+//#UC END# *4E008700020B_4E00671D02B5_impl*
+//#UC START# *4E008700020B_4E00671D02B5_var*
+var
+ l_Waiter: TarContentsTreeWaiter;
+//#UC END# *4E008700020B_4E00671D02B5_var*

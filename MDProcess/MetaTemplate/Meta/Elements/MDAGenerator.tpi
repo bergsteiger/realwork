@@ -31,7 +31,6 @@
 < *::Class,*::Category
 
 = Мета-MDA::MDAGenerator
-= ModelSerialize::MDAGenerator
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Параметры стереотипа
@@ -275,14 +274,6 @@ f _is_visualization_exist1
 //#UC START# *470484D50138for46E1540F00AB*
 //#UC END# *470484D50138for46E1540F00AB*
 
-// реализация абстрактного стереотипа ModelSerialize::MDAGenerator
-// генератор структуры модели в описание на языке FORTH
-+ forth_structure
-R  
-//#UC START# *4F368B80039Efor46E1540F00AB*
-P
-//#UC END# *4F368B80039Efor46E1540F00AB*
-
 // реализация абстрактного стереотипа Документация::MDAGenerator
 // Генерация модели в MDKnow
 + wiki
@@ -525,6 +516,8 @@ f _is_inherit_includes
 : MDAGenerator::Class::generator::Operation
 ? генератор
 ? определяет конкретный целевой генератор
+= Мета-MDA::MDAGenerator
+
 // Параметры стереотипа
 a ar
 / - тип абстракции
@@ -560,13 +553,6 @@ p tab replace:s ? задает строку заменитель для символа табулятора. Если задан, т
 //#UC START# *46E6D4BB0339for46E3DB9001C5*
 //#UC END# *46E6D4BB0339for46E3DB9001C5*
 
-// генератор структуры модели в описание на языке FORTH
-+ forth_structure
-R  
-//#UC START# *4F368B80039Efor46E3DB9001C5*
-P
-//#UC END# *4F368B80039Efor46E3DB9001C5*
-
 // Функции стереотипа
 %f _st_space_key
 	MDP
@@ -579,6 +565,29 @@ P
 	][{"%S{encoding}"!="%S{!encoding}"}%f_up_prefix(%S) *encoding* = *%S{encoding}* - Кодировка выходного файла, по-умолчанию cp1251
 	]
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+%t _constraint
+//#UC START# *4704C0E30186for46E3DB9001C5*
+c          {}
+r {""=""}: {}
+//#UC END# *4704C0E30186for46E3DB9001C5*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+%f _wiki_child_kind
+//#UC START# *4705CBD6003Efor46E3DB9001C5*
+//#UC END# *4705CBD6003Efor46E3DB9001C5*
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+%f _wiki_up_add_gen
+//#UC START# *470484D50138for46E3DB9001C5*
+//#UC END# *470484D50138for46E3DB9001C5*
 
 : MDAGenerator::Class::Operation
 ? функция стереотипа
@@ -615,13 +624,6 @@ m t
 //#UC START# *46E6D4BB0339for46E3DB3B001F*
 //#UC END# *46E6D4BB0339for46E3DB3B001F*
 
-// генератор структуры модели в описание на языке FORTH
-+ forth_structure
-R  
-//#UC START# *4F368B80039Efor46E3DB3B001F*
-P
-//#UC END# *4F368B80039Efor46E3DB3B001F*
-
 // Функции стереотипа
 %f _st_space_key
 	MDP
@@ -657,13 +659,6 @@ m t
 //#UC START# *46E6D4BB0339for46E3F93A0128*
 //#UC END# *46E6D4BB0339for46E3F93A0128*
 
-// генератор структуры модели в описание на языке FORTH
-+ forth_structure
-R  
-//#UC START# *4F368B80039Efor46E3F93A0128*
-P
-//#UC END# *4F368B80039Efor46E3F93A0128*
-
 // Функции стереотипа
 %f _st_space_key
 	MDP
@@ -693,13 +688,6 @@ l a
 + wiki
 //#UC START# *46E6D4BB0339for46EFD6DC0192*
 //#UC END# *46E6D4BB0339for46EFD6DC0192*
-
-// генератор структуры модели в описание на языке FORTH
-+ forth_structure
-R  
-//#UC START# *4F368B80039Efor46EFD6DC0192*
-P
-//#UC END# *4F368B80039Efor46EFD6DC0192*
 
 // Функции стереотипа
 %f _st_space_key
@@ -792,13 +780,6 @@ p internal:b=false ? определяет, что пользователь не может использовать стереоти
 //#UC START# *46E6D4BB0339for46E6CB280164*
 //#UC END# *46E6D4BB0339for46E6CB280164*
 
-// генератор структуры модели в описание на языке FORTH
-+ forth_structure
-R  
-//#UC START# *4F368B80039Efor46E6CB280164*
-P
-//#UC END# *4F368B80039Efor46E6CB280164*
-
 // Функции стереотипа
 %f _st_space_key
 	MDP
@@ -825,13 +806,6 @@ L code_mda_dep_group
 + wiki
 //#UC START# *46E6D4BB0339for46E7DE3F03A6*
 //#UC END# *46E6D4BB0339for46E7DE3F03A6*
-
-// генератор структуры модели в описание на языке FORTH
-+ forth_structure
-R  
-//#UC START# *4F368B80039Efor46E7DE3F03A6*
-P
-//#UC END# *4F368B80039Efor46E7DE3F03A6*
 
 // Функции стереотипа
 %f _st_space_key
@@ -928,13 +902,6 @@ L code_mda_dep_main_hierarchy
 //#UC START# *46E6D4BB0339for49F847A30327*
 //#UC END# *46E6D4BB0339for49F847A30327*
 
-// генератор структуры модели в описание на языке FORTH
-+ forth_structure
-R  
-//#UC START# *4F368B80039Efor49F847A30327*
-P
-//#UC END# *4F368B80039Efor49F847A30327*
-
 // Функции стереотипа
 %f _st_space_key
 	MDP
@@ -956,13 +923,6 @@ L code_mda_dep
 + wiki
 //#UC START# *46E6D4BB0339for4AE5844A0278*
 //#UC END# *46E6D4BB0339for4AE5844A0278*
-
-// генератор структуры модели в описание на языке FORTH
-+ forth_structure
-R  
-//#UC START# *4F368B80039Efor4AE5844A0278*
-P
-//#UC END# *4F368B80039Efor4AE5844A0278*
 
 // Функции стереотипа
 %f _st_space_key

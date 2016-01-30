@@ -1,0 +1,43 @@
+//#UC START# *48077504027E_4FFFDE6C016C_impl*
+ FreeAndNil(f_Word);
+ Finalize(f_Context);
+ inherited;
+//#UC END# *48077504027E_4FFFDE6C016C_impl*
+//#UC START# *48077504027E_4FFFDE6C016C_var*
+//#UC END# *48077504027E_4FFFDE6C016C_var*
+//#UC START# *4FFFDF740099_4FFFDE6C016C_impl*
+ f_Word.DoIt(f_Context);
+//#UC END# *4FFFDF740099_4FFFDE6C016C_impl*
+//#UC START# *4FFFDF740099_4FFFDE6C016C_var*
+//#UC END# *4FFFDF740099_4FFFDE6C016C_var*
+//#UC START# *50BF1C6D0267_50BF049002DB_impl*
+ while (Count > 0) do
+ begin
+  try
+   l_Thread := Items[0];
+   try
+    l_Thread.WaitFor;
+   except
+   end;//try..except 
+   l_Thread.Free;
+   Delete(0);
+  except
+  end;//try..except
+ end; // for i := 0 to Count - 1 do
+//#UC END# *50BF1C6D0267_50BF049002DB_impl*
+//#UC START# *50BF1C6D0267_50BF049002DB_var*
+var
+ l_Thread : TWordThread;
+//#UC END# *50BF1C6D0267_50BF049002DB_var*
+//#UC START# *50BF1E9C001F_50BF049002DB_impl*
+ l_Thread := TWordThread.Create(True);
+ aWord.SetRefTo(l_Thread.f_Word);
+ l_Thread.f_Context := aContext;
+ l_Thread.f_Context.rEngine := l_Thread.f_Context.rEngine.Clone;
+ Add(l_Thread);
+ l_Thread.Resume;
+//#UC END# *50BF1E9C001F_50BF049002DB_impl*
+//#UC START# *50BF1E9C001F_50BF049002DB_var*
+var
+ l_Thread: TWordThread;
+//#UC END# *50BF1E9C001F_50BF049002DB_var*

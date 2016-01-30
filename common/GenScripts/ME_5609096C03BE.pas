@@ -1,25 +1,38 @@
-unit l3Map.imp;
+{$IfNDef l3Map_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\L3\l3Map.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
- , l3ProtoDataContainer
-;
+{$Define l3Map_imp}
 
+ //#UC START# *5609096C03BEci*
+ //#UC END# *5609096C03BEci*
+ _l3MapPrim_Parent_ = Tl3ProtoDataContainer;
+ {$Define l3Items_IsProto}
+ {$Include l3MapPrim.imp.pas}
+ //#UC START# *5609096C03BEcit*
 type
- _l3Map_ = class(Tl3ProtoDataContainer)
+ //#UC END# *5609096C03BEcit*
+ _l3Map_ = {abstract} class(_l3MapPrim_)
   {* Словарь (ключ-значение) }
+ //#UC START# *5609096C03BEpubl*
+ //#UC END# *5609096C03BEpubl*
  end;//_l3Map_
- 
-implementation
 
-uses
- l3ImplUses
- , l3Base
- , l3MinMax
- , RTLConsts
- , SysUtils
-;
+{$Else l3Map_imp}
 
-end.
+{$IfNDef l3Map_imp_impl}
+
+{$Define l3Map_imp_impl}
+
+type _Instance_R_ = _l3Map_;
+
+{$Include l3MapPrim.imp.pas}
+
+//#UC START# *5609096C03BEimpl*
+//#UC END# *5609096C03BEimpl*
+
+{$EndIf l3Map_imp_impl}
+
+{$EndIf l3Map_imp}
+

@@ -1,22 +1,28 @@
-unit kwEditorFromStackCursorWordUses.imp;
+{$IfNDef kwEditorFromStackCursorWordUses_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackCursorWordUses.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define kwEditorFromStackCursorWordUses_imp}
 
-type
- _kwEditorFromStackCursorWordUses_ = class
+{$If NOT Defined(NoScripts)}
+ _kwEditorFromStackCursorWordUses_ = class(_kwEditorFromStackCursorWordUses_Parent_)
  end;//_kwEditorFromStackCursorWordUses_
- 
-implementation
 
-uses
- l3ImplUses
- , evOp
- , CommentPara_Const
- , TextPara_Const
-;
+{$Else NOT Defined(NoScripts)}
 
-end.
+_kwEditorFromStackCursorWordUses_ = _kwEditorFromStackCursorWordUses_Parent_;
+
+{$IfEnd} // NOT Defined(NoScripts)
+{$Else kwEditorFromStackCursorWordUses_imp}
+
+{$IfNDef kwEditorFromStackCursorWordUses_imp_impl}
+
+{$Define kwEditorFromStackCursorWordUses_imp_impl}
+
+{$If NOT Defined(NoScripts)}
+{$IfEnd} // NOT Defined(NoScripts)
+{$EndIf kwEditorFromStackCursorWordUses_imp_impl}
+
+{$EndIf kwEditorFromStackCursorWordUses_imp}
+

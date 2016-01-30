@@ -1,0 +1,39 @@
+//#UC START# *479731C50290_5417E71801D2_impl*
+ f_Helper := nil;
+ inherited;
+//#UC END# *479731C50290_5417E71801D2_impl*
+//#UC START# *479731C50290_5417E71801D2_var*
+//#UC END# *479731C50290_5417E71801D2_var*
+//#UC START# *53ABACBB02D0_5417E71801D2_impl*
+ Result := DoMakeContainer;
+//#UC END# *53ABACBB02D0_5417E71801D2_impl*
+//#UC START# *53ABACBB02D0_5417E71801D2_var*
+//#UC END# *53ABACBB02D0_5417E71801D2_var*
+//#UC START# *5417E8EB032B_5417E71801D2_impl*
+ Assert(f_Helper <> nil);
+ l_Helper := IbsHyperLinkProcessorHelper(f_Helper);
+ try
+  Result := nil;
+  case f_Behaviour of
+   phbInSameContainer:
+    Result := l_Helper.MakeContainer;
+   phbInNewTabActivate, phbInNewTabNoActivate:
+    Result := l_Helper.MakeTabbedContainer(f_Behaviour = phbInNewTabActivate);
+   phbInNewWindow:
+    Result := l_Helper.MakeNewMainWindow;
+  end;
+ finally
+  l_Helper := nil;
+ end;
+//#UC END# *5417E8EB032B_5417E71801D2_impl*
+//#UC START# *5417E8EB032B_5417E71801D2_var*
+var
+ l_Helper: IbsHyperLinkProcessorHelper;
+//#UC END# *5417E8EB032B_5417E71801D2_var*
+//#UC START# *5417E940038E_5417E71801D2_impl*
+ inherited Create;
+ f_Behaviour := aBehaviour;
+ f_Helper := Pointer(aHelper);
+//#UC END# *5417E940038E_5417E71801D2_impl*
+//#UC START# *5417E940038E_5417E71801D2_var*
+//#UC END# *5417E940038E_5417E71801D2_var*

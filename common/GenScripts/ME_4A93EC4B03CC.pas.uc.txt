@@ -1,0 +1,123 @@
+//#UC START# *47A042E100E2_4A93EC4B03CC_impl*
+ inherited;
+ BorderIcons := [biSystemMenu];
+ BorderStyle := bsSingle;
+ Position := poScreenCenter;
+//#UC END# *47A042E100E2_4A93EC4B03CC_impl*
+//#UC START# *47A042E100E2_4A93EC4B03CC_var*
+//#UC END# *47A042E100E2_4A93EC4B03CC_var*
+//#UC START# *48C7925A02E5_4A93EC4B03CC_impl*
+ inherited;
+ with Params do
+ begin
+  ExStyle := ExStyle or WS_EX_APPWINDOW and not WS_EX_TOOLWINDOW;
+  WndParent := GetDesktopWindow;
+ end;
+//#UC END# *48C7925A02E5_4A93EC4B03CC_impl*
+//#UC START# *48C7925A02E5_4A93EC4B03CC_var*
+//#UC END# *48C7925A02E5_4A93EC4B03CC_var*
+//#UC START# *4A8E8F2E0195_4A93EC4B03CC_impl*
+ inherited;
+
+ ActiveControl := edEmail;
+
+ ClientHeight := 127;
+ ClientWidth := 423;
+
+ with EMailLabel do
+ begin
+  AutoSize := False;
+  Left := 8;
+  Top := 7;
+  Width := 125;
+  Height := 17;
+  Alignment := taRightJustify;
+ end;
+
+ with HintLabel do
+ begin
+  AutoSize := False;
+  Left := 8;
+  Top := 32;
+  Width := 409;
+  Height := 56;
+  Alignment := taCenter;
+  WordWrap := True;
+ end;
+
+ with btnCancel do
+ begin
+  Left := 342;
+  Top := 94;
+  Width := 75;
+  Height := 25;
+  DrawDefaultFrame := False;
+  Cancel := True;
+  ModalResult := mrCancel;
+  NumGlyphs := 1;
+  ThinFrame := True;
+  TabOrder := 0;
+  ParentFont := True;
+  DockOrientation := doNoOrient;
+ end;
+
+ with btnSend do
+ begin
+  Left := 210;
+  Top := 94;
+  Width := 122;
+  Height := 25;
+  DrawDefaultFrame := False;
+  Default := True;
+  ModalResult := mrCancel;
+  NumGlyphs := 1;
+  ThinFrame := True;
+  Enabled := False;
+  TabOrder := 1;
+  ParentFont := True;
+  OnClick := btnSendClick;
+  DockOrientation := doNoOrient;
+ end;
+
+ with edEmail do
+ begin
+  Left := 146;
+  Top := 6;
+  Width := 267;
+  Height := 21;
+  OnChange := EMailEditChange;
+  TabOrder := 2;
+ end;
+//#UC END# *4A8E8F2E0195_4A93EC4B03CC_impl*
+//#UC START# *4A8E8F2E0195_4A93EC4B03CC_var*
+//#UC END# *4A8E8F2E0195_4A93EC4B03CC_var*
+//#UC START# *4B0E846D022B_4A93EC4B03CC_impl*
+ Result := True;
+//#UC END# *4B0E846D022B_4A93EC4B03CC_impl*
+//#UC START# *4B0E846D022B_4A93EC4B03CC_var*
+//#UC END# *4B0E846D022B_4A93EC4B03CC_var*
+//#UC START# *525D12A30273_4A93EC4B03CC_impl*
+ btnSend.Enabled := nsEmailVerify.Verify(edEmail.Text);
+ if btnSend.Enabled then
+  edEmail.Font.Color := clWindowText
+ else
+  edEmail.Font.Color := clRed;
+//#UC END# *525D12A30273_4A93EC4B03CC_impl*
+//#UC START# *525D12A30273_4A93EC4B03CC_var*
+//#UC END# *525D12A30273_4A93EC4B03CC_var*
+//#UC START# *525D12C2011A_4A93EC4B03CC_impl*
+ DoSend;
+//#UC END# *525D12C2011A_4A93EC4B03CC_impl*
+//#UC START# *525D12C2011A_4A93EC4B03CC_var*
+//#UC END# *525D12C2011A_4A93EC4B03CC_var*
+//#UC START# *525D1318002B_4A93EC4B03CCget_impl*
+ Result := edEmail.Text;
+//#UC END# *525D1318002B_4A93EC4B03CCget_impl*
+//#UC START# *525D1318002B_4A93EC4B03CCget_var*
+//#UC END# *525D1318002B_4A93EC4B03CCget_var*
+//#UC START# *525D13F30292_4A93EC4B03CC_impl*
+ if Assigned(SendAction) then
+  ModalResult := SendAction(self);
+//#UC END# *525D13F30292_4A93EC4B03CC_impl*
+//#UC START# *525D13F30292_4A93EC4B03CC_var*
+//#UC END# *525D13F30292_4A93EC4B03CC_var*

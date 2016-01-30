@@ -1,5 +1,10 @@
 unit TaskID_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\TaskID_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -9,7 +14,7 @@ uses
 ;
 
  // TaskIDTag
- 
+
 implementation
 
 uses

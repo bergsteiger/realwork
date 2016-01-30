@@ -1,0 +1,105 @@
+//#UC START# *47A042E100E2_4DAEECD90016_impl*
+ inherited;
+ Sorted := true;
+//#UC END# *47A042E100E2_4DAEECD90016_impl*
+//#UC START# *47A042E100E2_4DAEECD90016_var*
+//#UC END# *47A042E100E2_4DAEECD90016_var*
+//#UC START# *47A6FEE600FC_4DAEECD90016_impl*
+ Result := true;
+//#UC END# *47A6FEE600FC_4DAEECD90016_impl*
+//#UC START# *47A6FEE600FC_4DAEECD90016_var*
+//#UC END# *47A6FEE600FC_4DAEECD90016_var*
+//#UC START# *4DAEEDA301CD_4DAEECD90016_impl*
+ l_W := aWordClass.Create;
+ try
+  l_KW := TtfwKeyWord.Create(Self, aWordName, l_W);
+  try
+   Result := Self.Add(l_KW) >= 0;
+  finally
+   FreeAndNil(l_KW);
+  end;//try..finally
+ finally
+  FreeAndNil(l_W);
+ end;//try..finally
+//#UC END# *4DAEEDA301CD_4DAEECD90016_impl*
+//#UC START# *4DAEEDA301CD_4DAEECD90016_var*
+var
+ l_W : TtfwWord;
+ l_KW : TtfwKeyWord;
+//#UC END# *4DAEEDA301CD_4DAEECD90016_var*
+//#UC START# *4DB5781B0086_4DAEECD90016_impl*
+ l_W := TtfwKeyWord.Create(Self, aWordName, aWord);
+ try
+  Result := Self.Add(l_W) >= 0;
+ finally
+  FreeAndNil(l_W);
+ end;//try..finally
+//#UC END# *4DB5781B0086_4DAEECD90016_impl*
+//#UC START# *4DB5781B0086_4DAEECD90016_var*
+var
+ l_W : TtfwKeyWord;
+//#UC END# *4DB5781B0086_4DAEECD90016_var*
+//#UC START# *4F46588B021E_4DAEECD90016_impl*
+ Result := DoCheckWord(aName);
+//#UC END# *4F46588B021E_4DAEECD90016_impl*
+//#UC START# *4F46588B021E_4DAEECD90016_var*
+//#UC END# *4F46588B021E_4DAEECD90016_var*
+//#UC START# *4F465A710399_4DAEECD90016get_impl*
+ Result := DoGetDRbyCName(aName);
+//#UC END# *4F465A710399_4DAEECD90016get_impl*
+//#UC START# *4F465A710399_4DAEECD90016get_var*
+//#UC END# *4F465A710399_4DAEECD90016get_var*
+//#UC START# *4F465D580021_4DAEECD90016_impl*
+ if FindData(l3PCharLen(aName), i, SortIndex) then
+  Result := TtfwKeyWord(Items[i])
+ else
+ begin
+  l_W := TtfwKeyWord.Create(Self, aName);
+  try
+   DirectInsert(i, l_W);
+   Result := l_W;
+  finally
+   FreeAndNil(l_W);
+  end;//try..finally
+ end;//FindData...
+//#UC END# *4F465D580021_4DAEECD90016_impl*
+//#UC START# *4F465D580021_4DAEECD90016_var*
+var
+ i : Integer;
+ l_W : TtfwKeyWord;
+//#UC END# *4F465D580021_4DAEECD90016_var*
+//#UC START# *559E655B0290_4DAEECD90016_impl*
+ inherited Create;
+//#UC END# *559E655B0290_4DAEECD90016_impl*
+//#UC START# *559E655B0290_4DAEECD90016_var*
+//#UC END# *559E655B0290_4DAEECD90016_var*
+//#UC START# *559FEFE603D4_4DAEECD90016_impl*
+ if FindData(l3PCharLen(aName), i, SortIndex) then
+  Result := TtfwKeyWord(Items[i])
+ else
+  Result := nil;
+//#UC END# *559FEFE603D4_4DAEECD90016_impl*
+//#UC START# *559FEFE603D4_4DAEECD90016_var*
+var
+ i : Integer;
+//#UC END# *559FEFE603D4_4DAEECD90016_var*
+//#UC START# *559FF0210296_4DAEECD90016_impl*
+ Result := OwnDRbyCName(aName);
+//#UC END# *559FF0210296_4DAEECD90016_impl*
+//#UC START# *559FF0210296_4DAEECD90016_var*
+//#UC END# *559FF0210296_4DAEECD90016_var*
+//#UC START# *55A531FA016A_4DAEECD90016_impl*
+ Result := false;
+//#UC END# *55A531FA016A_4DAEECD90016_impl*
+//#UC START# *55A531FA016A_4DAEECD90016_var*
+//#UC END# *55A531FA016A_4DAEECD90016_var*
+//#UC START# *55A7ECD8020D_4DAEECD90016_impl*
+ Result := false;
+//#UC END# *55A7ECD8020D_4DAEECD90016_impl*
+//#UC START# *55A7ECD8020D_4DAEECD90016_var*
+//#UC END# *55A7ECD8020D_4DAEECD90016_var*
+//#UC START# *55B0E87401FA_4DAEECD90016_impl*
+ Result := inherited Add(aWord);
+//#UC END# *55B0E87401FA_4DAEECD90016_impl*
+//#UC START# *55B0E87401FA_4DAEECD90016_var*
+//#UC END# *55B0E87401FA_4DAEECD90016_var*

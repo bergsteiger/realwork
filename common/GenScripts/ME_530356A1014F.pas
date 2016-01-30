@@ -1,7 +1,13 @@
-unit csImport;
+unit NOT_FINISHED_csImport;
+
+// Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_csImport.pas"
+// Стереотип: "UtilityPack"
+
+{$Include CsDefine.inc}
 
 interface
 
+{$If NOT Defined(Nemesis)}
 uses
  l3IntfUses
  , csImportTaskPrim
@@ -10,11 +16,14 @@ uses
 type
  TcsImportTaskItem = class(TcsImportTaskPrim)
  end;//TcsImportTaskItem
- 
+{$IfEnd} // NOT Defined(Nemesis)
+
 implementation
 
+{$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
 ;
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

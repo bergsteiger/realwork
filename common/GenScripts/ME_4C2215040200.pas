@@ -1,4 +1,9 @@
-unit evCustomHAFMacroReplacer;
+unit NOT_FINISHED_evCustomHAFMacroReplacer;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCustomHAFMacroReplacer.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -9,7 +14,7 @@ uses
 type
  TevCustomHAFMacroReplacer = class
  end;//TevCustomHAFMacroReplacer
- 
+
 implementation
 
 uses

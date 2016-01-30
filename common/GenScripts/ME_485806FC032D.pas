@@ -1,4 +1,10 @@
 unit ControlsBlock_Const;
+ {* Блок контролов }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\ControlsBlock_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -10,7 +16,7 @@ uses
 ;
 
  // ControlsBlockTag
- 
+
 implementation
 
 uses

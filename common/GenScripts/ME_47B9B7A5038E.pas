@@ -1,4 +1,10 @@
 unit k2PropSorter;
+ {* Сортировщик свойств. }
+
+// Модуль: "w:\common\components\rtl\Garant\K2\k2PropSorter.pas"
+// Стереотип: "SimpleClass"
+
+{$Include k2Define.inc}
 
 interface
 
@@ -6,17 +12,23 @@ uses
  l3IntfUses
  , l3ProtoDataContainer
  , k2Base
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
 ;
 
 type
+ _ItemType_ = Tk2CustomProperty;
+ _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
+ {$Define l3Items_IsProto}
+ {$Include l3UncomparabeObjectRefList.imp.pas}
  Tk2PropSorter = class(_l3UncomparabeObjectRefList_)
   {* Сортировщик свойств. }
-  procedure AssignItem(const aTo: _ItemType_;
-   const aFrom: _ItemType_);
-  function CompareExistingItems(const CI: CompareItemsRec): Integer;
-   {* Сравнивает два существующих элемента. }
  end;//Tk2PropSorter
- 
+
 implementation
 
 uses
@@ -26,5 +38,36 @@ uses
  , RTLConsts
  , SysUtils
 ;
+
+function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
+
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
+procedure AssignItem(const aTo: _ItemType_;
+ const aFrom: _ItemType_);
+//#UC START# *47B2C42A0163_47B9B7A5038E_var*
+//#UC END# *47B2C42A0163_47B9B7A5038E_var*
+begin
+//#UC START# *47B2C42A0163_47B9B7A5038E_impl*
+ Assert(false);
+//#UC END# *47B2C42A0163_47B9B7A5038E_impl*
+end;//AssignItem
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
+
+function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
+//#UC START# *47B99D4503A2_47B9B7A5038E_var*
+//#UC END# *47B99D4503A2_47B9B7A5038E_var*
+begin
+//#UC START# *47B99D4503A2_47B9B7A5038E_impl*
+ {$IfDef l3Items_HasCustomSort}
+ Assert(CI.rSortIndex = l3_siNative);
+ {$EndIf l3Items_HasCustomSort}
+ Result := CI.rA^.OrderKey.Compare(CI.rB^.OrderKey);
+//#UC END# *47B99D4503A2_47B9B7A5038E_impl*
+end;//CompareExistingItems
+
+type _Instance_R_ = Tk2PropSorter;
+
+{$Include l3UncomparabeObjectRefList.imp.pas}
 
 end.

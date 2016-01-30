@@ -1,22 +1,28 @@
-unit SystemWord.imp;
+{$IfNDef SystemWord_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\SystemWord.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define SystemWord_imp}
 
-type
- _SystemWord_ = class
+{$If NOT Defined(NoScripts)}
+ _SystemWord_ = {abstract} class(_SystemWord_Parent_)
  end;//_SystemWord_
- 
-implementation
 
-uses
- l3ImplUses
- , Windows
- , Controls
- , Forms
-;
+{$Else NOT Defined(NoScripts)}
 
-end.
+_SystemWord_ = _SystemWord_Parent_;
+
+{$IfEnd} // NOT Defined(NoScripts)
+{$Else SystemWord_imp}
+
+{$IfNDef SystemWord_imp_impl}
+
+{$Define SystemWord_imp_impl}
+
+{$If NOT Defined(NoScripts)}
+{$IfEnd} // NOT Defined(NoScripts)
+{$EndIf SystemWord_imp_impl}
+
+{$EndIf SystemWord_imp}
+

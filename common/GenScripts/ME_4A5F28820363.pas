@@ -1,33 +1,77 @@
-unit k2SimpleTagListPrim.imp;
+{$IfNDef k2SimpleTagListPrim_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\K2\k2SimpleTagListPrim.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define k2SimpleTagListPrim_imp}
 
  {$Define l3Items_NoChanging}
- 
+
  {$Define l3Items_NoOwner}
- 
-type
- _k2SimpleTagListPrim_ = class(_l3VariantListPrim_, Ml3Unknown)
+
+ _l3VariantListPrim_Parent_ = _k2SimpleTagListPrim_Parent_;
+ {$Include l3VariantListPrim.imp.pas}
+ _k2SimpleTagListPrim_ = class(_l3VariantListPrim_)
   {* Список параграфов }
-  procedure AssignItem(const aTo: _ItemType_;
-   const aFrom: _ItemType_);
-  function CompareExistingItems(const CI: CompareItemsRec): Integer;
-   {* Сравнивает два существующих элемента. }
+  protected
+   {$If NOT Defined(DesignTimeLibrary)}
+   class function IsCacheable: Boolean; override;
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
  end;//_k2SimpleTagListPrim_
- 
-implementation
 
-uses
- l3ImplUses
- , k2BaseTypes
- , SysUtils
- , l3Base
- , l3MinMax
- , RTLConsts
-;
+{$Else k2SimpleTagListPrim_imp}
 
-end.
+{$IfNDef k2SimpleTagListPrim_imp_impl}
+
+{$Define k2SimpleTagListPrim_imp_impl}
+
+function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
+
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
+procedure AssignItem(const aTo: _ItemType_;
+ const aFrom: _ItemType_);
+//#UC START# *47B2C42A0163_4A5F28820363_var*
+//#UC END# *47B2C42A0163_4A5F28820363_var*
+begin
+//#UC START# *47B2C42A0163_4A5F28820363_impl*
+ aTo.AssignTag(aFrom, k2_amAll - [k2_amNull]);
+//#UC END# *47B2C42A0163_4A5F28820363_impl*
+end;//AssignItem
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
+
+function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
+//#UC START# *47B99D4503A2_4A5F28820363_var*
+//#UC END# *47B99D4503A2_4A5F28820363_var*
+begin
+//#UC START# *47B99D4503A2_4A5F28820363_impl*
+ {$IfDef l3Items_HasCustomSort}
+ Result := CI.rA^.AsObject.CompareWithTag(CI.rB^.AsObject, CI.rSortIndex);
+ {$Else  l3Items_HasCustomSort}
+ Result := -1;
+ Assert(false);
+ {$EndIf l3Items_HasCustomSort}
+//#UC END# *47B99D4503A2_4A5F28820363_impl*
+end;//CompareExistingItems
+
+type _Instance_R_ = _k2SimpleTagListPrim_;
+
+{$Include l3VariantListPrim.imp.pas}
+
+{$If NOT Defined(DesignTimeLibrary)}
+class function _k2SimpleTagListPrim_.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+//#UC START# *47A6FEE600FC_4A5F28820363_var*
+//#UC END# *47A6FEE600FC_4A5F28820363_var*
+begin
+//#UC START# *47A6FEE600FC_4A5F28820363_impl*
+ Result := true;
+//#UC END# *47A6FEE600FC_4A5F28820363_impl*
+end;//_k2SimpleTagListPrim_.IsCacheable
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
+
+{$EndIf k2SimpleTagListPrim_imp_impl}
+
+{$EndIf k2SimpleTagListPrim_imp}
+

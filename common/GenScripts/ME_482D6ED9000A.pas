@@ -1,4 +1,9 @@
-unit k2CustomReader;
+unit NOT_FINISHED_k2CustomReader;
+
+// Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2CustomReader.pas"
+// Стереотип: "SimpleClass"
+
+{$Include k2Define.inc}
 
 interface
 
@@ -9,13 +14,23 @@ uses
 
 type
  Tk2CustomReader = class(Tk2CustomStackGenerator)
-  procedure Read;
+  protected
+   procedure Read; virtual;
  end;//Tk2CustomReader
- 
+
 implementation
 
 uses
  l3ImplUses
 ;
+
+procedure Tk2CustomReader.Read;
+//#UC START# *4F68343D038D_482D6ED9000A_var*
+//#UC END# *4F68343D038D_482D6ED9000A_var*
+begin
+//#UC START# *4F68343D038D_482D6ED9000A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4F68343D038D_482D6ED9000A_impl*
+end;//Tk2CustomReader.Read
 
 end.

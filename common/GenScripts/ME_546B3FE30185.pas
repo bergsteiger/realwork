@@ -1,5 +1,10 @@
 unit csGetTaskDescription_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\csGetTaskDescription_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -9,7 +14,7 @@ uses
 ;
 
  // csGetTaskDescriptionTag
- 
+
 implementation
 
 uses

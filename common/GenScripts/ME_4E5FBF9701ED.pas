@@ -1,5 +1,10 @@
 unit nevParaFormatInfo;
 
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevParaFormatInfo.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
+
 interface
 
 uses
@@ -10,7 +15,7 @@ uses
 type
  TnevParaFormatInfo = class(TnevFormatInfo)
  end;//TnevParaFormatInfo
- 
+
 implementation
 
 uses

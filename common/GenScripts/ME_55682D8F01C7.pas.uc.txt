@@ -1,0 +1,372 @@
+//#UC START# *05A68328CDCF_2E3FD122E430_impl*
+ Result := TtfwCStringFactory.C(l3Copy(aString, aPos, aLength));
+//#UC END# *05A68328CDCF_2E3FD122E430_impl*
+//#UC START# *05A68328CDCF_2E3FD122E430_var*
+//#UC END# *05A68328CDCF_2E3FD122E430_var*
+//#UC START# *0AEEC1805BCE_DD57CECF347C_impl*
+ Result := TtfwCStringFactory.Cat(anOther, aString);
+//#UC END# *0AEEC1805BCE_DD57CECF347C_impl*
+//#UC START# *0AEEC1805BCE_DD57CECF347C_var*
+//#UC END# *0AEEC1805BCE_DD57CECF347C_var*
+//#UC START# *108F78D959BF_09008856C703_impl*
+ Result := SysUtils.StrToInt(l3Str(aString));
+//#UC END# *108F78D959BF_09008856C703_impl*
+//#UC START# *108F78D959BF_09008856C703_var*
+//#UC END# *108F78D959BF_09008856C703_var*
+//#UC START# *16E4F9B79ECC_4E9A5EC5FAC6_impl*
+ if l3IsNil(aString) then
+  Result := #0
+ else
+  Result := aString.AsWStr.S[0];
+//#UC END# *16E4F9B79ECC_4E9A5EC5FAC6_impl*
+//#UC START# *16E4F9B79ECC_4E9A5EC5FAC6_var*
+//#UC END# *16E4F9B79ECC_4E9A5EC5FAC6_var*
+//#UC START# *187F940B5F16_8997C15C6CA8_impl*
+ Result := l3Ends(aSubStr, aString, true);
+//#UC END# *187F940B5F16_8997C15C6CA8_impl*
+//#UC START# *187F940B5F16_8997C15C6CA8_var*
+//#UC END# *187F940B5F16_8997C15C6CA8_var*
+//#UC START# *1C3B459FC59Bci*
+//#UC END# *1C3B459FC59Bci*
+//#UC START# *1C3B459FC59Bcit*
+//#UC END# *1C3B459FC59Bcit*
+//#UC START# *1C3B459FC59Bpubl*
+//#UC END# *1C3B459FC59Bpubl*
+//#UC START# *1D5A300A0055_0BA6E62BEF84_impl*
+ if (aString = nil) then
+  Result := 0
+ else
+  Result := aString.AsWStr.SLen;
+//#UC END# *1D5A300A0055_0BA6E62BEF84_impl*
+//#UC START# *1D5A300A0055_0BA6E62BEF84_var*
+//#UC END# *1D5A300A0055_0BA6E62BEF84_var*
+//#UC START# *2B44D7EFA4A8_9996D7566EDE_impl*
+ Result := l3Starts(aSubStr, aString, true);
+//#UC END# *2B44D7EFA4A8_9996D7566EDE_impl*
+//#UC START# *2B44D7EFA4A8_9996D7566EDE_var*
+//#UC END# *2B44D7EFA4A8_9996D7566EDE_var*
+//#UC START# *2D11D07B402C_AA63BC1F51EC_impl*
+ l_Len := l3Len(aString);
+ if (l_Len = 1) then
+  l3Split(anOther, l3Char(aString, 0), Result, theTail)
+ else
+  l3Split(anOther, aString, Result, theTail);
+(* if (l_Len = 1) then
+  l3Split(anOther, l3Char(aString, 0), l_P, l_S)
+ else
+  l3Split(anOther, aString, l_P, l_S);
+ aCtx.rEngine.PushString(l_P);
+ aCtx.rEngine.PushString(l_S);*)
+//#UC END# *2D11D07B402C_AA63BC1F51EC_impl*
+//#UC START# *2D11D07B402C_AA63BC1F51EC_var*
+var
+(* l_P : Il3CString;
+ l_S : Il3CString;*)
+ l_Len : Integer;
+//#UC END# *2D11D07B402C_AA63BC1F51EC_var*
+//#UC START# *357C9EA3B36D_807D7A8440DD_impl*
+ Result := TtfwCStringFactory.C(l3RTrim(aString, cc_WhiteSpace));
+//#UC END# *357C9EA3B36D_807D7A8440DD_impl*
+//#UC START# *357C9EA3B36D_807D7A8440DD_var*
+//#UC END# *357C9EA3B36D_807D7A8440DD_var*
+//#UC START# *3F9E9C8EDF9E_CA33F456975C_impl*
+ RunnerAssert(aString.AsWStr.SLen = 1, 'Длина строки должна равняться 1', aCtx);
+ Result := aString.AsWStr.S[0];
+//#UC END# *3F9E9C8EDF9E_CA33F456975C_impl*
+//#UC START# *3F9E9C8EDF9E_CA33F456975C_var*
+//#UC END# *3F9E9C8EDF9E_CA33F456975C_var*
+//#UC START# *46139320DD2A_9597582C9BD4_impl*
+ Result := aString.AsWStr.S[anIndex];
+//#UC END# *46139320DD2A_9597582C9BD4_impl*
+//#UC START# *46139320DD2A_9597582C9BD4_var*
+//#UC END# *46139320DD2A_9597582C9BD4_var*
+//#UC START# *4D25C99A6BEB_2309401B7CC1_impl*
+ Result := l3Same(aString, anOther, false);
+//#UC END# *4D25C99A6BEB_2309401B7CC1_impl*
+//#UC START# *4D25C99A6BEB_2309401B7CC1_var*
+//#UC END# *4D25C99A6BEB_2309401B7CC1_var*
+//#UC START# *4E5E3C364C71_2256016890B3_impl*
+ l_S1 := l3PCharLen(aDelims);
+ l_S2 := l3PCharLen(aString);
+ if l3IsNil(l_S1) then
+  Result := true
+  // - любая строка содержит символы из пустого множества, считаем так
+ else
+ if (l_S1.SLen = 1) then
+  Result := l3CharSetPresent(l_S2, [l_S1.S[0]])
+ else
+ begin
+  l_C := [];
+  for l_Index := 0 to Pred(l_S1.SLen) do
+   l_C := l_C + [l_S1.S[l_Index]];
+  Result := l3CharSetPresent(l_S2, l_C);
+ end;//l_S1.SLen = 1
+//#UC END# *4E5E3C364C71_2256016890B3_impl*
+//#UC START# *4E5E3C364C71_2256016890B3_var*
+var
+ l_S1 : Tl3WString;
+ l_S2 : Tl3WString;
+ l_C : TChars;
+ l_Index : Integer;
+//#UC END# *4E5E3C364C71_2256016890B3_var*
+//#UC START# *5123A135DDBC_6014F0D564E4_impl*
+ Tl3WString(l_P) := aVar.GetValue(aCtx).AsString.AsWStr;
+ Result := l_P.S^;
+ l_P.Shift(+1);
+ aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l_P), aCtx);
+//#UC END# *5123A135DDBC_6014F0D564E4_impl*
+//#UC START# *5123A135DDBC_6014F0D564E4_var*
+var
+ l_P : Tl3PCharLen;
+//#UC END# *5123A135DDBC_6014F0D564E4_var*
+//#UC START# *53DA3FC40405_0E02A0729BA6_impl*
+ Result := l3Compare(l3PCharLen(anOther), l3PCharLen(aString), l3_siCaseUnsensitive);
+//#UC END# *53DA3FC40405_0E02A0729BA6_impl*
+//#UC START# *53DA3FC40405_0E02A0729BA6_var*
+//#UC END# *53DA3FC40405_0E02A0729BA6_var*
+//#UC START# *60E71D4C9014_C670925F6482_impl*
+ Result := l3Compare(l3PCharLen(anOther), l3PCharLen(aString));
+//#UC END# *60E71D4C9014_C670925F6482_impl*
+//#UC START# *60E71D4C9014_C670925F6482_var*
+//#UC END# *60E71D4C9014_C670925F6482_var*
+//#UC START# *62C91D29887A_95D9D233CD72_impl*
+ Result := TtfwCStringFactory.C(l3Trim(aString));
+//#UC END# *62C91D29887A_95D9D233CD72_impl*
+//#UC START# *62C91D29887A_95D9D233CD72_var*
+//#UC END# *62C91D29887A_95D9D233CD72_var*
+//#UC START# *68E30DDD3D3E_8BA4B632B802_impl*
+ Result := l3Upper(aString);
+//#UC END# *68E30DDD3D3E_8BA4B632B802_impl*
+//#UC START# *68E30DDD3D3E_8BA4B632B802_var*
+//#UC END# *68E30DDD3D3E_8BA4B632B802_var*
+//#UC START# *6BE7506C040A_D442EF995DFF_impl*
+ l_V := aVar.GetValue(aCtx).AsString;
+ Tl3WString(l_P) := l3PCharLen(l_V);
+ l_WS := l3PCharLen(aDelim);
+ Assert(not l3IsNil(l_WS));
+ Assert(l_P.SLen >= 0);
+ Assert(l3IsAnsi(l_P.SCodePage));
+ if (l_WS.SLen = 1) then
+ begin
+  l_Found := ev_lpRScan(l_WS.S[0], l_P.S, l_P.SLen);
+  if (l_Found = nil) then
+  begin
+   Result := TtfwCStringFactory.C(l_P);
+   aVar.SetValue(TtfwCStringFactoryEx.ViewOf(''), aCtx);
+  end//l_Found = nil
+  else
+  begin
+   Result := TtfwCStringFactory.C(l3Copy(l_P, l_Found - l_P.S + 1));
+   aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l3PCharLen(l_P.S, l_Found - l_P.S, l_P.SCodePage)), aCtx);
+  end;//l_Found = nil
+ end//l_WS.SLen = 1
+ else
+ begin
+  //l3Split(l_V, aDelim, l_Pref, l_Suff);
+  //aCtx.rEngine.PushString(l_Pref);
+  //aVar.Value := TtfwStackValue_C(l_Suff);
+  Assert(false, 'Пока не реализовано');
+  Result := nil;
+ end;//l_WS.SLen = 1
+//#UC END# *6BE7506C040A_D442EF995DFF_impl*
+//#UC START# *6BE7506C040A_D442EF995DFF_var*
+var
+ l_V : Il3CString;
+ l_P : Tl3PCharLen;
+ l_WS : Tl3WString;
+ l_Found : PAnsiChar;
+
+ //l_Pref : Il3CString;
+ //l_Suff : Il3CString;
+//#UC END# *6BE7506C040A_D442EF995DFF_var*
+//#UC START# *6C0D8D8B8728_6CAF85926E0C_impl*
+ Result := aString.AsWStr.SCodePage;
+//#UC END# *6C0D8D8B8728_6CAF85926E0C_impl*
+//#UC START# *6C0D8D8B8728_6CAF85926E0C_var*
+//#UC END# *6C0D8D8B8728_6CAF85926E0C_var*
+//#UC START# *77C319AE08A3_6F240EDBC3AE_impl*
+ Result := l3StringReplace(aMain,
+                           l3PCharLen(aFrom),
+                           l3PCharLen(aString), [rfReplaceAll, rfIgnoreCase])
+//#UC END# *77C319AE08A3_6F240EDBC3AE_impl*
+//#UC START# *77C319AE08A3_6F240EDBC3AE_var*
+//#UC END# *77C319AE08A3_6F240EDBC3AE_var*
+//#UC START# *822EF8BD3C12_2D2FC66E49DD_impl*
+ Result := TtfwCStringFactory.C(l3LTrim(aString));
+//#UC END# *822EF8BD3C12_2D2FC66E49DD_impl*
+//#UC START# *822EF8BD3C12_2D2FC66E49DD_var*
+//#UC END# *822EF8BD3C12_2D2FC66E49DD_var*
+//#UC START# *883992DDC504_9FC28ACB9AA1_impl*
+ Result := l3Same(aString, anOther, true);
+//#UC END# *883992DDC504_9FC28ACB9AA1_impl*
+//#UC START# *883992DDC504_9FC28ACB9AA1_var*
+//#UC END# *883992DDC504_9FC28ACB9AA1_var*
+//#UC START# *89A4BEF62C61_EFB7A59A9041_impl*
+ l_P := l3PCharLen(aString);
+ l_P.Shift(aDelta);
+ Result := TtfwCStringFactory.ViewOf(l_P);
+//#UC END# *89A4BEF62C61_EFB7A59A9041_impl*
+//#UC START# *89A4BEF62C61_EFB7A59A9041_var*
+var
+ l_P : Tl3PCharLen;
+//#UC END# *89A4BEF62C61_EFB7A59A9041_var*
+//#UC START# *94300FB9FFA5_BF0C6B892128_impl*
+ l_V := aVar.GetValue(aCtx).AsString;
+ Tl3WString(l_P) := l3PCharLen(l_V);
+ l_WS := l3PCharLen(aDelim);
+ Assert(not l3IsNil(l_WS));
+ Assert(l_P.SLen >= 0);
+ if (l_WS.SLen = 1) then
+ begin
+  l_Rest := l3FindChar(l_WS.S[0], l_P);
+  if not l3IsNil(l_P) then
+   if (l_P.S[l_P.SLen - 1] = l_WS.S[0]) then
+    Dec(l_P.SLen);
+  Result := TtfwCStringFactory.C(l_P);
+  aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l_Rest), aCtx);
+ end//l_WS.SLen = 1
+ else
+ begin
+  l3Split(l_V, aDelim, l_Pref, l_Suff);
+  Result := l_Pref;
+  aVar.SetValue(TtfwStackValue_C(l_Suff), aCtx);
+  //Assert(false, 'Пока не реализовано');
+ end;//l_WS.SLen = 1
+//#UC END# *94300FB9FFA5_BF0C6B892128_impl*
+//#UC START# *94300FB9FFA5_BF0C6B892128_var*
+var
+ l_V : Il3CString;
+ l_P : Tl3PCharLen;
+ l_WS : Tl3WString;
+ l_Rest : Tl3WString;
+
+ l_Pref : Il3CString;
+ l_Suff : Il3CString;
+//#UC END# *94300FB9FFA5_BF0C6B892128_var*
+//#UC START# *9B83E2E03D3D_FF1E0A42BBEF_impl*
+ Result := l3StringReplace(aMain,
+                           l3PCharLen(aFrom),
+                           l3PCharLen(aString), [{rfReplaceAll}])
+//#UC END# *9B83E2E03D3D_FF1E0A42BBEF_impl*
+//#UC START# *9B83E2E03D3D_FF1E0A42BBEF_var*
+//#UC END# *9B83E2E03D3D_FF1E0A42BBEF_var*
+//#UC START# *9CC163BCA241_5B249AD9723E_impl*
+ Tl3WString(l_P) := l3PCharLen(aVar.GetValue(aCtx).AsString);
+ Dec(l_P.SLen);
+ Assert(l_P.SLen >= 0);
+ aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l_P), aCtx);
+//#UC END# *9CC163BCA241_5B249AD9723E_impl*
+//#UC START# *9CC163BCA241_5B249AD9723E_var*
+var
+ l_P : Tl3PCharLen;
+//#UC END# *9CC163BCA241_5B249AD9723E_var*
+//#UC START# *9E35DCA8A090_E1736F173AD3_impl*
+ Tl3WString(l_P) := l3PCharLen(aVar.GetValue(aCtx).AsString);
+ l_P.Shift(aNum);
+ aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l_P), aCtx);
+//#UC END# *9E35DCA8A090_E1736F173AD3_impl*
+//#UC START# *9E35DCA8A090_E1736F173AD3_var*
+var
+ l_P : Tl3PCharLen;
+//#UC END# *9E35DCA8A090_E1736F173AD3_var*
+//#UC START# *A3206F78A2FD_851E99BEB53B_impl*
+ Result := l3Pos(anOther, aString);
+//#UC END# *A3206F78A2FD_851E99BEB53B_impl*
+//#UC START# *A3206F78A2FD_851E99BEB53B_var*
+//#UC END# *A3206F78A2FD_851E99BEB53B_var*
+//#UC START# *ADBAC1D0C450_0093B3082714_impl*
+ Result := l3Starts(aSubStr, aString, false);
+//#UC END# *ADBAC1D0C450_0093B3082714_impl*
+//#UC START# *ADBAC1D0C450_0093B3082714_var*
+//#UC END# *ADBAC1D0C450_0093B3082714_var*
+//#UC START# *B1D7965F0E30_B79BEA825961_impl*
+ Result := l3Lower(aString);
+//#UC END# *B1D7965F0E30_B79BEA825961_impl*
+//#UC START# *B1D7965F0E30_B79BEA825961_var*
+//#UC END# *B1D7965F0E30_B79BEA825961_var*
+//#UC START# *C0B325EEBDF3_0527F8C9DF24_impl*
+ Result := l3StringReplace(aMain,
+                           l3PCharLen(aFrom),
+                           l3PCharLen(aString), [{rfReplaceAll,} rfIgnoreCase])
+//#UC END# *C0B325EEBDF3_0527F8C9DF24_impl*
+//#UC START# *C0B325EEBDF3_0527F8C9DF24_var*
+//#UC END# *C0B325EEBDF3_0527F8C9DF24_var*
+//#UC START# *C17F9AF1604A_5F306006344B_impl*
+ l_S1 := l3PCharLen(aDelims);
+ l_S2 := l3PCharLen(aString);
+ if l3IsNil(l_S1) then
+  Result := l3IsNil(l_S2)
+  // - любая непустая не может состоять ТОЛЬКО из символов пустого множества 
+ else
+ if (l_S1.SLen = 1) then
+  Result := l3AllCharsInCharSet(l_S2, [l_S1.S[0]])
+ else
+ begin
+  l_C := [];
+  for l_Index := 0 to Pred(l_S1.SLen) do
+   l_C := l_C + [l_S1.S[l_Index]];
+  Result := l3AllCharsInCharSet(l_S2, l_C);
+ end;//l_S1.SLen = 1
+//#UC END# *C17F9AF1604A_5F306006344B_impl*
+//#UC START# *C17F9AF1604A_5F306006344B_var*
+var
+ l_S1 : Tl3WString;
+ l_S2 : Tl3WString;
+ l_C : TChars;
+ l_Index : Integer;
+//#UC END# *C17F9AF1604A_5F306006344B_var*
+//#UC START# *CDE072F795B4_D5F09D866A34_impl*
+ Result := TtfwCStringFactory.C(l3DeleteDoubleSpace(aString));
+//#UC END# *CDE072F795B4_D5F09D866A34_impl*
+//#UC START# *CDE072F795B4_D5F09D866A34_var*
+//#UC END# *CDE072F795B4_D5F09D866A34_var*
+//#UC START# *D3130F58366C_FF4D82AA3241_impl*
+ Tl3WString(l_P) := l3PCharLen(aVar.GetValue(aCtx).AsString);
+ l_P.Shift(+1);
+ aVar.SetValue(TtfwCStringFactoryEx.ViewOf(l_P), aCtx);
+//#UC END# *D3130F58366C_FF4D82AA3241_impl*
+//#UC START# *D3130F58366C_FF4D82AA3241_var*
+var
+ l_P : Tl3PCharLen;
+//#UC END# *D3130F58366C_FF4D82AA3241_var*
+//#UC START# *DD442A0F03CD_8CA688C2805E_impl*
+ Result := l3StringReplace(aMain,
+                           l3PCharLen(aFrom),
+                           l3PCharLen(aString), [rfReplaceAll])
+//#UC END# *DD442A0F03CD_8CA688C2805E_impl*
+//#UC START# *DD442A0F03CD_8CA688C2805E_var*
+//#UC END# *DD442A0F03CD_8CA688C2805E_var*
+//#UC START# *E230CFBF78A9_355A8C3D70FA_impl*
+ Result := TtfwCStringFactory.C(ev_psFixLen('', aCount, l3Char(aString, 0)));
+//#UC END# *E230CFBF78A9_355A8C3D70FA_impl*
+//#UC START# *E230CFBF78A9_355A8C3D70FA_var*
+//#UC END# *E230CFBF78A9_355A8C3D70FA_var*
+//#UC START# *E29B58F41653_4C3CAF64FEF3_impl*
+ Result := TtfwCStringFactory.C(aChar);
+//#UC END# *E29B58F41653_4C3CAF64FEF3_impl*
+//#UC START# *E29B58F41653_4C3CAF64FEF3_var*
+//#UC END# *E29B58F41653_4C3CAF64FEF3_var*
+//#UC START# *E58966F67546_397C461D6C30_impl*
+ Result := l3Ends(aSubStr, aString, false);
+//#UC END# *E58966F67546_397C461D6C30_impl*
+//#UC START# *E58966F67546_397C461D6C30_var*
+//#UC END# *E58966F67546_397C461D6C30_var*
+//#UC START# *F02755D05DBC_30A1EAD7A5D9_impl*
+ Result := TtfwCStringFactory.C(l3DeleteSerias(aString, l3Char(aChar, 0))); 
+//#UC END# *F02755D05DBC_30A1EAD7A5D9_impl*
+//#UC START# *F02755D05DBC_30A1EAD7A5D9_var*
+//#UC END# *F02755D05DBC_30A1EAD7A5D9_var*
+//#UC START# *F7FE00F8B33E_24901BF384F4_impl*
+ Result := l3PosEx(anOther, aString, aPos);
+//#UC END# *F7FE00F8B33E_24901BF384F4_impl*
+//#UC START# *F7FE00F8B33E_24901BF384F4_var*
+//#UC END# *F7FE00F8B33E_24901BF384F4_var*
+//#UC START# *FF3E231E9FA3_F3116B965978_impl*
+ l_P := l3PCharLen(aString);
+ l_P.Shift(+1);
+ Result := TtfwCStringFactory.ViewOf(l_P);
+//#UC END# *FF3E231E9FA3_F3116B965978_impl*
+//#UC START# *FF3E231E9FA3_F3116B965978_var*
+var
+ l_P : Tl3PCharLen;
+//#UC END# *FF3E231E9FA3_F3116B965978_var*

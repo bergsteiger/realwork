@@ -1,4 +1,10 @@
 unit stDocumentPrintAndExportFontSizeItem;
+ {* Визуализатор для настройки "Использовать для экспорта и печати следующий размер шрифта" }
+
+// Модуль: "w:\common\components\SandBox\VCM\View\Document\stDocumentPrintAndExportFontSizeItem.pas"
+// Стереотип: "SimpleClass"
+
+{$Include sbDefine.inc}
 
 interface
 
@@ -10,9 +16,10 @@ uses
 type
  TstDocumentPrintAndExportFontSizeItem = class(TddComboBoxConfigItem)
   {* Визуализатор для настройки "Использовать для экспорта и печати следующий размер шрифта" }
-  procedure Create(aMasterItem: TddBaseConfigItem);
+  public
+   constructor Create(aMasterItem: TddBaseConfigItem = nil); reintroduce;
  end;//TstDocumentPrintAndExportFontSizeItem
- 
+
 implementation
 
 uses
@@ -21,5 +28,14 @@ uses
  , l3Base
  , ddAppConfigConst
 ;
+
+constructor TstDocumentPrintAndExportFontSizeItem.Create(aMasterItem: TddBaseConfigItem = nil);
+//#UC START# *C1762961E823_1599BCBFE969_var*
+//#UC END# *C1762961E823_1599BCBFE969_var*
+begin
+//#UC START# *C1762961E823_1599BCBFE969_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *C1762961E823_1599BCBFE969_impl*
+end;//TstDocumentPrintAndExportFontSizeItem.Create
 
 end.

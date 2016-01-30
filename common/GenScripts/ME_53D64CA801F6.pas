@@ -1,7 +1,13 @@
 unit nevControlParaIevControlFriendMapper;
 
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevControlParaIevControlFriendMapper.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
+
 interface
 
+{$If Defined(k2ForEditor)}
 uses
  l3IntfUses
  , k2InterfaceMapper
@@ -11,18 +17,40 @@ uses
 
 type
  TnevControlParaIevControlFriendMapper = class(Tk2InterfaceMapper)
-  function Make(aTag: Tl3Variant;
-   const IID: Tl3GUID;
-   out Tool;
-   const aProcessor: Ik2Processor): Boolean;
+  public
+   class function Make(aTag: Tl3Variant;
+    const IID: Tl3GUID;
+    out Tool;
+    const aProcessor: Ik2Processor): Boolean; override;
  end;//TnevControlParaIevControlFriendMapper
- 
+{$IfEnd} // Defined(k2ForEditor)
+
 implementation
 
+{$If Defined(k2ForEditor)}
 uses
  l3ImplUses
  , evQueryCardInt
  , SysUtils
 ;
+
+class function TnevControlParaIevControlFriendMapper.Make(aTag: Tl3Variant;
+ const IID: Tl3GUID;
+ out Tool;
+ const aProcessor: Ik2Processor): Boolean;
+//#UC START# *53D639B601D7_53D64CA801F6_var*
+var
+ l_CP: IevControlFriend;
+//#UC END# *53D639B601D7_53D64CA801F6_var*
+begin
+//#UC START# *53D639B601D7_53D64CA801F6_impl*
+ if not aTag.QT(IevControlFriend, l_CP, aProcessor) OR
+    not l_CP.AsObject.QT(IID.IID, Tool, aProcessor) then
+  Result := false
+ else
+  Result := true; 
+//#UC END# *53D639B601D7_53D64CA801F6_impl*
+end;//TnevControlParaIevControlFriendMapper.Make
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

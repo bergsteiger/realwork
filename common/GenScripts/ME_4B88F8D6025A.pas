@@ -1,29 +1,71 @@
-unit l3StringList.imp;
+{$IfNDef l3StringList_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\L3\l3StringList.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
- , l3Variant
-;
+{$Define l3StringList_imp}
 
-type
+ _ItemType_ = Tl3PrimString;
+ _l3UncomparabeObjectRefList_Parent_ = _l3StringList_Parent_;
+ {$Include l3UncomparabeObjectRefList.imp.pas}
  _l3StringList_ = class(_l3UncomparabeObjectRefList_)
-  procedure AssignItem(const aTo: _ItemType_;
-   const aFrom: _ItemType_);
-  function CompareExistingItems(const CI: CompareItemsRec): Integer;
-   {* Сравнивает два существующих элемента. }
  end;//_l3StringList_
- 
-implementation
 
-uses
- l3ImplUses
- , l3String
- , l3Base
- , l3MinMax
- , RTLConsts
- , SysUtils
-;
+{$Else l3StringList_imp}
 
-end.
+{$IfNDef l3StringList_imp_impl}
+
+{$Define l3StringList_imp_impl}
+
+function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
+
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
+procedure AssignItem(const aTo: _ItemType_;
+ const aFrom: _ItemType_);
+//#UC START# *47B2C42A0163_4B88F8D6025A_var*
+//#UC END# *47B2C42A0163_4B88F8D6025A_var*
+begin
+//#UC START# *47B2C42A0163_4B88F8D6025A_impl*
+ aTo.Assign(aFrom);
+ // - по хорошему надо через AssignString, но это для Tk2DictRec не срастается
+//#UC END# *47B2C42A0163_4B88F8D6025A_impl*
+end;//AssignItem
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
+
+function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
+//#UC START# *47B99D4503A2_4B88F8D6025A_var*
+//#UC END# *47B99D4503A2_4B88F8D6025A_var*
+begin
+//#UC START# *47B99D4503A2_4B88F8D6025A_impl*
+ {$IfDef l3Items_HasCustomSort}
+ Assert((CI.rSortIndex = l3_siNative) OR
+        (CI.rSortIndex = l3_siCaseUnsensitive) OR
+        (CI.rSortIndex = l3_siByID)
+        );
+ if (CI.rSortIndex = l3_siByID) then
+  Result := CI.rA.StringID - CI.rB.StringID
+ else
+ {$EndIf l3Items_HasCustomSort}
+  Result := l3Compare(CI.rA.AsWStr, CI.rB.AsWStr,
+                      {$IfDef l3Items_HasCustomSort}
+                      CI.rSortIndex
+                      {$Else  l3Items_HasCustomSort}
+                      {$IfDef l3Items_CaseUnsensitive}
+                      l3_siCaseUnsensitive
+                      {$Else  l3Items_CaseUnsensitive}
+                      l3_siNative
+                      {$EndIf l3Items_CaseUnsensitive}
+                      {$EndIf l3Items_HasCustomSort}
+                      );
+//#UC END# *47B99D4503A2_4B88F8D6025A_impl*
+end;//CompareExistingItems
+
+type _Instance_R_ = _l3StringList_;
+
+{$Include l3UncomparabeObjectRefList.imp.pas}
+
+{$EndIf l3StringList_imp_impl}
+
+{$EndIf l3StringList_imp}
+

@@ -1,4 +1,9 @@
-unit evDefaultContext;
+unit NOT_FINISHED_evDefaultContext;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evDefaultContext.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -9,7 +14,7 @@ uses
 type
  TevDefaultContext = class
  end;//TevDefaultContext
- 
+
 implementation
 
 uses

@@ -1,17 +1,32 @@
 unit evSCSubList;
 
+// Модуль: "w:\common\components\gui\Garant\Everest\evSCSubList.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
+
 interface
 
 uses
  l3IntfUses
  , l3ProtoDataContainer
  , evSubCompareInterfaces
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
 ;
 
 type
- TevSCSubList = class(Tl3ProtoDataContainer)
+ _ItemType_ = IevSCSub;
+ _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
+ {$Define l3Items_IsProto}
+ {$Include l3InterfaceRefList.imp.pas}
+ TevSCSubList = class(_l3InterfaceRefList_)
  end;//TevSCSubList
- 
+
 implementation
 
 uses
@@ -21,5 +36,9 @@ uses
  , RTLConsts
  , SysUtils
 ;
+
+type _Instance_R_ = TevSCSubList;
+
+{$Include l3InterfaceRefList.imp.pas}
 
 end.

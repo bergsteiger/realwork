@@ -1,0 +1,61 @@
+//#UC START# *479731C50290_5627445F00C1_impl*
+ Assert(Assigned(f_DataBuffer));
+ f_DataBuffer.UnregisterField(Self);
+ f_DataBuffer := nil;
+ f_ClientInfo := nil;
+ f_DataConverter := nil;
+ inherited;
+//#UC END# *479731C50290_5627445F00C1_impl*
+//#UC START# *479731C50290_5627445F00C1_var*
+//#UC END# *479731C50290_5627445F00C1_var*
+//#UC START# *5593905401D1_5627445F00C1get_impl*
+ Result := f_DataConverter.ToLargeInt(BufferPtr);
+//#UC END# *5593905401D1_5627445F00C1get_impl*
+//#UC START# *5593905401D1_5627445F00C1get_var*
+//#UC END# *5593905401D1_5627445F00C1get_var*
+//#UC START# *55939068000C_5627445F00C1get_impl*
+ Result := f_DataConverter.ToInteger(BufferPtr);
+//#UC END# *55939068000C_5627445F00C1get_impl*
+//#UC START# *55939068000C_5627445F00C1get_var*
+//#UC END# *55939068000C_5627445F00C1get_var*
+//#UC START# *559393510239_5627445F00C1get_impl*
+ Result := f_DataConverter.ToStDate(BufferPtr);
+//#UC END# *559393510239_5627445F00C1get_impl*
+//#UC START# *559393510239_5627445F00C1get_var*
+//#UC END# *559393510239_5627445F00C1get_var*
+//#UC START# *5593936A031A_5627445F00C1get_impl*
+ Result := f_DataConverter.ToStTime(BufferPtr);
+//#UC END# *5593936A031A_5627445F00C1get_impl*
+//#UC START# *5593936A031A_5627445F00C1get_var*
+//#UC END# *5593936A031A_5627445F00C1get_var*
+//#UC START# *55FA82A80085_5627445F00C1get_impl*
+ Result := f_DataConverter.ToString(BufferPtr);
+//#UC END# *55FA82A80085_5627445F00C1get_impl*
+//#UC START# *55FA82A80085_5627445F00C1get_var*
+//#UC END# *55FA82A80085_5627445F00C1get_var*
+//#UC START# *562744D501B9_5627445F00C1_impl*
+ inherited Create;
+ f_FieldIndex := aFieldIndex;
+ f_DataConverter := aDataConverter;
+ f_ClientInfo := aClientInfo;
+ f_DataBuffer := aDataBuffer;
+ Assert(Assigned(f_DataBuffer));
+ f_DataBuffer.RegisterField(Self);
+//#UC END# *562744D501B9_5627445F00C1_impl*
+//#UC START# *562744D501B9_5627445F00C1_var*
+//#UC END# *562744D501B9_5627445F00C1_var*
+//#UC START# *56274C87017A_5627445F00C1_impl*
+ Result := f_DataBuffer.FieldBufferPtr(f_FieldIndex);
+//#UC END# *56274C87017A_5627445F00C1_impl*
+//#UC START# *56274C87017A_5627445F00C1_var*
+//#UC END# *56274C87017A_5627445F00C1_var*
+//#UC START# *562E07C801CF_5627445F00C1get_impl*
+ Result := f_DataConverter.ToByte(BufferPtr);
+//#UC END# *562E07C801CF_5627445F00C1get_impl*
+//#UC START# *562E07C801CF_5627445F00C1get_var*
+//#UC END# *562E07C801CF_5627445F00C1get_var*
+//#UC START# *56375577038B_5627445F00C1get_impl*
+ Result := f_ClientInfo.Alias;
+//#UC END# *56375577038B_5627445F00C1get_impl*
+//#UC START# *56375577038B_5627445F00C1get_var*
+//#UC END# *56375577038B_5627445F00C1get_var*

@@ -1,4 +1,9 @@
-unit evEvdRd;
+unit NOT_FINISHED_evEvdRd;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evEvdRd.pas"
+// Стереотип: "UtilityPack"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -10,7 +15,7 @@ uses
 type
  TevCustomEvdReader = class(TevdNativeReader)
  end;//TevCustomEvdReader
- 
+
 implementation
 
 uses

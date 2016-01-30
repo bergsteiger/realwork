@@ -1,4 +1,10 @@
-unit l3Types;
+unit NOT_FINISHED_l3Types;
+ {* Базовые родные типы библиотеки L3. }
+
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3Types.pas"
+// Стереотип: "Interfaces"
+
+{$Include l3Define.inc}
 
 interface
 
@@ -8,6 +14,47 @@ uses
  , l3Core
 ;
 
+const
+ {* Индексы. }
+ l3MinIndex = Low(Tl3Index);
+  {* минимальный индекс элемента. }
+ l3MaxIndex = High(Tl3Index);
+  {* максимальный индекс элемента. }
+ ntNone = 0;
+  {* пустая операция. }
+ ntInsert = 1;
+  {* вставка элемента. }
+ ntDelete = 3;
+  {* удаление элемента. Вызывается до уничтожения ссылки }
+ ntDeleteDone = 4;
+  {* удаление элемента. Вызывается после уничтожения ссылки }
+ ntDataChange = 5;
+  {* изменились элемента. }
+ ntMoveBegin = 6;
+  {* началось движение элемента. }
+ ntMoveEnd = 7;
+  {* закончилось движение элемента. }
+ ntClear = 8;
+  {* очистили структуру данных. }
+ ntClearItem = 9;
+  {* очистили элемент. }
+ ntChildClear = 10;
+  {* очистили дочерний элемент. }
+ ntChildInsert = 11;
+  {* вставлен дочерний элемент. }
+ ntFree = 12;
+  {* освобождение элемента. }
+ ntCountChange = 13;
+  {* изменилось количество элементов. }
+ ntChangeItemData = 14;
+  {* изменились данные элемента. }
+ ntChanging = 15;
+  {* началось изменение. }
+ ntChanged = 16;
+  {* закончилось изменение. }
+ ntResortChild = 17;
+  {* Дочерние элементы изменили взаимное расположение. }
+
 type
  Tl3ItemFlag = (
   {* Флаг элемента. }
@@ -16,35 +63,26 @@ type
   , l3_ifDeleted
   , l3_ifModified
  );//Tl3ItemFlag
- 
- Tl3PCharLenBase = object(Tl3PCharLenPrim)
- end;//Tl3PCharLenBase
- 
- Tl3PCharLen = object(Tl3PCharLenBase)
- end;//Tl3PCharLen
- 
- Tl3PCharLenConst = object(Tl3PCharLenBase)
- end;//Tl3PCharLenConst
- 
+
  TLongArray = array of Integer;
   {* Динамический массив целых чисел. }
- 
+
  PLong = Integer;
   {* Указатель на long. }
- 
+
  Tl3Rgn = hRgn;
   {* Регион. }
- 
+
  PIUnknown = ^IUnknown;
   {* Указатель на IUnknown. }
- 
+
  Tl3IteratorAction = function(Data: Pointer;
   Index: Integer): Boolean;
   {* Подитеративная функция. }
- 
+
  TByteSet = set of byte;
   {* Множество байт. }
- 
+
  Tl3Duplicates = (
   {* Операция применимая к совпадающим элементам списка }
   l3_dupIgnore
@@ -58,31 +96,31 @@ type
   , l3_dupChange
    {* заменить старый элемент новым. }
  );//Tl3Duplicates
- 
+
  Tl3Index = l3Interfaces.Tl3Index;
   {* Индекс элементов. }
- 
+
  Tl3FreeAction = function(Data: Pointer): Boolean;
   {* Функция для итераторов и нотификаций об освобождении объекта. }
- 
+
  Tl3SortIndex = type SmallInt;
   {* Индекс сортировки. }
- 
+
  Tl3Handle = Integer;
   {* Тип целочисленных идентификаторов. Знаковый. Размер не фиксирован. }
- 
+
  TSmallIntArray = array of SmallInt;
   {* Динамический массив коротких целых чисел. }
- 
+
  PInteger = l3Interfaces.PInteger;
- 
+
  Large = l3Interfaces.Large;
- 
+
  EDoChangedAlreadyDone = class
  end;//EDoChangedAlreadyDone
- 
+
  PObject = ^TObject;
- 
+
  Tl3Operation = (
   {* Операция }
   l3_opDelete
@@ -90,7 +128,7 @@ type
   , l3_opInsert
    {* вставка }
  );//Tl3Operation
- 
+
  Tl3FileMode = (
   {* Режим работы с файлами:
 * l3_fmRead</b> - чтение.
@@ -108,25 +146,25 @@ type
   , l3_fmFullShareReadWrite
   , l3_fmFullShareCreateReadWrite
  );//Tl3FileMode
- 
+
  Tl3Bool = (
  );//Tl3Bool
- 
+
  Tl3ProgressProc = procedure(aState: Byte;
   aValue: Integer;
-  const aMsg: AnsiString) of object;
- 
+  const aMsg: AnsiString = '') of object;
+
  PWord = ;
- 
+
  Tl3BMTable = ;
- 
+
  Tl3Char = record
  end;//Tl3Char
- 
+
  Tl3PathStr = AnsiString;
- 
+
  Tl3Method = ;
- 
+
 implementation
 
 uses

@@ -1,39 +1,111 @@
-unit l3Storable.imp;
+{$IfNDef l3Storable_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\L3\l3Storable.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
- , l3Interfaces
- , Classes
-;
+{$Define l3Storable_imp}
 
-type
- _l3Storable_ = class
+ _l3Storable_ = {abstract} class(_l3Storable_Parent_)
   {* Объект умеющий писать/читать себя. }
-  procedure SaveToFile(const aFileName: AnsiString);
-   {* Сохранить в файл. }
-  procedure SaveToStream(const aStream: IStream); overload;
-   {* Сохранить в поток. }
-  procedure SaveToStream(aStream: TStream); overload;
-   {* Сохраняет в поток. }
-  procedure LoadFromFile(const aFileName: AnsiString;
-   aNeedSort: Boolean);
-   {* Загружает из файла. }
-  procedure LoadFromStream(const aStream: IStream;
-   aNeedSort: Boolean); overload;
-   {* Загружает из потока. }
-  procedure LoadFromStream(aStream: TStream;
-   aNeedSort: Boolean); overload;
-   {* Загружает из потока. }
+  public
+   procedure SaveToFile(const aFileName: AnsiString);
+    {* Сохранить в файл. }
+   procedure SaveToStream(const aStream: IStream); overload;
+    {* Сохранить в поток. }
+   procedure SaveToStream(aStream: TStream); overload; virtual; abstract; { can raise El3Exception }
+    {* Сохраняет в поток. }
+   procedure LoadFromFile(const aFileName: AnsiString;
+    aNeedSort: Boolean = True);
+    {* Загружает из файла. }
+   procedure LoadFromStream(const aStream: IStream;
+    aNeedSort: Boolean); overload;
+    {* Загружает из потока. }
+   procedure LoadFromStream(aStream: TStream;
+    aNeedSort: Boolean); overload; virtual; abstract; { can raise El3Exception }
+    {* Загружает из потока. }
  end;//_l3Storable_
- 
-implementation
 
-uses
- l3ImplUses
- , l3Stream
- , SysUtils
-;
+{$Else l3Storable_imp}
 
-end.
+{$IfNDef l3Storable_imp_impl}
+
+{$Define l3Storable_imp_impl}
+
+procedure _l3Storable_.SaveToFile(const aFileName: AnsiString);
+ {* Сохранить в файл. }
+//#UC START# *47B17CE4033C_47B17CBC0356_var*
+var
+ l_Stream : TStream;
+//#UC END# *47B17CE4033C_47B17CBC0356_var*
+begin
+//#UC START# *47B17CE4033C_47B17CBC0356_impl*
+ l_Stream := Tl3TextStream.Create(aFileName, l3_fmWrite);
+ try
+  SaveToStream(l_Stream);
+ finally
+  l3Free(l_Stream);
+ end;//try..finally
+//#UC END# *47B17CE4033C_47B17CBC0356_impl*
+end;//_l3Storable_.SaveToFile
+
+procedure _l3Storable_.SaveToStream(const aStream: IStream);
+ {* Сохранить в поток. }
+//#UC START# *47B17D240289_47B17CBC0356_var*
+var
+ l_Stream : TStream;
+//#UC END# *47B17D240289_47B17CBC0356_var*
+begin
+//#UC START# *47B17D240289_47B17CBC0356_impl*
+ l3IStream2Stream(aStream, l_Stream);
+ try
+  SaveToStream(l_Stream);
+ finally
+  l3Free(l_Stream);
+ end;//try..finally
+//#UC END# *47B17D240289_47B17CBC0356_impl*
+end;//_l3Storable_.SaveToStream
+
+procedure _l3Storable_.LoadFromFile(const aFileName: AnsiString;
+ aNeedSort: Boolean = True);
+ {* Загружает из файла. }
+//#UC START# *47B19B0D0201_47B17CBC0356_var*
+var
+ l_Stream : TStream;
+//#UC END# *47B19B0D0201_47B17CBC0356_var*
+begin
+//#UC START# *47B19B0D0201_47B17CBC0356_impl*
+ try
+  l_Stream := Tl3TextStream.Create(aFileName, l3_fmRead);
+ except
+  on EOSError do Exit;
+ end;//try..except
+ try
+  LoadFromStream(l_Stream, aNeedSort);
+ finally
+  l3Free(l_Stream);
+ end;//try..finally
+//#UC END# *47B19B0D0201_47B17CBC0356_impl*
+end;//_l3Storable_.LoadFromFile
+
+procedure _l3Storable_.LoadFromStream(const aStream: IStream;
+ aNeedSort: Boolean);
+ {* Загружает из потока. }
+//#UC START# *47B19B58033C_47B17CBC0356_var*
+var
+ l_Stream : TStream;
+//#UC END# *47B19B58033C_47B17CBC0356_var*
+begin
+//#UC START# *47B19B58033C_47B17CBC0356_impl*
+ l3IStream2Stream(aStream, l_Stream);
+ try
+  LoadFromStream(l_Stream, aNeedSort);
+ finally
+  l3Free(l_Stream);
+ end;//try..finally
+//#UC END# *47B19B58033C_47B17CBC0356_impl*
+end;//_l3Storable_.LoadFromStream
+
+{$EndIf l3Storable_imp_impl}
+
+{$EndIf l3Storable_imp}
+

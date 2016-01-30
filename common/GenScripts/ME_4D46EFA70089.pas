@@ -1,4 +1,9 @@
-unit evTreeGenerator;
+unit NOT_FINISHED_evTreeGenerator;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evTreeGenerator.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -10,7 +15,7 @@ uses
 type
  TevTreeGenerator = class(Tk2DocumentGenerator)
  end;//TevTreeGenerator
- 
+
 implementation
 
 uses

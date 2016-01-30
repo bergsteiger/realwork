@@ -1,20 +1,32 @@
 unit evHugeParaListPrimWithFind;
 
+// Модуль: "w:\common\components\rtl\Garant\K2\evHugeParaListPrimWithFind.pas"
+// Стереотип: "SimpleClass"
+
+{$Include k2Define.inc}
+
 interface
 
 uses
  l3IntfUses
  , evHugeParaListPrim
+ , l3Types
 ;
 
 type
- TevHugeParaListPrimWithFind = class(TevHugeParaListPrim)
+ _k2TagByIntegerSearcher_Parent_ = TevHugeParaListPrim;
+ {$Include k2TagByIntegerSearcher.imp.pas}
+ TevHugeParaListPrimWithFind = class(_k2TagByIntegerSearcher_)
  end;//TevHugeParaListPrimWithFind
- 
+
 implementation
 
 uses
  l3ImplUses
 ;
+
+type _Instance_R_ = TevHugeParaListPrimWithFind;
+
+{$Include k2TagByIntegerSearcher.imp.pas}
 
 end.

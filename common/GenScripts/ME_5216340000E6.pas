@@ -1,4 +1,10 @@
 unit moDocument;
+ {* Документ }
+
+// Модуль: "w:\common\components\SandBox\VCM\View\moDocument.pas"
+// Стереотип: "VCMUseCaseRealization"
+
+{$Include sbDefine.inc}
 
 interface
 
@@ -8,10 +14,10 @@ uses
 ;
 
 type
- Tmo_Document = class(TDocumentModule)
+ Tmo_Document = {final} class(TDocumentModule)
   {* Документ }
  end;//Tmo_Document
- 
+
 implementation
 
 uses

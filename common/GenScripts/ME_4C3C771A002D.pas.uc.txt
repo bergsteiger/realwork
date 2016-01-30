@@ -1,0 +1,17 @@
+//#UC START# *4B2F40FD0088_4C3C771A002D_impl*
+ f_PrevTopAnchor := nil;
+ inherited;
+//#UC END# *4B2F40FD0088_4C3C771A002D_impl*
+//#UC START# *4B2F40FD0088_4C3C771A002D_var*
+//#UC END# *4B2F40FD0088_4C3C771A002D_var*
+//#UC START# *4BE419AF0217_4C3C771A002D_impl*
+ inherited DoVisit(aForm);
+ Check(aForm.Text.View.TopAnchor.Diff(aForm.Text.View, f_PrevTopAnchor, aForm.Text.View.RootFormatInfo) = 0, 'Сместились вверх при установке курсора!');
+//#UC END# *4BE419AF0217_4C3C771A002D_impl*
+//#UC START# *4BE419AF0217_4C3C771A002D_var*
+//#UC END# *4BE419AF0217_4C3C771A002D_var*
+//#UC START# *4C3C80AF002D_4C3C771A002D_impl*
+ f_PrevTopAnchor := aView.TopAnchor.ClonePoint(aView);
+//#UC END# *4C3C80AF002D_4C3C771A002D_impl*
+//#UC START# *4C3C80AF002D_4C3C771A002D_var*
+//#UC END# *4C3C80AF002D_4C3C771A002D_var*

@@ -1,32 +1,87 @@
-unit evDataObjectFromStorable.imp;
+{$IfNDef evDataObjectFromStorable_imp}
 
-interface
+// Модуль: "w:\common\components\gui\Garant\Everest\evDataObjectFromStorable.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
- , evPersistentDataObjectEx
- , l3Interfaces
-;
+{$Define evDataObjectFromStorable_imp}
 
 type
  // _StorableClass_
- 
+
  RStorable = class of _StorableClass_;
- 
+
  _evDataObjectFromStorable_ = class(TevPersistentDataObjectEx)
-  procedure Create(const aData: _DataType_);
-  function Make(const aData: _DataType_): IDataObject;
-  function DataClass: RStorable;
+  private
+   f_Data: _DataType_;
+    {* Поле для свойства Data }
+  protected
+   function DataClass: RStorable; virtual;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
+   constructor Create(const aData: _DataType_); reintroduce;
+   class function Make(const aData: _DataType_): IDataObject; reintroduce;
+  protected
+   property Data: _DataType_
+    read f_Data;
  end;//_evDataObjectFromStorable_
- 
-implementation
 
-uses
- l3ImplUses
- , evFormats
- , evTypes
- , nevTools
- , l3Base
-;
+{$Else evDataObjectFromStorable_imp}
 
-end.
+{$IfNDef evDataObjectFromStorable_imp_impl}
+
+{$Define evDataObjectFromStorable_imp_impl}
+
+constructor _evDataObjectFromStorable_.Create(const aData: _DataType_);
+//#UC START# *4CDD6F4403CD_48F8C3780325_var*
+var
+ l_OH : InevObjectHolder;
+//#UC END# *4CDD6F4403CD_48F8C3780325_var*
+begin
+//#UC START# *4CDD6F4403CD_48F8C3780325_impl*
+ l_OH := Holder;
+ f_Data := aData;
+ inherited Create(DataClass.Make(aData, l_OH.TagReader),
+                  true,
+                  cf_EverestBin, l_OH.TagReader, l_OH.TagWriter,
+                  l3FormatArray(evAllFormats),
+                  nil);
+//#UC END# *4CDD6F4403CD_48F8C3780325_impl*
+end;//_evDataObjectFromStorable_.Create
+
+class function _evDataObjectFromStorable_.Make(const aData: _DataType_): IDataObject;
+var
+ l_Inst : _evDataObjectFromStorable_;
+begin
+ l_Inst := Create(aData);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//_evDataObjectFromStorable_.Make
+
+function _evDataObjectFromStorable_.DataClass: RStorable;
+//#UC START# *48F8CD5401AD_48F8C3780325_var*
+//#UC END# *48F8CD5401AD_48F8C3780325_var*
+begin
+//#UC START# *48F8CD5401AD_48F8C3780325_impl*
+ Result := _StorableClass_;
+//#UC END# *48F8CD5401AD_48F8C3780325_impl*
+end;//_evDataObjectFromStorable_.DataClass
+
+procedure _evDataObjectFromStorable_.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_48F8C3780325_var*
+//#UC END# *479731C50290_48F8C3780325_var*
+begin
+//#UC START# *479731C50290_48F8C3780325_impl*
+ Finalize(f_Data);
+ inherited;
+//#UC END# *479731C50290_48F8C3780325_impl*
+end;//_evDataObjectFromStorable_.Cleanup
+
+{$EndIf evDataObjectFromStorable_imp_impl}
+
+{$EndIf evDataObjectFromStorable_imp}
+

@@ -1,0 +1,86 @@
+//#UC START# *4B4F588B0241_4F193294011F_impl*
+ Result := inherited FileForOutput;
+ // Result := Copy(Result, 1, Length(Result) - 4);
+//#UC END# *4B4F588B0241_4F193294011F_impl*
+//#UC START# *4B4F588B0241_4F193294011F_var*
+//#UC END# *4B4F588B0241_4F193294011F_var*
+//#UC START# *4DCA41A20364_4F193294011F_impl*
+ Result := cIndexFileName;
+//#UC END# *4DCA41A20364_4F193294011F_impl*
+//#UC START# *4DCA41A20364_4F193294011F_var*
+//#UC END# *4DCA41A20364_4F193294011F_var*
+//#UC START# *4F19335D01E9_4F193294011F_impl*
+ Tm3SplittedFileStream.SetDefaultSizeLimit(2 * 1024 * 1024);
+ try
+  l_DBName := FileForOutput;
+  l_DBName := ChangeFileExt(l_DBName, '');
+  lp_DeleteVersion;
+  with Tm3StorageIndexAdapter.Instance do
+  begin
+   BaseName := cFileName;
+   DirName := ExtractFilePath(FileForOutput);
+   DoBuildIndex(nil);
+   lp_CompareWithEtalon;
+  end; // with g_Tm3StorageIndexAdapter.Instance do
+  lp_DeleteIndex;
+  lp_DeleteVersion;
+ finally
+  Tm3SplittedFileStream.SetDefaultSizeLimit(0);
+ end;//try..finally
+//#UC END# *4F19335D01E9_4F193294011F_impl*
+//#UC START# *4F19335D01E9_4F193294011F_var*
+var
+ l_DBName : String;
+
+ procedure lp_CompareWithEtalon;
+
+  function DoFile(const aFileName: string): Boolean;
+  begin//DoFile
+   Result := true;
+   if FileExists(aFileName) then
+   begin
+    if (ExtractFileExt(aFileName) = '.idx') and (Pos('.cnt', aFileName) = 0) then
+    begin
+     f_IndexFile := aFileName;
+     Result := False;
+    end;
+   end; // if FileExists(aFileName) then
+  end;//DoFile
+
+ var
+  l_FPStub : Pointer;
+ begin
+  l_FPStub := l3LocalStub(@DoFile);
+  try
+   Tm3StorageManager.IterateStorageFiles(l_DBName, l_FPStub);
+  finally
+   l3FreeLocalStub(l_FPStub);
+  end;//try..finally
+  CheckWithEtalon(f_IndexFile, #0);
+ end;
+ 
+ procedure lp_DeleteVersion;
+ var
+  l_DB : Im3DB;
+ begin
+  l_DB := Tm3DB.Make(l_DBName);
+  try
+   l_DB.DeleteVersion;
+  finally
+   l_DB := nil;
+  end;
+ end;
+
+ procedure lp_DeleteIndex;
+ var
+  l_DB4 : Im4DB;
+ begin
+  l_DB4 := Tm4DB.Make(l_DBName);
+  try
+   l_DB4.DeleteIndex;
+  finally
+   l_DB4 := nil;
+  end;
+ end;              
+
+//#UC END# *4F19335D01E9_4F193294011F_var*

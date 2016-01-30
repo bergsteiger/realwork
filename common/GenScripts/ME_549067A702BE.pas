@@ -1,7 +1,13 @@
-unit eeShortCutEdit;
+unit NOT_FINISHED_eeShortCutEdit;
+
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eeShortCutEdit.pas"
+// Стереотип: "GuiControl"
+
+{$Include eeDefine.inc}
 
 interface
 
+{$If Defined(Nemesis)}
 uses
  l3IntfUses
 ;
@@ -9,11 +15,14 @@ uses
 type
  TeeShortCutEdit = class
  end;//TeeShortCutEdit
- 
+{$IfEnd} // Defined(Nemesis)
+
 implementation
 
+{$If Defined(Nemesis)}
 uses
  l3ImplUses
 ;
+{$IfEnd} // Defined(Nemesis)
 
 end.

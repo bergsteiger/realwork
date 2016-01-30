@@ -1,5 +1,10 @@
 unit afwInsCaretType;
 
+// Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwInsCaretType.pas"
+// Стереотип: "SimpleClass"
+
+{$Include afwDefine.inc}
+
 interface
 
 uses
@@ -10,7 +15,7 @@ uses
 type
  TafwInsCaretType = class(TafwCustomCaretType)
  end;//TafwInsCaretType
- 
+
 implementation
 
 uses

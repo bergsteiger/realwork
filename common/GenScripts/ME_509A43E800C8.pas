@@ -1,24 +1,28 @@
-unit FormUnits.imp;
+{$IfNDef FormUnits_imp}
 
-interface
+// Модуль: "w:\common\components\gui\Garant\Daily\FormUnits.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define FormUnits_imp}
 
-type
- _FormUnits_ = class
+{$If Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(InsiderTest)}
+ _FormUnits_ = class(_FormUnits_Parent_)
  end;//_FormUnits_
- 
-implementation
 
-uses
- l3ImplUses
- , F1LikeFormWithBS_Form
- , F1LikeTextLoad_Form
- , QFLikeTextLoad_Form
- , TextLoad_Form
- , vcmBase
-;
+{$Else Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(InsiderTest)}
 
-end.
+_FormUnits_ = _FormUnits_Parent_;
+
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(InsiderTest)
+{$Else FormUnits_imp}
+
+{$IfNDef FormUnits_imp_impl}
+
+{$Define FormUnits_imp_impl}
+
+{$If Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(InsiderTest)}
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(InsiderTest)
+{$EndIf FormUnits_imp_impl}
+
+{$EndIf FormUnits_imp}
+

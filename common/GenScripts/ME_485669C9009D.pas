@@ -1,4 +1,10 @@
 unit LeafPara_Const;
+ {* "Листьевой" параграф }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\LeafPara_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -9,7 +15,7 @@ uses
 ;
 
  // LeafParaTag
- 
+
 implementation
 
 uses

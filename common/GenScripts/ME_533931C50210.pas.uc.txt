@@ -1,0 +1,164 @@
+//#UC START# *479731C50290_533931C50210_impl*
+ FreeAndNil(f_ActionLink);
+ inherited;
+//#UC END# *479731C50290_533931C50210_impl*
+//#UC START# *479731C50290_533931C50210_var*
+//#UC END# *479731C50290_533931C50210_var*
+//#UC START# *47D1602000C6_533931C50210_impl*
+ inherited;
+//#UC END# *47D1602000C6_533931C50210_impl*
+//#UC START# *47D1602000C6_533931C50210_var*
+//#UC END# *47D1602000C6_533931C50210_var*
+//#UC START# *508F991B003B_5339352C031C_impl*
+ (f_Client as TvgReminderWithAction).Set_Caption(Value);
+//#UC END# *508F991B003B_5339352C031C_impl*
+//#UC START# *508F991B003B_5339352C031C_var*
+//#UC END# *508F991B003B_5339352C031C_var*
+//#UC START# *508F99710030_5339352C031C_impl*
+ (f_Client as TvgReminderWithAction).Set_Hint(Value);
+//#UC END# *508F99710030_5339352C031C_impl*
+//#UC START# *508F99710030_5339352C031C_var*
+//#UC END# *508F99710030_5339352C031C_var*
+//#UC START# *508F99970386_5339352C031C_impl*
+ (f_Client as TvgReminderWithAction).Set_Visible(Value);
+//#UC END# *508F99970386_5339352C031C_impl*
+//#UC START# *508F99970386_5339352C031C_var*
+//#UC END# *508F99970386_5339352C031C_var*
+//#UC START# *533931C50210ci*
+//#UC END# *533931C50210ci*
+//#UC START# *533931C50210cit*
+//#UC END# *533931C50210cit*
+//#UC START# *533931C50210impl*
+//#UC END# *533931C50210impl*
+//#UC START# *533931C50210publ*
+ published
+   property PopupMenu;
+//#UC END# *533931C50210publ*
+//#UC START# *533933040073_533931C50210_impl*
+ Result := (Owner as TvgRemindersLine).Owner;
+//#UC END# *533933040073_533931C50210_impl*
+//#UC START# *533933040073_533931C50210_var*
+//#UC END# *533933040073_533931C50210_var*
+//#UC START# *5339336E01A0_533931C50210get_impl*
+ Result := f_EntityName;
+//#UC END# *5339336E01A0_533931C50210get_impl*
+//#UC START# *5339336E01A0_533931C50210get_var*
+//#UC END# *5339336E01A0_533931C50210get_var*
+//#UC START# *5339336E01A0_533931C50210set_impl*
+ if (aValue = '')
+  then f_EntityName := ''
+  else f_EntityName := 'en' + aValue;
+
+ InitAction;
+//#UC END# *5339336E01A0_533931C50210set_impl*
+//#UC START# *5339336E01A0_533931C50210set_var*
+//#UC END# *5339336E01A0_533931C50210set_var*
+//#UC START# *5339338502DC_533931C50210get_impl*
+ Result := f_OperationName;
+//#UC END# *5339338502DC_533931C50210get_impl*
+//#UC START# *5339338502DC_533931C50210get_var*
+//#UC END# *5339338502DC_533931C50210get_var*
+//#UC START# *5339338502DC_533931C50210set_impl*
+ if (aValue = '')
+  then f_OperationName := ''
+  else f_OperationName := 'op' + aValue;
+
+ InitAction;
+//#UC END# *5339338502DC_533931C50210set_impl*
+//#UC START# *5339338502DC_533931C50210set_var*
+//#UC END# *5339338502DC_533931C50210set_var*
+//#UC START# *533933BB014A_533931C50210get_impl*
+ if Assigned(f_ActionLink)
+  then Result := f_ActionLink.Action as TCustomAction
+  else Result := nil;
+//#UC END# *533933BB014A_533931C50210get_impl*
+//#UC START# *533933BB014A_533931C50210get_var*
+//#UC END# *533933BB014A_533931C50210get_var*
+//#UC START# *533933BB014A_533931C50210set_impl*
+ if aValue = nil then
+ begin
+  f_ActionLink.Free;
+  f_ActionLink := nil;
+ end else
+ begin
+  if f_ActionLink = nil then
+   f_ActionLink := TvgReminderActionLink.Create(Self);
+  f_ActionLink.Action := aValue;
+  f_ActionLink.OnChange := DoActionChange;
+  DoActionChange(aValue);
+  //Value.FreeNotification(Self);
+ end;
+ //ActionRefChanged;
+//#UC END# *533933BB014A_533931C50210set_impl*
+//#UC START# *533933BB014A_533931C50210set_var*
+//#UC END# *533933BB014A_533931C50210set_var*
+//#UC START# *5339340603B1_533931C50210get_impl*
+ Result := l3Str(inherited Hint);
+//#UC END# *5339340603B1_533931C50210get_impl*
+//#UC START# *5339340603B1_533931C50210get_var*
+//#UC END# *5339340603B1_533931C50210get_var*
+//#UC START# *5339340603B1_533931C50210set_impl*
+ inherited Hint := l3CStr(aValue);
+//#UC END# *5339340603B1_533931C50210set_impl*
+//#UC START# *5339340603B1_533931C50210set_var*
+//#UC END# *5339340603B1_533931C50210set_var*
+//#UC START# *5339340D0047_533931C50210get_impl*
+ Result := l3Str(inherited Caption);
+//#UC END# *5339340D0047_533931C50210get_impl*
+//#UC START# *5339340D0047_533931C50210get_var*
+//#UC END# *5339340D0047_533931C50210get_var*
+//#UC START# *5339340D0047_533931C50210set_impl*
+ inherited Caption := l3CStr(aValue); 
+//#UC END# *5339340D0047_533931C50210set_impl*
+//#UC START# *5339340D0047_533931C50210set_var*
+//#UC END# *5339340D0047_533931C50210set_var*
+//#UC START# *5339342C0318_533931C50210get_impl*
+ Result := inherited Visible;
+//#UC END# *5339342C0318_533931C50210get_impl*
+//#UC START# *5339342C0318_533931C50210get_var*
+//#UC END# *5339342C0318_533931C50210get_var*
+//#UC START# *5339342C0318_533931C50210set_impl*
+ inherited Visible := aValue;
+//#UC END# *5339342C0318_533931C50210set_impl*
+//#UC START# *5339342C0318_533931C50210set_var*
+//#UC END# *5339342C0318_533931C50210set_var*
+//#UC START# *5339368F0001_5339352C031C_impl*
+ f_Client := aClient as TvgReminderWithAction;
+//#UC END# *5339368F0001_5339352C031C_impl*
+//#UC START# *5339368F0001_5339352C031C_var*
+//#UC END# *5339368F0001_5339352C031C_var*
+//#UC START# *53394910012D_533931C50210_impl*
+ if Sender is TCustomAction then
+ begin
+  Self.Set_Caption(TCustomAction(Sender).Caption);
+  Self.Set_Hint(TCustomAction(Sender).Hint);
+  Self.Set_Visible(TCustomAction(Sender).Visible);
+  //Self.Set_ImageIndex(TCustomAction(Sender).ImageIndex);
+ end;
+//#UC END# *53394910012D_533931C50210_impl*
+//#UC START# *53394910012D_533931C50210_var*
+//#UC END# *53394910012D_533931C50210_var*
+//#UC START# *533949D40354_533931C50210_impl*
+ aHandled := not Assigned(PopupForm); // вызываем Action только если нет баллона
+ if aHandled then
+  if Assigned(f_ActionLink) then
+   f_ActionLink.Action.Execute;
+//#UC END# *533949D40354_533931C50210_impl*
+//#UC START# *533949D40354_533931C50210_var*
+//#UC END# *533949D40354_533931C50210_var*
+//#UC START# *533954D202F8_533931C50210_impl*
+ Result := Self;
+//#UC END# *533954D202F8_533931C50210_impl*
+//#UC START# *533954D202F8_533931C50210_var*
+//#UC END# *533954D202F8_533931C50210_var*
+//#UC START# *5339555E0016_533931C50210_impl*
+ vcmUtils.vcmMakeControlAction(Self, f_EntityName, f_OperationName);
+//#UC END# *5339555E0016_533931C50210_impl*
+//#UC START# *5339555E0016_533931C50210_var*
+//#UC END# *5339555E0016_533931C50210_var*
+//#UC START# *533AA4E9016A_533931C50210_impl*
+ if Assigned(f_ActionLink) then
+  f_ActionLink.Action.Update;
+//#UC END# *533AA4E9016A_533931C50210_impl*
+//#UC START# *533AA4E9016A_533931C50210_var*
+//#UC END# *533AA4E9016A_533931C50210_var*

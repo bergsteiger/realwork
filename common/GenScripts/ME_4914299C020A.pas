@@ -1,25 +1,28 @@
-unit l3StandardMemTypedList.imp;
+{$IfNDef l3StandardMemTypedList_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\L3\l3StandardMemTypedList.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
- , l3Memory
-;
+{$Define l3StandardMemTypedList_imp}
 
-type
+ _DataType_ = Tl3Ptr;
+ _l3TypedList_Parent_ = _l3StandardMemTypedList_Parent_;
+ {$Include l3TypedList.imp.pas}
  _l3StandardMemTypedList_ = class(_l3TypedList_)
   {* Типизированный список со стандартной функцией распределения памяти }
  end;//_l3StandardMemTypedList_
- 
-implementation
 
-uses
- l3ImplUses
- , l3Base
- , l3MinMax
- , RTLConsts
- , SysUtils
-;
+{$Else l3StandardMemTypedList_imp}
 
-end.
+{$IfNDef l3StandardMemTypedList_imp_impl}
+
+{$Define l3StandardMemTypedList_imp_impl}
+
+type _Instance_R_ = _l3StandardMemTypedList_;
+
+{$Include l3TypedList.imp.pas}
+
+{$EndIf l3StandardMemTypedList_imp_impl}
+
+{$EndIf l3StandardMemTypedList_imp}
+

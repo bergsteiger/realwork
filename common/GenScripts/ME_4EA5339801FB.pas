@@ -1,4 +1,10 @@
-unit dd_lcTableEliminator;
+unit NOT_FINISHED_dd_lcTableEliminator;
+ {* Удаляет таблицы из текста }
+
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcTableEliminator.pas"
+// Стереотип: "UtilityPack"
+
+{$Include ddDefine.inc}
 
 interface
 
@@ -11,10 +17,10 @@ uses
 type
  TlcTableEliminator = class(Tk2TagFilter)
  end;//TlcTableEliminator
- 
+
  TlcTableEliminator2 = class(TevdCustomChildBufferedFilter)
  end;//TlcTableEliminator2
- 
+
 implementation
 
 uses

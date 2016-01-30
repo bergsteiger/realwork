@@ -1,4 +1,9 @@
-unit evNotifiedProcessor;
+unit NOT_FINISHED_evNotifiedProcessor;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evNotifiedProcessor.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -10,7 +15,7 @@ uses
 type
  TevNotifiedProcessor = class(TevCustomUndoProcessor)
  end;//TevNotifiedProcessor
- 
+
 implementation
 
 uses

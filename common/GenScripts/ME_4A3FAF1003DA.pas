@@ -1,4 +1,9 @@
-unit OvcCmd;
+unit NOT_FINISHED_OvcCmd;
+
+// Модуль: "w:\common\components\rtl\external\Orpheus\NOT_FINISHED_OvcCmd.pas"
+// Стереотип: "Interfaces"
+
+{$Include OVC.INC}
 
 interface
 
@@ -6,10 +11,12 @@ uses
  l3IntfUses
 ;
 
+const
+
 type
  TUserCommandEvent = function(Sender: TObject;
   Command: Word): Boolean of object;
- 
+
 implementation
 
 uses

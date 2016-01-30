@@ -1,0 +1,202 @@
+//#UC START# *494F89C30197_49EC75B5022Cexec_impl*
+ if aParams.Control = GroupsTree then
+ begin
+  l_CurrentNode := GroupsTree.GetCurrentNode;
+  l_HasUsers := ViewArea.HasUsers(l_CurrentNode);
+  if l_HasUsers and not Ask(qr_DeleteNotEmptyGroup) then
+   Exit;
+  if not l_HasUsers and not Ask(qr_DeleteGroup, [l3CStr(l_CurrentNode)]) then
+   Exit;
+  ViewArea.DeleteGroup(l_CurrentNode);
+ end
+ else
+  aParams.CallControl;
+//#UC END# *494F89C30197_49EC75B5022Cexec_impl*
+//#UC START# *494F89C30197_49EC75B5022Cexec_var*
+var
+ l_CurrentNode: Il3SimpleNode;
+ l_HasUsers: Boolean;
+//#UC END# *494F89C30197_49EC75B5022Cexec_var*
+//#UC START# *494F89C30197_49EC75B5022Cgetstate_impl*
+ State := st_user_Edit_Delete_Group;
+//#UC END# *494F89C30197_49EC75B5022Cgetstate_impl*
+//#UC START# *494F89C30197_49EC75B5022Cgetstate_var*
+//#UC END# *494F89C30197_49EC75B5022Cgetstate_var*
+//#UC START# *494F89C30197_49EC75B5022Ctest_impl*
+ if aParams.Control = GroupsTree then
+  aParams.Op.Flag[vcm_ofEnabled] := IsCurrentUsual
+ else
+  if not aParams.CallControl then
+   aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *494F89C30197_49EC75B5022Ctest_impl*
+//#UC START# *494F89C30197_49EC75B5022Ctest_var*
+//#UC END# *494F89C30197_49EC75B5022Ctest_var*
+//#UC START# *497469C90140_49EC75B5022C_impl*
+ if (anOld <> nil) then
+  anOld.Unsubscribe(IbsGroupListViewListener(Self));
+ if (aNew <> nil) then
+  aNew.Subscribe(IbsGroupListViewListener(Self));
+
+ if Assigned(ViewArea) then
+ begin
+  with GroupsTree do
+  begin
+   Images := ViewArea.ImageList.Hack;
+   //if not aFromHistory then
+   begin
+    TreeStruct := ViewArea.SimpleTree;
+    l_Node := GetUserByID(GROUP_ALL_ID, TreeStruct);
+    if Assigned(l_Node) then
+     GotoOnNode(l_Node);
+   end;
+   UpdateStatusInfo;
+   ViewArea.CurrentChanged(GetCurrentNode)
+  end;
+ end;
+//#UC END# *497469C90140_49EC75B5022C_impl*
+//#UC START# *497469C90140_49EC75B5022C_var*
+var
+ l_Node: Il3SimpleNode;
+//#UC END# *497469C90140_49EC75B5022C_var*
+//#UC START# *49EC7545036C_49EC75B5022Cexec_impl*
+ try
+  ViewArea.CreateNewGroup;
+ except
+  on E: EDuplicateGroupName do
+   Say(war_GroupNameDuplicate, [nsCStr(E.Message)]);
+ end;
+//#UC END# *49EC7545036C_49EC75B5022Cexec_impl*
+//#UC START# *49EC7545036C_49EC75B5022Cexec_var*
+//#UC END# *49EC7545036C_49EC75B5022Cexec_var*
+//#UC START# *49EC7545036C_49EC75B5022Ctest_impl*
+// Do Nothing
+//#UC END# *49EC7545036C_49EC75B5022Ctest_impl*
+//#UC START# *49EC7545036C_49EC75B5022Ctest_var*
+//#UC END# *49EC7545036C_49EC75B5022Ctest_var*
+//#UC START# *49EC755501FB_49EC75B5022Cexec_impl*
+ ViewArea.ChangeBasesAccessForGroup(GroupsTree.GetCurrentNode);
+//#UC END# *49EC755501FB_49EC75B5022Cexec_impl*
+//#UC START# *49EC755501FB_49EC75B5022Cexec_var*
+//#UC END# *49EC755501FB_49EC75B5022Cexec_var*
+//#UC START# *49EC755501FB_49EC75B5022Ctest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := IsCurrentUsual;
+//#UC END# *49EC755501FB_49EC75B5022Ctest_impl*
+//#UC START# *49EC755501FB_49EC75B5022Ctest_var*
+//#UC END# *49EC755501FB_49EC75B5022Ctest_var*
+//#UC START# *49EEF22D004A_49EC75B5022Cexec_impl*
+ try
+  ViewArea.RenameGroup(GroupsTree.GetCurrentNode);
+ except
+  on E: EDuplicateGroupName do
+   Say(war_GroupNameDuplicate, [nsCStr(E.Message)]);
+ end;
+//#UC END# *49EEF22D004A_49EC75B5022Cexec_impl*
+//#UC START# *49EEF22D004A_49EC75B5022Cexec_var*
+//#UC END# *49EEF22D004A_49EC75B5022Cexec_var*
+//#UC START# *49EEF22D004A_49EC75B5022Ctest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := IsCurrentUsual;
+//#UC END# *49EEF22D004A_49EC75B5022Ctest_impl*
+//#UC START# *49EEF22D004A_49EC75B5022Ctest_var*
+//#UC END# *49EEF22D004A_49EC75B5022Ctest_var*
+//#UC START# *4A8E8F2E0195_49EC75B5022C_impl*
+ ActiveControl := GroupsTree;
+ FormStyle := fsStayOnTop;
+ Scaled := False;
+
+ with BackgroundPanel do
+ begin
+  Align := alClient;
+  BevelOuter := bvNone;
+ end;
+
+ with GroupsTree do
+ begin
+  ActionElementMode := l3_amSingleClick;
+  Align := alClient;
+  BorderStyle := bsNone;
+  DragAndDropSupported := True;
+  TabOrder := 0;
+  ViewOptions := [voShowIcons];
+  OnGetItemImage := GroupsTreeGetItemImage;
+  OnCurrentChanged := GroupsTreeCurrentChanged;
+  OnTreeChanged := GroupsTreeTreeChanged;
+  OnSelectCountChanged := GroupsTreeSelectCountChanged;
+  OnFormatStatusInfo := GroupsTreeFormatStatusInfo;
+  OnCountChanged := GroupsTreeCountChanged;
+ end;
+ 
+ UpdateStatusInfo; 
+//#UC END# *4A8E8F2E0195_49EC75B5022C_impl*
+//#UC START# *4A8E8F2E0195_49EC75B5022C_var*
+//#UC END# *4A8E8F2E0195_49EC75B5022C_var*
+//#UC START# *4AEF3E8C02F5_49EC75B5022Cexec_impl*
+ SetActiveInParent;
+//#UC END# *4AEF3E8C02F5_49EC75B5022Cexec_impl*
+//#UC START# *4AEF3E8C02F5_49EC75B5022Cexec_var*
+//#UC END# *4AEF3E8C02F5_49EC75B5022Cexec_var*
+//#UC START# *4AEF3E8C02F5_49EC75B5022Ctest_impl*
+ inherited;
+//#UC END# *4AEF3E8C02F5_49EC75B5022Ctest_impl*
+//#UC START# *4AEF3E8C02F5_49EC75B5022Ctest_var*
+//#UC END# *4AEF3E8C02F5_49EC75B5022Ctest_var*
+//#UC START# *5236E2780163_49EC75B5022C_impl*
+ UpdateStatusInfo;
+//#UC END# *5236E2780163_49EC75B5022C_impl*
+//#UC START# *5236E2780163_49EC75B5022C_var*
+//#UC END# *5236E2780163_49EC75B5022C_var*
+//#UC START# *5236E28202F7_49EC75B5022C_impl*
+ if Assigned(ViewArea) then
+  Result := cImageIndexMap[ViewArea.GroupsListNodeType(GroupsTree.GetNode(Index))]
+ else
+  Result := ciiUser_NA;
+//#UC END# *5236E28202F7_49EC75B5022C_impl*
+//#UC START# *5236E28202F7_49EC75B5022C_var*
+const
+ cImageIndexMap: array [TbsGroupNodeType] of Integer = (
+  ciiGroup, // gntUnknown,
+  ciiSystemGroup, // gntSystem,
+  ciiGroup // gntUsual
+ );
+//#UC END# *5236E28202F7_49EC75B5022C_var*
+//#UC START# *5236E28B0222_49EC75B5022C_impl*
+ UpdateCurrent;
+//#UC END# *5236E28B0222_49EC75B5022C_impl*
+//#UC START# *5236E28B0222_49EC75B5022C_var*
+//#UC END# *5236E28B0222_49EC75B5022C_var*
+//#UC START# *5236E2940127_49EC75B5022C_impl*
+ UpdateStatusInfo;
+//#UC END# *5236E2940127_49EC75B5022C_impl*
+//#UC START# *5236E2940127_49EC75B5022C_var*
+//#UC END# *5236E2940127_49EC75B5022C_var*
+//#UC START# *5236E29C02A7_49EC75B5022C_impl*
+ UpdateStatusInfo;
+//#UC END# *5236E29C02A7_49EC75B5022C_impl*
+//#UC START# *5236E29C02A7_49EC75B5022C_var*
+//#UC END# *5236E29C02A7_49EC75B5022C_var*
+//#UC START# *5236E2A600F9_49EC75B5022C_impl*
+ if GroupsTree.TreeStruct.RootNode.HasChild then
+  Info := vcmFmt(vcmCStr(str_GroupsListStatus),[GroupsTree.TreeStruct.RootNode.ThisChildrenCount])
+ else
+  Info := nil;
+//#UC END# *5236E2A600F9_49EC75B5022C_impl*
+//#UC START# *5236E2A600F9_49EC75B5022C_var*
+//#UC END# *5236E2A600F9_49EC75B5022C_var*
+//#UC START# *5236F5A00279_49EC75B5022C_impl*
+ ViewArea.CurrentChanged(GroupsTree.GetCurrentNode);
+ UpdateStatusInfo;
+//#UC END# *5236F5A00279_49EC75B5022C_impl*
+//#UC START# *5236F5A00279_49EC75B5022C_var*
+//#UC END# *5236F5A00279_49EC75B5022C_var*
+//#UC START# *5236F5CD009F_49EC75B5022C_impl*
+ l_Node := GroupsTree.GetCurrentNode;
+ Result := ViewArea.GroupsListNodeType(l_Node) = gntUsual;
+//#UC END# *5236F5CD009F_49EC75B5022C_impl*
+//#UC START# *5236F5CD009F_49EC75B5022C_var*
+var
+ l_Node: Il3SimpleNode;
+//#UC END# *5236F5CD009F_49EC75B5022C_var*
+//#UC START# *5492EBB90042_49EC75B5022C_impl*
+ GroupsTree.Invalidate;
+//#UC END# *5492EBB90042_49EC75B5022C_impl*
+//#UC START# *5492EBB90042_49EC75B5022C_var*
+//#UC END# *5492EBB90042_49EC75B5022C_var*

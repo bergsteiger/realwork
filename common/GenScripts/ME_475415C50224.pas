@@ -1,4 +1,10 @@
-unit OvcController;
+unit NOT_FINISHED_OvcController;
+ {* Контроллер команд. }
+
+// Модуль: "w:\common\components\rtl\external\Orpheus\NOT_FINISHED_OvcController.pas"
+// Стереотип: "SimpleClass"
+
+{$Include OVC.INC}
 
 interface
 
@@ -11,7 +17,7 @@ type
  TOvcController = class(Tl3InterfacedComponent)
   {* Контроллер команд. }
  end;//TOvcController
- 
+
 implementation
 
 uses

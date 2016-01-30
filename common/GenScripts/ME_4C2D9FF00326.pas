@@ -1,4 +1,7 @@
-unit Consts;
+unit NOT_FINISHED_Consts;
+
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\NOT_FINISHED_Consts.pas"
+// Стереотип: "UtilityPack"
 
 interface
 

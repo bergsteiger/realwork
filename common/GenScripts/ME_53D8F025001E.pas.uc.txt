@@ -1,0 +1,25 @@
+//#UC START# *53D639B601D7_53D8F025001E_impl*
+ if not aTag.QT(InevPara, l_Para, aProcessor) then
+  Result := false
+ else
+ if IID.EQ(InevObjectPrim) then
+ begin
+  InevObjectPrim(Tool) := l_Para;
+  Result := true;
+ end//IID.EQ(InevObjectPrim)
+ else
+ if IID.EQ(InevObject) then
+ begin
+  InevObject(Tool) := l_Para;
+  Result := true;
+ end//IID.EQ(InevObject)
+ else
+ if not l_Para.AsObject.QT(IID.IID, Tool, aProcessor) then
+  Result := false
+ else
+  Result := true; 
+//#UC END# *53D639B601D7_53D8F025001E_impl*
+//#UC START# *53D639B601D7_53D8F025001E_var*
+var
+ l_Para : InevPara;
+//#UC END# *53D639B601D7_53D8F025001E_var*

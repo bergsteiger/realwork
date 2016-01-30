@@ -1,5 +1,10 @@
 unit mdpImportDocs_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\mdpImportDocs_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -10,7 +15,7 @@ uses
 ;
 
  // mdpImportDocsTag
- 
+
 implementation
 
 uses

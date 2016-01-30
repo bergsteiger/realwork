@@ -47,24 +47,18 @@ implementation @ <<ComInterfaces>>
 ; // st_space_key
 
 : wiki_up_print OBJECT IN %S
-//	%S%[InterfacePackageBase::Category]f_wiki_up_print()[{"%S{is namespace}"!="%S{!is namespace}"}%f_up_prefix(%S) *is namespace* = *%S{is namespace}* - определ€ет €вл€етс€ ли модуль неймспейсом
- call-inherited:: 'InterfacePackageBase' wiki_up_print %( )%
+//	%S%[COM::MDAGenerator]f_wiki_up_print()[{"%S{is namespace}"!="%S{!is namespace}"}%f_up_prefix(%S) *is namespace* = *%S{is namespace}* - определ€ет €вл€етс€ ли модуль неймспейсом
+ call-inherited:: 'COM' wiki_up_print %( )%
  if ( ( %S get_up ( 'is namespace' ) ) %!= ( %S get_up_def ( 'is namespace' ) ) ) then
  begin
   [%f] up_prefix %( %S )% ' *is namespace* = *'
   %S get_up ( 'is namespace' ) '* - определ€ет €вл€етс€ ли модуль неймспейсом'
-//	][{"%S{ifdef}"!="%S{!ifdef}"}%f_up_prefix(%S) *ifdef* = *%S{ifdef}* - Oпредел€ет условный признак компил€ции, который должен быть определЄн. ƒл€ указани€ нескольких флагов условной компил€ций нужно указать их через зап€тую.
+//	][{"%S{need UC}"!="%S{!need UC}"}%f_up_prefix(%S) *need UC* = *%S{need UC}* - явно включает генерацию дополнительных секций ёзер- ода
  end // if
- if ( ( %S get_up ( 'ifdef' ) ) %!= ( %S get_up_def ( 'ifdef' ) ) ) then
+ if ( ( %S get_up ( 'need UC' ) ) %!= ( %S get_up_def ( 'need UC' ) ) ) then
  begin
-  [%f] up_prefix %( %S )% ' *ifdef* = *'
-  %S get_up ( 'ifdef' ) '* - Oпредел€ет условный признак компил€ции, который должен быть определЄн. ƒл€ указани€ нескольких флагов условной компил€ций нужно указать их через зап€тую.'
-//	][{"%S{ifndef}"!="%S{!ifndef}"}%f_up_prefix(%S) *ifndef* = *%S{ifndef}* - Oпредел€ет условный признак компил€ции, который не должен быть определЄн. ƒл€ указани€ нескольких флагов условной компил€ций нужно указать их через зап€тую.
- end // if
- if ( ( %S get_up ( 'ifndef' ) ) %!= ( %S get_up_def ( 'ifndef' ) ) ) then
- begin
-  [%f] up_prefix %( %S )% ' *ifndef* = *'
-  %S get_up ( 'ifndef' ) '* - Oпредел€ет условный признак компил€ции, который не должен быть определЄн. ƒл€ указани€ нескольких флагов условной компил€ций нужно указать их через зап€тую.'
+  [%f] up_prefix %( %S )% ' *need UC* = *'
+  %S get_up ( 'need UC' ) '* - явно включает генерацию дополнительных секций ёзер- ода'
 //	]
  end // if
 

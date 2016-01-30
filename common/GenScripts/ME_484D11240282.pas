@@ -1,4 +1,10 @@
 unit Style_Const;
+ {* Стиль оформления }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\Style_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -9,7 +15,7 @@ uses
 ;
 
  // StyleTag
- 
+
 implementation
 
 uses

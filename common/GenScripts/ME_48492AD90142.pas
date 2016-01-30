@@ -1,4 +1,10 @@
 unit k2OList_Const;
+ {* Список объектов }
+
+// Модуль: "w:\common\components\rtl\Garant\K2\k2OList_Const.pas"
+// Стереотип: "Tag"
+
+{$Include k2Define.inc}
 
 interface
 
@@ -9,7 +15,7 @@ uses
 ;
 
  // OListTag
- 
+
 implementation
 
 uses

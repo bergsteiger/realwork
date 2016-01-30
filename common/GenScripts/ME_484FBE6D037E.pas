@@ -1,4 +1,10 @@
 unit DocSubLayer_Const;
+ {* Слой меток документа }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\DocSubLayer_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -9,7 +15,7 @@ uses
 ;
 
  // DocSubLayerTag
- 
+
 implementation
 
 uses

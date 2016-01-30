@@ -1,0 +1,16 @@
+//#UC START# *4DB03121022B_4DC3F6DD00F1_impl*
+ if ANSIStartsText('@\', aFileName) then
+  Result := FileFromCurrent('Common\' + Copy(aFileName, 3, Length(aFileName)-2))
+ else 
+ if (ExtractFilePath(aFileName) <> '') then
+  Result := aFileName
+ else
+  Result := FileFromCurrent('Auto') + '\'+ aFileName;
+//#UC END# *4DB03121022B_4DC3F6DD00F1_impl*
+//#UC START# *4DB03121022B_4DC3F6DD00F1_var*
+//#UC END# *4DB03121022B_4DC3F6DD00F1_var*
+//#UC START# *4DC395670274_4DC3F6DD00F1_impl*
+ Result := True;
+//#UC END# *4DC395670274_4DC3F6DD00F1_impl*
+//#UC START# *4DC395670274_4DC3F6DD00F1_var*
+//#UC END# *4DC395670274_4DC3F6DD00F1_var*

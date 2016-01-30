@@ -1,7 +1,13 @@
 unit IedRangeWordsPack;
 
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\IedRangeWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
+
+{$Include seDefine.inc}
+
 interface
 
+{$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
  , evEditorInterfaces
@@ -14,9 +20,11 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
 ;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
+{$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
  , IedTableWordsPack
@@ -26,7 +34,7 @@ uses
 ;
 
 type
- TkwPopRangeTable = class(TtfwClassLike)
+ TkwPopRangeTable = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Range:Table
 *Тип результата:* IedTable
 *Пример:*
@@ -34,13 +42,20 @@ type
 INTERFACE VAR l_IedTable
  aRange pop:Range:Table >>> l_IedTable
 [code]  }
-  function Table(const aCtx: TtfwContext;
-   const aRange: IedRange): IedTable;
-   {* Реализация слова скрипта pop:Range:Table }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function Table(const aCtx: TtfwContext;
+    const aRange: IedRange): IedTable;
+    {* Реализация слова скрипта pop:Range:Table }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopRangeTable
- 
- TkwPopRangeHyperlink = class(TtfwClassLike)
+
+ TkwPopRangeHyperlink = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Range:Hyperlink
 *Тип результата:* IevHyperlink
 *Пример:*
@@ -48,13 +63,20 @@ INTERFACE VAR l_IedTable
 INTERFACE VAR l_IevHyperlink
  aRange pop:Range:Hyperlink >>> l_IevHyperlink
 [code]  }
-  function Hyperlink(const aCtx: TtfwContext;
-   const aRange: IedRange): IevHyperlink;
-   {* Реализация слова скрипта pop:Range:Hyperlink }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function Hyperlink(const aCtx: TtfwContext;
+    const aRange: IedRange): IevHyperlink;
+    {* Реализация слова скрипта pop:Range:Hyperlink }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopRangeHyperlink
- 
- TkwPopRangeCollapsed = class(TtfwClassLike)
+
+ TkwPopRangeCollapsed = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Range:Collapsed
 *Тип результата:* Boolean
 *Пример:*
@@ -62,13 +84,20 @@ INTERFACE VAR l_IevHyperlink
 BOOLEAN VAR l_Boolean
  aRange pop:Range:Collapsed >>> l_Boolean
 [code]  }
-  function Collapsed(const aCtx: TtfwContext;
-   const aRange: IedRange): Boolean;
-   {* Реализация слова скрипта pop:Range:Collapsed }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function Collapsed(const aCtx: TtfwContext;
+    const aRange: IedRange): Boolean;
+    {* Реализация слова скрипта pop:Range:Collapsed }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopRangeCollapsed
- 
- TkwPopRangeTextParagraph = class(TtfwClassLike)
+
+ TkwPopRangeTextParagraph = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Range:TextParagraph
 *Тип результата:* IedTextParagraph
 *Пример:*
@@ -76,13 +105,20 @@ BOOLEAN VAR l_Boolean
 INTERFACE VAR l_IedTextParagraph
  aRange pop:Range:TextParagraph >>> l_IedTextParagraph
 [code]  }
-  function TextParagraph(const aCtx: TtfwContext;
-   const aRange: IedRange): IedTextParagraph;
-   {* Реализация слова скрипта pop:Range:TextParagraph }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function TextParagraph(const aCtx: TtfwContext;
+    const aRange: IedRange): IedTextParagraph;
+    {* Реализация слова скрипта pop:Range:TextParagraph }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopRangeTextParagraph
- 
- TkwPopRangeDocument = class(TtfwClassLike)
+
+ TkwPopRangeDocument = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Range:Document
 *Тип результата:* IevDocument
 *Пример:*
@@ -90,13 +126,20 @@ INTERFACE VAR l_IedTextParagraph
 INTERFACE VAR l_IevDocument
  aRange pop:Range:Document >>> l_IevDocument
 [code]  }
-  function Document(const aCtx: TtfwContext;
-   const aRange: IedRange): IevDocument;
-   {* Реализация слова скрипта pop:Range:Document }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function Document(const aCtx: TtfwContext;
+    const aRange: IedRange): IevDocument;
+    {* Реализация слова скрипта pop:Range:Document }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopRangeDocument
- 
- TkwPopRangeDeleteChar = class(TtfwClassLike)
+
+ TkwPopRangeDeleteChar = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Range:DeleteChar
 *Тип результата:* Boolean
 *Пример:*
@@ -104,13 +147,20 @@ INTERFACE VAR l_IevDocument
 BOOLEAN VAR l_Boolean
  aRange pop:Range:DeleteChar >>> l_Boolean
 [code]  }
-  function DeleteChar(const aCtx: TtfwContext;
-   const aRange: IedRange): Boolean;
-   {* Реализация слова скрипта pop:Range:DeleteChar }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function DeleteChar(const aCtx: TtfwContext;
+    const aRange: IedRange): Boolean;
+    {* Реализация слова скрипта pop:Range:DeleteChar }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopRangeDeleteChar
- 
- TkwPopRangeInsertParaBreak = class(TtfwClassLike)
+
+ TkwPopRangeInsertParaBreak = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Range:InsertParaBreak
 *Тип результата:* Boolean
 *Пример:*
@@ -118,13 +168,20 @@ BOOLEAN VAR l_Boolean
 BOOLEAN VAR l_Boolean
  aRange pop:Range:InsertParaBreak >>> l_Boolean
 [code]  }
-  function InsertParaBreak(const aCtx: TtfwContext;
-   const aRange: IedRange): Boolean;
-   {* Реализация слова скрипта pop:Range:InsertParaBreak }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function InsertParaBreak(const aCtx: TtfwContext;
+    const aRange: IedRange): Boolean;
+    {* Реализация слова скрипта pop:Range:InsertParaBreak }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopRangeInsertParaBreak
- 
- TkwPopRangeInsertString = class(TtfwClassLike)
+
+ TkwPopRangeInsertString = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Range:InsertString
 *Тип результата:* Boolean
 *Пример:*
@@ -132,14 +189,21 @@ BOOLEAN VAR l_Boolean
 BOOLEAN VAR l_Boolean
  aString aRange pop:Range:InsertString >>> l_Boolean
 [code]  }
-  function InsertString(const aCtx: TtfwContext;
-   const aRange: IedRange;
-   const aString: Il3CString): Boolean;
-   {* Реализация слова скрипта pop:Range:InsertString }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function InsertString(const aCtx: TtfwContext;
+    const aRange: IedRange;
+    const aString: Il3CString): Boolean;
+    {* Реализация слова скрипта pop:Range:InsertString }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopRangeInsertString
- 
- TkwPopRangeDelete = class(TtfwClassLike)
+
+ TkwPopRangeDelete = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Range:Delete
 *Тип результата:* Boolean
 *Пример:*
@@ -147,14 +211,21 @@ BOOLEAN VAR l_Boolean
 BOOLEAN VAR l_Boolean
  aMode aRange pop:Range:Delete >>> l_Boolean
 [code]  }
-  function Delete(const aCtx: TtfwContext;
-   const aRange: IedRange;
-   aMode: TevClearMode): Boolean;
-   {* Реализация слова скрипта pop:Range:Delete }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function Delete(const aCtx: TtfwContext;
+    const aRange: IedRange;
+    aMode: TevClearMode): Boolean;
+    {* Реализация слова скрипта pop:Range:Delete }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopRangeDelete
- 
- TkwPopRangeContainsOneLeaf = class(TtfwClassLike)
+
+ TkwPopRangeContainsOneLeaf = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Range:ContainsOneLeaf
 *Тип результата:* Boolean
 *Пример:*
@@ -162,13 +233,20 @@ BOOLEAN VAR l_Boolean
 BOOLEAN VAR l_Boolean
  aRange pop:Range:ContainsOneLeaf >>> l_Boolean
 [code]  }
-  function ContainsOneLeaf(const aCtx: TtfwContext;
-   const aRange: IedRange): Boolean;
-   {* Реализация слова скрипта pop:Range:ContainsOneLeaf }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function ContainsOneLeaf(const aCtx: TtfwContext;
+    const aRange: IedRange): Boolean;
+    {* Реализация слова скрипта pop:Range:ContainsOneLeaf }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopRangeContainsOneLeaf
- 
- TkwPopRangeAsString = class(TtfwClassLike)
+
+ TkwPopRangeAsString = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Range:AsString
 *Тип результата:* String
 *Пример:*
@@ -176,10 +254,636 @@ BOOLEAN VAR l_Boolean
 STRING VAR l_String
  aRange pop:Range:AsString >>> l_String
 [code]  }
-  function AsString(const aCtx: TtfwContext;
-   const aRange: IedRange): AnsiString;
-   {* Реализация слова скрипта pop:Range:AsString }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function AsString(const aCtx: TtfwContext;
+    const aRange: IedRange): AnsiString;
+    {* Реализация слова скрипта pop:Range:AsString }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopRangeAsString
- 
+
+function TkwPopRangeTable.Table(const aCtx: TtfwContext;
+ const aRange: IedRange): IedTable;
+ {* Реализация слова скрипта pop:Range:Table }
+//#UC START# *6A8A6B1E0BA8_41E2AA39512B_var*
+//#UC END# *6A8A6B1E0BA8_41E2AA39512B_var*
+begin
+//#UC START# *6A8A6B1E0BA8_41E2AA39512B_impl*
+ Result := aRange.Table;
+//#UC END# *6A8A6B1E0BA8_41E2AA39512B_impl*
+end;//TkwPopRangeTable.Table
+
+procedure TkwPopRangeTable.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_41E2AA39512B_var*
+//#UC END# *4DAEEDE10285_41E2AA39512B_var*
+begin
+//#UC START# *4DAEEDE10285_41E2AA39512B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_41E2AA39512B_impl*
+end;//TkwPopRangeTable.DoDoIt
+
+class function TkwPopRangeTable.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Range:Table';
+end;//TkwPopRangeTable.GetWordNameForRegister
+
+function TkwPopRangeTable.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_41E2AA39512B_var*
+//#UC END# *551544E2001A_41E2AA39512B_var*
+begin
+//#UC START# *551544E2001A_41E2AA39512B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_41E2AA39512B_impl*
+end;//TkwPopRangeTable.GetResultTypeInfo
+
+function TkwPopRangeTable.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_41E2AA39512B_var*
+//#UC END# *559687E6025A_41E2AA39512B_var*
+begin
+//#UC START# *559687E6025A_41E2AA39512B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_41E2AA39512B_impl*
+end;//TkwPopRangeTable.GetAllParamsCount
+
+function TkwPopRangeTable.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_41E2AA39512B_var*
+//#UC END# *5617F4D00243_41E2AA39512B_var*
+begin
+//#UC START# *5617F4D00243_41E2AA39512B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_41E2AA39512B_impl*
+end;//TkwPopRangeTable.ParamsTypes
+
+function TkwPopRangeHyperlink.Hyperlink(const aCtx: TtfwContext;
+ const aRange: IedRange): IevHyperlink;
+ {* Реализация слова скрипта pop:Range:Hyperlink }
+//#UC START# *97A2252727DF_DF0E3B22C362_var*
+//#UC END# *97A2252727DF_DF0E3B22C362_var*
+begin
+//#UC START# *97A2252727DF_DF0E3B22C362_impl*
+ Result := aRange.Hyperlink;
+//#UC END# *97A2252727DF_DF0E3B22C362_impl*
+end;//TkwPopRangeHyperlink.Hyperlink
+
+procedure TkwPopRangeHyperlink.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_DF0E3B22C362_var*
+//#UC END# *4DAEEDE10285_DF0E3B22C362_var*
+begin
+//#UC START# *4DAEEDE10285_DF0E3B22C362_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_DF0E3B22C362_impl*
+end;//TkwPopRangeHyperlink.DoDoIt
+
+class function TkwPopRangeHyperlink.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Range:Hyperlink';
+end;//TkwPopRangeHyperlink.GetWordNameForRegister
+
+function TkwPopRangeHyperlink.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_DF0E3B22C362_var*
+//#UC END# *551544E2001A_DF0E3B22C362_var*
+begin
+//#UC START# *551544E2001A_DF0E3B22C362_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_DF0E3B22C362_impl*
+end;//TkwPopRangeHyperlink.GetResultTypeInfo
+
+function TkwPopRangeHyperlink.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_DF0E3B22C362_var*
+//#UC END# *559687E6025A_DF0E3B22C362_var*
+begin
+//#UC START# *559687E6025A_DF0E3B22C362_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_DF0E3B22C362_impl*
+end;//TkwPopRangeHyperlink.GetAllParamsCount
+
+function TkwPopRangeHyperlink.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_DF0E3B22C362_var*
+//#UC END# *5617F4D00243_DF0E3B22C362_var*
+begin
+//#UC START# *5617F4D00243_DF0E3B22C362_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_DF0E3B22C362_impl*
+end;//TkwPopRangeHyperlink.ParamsTypes
+
+function TkwPopRangeCollapsed.Collapsed(const aCtx: TtfwContext;
+ const aRange: IedRange): Boolean;
+ {* Реализация слова скрипта pop:Range:Collapsed }
+//#UC START# *831B209B9157_56060897E1ED_var*
+//#UC END# *831B209B9157_56060897E1ED_var*
+begin
+//#UC START# *831B209B9157_56060897E1ED_impl*
+ Result := aRange.Collapsed;
+//#UC END# *831B209B9157_56060897E1ED_impl*
+end;//TkwPopRangeCollapsed.Collapsed
+
+procedure TkwPopRangeCollapsed.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_56060897E1ED_var*
+//#UC END# *4DAEEDE10285_56060897E1ED_var*
+begin
+//#UC START# *4DAEEDE10285_56060897E1ED_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_56060897E1ED_impl*
+end;//TkwPopRangeCollapsed.DoDoIt
+
+class function TkwPopRangeCollapsed.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Range:Collapsed';
+end;//TkwPopRangeCollapsed.GetWordNameForRegister
+
+function TkwPopRangeCollapsed.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_56060897E1ED_var*
+//#UC END# *551544E2001A_56060897E1ED_var*
+begin
+//#UC START# *551544E2001A_56060897E1ED_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_56060897E1ED_impl*
+end;//TkwPopRangeCollapsed.GetResultTypeInfo
+
+function TkwPopRangeCollapsed.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_56060897E1ED_var*
+//#UC END# *559687E6025A_56060897E1ED_var*
+begin
+//#UC START# *559687E6025A_56060897E1ED_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_56060897E1ED_impl*
+end;//TkwPopRangeCollapsed.GetAllParamsCount
+
+function TkwPopRangeCollapsed.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_56060897E1ED_var*
+//#UC END# *5617F4D00243_56060897E1ED_var*
+begin
+//#UC START# *5617F4D00243_56060897E1ED_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_56060897E1ED_impl*
+end;//TkwPopRangeCollapsed.ParamsTypes
+
+function TkwPopRangeTextParagraph.TextParagraph(const aCtx: TtfwContext;
+ const aRange: IedRange): IedTextParagraph;
+ {* Реализация слова скрипта pop:Range:TextParagraph }
+//#UC START# *FED433A2CDA0_B851C7CE944A_var*
+//#UC END# *FED433A2CDA0_B851C7CE944A_var*
+begin
+//#UC START# *FED433A2CDA0_B851C7CE944A_impl*
+ Result := aRange.TextParagraph;
+//#UC END# *FED433A2CDA0_B851C7CE944A_impl*
+end;//TkwPopRangeTextParagraph.TextParagraph
+
+procedure TkwPopRangeTextParagraph.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_B851C7CE944A_var*
+//#UC END# *4DAEEDE10285_B851C7CE944A_var*
+begin
+//#UC START# *4DAEEDE10285_B851C7CE944A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_B851C7CE944A_impl*
+end;//TkwPopRangeTextParagraph.DoDoIt
+
+class function TkwPopRangeTextParagraph.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Range:TextParagraph';
+end;//TkwPopRangeTextParagraph.GetWordNameForRegister
+
+function TkwPopRangeTextParagraph.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_B851C7CE944A_var*
+//#UC END# *551544E2001A_B851C7CE944A_var*
+begin
+//#UC START# *551544E2001A_B851C7CE944A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_B851C7CE944A_impl*
+end;//TkwPopRangeTextParagraph.GetResultTypeInfo
+
+function TkwPopRangeTextParagraph.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_B851C7CE944A_var*
+//#UC END# *559687E6025A_B851C7CE944A_var*
+begin
+//#UC START# *559687E6025A_B851C7CE944A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_B851C7CE944A_impl*
+end;//TkwPopRangeTextParagraph.GetAllParamsCount
+
+function TkwPopRangeTextParagraph.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_B851C7CE944A_var*
+//#UC END# *5617F4D00243_B851C7CE944A_var*
+begin
+//#UC START# *5617F4D00243_B851C7CE944A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_B851C7CE944A_impl*
+end;//TkwPopRangeTextParagraph.ParamsTypes
+
+function TkwPopRangeDocument.Document(const aCtx: TtfwContext;
+ const aRange: IedRange): IevDocument;
+ {* Реализация слова скрипта pop:Range:Document }
+//#UC START# *C34A7E09934B_438278DD03B7_var*
+//#UC END# *C34A7E09934B_438278DD03B7_var*
+begin
+//#UC START# *C34A7E09934B_438278DD03B7_impl*
+ Result := aRange.Document;
+//#UC END# *C34A7E09934B_438278DD03B7_impl*
+end;//TkwPopRangeDocument.Document
+
+procedure TkwPopRangeDocument.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_438278DD03B7_var*
+//#UC END# *4DAEEDE10285_438278DD03B7_var*
+begin
+//#UC START# *4DAEEDE10285_438278DD03B7_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_438278DD03B7_impl*
+end;//TkwPopRangeDocument.DoDoIt
+
+class function TkwPopRangeDocument.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Range:Document';
+end;//TkwPopRangeDocument.GetWordNameForRegister
+
+function TkwPopRangeDocument.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_438278DD03B7_var*
+//#UC END# *551544E2001A_438278DD03B7_var*
+begin
+//#UC START# *551544E2001A_438278DD03B7_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_438278DD03B7_impl*
+end;//TkwPopRangeDocument.GetResultTypeInfo
+
+function TkwPopRangeDocument.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_438278DD03B7_var*
+//#UC END# *559687E6025A_438278DD03B7_var*
+begin
+//#UC START# *559687E6025A_438278DD03B7_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_438278DD03B7_impl*
+end;//TkwPopRangeDocument.GetAllParamsCount
+
+function TkwPopRangeDocument.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_438278DD03B7_var*
+//#UC END# *5617F4D00243_438278DD03B7_var*
+begin
+//#UC START# *5617F4D00243_438278DD03B7_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_438278DD03B7_impl*
+end;//TkwPopRangeDocument.ParamsTypes
+
+function TkwPopRangeDeleteChar.DeleteChar(const aCtx: TtfwContext;
+ const aRange: IedRange): Boolean;
+ {* Реализация слова скрипта pop:Range:DeleteChar }
+//#UC START# *6BCEA545995C_7BD8700AF40A_var*
+//#UC END# *6BCEA545995C_7BD8700AF40A_var*
+begin
+//#UC START# *6BCEA545995C_7BD8700AF40A_impl*
+ Result := aRange.DeleteChar;
+//#UC END# *6BCEA545995C_7BD8700AF40A_impl*
+end;//TkwPopRangeDeleteChar.DeleteChar
+
+procedure TkwPopRangeDeleteChar.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_7BD8700AF40A_var*
+//#UC END# *4DAEEDE10285_7BD8700AF40A_var*
+begin
+//#UC START# *4DAEEDE10285_7BD8700AF40A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_7BD8700AF40A_impl*
+end;//TkwPopRangeDeleteChar.DoDoIt
+
+class function TkwPopRangeDeleteChar.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Range:DeleteChar';
+end;//TkwPopRangeDeleteChar.GetWordNameForRegister
+
+function TkwPopRangeDeleteChar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_7BD8700AF40A_var*
+//#UC END# *551544E2001A_7BD8700AF40A_var*
+begin
+//#UC START# *551544E2001A_7BD8700AF40A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_7BD8700AF40A_impl*
+end;//TkwPopRangeDeleteChar.GetResultTypeInfo
+
+function TkwPopRangeDeleteChar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_7BD8700AF40A_var*
+//#UC END# *559687E6025A_7BD8700AF40A_var*
+begin
+//#UC START# *559687E6025A_7BD8700AF40A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_7BD8700AF40A_impl*
+end;//TkwPopRangeDeleteChar.GetAllParamsCount
+
+function TkwPopRangeDeleteChar.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_7BD8700AF40A_var*
+//#UC END# *5617F4D00243_7BD8700AF40A_var*
+begin
+//#UC START# *5617F4D00243_7BD8700AF40A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_7BD8700AF40A_impl*
+end;//TkwPopRangeDeleteChar.ParamsTypes
+
+function TkwPopRangeInsertParaBreak.InsertParaBreak(const aCtx: TtfwContext;
+ const aRange: IedRange): Boolean;
+ {* Реализация слова скрипта pop:Range:InsertParaBreak }
+//#UC START# *9F0AFA04CDEB_FC198E99CE03_var*
+//#UC END# *9F0AFA04CDEB_FC198E99CE03_var*
+begin
+//#UC START# *9F0AFA04CDEB_FC198E99CE03_impl*
+ Result := aRange.InsertParaBreak;
+//#UC END# *9F0AFA04CDEB_FC198E99CE03_impl*
+end;//TkwPopRangeInsertParaBreak.InsertParaBreak
+
+procedure TkwPopRangeInsertParaBreak.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_FC198E99CE03_var*
+//#UC END# *4DAEEDE10285_FC198E99CE03_var*
+begin
+//#UC START# *4DAEEDE10285_FC198E99CE03_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_FC198E99CE03_impl*
+end;//TkwPopRangeInsertParaBreak.DoDoIt
+
+class function TkwPopRangeInsertParaBreak.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Range:InsertParaBreak';
+end;//TkwPopRangeInsertParaBreak.GetWordNameForRegister
+
+function TkwPopRangeInsertParaBreak.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_FC198E99CE03_var*
+//#UC END# *551544E2001A_FC198E99CE03_var*
+begin
+//#UC START# *551544E2001A_FC198E99CE03_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_FC198E99CE03_impl*
+end;//TkwPopRangeInsertParaBreak.GetResultTypeInfo
+
+function TkwPopRangeInsertParaBreak.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_FC198E99CE03_var*
+//#UC END# *559687E6025A_FC198E99CE03_var*
+begin
+//#UC START# *559687E6025A_FC198E99CE03_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_FC198E99CE03_impl*
+end;//TkwPopRangeInsertParaBreak.GetAllParamsCount
+
+function TkwPopRangeInsertParaBreak.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_FC198E99CE03_var*
+//#UC END# *5617F4D00243_FC198E99CE03_var*
+begin
+//#UC START# *5617F4D00243_FC198E99CE03_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_FC198E99CE03_impl*
+end;//TkwPopRangeInsertParaBreak.ParamsTypes
+
+function TkwPopRangeInsertString.InsertString(const aCtx: TtfwContext;
+ const aRange: IedRange;
+ const aString: Il3CString): Boolean;
+ {* Реализация слова скрипта pop:Range:InsertString }
+//#UC START# *E9039183FD58_682E7D1F5450_var*
+//#UC END# *E9039183FD58_682E7D1F5450_var*
+begin
+//#UC START# *E9039183FD58_682E7D1F5450_impl*
+ Result := aRange.InsertString(aString.AsWStr);
+//#UC END# *E9039183FD58_682E7D1F5450_impl*
+end;//TkwPopRangeInsertString.InsertString
+
+procedure TkwPopRangeInsertString.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_682E7D1F5450_var*
+//#UC END# *4DAEEDE10285_682E7D1F5450_var*
+begin
+//#UC START# *4DAEEDE10285_682E7D1F5450_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_682E7D1F5450_impl*
+end;//TkwPopRangeInsertString.DoDoIt
+
+class function TkwPopRangeInsertString.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Range:InsertString';
+end;//TkwPopRangeInsertString.GetWordNameForRegister
+
+function TkwPopRangeInsertString.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_682E7D1F5450_var*
+//#UC END# *551544E2001A_682E7D1F5450_var*
+begin
+//#UC START# *551544E2001A_682E7D1F5450_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_682E7D1F5450_impl*
+end;//TkwPopRangeInsertString.GetResultTypeInfo
+
+function TkwPopRangeInsertString.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_682E7D1F5450_var*
+//#UC END# *559687E6025A_682E7D1F5450_var*
+begin
+//#UC START# *559687E6025A_682E7D1F5450_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_682E7D1F5450_impl*
+end;//TkwPopRangeInsertString.GetAllParamsCount
+
+function TkwPopRangeInsertString.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_682E7D1F5450_var*
+//#UC END# *5617F4D00243_682E7D1F5450_var*
+begin
+//#UC START# *5617F4D00243_682E7D1F5450_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_682E7D1F5450_impl*
+end;//TkwPopRangeInsertString.ParamsTypes
+
+function TkwPopRangeDelete.Delete(const aCtx: TtfwContext;
+ const aRange: IedRange;
+ aMode: TevClearMode): Boolean;
+ {* Реализация слова скрипта pop:Range:Delete }
+//#UC START# *F86774CFE28D_CC0CFA982703_var*
+//#UC END# *F86774CFE28D_CC0CFA982703_var*
+begin
+//#UC START# *F86774CFE28D_CC0CFA982703_impl*
+ Result := aRange.Delete(aMode);
+//#UC END# *F86774CFE28D_CC0CFA982703_impl*
+end;//TkwPopRangeDelete.Delete
+
+procedure TkwPopRangeDelete.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_CC0CFA982703_var*
+//#UC END# *4DAEEDE10285_CC0CFA982703_var*
+begin
+//#UC START# *4DAEEDE10285_CC0CFA982703_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_CC0CFA982703_impl*
+end;//TkwPopRangeDelete.DoDoIt
+
+class function TkwPopRangeDelete.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Range:Delete';
+end;//TkwPopRangeDelete.GetWordNameForRegister
+
+function TkwPopRangeDelete.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_CC0CFA982703_var*
+//#UC END# *551544E2001A_CC0CFA982703_var*
+begin
+//#UC START# *551544E2001A_CC0CFA982703_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_CC0CFA982703_impl*
+end;//TkwPopRangeDelete.GetResultTypeInfo
+
+function TkwPopRangeDelete.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_CC0CFA982703_var*
+//#UC END# *559687E6025A_CC0CFA982703_var*
+begin
+//#UC START# *559687E6025A_CC0CFA982703_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_CC0CFA982703_impl*
+end;//TkwPopRangeDelete.GetAllParamsCount
+
+function TkwPopRangeDelete.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_CC0CFA982703_var*
+//#UC END# *5617F4D00243_CC0CFA982703_var*
+begin
+//#UC START# *5617F4D00243_CC0CFA982703_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_CC0CFA982703_impl*
+end;//TkwPopRangeDelete.ParamsTypes
+
+function TkwPopRangeContainsOneLeaf.ContainsOneLeaf(const aCtx: TtfwContext;
+ const aRange: IedRange): Boolean;
+ {* Реализация слова скрипта pop:Range:ContainsOneLeaf }
+//#UC START# *C5D387747D02_82CA30B619E2_var*
+//#UC END# *C5D387747D02_82CA30B619E2_var*
+begin
+//#UC START# *C5D387747D02_82CA30B619E2_impl*
+ Result := aRange.ContainsOneLeaf;
+//#UC END# *C5D387747D02_82CA30B619E2_impl*
+end;//TkwPopRangeContainsOneLeaf.ContainsOneLeaf
+
+procedure TkwPopRangeContainsOneLeaf.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_82CA30B619E2_var*
+//#UC END# *4DAEEDE10285_82CA30B619E2_var*
+begin
+//#UC START# *4DAEEDE10285_82CA30B619E2_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_82CA30B619E2_impl*
+end;//TkwPopRangeContainsOneLeaf.DoDoIt
+
+class function TkwPopRangeContainsOneLeaf.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Range:ContainsOneLeaf';
+end;//TkwPopRangeContainsOneLeaf.GetWordNameForRegister
+
+function TkwPopRangeContainsOneLeaf.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_82CA30B619E2_var*
+//#UC END# *551544E2001A_82CA30B619E2_var*
+begin
+//#UC START# *551544E2001A_82CA30B619E2_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_82CA30B619E2_impl*
+end;//TkwPopRangeContainsOneLeaf.GetResultTypeInfo
+
+function TkwPopRangeContainsOneLeaf.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_82CA30B619E2_var*
+//#UC END# *559687E6025A_82CA30B619E2_var*
+begin
+//#UC START# *559687E6025A_82CA30B619E2_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_82CA30B619E2_impl*
+end;//TkwPopRangeContainsOneLeaf.GetAllParamsCount
+
+function TkwPopRangeContainsOneLeaf.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_82CA30B619E2_var*
+//#UC END# *5617F4D00243_82CA30B619E2_var*
+begin
+//#UC START# *5617F4D00243_82CA30B619E2_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_82CA30B619E2_impl*
+end;//TkwPopRangeContainsOneLeaf.ParamsTypes
+
+function TkwPopRangeAsString.AsString(const aCtx: TtfwContext;
+ const aRange: IedRange): AnsiString;
+ {* Реализация слова скрипта pop:Range:AsString }
+//#UC START# *0E6B7F025DD8_107BCD56569D_var*
+//#UC END# *0E6B7F025DD8_107BCD56569D_var*
+begin
+//#UC START# *0E6B7F025DD8_107BCD56569D_impl*
+ Result := aRange.AsString;
+//#UC END# *0E6B7F025DD8_107BCD56569D_impl*
+end;//TkwPopRangeAsString.AsString
+
+procedure TkwPopRangeAsString.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_107BCD56569D_var*
+//#UC END# *4DAEEDE10285_107BCD56569D_var*
+begin
+//#UC START# *4DAEEDE10285_107BCD56569D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_107BCD56569D_impl*
+end;//TkwPopRangeAsString.DoDoIt
+
+class function TkwPopRangeAsString.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Range:AsString';
+end;//TkwPopRangeAsString.GetWordNameForRegister
+
+function TkwPopRangeAsString.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_107BCD56569D_var*
+//#UC END# *551544E2001A_107BCD56569D_var*
+begin
+//#UC START# *551544E2001A_107BCD56569D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_107BCD56569D_impl*
+end;//TkwPopRangeAsString.GetResultTypeInfo
+
+function TkwPopRangeAsString.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_107BCD56569D_var*
+//#UC END# *559687E6025A_107BCD56569D_var*
+begin
+//#UC START# *559687E6025A_107BCD56569D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_107BCD56569D_impl*
+end;//TkwPopRangeAsString.GetAllParamsCount
+
+function TkwPopRangeAsString.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_107BCD56569D_var*
+//#UC END# *5617F4D00243_107BCD56569D_var*
+begin
+//#UC START# *5617F4D00243_107BCD56569D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_107BCD56569D_impl*
+end;//TkwPopRangeAsString.ParamsTypes
+
+initialization
+ TkwPopRangeTable.RegisterInEngine;
+ {* Регистрация pop_Range_Table }
+ TkwPopRangeHyperlink.RegisterInEngine;
+ {* Регистрация pop_Range_Hyperlink }
+ TkwPopRangeCollapsed.RegisterInEngine;
+ {* Регистрация pop_Range_Collapsed }
+ TkwPopRangeTextParagraph.RegisterInEngine;
+ {* Регистрация pop_Range_TextParagraph }
+ TkwPopRangeDocument.RegisterInEngine;
+ {* Регистрация pop_Range_Document }
+ TkwPopRangeDeleteChar.RegisterInEngine;
+ {* Регистрация pop_Range_DeleteChar }
+ TkwPopRangeInsertParaBreak.RegisterInEngine;
+ {* Регистрация pop_Range_InsertParaBreak }
+ TkwPopRangeInsertString.RegisterInEngine;
+ {* Регистрация pop_Range_InsertString }
+ TkwPopRangeDelete.RegisterInEngine;
+ {* Регистрация pop_Range_Delete }
+ TkwPopRangeContainsOneLeaf.RegisterInEngine;
+ {* Регистрация pop_Range_ContainsOneLeaf }
+ TkwPopRangeAsString.RegisterInEngine;
+ {* Регистрация pop_Range_AsString }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
+ {* Регистрация типа TtfwContext }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(IedRange));
+ {* Регистрация типа IedRange }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(IedTable));
+ {* Регистрация типа IedTable }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(IevHyperlink));
+ {* Регистрация типа IevHyperlink }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
+ {* Регистрация типа Boolean }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(IedTextParagraph));
+ {* Регистрация типа IedTextParagraph }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(IevDocument));
+ {* Регистрация типа IevDocument }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа Il3CString }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TevClearMode));
+ {* Регистрация типа TevClearMode }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа String }
+{$IfEnd} // NOT Defined(NoScripts)
+
 end.

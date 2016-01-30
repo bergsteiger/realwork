@@ -1,29 +1,53 @@
-unit l3NotSortedObjectRefList.imp;
+{$IfNDef l3NotSortedObjectRefList_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\L3\l3NotSortedObjectRefList.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define l3NotSortedObjectRefList_imp}
 
  {$Define l3Items_NoSort}
- 
-type
- _l3NotSortedObjectRefList_ = class(_l3UncomparabeObjectRefList_)
-  procedure AssignItem(const aTo: _ItemType_;
-   const aFrom: _ItemType_);
-  function CompareExistingItems(const CI: CompareItemsRec): Integer;
-   {* Сравнивает два существующих элемента. }
+
+ _l3UncomparabeObjectRefList_Parent_ = _l3NotSortedObjectRefList_Parent_;
+ {$Include l3UncomparabeObjectRefList.imp.pas}
+ _l3NotSortedObjectRefList_ = {abstract} class(_l3UncomparabeObjectRefList_)
  end;//_l3NotSortedObjectRefList_
- 
-implementation
 
-uses
- l3ImplUses
- , l3Base
- , l3MinMax
- , RTLConsts
- , SysUtils
-;
+{$Else l3NotSortedObjectRefList_imp}
 
-end.
+{$IfNDef l3NotSortedObjectRefList_imp_impl}
+
+{$Define l3NotSortedObjectRefList_imp_impl}
+
+function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
+
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
+procedure AssignItem(const aTo: _ItemType_;
+ const aFrom: _ItemType_);
+//#UC START# *47B2C42A0163_55DEEA210182_var*
+//#UC END# *47B2C42A0163_55DEEA210182_var*
+begin
+//#UC START# *47B2C42A0163_55DEEA210182_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *47B2C42A0163_55DEEA210182_impl*
+end;//AssignItem
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
+
+function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
+//#UC START# *47B99D4503A2_55DEEA210182_var*
+//#UC END# *47B99D4503A2_55DEEA210182_var*
+begin
+//#UC START# *47B99D4503A2_55DEEA210182_impl*
+ Result := -1;
+ Assert(false);
+//#UC END# *47B99D4503A2_55DEEA210182_impl*
+end;//CompareExistingItems
+
+type _Instance_R_ = _l3NotSortedObjectRefList_;
+
+{$Include l3UncomparabeObjectRefList.imp.pas}
+
+{$EndIf l3NotSortedObjectRefList_imp_impl}
+
+{$EndIf l3NotSortedObjectRefList_imp}
+

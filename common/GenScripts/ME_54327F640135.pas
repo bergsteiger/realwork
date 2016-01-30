@@ -1,5 +1,10 @@
 unit DataProviderParams_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\DataProviderParams_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -10,7 +15,7 @@ uses
 ;
 
  // DataProviderParamsTag
- 
+
 implementation
 
 uses

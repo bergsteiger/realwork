@@ -1,0 +1,18 @@
+//#UC START# *51B1A75D0367_51B1ADF20017_impl*
+ Result := ClassName;
+//#UC END# *51B1A75D0367_51B1ADF20017_impl*
+//#UC START# *51B1A75D0367_51B1ADF20017_var*
+//#UC END# *51B1A75D0367_51B1ADF20017_var*
+//#UC START# *51B1AEC2015B_51B1ADF20017_impl*
+ ClearTestFolder;
+ lp_CopyFiles;
+ CheckEtalonInFolder('%');
+//#UC END# *51B1AEC2015B_51B1ADF20017_impl*
+//#UC START# *51B1AEC2015B_51B1ADF20017_var*
+
+ procedure lp_CopyFiles;
+ begin
+  CopyFilesByMask(FolderFromCurrent(ClassName), GetFullPath2OutputFolderName, '*.script');
+ end;
+
+//#UC END# *51B1AEC2015B_51B1ADF20017_var*

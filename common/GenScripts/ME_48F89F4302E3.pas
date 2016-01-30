@@ -1,5 +1,10 @@
 unit evPersistentDataObjectEx;
 
+// Модуль: "w:\common\components\gui\Garant\Everest\evPersistentDataObjectEx.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
+
 interface
 
 uses
@@ -10,14 +15,34 @@ uses
 
 type
  TevPersistentDataObjectEx = class(TevPersistentDataObject)
-  function Holder: InevObjectHolder;
+  protected
+   function Holder: InevObjectHolder;
+   function Sharp: Boolean; override;
  end;//TevPersistentDataObjectEx
- 
+
 implementation
 
 uses
  l3ImplUses
  , nevPersistentDocumentContainer
 ;
+
+function TevPersistentDataObjectEx.Holder: InevObjectHolder;
+//#UC START# *48F89F810133_48F89F4302E3_var*
+//#UC END# *48F89F810133_48F89F4302E3_var*
+begin
+//#UC START# *48F89F810133_48F89F4302E3_impl*
+ Result := TnevPersistentDocumentContainer.Make;
+//#UC END# *48F89F810133_48F89F4302E3_impl*
+end;//TevPersistentDataObjectEx.Holder
+
+function TevPersistentDataObjectEx.Sharp: Boolean;
+//#UC START# *48F479680376_48F89F4302E3_var*
+//#UC END# *48F479680376_48F89F4302E3_var*
+begin
+//#UC START# *48F479680376_48F89F4302E3_impl*
+ Result := true;
+//#UC END# *48F479680376_48F89F4302E3_impl*
+end;//TevPersistentDataObjectEx.Sharp
 
 end.

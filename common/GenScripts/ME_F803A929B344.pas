@@ -1,4 +1,10 @@
 unit ListPrintAndExportFontSizeSettingRes;
+ {* Ресурсы для настройки "Использовать для экспорта и печати следующий размер шрифта" }
+
+// Модуль: "w:\common\components\SandBox\VCM\View\List\ListPrintAndExportFontSizeSettingRes.pas"
+// Стереотип: "UtilityPack"
+
+{$Include sbDefine.inc}
 
 interface
 
@@ -9,6 +15,38 @@ uses
  , l3Interfaces
  , l3CProtoObject
 ;
+
+const
+ pi_List_PrintAndExportFontSize = 'Список/Использовать для экспорта и печати следующий размер шрифта';
+  {* Идентификатор настройки "Использовать для экспорта и печати следующий размер шрифта" }
+ dv_List_PrintAndExportFontSize = 0;
+  {* Значение по-умолчанию настройки "Использовать для экспорта и печати следующий размер шрифта" }
+ {* Локализуемые строки PrintAndExportFontSizeName }
+ str_PrintAndExportFontSize: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintAndExportFontSize'; rValue : 'Использовать для экспорта и печати следующий размер шрифта');
+  {* Использовать для экспорта и печати следующий размер шрифта }
+ {* Локализуемые строки PrintAndExportFontSizeValues }
+ str_PrintAndExportFontSize_pef8: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintAndExportFontSize_pef8'; rValue : '8');
+  {* 8 }
+ str_PrintAndExportFontSize_pef9: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintAndExportFontSize_pef9'; rValue : '9');
+  {* 9 }
+ str_PrintAndExportFontSize_pef10: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintAndExportFontSize_pef10'; rValue : '10');
+  {* 10 }
+ str_PrintAndExportFontSize_pef11: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintAndExportFontSize_pef11'; rValue : '11');
+  {* 11 }
+ str_PrintAndExportFontSize_pef12: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintAndExportFontSize_pef12'; rValue : '12');
+  {* 12 }
+ str_PrintAndExportFontSize_pef14: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintAndExportFontSize_pef14'; rValue : '14');
+  {* 14 }
+ str_PrintAndExportFontSize_pef16: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintAndExportFontSize_pef16'; rValue : '16');
+  {* 16 }
+ {* Карта преобразования локализованных строк PrintAndExportFontSizeValues }
+ pef8: Pl3StringIDEx = str_PrintAndExportFontSize_pef8;
+ pef9: Pl3StringIDEx = str_PrintAndExportFontSize_pef9;
+ pef10: Pl3StringIDEx = str_PrintAndExportFontSize_pef10;
+ pef11: Pl3StringIDEx = str_PrintAndExportFontSize_pef11;
+ pef12: Pl3StringIDEx = str_PrintAndExportFontSize_pef12;
+ pef14: Pl3StringIDEx = str_PrintAndExportFontSize_pef14;
+ pef16: Pl3StringIDEx = str_PrintAndExportFontSize_pef16;
 
 type
  PrintAndExportFontSizeEnum = (
@@ -28,37 +66,42 @@ type
   , KEY_PrintAndExportFontSize_pef16
    {* 16 }
  );//PrintAndExportFontSizeEnum
- 
- PrintAndExportFontSizeValuesMapHelper = class
+
+ PrintAndExportFontSizeValuesMapHelper = {final} class
   {* Утилитный класс для преобразования значений PrintAndExportFontSizeValuesMap }
-  procedure FillStrings(const aStrings: IafwStrings);
-   {* Заполнение списка строк значениями }
-  function DisplayNameToValue(const aDisplayName: Il3CString): PrintAndExportFontSizeEnum;
-   {* Преобразование строкового значения к порядковому }
+  public
+   class procedure FillStrings(const aStrings: IafwStrings);
+    {* Заполнение списка строк значениями }
+   class function DisplayNameToValue(const aDisplayName: Il3CString): PrintAndExportFontSizeEnum;
+    {* Преобразование строкового значения к порядковому }
  end;//PrintAndExportFontSizeValuesMapHelper
- 
- TPrintAndExportFontSizeValuesMapImplPrim = class(Tl3CProtoObject, Il3IntegerValueMap)
+
+ TPrintAndExportFontSizeValuesMapImplPrim = {abstract} class(Tl3CProtoObject, Il3IntegerValueMap)
   {* Класс для реализации мапы для PrintAndExportFontSizeValuesMap }
-  function Make: Il3IntegerValueMap;
-   {* Фабричный метод для TPrintAndExportFontSizeValuesMapImplPrim }
-  function MapID: Tl3ValueMapID;
-   {* Идентификатор мапы. }
-  procedure GetDisplayNames(const aList: Il3StringsEx);
-   {* заполняет список значениями "UI-строка" }
-  function MapSize: Integer;
-   {* количество элементов в мапе. }
-  function DisplayNameToValue(const aDisplayName: Il3CString): Integer;
-  function ValueToDisplayName(aValue: Integer): Il3CString;
+  protected
+   function pm_GetMapID: Tl3ValueMapID;
+   procedure GetDisplayNames(const aList: Il3StringsEx);
+    {* заполняет список значениями "UI-строка" }
+   function MapSize: Integer;
+    {* количество элементов в мапе. }
+   function DisplayNameToValue(const aDisplayName: Il3CString): Integer;
+   function ValueToDisplayName(aValue: Integer): Il3CString;
+  public
+   class function Make: Il3IntegerValueMap; reintroduce;
+    {* Фабричный метод для TPrintAndExportFontSizeValuesMapImplPrim }
  end;//TPrintAndExportFontSizeValuesMapImplPrim
- 
- TPrintAndExportFontSizeValuesMapImpl = class(TPrintAndExportFontSizeValuesMapImplPrim)
+
+ TPrintAndExportFontSizeValuesMapImpl = {final} class(TPrintAndExportFontSizeValuesMapImplPrim)
   {* Класс для реализации мапы для PrintAndExportFontSizeValuesMap }
-  function Make: Il3IntegerValueMap;
-   {* Фабричный метод для TPrintAndExportFontSizeValuesMapImpl }
-  function Exists: Boolean;
-   {* Проверяет создан экземпляр синглетона или нет }
+  public
+   class function Make: Il3IntegerValueMap; reintroduce;
+    {* Фабричный метод для TPrintAndExportFontSizeValuesMapImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+   class function Instance: TPrintAndExportFontSizeValuesMapImpl;
+    {* Метод получения экземпляра синглетона TPrintAndExportFontSizeValuesMapImpl }
  end;//TPrintAndExportFontSizeValuesMapImpl
- 
+
 implementation
 
 uses
@@ -68,5 +111,142 @@ uses
  , SysUtils
  , l3Base
 ;
+
+var g_TPrintAndExportFontSizeValuesMapImpl: TPrintAndExportFontSizeValuesMapImpl = nil;
+ {* Экземпляр синглетона TPrintAndExportFontSizeValuesMapImpl }
+
+procedure TPrintAndExportFontSizeValuesMapImplFree;
+ {* Метод освобождения экземпляра синглетона TPrintAndExportFontSizeValuesMapImpl }
+begin
+ l3Free(g_TPrintAndExportFontSizeValuesMapImpl);
+end;//TPrintAndExportFontSizeValuesMapImplFree
+
+class procedure PrintAndExportFontSizeValuesMapHelper.FillStrings(const aStrings: IafwStrings);
+ {* Заполнение списка строк значениями }
+//#UC START# *60635A2BD1EF_A12037CD3A11_var*
+//#UC END# *60635A2BD1EF_A12037CD3A11_var*
+begin
+//#UC START# *60635A2BD1EF_A12037CD3A11_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *60635A2BD1EF_A12037CD3A11_impl*
+end;//PrintAndExportFontSizeValuesMapHelper.FillStrings
+
+class function PrintAndExportFontSizeValuesMapHelper.DisplayNameToValue(const aDisplayName: Il3CString): PrintAndExportFontSizeEnum;
+ {* Преобразование строкового значения к порядковому }
+//#UC START# *08279D51EFDC_A12037CD3A11_var*
+//#UC END# *08279D51EFDC_A12037CD3A11_var*
+begin
+//#UC START# *08279D51EFDC_A12037CD3A11_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *08279D51EFDC_A12037CD3A11_impl*
+end;//PrintAndExportFontSizeValuesMapHelper.DisplayNameToValue
+
+class function TPrintAndExportFontSizeValuesMapImplPrim.Make: Il3IntegerValueMap;
+ {* Фабричный метод для TPrintAndExportFontSizeValuesMapImplPrim }
+var
+ l_Inst : TPrintAndExportFontSizeValuesMapImplPrim;
+begin
+ l_Inst := Create;
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TPrintAndExportFontSizeValuesMapImplPrim.Make
+
+function TPrintAndExportFontSizeValuesMapImplPrim.pm_GetMapID: Tl3ValueMapID;
+//#UC START# *46A5EFE602DE_0762D70EBD49get_var*
+//#UC END# *46A5EFE602DE_0762D70EBD49get_var*
+begin
+//#UC START# *46A5EFE602DE_0762D70EBD49get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *46A5EFE602DE_0762D70EBD49get_impl*
+end;//TPrintAndExportFontSizeValuesMapImplPrim.pm_GetMapID
+
+procedure TPrintAndExportFontSizeValuesMapImplPrim.GetDisplayNames(const aList: Il3StringsEx);
+ {* заполняет список значениями "UI-строка" }
+//#UC START# *46A5F0130365_0762D70EBD49_var*
+//#UC END# *46A5F0130365_0762D70EBD49_var*
+begin
+//#UC START# *46A5F0130365_0762D70EBD49_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *46A5F0130365_0762D70EBD49_impl*
+end;//TPrintAndExportFontSizeValuesMapImplPrim.GetDisplayNames
+
+function TPrintAndExportFontSizeValuesMapImplPrim.MapSize: Integer;
+ {* количество элементов в мапе. }
+//#UC START# *46A5F03800A2_0762D70EBD49_var*
+//#UC END# *46A5F03800A2_0762D70EBD49_var*
+begin
+//#UC START# *46A5F03800A2_0762D70EBD49_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *46A5F03800A2_0762D70EBD49_impl*
+end;//TPrintAndExportFontSizeValuesMapImplPrim.MapSize
+
+function TPrintAndExportFontSizeValuesMapImplPrim.DisplayNameToValue(const aDisplayName: Il3CString): Integer;
+//#UC START# *46A5FCF900E0_0762D70EBD49_var*
+//#UC END# *46A5FCF900E0_0762D70EBD49_var*
+begin
+//#UC START# *46A5FCF900E0_0762D70EBD49_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *46A5FCF900E0_0762D70EBD49_impl*
+end;//TPrintAndExportFontSizeValuesMapImplPrim.DisplayNameToValue
+
+function TPrintAndExportFontSizeValuesMapImplPrim.ValueToDisplayName(aValue: Integer): Il3CString;
+//#UC START# *46A5FD1B000D_0762D70EBD49_var*
+//#UC END# *46A5FD1B000D_0762D70EBD49_var*
+begin
+//#UC START# *46A5FD1B000D_0762D70EBD49_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *46A5FD1B000D_0762D70EBD49_impl*
+end;//TPrintAndExportFontSizeValuesMapImplPrim.ValueToDisplayName
+
+class function TPrintAndExportFontSizeValuesMapImpl.Make: Il3IntegerValueMap;
+ {* Фабричный метод для TPrintAndExportFontSizeValuesMapImpl }
+var
+ l_Inst : TPrintAndExportFontSizeValuesMapImpl;
+begin
+ l_Inst := Create;
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TPrintAndExportFontSizeValuesMapImpl.Make
+
+class function TPrintAndExportFontSizeValuesMapImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TPrintAndExportFontSizeValuesMapImpl <> nil;
+end;//TPrintAndExportFontSizeValuesMapImpl.Exists
+
+class function TPrintAndExportFontSizeValuesMapImpl.Instance: TPrintAndExportFontSizeValuesMapImpl;
+ {* Метод получения экземпляра синглетона TPrintAndExportFontSizeValuesMapImpl }
+begin
+ if (g_TPrintAndExportFontSizeValuesMapImpl = nil) then
+ begin
+  l3System.AddExitProc(TPrintAndExportFontSizeValuesMapImplFree);
+  g_TPrintAndExportFontSizeValuesMapImpl := Create;
+ end;
+ Result := g_TPrintAndExportFontSizeValuesMapImpl;
+end;//TPrintAndExportFontSizeValuesMapImpl.Instance
+
+initialization
+ str_PrintAndExportFontSize.Init;
+ {* Инициализация str_PrintAndExportFontSize }
+ str_PrintAndExportFontSize_pef8.Init;
+ {* Инициализация str_PrintAndExportFontSize_pef8 }
+ str_PrintAndExportFontSize_pef9.Init;
+ {* Инициализация str_PrintAndExportFontSize_pef9 }
+ str_PrintAndExportFontSize_pef10.Init;
+ {* Инициализация str_PrintAndExportFontSize_pef10 }
+ str_PrintAndExportFontSize_pef11.Init;
+ {* Инициализация str_PrintAndExportFontSize_pef11 }
+ str_PrintAndExportFontSize_pef12.Init;
+ {* Инициализация str_PrintAndExportFontSize_pef12 }
+ str_PrintAndExportFontSize_pef14.Init;
+ {* Инициализация str_PrintAndExportFontSize_pef14 }
+ str_PrintAndExportFontSize_pef16.Init;
+ {* Инициализация str_PrintAndExportFontSize_pef16 }
 
 end.

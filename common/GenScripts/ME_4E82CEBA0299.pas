@@ -1,7 +1,24 @@
 unit kwVcmHistoryDeleteBackItem;
+ {* Удаляет один элемент истории из списка Back.
+ *Пример:*
+[code]
+ моп::Поиск_Поиск_лекарственного_средства
+ 'AT_PHARM_NAME' 'Аргинин' Search:SetAttribute
+ 'AT_PHARM_ATC' 'A. Пищеварительный тракт и обмен веществ' Search:SetAttribute
+ 'AT_PHARM_ATC' 'B. Препараты влияющие на кроветворение и кровь' Search:SetAttribute
+ Ok
+ OnTest
+ vcm:history:DeleteBackItem
+[code] }
+
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmHistoryDeleteBackItem.pas"
+// Стереотип: "ScriptKeyword"
+
+{$Include vcmDefine.inc}
 
 interface
 
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
  l3IntfUses
  , tfwRegisterableWord
@@ -9,7 +26,9 @@ uses
 ;
 
 type
- TkwVcmHistoryDeleteBackItem = class(TtfwRegisterableWord)
+ _VCMWord_Parent_ = TtfwRegisterableWord;
+ {$Include VCMWord.imp.pas}
+ TkwVcmHistoryDeleteBackItem = class(_VCMWord_)
   {* Удаляет один элемент истории из списка Back.
  *Пример:*
 [code]
@@ -21,18 +40,46 @@ type
  OnTest
  vcm:history:DeleteBackItem
 [code] }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//TkwVcmHistoryDeleteBackItem
- 
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
+
 implementation
 
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
  , vcmForm
+ {$If NOT Defined(NoVCL)}
  , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  , StdRes
  , vcmBase
  , afwAnswer
 ;
+
+{$Include VCMWord.imp.pas}
+
+procedure TkwVcmHistoryDeleteBackItem.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_4E82CEBA0299_var*
+//#UC END# *4DAEEDE10285_4E82CEBA0299_var*
+begin
+//#UC START# *4DAEEDE10285_4E82CEBA0299_impl*
+ if (vcmDispatcher.History <> nil) then
+  vcmDispatcher.History.DeleteBackItem;
+//#UC END# *4DAEEDE10285_4E82CEBA0299_impl*
+end;//TkwVcmHistoryDeleteBackItem.DoDoIt
+
+class function TkwVcmHistoryDeleteBackItem.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vcm:History:DeleteBackItem';
+end;//TkwVcmHistoryDeleteBackItem.GetWordNameForRegister
+
+initialization
+ TkwVcmHistoryDeleteBackItem.RegisterInEngine;
+ {* Регистрация vcm_History_DeleteBackItem }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 end.

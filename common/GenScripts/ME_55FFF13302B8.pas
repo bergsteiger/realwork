@@ -1,7 +1,14 @@
 unit ExportBySizeAndMain;
+ {* Экспорт, разделённый по размеру и мейну (мейн - в шаблонах имён файлов) }
+
+// Модуль: "w:\archi\source\projects\ImportExportTest\ExportBySizeAndMain.pas"
+// Стереотип: "TestCase"
+
+{$Include ImportExportTest.inc}
 
 interface
 
+{$If Defined(nsTest)}
 uses
  l3IntfUses
  , ExportPipeTestPrim
@@ -10,15 +17,51 @@ uses
 type
  TExportBySizeAndMain = class(TExportPipeTestPrim)
   {* Экспорт, разделённый по размеру и мейну (мейн - в шаблонах имён файлов) }
-  procedure TuneExportPipe;
-   {* Процедура настройки трубы. Метод для перекрытия в потомках. }
+  protected
+   procedure TuneExportPipe; override;
+    {* Процедура настройки трубы. Метод для перекрытия в потомках. }
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TExportBySizeAndMain
- 
+{$IfEnd} // Defined(nsTest)
+
 implementation
 
+{$If Defined(nsTest)}
 uses
  l3ImplUses
  , TestFrameWork
 ;
+
+procedure TExportBySizeAndMain.TuneExportPipe;
+ {* Процедура настройки трубы. Метод для перекрытия в потомках. }
+//#UC START# *55EEA16603AE_55FFF13302B8_var*
+//#UC END# *55EEA16603AE_55FFF13302B8_var*
+begin
+//#UC START# *55EEA16603AE_55FFF13302B8_impl*
+ Pipe.AllPartsDivideBy([edbSize]);
+ Pipe.OutputFileSize := 4096;
+ Pipe.FileMask[edpReference] := l3CStr('rel_%main%');
+ Pipe.FileMask[edpDocument] := l3CStr('doc_%main%');
+//#UC END# *55EEA16603AE_55FFF13302B8_impl*
+end;//TExportBySizeAndMain.TuneExportPipe
+
+function TExportBySizeAndMain.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := 'ExportPipeTests';
+end;//TExportBySizeAndMain.GetFolder
+
+function TExportBySizeAndMain.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '55FFF13302B8';
+end;//TExportBySizeAndMain.GetModelElementGUID
+
+initialization
+ TestFramework.RegisterTest(TExportBySizeAndMain.Suite);
+{$IfEnd} // Defined(nsTest)
 
 end.

@@ -1,4 +1,7 @@
-unit zlibh;
+unit NOT_FINISHED_zlibh;
+
+// Модуль: "w:\common\components\rtl\external\JEDI\source\common\NOT_FINISHED_zlibh.pas"
+// Стереотип: "UtilityPack"
 
 interface
 

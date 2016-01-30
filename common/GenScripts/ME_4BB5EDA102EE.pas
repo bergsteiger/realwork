@@ -1,7 +1,14 @@
 unit K200901262;
+ {* [RequestLink:200901262] }
+
+// Модуль: "w:\common\components\rtl\Garant\Daily\K200901262.pas"
+// Стереотип: "TestCase"
+
+{$Include TestDefine.inc.pas}
 
 interface
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
  , EVDtoBothNSRCWriterTest
@@ -10,13 +17,36 @@ uses
 type
  TK200901262 = class(TEVDtoBothNSRCWriterTest)
   {* [RequestLink:200901262] }
+  protected
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK200901262
- 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+
 implementation
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
  , TestFrameWork
 ;
+
+function TK200901262.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := '7.5';
+end;//TK200901262.GetFolder
+
+function TK200901262.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '4BB5EDA102EE';
+end;//TK200901262.GetModelElementGUID
+
+initialization
+ TestFramework.RegisterTest(TK200901262.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

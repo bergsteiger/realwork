@@ -1,5 +1,10 @@
 unit daTypes;
 
+// Модуль: "w:\common\components\rtl\Garant\DA\daTypes.pas"
+// Стереотип: "Interfaces"
+
+{$Include daDefine.inc}
+
 interface
 
 uses
@@ -10,18 +15,18 @@ uses
 
 type
  TdaUserID = TUserID;
- 
+
  TGetLoginPasswordProc = function(var aLogin: AnsiString;
   var aPassword: AnsiString): Boolean;
- 
+
  TdaBaseFlag = (
   bfAAC
  );//TdaBaseFlag
- 
+
  TdaBaseFlags = set of TdaBaseFlag;
- 
+
  TdaRegionID = Byte;
- 
+
  TdaLoginError = (
   da_leOk
   , da_leInsufficientRights
@@ -29,21 +34,21 @@ type
   , da_leConnectionError
   , da_leSQLError
  );//TdaLoginError
- 
+
  TdaDocID = TDocID;
- 
+
  TdaFamilyID = TFamilyID;
- 
+
  TdaPathStr = TPathStr;
- 
+
  TdaProcessState = (
   da_psStart
   , da_psCurrent
   , da_psEnd
  );//TdaProcessState
- 
+
  TdaOnLongProcessEvent = function(aState: TdaProcessState): Boolean of object;
- 
+
  TdaDataType = (
   {* Типы данных полей }
   da_dtChar
@@ -56,7 +61,7 @@ type
   , da_dtBoolean
   , da_dtQWord
  );//TdaDataType
- 
+
  TdaTables = (
   da_mtAccess
    {* Права доступа к документам }
@@ -172,8 +177,12 @@ type
    {* Дубликат таблицы документов - для связывания в запросах (ftFileDup1) }
   , da_ftDocumentsDub2
    {* Дубликат таблицы документов - для связывания в запросах (ftFileDup2) }
+  , da_ftAutolinkDocumentsLocal
+  , da_ftAutolinkEditionsLocal
+  , da_ftAutolinkDocumentsRemote
+  , da_ftAutolinkEditionsRemote
  );//TdaTables
- 
+
  TdaJournalOperation = (
   da_oobNone
   , da_oobPause
@@ -202,7 +211,7 @@ type
   , da_oobAutoClass
    {* Количество документов в Additional }
  );//TdaJournalOperation
- 
+
  TdaDocEditType = (
   da_detText
   , da_detAttribute
@@ -210,14 +219,14 @@ type
   , da_detSub
   , da_detDiction
  );//TdaDocEditType
- 
+
  TdaEditOperation = (
   da_eoNone
   , da_eoAdd
   , da_eoEdit
   , da_eoDelete
  );//TdaEditOperation
- 
+
  TdaDictionaryType = (
   da_dlNone
   , da_dlSources
@@ -239,7 +248,7 @@ type
   , da_dlServiceInfo
   , da_dlTextInsert
  );//TdaDictionaryType
- 
+
  TdaJoinKind = (
   {* Тип соединения таблиц в запросах }
   da_jkInner
@@ -248,53 +257,65 @@ type
   , da_jkFullOuter
   , da_jkCartesian
  );//TdaJoinKind
- 
+
  TdaSessionID = LongInt;
- 
+
  TdaCompareOperation = (
   da_copEqual
   , da_copGreaterOrEqual
   , da_copLessOrEqual
   , da_copNotEqual
  );//TdaCompareOperation
- 
+
  EdaError = class(Exception)
  end;//EdaError
- 
+
  TdaTablesSet = set of TdaTables;
- 
+
  LargeInt = Int64;
- 
+
  TdaDictionaryTypeSet = set of TdaDictionaryType;
- 
+
  TdaDocEditRecUnion = record
+  void: Byte;
+  Operation: TdaEditOperation;
+  DictType: TdaDictionaryType;
  end;//TdaDocEditRecUnion
- 
+
  TdaDocEditRec = record
+  EditType: TdaDocEditType;
+  Details: TdaDocEditRecUnion;
  end;//TdaDocEditRec
- 
+
  TdaDictEditRec = record
+  DictType: TdaDictionaryType;
+  Operation: TdaEditOperation;
  end;//TdaDictEditRec
- 
+
  PdaDocEditRec = ^TdaDocEditRec;
- 
+
  PdaDictEditRec = ^TdaDictEditRec;
- 
+
  PLargeInt = ^LargeInt;
- 
+
  TdaLogicOperation = (
   da_loAnd
   , da_loOr
  );//TdaLogicOperation
- 
+
  TdaDictID = TDictID;
- 
+
  TdaParamType = (
   da_ptInput
   , da_ptOutput
   , da_ptInOut
  );//TdaParamType
- 
+
+ TdaSortOrder = (
+  da_soAscending
+  , da_soDescending
+ );//TdaSortOrder
+
 implementation
 
 uses

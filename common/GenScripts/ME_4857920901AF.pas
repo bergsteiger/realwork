@@ -1,4 +1,10 @@
 unit DecorTextPara_Const;
+ {* Текстовый параграф - оформление, не редактируется, не участвует в поиске }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\DecorTextPara_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -8,7 +14,7 @@ uses
 ;
 
  // DecorTextParaTag
- 
+
 implementation
 
 uses

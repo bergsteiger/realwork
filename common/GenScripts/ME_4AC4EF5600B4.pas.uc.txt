@@ -1,0 +1,379 @@
+//#UC START# *479731C50290_4AC4EF5600B4_impl*
+ TdmStdRes.MakeChatDispatcher.UnRegisterContactList(Self);
+ inherited;
+//#UC END# *479731C50290_4AC4EF5600B4_impl*
+//#UC START# *479731C50290_4AC4EF5600B4_var*
+//#UC END# *479731C50290_4AC4EF5600B4_var*
+//#UC START# *49806ED503D5_4AC4EF5600B4_impl*
+ if aStateType = vcm_stContent then
+ begin
+  theState := TContactListFormState.Make(f_CurrentFlagFilter);
+  Result := true;
+ end
+ else
+  Result := false;
+//#UC END# *49806ED503D5_4AC4EF5600B4_impl*
+//#UC START# *49806ED503D5_4AC4EF5600B4_var*
+//#UC END# *49806ED503D5_4AC4EF5600B4_var*
+//#UC START# *49807428008C_4AC4EF5600B4_impl*
+ if aStateType = vcm_stContent then
+ begin
+  Result := true;
+  if (Supports(aState, IContactListFormState, l_State)) then
+   f_CurrentFlagFilter := l_State.CurrentFlagFilter
+  else
+   Assert(False);
+ end
+ else
+  Result := false;
+//#UC END# *49807428008C_4AC4EF5600B4_impl*
+//#UC START# *49807428008C_4AC4EF5600B4_var*
+var
+ l_State : IContactListFormState;
+//#UC END# *49807428008C_4AC4EF5600B4_var*
+//#UC START# *4A728A4900FD_4AC4EF5600B4_impl*
+ with trContactList do
+ begin
+  if Supports(TreeStruct, Il3FilterableTree, l_FilterableTree) then
+  begin
+   l_TreeSource := l_FilterableTree.MakeFiltered(l_FilterableTree.CloneFilters,
+                                           GetCurrentNode,
+                                           l_Current,
+                                           True,
+                                           True);
+  end
+  else
+   l_TreeSource := TreeStruct;
+
+  if Assigned(l_TreeSource) then
+  begin
+   Changing;
+   try
+    LockChangeSelected;
+    try
+     ContextFilter.BeginAssignState;
+     try
+      TreeStruct := l_TreeSource;
+     finally
+      ContextFilter.EndAssignState;
+     end;
+    finally
+     UnLockChangeSelected;
+    end;
+   finally
+    Changed;
+   end;
+   Current := l_Current;
+  end;
+  ContextFilter.UpdateIsContextWrong;
+ end;
+//#UC END# *4A728A4900FD_4AC4EF5600B4_impl*
+//#UC START# *4A728A4900FD_4AC4EF5600B4_var*
+var
+ l_TreeSource: Il3SimpleTree;
+ l_Current: Integer;
+ l_FilterableTree: Il3FilterableTree;
+//#UC END# *4A728A4900FD_4AC4EF5600B4_var*
+//#UC START# *4A8AD46D0226_4AC4EF5600B4exec_impl*
+ ModalResult := mrCancel;
+//#UC END# *4A8AD46D0226_4AC4EF5600B4exec_impl*
+//#UC START# *4A8AD46D0226_4AC4EF5600B4exec_var*
+//#UC END# *4A8AD46D0226_4AC4EF5600B4exec_var*
+//#UC START# *4A8AD46D0226_4AC4EF5600B4test_impl*
+ // - ничего не делаем
+//#UC END# *4A8AD46D0226_4AC4EF5600B4test_impl*
+//#UC START# *4A8AD46D0226_4AC4EF5600B4test_var*
+//#UC END# *4A8AD46D0226_4AC4EF5600B4test_var*
+//#UC START# *4A8E8F2E0195_4AC4EF5600B4_impl*
+ Self.ActiveControl := trContactList;
+ ContextFilter.Images := dmStdRes.SmallImageList;
+ trContactList.Images := dmChat.ilUsers;
+ TdmStdRes.MakeChatDispatcher.RegisterContactList(Self);
+
+ Width := 220;
+ Height := 617;
+
+ with BackgroundPanel do
+ begin
+  Align := alClient;
+  BevelOuter := bvNone;
+ end;
+
+ with ContextFilter do
+ begin
+//  Left := 0;
+//  Top := 0;
+//  Width := 204;
+//  Height := 31;
+  ImageIndex := 77;
+  LabelVisible := False;
+  ContextFilterTarget := trContactList;
+  OnChange := ContextFilterChange;
+  OnWrongContext := ContextFilterWrongContext;
+ end;
+
+ with trContactList do
+ begin
+  Align := alClient;
+  BorderStyle := bsNone;
+  MultiStrokeItem := True;
+  ViewOptions := [voShowIcons];
+  NeedStatus := True;
+  OnMakeTreeSource := trContactListMakeTreeSource;
+  OnGetItemImage := trContactListGetItemImage;
+  OnActionElement := trContactListActionElement;
+  OnFormatStatusInfo := trContactListFormatStatusInfo;
+  OnNewCharPressed := trContactListNewCharPressed;
+  DragAndDropSupported := True;
+  FooterCaption := str_SelectUser.AsStr;
+  OnFooterClick := trContactListFooterClick;
+  TabOrder := 0;
+ end;
+//#UC END# *4A8E8F2E0195_4AC4EF5600B4_impl*
+//#UC START# *4A8E8F2E0195_4AC4EF5600B4_var*
+//#UC END# *4A8E8F2E0195_4AC4EF5600B4_var*
+//#UC START# *4A97EBE702F8_4AC4EF5600B4exec_impl*
+ DoAddContact;
+//#UC END# *4A97EBE702F8_4AC4EF5600B4exec_impl*
+//#UC START# *4A97EBE702F8_4AC4EF5600B4exec_var*
+//#UC END# *4A97EBE702F8_4AC4EF5600B4exec_var*
+//#UC START# *4A97EBE702F8_4AC4EF5600B4getstate_impl*
+ // - ничего не делаем
+//#UC END# *4A97EBE702F8_4AC4EF5600B4getstate_impl*
+//#UC START# *4A97EBE702F8_4AC4EF5600B4getstate_var*
+//#UC END# *4A97EBE702F8_4AC4EF5600B4getstate_var*
+//#UC START# *4A97EBE702F8_4AC4EF5600B4test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := AddingContact and (trContactList.GetCurrentNode <> nil)
+//#UC END# *4A97EBE702F8_4AC4EF5600B4test_impl*
+//#UC START# *4A97EBE702F8_4AC4EF5600B4test_var*
+//#UC END# *4A97EBE702F8_4AC4EF5600B4test_var*
+//#UC START# *4C2B245F01F2_4AC4EF5600B4exec_impl*
+ TdmStdRes.MakeChatDispatcher.ShowAddUserDialog;
+//#UC END# *4C2B245F01F2_4AC4EF5600B4exec_impl*
+//#UC START# *4C2B245F01F2_4AC4EF5600B4exec_var*
+//#UC END# *4C2B245F01F2_4AC4EF5600B4exec_var*
+//#UC START# *4C2B245F01F2_4AC4EF5600B4test_impl*
+ // - ничего не делаем
+//#UC END# *4C2B245F01F2_4AC4EF5600B4test_impl*
+//#UC START# *4C2B245F01F2_4AC4EF5600B4test_var*
+//#UC END# *4C2B245F01F2_4AC4EF5600B4test_var*
+//#UC START# *4C2B2B220052_4AC4EF5600B4_impl*
+ Result := UserType = chatAddContact;
+//#UC END# *4C2B2B220052_4AC4EF5600B4_impl*
+//#UC START# *4C2B2B220052_4AC4EF5600B4_var*
+//#UC END# *4C2B2B220052_4AC4EF5600B4_var*
+//#UC START# *4C2B2FEE01AB_4AC4EF5600B4_impl*
+ with TdmStdRes.MakeChatDispatcher do
+ begin
+  AddUser(trContactList.GetCurrentNode);
+  OpenChatWindow(trContactList.GetCurrentNode);
+ end;
+ ModalResult := mrOk;
+//#UC END# *4C2B2FEE01AB_4AC4EF5600B4_impl*
+//#UC START# *4C2B2FEE01AB_4AC4EF5600B4_var*
+//#UC END# *4C2B2FEE01AB_4AC4EF5600B4_var*
+//#UC START# *4C84CC2E0253_4AC4EF5600B4exec_impl*
+ TdmStdRes.MakeChatDispatcher.OpenChatHistory(trContactList.GetCurrentNode);
+//#UC END# *4C84CC2E0253_4AC4EF5600B4exec_impl*
+//#UC START# *4C84CC2E0253_4AC4EF5600B4exec_var*
+//#UC END# *4C84CC2E0253_4AC4EF5600B4exec_var*
+//#UC START# *4C84CC2E0253_4AC4EF5600B4test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not AddingContact and (trContactList.GetCurrentNode <> nil);
+//#UC END# *4C84CC2E0253_4AC4EF5600B4test_impl*
+//#UC START# *4C84CC2E0253_4AC4EF5600B4test_var*
+//#UC END# *4C84CC2E0253_4AC4EF5600B4test_var*
+//#UC START# *4C84D2AD01D0_4AC4EF5600B4exec_impl*
+ with trContactList do
+ begin
+  l_CurrentFlagFilter := ContactTypeMapHelper.DisplayNameToValue(aParams.SelectedString);
+
+
+  if (l_CurrentFlagFilter <> f_CurrentFlagFilter) and
+     Supports(TreeStruct, Il3FilterableTree, l_FilterableTree) and
+     Supports(l_FilterableTree.CloneFilters, InsUserFlagsFilters, l_TreeFilters) then
+  begin
+   f_CurrentFlagFilter := l_CurrentFlagFilter;
+   l_TreeSource := l_FilterableTree.MakeFiltered(l_TreeFilters.
+                                           SetUserFlag(lp_MakeFilter).
+                                           SetContext(ContextFilter.ActiveContext),
+                                           GetCurrentNode,
+                                           l_Current,
+                                           True,
+                                           True);
+
+
+  end
+  else
+   l_TreeSource := TreeStruct;
+  if Assigned(l_TreeSource) then
+  begin
+   Changing;
+   try
+    LockChangeSelected;
+    try
+     ContextFilter.BeginAssignState;
+     try
+      TreeStruct := l_TreeSource;
+     finally
+      ContextFilter.EndAssignState;
+     end;
+    finally
+     UnLockChangeSelected;
+    end;
+   finally
+    Changed;
+   end;
+   Current := l_Current;
+  end;
+  ContextFilter.UpdateIsContextWrong;
+ end;
+//#UC END# *4C84D2AD01D0_4AC4EF5600B4exec_impl*
+//#UC START# *4C84D2AD01D0_4AC4EF5600B4exec_var*
+var
+ l_TreeSource: Il3SimpleTree;
+ l_Current: Integer;
+ l_CurrentFlagFilter: TContactListFilterTypes;
+ l_FilterableTree: Il3FilterableTree;
+ l_TreeFilters: InsUserFlagsFilters;
+
+ function lp_MakeFilter: InsUserFlagsFilter;
+ begin
+  case f_CurrentFlagFilter of
+   clftNone:
+    Result := nil;
+   clftActive:                        
+    Result := TnsUserFlagsFilter.Make(UFF_USER_ACTIVE);
+   else
+   begin
+    Result := nil;
+    Assert(False);
+   end;
+  end;
+ end;
+
+//#UC END# *4C84D2AD01D0_4AC4EF5600B4exec_var*
+//#UC START# *4C84D2AD01D0_4AC4EF5600B4test_impl*
+ l_Strings := aParams.Op.SubItems;
+ if Assigned(l_Strings) then
+ begin
+  if (l_Strings.Count = 0) or f_NeedFillFilterList then
+  begin
+   ContactTypeMapHelper.FillStrings(l_Strings);
+   f_NeedFillFilterList := False;
+  end;//(l_Strings.Count = 0) or f_NeedFillFilterList
+  aParams.Op.SelectedString := ContactTypeMap[f_CurrentFlagFilter].AsCStr;
+ end;//if Assigned(l_Strings) then
+//#UC END# *4C84D2AD01D0_4AC4EF5600B4test_impl*
+//#UC START# *4C84D2AD01D0_4AC4EF5600B4test_var*
+var
+ l_Strings: IvcmStrings;
+//#UC END# *4C84D2AD01D0_4AC4EF5600B4test_var*
+//#UC START# *4C84D2C001D5_4AC4EF5600B4exec_impl*
+ if not AddingContact then
+  TdmStdRes.MakeChatDispatcher.OpenChatWindow(trContactList.GetCurrentNode);
+//#UC END# *4C84D2C001D5_4AC4EF5600B4exec_impl*
+//#UC START# *4C84D2C001D5_4AC4EF5600B4exec_var*
+//#UC END# *4C84D2C001D5_4AC4EF5600B4exec_var*
+//#UC START# *4C84D2C001D5_4AC4EF5600B4test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not AddingContact and (trContactList.GetCurrentNode <> nil)
+//#UC END# *4C84D2C001D5_4AC4EF5600B4test_impl*
+//#UC START# *4C84D2C001D5_4AC4EF5600B4test_var*
+//#UC END# *4C84D2C001D5_4AC4EF5600B4test_var*
+//#UC START# *4D78E2BB0211_4AC4EF5600B4_impl*
+ inherited;
+ trContactList.FooterVisible := not AddingContact; 
+//#UC END# *4D78E2BB0211_4AC4EF5600B4_impl*
+//#UC START# *4D78E2BB0211_4AC4EF5600B4_var*
+//#UC END# *4D78E2BB0211_4AC4EF5600B4_var*
+//#UC START# *4F7C65380244_4AC4EF5600B4_impl*
+ inherited;
+ Windows.SetFocus(trContactList.Handle);
+//#UC END# *4F7C65380244_4AC4EF5600B4_impl*
+//#UC START# *4F7C65380244_4AC4EF5600B4_var*
+//#UC END# *4F7C65380244_4AC4EF5600B4_var*
+//#UC START# *5199D7B40201_4AC4EF5600B4_impl*
+ with trContactList do
+ begin
+  if Supports(TreeStruct, Il3FilterableTree, l_FilterableTree) then
+  begin
+   l_TreeSource := l_FilterableTree.MakeFiltered(l_FilterableTree.CloneFilters.
+                                           SetContext(ContextFilter.ActiveContext),
+                                           GetCurrentNode,
+                                           l_Current,
+                                           True,
+                                           ContextFilter.NeedRefilterTree);
+  end
+  else
+   l_TreeSource := TreeStruct;
+  if Assigned(l_TreeSource) and (l_TreeSource.CountView > 0) then
+  begin
+   Changing;
+   try
+    TreeStruct := l_TreeSource;
+    vlbMakeItemVisible(Current);
+   finally
+    Changed;
+   end;{try..finally}
+  end;
+ end;
+//#UC END# *5199D7B40201_4AC4EF5600B4_impl*
+//#UC START# *5199D7B40201_4AC4EF5600B4_var*
+var
+ l_TreeSource: Il3SimpleTree;
+ l_Current: Integer;
+ l_FilterableTree: Il3FilterableTree;
+//#UC END# *5199D7B40201_4AC4EF5600B4_var*
+//#UC START# *5199D7C7035C_4AC4EF5600B4_impl*
+ nsBeepWrongContext;
+//#UC END# *5199D7C7035C_4AC4EF5600B4_impl*
+//#UC START# *5199D7C7035C_4AC4EF5600B4_var*
+//#UC END# *5199D7C7035C_4AC4EF5600B4_var*
+//#UC START# *5199D9F30296_4AC4EF5600B4_impl*
+ theTree := TdmStdRes.MakeChatDispatcher.MakeContactList(AddingContact);
+//#UC END# *5199D9F30296_4AC4EF5600B4_impl*
+//#UC START# *5199D9F30296_4AC4EF5600B4_var*
+//#UC END# *5199D9F30296_4AC4EF5600B4_var*
+//#UC START# *5199DAAF00FD_4AC4EF5600B4_impl*
+ Result := cImageIndexMap[TdmStdRes.MakeChatDispatcher.GetContactType(trContactList.GetNode(Index))];
+//#UC END# *5199DAAF00FD_4AC4EF5600B4_impl*
+//#UC START# *5199DAAF00FD_4AC4EF5600B4_var*
+const
+ cImageIndexMap: array [TnsContactType] of Integer = (
+  ciiActive, // ctActive,
+  ciiInActive // ctInactive,
+ );
+//#UC END# *5199DAAF00FD_4AC4EF5600B4_var*
+//#UC START# *5199DAFF0296_4AC4EF5600B4_impl*
+ if AddingContact then
+  DoAddContact
+ else
+  TdmStdRes.MakeChatDispatcher.OpenChatWindow(trContactList.GetCurrentNode);
+//#UC END# *5199DAFF0296_4AC4EF5600B4_impl*
+//#UC START# *5199DAFF0296_4AC4EF5600B4_var*
+//#UC END# *5199DAFF0296_4AC4EF5600B4_var*
+//#UC START# *5199DBBE021D_4AC4EF5600B4_impl*
+ Info := nil;
+//#UC END# *5199DBBE021D_4AC4EF5600B4_impl*
+//#UC START# *5199DBBE021D_4AC4EF5600B4_var*
+//#UC END# *5199DBBE021D_4AC4EF5600B4_var*
+//#UC START# *5199DC120058_4AC4EF5600B4_impl*
+ ContextFilter.PressChar(aChar);
+//#UC END# *5199DC120058_4AC4EF5600B4_impl*
+//#UC START# *5199DC120058_4AC4EF5600B4_var*
+//#UC END# *5199DC120058_4AC4EF5600B4_var*
+//#UC START# *5199DC98012F_4AC4EF5600B4_impl*
+ TdmStdRes.MakeChatDispatcher.ShowAddUserDialog;
+//#UC END# *5199DC98012F_4AC4EF5600B4_impl*
+//#UC START# *5199DC98012F_4AC4EF5600B4_var*
+//#UC END# *5199DC98012F_4AC4EF5600B4_var*
+//#UC START# *519A125E0377_519A11C801A1get_impl*
+ Result := f_CurrentFlagFilter
+//#UC END# *519A125E0377_519A11C801A1get_impl*
+//#UC START# *519A125E0377_519A11C801A1get_var*
+//#UC END# *519A125E0377_519A11C801A1get_var*
+//#UC START# *519A138E01CC_519A11C801A1_impl*
+ inherited Create;
+ f_CurrentFlagFilter := aCurrentFlagFilter;
+//#UC END# *519A138E01CC_519A11C801A1_impl*
+//#UC START# *519A138E01CC_519A11C801A1_var*
+//#UC END# *519A138E01CC_519A11C801A1_var*

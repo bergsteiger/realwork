@@ -1,4 +1,9 @@
-unit ImportExportTest;
+program ImportExportTest;
+
+// Модуль: "w:\archi\source\projects\ImportExportTest\ImportExportTest.dpr"
+// Стереотип: "TestTarget"
+
+{$Include ImportExportTest.inc}
 
 interface
 

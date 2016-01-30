@@ -1,0 +1,28 @@
+//#UC START# *4C7D0CC90052_4C84D11E01E2exec_impl*
+ if aParams.Control = trContactList then
+ begin
+  if trContactList.GetCurrentNode <> nil then
+   TdmStdRes.MakeChatDispatcher.DeleteUser(trContactList.GetCurrentNode);
+ end
+ else
+  aParams.CallControl;
+//#UC END# *4C7D0CC90052_4C84D11E01E2exec_impl*
+//#UC START# *4C7D0CC90052_4C84D11E01E2exec_var*
+//#UC END# *4C7D0CC90052_4C84D11E01E2exec_var*
+//#UC START# *4C7D0CC90052_4C84D11E01E2getstate_impl*
+ if trContactList.Focused then
+  State := st_user_Edit_Delete_Contact
+ else
+  State := vcm_DefaultOperationState;
+//#UC END# *4C7D0CC90052_4C84D11E01E2getstate_impl*
+//#UC START# *4C7D0CC90052_4C84D11E01E2getstate_var*
+//#UC END# *4C7D0CC90052_4C84D11E01E2getstate_var*
+//#UC START# *4C7D0CC90052_4C84D11E01E2test_impl*
+ if aParams.Control = trContactList then
+  aParams.Op.Flag[vcm_ofEnabled] := not AddingContact and (trContactList.GetCurrentNode <> nil)
+ else
+  if not aParams.CallControl then
+   aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *4C7D0CC90052_4C84D11E01E2test_impl*
+//#UC START# *4C7D0CC90052_4C84D11E01E2test_var*
+//#UC END# *4C7D0CC90052_4C84D11E01E2test_var*

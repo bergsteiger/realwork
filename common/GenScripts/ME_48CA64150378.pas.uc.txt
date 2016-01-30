@@ -1,0 +1,133 @@
+//#UC START# *479731C50290_48CA64150378_impl*
+ {$If defined(nsTest)}
+ f_NeedLog := false;
+ {$IfEnd}
+ l3Free(f_HorisontalLines);
+ l3Free(f_VerticalLines);
+ l3Free(f_HorisontalBtmBuffer);
+ inherited;
+//#UC END# *479731C50290_48CA64150378_impl*
+//#UC START# *479731C50290_48CA64150378_var*
+//#UC END# *479731C50290_48CA64150378_var*
+//#UC START# *48CA655400D8_48CA64150378_impl*
+ inherited Create;
+ f_FrameObjID := aFrameID;
+ f_HorisontalLines := Tl3CoordinateMap.Create(false);
+ f_VerticalLines := Tl3CoordinateMap.Create(true);
+ f_HorisontalBtmBuffer := Tl3CoordinateMap.Create(false);
+ f_CurrColorArray := aColorArray;
+ f_LastBottom := 0;
+ f_FinishedFO := False;
+ f_LineWidth := 1;
+//#UC END# *48CA655400D8_48CA64150378_impl*
+//#UC START# *48CA655400D8_48CA64150378_var*
+//#UC END# *48CA655400D8_48CA64150378_var*
+//#UC START# *48CA656F02B4_48CA64150378_impl*
+ if anAnalizeType <> laDoNothing then
+  if anAnalizeType = laCheckOnly then
+  begin
+   f_VerticalLines.ClearPrev(True);
+   f_HorisontalBtmBuffer.CheckLine(aFrameRect.Left, aFrameRect.Right);
+  end
+  else
+  begin
+  // Запоминаем видимые и невидимые границы рамок, т.к. они нужны для выравнивания.
+   l_UpLine := f_HorisontalLines.AddLine(aFrameRect.Top, nil, False);
+   l_LeftLine := f_VerticalLines.AddLine(aFrameRect.Left, nil, False);
+   if anAnalizeType = laDelayAlignLowLine then
+    l_DownLine := f_HorisontalBtmBuffer.AddLine(cWaitAlignMean, nil, False)
+   else
+    l_DownLine := f_HorisontalBtmBuffer.AddLine(aFrameRect.Bottom, nil, False);
+   l_RightLine := f_VerticalLines.AddLine(aFrameRect.Right, nil, True);
+   // Добавляем границы к отрезкам.
+   with aFrame.rP[l3_fpiUp] do
+   begin
+    l_UpLine.AddBounds(l_LeftLine, l_RightLine, rColor, rDrawType);
+    f_LineWidth := Max(f_LineWidth, rWidth);
+   end;
+   with aFrame.rP[l3_fpiDown] do
+   begin
+    l_DownLine.AddBounds(l_LeftLine, l_RightLine, rColor, rDrawType);
+    f_LineWidth := Max(f_LineWidth, rWidth);
+   end;
+   with aFrame.rP[l3_fpiLeft] do
+   begin
+    l_LeftLine.AddBounds(l_UpLine, l_DownLine, rColor, rDrawType);
+    f_LineWidth := Max(f_LineWidth, rWidth);
+   end;
+   with aFrame.rP[l3_fpiRight] do
+   begin
+    l_RightLine.AddBounds(l_UpLine, l_DownLine, rColor, rDrawType);
+    f_LineWidth := Max(f_LineWidth, rWidth);
+   end;
+  end
+ else
+  f_VerticalLines.ClearPrev(False);
+//#UC END# *48CA656F02B4_48CA64150378_impl*
+//#UC START# *48CA656F02B4_48CA64150378_var*
+var
+ l_UpLine    : Tl3FrameLine;
+ l_DownLine  : Tl3FrameLine;
+ l_LeftLine  : Tl3FrameLine;
+ l_RightLine : Tl3FrameLine;
+//#UC END# *48CA656F02B4_48CA64150378_var*
+//#UC START# *48CA65890091_48CA64150378_impl*
+ if anIsSingle then
+  f_VerticalLines.SavePrev;
+ f_VerticalLines.ClearPrev(False);
+ f_HorisontalBtmBuffer.AlignBoundary(aFrame.rRect.Top, aFrame.rRect.Bottom, f_HorisontalLines);
+ f_LastBottom := aFrame.rRect.Bottom;
+//#UC END# *48CA65890091_48CA64150378_impl*
+//#UC START# *48CA65890091_48CA64150378_var*
+//#UC END# *48CA65890091_48CA64150378_var*
+//#UC START# *48CA65AD0380_48CA64150378_impl*
+ if not f_FinishedFO then
+  f_LastBottom := Max(f_LastBottom, aAlignValue);
+ f_VerticalLines.ClearPrev(True); 
+ f_HorisontalBtmBuffer.AlignAllLines(f_LastBottom, f_HorisontalLines);
+ f_FinishedFO := False;
+//#UC END# *48CA65AD0380_48CA64150378_impl*
+//#UC START# *48CA65AD0380_48CA64150378_var*
+//#UC END# *48CA65AD0380_48CA64150378_var*
+//#UC START# *48CA65D00372_48CA64150378_impl*
+ f_HorisontalLines.DrawLines(aCanvas, f_CurrColorArray, f_LineWidth);
+ f_VerticalLines.DrawLines(aCanvas, f_CurrColorArray, f_LineWidth);
+//#UC END# *48CA65D00372_48CA64150378_impl*
+//#UC START# *48CA65D00372_48CA64150378_var*
+//#UC END# *48CA65D00372_48CA64150378_var*
+//#UC START# *4A92848703B5_48CA64150378get_impl*
+ Result := f_LineWidth;
+//#UC END# *4A92848703B5_48CA64150378get_impl*
+//#UC START# *4A92848703B5_48CA64150378get_var*
+//#UC END# *4A92848703B5_48CA64150378get_var*
+//#UC START# *4AB8764202D2_48CA64150378_impl*
+ Result := f_VerticalLines.GetAlignData;
+//#UC END# *4AB8764202D2_48CA64150378_impl*
+//#UC START# *4AB8764202D2_48CA64150378_var*
+//#UC END# *4AB8764202D2_48CA64150378_var*
+//#UC START# *4AB8766F019E_48CA64150378_impl*
+ f_VerticalLines.SetAlignData(aData);
+//#UC END# *4AB8766F019E_48CA64150378_impl*
+//#UC START# *4AB8766F019E_48CA64150378_var*
+//#UC END# *4AB8766F019E_48CA64150378_var*
+//#UC START# *4C651E890332_48CA64150378_impl*
+ f_HorisontalLines.Clear;
+ f_VerticalLines.Clear;
+ f_HorisontalBtmBuffer.Clear;
+ f_LastBottom := 0;
+//#UC END# *4C651E890332_48CA64150378_impl*
+//#UC START# *4C651E890332_48CA64150378_var*
+//#UC END# *4C651E890332_48CA64150378_var*
+//#UC START# *4D00D5D700A4_48CA64150378_impl*
+ if aVertical then
+  Result := f_VerticalLines
+ else
+  Result := f_HorisontalLines;
+//#UC END# *4D00D5D700A4_48CA64150378_impl*
+//#UC START# *4D00D5D700A4_48CA64150378_var*
+//#UC END# *4D00D5D700A4_48CA64150378_var*
+//#UC START# *4DA4374C01A2_48CA64150378_impl*
+ Result := f_CurrColorArray;
+//#UC END# *4DA4374C01A2_48CA64150378_impl*
+//#UC START# *4DA4374C01A2_48CA64150378_var*
+//#UC END# *4DA4374C01A2_48CA64150378_var*

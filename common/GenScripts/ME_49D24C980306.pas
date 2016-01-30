@@ -1,23 +1,41 @@
-unit nevPrimPoint.imp;
+{$IfNDef nevPrimPoint_imp}
 
-interface
+// Модуль: "w:\common\components\gui\Garant\Everest\nevPrimPoint.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define nevPrimPoint_imp}
 
-type
- _nevPrimPoint_ = class(_nevBasePoint_)
+{$If Defined(evUseVisibleCursors)}
+ {$Include nevBasePoint.imp.pas}
+ _nevParentPointFactoryExVOID_Parent_ = _nevBasePoint_;
+ {$Include nevParentPointFactoryExVOID.imp.pas}
+ _nevPrimPoint_ = class(_nevParentPointFactoryExVOID_)
   {* Примитивная точка }
  end;//_nevPrimPoint_
- 
-implementation
 
-uses
- l3ImplUses
- , SysUtils
- , nevTools
- , nevBase
-;
+{$Else Defined(evUseVisibleCursors)}
 
-end.
+{$Include nevBasePoint.imp.pas}
+_nevParentPointFactoryExVOID_Parent_ = _nevBasePoint_;
+{$Include nevParentPointFactoryExVOID.imp.pas}
+_nevPrimPoint_ = _nevParentPointFactoryExVOID_;
+
+{$IfEnd} // Defined(evUseVisibleCursors)
+{$Else nevPrimPoint_imp}
+
+{$IfNDef nevPrimPoint_imp_impl}
+
+{$Define nevPrimPoint_imp_impl}
+
+{$If Defined(evUseVisibleCursors)}
+type _Instance_R_ = _nevPrimPoint_;
+
+{$Include nevBasePoint.imp.pas}
+
+{$Include nevParentPointFactoryExVOID.imp.pas}
+{$IfEnd} // Defined(evUseVisibleCursors)
+
+{$EndIf nevPrimPoint_imp_impl}
+
+{$EndIf nevPrimPoint_imp}
+

@@ -1,0 +1,19 @@
+//#UC START# *479731C50290_47D15062022A_impl*
+ if Assigned(f_Canvas) then
+  f_Canvas.SetCanvas(nil, true);
+ l3Free(f_Canvas);
+ inherited;
+//#UC END# *479731C50290_47D15062022A_impl*
+//#UC START# *479731C50290_47D15062022A_var*
+//#UC END# *479731C50290_47D15062022A_var*
+//#UC START# *47D1587401BD_47D15062022Aget_impl*
+ if (f_Canvas = nil) then
+ begin
+  f_Canvas := Tl3BitmapCanvas.Create;
+  f_Canvas.SetCanvas(Canvas, true);
+ end;//f_Canvas = nil
+ Assert(f_Canvas.Canvas = Self.Canvas);
+ Result := f_Canvas;
+//#UC END# *47D1587401BD_47D15062022Aget_impl*
+//#UC START# *47D1587401BD_47D15062022Aget_var*
+//#UC END# *47D1587401BD_47D15062022Aget_var*

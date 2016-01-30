@@ -1,4 +1,10 @@
 unit Table_Const;
+ {* Таблица }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\Table_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -12,7 +18,7 @@ uses
 ;
 
  // TableTag
- 
+
 implementation
 
 uses

@@ -1,0 +1,356 @@
+//#UC START# *478CF34E02CE_522EDF570036_impl*
+ if Source is TddSimpleListDataAdapter then
+ begin
+  f_DataConfig.Assign(TddSimpleListDataAdapter(Source).DataConfig);
+  f_Items.Clear;
+  for I := 0 to TddSimpleListDataAdapter(Source).f_Items.Hi do
+  begin
+   l_Item:= (TddSimpleListDataAdapter(Source).f_Items.Items[I] As TddBaseConfigItem).Clone;
+   try
+    f_Items.Add(l_Item);
+   finally
+    l3Free(l_Item);
+   end;
+  end;
+  Alias:= TddSimpleListDataAdapter(Source).Alias;
+ end
+ else
+  inherited;
+//#UC END# *478CF34E02CE_522EDF570036_impl*
+//#UC START# *478CF34E02CE_522EDF570036_var*
+var
+ I: Integer;
+ l_Item: TddBaseConfigItem;
+//#UC END# *478CF34E02CE_522EDF570036_var*
+//#UC START# *478CF34E02CE_522EDF6702AF_impl*
+ if Source is TddStringDataAdapter then
+  f_Strings.Assign(TddStringDataAdapter(Source).GetStrings)
+ else
+  inherited;
+//#UC END# *478CF34E02CE_522EDF6702AF_impl*
+//#UC START# *478CF34E02CE_522EDF6702AF_var*
+//#UC END# *478CF34E02CE_522EDF6702AF_var*
+//#UC START# *479731C50290_522EDF570036_impl*
+ inherited;
+ l3Free(f_Items);
+ l3Free(f_DataConfig);
+//#UC END# *479731C50290_522EDF570036_impl*
+//#UC START# *479731C50290_522EDF570036_var*
+//#UC END# *479731C50290_522EDF570036_var*
+//#UC START# *479731C50290_522EDF6702AF_impl*
+ l3Free(f_Strings);
+ inherited;
+//#UC END# *479731C50290_522EDF6702AF_impl*
+//#UC START# *479731C50290_522EDF6702AF_var*
+//#UC END# *479731C50290_522EDF6702AF_var*
+//#UC START# *522EDF8F0390_5214CC1D02F4set_impl*
+ f_Alias := aValue;
+//#UC END# *522EDF8F0390_5214CC1D02F4set_impl*
+//#UC START# *522EDF8F0390_5214CC1D02F4set_var*
+//#UC END# *522EDF8F0390_5214CC1D02F4set_var*
+//#UC START# *522EDF8F0390_522EDF570036set_impl*
+ inherited;
+ for I := 0 to f_Items.Hi do
+  TddAppConfigNode(Objects[I]).Alias := Format('%sI%d', [Alias, i]);
+//#UC END# *522EDF8F0390_522EDF570036set_impl*
+//#UC START# *522EDF8F0390_522EDF570036set_var*
+var
+ I: Integer; 
+//#UC END# *522EDF8F0390_522EDF570036set_var*
+//#UC START# *522EDFCE0135_5214CC1D02F4set_impl*
+ if f_IsChanged <> aValue then
+ begin
+  f_IsChanged := aValue;
+  SetIsChangedToItems(aValue);
+ end;
+//#UC END# *522EDFCE0135_5214CC1D02F4set_impl*
+//#UC START# *522EDFCE0135_5214CC1D02F4set_var*
+//#UC END# *522EDFCE0135_5214CC1D02F4set_var*
+//#UC START# *522EDFF601C6_5214CC1D02F4get_impl*
+ Result := 0;
+//#UC END# *522EDFF601C6_5214CC1D02F4get_impl*
+//#UC START# *522EDFF601C6_5214CC1D02F4get_var*
+//#UC END# *522EDFF601C6_5214CC1D02F4get_var*
+//#UC START# *522EDFF601C6_522EDF570036get_impl*
+ Result := f_Items.Count;
+//#UC END# *522EDFF601C6_522EDF570036get_impl*
+//#UC START# *522EDFF601C6_522EDF570036get_var*
+//#UC END# *522EDFF601C6_522EDF570036get_var*
+//#UC START# *522EDFF601C6_522EDF6702AFget_impl*
+ Result := f_Strings.Count;
+//#UC END# *522EDFF601C6_522EDF6702AFget_impl*
+//#UC START# *522EDFF601C6_522EDF6702AFget_var*
+//#UC END# *522EDFF601C6_522EDF6702AFget_var*
+//#UC START# *522EE02F00FF_5214CC1D02F4get_impl*
+ Result := nil;
+//#UC END# *522EE02F00FF_5214CC1D02F4get_impl*
+//#UC START# *522EE02F00FF_5214CC1D02F4get_var*
+//#UC END# *522EE02F00FF_5214CC1D02F4get_var*
+//#UC START# *522EE02F00FF_522EDF570036get_impl*
+ Result := f_Items[anIndex];
+//#UC END# *522EE02F00FF_522EDF570036get_impl*
+//#UC START# *522EE02F00FF_522EDF570036get_var*
+//#UC END# *522EE02F00FF_522EDF570036get_var*
+//#UC START# *522EE0530101_5214CC1D02F4get_impl*
+ Result := '';
+//#UC END# *522EE0530101_5214CC1D02F4get_impl*
+//#UC START# *522EE0530101_5214CC1D02F4get_var*
+//#UC END# *522EE0530101_5214CC1D02F4get_var*
+//#UC START# *522EE0530101_522EDF570036get_impl*
+ Result := TddAppConfigNode(f_Items.Items[anIndex]).Caption;
+//#UC END# *522EE0530101_522EDF570036get_impl*
+//#UC START# *522EE0530101_522EDF570036get_var*
+//#UC END# *522EE0530101_522EDF570036get_var*
+//#UC START# *522EE0530101_522EDF6702AFget_impl*
+ Result := f_Strings[anIndex];
+//#UC END# *522EE0530101_522EDF6702AFget_impl*
+//#UC START# *522EE0530101_522EDF6702AFget_var*
+//#UC END# *522EE0530101_522EDF6702AFget_var*
+//#UC START# *522EE0A00116_5214CC1D02F4_impl*
+//#UC END# *522EE0A00116_5214CC1D02F4_impl*
+//#UC START# *522EE0A00116_5214CC1D02F4_var*
+//#UC END# *522EE0A00116_5214CC1D02F4_var*
+//#UC START# *522EE0A00116_522EDF570036_impl*
+ for I := 0 to Pred(Count) do
+  TddAppConfigNode(Objects[I]).Changed := aValue;
+//#UC END# *522EE0A00116_522EDF570036_impl*
+//#UC START# *522EE0A00116_522EDF570036_var*
+var
+ I: Integer;
+//#UC END# *522EE0A00116_522EDF570036_var*
+//#UC START# *522EE0C502CE_5214CC1D02F4_impl*
+ Result := -1;
+//#UC END# *522EE0C502CE_5214CC1D02F4_impl*
+//#UC START# *522EE0C502CE_5214CC1D02F4_var*
+//#UC END# *522EE0C502CE_5214CC1D02F4_var*
+//#UC START# *522EE0C502CE_522EDF570036_impl*
+ l_Node:= MakeItem;
+ try
+  Result:= f_Items.Add(l_Node);
+ finally
+  l3Free(l_Node);
+ end;
+//#UC END# *522EE0C502CE_522EDF570036_impl*
+//#UC START# *522EE0C502CE_522EDF570036_var*
+var
+ l_Node: TddAppConfigNode;
+//#UC END# *522EE0C502CE_522EDF570036_var*
+//#UC START# *522EE0DF0080_5214CC1D02F4_impl*
+ Result := Self;
+//#UC END# *522EE0DF0080_5214CC1D02F4_impl*
+//#UC START# *522EE0DF0080_5214CC1D02F4_var*
+//#UC END# *522EE0DF0080_5214CC1D02F4_var*
+//#UC START# *522EE0DF0080_522EDF570036_impl*
+ Result := Self;
+//#UC END# *522EE0DF0080_522EDF570036_impl*
+//#UC START# *522EE0DF0080_522EDF570036_var*
+//#UC END# *522EE0DF0080_522EDF570036_var*
+//#UC START# *522EE0DF0080_522EDF6702AF_impl*
+ Result := f_Strings;
+//#UC END# *522EE0DF0080_522EDF6702AF_impl*
+//#UC START# *522EE0DF0080_522EDF6702AF_var*
+//#UC END# *522EE0DF0080_522EDF6702AF_var*
+//#UC START# *522EE0FB0163_5214CC1D02F4_impl*
+ Result := False;
+//#UC END# *522EE0FB0163_5214CC1D02F4_impl*
+//#UC START# *522EE0FB0163_5214CC1D02F4_var*
+//#UC END# *522EE0FB0163_5214CC1D02F4_var*
+//#UC START# *522EE0FB0163_522EDF570036_impl*
+ Result := True;
+ f_Items.Delete(anIndex);
+//#UC END# *522EE0FB0163_522EDF570036_impl*
+//#UC START# *522EE0FB0163_522EDF570036_var*
+//#UC END# *522EE0FB0163_522EDF570036_var*
+//#UC START# *522EE0FB0163_522EDF6702AF_impl*
+ Result := True;
+ f_Strings.Delete(anIndex);
+//#UC END# *522EE0FB0163_522EDF6702AF_impl*
+//#UC START# *522EE0FB0163_522EDF6702AF_var*
+//#UC END# *522EE0FB0163_522EDF6702AF_var*
+//#UC START# *522EE15F026E_5214CC1D02F4_impl*
+ Result := False;
+//#UC END# *522EE15F026E_5214CC1D02F4_impl*
+//#UC START# *522EE15F026E_5214CC1D02F4_var*
+//#UC END# *522EE15F026E_5214CC1D02F4_var*
+//#UC START# *522EE15F026E_522EDF570036_impl*
+ Result := True;
+ f_Items.Exchange(anIndex, Succ(anIndex));
+//#UC END# *522EE15F026E_522EDF570036_impl*
+//#UC START# *522EE15F026E_522EDF570036_var*
+//#UC END# *522EE15F026E_522EDF570036_var*
+//#UC START# *522EE15F026E_522EDF6702AF_impl*
+ Result := True;
+ f_Strings.Exchange(anIndex, Succ(anIndex));
+//#UC END# *522EE15F026E_522EDF6702AF_impl*
+//#UC START# *522EE15F026E_522EDF6702AF_var*
+//#UC END# *522EE15F026E_522EDF6702AF_var*
+//#UC START# *522EE19901B6_5214CC1D02F4_impl*
+ Result := False;
+//#UC END# *522EE19901B6_5214CC1D02F4_impl*
+//#UC START# *522EE19901B6_5214CC1D02F4_var*
+//#UC END# *522EE19901B6_5214CC1D02F4_var*
+//#UC START# *522EE19901B6_522EDF570036_impl*
+ if anIndex < 0 then
+  // Новый элемент
+  l_Node:= MakeItem
+ else
+  l_Node:= TddAppConfigNode(f_Items.Items[anIndex]);
+ Result:= ExecuteNodeDialog(l_Node);
+ if Result then
+ begin
+  l_Node.Caption:= l_Node.Items[0].StringValue;
+  if anIndex < 0 then
+   f_Items.Add(l_Node);
+ end;
+ if anIndex < 0 then
+  l3Free(l_Node);
+//#UC END# *522EE19901B6_522EDF570036_impl*
+//#UC START# *522EE19901B6_522EDF570036_var*
+var
+ l_Node: TddAppConfigNode;
+ l_Alias: AnsiString;
+//#UC END# *522EE19901B6_522EDF570036_var*
+//#UC START# *522EE19901B6_522EDF6702AF_impl*
+ if anIndex > -1 then
+  l_S := f_Strings[anIndex]
+ else
+  l_S := '';
+ Result := InputQuery('Редактирование элемента', 'Введите текст элемента', l_S);
+ if Result then
+  if anIndex = -1 then
+   f_Strings.Add(l_S)
+  else
+   f_Strings.Strings[anIndex] := l_S;
+//#UC END# *522EE19901B6_522EDF6702AF_impl*
+//#UC START# *522EE19901B6_522EDF6702AF_var*
+var
+ l_S: String;
+//#UC END# *522EE19901B6_522EDF6702AF_var*
+//#UC START# *522EE1B9018D_5214CC1D02F4_impl*
+//#UC END# *522EE1B9018D_5214CC1D02F4_impl*
+//#UC START# *522EE1B9018D_5214CC1D02F4_var*
+//#UC END# *522EE1B9018D_5214CC1D02F4_var*
+//#UC START# *522EE1B9018D_522EDF570036_impl*
+ l_Count := aStorage.ReadInteger(anAlias + '.Count', 0);
+ for I := 0 to Pred(l_Count) do
+ begin
+  l_Node := MakeItem;
+  try
+   l_Node.Load(aStorage);
+   if l_Node.AsString['Caption'] <> '' then
+    l_Node.Caption := l_Node.AsString['Caption'];
+   f_Items.Add(l_Node);
+  finally
+   l3Free(l_Node);
+  end;
+ end;
+//#UC END# *522EE1B9018D_522EDF570036_impl*
+//#UC START# *522EE1B9018D_522EDF570036_var*
+var
+ l_Count, I: Integer;
+ l_Node: TddAppConfigNode;
+//#UC END# *522EE1B9018D_522EDF570036_var*
+//#UC START# *522EE1B9018D_522EDF6702AF_impl*
+  inherited;
+  l_Count := aStorage.ReadInteger(anAlias + 'Count', 0);
+  for I := 0 to Pred(l_Count) do
+   f_Strings.Add(l3Str(aStorage.ReadString(anAlias + IntToStr(I), '')));
+//#UC END# *522EE1B9018D_522EDF6702AF_impl*
+//#UC START# *522EE1B9018D_522EDF6702AF_var*
+var
+ I: Integer;
+ l_Count: Integer;
+//#UC END# *522EE1B9018D_522EDF6702AF_var*
+//#UC START# *522EE1D7016D_5214CC1D02F4_impl*
+//#UC END# *522EE1D7016D_5214CC1D02F4_impl*
+//#UC START# *522EE1D7016D_5214CC1D02F4_var*
+//#UC END# *522EE1D7016D_5214CC1D02F4_var*
+//#UC START# *522EE1D7016D_522EDF570036_impl*
+ aStorage.WriteInteger(anAlias + '.Count', f_Items.Count);
+ for I := 0 to f_Items.Hi do
+  IddConfigNode(TddAppConfigNode(Objects[I])).SaveData(aStorage);
+//#UC END# *522EE1D7016D_522EDF570036_impl*
+//#UC START# *522EE1D7016D_522EDF570036_var*
+var
+ I: Integer;
+//#UC END# *522EE1D7016D_522EDF570036_var*
+//#UC START# *522EE1D7016D_522EDF6702AF_impl*
+ inherited;
+ aStorage.WriteInteger(anAlias + 'Count', f_Strings.Count);
+ for I := 0 to Pred(f_Strings.Count) do
+  aStorage.WriteString(anAlias + IntToStr(I), f_Strings.Strings[I]);
+//#UC END# *522EE1D7016D_522EDF6702AF_impl*
+//#UC START# *522EE1D7016D_522EDF6702AF_var*
+var
+ I: Integer;
+//#UC END# *522EE1D7016D_522EDF6702AF_var*
+//#UC START# *522EE1F7018F_5214CC1D02F4_impl*
+ Result := False;
+//#UC END# *522EE1F7018F_5214CC1D02F4_impl*
+//#UC START# *522EE1F7018F_5214CC1D02F4_var*
+//#UC END# *522EE1F7018F_5214CC1D02F4_var*
+//#UC START# *522EE1F7018F_522EDF570036_impl*
+ Result:= True;
+ f_Items.Exchange(anIndex, Pred(anIndex));
+//#UC END# *522EE1F7018F_522EDF570036_impl*
+//#UC START# *522EE1F7018F_522EDF570036_var*
+//#UC END# *522EE1F7018F_522EDF570036_var*
+//#UC START# *522EE1F7018F_522EDF6702AF_impl*
+ Result := True;
+ f_Strings.Exchange(anIndex, Pred(anIndex));
+//#UC END# *522EE1F7018F_522EDF6702AF_impl*
+//#UC START# *522EE1F7018F_522EDF6702AF_var*
+//#UC END# *522EE1F7018F_522EDF6702AF_var*
+//#UC START# *522EE27A017F_522EDF570036set_impl*
+ l3Free(f_DataConfig);
+ f_DataConfig:= aValue;
+//#UC END# *522EE27A017F_522EDF570036set_impl*
+//#UC START# *522EE27A017F_522EDF570036set_var*
+//#UC END# *522EE27A017F_522EDF570036set_var*
+//#UC START# *522EE2F603A2_522EDF570036get_impl*
+ if InRange(anIndex, 0, Pred(Count)) then
+  Result := TddAppConfigNode(Objects[anIndex]).ItemByAlias[anAlias].Value
+ else
+  raise EListError.CreateFmt('Отсутствует элемент с индексом %d в списке из %d элементов', [anIndex, Count]);
+//#UC END# *522EE2F603A2_522EDF570036get_impl*
+//#UC START# *522EE2F603A2_522EDF570036get_var*
+//#UC END# *522EE2F603A2_522EDF570036get_var*
+//#UC START# *522EE2F603A2_522EDF570036set_impl*
+//#UC END# *522EE2F603A2_522EDF570036set_impl*
+//#UC START# *522EE2F603A2_522EDF570036set_var*
+//#UC END# *522EE2F603A2_522EDF570036set_var*
+//#UC START# *522EE4200381_522EDF570036_impl*
+ l_Alias := Alias + 'I' + IntToStr(f_Items.Count);
+ Result := DataConfig.Clone;
+ Result.Alias := l_Alias;
+//#UC END# *522EE4200381_522EDF570036_impl*
+//#UC START# *522EE4200381_522EDF570036_var*
+var
+ l_Node: TddAppConfigNode;
+ l_Alias: AnsiString;
+//#UC END# *522EE4200381_522EDF570036_var*
+//#UC START# *522EE43E0110_522EDF570036_impl*
+ Create;
+ f_DataConfig.Alias:= anAlias;
+//#UC END# *522EE43E0110_522EDF570036_impl*
+//#UC START# *522EE43E0110_522EDF570036_var*
+//#UC END# *522EE43E0110_522EDF570036_var*
+//#UC START# *522EE4E000E1_522EDF6702AF_impl*
+ Result := f_Strings;
+//#UC END# *522EE4E000E1_522EDF6702AF_impl*
+//#UC START# *522EE4E000E1_522EDF6702AF_var*
+//#UC END# *522EE4E000E1_522EDF6702AF_var*
+//#UC START# *5301EC5A006A_522EDF570036_impl*
+ inherited Create;
+ f_Items := Tl3ProtoPersistentRefList.Make;
+ f_DataConfig := TddAppConfigNode.Create('Adapter', 'Новый элемент');
+ f_DataConfig.AddItem(TddStringConfigItem.Create('Caption', 'Название', ddEmptyValue))
+//#UC END# *5301EC5A006A_522EDF570036_impl*
+//#UC START# *5301EC5A006A_522EDF570036_var*
+//#UC END# *5301EC5A006A_522EDF570036_var*
+//#UC START# *5301EC5A006A_522EDF6702AF_impl*
+ inherited;
+ f_Strings := TStringList.Create;
+//#UC END# *5301EC5A006A_522EDF6702AF_impl*
+//#UC START# *5301EC5A006A_522EDF6702AF_var*
+//#UC END# *5301EC5A006A_522EDF6702AF_var*

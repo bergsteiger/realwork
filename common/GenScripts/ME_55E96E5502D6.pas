@@ -1,5 +1,10 @@
 unit mdpSyncDicts_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\mdpSyncDicts_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -11,7 +16,7 @@ uses
 ;
 
  // mdpSyncDictsTag
- 
+
 implementation
 
 uses

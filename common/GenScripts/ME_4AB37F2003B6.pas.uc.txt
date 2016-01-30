@@ -1,0 +1,29 @@
+//#UC START# *47A042E100E2_4AB37F2003B6_impl*
+ inherited;
+ f_NextID := 1;
+//#UC END# *47A042E100E2_4AB37F2003B6_impl*
+//#UC START# *47A042E100E2_4AB37F2003B6_var*
+//#UC END# *47A042E100E2_4AB37F2003B6_var*
+//#UC START# *4AB38F9800B8_4AB37F2003B6_impl*
+ MakeSorted;
+ SortIndex := l3_siCaseUnSensitive;
+//#UC END# *4AB38F9800B8_4AB37F2003B6_impl*
+//#UC START# *4AB38F9800B8_4AB37F2003B6_var*
+//#UC END# *4AB38F9800B8_4AB37F2003B6_var*
+//#UC START# *4AB38FE40091_4AB37F2003B6_impl*
+ if not FindData(aStr, l_Index, l3_siCaseUnSensitive) then
+ begin
+  Result := f_NextID;
+  l_Item := Tm4Word.Create(aStr, f_NextID);
+  try
+   Inc(f_NextID);
+   DirectInsert(l_Index, l_Item);
+  finally
+   FreeAndNil(l_Item);
+  end;//try..finally
+ end//not Find(aStr, l_Index)
+ else
+  Result := Items[l_Index].StringID;
+//#UC END# *4AB38FE40091_4AB37F2003B6_impl*
+//#UC START# *4AB38FE40091_4AB37F2003B6_var*
+//#UC END# *4AB38FE40091_4AB37F2003B6_var*

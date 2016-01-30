@@ -1,26 +1,37 @@
-unit UnrefcountedListPrim.imp;
+{$IfNDef UnrefcountedListPrim_imp}
 
-interface
+// Модуль: "w:\common\components\SandBox\UnrefcountedListPrim.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define UnrefcountedListPrim_imp}
 
  {$Define l3Items_IsUnrefcounted}
- 
-type
+
+ _List_Parent_ = _UnrefcountedListPrim_Parent_;
+ {$Include List.imp.pas}
  _UnrefcountedListPrim_ = class(_List_)
   {* Список значений без какого то бы ни было подсчёта ссылок }
-  function IsSame(const A: _ItemType_;
-   const B: _ItemType_): Boolean;
  end;//_UnrefcountedListPrim_
- 
-implementation
 
-uses
- l3ImplUses
- , RTLConsts
- , l3MemorySizeUtils
-;
+{$Else UnrefcountedListPrim_imp}
 
-end.
+{$IfNDef UnrefcountedListPrim_imp_impl}
+
+{$Define UnrefcountedListPrim_imp_impl}
+
+function IsSame(const A: _ItemType_;
+ const B: _ItemType_): Boolean;
+//#UC START# *51DECB820261_51DED02E0163_var*
+//#UC END# *51DECB820261_51DED02E0163_var*
+begin
+//#UC START# *51DECB820261_51DED02E0163_impl*
+ Result := (A = B);
+//#UC END# *51DECB820261_51DED02E0163_impl*
+end;//IsSame
+
+{$Include List.imp.pas}
+
+{$EndIf UnrefcountedListPrim_imp_impl}
+
+{$EndIf UnrefcountedListPrim_imp}
+

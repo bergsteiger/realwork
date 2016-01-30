@@ -1,0 +1,115 @@
+//#UC START# *479731C50290_4AC6402401E4_impl*
+ f_SettingsInfo := nil;
+ inherited;
+//#UC END# *479731C50290_4AC6402401E4_impl*
+//#UC START# *479731C50290_4AC6402401E4_var*
+//#UC END# *479731C50290_4AC6402401E4_var*
+//#UC START# *47A042E100E2_4AC6402401E4_impl*
+ inherited;
+ ActiveControl := f_NavigatorZone;
+ Constraints.MinHeight := 510;
+ Constraints.MinWidth := 650;
+ Position := poOwnerFormCenter;
+ OnResize := FormResize;
+ OnCloseQueryEx := vcmContainerFormCloseQueryEx;
+//#UC END# *47A042E100E2_4AC6402401E4_impl*
+//#UC START# *47A042E100E2_4AC6402401E4_var*
+//#UC END# *47A042E100E2_4AC6402401E4_var*
+//#UC START# *4A8E8F2E0195_4AC6402401E4_impl*
+ inherited;
+ with BackgroundPanel do
+ begin
+  align := alClient;
+  BevelOuter := bvNone;
+ end;
+ with MainZone do
+ begin
+  Align := alClient;
+  BevelOuter := bvNone;
+  Constraints.MinWidth := 480;
+  TabOrder := 0;
+ end;
+  with ParentZone do
+  begin
+   SizeableSides := [szBottom];
+   Align := alTop;
+   BevelOuter := bvNone;
+   if afw.Application.IsInternal then
+    Height := 240
+   else
+    Height := 150;
+
+   Constraints.MinHeight := Height;
+   TabOrder := 0;
+  end;
+  with ChildZone do
+  begin
+   Align := alClient;
+   BevelOuter := bvNone;
+   TabOrder := 1;
+  end;
+ with NavigatorZone do
+ begin
+  Width := 182;
+  ResizeAreaWidth := 5;
+  SizeableSides := [szRight];
+  SplitterBevel := bvRaised;
+  Align := alLeft;
+  BevelOuter := bvNone;
+  Constraints.MinWidth := 182;
+  TabOrder := 1;
+ end;
+//#UC END# *4A8E8F2E0195_4AC6402401E4_impl*
+//#UC START# *4A8E8F2E0195_4AC6402401E4_var*
+//#UC END# *4A8E8F2E0195_4AC6402401E4_var*
+//#UC START# *4AE06B82037F_4AC6402401E4_impl*
+   f_SettingsInfo := aData;
+   if not f_SettingsInfo.IsActive then
+    f_SettingsInfo.Load;
+   DoUpdateCaption;
+//#UC END# *4AE06B82037F_4AC6402401E4_impl*
+//#UC START# *4AF8660E0079_4AC6402401E4exec_impl*
+ DoUpdateCaption;
+//#UC END# *4AF8660E0079_4AC6402401E4exec_impl*
+//#UC START# *4AF8660E0079_4AC6402401E4exec_var*
+//#UC END# *4AF8660E0079_4AC6402401E4exec_var*
+//#UC START# *526A556A020C_4AC6402401E4_impl*
+ l_Caption := Caption;
+ l_CaptionLength := Length(l_Caption);
+ if f_SettingsInfo.Modified or f_SettingsInfo.IsDifferFromDefault then
+ begin
+  if ((l_CaptionLength = 0) or (l_Caption[l_CaptionLength] <> '*')) then
+   l_Caption := l_Caption+' *';
+ end
+ else
+ begin
+  if ((l_CaptionLength > 1) and (l_Caption[l_CaptionLength] = '*')) then
+   Delete(l_Caption, l_CaptionLength-1, 2);
+ end;
+ Caption := l_Caption;
+//#UC END# *526A556A020C_4AC6402401E4_impl*
+//#UC START# *526A556A020C_4AC6402401E4_var*
+var
+ l_Caption: String;
+ l_CaptionLength: Integer;
+//#UC END# *526A556A020C_4AC6402401E4_var*
+//#UC START# *526A55940144_4AC6402401E4_impl*
+ // fix: для нормального поведения при изменении размеров формы, если у нее стоят ограничения.
+ if ((f_NavigatorZone.Width + f_MainZone.Width) > ClientWidth) then
+  if ClientWidth > f_MainZone.Width then
+   f_NavigatorZone.Width := ClientWidth - f_MainZone.Width;
+//#UC END# *526A55940144_4AC6402401E4_impl*
+//#UC START# *526A55940144_4AC6402401E4_var*
+//#UC END# *526A55940144_4AC6402401E4_var*
+//#UC START# *526A55DF0164_4AC6402401E4_impl*
+ if not defDataAdapter.InTerminateProcess then
+ begin
+  if (ModalResult = mrCancel) and f_SettingsInfo.Modified then
+   if Ask(qr_StyleTableChanged) then
+    f_SettingsInfo.Load
+   else
+    CanClose := False;
+ end;
+//#UC END# *526A55DF0164_4AC6402401E4_impl*
+//#UC START# *526A55DF0164_4AC6402401E4_var*
+//#UC END# *526A55DF0164_4AC6402401E4_var*

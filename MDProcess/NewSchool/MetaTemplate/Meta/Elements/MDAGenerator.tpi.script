@@ -32,7 +32,6 @@ implementation @ <<MDAGenerator>>
 //< *::Class,*::Category
 
 //= Мета-MDA::MDAGenerator
-//= ModelSerialize::MDAGenerator
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Параметры стереотипа
@@ -987,17 +986,6 @@ implementation @ <<MDAGenerator>>
 //#UC START# *470484D50138for46E1540F00AB*
 //#UC END# *470484D50138for46E1540F00AB*
 ; // wiki_up_add_gen
-
-
-// реализация абстрактного стереотипа ModelSerialize::MDAGenerator
-// генератор структуры модели в описание на языке FORTH
-//+ forth_structure
-<<generator>> forth_structure OBJECT IN %S
-//R  
-//#UC START# *4F368B80039Efor46E1540F00AB*
-//P
-//#UC END# *4F368B80039Efor46E1540F00AB*
-; // forth_structure
 
 
 // реализация абстрактного стереотипа Документация::MDAGenerator
@@ -2348,6 +2336,8 @@ end. // <<MDAGenerator>>
 implementation @ :: <<MDAGenerator>> <<generator>> ;
 //? генератор
 //? определяет конкретный целевой генератор
+//= Мета-MDA::MDAGenerator
+
 // Параметры стереотипа
 //a ar
 // - тип абстракции
@@ -2417,16 +2407,6 @@ implementation @ :: <<MDAGenerator>> <<generator>> ;
 ; // wiki
 
 
-// генератор структуры модели в описание на языке FORTH
-//+ forth_structure
-<<generator>> forth_structure OBJECT IN %S
-//R  
-//#UC START# *4F368B80039Efor46E3DB9001C5*
-//P
-//#UC END# *4F368B80039Efor46E3DB9001C5*
-; // forth_structure
-
-
 // Функции стереотипа
 //%f _st_space_key
 : st_space_key OBJECT IN %S
@@ -2471,9 +2451,41 @@ implementation @ :: <<MDAGenerator>> <<generator>> ;
  end // if
 
 
-//: MDAGenerator::Class::Operation
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
 ; // wiki_up_print
 
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for46E3DB9001C5*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for46E3DB9001C5*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor46E3DB9001C5*
+//#UC END# *4705CBD6003Efor46E3DB9001C5*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for46E3DB9001C5*
+//#UC END# *470484D50138for46E3DB9001C5*
+; // wiki_up_add_gen
+
+
+//: MDAGenerator::Class::Operation
 end. // :: <<MDAGenerator>> <<generator>> ;
 
 implementation @ :: <<MDAGenerator>> <<Operation>> ;
@@ -2556,16 +2568,6 @@ implementation @ :: <<MDAGenerator>> <<Operation>> ;
 ; // wiki
 
 
-// генератор структуры модели в описание на языке FORTH
-//+ forth_structure
-<<generator>> forth_structure OBJECT IN %S
-//R  
-//#UC START# *4F368B80039Efor46E3DB3B001F*
-//P
-//#UC END# *4F368B80039Efor46E3DB3B001F*
-; // forth_structure
-
-
 // Функции стереотипа
 //%f _st_space_key
 : st_space_key OBJECT IN %S
@@ -2628,16 +2630,6 @@ implementation @ :: <<MDAGenerator>> <<transformator>> ;
 ; // wiki
 
 
-// генератор структуры модели в описание на языке FORTH
-//+ forth_structure
-<<generator>> forth_structure OBJECT IN %S
-//R  
-//#UC START# *4F368B80039Efor46E3F93A0128*
-//P
-//#UC END# *4F368B80039Efor46E3F93A0128*
-; // forth_structure
-
-
 // Функции стереотипа
 //%f _st_space_key
 : st_space_key OBJECT IN %S
@@ -2679,16 +2671,6 @@ implementation @ :: <<MDAGenerator>> <<UserProperty>> ;
 //#UC START# *46E6D4BB0339for46EFD6DC0192*
 //#UC END# *46E6D4BB0339for46EFD6DC0192*
 ; // wiki
-
-
-// генератор структуры модели в описание на языке FORTH
-//+ forth_structure
-<<generator>> forth_structure OBJECT IN %S
-//R  
-//#UC START# *4F368B80039Efor46EFD6DC0192*
-//P
-//#UC END# *4F368B80039Efor46EFD6DC0192*
-; // forth_structure
 
 
 // Функции стереотипа
@@ -2847,16 +2829,6 @@ implementation @ :: <<MDAGenerator>> <<include>> ;
 ; // wiki
 
 
-// генератор структуры модели в описание на языке FORTH
-//+ forth_structure
-<<generator>> forth_structure OBJECT IN %S
-//R  
-//#UC START# *4F368B80039Efor46E6CB280164*
-//P
-//#UC END# *4F368B80039Efor46E6CB280164*
-; // forth_structure
-
-
 // Функции стереотипа
 //%f _st_space_key
 : st_space_key OBJECT IN %S
@@ -2903,16 +2875,6 @@ implementation @ :: <<MDAGenerator>> <<group>> ;
 //#UC START# *46E6D4BB0339for46E7DE3F03A6*
 //#UC END# *46E6D4BB0339for46E7DE3F03A6*
 ; // wiki
-
-
-// генератор структуры модели в описание на языке FORTH
-//+ forth_structure
-<<generator>> forth_structure OBJECT IN %S
-//R  
-//#UC START# *4F368B80039Efor46E7DE3F03A6*
-//P
-//#UC END# *4F368B80039Efor46E7DE3F03A6*
-; // forth_structure
 
 
 // Функции стереотипа
@@ -3108,16 +3070,6 @@ implementation @ :: <<MDAGenerator>> <<"main hierarchy">> ;
 ; // wiki
 
 
-// генератор структуры модели в описание на языке FORTH
-//+ forth_structure
-<<generator>> forth_structure OBJECT IN %S
-//R  
-//#UC START# *4F368B80039Efor49F847A30327*
-//P
-//#UC END# *4F368B80039Efor49F847A30327*
-; // forth_structure
-
-
 // Функции стереотипа
 //%f _st_space_key
 : st_space_key OBJECT IN %S
@@ -3151,16 +3103,6 @@ implementation @ :: <<MDAGenerator>> <<"exclude auto copy">> ;
 //#UC START# *46E6D4BB0339for4AE5844A0278*
 //#UC END# *46E6D4BB0339for4AE5844A0278*
 ; // wiki
-
-
-// генератор структуры модели в описание на языке FORTH
-//+ forth_structure
-<<generator>> forth_structure OBJECT IN %S
-//R  
-//#UC START# *4F368B80039Efor4AE5844A0278*
-//P
-//#UC END# *4F368B80039Efor4AE5844A0278*
-; // forth_structure
 
 
 // Функции стереотипа

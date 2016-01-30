@@ -1,7 +1,14 @@
 unit K518756624;
+ {* [RequestLink:518756624] }
+
+// Модуль: "w:\common\components\rtl\Garant\Daily\K518756624.pas"
+// Стереотип: "TestCase"
+
+{$Include TestDefine.inc.pas}
 
 interface
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
  , EVDtoRTFRender
@@ -10,13 +17,46 @@ uses
 type
  TK518756624 = class(TEVDtoRTFRender)
   {* [RequestLink:518756624] }
+  protected
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
+   function NeedEliminateCommentDecorations: Boolean; override;
  end;//TK518756624
- 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+
 implementation
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
  , TestFrameWork
 ;
+
+function TK518756624.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := '7.10';
+end;//TK518756624.GetFolder
+
+function TK518756624.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '530C925400E5';
+end;//TK518756624.GetModelElementGUID
+
+function TK518756624.NeedEliminateCommentDecorations: Boolean;
+//#UC START# *530C91FB00BD_530C925400E5_var*
+//#UC END# *530C91FB00BD_530C925400E5_var*
+begin
+//#UC START# *530C91FB00BD_530C925400E5_impl*
+ Result := True;
+//#UC END# *530C91FB00BD_530C925400E5_impl*
+end;//TK518756624.NeedEliminateCommentDecorations
+
+initialization
+ TestFramework.RegisterTest(TK518756624.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

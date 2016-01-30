@@ -1,27 +1,47 @@
-unit tfwDictionaryList.imp;
+{$IfNDef tfwDictionaryList_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryList.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define tfwDictionaryList_imp}
 
+{$If NOT Defined(NoScripts)}
  {$Define l3Items_NoSort}
- 
-type
- _tfwDictionaryList_ = class(_tfwDictionaryListPrim_)
-  function CompareExistingItems(const CI: CompareItemsRec): Integer;
-   {* Сравнивает два существующих элемента. }
+
+ {$Include tfwDictionaryListPrim.imp.pas}
+ _tfwDictionaryList_ = {abstract} class(_tfwDictionaryListPrim_)
  end;//_tfwDictionaryList_
- 
-implementation
 
-uses
- l3ImplUses
- , l3Base
- , l3MinMax
- , RTLConsts
- , SysUtils
-;
+{$Else NOT Defined(NoScripts)}
 
-end.
+{$Include tfwDictionaryListPrim.imp.pas}
+_tfwDictionaryList_ = _tfwDictionaryListPrim_;
+
+{$IfEnd} // NOT Defined(NoScripts)
+{$Else tfwDictionaryList_imp}
+
+{$IfNDef tfwDictionaryList_imp_impl}
+
+{$Define tfwDictionaryList_imp_impl}
+
+{$If NOT Defined(NoScripts)}
+function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
+//#UC START# *47B99D4503A2_55A63D8C00F0_var*
+//#UC END# *47B99D4503A2_55A63D8C00F0_var*
+begin
+//#UC START# *47B99D4503A2_55A63D8C00F0_impl*
+ Result := -1;
+ Assert(false);
+//#UC END# *47B99D4503A2_55A63D8C00F0_impl*
+end;//CompareExistingItems
+
+type _Instance_R_ = _tfwDictionaryList_;
+
+{$Include tfwDictionaryListPrim.imp.pas}
+{$IfEnd} // NOT Defined(NoScripts)
+
+{$EndIf tfwDictionaryList_imp_impl}
+
+{$EndIf tfwDictionaryList_imp}
+

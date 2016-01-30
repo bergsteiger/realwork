@@ -1,7 +1,11 @@
 unit TtfwClassRef_Proxy;
 
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\TtfwClassRef_Proxy.pas"
+// Стереотип: "ClassProxy"
+
 interface
 
+{$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
  //#UC START# *561F9F9400BCintf_uses*
@@ -20,9 +24,11 @@ type
 {$EndIf  NoScripts}
 
 //#UC END# *561F9F9400BCintf_code*
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
+{$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
  //#UC START# *561F9F9400BCimpl_uses*
@@ -31,5 +37,6 @@ uses
 
 //#UC START# *561F9F9400BCimpl_code*
 //#UC END# *561F9F9400BCimpl_code*
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -1,4 +1,9 @@
-unit l3Interlocked;
+unit NOT_FINISHED_l3Interlocked;
+
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3Interlocked.pas"
+// Стереотип: "UtilityPack"
+
+{$Include l3Define.inc}
 
 interface
 

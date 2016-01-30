@@ -1,5 +1,10 @@
 unit daGUITypes;
 
+// Модуль: "w:\common\components\rtl\Garant\DA\daGUITypes.pas"
+// Стереотип: "Interfaces"
+
+{$Include daDefine.inc}
+
 interface
 
 uses
@@ -9,9 +14,9 @@ uses
 
 type
  TBuildConfigProc = procedure(aConfig: TddAppConfiguration;
-  const aProviderKey: AnsiString;
-  ForInfoOnly: Boolean) of object;
- 
+  const aProviderKey: AnsiString = '';
+  ForInfoOnly: Boolean = False) of object;
+
 implementation
 
 uses

@@ -1,20 +1,24 @@
-unit Unknown.imp;
+{$IfNDef Unknown_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\L3\Unknown.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define Unknown_imp}
 
-type
+ _UnknownImpl_Parent_ = _Unknown_Parent_;
+ {$Include UnknownImpl.imp.pas}
  _Unknown_ = class(_UnknownImpl_, IUnknown)
  end;//_Unknown_
- 
-implementation
 
-uses
- l3ImplUses
- , Windows
-;
+{$Else Unknown_imp}
 
-end.
+{$IfNDef Unknown_imp_impl}
+
+{$Define Unknown_imp_impl}
+
+{$Include UnknownImpl.imp.pas}
+
+{$EndIf Unknown_imp_impl}
+
+{$EndIf Unknown_imp}
+

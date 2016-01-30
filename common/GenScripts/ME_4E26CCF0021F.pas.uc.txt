@@ -1,0 +1,19 @@
+//#UC START# *4E26CFD1000A_4E26CCF0021F_impl*
+ if (aTag = nil) then
+  Result := l3Nodes.MakeNode('<Приехал пустой узел>')
+ else
+ if aTag.IsKindOf(k2_typDocument) then
+  Result := TevDocumentNode.Make(aTag, aFilter)
+ else
+ if aSub = nil then
+  Result := TevContentsTagNode.Make(aTag, aFilter)
+ else
+  Result := TevContentsSubNode.Make(aTag, aSub, aFilter);
+//#UC END# *4E26CFD1000A_4E26CCF0021F_impl*
+//#UC START# *4E26CFD1000A_4E26CCF0021F_var*
+//#UC END# *4E26CFD1000A_4E26CCF0021F_var*
+//#UC START# *4E26D05D00FA_4E26CCF0021F_impl*
+ Result := TevRootContentsNode.Make;
+//#UC END# *4E26D05D00FA_4E26CCF0021F_impl*
+//#UC START# *4E26D05D00FA_4E26CCF0021F_var*
+//#UC END# *4E26D05D00FA_4E26CCF0021F_var*

@@ -1,5 +1,10 @@
 unit ULong_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\ULong_Const.pas"
+// Стереотип: "Atom"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -8,7 +13,7 @@ uses
 ;
 
  // ULongAtom
- 
+
 implementation
 
 uses

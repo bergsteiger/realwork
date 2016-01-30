@@ -1,5 +1,10 @@
 unit SpellCorrectTask_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\SpellCorrectTask_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -9,7 +14,7 @@ uses
 ;
 
  // SpellCorrectTaskTag
- 
+
 implementation
 
 uses

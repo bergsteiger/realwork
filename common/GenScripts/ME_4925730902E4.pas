@@ -1,0 +1,148 @@
+unit dsContents;
+ {* бизнес объект формы ContentsForm }
+
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsContents.pas"
+// Стереотип: "ViewAreaControllerImp"
+
+{$Include nsDefine.inc}
+
+interface
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3IntfUses
+ , DocumentAndListInterfaces
+ , WorkWithDocumentInterfaces
+ , l3TreeInterfaces
+ , DocumentInterfaces
+ , DocumentUnit
+ , F1TagDataProviderInterface
+ , nsTypesNew
+ , l3InternalInterfaces
+ , TreeInterfaces
+ , bsInterfaces
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3ProtoObjectWithCOMQI
+ {$If NOT Defined(NoVCM)}
+ , vcmLocalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , l3Interfaces
+ , l3NotifyPtrList
+ {$If Defined(Nemesis)}
+ , nscNewInterfaces
+ {$IfEnd} // Defined(Nemesis)
+;
+
+type
+ {$Include dsBaseContents.imp.pas}
+ TdsContents = {final} class(_dsBaseContents_, IdsContents)
+  {* бизнес объект формы ContentsForm }
+  private
+   : IsdsDocument;
+  protected
+   function MakeSimpleTree: Il3SimpleTree; override;
+    {* Создать данные дерева }
+   function pm_GetHasRespondents: Boolean;
+   function pm_GetHasCorrespondents: Boolean;
+   function HasSimilarToFragment(anId: Integer): Boolean;
+   procedure OpenSimilarDocuments;
+   procedure OpenSimilarDocumentsToFragment(aBlockId: Integer);
+ end;//TdsContents
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
+implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ , vtUtils
+ , DocumentRes
+ , l3String
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , dsBaseContentsRes
+ , SysUtils
+ , l3Base
+ , vtStdRes
+ , DynamicTreeUnit
+ , nsNewCachableNode
+ , Windows
+ , l3InterfacesMisc
+ {$If Defined(Nemesis)}
+ , nscContextFilterState
+ {$IfEnd} // Defined(Nemesis)
+;
+
+type _Instance_R_ = TdsContents;
+
+{$Include dsBaseContents.imp.pas}
+
+function TdsContents.MakeSimpleTree: Il3SimpleTree;
+ {* Создать данные дерева }
+//#UC START# *47F4C2B9014A_4925730902E4_var*
+//#UC END# *47F4C2B9014A_4925730902E4_var*
+begin
+//#UC START# *47F4C2B9014A_4925730902E4_impl*
+ Result := nil;
+ //Assert(false);
+ // - временно закомментировал для http://mdp.garant.ru/pages/viewpage.action?pageId=248195582 
+ // Если попадём сюда, то читаем http://mdp.garant.ru/pages/viewpage.action?pageId=135605187
+//#UC END# *47F4C2B9014A_4925730902E4_impl*
+end;//TdsContents.MakeSimpleTree
+
+function TdsContents.pm_GetHasRespondents: Boolean;
+//#UC START# *492571BE02C8_4925730902E4get_var*
+//#UC END# *492571BE02C8_4925730902E4get_var*
+begin
+//#UC START# *492571BE02C8_4925730902E4get_impl*
+ Result := ucc_IsdsDocument.HasRespondents;
+//#UC END# *492571BE02C8_4925730902E4get_impl*
+end;//TdsContents.pm_GetHasRespondents
+
+function TdsContents.pm_GetHasCorrespondents: Boolean;
+//#UC START# *492571CF017C_4925730902E4get_var*
+//#UC END# *492571CF017C_4925730902E4get_var*
+begin
+//#UC START# *492571CF017C_4925730902E4get_impl*
+ Result := ucc_IsdsDocument.HasCorrespondents;
+//#UC END# *492571CF017C_4925730902E4get_impl*
+end;//TdsContents.pm_GetHasCorrespondents
+
+function TdsContents.HasSimilarToFragment(anId: Integer): Boolean;
+//#UC START# *55880E2802C5_4925730902E4_var*
+//#UC END# *55880E2802C5_4925730902E4_var*
+begin
+//#UC START# *55880E2802C5_4925730902E4_impl*
+ Result := ucc_IsdsDocument.HasSimilarToFragment(anId);
+//#UC END# *55880E2802C5_4925730902E4_impl*
+end;//TdsContents.HasSimilarToFragment
+
+procedure TdsContents.OpenSimilarDocuments;
+//#UC START# *55925FB9019A_4925730902E4_var*
+//#UC END# *55925FB9019A_4925730902E4_var*
+begin
+//#UC START# *55925FB9019A_4925730902E4_impl*
+ ucc_IsdsDocument.OpenSimilarDocuments;
+//#UC END# *55925FB9019A_4925730902E4_impl*
+end;//TdsContents.OpenSimilarDocuments
+
+procedure TdsContents.OpenSimilarDocumentsToFragment(aBlockId: Integer);
+//#UC START# *5594F4DB0203_4925730902E4_var*
+//#UC END# *5594F4DB0203_4925730902E4_var*
+begin
+//#UC START# *5594F4DB0203_4925730902E4_impl*
+ ucc_IsdsDocument.OpenSimilarDocumentsToFragment(aBlockId);
+//#UC END# *5594F4DB0203_4925730902E4_impl*
+end;//TdsContents.OpenSimilarDocumentsToFragment
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
+end.

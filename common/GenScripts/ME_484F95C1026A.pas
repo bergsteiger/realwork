@@ -1,4 +1,10 @@
 unit Sub_Const;
+ {* Метка }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\Sub_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -12,7 +18,7 @@ uses
 ;
 
  // SubTag
- 
+
 implementation
 
 uses

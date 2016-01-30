@@ -1,4 +1,10 @@
 unit PageBreak_Const;
+ {* Разрыв страницы }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\PageBreak_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -9,7 +15,7 @@ uses
 ;
 
  // PageBreakTag
- 
+
 implementation
 
 uses

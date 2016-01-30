@@ -1,4 +1,10 @@
 unit AutoClass_Const;
+ {* Авто-класс }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\AutoClass_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -10,7 +16,7 @@ uses
 ;
 
  // AutoClassTag
- 
+
 implementation
 
 uses

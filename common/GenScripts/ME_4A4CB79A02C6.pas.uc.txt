@@ -1,0 +1,275 @@
+//#UC START# *4728BE6A0392_4A4CB79A02C6get_impl*
+ if Printing then
+  Result := f_PageNumber
+ else
+  Result := -1;
+//#UC END# *4728BE6A0392_4A4CB79A02C6get_impl*
+//#UC START# *4728BE6A0392_4A4CB79A02C6get_var*
+//#UC END# *4728BE6A0392_4A4CB79A02C6get_var*
+//#UC START# *4728BE830080_4A4CB79A02C6get_impl*
+ if Printing then
+  Result := f_PageWidthNumber
+ else
+  Result := 0;
+//#UC END# *4728BE830080_4A4CB79A02C6get_impl*
+//#UC START# *4728BE830080_4A4CB79A02C6get_var*
+//#UC END# *4728BE830080_4A4CB79A02C6get_var*
+//#UC START# *479731C50290_4A4CB79A02C6_impl*
+ f_Printer := nil;
+ FreeAndNil(f_ClipRects);
+ FreeAndNil(f_LineSpacingStack);
+ inherited;
+//#UC END# *479731C50290_4A4CB79A02C6_impl*
+//#UC START# *479731C50290_4A4CB79A02C6_var*
+//#UC END# *479731C50290_4A4CB79A02C6_var*
+//#UC START# *47A042E100E2_4A4CB79A02C6_impl*
+ inherited;
+ f_Margins := l3Rect(0, 0, 0, def_inchPaperBottom);
+ f_DeviceCaps.rIsAssigned := false;
+ f_LineSpacing := def_LineSpacing;
+//#UC END# *47A042E100E2_4A4CB79A02C6_impl*
+//#UC START# *47A042E100E2_4A4CB79A02C6_var*
+//#UC END# *47A042E100E2_4A4CB79A02C6_var*
+//#UC START# *4A4CBCD002EA_4A4CB79A02C6_impl*
+ if Printing AND (f_Printer <> nil) AND not f_Printer.HasPrinter then
+  Result := DP2LP(PointX(DeviceCaps(PHYSICALWIDTH))).X
+ else
+  Result := DP2LP(PointX(DeviceCaps(HORZRES))).X;
+//#UC END# *4A4CBCD002EA_4A4CB79A02C6_impl*
+//#UC START# *4A4CBCD002EA_4A4CB79A02C6_var*
+//#UC END# *4A4CBCD002EA_4A4CB79A02C6_var*
+//#UC START# *4A4CBCDD0244_4A4CB79A02C6_impl*
+ if Printing AND (f_Printer <> nil) AND not f_Printer.HasPrinter then
+  Result := DP2LP(PointY(DeviceCaps(PHYSICALHEIGHT))).Y
+ else
+  Result := DP2LP(PointY(DeviceCaps(VERTRES))).Y;
+//#UC END# *4A4CBCDD0244_4A4CB79A02C6_impl*
+//#UC START# *4A4CBCDD0244_4A4CB79A02C6_var*
+//#UC END# *4A4CBCDD0244_4A4CB79A02C6_var*
+//#UC START# *4A4CBD130121_4A4CB79A02C6_impl*
+ if Printing then
+ begin
+  l_Ofs := DP2LP(l3SPoint(DeviceCaps(PHYSICALOFFSETX),
+                          DeviceCaps(PHYSICALOFFSETY)));
+  l_Ofs.X := Max(l_Ofs.X, f_Margins.Left);
+  l_Ofs.Y := Max(l_Ofs.Y, f_Margins.Top);
+  l_OfsB := DP2LP(l3SPoint(DeviceCaps(PHYSICALWIDTH) - DeviceCaps(HORZRES),
+                                  DeviceCaps(PHYSICALHEIGHT) - DeviceCaps(VERTRES))).Sub(l_Ofs);
+  l_OfsB.X := Max(l_OfsB.X, f_Margins.Right);
+  Result := l3Rect(l_Ofs, l_OfsB);
+ end//Printing
+ else
+  Result := l3Rect(0, 0, 0, 0);
+//#UC END# *4A4CBD130121_4A4CB79A02C6_impl*
+//#UC START# *4A4CBD130121_4A4CB79A02C6_var*
+var
+ l_Ofs  : Tl3Point;
+ l_OfsB : Tl3Point;
+//#UC END# *4A4CBD130121_4A4CB79A02C6_var*
+//#UC START# *4A4CBF0003DF_4A4CB79A02C6get_impl*
+ Result := GetPrinting;
+//#UC END# *4A4CBF0003DF_4A4CB79A02C6get_impl*
+//#UC START# *4A4CBF0003DF_4A4CB79A02C6get_var*
+//#UC END# *4A4CBF0003DF_4A4CB79A02C6get_var*
+//#UC START# *4A4CBF0003DF_4A4CB79A02C6set_impl*
+ if aValue then
+ begin
+  Include(f_Flags, ev_dfPrinting);
+  Exclude(f_Flags, ev_dfDrawSpecial);
+  OnDrawSub := nil;
+ end//aValue 
+ else
+  Exclude(f_Flags, ev_dfPrinting);
+//#UC END# *4A4CBF0003DF_4A4CB79A02C6set_impl*
+//#UC START# *4A4CBF0003DF_4A4CB79A02C6set_var*
+//#UC END# *4A4CBF0003DF_4A4CB79A02C6set_var*
+//#UC START# *4A4CC10D01A1_4A4CB79A02C6get_impl*
+ Result := DoGetDrawEnabled AND Assigned(f_OnDrawSub);
+//#UC END# *4A4CC10D01A1_4A4CB79A02C6get_impl*
+//#UC START# *4A4CC10D01A1_4A4CB79A02C6get_var*
+//#UC END# *4A4CC10D01A1_4A4CB79A02C6get_var*
+//#UC START# *4A4CC1410062_4A4CB79A02C6_impl*
+ if CanDrawSubs then
+  f_OnDrawSub(aSubTarget, AsIl3Canvas, R, LayerHandle, aSub);
+//#UC END# *4A4CC1410062_4A4CB79A02C6_impl*
+//#UC START# *4A4CC1410062_4A4CB79A02C6_var*
+//#UC END# *4A4CC1410062_4A4CB79A02C6_var*
+//#UC START# *4A4CC195011E_4A4CB79A02C6_impl*
+ Result := (ev_dfDrawRegion In f_Flags);
+//#UC END# *4A4CC195011E_4A4CB79A02C6_impl*
+//#UC START# *4A4CC195011E_4A4CB79A02C6_var*
+//#UC END# *4A4CC195011E_4A4CB79A02C6_var*
+//#UC START# *4A4CC95D0147_4A4CB79A02C6get_impl*
+ Result := f_PixelsPerInchX;
+ if (Result = 0) then 
+ begin
+  f_PixelsPerInchX := DeviceCaps(LOGPIXELSX);
+  Result := f_PixelsPerInchX;
+ end;
+//#UC END# *4A4CC95D0147_4A4CB79A02C6get_impl*
+//#UC START# *4A4CC95D0147_4A4CB79A02C6get_var*
+//#UC END# *4A4CC95D0147_4A4CB79A02C6get_var*
+//#UC START# *4A4CC9830334_4A4CB79A02C6get_impl*
+ Result := f_PixelsPerInchY;
+ if (Result = 0) then
+ begin
+  f_PixelsPerInchY := DeviceCaps(LOGPIXELSY);
+  Result := f_PixelsPerInchY;
+ end;//Result = 0
+//#UC END# *4A4CC9830334_4A4CB79A02C6get_impl*
+//#UC START# *4A4CC9830334_4A4CB79A02C6get_var*
+//#UC END# *4A4CC9830334_4A4CB79A02C6get_var*
+//#UC START# *4A4CCCE900E8_4A4CB79A02C6_impl*
+ Result := (ev_dfPrinting in f_Flags);
+//#UC END# *4A4CCCE900E8_4A4CB79A02C6_impl*
+//#UC START# *4A4CCCE900E8_4A4CB79A02C6_var*
+//#UC END# *4A4CCCE900E8_4A4CB79A02C6_var*
+//#UC START# *4A4CCE400004_4A4CB79A02C6_impl*
+ f_PixelsPerInchX := DeviceCaps(LOGPIXELSX);
+ f_PixelsPerInchY := DeviceCaps(LOGPIXELSY);
+ {-обновляем разрешение}
+//#UC END# *4A4CCE400004_4A4CB79A02C6_impl*
+//#UC START# *4A4CCE400004_4A4CB79A02C6_var*
+//#UC END# *4A4CCE400004_4A4CB79A02C6_var*
+//#UC START# *4A4CD82A0310_4A4CB79A02C6get_impl*
+ Result := DoGetPageSetupWidth;
+//#UC END# *4A4CD82A0310_4A4CB79A02C6get_impl*
+//#UC START# *4A4CD82A0310_4A4CB79A02C6get_var*
+//#UC END# *4A4CD82A0310_4A4CB79A02C6get_var*
+//#UC START# *4A4CD82E025B_4A4CB79A02C6get_impl*
+ Result := DoGetPageSetupHeight;
+//#UC END# *4A4CD82E025B_4A4CB79A02C6get_impl*
+//#UC START# *4A4CD82E025B_4A4CB79A02C6get_var*
+//#UC END# *4A4CD82E025B_4A4CB79A02C6get_var*
+//#UC START# *4A4CD8320146_4A4CB79A02C6get_impl*
+ Result := DoGetPaperWidth;
+//#UC END# *4A4CD8320146_4A4CB79A02C6get_impl*
+//#UC START# *4A4CD8320146_4A4CB79A02C6get_var*
+//#UC END# *4A4CD8320146_4A4CB79A02C6get_var*
+//#UC START# *4A4CD8350157_4A4CB79A02C6get_impl*
+ Result := DP2LP(PointY(DeviceCaps(PHYSICALHEIGHT))).Y;
+//#UC END# *4A4CD8350157_4A4CB79A02C6get_impl*
+//#UC START# *4A4CD8350157_4A4CB79A02C6get_var*
+//#UC END# *4A4CD8350157_4A4CB79A02C6get_var*
+//#UC START# *4A4CD83F0022_4A4CB79A02C6get_impl*
+ l_Ofs := DP2LP(l3SPoint(DeviceCaps(PHYSICALOFFSETX),
+                         DeviceCaps(PHYSICALOFFSETY)));
+ Result := f_Margins;
+ Result.Left := Max(l_Ofs.X, Result.Left);
+ Result.Top := Max(l_Ofs.Y, Result.Top);
+ l_Ofs := DP2LP(l3SPoint(DeviceCaps(PHYSICALWIDTH) - DeviceCaps(HORZRES),
+                         DeviceCaps(PHYSICALHEIGHT) - DeviceCaps(VERTRES))).Sub(l_Ofs);
+ Result.Right := Max(l_Ofs.X, Result.Right);
+//#UC END# *4A4CD83F0022_4A4CB79A02C6get_impl*
+//#UC START# *4A4CD83F0022_4A4CB79A02C6get_var*
+var
+ l_Ofs : Tl3Point;
+//#UC END# *4A4CD83F0022_4A4CB79A02C6get_var*
+//#UC START# *4A4CD83F0022_4A4CB79A02C6set_impl*
+ f_Margins := aValue;
+//#UC END# *4A4CD83F0022_4A4CB79A02C6set_impl*
+//#UC START# *4A4CD83F0022_4A4CB79A02C6set_var*
+//#UC END# *4A4CD83F0022_4A4CB79A02C6set_var*
+//#UC START# *4A4CE0990013_4A4CB79A02C6_impl*
+ if (aP.X = MaxInt) then
+  Result.X := aP.X
+ else
+  Result.X := l3MulDiv(aP.X, l3Inch, PixelsPerInchX);
+ if (aP.Y = MaxInt) then
+  Result.Y := aP.Y
+ else
+  Result.Y := l3MulDiv(aP.Y, l3Inch, PixelsPerInchY);
+//#UC END# *4A4CE0990013_4A4CB79A02C6_impl*
+//#UC START# *4A4CE0990013_4A4CB79A02C6_var*
+//#UC END# *4A4CE0990013_4A4CB79A02C6_var*
+//#UC START# *4CB32CEA01FE_4A4CB79A02C6get_impl*
+ Result := GetIsPagesCounter;
+//#UC END# *4CB32CEA01FE_4A4CB79A02C6get_impl*
+//#UC START# *4CB32CEA01FE_4A4CB79A02C6get_var*
+//#UC END# *4CB32CEA01FE_4A4CB79A02C6get_var*
+//#UC START# *4CB32D4C030E_4A4CB79A02C6_impl*
+ Result := false;
+//#UC END# *4CB32D4C030E_4A4CB79A02C6_impl*
+//#UC START# *4CB32D4C030E_4A4CB79A02C6_var*
+//#UC END# *4CB32D4C030E_4A4CB79A02C6_var*
+//#UC START# *4CC68B5D00CA_4A4CB79A02C6get_impl*
+ if Printing then
+  Result := f_OverallPageNumber
+ else
+  Result := -1;
+//#UC END# *4CC68B5D00CA_4A4CB79A02C6get_impl*
+//#UC START# *4CC68B5D00CA_4A4CB79A02C6get_var*
+//#UC END# *4CC68B5D00CA_4A4CB79A02C6get_var*
+//#UC START# *4D1B61130223_4A4CB79A02C6_impl*
+ Result := DP2LP(PointX(DeviceCaps(PHYSICALWIDTH))).X;
+//#UC END# *4D1B61130223_4A4CB79A02C6_impl*
+//#UC START# *4D1B61130223_4A4CB79A02C6_var*
+//#UC END# *4D1B61130223_4A4CB79A02C6_var*
+//#UC START# *4E007CC302AE_4A4CB79A02C6get_impl*
+ Result := f_InitialDCOffset;
+//#UC END# *4E007CC302AE_4A4CB79A02C6get_impl*
+//#UC START# *4E007CC302AE_4A4CB79A02C6get_var*
+//#UC END# *4E007CC302AE_4A4CB79A02C6get_var*
+//#UC START# *4E26F481005B_4A4CB79A02C6_impl*
+ if (f_ClipRects = nil) then
+  f_ClipRects := Tl3RectList.Create;
+ Result := GetGlobalClipRectWithZoom;
+ f_ClipRects.Add(Result);
+ Result := Result.AddPt(WindowOrg);
+//#UC END# *4E26F481005B_4A4CB79A02C6_impl*
+//#UC START# *4E26F481005B_4A4CB79A02C6_var*
+//#UC END# *4E26F481005B_4A4CB79A02C6_var*
+//#UC START# *4E26F4920228_4A4CB79A02C6_impl*
+ ClipRect := f_ClipRects.Last.AddPt(WindowOrg);
+ f_ClipRects.Delete(f_ClipRects.Hi);
+//#UC END# *4E26F4920228_4A4CB79A02C6_impl*
+//#UC START# *4E26F4920228_4A4CB79A02C6_var*
+var
+ l_ClipRect: Tl3Rect;
+//#UC END# *4E26F4920228_4A4CB79A02C6_var*
+//#UC START# *4E27061B0140_4A4CB79A02C6set_impl*
+ l_R := aValue.Clone;
+ l_R.Offset(SWindowOrg.Neg);
+ SelectClipRgn(DC, l_R.Rgn);
+ f_ClipRectInited := false;
+//#UC END# *4E27061B0140_4A4CB79A02C6set_impl*
+//#UC START# *4E27061B0140_4A4CB79A02C6set_var*
+var
+ l_R : Il3Region;
+//#UC END# *4E27061B0140_4A4CB79A02C6set_var*
+//#UC START# *4E57A9F10230_4A4CB79A02C6get_impl*
+ Result := f_LineSpacing;
+//#UC END# *4E57A9F10230_4A4CB79A02C6get_impl*
+//#UC START# *4E57A9F10230_4A4CB79A02C6get_var*
+//#UC END# *4E57A9F10230_4A4CB79A02C6get_var*
+//#UC START# *4E57A9F10230_4A4CB79A02C6set_impl*
+ if (aValue <= 0) OR (aValue >= Pred(High(Integer))) then
+  Exit; 
+ f_LineSpacing := aValue;
+//#UC END# *4E57A9F10230_4A4CB79A02C6set_impl*
+//#UC START# *4E57A9F10230_4A4CB79A02C6set_var*
+//#UC END# *4E57A9F10230_4A4CB79A02C6set_var*
+//#UC START# *4E6894860139_4A4CB79A02C6_impl*
+ if (f_LineSpacingStack = nil) then
+  f_LineSpacingStack := Tl3LongintList.Create;
+ f_LineSpacingStack.Add(f_LineSpacing); 
+//#UC END# *4E6894860139_4A4CB79A02C6_impl*
+//#UC START# *4E6894860139_4A4CB79A02C6_var*
+//#UC END# *4E6894860139_4A4CB79A02C6_var*
+//#UC START# *4E68949A0121_4A4CB79A02C6_impl*
+ Assert(f_LineSpacingStack <> nil);
+ Set_LineSpacing(f_LineSpacingStack.Last);
+ f_LineSpacingStack.Delete(f_LineSpacingStack.Hi);
+//#UC END# *4E68949A0121_4A4CB79A02C6_impl*
+//#UC START# *4E68949A0121_4A4CB79A02C6_var*
+//#UC END# *4E68949A0121_4A4CB79A02C6_var*
+//#UC START# *4E98521202B5_4A4CB79A02C6_impl*
+ Result := GlobalClipRect;
+//#UC END# *4E98521202B5_4A4CB79A02C6_impl*
+//#UC START# *4E98521202B5_4A4CB79A02C6_var*
+//#UC END# *4E98521202B5_4A4CB79A02C6_var*
+//#UC START# *4F2AC2020377_4A4CB79A02C6get_impl*
+ Result := f_InitialDCOffsetStored;
+//#UC END# *4F2AC2020377_4A4CB79A02C6get_impl*
+//#UC START# *4F2AC2020377_4A4CB79A02C6get_var*
+//#UC END# *4F2AC2020377_4A4CB79A02C6get_var*

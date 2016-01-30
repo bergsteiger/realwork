@@ -1,0 +1,115 @@
+//#UC START# *47A042E100E2_4AF8665A0079_impl*
+ inherited;
+ ActiveControl := f_Editor;
+ BorderIcons := [];
+ Anchors := [];
+
+ try
+  if afw.Application.LocaleInfo.Language = afw_lngRussian then
+   l_String := ''
+  else
+   l_String := vcmConstString(str_StyleTableExample);
+  if (l_String <> '') then
+   l_Stream := Tl3StringStream.Create(l3PCharLen(l_String))
+  else
+   l_Stream := Tl3ResourceStream.Create(HInstance, CDefaultStyleTableExampleResourceName);
+  try
+   l_Filer := Tl3CustomFiler.Create;
+   try
+    l_Filer.Stream := l_Stream;
+    l_Reader := TevdNativeReader.Create;
+    try
+     l_Reader.Filer := l_Filer;
+     f_Editor.TextSource.Load(l_Reader);
+    finally
+     l3Free(l_Reader);
+    end;//try..finally
+   finally
+    l3Free(l_Filer);
+   end;//try..finally
+  finally
+   l3Free(l_Stream);
+  end;//try..finally
+ except
+  on EResNotFound do;
+ end;//try..except
+//#UC END# *47A042E100E2_4AF8665A0079_impl*
+//#UC START# *47A042E100E2_4AF8665A0079_var*
+const
+ CDefaultStyleTableExampleResourceName = 'nsDefaultStyleTableExample';
+var
+ l_Filer: Tl3CustomFiler;
+ l_Reader: TevdNativeReader;
+ l_Stream: TStream;
+ l_String: String;
+//#UC END# *47A042E100E2_4AF8665A0079_var*
+//#UC START# *4A8E8F2E0195_4AF8665A0079_impl*
+ inherited;
+ with f_EditorPanel do
+ begin
+  Align := alClient;
+  BevelInner := bvRaised;
+  BevelOuter := bvLowered;
+ end;
+ with f_Editor do
+ begin
+  Align := alClient;
+  TextSource := f_TextSource;
+  IsStaticText := True;
+  OnGetHotSpotInfo := EditorGetHotSpotInfo;
+ end;
+//#UC END# *4A8E8F2E0195_4AF8665A0079_impl*
+//#UC START# *4A8E8F2E0195_4AF8665A0079_var*
+//#UC END# *4A8E8F2E0195_4AF8665A0079_var*
+//#UC START# *4AF8660E0079_4AF8665A0079exec_impl*
+ if Supports(f_TextSource, IafwStyleTableSpy, l_StyleTableSpy) then
+  try
+   l_StyleTableSpy.StyleTableChanged;
+  finally
+   l_StyleTableSpy := nil;
+  end
+ else
+  Assert(False, 'Can''t query "IafwStyleTableSpy" interface');
+//#UC END# *4AF8660E0079_4AF8665A0079exec_impl*
+//#UC START# *4AF8660E0079_4AF8665A0079exec_var*
+var
+ l_StyleTableSpy: IafwStyleTableSpy;
+//#UC END# *4AF8660E0079_4AF8665A0079exec_var*
+//#UC START# *4AF8665A0079ci*
+//#UC END# *4AF8665A0079ci*
+//#UC START# *4AF8665A0079cit*
+//#UC END# *4AF8665A0079cit*
+//#UC START# *4AF8665A0079impl*
+{$R PrimStyleEditorExample_Form.res}
+//#UC END# *4AF8665A0079impl*
+//#UC START# *4AF8665A0079publ*
+//#UC END# *4AF8665A0079publ*
+//#UC START# *526A83CD00ED_4AF8665A0079_impl*
+ if l3BQueryInterface(aHotSpot, Il3TagRef, l_TagWrap) then
+  try
+   with l_TagWrap.AsObject do
+    if IsKindOf(k2_typTextSegment) then
+     with theInfo do
+     begin
+      rCursor := ev_csHelp;
+      rHint := vcmFmt(str_StyleEditorExampleHint, [Attr[k2_tiStyle].AsString]);
+      Exit;
+     end;//with theInfo
+  finally
+   l_TagWrap := nil;
+  end;
+ if (Sender As TevCustomEditorWindow).GetPtPoint(aKeys.rPoint, l_Point) then
+  with l_Point.MostInner.Obj^ do
+   if AsObject.IsKindOf(k2_typStyledLeafPara) then
+    with theInfo do
+    begin
+     rCursor := ev_csHelp;
+     rHint := vcmFmt(str_StyleEditorExampleHint, [AsObject.Attr[k2_tiStyle].AsString]);
+     Exit;
+    end;//with theInfo
+//#UC END# *526A83CD00ED_4AF8665A0079_impl*
+//#UC START# *526A83CD00ED_4AF8665A0079_var*
+var
+ l_TagWrap: Il3TagRef;
+ l_Point: InevBasePoint;
+//#UC END# *526A83CD00ED_4AF8665A0079_var*

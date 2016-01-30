@@ -1,0 +1,20 @@
+//#UC START# *4F6AF5860291_4F6AE4A6014D_impl*
+ Application.HelpFile := aHelpFile;
+ Application.Title := aTitle.AsStr;
+
+ MakeResources;
+
+ l_Main := nil;
+ try
+  Application.CreateForm(TMainForm, l_Main);
+ finally
+  if (l_Main <> nil) then
+   SetForeGroundWindow(l_Main.Handle);
+ end;//try..finally
+
+ Application.Run;
+//#UC END# *4F6AF5860291_4F6AE4A6014D_impl*
+//#UC START# *4F6AF5860291_4F6AE4A6014D_var*
+var
+ l_Main : TForm;
+//#UC END# *4F6AF5860291_4F6AE4A6014D_var*

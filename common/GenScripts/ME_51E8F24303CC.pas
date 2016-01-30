@@ -1,4 +1,9 @@
-unit l3StringEx;
+unit NOT_FINISHED_l3StringEx;
+
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3StringEx.pas"
+// Стереотип: "UtilityPack"
+
+{$Include l3Define.inc}
 
 interface
 
@@ -9,7 +14,7 @@ uses
 type
  Tl3Str = class
  end;//Tl3Str
- 
+
 implementation
 
 uses

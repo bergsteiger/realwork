@@ -1,0 +1,101 @@
+//#UC START# *47D1602000C6_4CFF6CF60266_impl*
+ inherited;
+ ParentFont := False;
+ AutoHeightByText := True;
+ AutoHideSelection := True;
+ PlainText := False;
+ KeepAllFormatting := True;
+ ScrollStyle := ssNone;
+//#UC END# *47D1602000C6_4CFF6CF60266_impl*
+//#UC START# *47D1602000C6_4CFF6CF60266_var*
+//#UC END# *47D1602000C6_4CFF6CF60266_var*
+//#UC START# *47E136A80191_4CFF6CF60266_impl*
+ //http://mdp.garant.ru/pages/viewpage.action?pageId=294584542
+ if f_DisableMouseWheelProcessing and (Message.Msg = WM_MOUSEWHEEL) then
+ begin
+  l_Form := lp_GetParentForm;
+  if (l_Form <> nil) then
+   l_Form.MouseWheelHandler(Message)
+  else
+   inherited;
+ end
+ else
+  inherited;
+//#UC END# *47E136A80191_4CFF6CF60266_impl*
+//#UC START# *47E136A80191_4CFF6CF60266_var*
+
+  function lp_GetParentForm: TCustomForm;
+  var
+   l_Control: TControl;
+  begin
+   Result := nil;
+   l_Control := Parent;
+   while (l_Control <> nil) and (not (l_Control is TCustomForm)) do
+   begin
+    l_Control := l_Control.Parent;
+   end;
+   if (l_Control is TCustomForm) then
+    Result := TCustomForm(l_Control);
+  end;//lp_GetParentForm
+
+var
+ l_Form: TCustomForm;
+//#UC END# *47E136A80191_4CFF6CF60266_var*
+//#UC START# *482BFBEE00D5_4CFF6CF60266_impl*
+ Result := False;
+//#UC END# *482BFBEE00D5_4CFF6CF60266_impl*
+//#UC START# *482BFBEE00D5_4CFF6CF60266_var*
+//#UC END# *482BFBEE00D5_4CFF6CF60266_var*
+//#UC START# *482BFCBF01F0_4CFF6CF60266_impl*
+ if Assigned(f_OnBreakingPara) then
+ begin
+  f_OnBreakingPara(Self, Result);
+  if Result then 
+   Exit;
+ end;
+ Result := inherited DoBreakPara(aDrawLines,anOp);
+//#UC END# *482BFCBF01F0_4CFF6CF60266_impl*
+//#UC START# *482BFCBF01F0_4CFF6CF60266_var*
+//#UC END# *482BFCBF01F0_4CFF6CF60266_var*
+//#UC START# *48735C4A03C3_4CFF6CF60266_impl*
+ Result := [];
+//#UC END# *48735C4A03C3_4CFF6CF60266_impl*
+//#UC START# *48735C4A03C3_4CFF6CF60266_var*
+//#UC END# *48735C4A03C3_4CFF6CF60266_var*
+//#UC START# *48E22AD302CE_4CFF6CF60266_impl*
+ Result := True; 
+//#UC END# *48E22AD302CE_4CFF6CF60266_impl*
+//#UC START# *48E22AD302CE_4CFF6CF60266_var*
+//#UC END# *48E22AD302CE_4CFF6CF60266_var*
+//#UC START# *4CFF6CF60266ci*
+//#UC END# *4CFF6CF60266ci*
+//#UC START# *4CFF6CF60266cit*
+//#UC END# *4CFF6CF60266cit*
+//#UC START# *4CFF6CF60266impl*
+//#UC END# *4CFF6CF60266impl*
+//#UC START# *4CFF6CF60266publ*
+ published
+  property Align;
+  property TabOrder;
+  property TextSource;
+  property IsStaticText;
+  property ScrollStyle;// default ssNone;
+  property OnGetHotSpotInfo;
+  property OnJumpTo;
+  property OnMouseAction;
+  property Visible;
+  property AutoHeightByText default True;
+  property OnBreakingPara: TBreakingParaEvent read f_OnBreakingPara write f_OnBreakingPara;
+  property AutoHideSelection default True;
+  property AfterAdjustHeight;
+//#UC END# *4CFF6CF60266publ*
+//#UC START# *530B25360303_4CFF6CF60266get_impl*
+ Result := f_DisableMouseWheelProcessing;
+//#UC END# *530B25360303_4CFF6CF60266get_impl*
+//#UC START# *530B25360303_4CFF6CF60266get_var*
+//#UC END# *530B25360303_4CFF6CF60266get_var*
+//#UC START# *530B25360303_4CFF6CF60266set_impl*
+ f_DisableMouseWheelProcessing := aValue;
+//#UC END# *530B25360303_4CFF6CF60266set_impl*
+//#UC START# *530B25360303_4CFF6CF60266set_var*
+//#UC END# *530B25360303_4CFF6CF60266set_var*

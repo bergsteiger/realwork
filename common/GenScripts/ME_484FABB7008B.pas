@@ -1,4 +1,10 @@
 unit Mark_Const;
+ {* Вспомогательный значок }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\Mark_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -8,7 +14,7 @@ uses
 ;
 
  // MarkTag
- 
+
 implementation
 
 uses

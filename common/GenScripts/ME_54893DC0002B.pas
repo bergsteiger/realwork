@@ -1,5 +1,10 @@
 unit csPushFilePart_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\csPushFilePart_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -11,7 +16,7 @@ uses
 ;
 
  // csPushFilePartTag
- 
+
 implementation
 
 uses

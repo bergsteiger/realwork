@@ -1,7 +1,14 @@
 unit K234360974;
+ {* [RequestLink:234360974]. }
+
+// Модуль: "w:\common\components\rtl\Garant\Daily\K234360974.pas"
+// Стереотип: "TestCase"
+
+{$Include TestDefine.inc.pas}
 
 interface
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
  , MoveSubTest
@@ -10,13 +17,36 @@ uses
 type
  TK234360974 = class(TMoveSubTest)
   {* [RequestLink:234360974]. }
+  protected
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK234360974
- 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+
 implementation
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
  , TestFrameWork
 ;
+
+function TK234360974.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := '7.6';
+end;//TK234360974.GetFolder
+
+function TK234360974.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '4C920E240280';
+end;//TK234360974.GetModelElementGUID
+
+initialization
+ TestFramework.RegisterTest(TK234360974.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

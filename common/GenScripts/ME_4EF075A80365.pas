@@ -1,4 +1,9 @@
-unit evdNativeUnpackedWriter;
+unit NOT_FINISHED_evdNativeUnpackedWriter;
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\NOT_FINISHED_evdNativeUnpackedWriter.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -10,7 +15,7 @@ uses
 type
  TevdNativeUnpackedWriter = class(Tk2CustomFileGenerator)
  end;//TevdNativeUnpackedWriter
- 
+
 implementation
 
 uses

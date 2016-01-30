@@ -1,5 +1,8 @@
 unit CommCtrl;
 
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Win\CommCtrl.pas"
+// Стереотип: "UtilityPack"
+
 interface
 
 uses

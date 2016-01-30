@@ -1,0 +1,145 @@
+//#UC START# *47F0C1BF0314_4925449A0296_impl*
+ if Supports(aNode, INodeBase, l_Node) and
+    ((not l_Node.IsSameNode(Current)) or ForceChangeInCurrentChanged)then
+ try
+  l_Node.GetEntity(l_Entity);
+  if Supports(l_Entity, IDocument, l_Doc) then
+  try
+   if (ucc_BaseDocument <> nil) then
+   begin
+    ChangeCurrent(aNode);
+    ucc_BaseDocument.ChangeDocument(MakeDocInfoForCurrentChanged(l_Doc));
+    AfterChangeCurrent;
+   end;//ucc_BaseDocument <> nil
+  finally
+   l_Doc := nil;
+  end;//try..finally
+ finally
+  l_Node := nil;
+ end;//try..finally
+//#UC END# *47F0C1BF0314_4925449A0296_impl*
+//#UC START# *47F0C1BF0314_4925449A0296_var*
+var
+ l_Node   : INodeBase;
+ l_Entity : IEntityBase;
+ l_Doc    : IDocument;
+//#UC END# *47F0C1BF0314_4925449A0296_var*
+//#UC START# *491482DC0216_4925449A0296_impl*
+ inherited;
+ lp_NotifyCurrentChanged;
+//#UC END# *491482DC0216_4925449A0296_impl*
+//#UC START# *491482DC0216_4925449A0296_var*
+
+  procedure lp_NotifyCurrentChanged;
+  var
+   l_Index    : Integer;
+   l_Listener : IbsCommonDictionListener;
+   l_Item     : IUnknown;
+  begin
+   if (NotifiedObjList <> nil) and (NotifiedObjList.Count > 0) then
+    for l_Index := 0 to Pred(NotifiedObjList.Count) do
+    begin
+     l_Item := NotifiedObjList.Items[l_Index];
+     if Supports(l_Item, IbsCommonDictionListener, l_Listener) and
+       (l_Item = l_Listener) then
+      DictionNotify(l_Listener);
+    end;//if (NotifiedObjList <> nil)
+  end;//lp_NotifyCurrentChanged
+
+//#UC END# *491482DC0216_4925449A0296_var*
+//#UC START# *492541AB020E_4925449A0296get_impl*
+ l_Data := ucc_CommonDiction.DeCommonDiction;
+ if (l_Data <> nil) then
+  Result := l_Data.Context
+ else
+  Result := nil
+//#UC END# *492541AB020E_4925449A0296get_impl*
+//#UC START# *492541AB020E_4925449A0296get_var*
+var
+ l_Data: IdeCommonDiction;
+//#UC END# *492541AB020E_4925449A0296get_var*
+//#UC START# *492541BD01F3_4925449A0296_impl*
+ Result := -1;
+ if Supports(aTree.RootNode, INodeBase, l_Root) then
+ try
+  try
+   if Assigned(Current) then
+   begin
+    Result := l_Root.GetVisibleDelta(Current);
+    if not aTree.ShowRoot then
+     Dec(Result);
+   end//Assigned(Current)
+   else
+   begin
+    l_Doc := ucc_CommonDiction.DeCommonDiction.Doc;
+    if (l_Doc <> nil) and (l_Doc.GetDocType in [DT_EXPLANATORY, DT_MEDICAL_EXPLANATORY]) and
+     // ѕотому что иначе случаетс€ такое, что в адаптер подаЄм список литературы,
+     // который вообще никакого отношени€ к словарной статье не имеет.
+     // - http://mdp.garant.ru/pages/viewpage.action?pageId=607778959 
+     Supports(ucc_CommonDiction.DeCommonDiction.Doc, IEntityBase, l_EntityBase) then
+     try
+      Result := l_Root.GetVisibleDeltaByEntity(l_EntityBase);
+     finally
+      l_EntityBase := nil;
+     end;//try..finally
+   end;
+  except
+   on ENotFound do ; // Ќичего не нашли, вернем -1
+  end;//try..finally
+ finally
+  l_Root := nil;
+ end;//try..finally
+//#UC END# *492541BD01F3_4925449A0296_impl*
+//#UC START# *492541BD01F3_4925449A0296_var*
+var
+ l_Doc        : IDocument;
+ l_Root       : INodeBase;
+ l_EntityBase : IEntityBase;
+//#UC END# *492541BD01F3_4925449A0296_var*
+//#UC START# *492545420326_4925449A0296_impl*
+ with aNotifier do
+ begin
+  Current := ucc_CommonDiction.CurrentNode;
+  CurrentUpdated;
+ end;//with l_Listener do
+//#UC END# *492545420326_4925449A0296_impl*
+//#UC START# *492545420326_4925449A0296_var*
+//#UC END# *492545420326_4925449A0296_var*
+//#UC START# *492546330316_4925449A0296_impl*
+ ucc_CommonDiction.CurrentNode := Current;
+//#UC END# *492546330316_4925449A0296_impl*
+//#UC START# *492546330316_4925449A0296_var*
+//#UC END# *492546330316_4925449A0296_var*
+//#UC START# *4925465102FB_4925449A0296_impl*
+ if Supports(aNode, INodeBase, l_Node) then
+ try
+  f_Current := nil;
+  l_Node.GetFrozenNode(f_Current);
+ finally
+  l_Node := nil;
+ end;{try..finally}
+//#UC END# *4925465102FB_4925449A0296_impl*
+//#UC START# *4925465102FB_4925449A0296_var*
+var
+ l_Node: INodeBase;
+//#UC END# *4925465102FB_4925449A0296_var*
+//#UC START# *4A9E6599035A_4925449A0296_impl*
+ Result := false;
+//#UC END# *4A9E6599035A_4925449A0296_impl*
+//#UC START# *4A9E6599035A_4925449A0296_var*
+//#UC END# *4A9E6599035A_4925449A0296_var*
+//#UC START# *52F4E72400C2_4925449A0296get_impl*
+ Result := f_ContextFilterState;
+//#UC END# *52F4E72400C2_4925449A0296get_impl*
+//#UC START# *52F4E72400C2_4925449A0296get_var*
+//#UC END# *52F4E72400C2_4925449A0296get_var*
+//#UC START# *52F4E72400C2_4925449A0296set_impl*
+ f_ContextFilterState := aValue;
+//#UC END# *52F4E72400C2_4925449A0296set_impl*
+//#UC START# *52F4E72400C2_4925449A0296set_var*
+//#UC END# *52F4E72400C2_4925449A0296set_var*
+//#UC START# *5571E60901BC_4925449A0296get_impl*
+ Result := pm_GetDictionKind;
+//#UC END# *5571E60901BC_4925449A0296get_impl*
+//#UC START# *5571E60901BC_4925449A0296get_var*
+//#UC END# *5571E60901BC_4925449A0296get_var*

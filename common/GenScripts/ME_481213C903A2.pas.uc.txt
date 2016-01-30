@@ -1,0 +1,56 @@
+//#UC START# *479731C50290_481213C903A2_impl*
+ f_ParentFI := nil;
+ inherited;
+//#UC END# *479731C50290_481213C903A2_impl*
+//#UC START# *479731C50290_481213C903A2_var*
+//#UC END# *479731C50290_481213C903A2_var*
+//#UC START# *48120CED0107_481213C903A2_impl*
+ Result := f_IsWebStyle;
+//#UC END# *48120CED0107_481213C903A2_impl*
+//#UC START# *48120CED0107_481213C903A2_var*
+//#UC END# *48120CED0107_481213C903A2_var*
+//#UC START# *48120D0300D4_481213C903A2_impl*
+ Result := f_ShowDocumentParts;
+//#UC END# *48120D0300D4_481213C903A2_impl*
+//#UC START# *48120D0300D4_481213C903A2_var*
+//#UC END# *48120D0300D4_481213C903A2_var*
+//#UC START# *48120D270114_481213C903A2_impl*
+ Result := f_ShowSpecial;
+//#UC END# *48120D270114_481213C903A2_impl*
+//#UC START# *48120D270114_481213C903A2_var*
+//#UC END# *48120D270114_481213C903A2_var*
+//#UC START# *48120D32035F_481213C903A2_impl*
+ Result := f_HiddenStyles;
+//#UC END# *48120D32035F_481213C903A2_impl*
+//#UC START# *48120D32035F_481213C903A2_var*
+//#UC END# *48120D32035F_481213C903A2_var*
+//#UC START# *481DA04D0324_481213C903A2_impl*
+ if (f_ParentFI = nil) then
+ // - эта проверка нужна например для TnscSimpleEditor.AdjustHeightByText
+  Result := inherited GetRootFormatInfo
+ else
+  Result := f_ParentFI.InfoForChild(Self.Shape);
+//#UC END# *481DA04D0324_481213C903A2_impl*
+//#UC START# *481DA04D0324_481213C903A2_var*
+//#UC END# *481DA04D0324_481213C903A2_var*
+//#UC START# *4BED6EF003DD_481213C903A2_impl*
+ Result := f_AllowRubberTables;
+//#UC END# *4BED6EF003DD_481213C903A2_impl*
+//#UC START# *4BED6EF003DD_481213C903A2_var*
+//#UC END# *4BED6EF003DD_481213C903A2_var*
+//#UC START# *4CB5BE9803DF_481213C903A2_impl*
+ inherited Create(aText, aCanvas);
+ f_ParentFI := aParentFI;
+ if (aViewMetrics <> nil) then
+  with aViewMetrics do
+  begin
+   f_IsWebStyle := IsWebStyle;
+   f_AllowRubberTables := AllowRubberTables;
+   f_ShowDocumentParts := ShowDocumentParts;
+   f_ShowSpecial := ShowSpecial;
+   f_HiddenStyles := HiddenStyles;
+   f_LimitWidth := LimitWidth;
+  end;//with aViewMetrics
+//#UC END# *4CB5BE9803DF_481213C903A2_impl*
+//#UC START# *4CB5BE9803DF_481213C903A2_var*
+//#UC END# *4CB5BE9803DF_481213C903A2_var*

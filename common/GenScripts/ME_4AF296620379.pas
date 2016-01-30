@@ -1,7 +1,13 @@
-unit nscFormsPageControl;
+unit NOT_FINISHED_nscFormsPageControl;
+
+// Модуль: "w:\common\components\gui\Garant\Nemesis\NOT_FINISHED_nscFormsPageControl.pas"
+// Стереотип: "GuiControl"
+
+{$Include nscDefine.inc}
 
 interface
 
+{$If Defined(Nemesis)}
 uses
  l3IntfUses
 ;
@@ -9,11 +15,14 @@ uses
 type
  TnscFormsPageControl = class
  end;//TnscFormsPageControl
- 
+{$IfEnd} // Defined(Nemesis)
+
 implementation
 
+{$If Defined(Nemesis)}
 uses
  l3ImplUses
 ;
+{$IfEnd} // Defined(Nemesis)
 
 end.

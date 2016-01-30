@@ -118,7 +118,7 @@ implementation @ Мета-MDA
 //	: %S%f_tpi_script_Name()\
   ': '
   %S %f tpi_script_Name %( )% 
-//	[ Inherits ( <%G#f_tpi_script_Name() >)]
+//	[ Inherits ( <%G#f_tpi_script_Name() ><%R#f_tpi_script_Name() >)]
   if NOT-EMPTY
   begin
    ' Inherits ( '
@@ -132,6 +132,16 @@ implementation @ Мета-MDA
      ++! l_Counter
     end // if
    end // for G
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%R
+   begin
+    OBJECT IN %R
+    if true then
+    begin
+     %R %?f tpi_script_Name %( )% ' ' 
+     ++! l_Counter
+    end // if
+   end // for R
    ')' 
   end // if
   NOP
@@ -141,9 +151,9 @@ implementation @ Мета-MDA
 //	[{"%SN"!=""}\
   if ( ( %S |N ) %!= '' ) then
   begin
-//	 CONST Name '%f_str_replace(%f_N(%S), ,_)'
+//	 CONST Name '%S%f_tpi_script_NamePrim()'
    ' CONST Name '''
-   [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% '''
+   %S %f tpi_script_NamePrim %( )% '''
 //	]\
   end // if
 //	[{"%SS"!=""}\
@@ -161,6 +171,8 @@ implementation @ Мета-MDA
   %S %f tpi_script_Name %( )% #13#10#13#10
 //	]\
  end // if
+
+//	[{%SS=MDAGenerator}%f_warning(%SN %SS)]\
 
 //	<%CX>
  INTEGER VAR l_Counter l_Counter := 0
@@ -207,8 +219,17 @@ implementation @ Мета-MDA
 //	[{"%S%f_tpi_script_NamePrim()"!=""}\
  if ( ( %S %f tpi_script_NamePrim %( )% ) %!= '' ) then
  begin
-//	st_%S%f_tpi_script_NamePrim()\
-  'st_'
+//	[{%SS=generator}{st}gen]\
+  if ( ( %S |S ) %== 'generator' ) then
+  begin
+   'gen' 
+  end // if
+  else
+  begin
+   'st' 
+  end // else
+//	_%S%f_tpi_script_NamePrim()\
+  '_'
   %S %f tpi_script_NamePrim %( )% 
 //	]
  end // if
@@ -234,9 +255,11 @@ implementation @ Мета-MDA
 : tpi_script_NamePrim OBJECT IN %S
 // возвращаемый результат: a-string
 //#UC START# *565872E001A9for46E28D3A01E4*
-//	[{%SS=MDAClass|%SS=MDACategory}{\
+//	[{%SS=MDAClass|%SS=MDACategory|%SS=MDAAbstractClass|%SS=generator}{\
  if ( ( %S |S ) %== 'MDAClass' OR 
-   ( ( %S |S ) %== 'MDACategory'  ) ) then
+   ( ( %S |S ) %== 'MDACategory'  ) OR 
+   ( ( %S |S ) %== 'MDAAbstractClass'  ) OR 
+   ( ( %S |S ) %== 'generator'  ) ) then
  begin
 //	%f_str_replace(%SN, ,_)\
   [%f] str_replace %( %S |N %, ' ' %, '_' )% 
@@ -244,40 +267,39 @@ implementation @ Мета-MDA
  end // if
  else
  begin
+
 //	[{%S{unstereotyped}!=true}\
-  if ( ( %S get_up ( 'unstereotyped' ) ) %!=  true ) then
-  begin
 //	[{%SS=MDAOperation}{\
-   if ( ( %S |S ) %== 'MDAOperation' ) then
-   begin
+  if ( ( %S |S ) %== 'MDAOperation' ) then
+  begin
 //	%f_str_replace(%f_N(%S), ,_)::Operation\
-    [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% '::Operation'
+   [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% '::Operation'
+//	]\
+  end // if
+  else
+  begin
+//	[{%SS=MDAAttribute}{\
+   if ( ( %S |S ) %== 'MDAAttribute' ) then
+   begin
+//	%f_str_replace(%f_N(%S), ,_)::Attribute\
+    [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% '::Attribute'
 //	]\
    end // if
    else
    begin
-//	[{%SS=MDAAttribute}{\
-    if ( ( %S |S ) %== 'MDAAttribute' ) then
+//	[{%SS=MDADependency}\
+    if ( ( %S |S ) %== 'MDADependency' ) then
     begin
-//	%f_str_replace(%f_N(%S), ,_)::Attribute\
-     [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% '::Attribute'
+//	%f_str_replace(%f_N(%S), ,_)::Dependency\
+     [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% '::Dependency'
 //	]\
     end // if
-    else
-    begin
-//	[{%SS=MDADependency}\
-     if ( ( %S |S ) %== 'MDADependency' ) then
-     begin
-//	%f_str_replace(%f_N(%S), ,_)::Dependency\
-      [%f] str_replace %( [%f] N %( %S )% %, ' ' %, '_' )% '::Dependency'
-//	]\
-     end // if
-//	}\
-    end // else
 //	}\
    end // else
+//	}\
+  end // else
+
 //	]\
-  end // if
 //	}\
  end // else
 //#UC END# *565872E001A9for46E28D3A01E4*

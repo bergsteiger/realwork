@@ -1,17 +1,27 @@
 unit evNodeDataObject;
 
+// Модуль: "w:\common\components\gui\Garant\Everest\evNodeDataObject.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
+
 interface
 
 uses
  l3IntfUses
  , evNodeStorable
  , l3TreeInterfaces
+ , evPersistentDataObjectEx
+ , l3Interfaces
 ;
 
 type
+ _StorableClass_ = TevNodeStorable;
+ _DataType_ = Il3SimpleNode;
+ {$Include evDataObjectFromStorable.imp.pas}
  TevNodeDataObject = class(_evDataObjectFromStorable_)
  end;//TevNodeDataObject
- 
+
 implementation
 
 uses
@@ -21,5 +31,7 @@ uses
  , nevTools
  , l3Base
 ;
+
+{$Include evDataObjectFromStorable.imp.pas}
 
 end.

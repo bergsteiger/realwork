@@ -754,6 +754,8 @@ implementation @ <<VCMForm>>
     ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'final' )% ) 
 //	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
     ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	%{Op_Instance}%f_set_var(SpelledFor,S)\
+    ( get_global_var ( 'Op_Instance' ) %f set_var %( 'SpelledFor' %, 'S' )% ) 
 //	%{Op_Instance}%f_set_uc_content(intf.pas,,\
     ( get_global_var ( 'Op_Instance' ) %f set_uc_content %( 'intf.pas' %, '' %, 
 //	 fm_%f_cut_prefix(%f_pas_TypeName(%S),T).SetFactory(%f_pas_TypeName(%S).Make);\
@@ -2827,42 +2829,6 @@ implementation @ :: <<VCMForm>> <<GroupItemsInContextMenu>> ;
 ; // impl.pas
 
 
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-//+ intf2.pas
-<<generator>> intf2.pas OBJECT IN %S
-//R  
-//#UC START# *477398E501C0for502128C500BE*
-//#UC END# *477398E501C0for502128C500BE*
-; // intf2.pas
-
-
-// Ресурсы (.rc)
-//+ rc.pas
-<<generator>> rc.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D28B0157for502128C500BE*
-//#UC END# *55B8D28B0157for502128C500BE*
-; // rc.pas
-
-
-// Скрипты в ресурсах (.rc.script)
-//+ rc.script.pas
-<<generator>> rc.script.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D2F80145for502128C500BE*
-//#UC END# *55B8D2F80145for502128C500BE*
-; // rc.script.pas
-
-
-// Компилятор ресурса (.res.cmd)
-//+ res.cmd.pas
-<<generator>> res.cmd.pas OBJECT IN %S
-//R  
-//#UC START# *55B8DD9C0301for502128C500BE*
-//#UC END# *55B8DD9C0301for502128C500BE*
-; // res.cmd.pas
-
-
 // Функции стереотипа
 //%f _st_space_key
 : st_space_key OBJECT IN %S
@@ -2986,42 +2952,6 @@ implementation @ :: <<VCMForm>> <<ToolbarAtBottom>> ;
 //#UC START# *470F15B800CBfor502149B8006C*
 //#UC END# *470F15B800CBfor502149B8006C*
 ; // impl.pas
-
-
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-//+ intf2.pas
-<<generator>> intf2.pas OBJECT IN %S
-//R  
-//#UC START# *477398E501C0for502149B8006C*
-//#UC END# *477398E501C0for502149B8006C*
-; // intf2.pas
-
-
-// Ресурсы (.rc)
-//+ rc.pas
-<<generator>> rc.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D28B0157for502149B8006C*
-//#UC END# *55B8D28B0157for502149B8006C*
-; // rc.pas
-
-
-// Скрипты в ресурсах (.rc.script)
-//+ rc.script.pas
-<<generator>> rc.script.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D2F80145for502149B8006C*
-//#UC END# *55B8D2F80145for502149B8006C*
-; // rc.script.pas
-
-
-// Компилятор ресурса (.res.cmd)
-//+ res.cmd.pas
-<<generator>> res.cmd.pas OBJECT IN %S
-//R  
-//#UC START# *55B8DD9C0301for502149B8006C*
-//#UC END# *55B8DD9C0301for502149B8006C*
-; // res.cmd.pas
 
 
 // Функции стереотипа
@@ -3150,42 +3080,6 @@ implementation @ :: <<VCMForm>> <<ContextMenuWeight>> ;
 //#UC START# *470F15B800CBfor51CE86080034*
 //#UC END# *470F15B800CBfor51CE86080034*
 ; // impl.pas
-
-
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-//+ intf2.pas
-<<generator>> intf2.pas OBJECT IN %S
-//R  
-//#UC START# *477398E501C0for51CE86080034*
-//#UC END# *477398E501C0for51CE86080034*
-; // intf2.pas
-
-
-// Ресурсы (.rc)
-//+ rc.pas
-<<generator>> rc.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D28B0157for51CE86080034*
-//#UC END# *55B8D28B0157for51CE86080034*
-; // rc.pas
-
-
-// Скрипты в ресурсах (.rc.script)
-//+ rc.script.pas
-<<generator>> rc.script.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D2F80145for51CE86080034*
-//#UC END# *55B8D2F80145for51CE86080034*
-; // rc.script.pas
-
-
-// Компилятор ресурса (.res.cmd)
-//+ res.cmd.pas
-<<generator>> res.cmd.pas OBJECT IN %S
-//R  
-//#UC START# *55B8DD9C0301for51CE86080034*
-//#UC END# *55B8DD9C0301for51CE86080034*
-; // res.cmd.pas
 
 
 // Функции стереотипа

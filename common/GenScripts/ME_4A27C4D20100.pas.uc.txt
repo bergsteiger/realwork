@@ -1,0 +1,63 @@
+//#UC START# *479731C50290_4A27C4D20100_impl*
+ f_Para := nil;
+ FreeAndNil(f_Hyperlink);
+ inherited;
+//#UC END# *479731C50290_4A27C4D20100_impl*
+//#UC START# *479731C50290_4A27C4D20100_var*
+//#UC END# *479731C50290_4A27C4D20100_var*
+//#UC START# *47A6FEE600FC_4A27C4D20100_impl*
+ Result := true;
+//#UC END# *47A6FEE600FC_4A27C4D20100_impl*
+//#UC START# *47A6FEE600FC_4A27C4D20100_var*
+//#UC END# *47A6FEE600FC_4A27C4D20100_var*
+//#UC START# *4A27C48E017F_4A27C4D20100_impl*
+ Result := false;
+ if Supports(anElement, InevActiveHyperlink, l_E) then
+  try
+   if f_Para.AsObject.IsSame(l_E.Para.AsObject) then
+   begin
+    l_HL := l_E.Hyperlink;
+    Result := f_Hyperlink.IsSame(l_HL);
+    if not Result then
+     // - пытаемся обработать многослойные конструкции
+     Result := //(f_Hyperlink.TagType.ID = l_HL.TagType.ID) AND
+               // http://mdp.garant.ru/pages/viewpage.action?pageId=176751058
+               // - не надо сравнивать типы тегов, т.к. гиперссылка может перекрывать
+               //   другое оформление и поверх этого оформления надо показывать
+               //   стиль активной гиперссылки
+               (l_HL.IntA[k2_tiStart] >= f_Hyperlink.IntA[k2_tiStart]) AND
+               (l_HL.IntA[k2_tiFinish] <= f_Hyperlink.IntA[k2_tiFinish]);
+   end;//f_Para.IsSame(l_E.Para)
+  finally
+   l_E := nil;
+  end;//try..finally
+//#UC END# *4A27C48E017F_4A27C4D20100_impl*
+//#UC START# *4A27C48E017F_4A27C4D20100_var*
+var
+ l_E  : InevActiveHyperlink;
+ l_HL : Tl3Variant;
+//#UC END# *4A27C48E017F_4A27C4D20100_var*
+//#UC START# *4A27C50D027C_4A27C4D20100_impl*
+ inherited Create;
+ Assert(aPara <> nil);
+ Assert(aHyperlink <> nil);
+ f_Para := aPara;
+ aHyperlink.SetRef(f_Hyperlink);
+//#UC END# *4A27C50D027C_4A27C4D20100_impl*
+//#UC START# *4A27C50D027C_4A27C4D20100_var*
+//#UC END# *4A27C50D027C_4A27C4D20100_var*
+//#UC START# *4A27C5C600AC_4A27C4D20100get_impl*
+ Result := f_Hyperlink;
+//#UC END# *4A27C5C600AC_4A27C4D20100get_impl*
+//#UC START# *4A27C5C600AC_4A27C4D20100get_var*
+//#UC END# *4A27C5C600AC_4A27C4D20100get_var*
+//#UC START# *4A27C5CD001C_4A27C4D20100get_impl*
+ Result := f_Para;
+//#UC END# *4A27C5CD001C_4A27C4D20100get_impl*
+//#UC START# *4A27C5CD001C_4A27C4D20100get_var*
+//#UC END# *4A27C5CD001C_4A27C4D20100get_var*
+//#UC START# *4FBF5595010C_4A27C4D20100_impl*
+ f_Para.Invalidate([]);
+//#UC END# *4FBF5595010C_4A27C4D20100_impl*
+//#UC START# *4FBF5595010C_4A27C4D20100_var*
+//#UC END# *4FBF5595010C_4A27C4D20100_var*

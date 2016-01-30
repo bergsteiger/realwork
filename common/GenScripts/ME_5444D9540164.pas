@@ -1,4 +1,7 @@
-unit gtCstPDFEng;
+unit NOT_FINISHED_gtCstPDFEng;
+
+// Модуль: "w:\common\components\rtl\external\eDocEngine\Source\NOT_FINISHED_gtCstPDFEng.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
@@ -12,7 +15,7 @@ type
   , etfFull
   , etfSubset
  );//TgtTTFontEmbedding
- 
+
 implementation
 
 uses

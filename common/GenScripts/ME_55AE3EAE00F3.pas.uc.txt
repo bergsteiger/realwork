@@ -1,0 +1,49 @@
+//#UC START# *55AE3F340080_55AE3EAE00F3_impl*
+ l_FN := FileFromCurrent(ClassName+'_result.xml');
+ l_Filer := Tl3DOSFiler.Make(l_FN, l3_fmWrite);
+ try
+  l_XML := Tl3XMLWriter.Make(l_Filer);
+  try
+   l_XML.Start;
+   try
+    l_XML.OpenLevel('data', 'attr="12345"');
+    try
+     l_XML.OpenLevel('element', 'xyz="5"');
+      l_XML.PutData('Это строка, содержащая странные символы. <такие вот> и &');
+     l_XML.CloseLevel;
+     l_XML.OpenLevel('rows', 'some="15"');
+      l_XML.OpenSubLevel('id="1"');
+       l_XML.PutData('data string 1');
+      l_XML.CloseLevel;
+      l_XML.OpenSubLevel('id="2"');
+       l_XML.PutData('data string 2');
+      l_XML.CloseLevel;
+      l_XML.OpenSubLevel('id="3"');
+       l_XML.PutData('data string 3');
+      l_XML.CloseLevel;
+     l_XML.CloseLevel;
+    finally
+     l_XML.CloseLevel;
+    end;
+   finally
+    l_XML.Finish;
+   end;
+  finally
+   l_XML := nil;
+  end;
+ finally
+  FreeAndNil(l_Filer);
+ end;
+ CheckWithEtalon(l_FN, #0);
+//#UC END# *55AE3F340080_55AE3EAE00F3_impl*
+//#UC START# *55AE3F340080_55AE3EAE00F3_var*
+var
+ l_Filer: Tl3DOSFiler;
+ l_FN : AnsiString;
+ l_XML: Il3XMLWriter;
+//#UC END# *55AE3F340080_55AE3EAE00F3_var*
+//#UC START# *55AE76C10243_55AE3EAE00F3_impl*
+ BuildXML;
+//#UC END# *55AE76C10243_55AE3EAE00F3_impl*
+//#UC START# *55AE76C10243_55AE3EAE00F3_var*
+//#UC END# *55AE76C10243_55AE3EAE00F3_var*

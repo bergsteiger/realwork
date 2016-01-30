@@ -1,0 +1,57 @@
+//#UC START# *4DB6C99F026E_4DCBD489023A_impl*
+ Result := DisabledEndBracket(aContext, aSilent);
+//#UC END# *4DB6C99F026E_4DCBD489023A_impl*
+//#UC START# *4DB6C99F026E_4DCBD489023A_var*
+//#UC END# *4DB6C99F026E_4DCBD489023A_var*
+//#UC START# *4DB6CE2302C9_4DCBD489023A_impl*
+ CompileWordWorker(theNewContext.rPrev^, aCompiled);
+ inherited;
+//#UC END# *4DB6CE2302C9_4DCBD489023A_impl*
+//#UC START# *4DB6CE2302C9_4DCBD489023A_var*
+//#UC END# *4DB6CE2302C9_4DCBD489023A_var*
+//#UC START# *4DB9B446039A_4DCBD489023A_impl*
+ Result := 1;
+//#UC END# *4DB9B446039A_4DCBD489023A_impl*
+//#UC START# *4DB9B446039A_4DCBD489023A_var*
+//#UC END# *4DB9B446039A_4DCBD489023A_var*
+//#UC START# *4DBAEE0D028D_4DCBD489023A_impl*
+ Result := TkwTemporaryCompiledCode;
+//#UC END# *4DBAEE0D028D_4DCBD489023A_impl*
+//#UC START# *4DBAEE0D028D_4DCBD489023A_var*
+//#UC END# *4DBAEE0D028D_4DCBD489023A_var*
+//#UC START# *4F219FA10268_4DCBD489023A_impl*
+ // - ничего не делаем, это чтобы предок мог aWorker заполнить по своему усмотрению
+//#UC END# *4F219FA10268_4DCBD489023A_impl*
+//#UC START# *4F219FA10268_4DCBD489023A_var*
+//#UC END# *4F219FA10268_4DCBD489023A_var*
+//#UC START# *4F41566A02E5_4DCBD489023A_impl*
+ l_CPW := MakeCompiledWordWorker(aContext, aRightParams);
+ try
+  //_Assert(l_CPW.Key = nil);
+  if (l_CPW.Key = nil) then
+   //l_CPW.Key := aContext.rKeyWordDefiningNow;
+   l_CPW.Key := Self.Key;
+   // - чтобы легче было опознавать слова по их Runner'ам
+  FillCompiledWorker(l_CPW, aContext);
+  DoCompiledWord(l_CPW, aContext);
+ finally
+  FreeAndNil(l_CPW);
+ end;//try..finally
+//#UC END# *4F41566A02E5_4DCBD489023A_impl*
+//#UC START# *4F41566A02E5_4DCBD489023A_var*
+var
+ l_CPW : TtfwWord{TkwCompiledWordWorker};
+//#UC END# *4F41566A02E5_4DCBD489023A_var*
+//#UC START# *5284D8180211_4DCBD489023A_impl*
+ if (AfterWordMaxCount(aContext) = 1) then
+ begin
+  CompilerAssert((aRightParams.CodeCount = 1),
+                 'Допустим только один параметр после слова, a их: ' + IntToStr(aRightParams.CodeCount),
+                 aContext);
+  Result := CompiledWorkerClass(aContext).Create(aRightParams.GetCode(aContext)[0], Self, aContext);
+ end//AfterWordMaxCount = 1
+ else
+  Result := CompiledWorkerClass(aContext).Create(aRightParams, Self, aContext);
+//#UC END# *5284D8180211_4DCBD489023A_impl*
+//#UC START# *5284D8180211_4DCBD489023A_var*
+//#UC END# *5284D8180211_4DCBD489023A_var*

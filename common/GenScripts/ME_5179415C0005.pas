@@ -1,19 +1,20 @@
-unit vtUnicodeButtonControl.imp;
+{$IfNDef vtUnicodeButtonControl_imp}
 
-interface
+// Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtUnicodeButtonControl.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define vtUnicodeButtonControl_imp}
 
-type
- _vtUnicodeButtonControl_ = class
+ _vtUnicodeButtonControl_ = class(_vtUnicodeButtonControl_Parent_)
  end;//_vtUnicodeButtonControl_
- 
-implementation
 
-uses
- l3ImplUses
-;
+{$Else vtUnicodeButtonControl_imp}
 
-end.
+{$IfNDef vtUnicodeButtonControl_imp_impl}
+
+{$Define vtUnicodeButtonControl_imp_impl}
+
+{$EndIf vtUnicodeButtonControl_imp_impl}
+
+{$EndIf vtUnicodeButtonControl_imp}
+

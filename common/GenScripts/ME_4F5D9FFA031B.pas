@@ -1,0 +1,79 @@
+unit PrimSaveLoadOptionsWithUserTypes_Form;
+
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadOptionsWithUserTypes_Form.pas"
+// Стереотип: "VCMContainer"
+
+{$Include nsDefine.inc}
+
+interface
+
+{$If NOT Defined(Admin)}
+uses
+ l3IntfUses
+ , PrimSaveLoadOptions_Form
+ , Search_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_ResultEx_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SearchLite_Strange_Controls
+ , PrimPrimListInterfaces
+ , bsTypes
+ , PrimSaveLoadUserTypes_slqtPostingOrder_UserType
+ , PrimSaveLoadUserTypes_slqtFilters_UserType
+ , PrimSaveLoadUserTypes_slqtConsult_UserType
+ , PrimSaveLoadUserTypes_slqtLegislationReview_UserType
+ , PrimSaveLoadUserTypes_slqtOldKW_UserType
+ , PrimSaveLoadUserTypes_slqtAttribute_UserType
+ , PrimSaveLoadUserTypes_slqtKW_UserType
+ , PrimSaveLoadUserTypes_slqtPublishSource_UserType
+ , PrimSaveLoadUserTypes_slqtInpharmSearch_UserType
+;
+
+type
+ _PrimSaveLoadUserTypes_Parent_ = TPrimSaveLoadOptionsForm;
+ {$Include PrimSaveLoadUserTypes.imp.pas}
+ TPrimSaveLoadOptionsWithUserTypesForm = class(_PrimSaveLoadUserTypes_)
+ end;//TPrimSaveLoadOptionsWithUserTypesForm
+{$IfEnd} // NOT Defined(Admin)
+
+implementation
+
+{$If NOT Defined(Admin)}
+uses
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , l3StringIDEx
+ , l3MessageID
+;
+
+type
+ // ExcludeAll
+
+ // ExcludeCancelForPostingOrder
+
+ // ExcludeFile
+
+ // ExcludeFilterableAddDelete
+
+ // ExcludeFiltersListOpen
+
+ // ExcludeGetAndSetList
+
+ // ExcludeLoadable
+
+ // ExcludeLogicOperations
+
+ // ExcludeSearchType
+
+{$Include PrimSaveLoadUserTypes.imp.pas}
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TPrimSaveLoadOptionsWithUserTypesForm);
+ {* Регистрация PrimSaveLoadOptionsWithUserTypes }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(Admin)
+
+end.

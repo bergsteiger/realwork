@@ -1,5 +1,10 @@
 unit evdNcsTypes;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\evdNcsTypes.pas"
+// Стереотип: "UtilityPack"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -15,14 +20,14 @@ type
   , ncs_mkSignal
    {* Сообщение на которое НЕ ожидается ответ }
  );//TncsMessageKind
- 
+
  TncsResultKind = (
   ncs_rkOk
   , ncs_rkFail
   , ncs_rkRetry
   , ncs_rkEmpty
  );//TncsResultKind
- 
+
 implementation
 
 uses

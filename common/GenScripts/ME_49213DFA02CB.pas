@@ -1,4 +1,9 @@
-unit vtStdRes;
+unit NOT_FINISHED_vtStdRes;
+
+// Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtStdRes.pas"
+// Стереотип: "UtilityPack"
+
+{$Include vtDefine.inc}
 
 interface
 
@@ -10,11 +15,22 @@ uses
 type
  TvtStdResources = class(TDataModule)
  end;//TvtStdResources
- 
+
+procedure vtStdResources;
+
 implementation
 
 uses
  l3ImplUses
 ;
+
+procedure vtStdResources;
+//#UC START# *49213E3A030E_49213DFA02CB_var*
+//#UC END# *49213E3A030E_49213DFA02CB_var*
+begin
+//#UC START# *49213E3A030E_49213DFA02CB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *49213E3A030E_49213DFA02CB_impl*
+end;//vtStdResources
 
 end.

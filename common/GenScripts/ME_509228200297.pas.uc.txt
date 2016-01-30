@@ -1,0 +1,52 @@
+//#UC START# *47B2C42A0163_509228200297_impl*
+ Assert(false);
+//#UC END# *47B2C42A0163_509228200297_impl*
+//#UC START# *47B2C42A0163_509228200297_var*
+//#UC END# *47B2C42A0163_509228200297_var*
+//#UC START# *47B99D4503A2_509228200297_impl*
+ Result := -1;
+ Assert(false);
+//#UC END# *47B99D4503A2_509228200297_impl*
+//#UC START# *47B99D4503A2_509228200297_var*
+//#UC END# *47B99D4503A2_509228200297_var*
+//#UC START# *50922CA3006F_509228200297_impl*
+ l_Offsets := FindList(anIterator, True);
+ if l_Offsets = nil then
+ begin
+  l_Offsets := TevCellsCharOffsets.Create;
+  try
+   l_Offsets.CopyData(nil, anIterator);
+   Add(l_Offsets);
+  finally
+   l3Free(l_Offsets);
+  end;
+ end
+ else
+  l_Offsets.IncUsingCount;
+//#UC END# *50922CA3006F_509228200297_impl*
+//#UC START# *50922CA3006F_509228200297_var*
+var
+ l_Offsets: TevCellsCharOffsets;
+//#UC END# *50922CA3006F_509228200297_var*
+//#UC START# *509375AF03C8_509228200297_impl*
+ Result := nil;
+ Self.IterateAllF(l3L2IA(@lp_CheckItem));
+//#UC END# *509375AF03C8_509228200297_impl*
+//#UC START# *509375AF03C8_509228200297_var*
+
+ function lp_CheckItem(aData: PObject; anIndex: Long): Bool;
+ var
+  l_List   : TevCellsCharOffsets;
+  l_Equals : Boolean;
+ begin
+  Result := True;
+  l_List := TevCellsCharOffsets(aData^);
+  l_Equals := l_List.Equals(anIterator, aForTempate);
+  if l_Equals then
+  begin
+   FindList := l_List;
+   Result := False;
+  end; // if l_Equals then
+ end;
+
+//#UC END# *509375AF03C8_509228200297_var*

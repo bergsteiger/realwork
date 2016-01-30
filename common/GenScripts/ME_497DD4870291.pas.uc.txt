@@ -1,0 +1,470 @@
+//#UC START# *46A4504B03C4_497DD4870291_impl*
+ case TbsNotification(aOperation) of
+  nConsultation:
+   case TbsConsultationOperation(aIndex) of
+    coUnreadChanged:
+     FoldersTree.Invalidate;
+   end;//case TbsConsultationOperation(aIndex) of
+ end;//case TbsNotification(aOperation) of
+//#UC END# *46A4504B03C4_497DD4870291_impl*
+//#UC START# *46A4504B03C4_497DD4870291_var*
+//#UC END# *46A4504B03C4_497DD4870291_var*
+//#UC START# *479731C50290_497DD4870291_impl*
+ if FoldersTree.IsTreeAssign and
+   Supports(FoldersTree.TreeStruct.RootNode, InsFolderNodeNotify, l_Notify) then
+  l_Notify.RemoveListener(InsFolderNodeListener(Self));
+ if (ConsultationManager <> nil) then
+  ConsultationManager.As_Il3ChangeNotifier.Unsubscribe(Il3ItemNotifyRecipient(Self));
+ if FoldersTree.IsTreeAssign then
+ begin
+  l_FoldersInfo := FoldersInfo;
+  if l_FoldersInfo <> nil then
+   with l_FoldersInfo do
+   begin
+    FilterInfo.ShowFolders := sfAll;
+    if f_OldFilter >= 0 then
+    begin
+     FilterInfo := TnsFolderFilterInfo.Make(TnsFolderFilter(f_OldFilter), ns_ffNone);
+     CantChangeFilter := False;
+    end
+   end;
+ end;
+ inherited;
+//#UC END# *479731C50290_497DD4870291_impl*
+//#UC START# *479731C50290_497DD4870291_var*
+var
+ l_Notify      : InsFolderNodeNotify;
+ l_FoldersInfo : InsFoldersInfo;
+//#UC END# *479731C50290_497DD4870291_var*
+//#UC START# *49803F5503AA_497DD4870291_impl*
+ FoldersTree.Images := nsFoldersRes.FoldersItemImages;
+ f_OldFilter := -1;
+ if (ConsultationManager <> nil) then
+  ConsultationManager.As_Il3ChangeNotifier.Subscribe(Il3ItemNotifyRecipient(Self));
+ FoldersTree.VJustify := vt_vjTop;
+//#UC END# *49803F5503AA_497DD4870291_impl*
+//#UC START# *49803F5503AA_497DD4870291_var*
+//#UC END# *49803F5503AA_497DD4870291_var*
+//#UC START# *49901C9600DD_497DD4870291_impl*
+ op_UsersRights_UpdateRights.Call(Aggregate, aNode As IeeNode);
+ op_FolderElement_SetContent.Call(Aggregate, FoldersTree.TreeView.CurrentNode);
+//#UC END# *49901C9600DD_497DD4870291_impl*
+//#UC START# *49901C9600DD_497DD4870291_var*
+//#UC END# *49901C9600DD_497DD4870291_var*
+//#UC START# *4A8E8F2E0195_497DD4870291_impl*
+ with FoldersTree do
+ begin
+  Align := alClient;
+  BorderStyle := bsNone;
+  ActionElementMode := l3_amSecondSingleClick;
+  OnGetItemIconHint := FoldersTreeGetItemIconHint;
+  OnMakeTreeSource := FoldersTreeMakeTreeSource;
+  OnGetItemImage := FoldersTreeGetItemImage;
+  OnGetItemTextHint := FoldersTreeGetItemTextHint;
+  OnActionElement := FoldersTreeActionElement;
+  OnCurrentChanged := FoldersTreeCurrentChanged;
+  OnTreeChanged := FoldersTreeTreeChanged;
+  OnGetItemFont := FoldersTreeGetItemFont;
+  DragAndDropSupported := True;
+  SettingId := 'stidFoldersTree';
+ end;
+//#UC END# *4A8E8F2E0195_497DD4870291_impl*
+//#UC START# *4A8E8F2E0195_497DD4870291_var*
+//#UC END# *4A8E8F2E0195_497DD4870291_var*
+//#UC START# *4AE7060A03E7_497DD4870291exec_impl*
+ if (Aggregate <> nil) then
+  with FoldersTree.TreeView do
+  begin
+   if (aNode <> nil) then
+   begin
+    l_CurNode := FindOnAdapterNode(Tree, aNode);
+    if (l_CurNode <> nil) then
+     GoToNode(l_CurNode)
+    else
+     exit;
+   end//aNode <> nil
+   else
+    exit;
+   try
+    FolderElement_InternalEdit_Execute(l_CurNode, aInternalCall);
+   finally
+    l_CurNode := nil;
+   end;//try..finally
+  end;//with FoldersTree.TreeView
+//#UC END# *4AE7060A03E7_497DD4870291exec_impl*
+//#UC START# *4AE7060A03E7_497DD4870291exec_var*
+var
+ l_CurNode: IeeNode;
+//#UC END# *4AE7060A03E7_497DD4870291exec_var*
+//#UC START# *4AE7099B0136_497DD4870291exec_impl*
+ Result := drDenied;
+ with FoldersTree.TreeView do
+ begin
+  if (aNode <> nil) then
+  begin
+   l_eeNode := FindOnAdapterNode(Tree, aNode);
+   if (l_eeNode <> nil) then
+    GoToNode(l_eeNode)
+   else
+    exit;
+  end//aNode <> nil
+  else
+   l_eeNode := CurrentNode;
+
+  op_FolderElement_ResetModificationOnDelete.Call(Aggregate, l_eeNode);
+
+  try
+   Result := DeleteNode(l_eeNode, aAsk);
+  finally
+   l_eeNode := nil;
+  end;//try..finally
+ end;//with FoldersTree.TreeView
+//#UC END# *4AE7099B0136_497DD4870291exec_impl*
+//#UC START# *4AE7099B0136_497DD4870291exec_var*
+var
+ l_eeNode      : IeeNode;
+//#UC END# *4AE7099B0136_497DD4870291exec_var*
+//#UC START# *4AE7240E024C_497DD4870291exec_impl*
+ if (Op_FolderElement_GetState.Call(Aggregate) = fiEdit) then
+ begin
+  if not aInternalCall then
+   EndEdit(aNode)
+  else
+   op_FolderElement_SetFocus.Call(Aggregate);
+ end//Op_FolderElement_GetState.Call(Aggregate) = fiEdit
+ else
+  BeginEdit(aNode);
+//#UC END# *4AE7240E024C_497DD4870291exec_impl*
+//#UC START# *4AE7240E024C_497DD4870291exec_var*
+//#UC END# *4AE7240E024C_497DD4870291exec_var*
+//#UC START# *4AEEBF3B01CD_497DD4870291exec_impl*
+//#UC END# *4AEEBF3B01CD_497DD4870291exec_impl*
+//#UC START# *4AEEBF3B01CD_497DD4870291exec_var*
+//#UC END# *4AEEBF3B01CD_497DD4870291exec_var*
+//#UC START# *4AEEC3580234_497DD4870291exec_impl*
+ with FoldersTree.TreeView do
+  if (GoToNode(aNode) > 0) then
+   Tree.ChangeExpand(aNode, ee_sbSelect);
+//#UC END# *4AEEC3580234_497DD4870291exec_impl*
+//#UC START# *4AEEC3580234_497DD4870291exec_var*
+//#UC END# *4AEEC3580234_497DD4870291exec_var*
+//#UC START# *4AF2F57400D8_497DD4870291exec_impl*
+ l_FoldersInfo := GetFoldersInfo;
+ if (l_FoldersInfo <> nil) then
+  try
+   l_Index := Ord(anInfo.FilterType);
+   if (l_Index >= 0) then
+   begin
+    l_FoldersInfo.CantChangeFilter := False;
+    if (f_OldFilter = -1) then
+     f_OldFilter := Byte(l_FoldersInfo.FilterInfo.FilterType);
+    if (anInfo <> nil) then
+     l_FoldersInfo.FilterInfo := anInfo
+    else
+     Assert(false);
+   end//l_Index >= 0
+   else
+    Assert(false);
+   if (FoldersTree.TreeView.Current < 0) then
+    // - если отфильтровалось все - то сбрасываем текущий у формы со свойствами.
+    op_FolderElement_SetContent.Call(Aggregate, nil);
+  finally
+   l_FoldersInfo := nil;
+  end;//try..finally
+//#UC END# *4AF2F57400D8_497DD4870291exec_impl*
+//#UC START# *4AF2F57400D8_497DD4870291exec_var*
+var
+ l_FoldersInfo : InsFoldersInfo;
+ l_Index       : Integer;
+//#UC END# *4AF2F57400D8_497DD4870291exec_var*
+//#UC START# *4AF4741300DA_497DD4870291exec_impl*
+ GetFoldersInfo.CantChangeFilter := True;
+//#UC END# *4AF4741300DA_497DD4870291exec_impl*
+//#UC START# *4AF4741300DA_497DD4870291exec_var*
+//#UC END# *4AF4741300DA_497DD4870291exec_var*
+//#UC START# *4AF8170E0139_497DD4870291exec_impl*
+ if not lp_TryOpenAnswer(UserFoldersTree.ConsultationSentFolder, NF_PAYMENT_REQUEST, False) then
+  lp_TryOpenAnswer(UserFoldersTree.ConsultationAnswerFolder, NF_ANSWER_RECEIVED, True);
+//#UC END# *4AF8170E0139_497DD4870291exec_impl*
+//#UC START# *4AF8170E0139_497DD4870291exec_var*
+
+ function lp_TryOpenAnswer(aNode: Il3Node; aFlag: LongInt; OpenAnyway: Boolean): Boolean;
+
+  function lp_FindOnlyAnswer(const anIntf: IeeNode) : Boolean;
+  begin//FindOnlyAnswer
+   Result := bsHasFlag(anIntf, [aFlag]);
+  end;//FindOnlyAnswer
+
+ var l_FirstUnread: IeeNode;
+ var
+  l_Node: IeeNode;
+ begin
+  Result := False;
+  if Supports(aNode, IeeNode, l_Node) then
+  try
+   if OpenAnyway then
+    nsSelectANDExpand(FoldersTree, l_Node, True);
+   l_FirstUnread := l_Node.IterateF(eeL2NA(@lp_FindOnlyAnswer), imOneLevel or imCheckResult);
+   if Assigned(l_FirstUnread) then
+   begin
+    nsSelectANDExpand(FoldersTree, l_Node, True);
+    FoldersTree.TreeView.GoToNode(l_FirstUnread);
+    Il3CommandTarget(FoldersTree).ProcessCommand(ccActionItem, True, 1);
+    Result := True;
+   end;
+  finally
+   l_Node := nil;
+  end;{try..finally}
+ end;
+
+//#UC END# *4AF8170E0139_497DD4870291exec_var*
+//#UC START# *4AF81CE50390_497DD4870291exec_impl*
+ if Supports(UserFoldersTree.ConsultationsFolder, IeeNode, l_Node) then
+ try
+  nsSelectANDExpand(FoldersTree, l_Node, True);
+ finally
+  l_Node := nil;
+ end;//try..finally
+//#UC END# *4AF81CE50390_497DD4870291exec_impl*
+//#UC START# *4AF81CE50390_497DD4870291exec_var*
+var
+ l_Node: IeeNode;
+//#UC END# *4AF81CE50390_497DD4870291exec_var*
+//#UC START# *4AF81E1C012F_497DD4870291exec_impl*
+ if (Aggregate <> nil) then
+ begin
+  FoldersTree.TreeStruct; // !!! Это здесь нужно, т.к. иначе при вызове модальной формы
+                          // дерево оказывается не прогружено
+  op_FolderElement_SetContent.Call(Aggregate, FoldersTree.TreeView.CurrentNode);
+ end;//Aggregate <> nil
+//#UC END# *4AF81E1C012F_497DD4870291exec_impl*
+//#UC START# *4AF81E1C012F_497DD4870291exec_var*
+//#UC END# *4AF81E1C012F_497DD4870291exec_var*
+//#UC START# *4C7E75040189_497DD4870291get_impl*
+ Supports(FoldersTree.TreeStruct, InsFoldersInfo, Result);
+//#UC END# *4C7E75040189_497DD4870291get_impl*
+//#UC START# *4C7E75040189_497DD4870291get_var*
+//#UC END# *4C7E75040189_497DD4870291get_var*
+//#UC START# *51C414700399_497DD4870291_impl*
+ Result := nil;
+ if (Index >= 0) then
+ begin
+  l_eeNode := FoldersTree.TreeView.GetNode(Index);
+  try
+   if Supports(l_eeNode, INode, l_AdapterNode) then
+    Result := nsGetHint(l_AdapterNode);
+  finally
+   l_eeNode := nil;
+  end;//try..finally
+ end;//Index >= 0
+//#UC END# *51C414700399_497DD4870291_impl*
+//#UC START# *51C414700399_497DD4870291_var*
+var
+ l_eeNode      : IeeNode;
+ l_AdapterNode : INode;
+//#UC END# *51C414700399_497DD4870291_var*
+//#UC START# *51C4147A0009_497DD4870291_impl*
+ theTree := UserFoldersTree.AsyncTree;
+//#UC END# *51C4147A0009_497DD4870291_impl*
+//#UC START# *51C4147A0009_497DD4870291_var*
+//#UC END# *51C4147A0009_497DD4870291_var*
+//#UC START# *51C4149F0381_497DD4870291_impl*
+ if Index >= 0 then
+ begin
+  l_eeNode := FoldersTree.TreeView.GetNode(Index);
+  try
+   if Supports(l_eeNode, INode, l_AdapterNode) then
+   begin
+    l_Flags := l_AdapterNode.GetFlags;
+    case TFoldersItemType(l_AdapterNode.GetObjectType) of
+     FIT_BOOKMARK,
+     FIT_PHARM_BOOKMARK:
+      if (l_Flags and NF_CONTROLLED = NF_CONTROLLED) then
+       Result := BookmarkUnderControlIcon
+      else
+       Result := BookmarkIcon;
+     FIT_LIST, FIT_PHARM_LIST:
+      Result := ListIcon;
+     FIT_QUERY:
+// К Убиению     
+{      if (l_Flags and NF_FILTER = NF_FILTER) then
+       Result := FilterIcon <<<<
+      else
+       if (l_Flags and NF_GLOBAL_FILTER = NF_GLOBAL_FILTER) then
+        Result := GlobalFilterIcon <<<<
+       else}
+        if (l_Flags and NF_IN_COMMENTS = NF_IN_COMMENTS) then
+         Result := UserCommentsSearchIcon
+        else
+         Result := QueryIcon;
+     FIT_FOLDER:
+      if (l_Flags and NF_SHARED = NF_SHARED) then
+       Result := SharedFolderIcon
+      else
+       if (l_Flags and NF_MY_CONSULTATIONS) = NF_MY_CONSULTATIONS then
+        Result := ConsultingFolderIcon
+       else
+        Result := FolderIcon;
+     FIT_OLD_HISTORY:
+      Result := JournalFolderIcon;
+     FIT_CONSULTATION:
+      // Консультация прочитана
+      if not bsHasFlag(l_Flags, NF_ANSWER_RECEIVED) and
+          // - у импортированных консультаций устнавливается два статуса - оценена
+          //   и не прочитана, для остальных консультаций порядок обработки не изменился. 
+         bsHasFlag(l_Flags, [NF_ANSWER_READ,
+                             NF_ESTIMATION_SENT,
+                             NF_PAYMENT_CONFIRM,
+                             NF_PAYMENT_REFUSAL]) then
+       Result := ConsultationReadIcon
+      else
+       // Исходящий запрос
+       if bsHasFlag(l_Flags, NF_DRAFTS) then
+        Result := ConsultationSending
+       else
+        Result := ConsultationUnreadIcon;
+     else
+      Result := 0;
+    end;//case TFoldersItemType(l_AdapterNode.GetObjectType) of
+   end//if Supports(l_eeNode, INode, l_AdapterNode) then
+   else
+    Result := FolderIcon;
+  finally
+   l_eeNode := nil;
+  end;{try..finally}
+ end//if Index >= 0 then
+ else
+  Result := 0;
+//#UC END# *51C4149F0381_497DD4870291_impl*
+//#UC START# *51C4149F0381_497DD4870291_var*
+var
+ l_eeNode: IeeNode;
+ l_AdapterNode: INode;
+ l_Flags: LongInt;
+//#UC END# *51C4149F0381_497DD4870291_var*
+//#UC START# *51C414AA021C_497DD4870291_impl*
+ Result := nil;
+ if (Index >= 0) then
+ begin
+  l_eeNode := FoldersTree.TreeView.GetNode(Index);
+  try
+   if Supports(l_eeNode, INode, l_AdapterNode) then
+   begin
+    Result := nsGetHint(l_AdapterNode);
+    if l3Same(Result, l_eeNode.Text) then
+     Result := nil;
+   end;
+  finally
+   l_eeNode := nil;
+  end;//try..finally
+ end;//Index >= 0
+//#UC END# *51C414AA021C_497DD4870291_impl*
+//#UC START# *51C414AA021C_497DD4870291_var*
+var
+ l_eeNode      : IeeNode;
+ l_AdapterNode : INode;
+//#UC END# *51C414AA021C_497DD4870291_var*
+//#UC START# *51C414B701C6_497DD4870291_impl*
+ if (Container.AsForm.ZoneType <> vcm_ztManualModal) then
+ begin
+  l_eeNode := FoldersTree.GetNode(Index);
+  try
+   if lp_CheckCanOpen(l_eeNode) and
+    Supports(l_eeNode, INode, l_AdapterNode) then
+   try
+    l_FoldersItemType := TFoldersItemType(l_AdapterNode.GetObjectType);
+    case l_FoldersItemType of
+     FIT_OLD_HISTORY:
+      Dispatcher.ModuleOperation(TdmStdRes.mod_opcode_WorkJournal_OpenJournal);
+     FIT_FOLDER:
+      if FoldersInfo.NodeHasVisibleChildren(l_eeNode) then
+       NodeInvertExpandedCollapsed(FoldersTree.TreeView)
+      else
+       if l_eeNode.HasChild then
+        Say(inf_TryToExpandEmptyFolder, [vcmFmt(vcmCStr(str_TryToExpandFilteredFolder),[nsCStr(l_eeNode.Text)])])
+       else
+        Say(inf_TryToExpandEmptyFolder, [vcmFmt(vcmCStr(str_TryToExpandEmptyFolder),[nsCStr(l_eeNode.Text)])]);
+    else
+     OpenFolderElement(self.as_IvcmEntityForm, l_eeNode, vcm_okInCurrentTab);
+    end;
+   finally
+    l_AdapterNode := nil;
+   end;
+  finally
+   l_eeNode := nil;
+  end;//try..finally
+ end//(Container.AsForm.ZoneType <> vcm_ztManualModal
+ else
+ if (Aggregate <> nil) then
+ begin
+  if (Op_FolderElement_GetState.Call(Aggregate) in [fiLoad, fiSelect]) then
+   op_Result_ExternalOk.Call(Aggregate);
+ end;//Aggregate <> nil
+//#UC END# *51C414B701C6_497DD4870291_impl*
+//#UC START# *51C414B701C6_497DD4870291_var*
+ function lp_CheckCanOpen(const aNode: Il3SimpleNode): Boolean;
+ begin
+  Result := False;
+  if (dsFoldersTree <> nil) then
+  begin
+   try
+    dsFoldersTree.CanBeOpen(aNode);
+    Result := True;
+   except
+    on EdsConsultationInProcess do
+     Say(inf_ConsultationInProcess);
+    on EdsConsultationSending do
+     Say(inf_ConsultationSending);
+    on EdsOldRefusalConsultationFormat do
+    begin
+     Say(war_OldRefusalConsultationFormat);
+     Result := True;
+      // - мы выдаём сообщение и все равно показываем текст (CQ: OIT5-27021);
+    end;//EdsOldRefusalConsultationFormat
+   end;{try..except}
+  end;//dsFoldersTree <> nil
+ end;//lp_CheckCanOpen
+
+var
+ l_FoldersItemType : TFoldersItemType;
+ l_AdapterNode     : INode;
+ l_eeNode          : Il3SimpleNode;
+ l_NewWindow       : Boolean;
+//#UC END# *51C414B701C6_497DD4870291_var*
+//#UC START# *51C414C5000A_497DD4870291_impl*
+ DoFoldersTreeCurrentChanged(Sender, aNewCurrent, aOldCurrent);
+//#UC END# *51C414C5000A_497DD4870291_impl*
+//#UC START# *51C414C5000A_497DD4870291_var*
+//#UC END# *51C414C5000A_497DD4870291_var*
+//#UC START# *51C414CF0180_497DD4870291_impl*
+ if (anOldTree <> nil) and
+   Supports(anOldTree.RootNode, InsFolderNodeNotify, l_Notify) then
+  l_Notify.RemoveListener(InsFolderNodeListener(Self));
+ if (aNewTree <> nil) and
+   Supports(aNewTree.RootNode, InsFolderNodeNotify, l_Notify) then
+  l_Notify.AddListener(InsFolderNodeListener(Self));
+//#UC END# *51C414CF0180_497DD4870291_impl*
+//#UC START# *51C414CF0180_497DD4870291_var*
+var
+ l_Notify: InsFolderNodeNotify;
+//#UC END# *51C414CF0180_497DD4870291_var*
+//#UC START# *51C414D901EA_497DD4870291_impl*
+ l_Node := FoldersTree.GetNode(Index);
+ try
+  // Консультация
+  if bsCheckNodeType(l_Node, FIT_CONSULTATION) then
+  begin
+    if bsHasFlag(l_Node, [NF_ANSWER_RECEIVED]) or
+      bsHasFlag(l_Node, [NF_CONSULTATION_SENT]) then
+     aFont.Style := [fsBold];
+  end//if bsCheckNodeType(aNode, FIT_CONSULTATION) then
+  else
+   ;
+ finally
+  l_Node := nil;
+ end;{try..finally}
+//#UC END# *51C414D901EA_497DD4870291_impl*
+//#UC START# *51C414D901EA_497DD4870291_var*
+var
+ l_Node: Il3SimpleNode;
+//#UC END# *51C414D901EA_497DD4870291_var*

@@ -1,4 +1,10 @@
 unit Alarm_Const;
+ {* Интервал действия }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\Alarm_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -11,7 +17,7 @@ uses
 ;
 
  // AlarmTag
- 
+
 implementation
 
 uses

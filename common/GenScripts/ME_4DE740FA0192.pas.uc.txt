@@ -1,0 +1,29 @@
+//#UC START# *4BF4E6A00093_4DE740FA0192_impl*
+ if f_Engine.IsTopInt then
+  Result := aDocument.AsList.Para[f_Engine.PopInt]
+ else
+  Assert(False, 'Нет номера параграфа в стеке!');
+//#UC END# *4BF4E6A00093_4DE740FA0192_impl*
+//#UC START# *4BF4E6A00093_4DE740FA0192_var*
+//#UC END# *4BF4E6A00093_4DE740FA0192_var*
+//#UC START# *4DE7421F03DF_4DE740FA0192_impl*
+ RunnerAssert(aCtx.rEngine.IsTopInt, 'Нет номера параграфа в стеке!', aCtx);
+ f_Engine := aCtx.rEngine;
+ try
+  ClickOnPoint(anEditor, True);
+  aCtx.rCaller.Check(CheckCollapsed(anEditor));
+ finally
+  f_Engine := nil;
+ end;
+//#UC END# *4DE7421F03DF_4DE740FA0192_impl*
+//#UC START# *4DE7421F03DF_4DE740FA0192_var*
+//#UC END# *4DE7421F03DF_4DE740FA0192_var*
+//#UC START# *4DE7456800BE_4DE740FA0192_impl*
+ {$IfDef evNeedCollapsedVersionComments}
+ Result := not aText.View.IsObjectCollapsed[GetInnerPara(aText.View, aText.Document)];
+ {$Else  evNeedCollapsedVersionComments}
+ Result := true;
+ {$EndIf evNeedCollapsedVersionComments}
+//#UC END# *4DE7456800BE_4DE740FA0192_impl*
+//#UC START# *4DE7456800BE_4DE740FA0192_var*
+//#UC END# *4DE7456800BE_4DE740FA0192_var*

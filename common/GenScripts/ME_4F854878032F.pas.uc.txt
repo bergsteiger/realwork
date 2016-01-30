@@ -1,0 +1,252 @@
+//#UC START# *0BC1915B6BEB_2EB6B5E4913F_impl*
+ l_Data.rWord := aLambda;
+ l_Data.rCtx := @aCtx;
+ 
+ EnumWindows(@IterateWindowsMethod, LongInt(@l_Data));
+//#UC END# *0BC1915B6BEB_2EB6B5E4913F_impl*
+//#UC START# *0BC1915B6BEB_2EB6B5E4913F_var*
+var
+ l_Data: TtfwWordCallContext;
+//#UC END# *0BC1915B6BEB_2EB6B5E4913F_var*
+//#UC START# *38530DA9DB57_A893626FB9A5_impl*
+ System.FillChar(l_Current, SizeOf(l_Current), 0);
+ l_Current.hItem := TreeView_GetSelection(aWnd);
+ l_Current.mask := TVIF_TEXT;
+ l_Current.cchTextMax := 255;
+ l_Current.pszText := @l_Text;
+
+ l_Res := TreeView_GetItemA(aWnd, l_Current);
+ if l_Res then
+  Result := l_Current.pszText
+ else
+  Result := '';
+//#UC END# *38530DA9DB57_A893626FB9A5_impl*
+//#UC START# *38530DA9DB57_A893626FB9A5_var*
+var
+ l_Current: TTVItemA;
+ l_Res: Boolean;
+ l_Text: array[1..255] of AnsiChar;
+//#UC END# *38530DA9DB57_A893626FB9A5_var*
+//#UC START# *38FB07665775_6ECBEE6894B8_impl*
+ GetWindowText(aWnd, l_Buffer, SizeOf(l_Buffer));
+ Result := l_Buffer;
+//#UC END# *38FB07665775_6ECBEE6894B8_impl*
+//#UC START# *38FB07665775_6ECBEE6894B8_var*
+var
+ l_Buffer: array[Byte] of Char;
+//#UC END# *38FB07665775_6ECBEE6894B8_var*
+//#UC START# *4EDF1B6456EE_F5071C676120_impl*
+ {$IfNDef NoVCL}
+ Result := Forms.Screen.DesktopHeight;
+ {$Else  NoVCL}
+ Assert(false);
+ {$EndIf NoVCL}
+//#UC END# *4EDF1B6456EE_F5071C676120_impl*
+//#UC START# *4EDF1B6456EE_F5071C676120_var*
+//#UC END# *4EDF1B6456EE_F5071C676120_var*
+//#UC START# *510AB608018E_4F854878032F_impl*
+ Result := True;
+ try
+  aData.rCtx.rEngine.PushInt(Integer(hWindow));
+  aData.rWord.DoIt(aData.rCtx^);
+ except
+  on EtfwBreakIterator do
+   Result := False;
+ end;//try..except
+//#UC END# *510AB608018E_4F854878032F_impl*
+//#UC START# *510AB608018E_4F854878032F_var*
+//#UC END# *510AB608018E_4F854878032F_var*
+//#UC START# *51F7DBC755B8_CB65D7FF1E6C_impl*
+ Result := Windows.IsWindowVisible(aWnd);
+//#UC END# *51F7DBC755B8_CB65D7FF1E6C_impl*
+//#UC START# *51F7DBC755B8_CB65D7FF1E6C_var*
+//#UC END# *51F7DBC755B8_CB65D7FF1E6C_var*
+//#UC START# *551D697C0023_4F854878032F_impl*
+ l_Bitmap := TBitmap.Create;
+ try
+  l_Left := aRect.Left;
+  l_Top := aRect.Top;
+  l_Width := aRect.Right - aRect.Left;
+  l_Height := aRect.Bottom - aRect.Top;
+  aCaller.RunnerAssert(l_Height > 0, 'Высота скриншота меньше или равна 0.', aCtx);
+  aCaller.RunnerAssert(l_Width > 0, 'Ширина скриншота меньше или равна 0.', aCtx);
+  l3MakeScreenShot(l_Bitmap, l_Left, l_Top, l_Width, l_Height, aWnd);
+  l_FileName := aCtx.rCaller.ResolveOutputFilePath(aFileName);
+  l_Bitmap.SaveToFile(l_FileName);
+  if aWithCheck then
+  begin
+   with Tl3PicturePathService.Instance do
+   begin
+    AddPicturePath(l_FileName);
+    SetTestName('');
+   end; // with Tl3PicturePathService.Instance do
+   aCtx.rCaller.CheckPictureOnly;
+  end;//aWithCheck
+ finally
+  FreeAndNil(l_Bitmap);
+ end;
+//#UC END# *551D697C0023_4F854878032F_impl*
+//#UC START# *551D697C0023_4F854878032F_var*
+var
+ l_Top     : Integer;
+ l_Left    : Integer;
+ l_Width   : Integer;
+ l_Height  : Integer;
+ l_Bitmap  : TBitmap;
+ l_FileName: AnsiString;
+//#UC END# *551D697C0023_4F854878032F_var*
+//#UC START# *5CBACAD0EDFA_CB29543BBB60_impl*
+ Result := Windows.GetForegroundWindow;
+//#UC END# *5CBACAD0EDFA_CB29543BBB60_impl*
+//#UC START# *5CBACAD0EDFA_CB29543BBB60_var*
+//#UC END# *5CBACAD0EDFA_CB29543BBB60_var*
+//#UC START# *6FFCD3ADC6FE_2D01DE64792B_impl*
+ Result := Windows.WindowFromPoint(aPoint);
+//#UC END# *6FFCD3ADC6FE_2D01DE64792B_impl*
+//#UC START# *6FFCD3ADC6FE_2D01DE64792B_var*
+//#UC END# *6FFCD3ADC6FE_2D01DE64792B_var*
+//#UC START# *726789FBF9F7_91E516864416_impl*
+ {$IfNDef NoVCL}
+ Result := Forms.Screen.Monitors[anIndex].Height;
+ {$Else   NoVCL}
+ Assert(false);
+ {$EndIf  NoVCL}
+//#UC END# *726789FBF9F7_91E516864416_impl*
+//#UC START# *726789FBF9F7_91E516864416_var*
+//#UC END# *726789FBF9F7_91E516864416_var*
+//#UC START# *7734C551216C_22E2D41E5FCD_impl*
+ {$IfNDef NoVCL}
+ l_Window := nil;
+ if (aWnd.rType = tfw_vtInt) then
+ begin
+  l_Handle := THandle(aWnd.AsInt);
+  l_Window := FindControl(l_Handle);
+ end//aWnd.rType = tfw_vtInt
+ else
+  l_Handle := 0;
+
+ if Assigned(l_Window) or
+    (aWnd.rType = tfw_vtObj) then
+ begin
+  if not Assigned(l_Window) then
+   l_Window := aWnd.AsObject As TWinControl;
+  RunnerAssert(l_Window is TWinControl, 'Где окно?!', aCtx);
+  if Tl3CloseFormHelper.Instance.Close(l_Window) then
+   Exit;
+  if (l_Handle <> 0) then
+   l_Handle := l_Window.Handle;
+ end;//Assigned(l_Window) or
+ RunnerAssert(l_Handle <> 0, 'Где окно?!', aCtx);
+ PostMessage(l_Handle, WM_CLOSE, 0, 0);
+ {$Else  NoVCL}
+ Assert(false);
+ {$EndIf NoVCL}
+//#UC END# *7734C551216C_22E2D41E5FCD_impl*
+//#UC START# *7734C551216C_22E2D41E5FCD_var*
+{$IfNDef NoVCL}
+var
+ l_Window: TWinControl;
+ l_Handle: THandle;
+{$EndIf  NoVCL}
+//#UC END# *7734C551216C_22E2D41E5FCD_var*
+//#UC START# *7F8BF12C6C7F_C09FEECC1053_impl*
+ GetWindowThreadProcessId(aWnd, l_Process);
+ Result := (l_Process = GetCurrentProcessId);
+//#UC END# *7F8BF12C6C7F_C09FEECC1053_impl*
+//#UC START# *7F8BF12C6C7F_C09FEECC1053_var*
+var
+ l_Process: DWORD;
+//#UC END# *7F8BF12C6C7F_C09FEECC1053_var*
+//#UC START# *8218EB203DB0_8022C1F2B088_impl*
+ {$IfNDef NoVCL}
+ Result := Forms.Screen.Monitors[0].Height;
+ {$Else   NoVCL}
+ Assert(false);
+ {$EndIf  NoVCL}
+//#UC END# *8218EB203DB0_8022C1F2B088_impl*
+//#UC START# *8218EB203DB0_8022C1F2B088_var*
+//#UC END# *8218EB203DB0_8022C1F2B088_var*
+//#UC START# *84D6BB2A5250_0FB930B944B8_impl*
+ Result := FindWindowA(nil, PAnsiChar(aCaption));
+//#UC END# *84D6BB2A5250_0FB930B944B8_impl*
+//#UC START# *84D6BB2A5250_0FB930B944B8_var*
+//#UC END# *84D6BB2A5250_0FB930B944B8_var*
+//#UC START# *885E0A0E618E_BB2233135443_impl*
+ l_Data.rWord := aLambda;
+ l_Data.rCtx := @aCtx;
+ 
+ EnumChildWindows(aWnd, @IterateWindowsMethod, LongInt(@l_Data));
+//#UC END# *885E0A0E618E_BB2233135443_impl*
+//#UC START# *885E0A0E618E_BB2233135443_var*
+var
+ l_Data: TtfwWordCallContext;
+//#UC END# *885E0A0E618E_BB2233135443_var*
+//#UC START# *8B949444F0A6_13CADBEDE41C_impl*
+ MakeScreenshot(aWnd, Rect(aLeft, aTop, aLeft + aWidth, aTop + aHeight), aFileName, true, aCtx, Self);
+//#UC END# *8B949444F0A6_13CADBEDE41C_impl*
+//#UC START# *8B949444F0A6_13CADBEDE41C_var*
+//#UC END# *8B949444F0A6_13CADBEDE41C_var*
+//#UC START# *91F8A1F3931B_3832249557A1_impl*
+ {$IfNDef NoVCL}
+ Result := Forms.Screen.Monitors[0].Width;
+ {$Else   NoVCL}
+ Assert(false);
+ {$EndIf  NoVCL}
+//#UC END# *91F8A1F3931B_3832249557A1_impl*
+//#UC START# *91F8A1F3931B_3832249557A1_var*
+//#UC END# *91F8A1F3931B_3832249557A1_var*
+//#UC START# *D113CC850E0F_1C5511E4225D_impl*
+ Windows.SetForegroundWindow(aWnd);
+//#UC END# *D113CC850E0F_1C5511E4225D_impl*
+//#UC START# *D113CC850E0F_1C5511E4225D_var*
+//#UC END# *D113CC850E0F_1C5511E4225D_var*
+//#UC START# *D8F53100D31F_4C862EA2F8C6_impl*
+ {$IfNDef NoVCL}
+ Result := Forms.Screen.MonitorCount;
+ {$Else   NoVCL}
+ Assert(false);
+ {$EndIf  NoVCL}
+//#UC END# *D8F53100D31F_4C862EA2F8C6_impl*
+//#UC START# *D8F53100D31F_4C862EA2F8C6_var*
+//#UC END# *D8F53100D31F_4C862EA2F8C6_var*
+//#UC START# *E3689417D97C_D7673935EC18_impl*
+ MakeScreenshot(aWnd, Rect(aLeft, aTop, aLeft + aWidth, aTop + aHeight), aFileName, false, aCtx, Self);
+//#UC END# *E3689417D97C_D7673935EC18_impl*
+//#UC START# *E3689417D97C_D7673935EC18_var*
+//#UC END# *E3689417D97C_D7673935EC18_var*
+//#UC START# *E554A2B1DE10_455E9214E4B7_impl*
+ GetClassName(aWnd, l_Buffer, SizeOf(l_Buffer));
+ Result := l_Buffer;
+//#UC END# *E554A2B1DE10_455E9214E4B7_impl*
+//#UC START# *E554A2B1DE10_455E9214E4B7_var*
+var
+ l_Buffer: array[Byte] of Char;
+//#UC END# *E554A2B1DE10_455E9214E4B7_var*
+//#UC START# *EC4EA52ACE49_F2D32D266DD0_impl*
+ {$IfNDef NoVCL}
+ Result := Forms.Screen.DesktopWidth
+ {$Else  NoVCL}
+ Assert(false);
+ {$EndIf NoVCL}
+//#UC END# *EC4EA52ACE49_F2D32D266DD0_impl*
+//#UC START# *EC4EA52ACE49_F2D32D266DD0_var*
+//#UC END# *EC4EA52ACE49_F2D32D266DD0_var*
+//#UC START# *EF73ED47DC1E_B3B5EA3F1514_impl*
+ SendMessage(aWnd, WM_CLOSE, 0, 0);
+//#UC END# *EF73ED47DC1E_B3B5EA3F1514_impl*
+//#UC START# *EF73ED47DC1E_B3B5EA3F1514_var*
+//#UC END# *EF73ED47DC1E_B3B5EA3F1514_var*
+//#UC START# *FF7BA1B0E345_44BBDAE720F0_impl*
+ {$IfNDef NoVCL}
+ Result := Forms.Screen.Monitors[anIndex].Width;
+ {$Else  NoVCL}
+ Assert(false);
+ {$EndIf NoVCL}
+//#UC END# *FF7BA1B0E345_44BBDAE720F0_impl*
+//#UC START# *FF7BA1B0E345_44BBDAE720F0_var*
+//#UC END# *FF7BA1B0E345_44BBDAE720F0_var*
+//#UC START# *FFB533EE4DD1_DDDEEE94C045_impl*
+ l3SetFuzzValueInPercent(aValue);
+//#UC END# *FFB533EE4DD1_DDDEEE94C045_impl*
+//#UC START# *FFB533EE4DD1_DDDEEE94C045_var*
+//#UC END# *FFB533EE4DD1_DDDEEE94C045_var*

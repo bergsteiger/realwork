@@ -1,0 +1,50 @@
+//#UC START# *47B9866E034D_4912AB3A01ED_impl*
+ inherited;
+ Sorted := true;
+//#UC END# *47B9866E034D_4912AB3A01ED_impl*
+//#UC START# *47B9866E034D_4912AB3A01ED_var*
+//#UC END# *47B9866E034D_4912AB3A01ED_var*
+//#UC START# *47EA4E9002C6_4912AB3A01ED_impl*
+ inherited;
+ Clear;
+//#UC END# *47EA4E9002C6_4912AB3A01ED_impl*
+//#UC START# *47EA4E9002C6_4912AB3A01ED_var*
+//#UC END# *47EA4E9002C6_4912AB3A01ED_var*
+//#UC START# *4912ABB40360_4912AB3A01EDget_impl*
+ Result := GetAttributeRoot(aTag);
+//#UC END# *4912ABB40360_4912AB3A01EDget_impl*
+//#UC START# *4912ABB40360_4912AB3A01EDget_var*
+//#UC END# *4912ABB40360_4912AB3A01EDget_var*
+//#UC START# *4912ABE4035C_4912AB3A01EDget_impl*
+ Result := GetAttributeRoot(aTag, true);
+//#UC END# *4912ABE4035C_4912AB3A01EDget_impl*
+//#UC START# *4912ABE4035C_4912AB3A01EDget_var*
+//#UC END# *4912ABE4035C_4912AB3A01EDget_var*
+//#UC START# *4912AC600333_4912AB3A01ED_impl*
+ l_Interface := FindInterface(nsWStr(aTag));
+ if (l_Interface = nil) then
+ begin
+  try
+   l_Node := DefDataAdapter.NativeAdapter.MakeNodeBase(nsAStr(aTag).S);
+   Add(aTag, l_Node);
+  except
+   on EUnknownFactoryKey do
+    l_Node := nil;
+  end;
+ end//l_Interface = nil
+ else
+ begin
+  l_Node := l_Interface as INodeBase;
+  if aDropFlags then
+  begin
+   l_Node.SetAllFlag(FM_Open, False);
+   l_Node.SetAllFlag(FM_Selection, False);
+  end;//aDropFlags
+ end;//l_Interface = nil
+ Result := l_Node;
+//#UC END# *4912AC600333_4912AB3A01ED_impl*
+//#UC START# *4912AC600333_4912AB3A01ED_var*
+var
+ l_Interface: IUnknown;
+ l_Node: INodeBase;
+//#UC END# *4912AC600333_4912AB3A01ED_var*

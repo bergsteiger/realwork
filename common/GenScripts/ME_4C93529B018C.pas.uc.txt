@@ -1,0 +1,27 @@
+//#UC START# *4BE13147032C_4C93529B018C_impl*
+ with aForm.Text do
+ begin
+  l_Op := StartOp;
+  try
+   l_Selection := Selection;
+   if (l_Selection <> nil) then
+   begin
+    l_Range := DoSelect(aForm.Text, l_Op);
+    l_Selection.Select(l_Range, false);
+    Assert(not aForm.Text.Selection.Collapsed);
+    CopyToClipboard(aForm.Text);
+    Select(ev_stDocument);
+    Self.PasteFromClipboard(aForm.Text);
+    ClearClipboard;
+   end; // if (l_Selection <> nil) then
+  finally
+   l_Op := nil;
+  end;//try..finally
+ end;//aForm.Text
+//#UC END# *4BE13147032C_4C93529B018C_impl*
+//#UC START# *4BE13147032C_4C93529B018C_var*
+var
+ l_Op : Il3OpPack;
+ l_Selection : InevSelection;
+ l_Range : InevRange;
+//#UC END# *4BE13147032C_4C93529B018C_var*

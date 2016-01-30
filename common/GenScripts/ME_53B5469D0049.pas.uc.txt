@@ -1,0 +1,176 @@
+//#UC START# *47A042E100E2_53076BA10113_impl*
+ inherited;
+ //f_TagType := k2_typRawData;
+//#UC END# *47A042E100E2_53076BA10113_impl*
+//#UC START# *47A042E100E2_53076BA10113_var*
+//#UC END# *47A042E100E2_53076BA10113_var*
+//#UC START# *49A545580241_53076BA10113_impl*
+ Assert(false);
+ Result := false;
+//#UC END# *49A545580241_53076BA10113_impl*
+//#UC START# *49A545580241_53076BA10113_var*
+//#UC END# *49A545580241_53076BA10113_var*
+//#UC START# *530770EB0342_53076BA10113_impl*
+ inherited Create;
+ Assert(aType = k2_typRawData);
+//#UC END# *530770EB0342_53076BA10113_impl*
+//#UC START# *530770EB0342_53076BA10113_var*
+//#UC END# *530770EB0342_53076BA10113_var*
+//#UC START# *530B20AC019A_53076BA10113_impl*
+ Result := Supports(Self, IStream, theStream);
+ Assert(Result);
+//#UC END# *530B20AC019A_53076BA10113_impl*
+//#UC START# *530B20AC019A_53076BA10113_var*
+//#UC END# *530B20AC019A_53076BA10113_var*
+//#UC START# *530B3ADB014E_53076BA10113_impl*
+ Result := Tk2MemoryPoolAdapter;
+//#UC END# *530B3ADB014E_53076BA10113_impl*
+//#UC START# *530B3ADB014E_53076BA10113_var*
+//#UC END# *530B3ADB014E_53076BA10113_var*
+//#UC START# *530B3F560201_53076BA10113_impl*
+ Result := Tk2MemoryStream;
+//#UC END# *530B3F560201_53076BA10113_impl*
+//#UC START# *530B3F560201_53076BA10113_var*
+//#UC END# *530B3F560201_53076BA10113_var*
+//#UC START# *530B592503D3_53076BA10113_impl*
+ inherited Create;
+//#UC END# *530B592503D3_53076BA10113_impl*
+//#UC START# *530B592503D3_53076BA10113_var*
+//#UC END# *530B592503D3_53076BA10113_var*
+//#UC START# *532AE8F2009A_53076BA10113_impl*
+ Result := false;
+//#UC END# *532AE8F2009A_53076BA10113_impl*
+//#UC START# *532AE8F2009A_53076BA10113_var*
+//#UC END# *532AE8F2009A_53076BA10113_var*
+//#UC START# *533121AF0203_53076BA10113_impl*
+ Result := k2_typRawData;
+//#UC END# *533121AF0203_53076BA10113_impl*
+//#UC START# *533121AF0203_53076BA10113_var*
+//#UC END# *533121AF0203_53076BA10113_var*
+//#UC START# *535786890241_53076BA10113_impl*
+ l_Inst := Create(aType);
+ try
+  Result := l_Inst.AsRef;
+ finally
+  FreeAndNil(l_Inst);
+ end;//try..finally
+//#UC END# *535786890241_53076BA10113_impl*
+//#UC START# *535786890241_53076BA10113_var*
+var
+ l_Inst : Tk2SizedMemoryPool;
+//#UC END# *535786890241_53076BA10113_var*
+//#UC START# *53B552640177_53076BA10113_impl*
+ Create;
+ l_Stream := l3Stream2IStream(aStream);
+ Assert(l_Stream <> nil);
+ try
+  OleCheck(l_Stream.Seek(0, STREAM_SEEK_SET, l_Position));
+  {$IfDef nsTest}
+  Dec(g_IStreamCopyTo_Guard);
+  try
+  {$EndIf nsTest}
+   OleCheck(l_Stream.CopyTo(Self As IStream, High(Large), l_Read, l_Written));
+  {$IfDef nsTest}
+  finally
+   Inc(g_IStreamCopyTo_Guard);
+  end;//try..finally
+  {$EndIf nsTest}
+ finally
+  l_Stream := nil;
+ end;//try..finally
+//#UC END# *53B552640177_53076BA10113_impl*
+//#UC START# *53B552640177_53076BA10113_var*
+var
+ l_Stream : IStream;
+ l_Read : Large;
+ l_Written : Large;
+ l_Position : Large;
+//#UC END# *53B552640177_53076BA10113_var*
+//#UC START# *53B55ED6016D_53076BA10113_impl*
+ Assert(Self <> nil);
+ l3IStream2Stream(Self As IStream, l_Stream);
+ try
+  l_Stream.CopyFrom(Source, Count);
+ finally
+  FreeAndNil(l_Stream);
+ end;//try..finally
+//#UC END# *53B55ED6016D_53076BA10113_impl*
+//#UC START# *53B55ED6016D_53076BA10113_var*
+var
+ l_Stream : TStream;
+//#UC END# *53B55ED6016D_53076BA10113_var*
+//#UC START# *53B55EF0025D_53076BA10113_impl*
+ Assert(Self <> nil);
+ l3IStream2Stream(Self As IStream, l_Stream);
+ try
+  Dest.CopyFrom(l_Stream, Count);
+ finally
+  FreeAndNil(l_Stream);
+ end;//try..finally
+//#UC END# *53B55EF0025D_53076BA10113_impl*
+//#UC START# *53B55EF0025D_53076BA10113_var*
+var
+ l_Stream : TStream;
+//#UC END# *53B55EF0025D_53076BA10113_var*
+//#UC START# *53C00C140267_53076BA10113_impl*
+ if not aString.QI(IStream, l_IStream) then
+ begin
+  Result := nil;
+  Assert(false);
+ end//not aString.QI(IStream, l_IStream)
+ else
+ begin
+  l3IStream2Stream(l_IStream, l_Stream);
+  try
+   Result := CreateFromStream(l_Stream);
+  finally
+   FreeAndNil(l_Stream);
+  end;//try..finally
+ end;//not aString.QI(IStream, l_IStream)
+//#UC END# *53C00C140267_53076BA10113_impl*
+//#UC START# *53C00C140267_53076BA10113_var*
+var
+ l_IStream : IStream; 
+ l_Stream : TStream;
+//#UC END# *53C00C140267_53076BA10113_var*
+//#UC START# *53C015EF00DE_53076BA10113_impl*
+ if DirectoryExists(aFileName) then
+ // - это не файл, а директория - надо пока записать "пустышку"
+  Result := nil
+ else 
+ if FileExists(aFileName) then
+ begin
+  l_FileData := Tl3NamedFileStream.Create(aFileName, l3_fmRead);
+  try
+   Result := CreateFromStream(l_FileData);
+  finally
+   FreeAndNil(l_FileData);
+  end;//try..finally
+ end//FileExists(anItem)
+ else
+  Result := nil;
+//#UC END# *53C015EF00DE_53076BA10113_impl*
+//#UC START# *53C015EF00DE_53076BA10113_var*
+var
+ l_FileData : Tl3NamedFileStream;
+//#UC END# *53C015EF00DE_53076BA10113_var*
+//#UC START# *53C3CD600278_53076BA10113_impl*
+ Create;
+ {$IfDef nsTest}
+ Dec(g_IStreamCopyTo_Guard);
+ try
+ {$EndIf nsTest}
+  OleCheck(aStream.Seek(0, STREAM_SEEK_SET, l_Position));
+  aStream.CopyTo(Self As IStream, High(Large), l_Read, l_Written);
+ {$IfDef nsTest}
+ finally
+  Inc(g_IStreamCopyTo_Guard);
+ end;//try..finally
+ {$EndIf nsTest}
+//#UC END# *53C3CD600278_53076BA10113_impl*
+//#UC START# *53C3CD600278_53076BA10113_var*
+var
+ l_Read : Int64;
+ l_Written : Int64;
+ l_Position : Int64;
+//#UC END# *53C3CD600278_53076BA10113_var*

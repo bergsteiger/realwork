@@ -1,0 +1,15 @@
+//#UC START# *4857A995029E_4857B5D901D7_impl*
+ if (aProp.TagIndex = k2_tiFixedWidth) then
+ begin
+  if AE.Owner.IsKindOf(k2_typPara) then
+  // - вложенные документы не должны задавать свою ширину при форматировании
+  begin
+   Result := true;
+   Data := aProp.MakeTag(Ord(false)).AsObject;
+   Exit;
+  end;//IsKindOf(k2_typPara)
+ end;//aProp.TagIndex = k2_tiFixedWidth
+ Result := inherited GetAtomData(AE, aProp, Data);
+//#UC END# *4857A995029E_4857B5D901D7_impl*
+//#UC START# *4857A995029E_4857B5D901D7_var*
+//#UC END# *4857A995029E_4857B5D901D7_var*

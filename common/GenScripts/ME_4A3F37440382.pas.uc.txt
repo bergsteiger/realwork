@@ -1,0 +1,54 @@
+//#UC START# *479731C50290_4A3F37440382_impl*
+ f_Line := 0;
+ inherited;
+//#UC END# *479731C50290_4A3F37440382_impl*
+//#UC START# *479731C50290_4A3F37440382_var*
+//#UC END# *479731C50290_4A3F37440382_var*
+//#UC START# *4A3B707700C9_4A3F37440382_impl*
+ Result := (f_Line <= 0);
+//#UC END# *4A3B707700C9_4A3F37440382_impl*
+//#UC START# *4A3B707700C9_4A3F37440382_var*
+//#UC END# *4A3B707700C9_4A3F37440382_var*
+//#UC START# *4A3B708900C4_4A3F37440382_impl*
+ Result := (f_Line >= Pred(evTextParaLineCount(ObjMap(aView))));
+//#UC END# *4A3B708900C4_4A3F37440382_impl*
+//#UC START# *4A3B708900C4_4A3F37440382_var*
+//#UC END# *4A3B708900C4_4A3F37440382_var*
+//#UC START# *4A3B7F2E01CE_4A3F37440382_impl*
+ Result := f_Line;
+//#UC END# *4A3B7F2E01CE_4A3F37440382_impl*
+//#UC START# *4A3B7F2E01CE_4A3F37440382_var*
+//#UC END# *4A3B7F2E01CE_4A3F37440382_var*
+//#UC START# *4A3BA80002E5_4A3F37440382_impl*
+ if (aMap = nil) then
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=294598808
+  Result := 0
+ else
+ if aMap.IsHidden(false, false) then
+  Result := 0
+ else
+  Result := evTextParaGetDeltaByLine(aMap, ParaX, VertPosition(aView, aMap));
+//#UC END# *4A3BA80002E5_4A3F37440382_impl*
+//#UC START# *4A3BA80002E5_4A3F37440382_var*
+//#UC END# *4A3BA80002E5_4A3F37440382_var*
+//#UC START# *4A5CD65C01D4_4A3F37440382_impl*
+ Result.rLine := TnevTextParaAnchor(aSelf).f_Line;
+ Result.rOfs := 0;
+//#UC END# *4A5CD65C01D4_4A3F37440382_impl*
+//#UC START# *4A5CD65C01D4_4A3F37440382_var*
+//#UC END# *4A5CD65C01D4_4A3F37440382_var*
+//#UC START# *4B1D0220010E_4A3F37440382_impl*
+ inherited;
+ if (aPoint <> nil) then
+ begin
+  f_Line := aPoint.VertPosition(aView, nil);
+  SignalScroll;
+ end;//aPoint <> nil
+//#UC END# *4B1D0220010E_4A3F37440382_impl*
+//#UC START# *4B1D0220010E_4A3F37440382_var*
+//#UC END# *4B1D0220010E_4A3F37440382_var*
+//#UC START# *4B1D11DC00AD_4A3F37440382_impl*
+ f_Line := aValue;
+//#UC END# *4B1D11DC00AD_4A3F37440382_impl*
+//#UC START# *4B1D11DC00AD_4A3F37440382_var*
+//#UC END# *4B1D11DC00AD_4A3F37440382_var*

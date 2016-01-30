@@ -1,0 +1,106 @@
+//#UC START# *479731C50290_5645E9920077_impl*
+ FreeAndNil(f_Tag);
+ FreeAndNil(f_DocPara);
+ FreeAndNil(f_SnippetPara);
+ inherited;
+//#UC END# *479731C50290_5645E9920077_impl*
+//#UC START# *479731C50290_5645E9920077_var*
+//#UC END# *479731C50290_5645E9920077_var*
+//#UC START# *47A042E100E2_5645E9920077_impl*
+ f_DocumentId := -1;
+ inherited;
+//#UC END# *47A042E100E2_5645E9920077_impl*
+//#UC START# *47A042E100E2_5645E9920077_var*
+//#UC END# *47A042E100E2_5645E9920077_var*
+//#UC START# *4A60B23E00C3_5645E9920077_impl*
+ if IID.EQ(Il3NodePainter) then
+ begin
+  Result.SetOk;
+  Il3NodePainter(Obj) := TevNodePainter.Make(Tag);
+ end//IID.EQ(Il3NodePainter)
+ else
+  Result := inherited COMQueryInterface(IID, Obj);
+//#UC END# *4A60B23E00C3_5645E9920077_impl*
+//#UC START# *4A60B23E00C3_5645E9920077_var*
+//#UC END# *4A60B23E00C3_5645E9920077_var*
+//#UC START# *564B1D4702E5_5645E9920077get_impl*
+ if not Assigned(f_Tag) then
+ begin
+  k2_typDocument.MakeTag.AsObject.SetRef(f_Tag);
+  f_Tag.IntA[k2_tiSpaceBefore] := 0;
+  lp_MakeDocumentPara;
+  lp_MakeSnippetPara;
+ end;//not Assigned(f_Tag)
+
+ f_DocPara.IntA[k2_tiStyle] := c_DocumentStyle[IsVisited];
+ if Assigned(f_SnippetPara) then
+  f_SnippetPara.IntA[k2_tiStyle] := c_SnippetStyle[IsVisited];
+
+ Result := f_Tag;
+//#UC END# *564B1D4702E5_5645E9920077get_impl*
+//#UC START# *564B1D4702E5_5645E9920077get_var*
+const
+ c_DocumentStyle: array[Boolean] of Integer = (f1_saDocumentInList, f1_saVisitedDocumentInList);
+ c_SnippetStyle: array[Boolean] of Integer = (f1_saSnippet, f1_saVisitedSnippetInList);
+
+ procedure lp_MakeDocumentPara;
+ var
+  l_W: Tl3WString;
+ begin
+  l_W := Self.Get_Text;
+
+  k2_typTextPara.MakeTag.AsObject.SetRef(f_DocPara);
+  f_DocPara.PCharLenA[k2_tiText] := Tl3PCharLen(l_W);
+  l3Replace(f_DocPara.PCharLenA[k2_tiText], [#10], ' ');
+  //lp_SetDocumentStyle;
+  f_Tag.AddChild(f_DocPara);
+ end;
+
+ procedure lp_MakeSnippetPara;
+ var
+  l_W: Tl3WString;
+  l_N: INodeBase;
+  l_S: IString;
+
+  l_Segs: Tl3Variant;
+  l_VS: Tl3Variant;
+ begin
+  if (AdapterNode <> nil) and AdapterNode.HasChildren then
+  begin
+   AdapterNode.GetFirstChild(l_N);
+   l_N.GetCaption(l_S);
+   l_W := nsWStr(l_S);
+
+   k2_typTextPara.MakeTag.AsObject.SetRef(f_SnippetPara);
+   f_SnippetPara.PCharLenA[k2_tiText] := Tl3PCharLen(l_W);
+   l3Replace(f_SnippetPara.PCharLenA[k2_tiText], [#10], ' ');
+
+   l_Segs := f_SnippetPara.cAtomEx([k2_tiSegments, k2_tiChildren, k2_tiHandle, Ord(ev_slView)], nil);
+   l_VS := k2_typTextSegment.MakeTag.AsObject;
+   l_VS.IntA[k2_tiStyle] := ev_saBoldSelection;
+   l_VS.IntA[k2_tiStart] := 10;
+   l_VS.IntA[k2_tiFinish] := 20;
+   l_Segs.AddChild(l_VS.AsObject);
+
+   f_SnippetPara.IntA[k2_tiBullet] := 1;
+   f_Tag.AddChild(f_SnippetPara);
+  end;
+ end;
+//#UC END# *564B1D4702E5_5645E9920077get_var*
+//#UC START# *5657201D02D1_5645E9920077get_impl*
+ if f_DocumentId = -1 then
+  if Supports(AdapterNode, IDynListNode, l_DN) then
+   f_DocumentId := l_DN.GetDocumentId - 100000
+  else
+   f_DocumentId := 0;
+ Result := f_DocumentId;
+//#UC END# *5657201D02D1_5645E9920077get_impl*
+//#UC START# *5657201D02D1_5645E9920077get_var*
+var
+ l_DN: IDynListNode;
+//#UC END# *5657201D02D1_5645E9920077get_var*
+//#UC START# *5657205D00B4_5645E9920077_impl*
+ Result := (DocumentId <> 0) and TnscDocumentHistory.Instance.HasDocument(DocumentId);
+//#UC END# *5657205D00B4_5645E9920077_impl*
+//#UC START# *5657205D00B4_5645E9920077_var*
+//#UC END# *5657205D00B4_5645E9920077_var*

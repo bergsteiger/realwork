@@ -1,28 +1,39 @@
-unit l3PtrList.imp;
+{$IfNDef l3PtrList_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\L3\l3PtrList.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define l3PtrList_imp}
 
-type
+ _l3PtrListPrim_Parent_ = _l3PtrList_Parent_;
+ {$Include l3PtrListPrim.imp.pas}
  _l3PtrList_ = class(_l3PtrListPrim_)
   {* Примесь для списков указателей. Список НЕ УПРАВЛЯЕТ временем жизни элементов. }
-  procedure FillItem(var aPlace: _ItemType_;
-   const anItem: _ItemType_;
-   anItems: _l3Items_);
-   {* Заполняет элемент списка. }
  end;//_l3PtrList_
- 
-implementation
 
-uses
- l3ImplUses
- , l3Base
- , l3MinMax
- , RTLConsts
- , SysUtils
-;
+{$Else l3PtrList_imp}
 
-end.
+{$IfNDef l3PtrList_imp_impl}
+
+{$Define l3PtrList_imp_impl}
+
+procedure FillItem(var aPlace: _ItemType_;
+ const anItem: _ItemType_;
+ anItems: _l3Items_);
+ {* Заполняет элемент списка. }
+//#UC START# *47B935AF0066_47B5782902DA_var*
+//#UC END# *47B935AF0066_47B5782902DA_var*
+begin
+//#UC START# *47B935AF0066_47B5782902DA_impl*
+ aPlace := anItem;
+//#UC END# *47B935AF0066_47B5782902DA_impl*
+end;//FillItem
+
+type _Instance_R_ = _l3PtrList_;
+
+{$Include l3PtrListPrim.imp.pas}
+
+{$EndIf l3PtrList_imp_impl}
+
+{$EndIf l3PtrList_imp}
+

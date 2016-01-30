@@ -1,17 +1,34 @@
 unit k2HugeDictRec;
 
+// Модуль: "w:\common\components\rtl\Garant\K2\k2HugeDictRec.pas"
+// Стереотип: "SimpleClass"
+
+{$Include k2Define.inc}
+
 interface
 
 uses
  l3IntfUses
  , k2DictRecTag
  , l3BitArr
+ , k2Base
+ , l3Variant
+ , k2BaseStruct
+ , k2TagList
+ , k2Prim
+ , l3IID
+ , k2BaseTypes
+ , l3Types
+ , l3Interfaces
 ;
 
 type
+ _HashType_ = Tl3PtrHash;
+ _k2HashTag_Parent_ = Tk2DictRecTag;
+ {$Include k2HashTag.imp.pas}
  Tk2HugeDictRec = class(_k2HashTag_)
  end;//Tk2HugeDictRec
- 
+
 implementation
 
 uses
@@ -24,7 +41,6 @@ uses
  , l3String
  , k2Except
  , k2Strings
- , k2TagList
  , TypInfo
  , l3Stream
  , l3Base
@@ -39,9 +55,11 @@ uses
  , k2NullTagImpl
  , k2Interfaces
  , k2DictionaryPrim
- , l3Variant
- , k2Base
  , k2InterfaceFactory
 ;
+
+type _Instance_R_ = Tk2HugeDictRec;
+
+{$Include k2HashTag.imp.pas}
 
 end.

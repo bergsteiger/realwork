@@ -1,5 +1,10 @@
 unit AnnotationTask_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\AnnotationTask_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -13,7 +18,7 @@ uses
 ;
 
  // AnnotationTaskTag
- 
+
 implementation
 
 uses

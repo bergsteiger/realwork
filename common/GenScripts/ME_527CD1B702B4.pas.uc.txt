@@ -1,0 +1,15 @@
+//#UC START# *527CD1EB017C_527CD1B702B4_impl*
+ l_Data := MakeParamsList;
+ with aTopic do
+ begin
+  l_Data.AddULong(Longword(rPid.rObjectId));
+  l_Data.AddULong(Longword(rPid.rClassId));
+  l_Data.AddULong(Longword(rPosition.rPoint));
+  l_Data.AddULong(Longword(rPosition.rType));
+ end;
+ GetLogger.AddEvent(LE_DOCUMENT_NOT_EXIST, l_Data);
+//#UC END# *527CD1EB017C_527CD1B702B4_impl*
+//#UC START# *527CD1EB017C_527CD1B702B4_var*
+var
+ l_Data: InsLogEventData;
+//#UC END# *527CD1EB017C_527CD1B702B4_var*

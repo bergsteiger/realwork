@@ -1,4 +1,10 @@
-unit evTagsListFilter;
+unit NOT_FINISHED_evTagsListFilter;
+ {* Фильтр списка тегов. }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evTagsListFilter.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -10,7 +16,7 @@ type
  TevTagsListFilter = class
   {* Фильтр списка тегов. }
  end;//TevTagsListFilter
- 
+
 implementation
 
 uses

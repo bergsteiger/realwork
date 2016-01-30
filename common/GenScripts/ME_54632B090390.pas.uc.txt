@@ -1,0 +1,43 @@
+//#UC START# *54632B750318_54632B090390_impl*
+ FPrinterPxPerInch.X := anPPIX;
+ FPrinterPxPerInch.Y := anPPIY;
+//#UC END# *54632B750318_54632B090390_impl*
+//#UC START# *54632B750318_54632B090390_var*
+//#UC END# *54632B750318_54632B090390_var*
+//#UC START# *54632D530392_54632B090390_impl*
+ inherited Create(False, RUSSIAN_CHARSET);
+ f_Scale := ScreenLogPixels / aPPX;
+ f_DevFactor := f_Scale * cnDefaultPDFDPI / ScreenLogPixels;
+ InitPrinterPxPerInch(aPPX, aPPY);
+ GeneratePDF15File := True;
+ UseUniscribe := False;
+ if aForEtalon then
+ begin
+  EmbeddedTTF := False;
+  GeneratePDF15File := False;
+  CompressionMethod := cmNone;
+ end // if aForEtalon then
+ else
+  EmbeddedTTF := True;
+//#UC END# *54632D530392_54632B090390_impl*
+//#UC START# *54632D530392_54632B090390_var*
+//#UC END# *54632D530392_54632B090390_var*
+//#UC START# *54632E0400DF_54632B090390_impl*
+ l_Page := AddPage;
+ l_Page.PageLandscape := anOrientation;
+ l_TextWidth := aMetaFile.Width * f_DevFactor;
+ l_TextHeight := aMetaFile.Height * f_DevFactor;
+ l_Top := (l_Page.PageHeight - l_TextHeight) / 2;
+ if l_Top < 0 then l_Top := 0;
+ l_Right := (l_Page.PageWidth - l_TextWidth) / 2;
+ if l_Right < 0 then l_Right := 0;
+ Canvas.RenderMetaFile(aMetaFile, f_Scale, l_Right, l_Top);
+//#UC END# *54632E0400DF_54632B090390_impl*
+//#UC START# *54632E0400DF_54632B090390_var*
+var
+ l_Top        : Single;
+ l_Page       : TPdfPage;
+ l_Right      : Single;
+ l_TextWidth  : Single;
+ l_TextHeight : Single;
+//#UC END# *54632E0400DF_54632B090390_var*

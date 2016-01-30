@@ -1,5 +1,10 @@
 unit k2SpecialTag;
 
+// Модуль: "w:\common\components\rtl\Garant\K2\k2SpecialTag.pas"
+// Стереотип: "SimpleClass"
+
+{$Include k2Define.inc}
+
 interface
 
 uses
@@ -8,9 +13,9 @@ uses
 ;
 
 type
- Tk2SpecialTag = class(Tk2NotStructuredTag)
+ Tk2SpecialTag = {abstract} class(Tk2NotStructuredTag)
  end;//Tk2SpecialTag
- 
+
 implementation
 
 uses

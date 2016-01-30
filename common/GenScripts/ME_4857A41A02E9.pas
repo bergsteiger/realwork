@@ -1,4 +1,10 @@
 unit Header_Const;
+ {* Верхний колонтитул }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\Header_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -8,7 +14,7 @@ uses
 ;
 
  // HeaderTag
- 
+
 implementation
 
 uses

@@ -1,4 +1,10 @@
 unit Stage_Const;
+ {* Этап }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\Stage_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -9,7 +15,7 @@ uses
 ;
 
  // StageTag
- 
+
 implementation
 
 uses

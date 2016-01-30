@@ -1,0 +1,35 @@
+//#UC START# *484CCE970073_484944E301AF_impl*
+ if A.IsNull then
+  Result := ''
+ else
+ begin
+  l_AT := AtomType.AtomType;
+  l_V := A.AsLong;
+  with GetTypeData(l_AT)^ do
+   if (l_V >= MinValue) AND (l_V <= MaxValue) then
+    Result := GetEnumName(l_AT, l_V)
+   else
+    Result := IntToStr(l_V);
+ end;//A.IsNull
+//#UC END# *484CCE970073_484944E301AF_impl*
+//#UC START# *484CCE970073_484944E301AF_var*
+var
+ l_AT : PTypeInfo;
+ l_V  : Integer;
+//#UC END# *484CCE970073_484944E301AF_var*
+//#UC START# *484CCEBC00DC_484944E301AF_impl*
+ if (aValue = '') then
+  Result := k2NullTag
+ else
+ begin
+  L := GetEnumValue(AtomType.AtomType, aValue);
+  if (L >= 0) then
+   Result := AtomType.MakeTag(L).AsObject
+  else
+   Result := inherited StrToTag(aValue);
+ end;//aValue = ''
+//#UC END# *484CCEBC00DC_484944E301AF_impl*
+//#UC START# *484CCEBC00DC_484944E301AF_var*
+var
+ L : Integer;
+//#UC END# *484CCEBC00DC_484944E301AF_var*

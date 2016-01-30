@@ -1,5 +1,10 @@
 unit evNodeData;
 
+// Модуль: "w:\common\components\gui\Garant\EverestCommon\evNodeData.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
+
 interface
 
 uses
@@ -7,12 +12,21 @@ uses
  , l3TreeInterfaces
  , evNodeDataObject
  , l3Interfaces
+ , l3InternalInterfaces
+ , l3IID
+ , l3StringList
+ , l3DataObject
 ;
 
 type
+ _DataType_ = Il3SimpleNode;
+ _DataClass_ = TevNodeDataObject;
+ {$Include evTreeData.imp.pas}
  TevNodeData = class(_evTreeData_)
+  protected
+   function GetFormats: Tl3ClipboardFormats; override;
  end;//TevNodeData
- 
+
 implementation
 
 uses
@@ -31,5 +45,21 @@ uses
  , Document_Const
  , TextPara_Const
 ;
+
+{$Include evTreeData.imp.pas}
+
+function TevNodeData.GetFormats: Tl3ClipboardFormats;
+//#UC START# *48F4B33501DE_48F7014003A5_var*
+//#UC END# *48F4B33501DE_48F7014003A5_var*
+begin
+//#UC START# *48F4B33501DE_48F7014003A5_impl*
+ if Ext then
+  Result := l3FormatArray([cf_TreeNode, cf_EverestBin,
+                           CF_RTF, CF_TEXT, CF_UNICODETEXT,
+                           CF_HDROP])
+ else
+  Result := inherited GetFormats;
+//#UC END# *48F4B33501DE_48F7014003A5_impl*
+end;//TevNodeData.GetFormats
 
 end.

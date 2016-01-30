@@ -1,0 +1,43 @@
+//#UC START# *4DB6C99F026E_4DBAC542005F_impl*
+ Result := TkwEND;
+//#UC END# *4DB6C99F026E_4DBAC542005F_impl*
+//#UC START# *4DB6C99F026E_4DBAC542005F_var*
+//#UC END# *4DB6C99F026E_4DBAC542005F_var*
+//#UC START# *4DBAC41301F2_4DBAC542005F_impl*
+ Result := TkwFINALLY;
+//#UC END# *4DBAC41301F2_4DBAC542005F_impl*
+//#UC START# *4DBAC41301F2_4DBAC542005F_var*
+//#UC END# *4DBAC41301F2_4DBAC542005F_var*
+//#UC START# *4DBAC44D02CC_4DBAC542005F_impl*
+ CompilerAssert(aCompiled2 <> nil, 'Нет второй половины', aContext);
+ CompilerAssert(aCompiled2.Key <> nil, 'Нет стереотипа второй половины', aContext);
+ if (TtfwKeyWord(aCompiled2.Key).Word.ClassType = TkwFINALLY) then
+  Result := TkwCompiledTryFinally.Create(aCompiled, aCompiled2, aContext)
+ else
+ if (TtfwKeyWord(aCompiled2.Key).Word.ClassType = TkwEXCEPT) then
+  Result := TkwCompiledTryExcept.Create(aCompiled, aCompiled2, aContext)
+ else
+ begin
+  Result := nil;
+  CompilerAssert(false, 'Неизвестная средняя скобка', aContext);
+ end;//else
+(* Case aMedianNum of
+  1:
+   if aCompiled2.Key.Word.ClassType =
+   Result := TkwCompiledTryFinally.Create(aCompiled, aCompiled2);
+  2:
+   Result := TkwCompiledTryExcept.Create(aCompiled, aCompiled2);
+  else
+  begin
+   Result := nil;
+   CompilerAssert(false, 'Неизвестная средняя скобка', aContext);
+  end;//else
+ end;//Case aMedianNum*)
+//#UC END# *4DBAC44D02CC_4DBAC542005F_impl*
+//#UC START# *4DBAC44D02CC_4DBAC542005F_var*
+//#UC END# *4DBAC44D02CC_4DBAC542005F_var*
+//#UC START# *4DBADF3E02CC_4DBAC542005F_impl*
+ Result := TkwEXCEPT;
+//#UC END# *4DBADF3E02CC_4DBAC542005F_impl*
+//#UC START# *4DBADF3E02CC_4DBAC542005F_var*
+//#UC END# *4DBADF3E02CC_4DBAC542005F_var*

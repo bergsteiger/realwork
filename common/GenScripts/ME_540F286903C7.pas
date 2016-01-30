@@ -1,21 +1,31 @@
 unit m3StoragePrim;
 
+// Модуль: "w:\common\components\rtl\Garant\m3\m3StoragePrim.pas"
+// Стереотип: "SimpleClass"
+
+{$Include m3Define.inc}
+
 interface
 
 uses
  l3IntfUses
  , m3BaseStorage
+ , SyncObjs
 ;
 
 type
- Tm3StoragePrim = class(Tm3BaseStorage)
+ _l3CriticalSectionHolder_Parent_ = Tm3BaseStorage;
+ {$Include l3CriticalSectionHolder.imp.pas}
+ Tm3StoragePrim = {abstract} class(_l3CriticalSectionHolder_)
  end;//Tm3StoragePrim
- 
+
 implementation
 
 uses
  l3ImplUses
  , SysUtils
 ;
+
+{$Include l3CriticalSectionHolder.imp.pas}
 
 end.

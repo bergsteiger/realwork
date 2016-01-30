@@ -1,4 +1,10 @@
 unit k2FontName_Const;
+ {* Гарнитура шрифта }
+
+// Модуль: "w:\common\components\rtl\Garant\K2\k2FontName_Const.pas"
+// Стереотип: "Tag"
+
+{$Include k2Define.inc}
 
 interface
 
@@ -8,7 +14,7 @@ uses
 ;
 
  // FontNameTag
- 
+
 implementation
 
 uses

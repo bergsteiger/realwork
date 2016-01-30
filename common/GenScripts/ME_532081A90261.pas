@@ -1,4 +1,10 @@
 unit k2LeafTag;
+ {* Базовый листьевой тег }
+
+// Модуль: "w:\common\components\rtl\Garant\K2\k2LeafTag.pas"
+// Стереотип: "SimpleClass"
+
+{$Include k2Define.inc}
 
 interface
 
@@ -8,10 +14,10 @@ uses
 ;
 
 type
- Tk2LeafTag = class(Tk2NonAtomicTag)
+ Tk2LeafTag = {abstract} class(Tk2NonAtomicTag)
   {* Базовый листьевой тег }
  end;//Tk2LeafTag
- 
+
 implementation
 
 uses

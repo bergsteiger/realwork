@@ -1,0 +1,20 @@
+//#UC START# *4F4CB81200CA_503C589F0334_impl*
+ l_X := 0;
+ l_Y := 0;
+ if aCtx.rEngine.IsTopInt then
+  l_Y := aCtx.rEngine.PopInt
+ else
+  Assert(False, 'Не задана координата Y.');
+ if aCtx.rEngine.IsTopInt then 
+  l_X := aCtx.rEngine.PopInt
+ else
+  Assert(False, 'Не задана координата X.');
+ l_SPoint := anEditor.Canvas.LP2DP(l3Point(l_X, l_Y));
+ aCtx.rEngine.PushInt(l_SPoint.Y);
+ aCtx.rEngine.PushInt(l_SPoint.X);
+//#UC END# *4F4CB81200CA_503C589F0334_impl*
+//#UC START# *4F4CB81200CA_503C589F0334_var*
+var
+ l_X, l_Y : Integer;
+ l_SPoint : Tl3SPoint;
+//#UC END# *4F4CB81200CA_503C589F0334_var*

@@ -1,0 +1,51 @@
+//#UC START# *18FC3BA729CF_559BA19C0076_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.Back(aForm)
+ else
+  Result := g_Dispatcher.History.Back;
+//#UC END# *18FC3BA729CF_559BA19C0076_impl*
+//#UC START# *18FC3BA729CF_559BA19C0076_var*
+//#UC END# *18FC3BA729CF_559BA19C0076_var*
+//#UC START# *27BEBF0EE9FD_559BA19C0076_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.GetContainerHistory(aContainer)
+ else
+  Result := g_Dispatcher.History;
+//#UC END# *27BEBF0EE9FD_559BA19C0076_impl*
+//#UC START# *27BEBF0EE9FD_559BA19C0076_var*
+//#UC END# *27BEBF0EE9FD_559BA19C0076_var*
+//#UC START# *96E2DB43E67B_559BA19C0076_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.GetFormHistory(aForm)
+ else
+  Result := g_Dispatcher.History;
+//#UC END# *96E2DB43E67B_559BA19C0076_impl*
+//#UC START# *96E2DB43E67B_559BA19C0076_var*
+//#UC END# *96E2DB43E67B_559BA19C0076_var*
+//#UC START# *975F702287E2_559BA19C0076_impl*
+ if (f_Alien <> nil) then
+  f_Alien.SaveFormState(aForm)
+ else
+ begin
+  l_History := GetFormHistory(aForm);
+  Assert(l_History <> nil);
+  l_History.ForceSaveState(aForm);
+ end;
+//#UC END# *975F702287E2_559BA19C0076_impl*
+//#UC START# *975F702287E2_559BA19C0076_var*
+var
+ l_History: IvcmHistory;
+//#UC END# *975F702287E2_559BA19C0076_var*
+//#UC START# *A872A2AAB575_559BA19C0076_impl*
+ if (f_Alien <> nil) then
+  Result := f_Alien.IsInBF(aForm)
+ else
+ begin
+  l_History := GetFormHistory(aForm);
+  Result := l_History.InBF;
+ end;
+//#UC END# *A872A2AAB575_559BA19C0076_impl*
+//#UC START# *A872A2AAB575_559BA19C0076_var*
+var
+ l_History: IvcmHistory;
+//#UC END# *A872A2AAB575_559BA19C0076_var*

@@ -1,25 +1,40 @@
-unit k2TagByIntegerSearcher.imp;
+{$IfNDef k2TagByIntegerSearcher_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\K2\k2TagByIntegerSearcher.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
- , l3Types
-;
+{$Define k2TagByIntegerSearcher_imp}
 
-type
- _k2TagByIntegerSearcher_ = class(_l3Searcher_)
-  function CompareItemWithData(const anItem: _ItemType_;
-   const aData: _FindDataType_;
-   aSortIndex: Tl3SortIndex;
-   aList: _l3Searcher_): Integer;
-   {* Сравнивает существующий элемент с искомым. }
+ _FindDataType_ = Integer;
+ _l3Searcher_Parent_ = _k2TagByIntegerSearcher_Parent_;
+ {$Include l3Searcher.imp.pas}
+ _k2TagByIntegerSearcher_ = {abstract} class(_l3Searcher_)
  end;//_k2TagByIntegerSearcher_
- 
-implementation
 
-uses
- l3ImplUses
-;
+{$Else k2TagByIntegerSearcher_imp}
 
-end.
+{$IfNDef k2TagByIntegerSearcher_imp_impl}
+
+{$Define k2TagByIntegerSearcher_imp_impl}
+
+function CompareItemWithData(const anItem: _ItemType_;
+ const aData: _FindDataType_;
+ aSortIndex: Tl3SortIndex;
+ aList: _l3Searcher_): Integer;
+ {* Сравнивает существующий элемент с искомым. }
+//#UC START# *47B9BAFD01F4_4B89152D0120_var*
+//#UC END# *47B9BAFD01F4_4B89152D0120_var*
+begin
+//#UC START# *47B9BAFD01F4_4B89152D0120_impl*
+ Result := anItem.CompareWithInt(aData, aSortIndex);
+//#UC END# *47B9BAFD01F4_4B89152D0120_impl*
+end;//CompareItemWithData
+
+type _Instance_R_ = _k2TagByIntegerSearcher_;
+
+{$Include l3Searcher.imp.pas}
+
+{$EndIf k2TagByIntegerSearcher_imp_impl}
+
+{$EndIf k2TagByIntegerSearcher_imp}
+

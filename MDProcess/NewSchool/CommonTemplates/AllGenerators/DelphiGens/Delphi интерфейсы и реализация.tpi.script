@@ -27,6 +27,15 @@ implementation @ "Delphi интерфейсы и реализация"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Генераторы
 
+// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
+//+ intf2.pas
+<<generator>> intf2.pas OBJECT IN %S
+//R  
+//#UC START# *477398E501C0for470F151302FD*
+//#UC END# *477398E501C0for470F151302FD*
+; // intf2.pas
+
+
 // 3-я секция интерфейса. Например поле для свойства.
 //+ intf3.pas
 <<generator>> intf3.pas OBJECT IN %S
@@ -50,7 +59,7 @@ implementation @ "Delphi интерфейсы и реализация"
 //R  
 //#UC START# *563244E50325for470F151302FD*
 //P true
-//X [{%S%f_pas_script_runner_NeedOwnFile()=true}W:/common/env/QuickLaunch/Appender.exe "%SR%Sd/Generated.script.list" "%S%f_pas_script_runner_FileName()"]
+//X %f_CallAppend(%S)
 //C %S%f_pas_script_Path()
 //O %S%f_pas_script_FileName()
 //F %S%f_pas_script_GenerateForward()
@@ -72,16 +81,37 @@ implementation @ "Delphi интерфейсы и реализация"
    ++! l_Counter
   end // if
  end // for C
-//#UC END# *563244E50325for470F151302FD*
+
+//f _CallAppend
 ; // pas.script
+
+end. // "Delphi интерфейсы и реализация"
+
+: CallAppend OBJECT IN %S
+//	[{%S%f_pas_script_runner_NeedOwnFile()=true}\
+ if ( ( %S %f pas_script_runner_NeedOwnFile %( )% ) %==  true ) then
+ begin
+//	W:/common/env/QuickLaunch/Appender.exe "%SR%Sd/Generated.script.list" "%S%f_pas_script_runner_FileName()"\
+  'W:/common/env/QuickLaunch/Appender.exe "'
+  %S |R %S |d '/Generated.script.list" "'
+  %S %f pas_script_runner_FileName %( )% 
+//	]
+ end // if
+//	[{%S%f_pas_script_runner_NeedOwnFile()=true&%f_exists_in_list(Append_CALL,"%S%f_pas_script_runner_FileName()")!=true}\
+//	%f_add_to_list(Append_CALL,"%S%f_pas_script_runner_FileName()")\
+//	W:/common/env/QuickLaunch/Appender.exe "%SR%Sd/Generated.script.list" "%S%f_pas_script_runner_FileName()"\
+//	]
+//#UC END# *563244E50325for470F151302FD*
+; // CallAppend
 
 
 //+ pas.script.runner
+implementation @ "Delphi интерфейсы и реализация"
 <<generator>> pas.script.runner OBJECT IN %S
 //R  
 //#UC START# *563CBCC10243for470F151302FD*
 //P true
-//X [{%S%f_pas_script_runner_NeedOwnFile()=true}W:/common/env/QuickLaunch/Appender.exe "%SR%Sd/Generated.script.list" "%S%f_pas_script_runner_FileName()"]
+//X %f_CallAppend(%S)
 //C %S%f_pas_script_Path()
 //O %S%f_pas_script_runner_FileName()
 //	[{%S%f_pas_script_runner_NeedOwnFile()=true}\
@@ -2636,11 +2666,12 @@ implementation @ "Delphi интерфейсы и реализация"
 : ClassImplementable OBJECT IN %S
 //#UC START# *49551CA202CFfor470F151302FD*
 //@ %SU
-//	[{%S#f_IsMixIn()!=true&%S#f_IsPureMixIn()!=true&%S#f_evd_IsSchemaElement()!=true&%S#f_IsVCMOperations()!=true}{false}true]
+//	[{%S#f_IsMixIn()!=true&%S#f_IsPureMixIn()!=true&%S#f_evd_IsSchemaElement()!=true&%S#f_IsVCMOperations()!=true&%S#f_IsUseCase()!=true}{false}true]
  if ( ( %S %?f IsMixIn %( )% ) %!=  true AND 
    ( ( %S %?f IsPureMixIn %( )% ) %!=  true  ) AND 
    ( ( %S %?f evd_IsSchemaElement %( )% ) %!=  true  ) AND 
-   ( ( %S %?f IsVCMOperations %( )% ) %!=  true  ) ) then
+   ( ( %S %?f IsVCMOperations %( )% ) %!=  true  ) AND 
+   ( ( %S %?f IsUseCase %( )% ) %!=  true  ) ) then
  begin
    true 
  end // if
@@ -4706,6 +4737,7 @@ end. // "Delphi интерфейсы и реализация"
 //r {%t_interface(%S)=true}: {true}
 //r {%f_IsVector(%S)=true&%f_NeedFinalize(%S)=true}: {true}
 //r {%t_isStruct(%S)=true&%f_NeedFinalize(%S)=true}: {true}
+//r {%SS=ImpurityParamType}: {true}
 //r {""=""}: {false}
 
 //f _NeedFinalize
@@ -6421,6 +6453,20 @@ implementation @ "Delphi интерфейсы и реализация"
 //#UC START# *56333E330061for470F151302FD*
 //	%f_add_to_list(FORWARDED_ELEMENTS,S)\
  [%f] add_to_list %( 'FORWARDED_ELEMENTS' %, 'S' )% 
+
+//	<{}{%aC=Dependency&%aS=injects}{Sg}%a#f_pas_script_GenerateForwardPrim()>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%ag
+ begin
+  OBJECT IN %a
+  if ( ( %a |C ) %== 'Dependency' AND 
+   ( ( %a |S ) %== 'injects'  ) ) then
+  begin
+   %a %?f pas_script_GenerateForwardPrim %( )% 
+   ++! l_Counter
+  end // if
+ end // for a
+
 //	\n\
  #13#10
 //	: %S%f_pas_script_Name()
@@ -6445,6 +6491,15 @@ implementation @ "Delphi интерфейсы и реализация"
   [%f] str_replace %( [%f] N %( %S )% %, '''' %, '''''' )% '''
 //	]\
  end // if
+
+//	[{%S#f_is_virtual()=true}\
+ if ( ( %S %?f is_virtual %( )% ) %==  true ) then
+ begin
+//	 CONST IsSummoned true
+  ' CONST IsSummoned true'
+//	]\
+ end // if
+
 //	[\
  if NOT-EMPTY
  begin
@@ -6567,9 +6622,15 @@ implementation @ "Delphi интерфейсы и реализация"
  if ( ( %T |N ) %!= 'void' AND 
    ( ( %T |N ) %!= ''  ) ) then
  begin
+//	[\
+  if NOT-EMPTY
+  begin
 //	 : Target %T#f_pas_script_Reference() ;
-  ' : Target '
-  %T %?f pas_script_Reference %( )% ' ;'
+   ' : Target '
+   %T %?f pas_script_Reference %( )% ' ;'
+//	]\
+  end // if
+  NOP
 //	]\
  end // if
 //	[{"%Ss"!=""}\
@@ -6593,9 +6654,15 @@ implementation @ "Delphi интерфейсы и реализация"
    ( ( %V ->T |U  ) %!= ''  ) AND 
    ( ( %V ->T |N  ) %!= 'void'  ) ) then
  begin
+//	[\
+  if NOT-EMPTY
+  begin
 //	 : ValueType %V%T#f_pas_script_Reference() ;
-  ' : ValueType '
-  %V ->T %?f pas_script_Reference %( )%  ' ;'
+   ' : ValueType '
+   %V ->T %?f pas_script_Reference %( )%  ' ;'
+//	]\
+  end // if
+  NOP
 //	]\
  end // if
 
@@ -6604,8 +6671,8 @@ implementation @ "Delphi интерфейсы и реализация"
  begin
 //	 : Inherits
   ' : Inherits'
-//	   @ (< %G#f_pas_script_Reference()> ) .SequenceCode.It
-  '   @ ('
+//	   Seq: (< %G#f_pas_script_Reference()> )
+  '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
   for %S%G
   begin
@@ -6617,7 +6684,7 @@ implementation @ "Delphi интерфейсы и реализация"
     ++! l_Counter
    end // if
   end // for G
-  ' ) .SequenceCode.It'
+  ' )'
 //	 ; // Inherits
   ' ; // Inherits'
 //	]\
@@ -6628,8 +6695,8 @@ implementation @ "Delphi интерфейсы и реализация"
  begin
 //	 : Implements
   ' : Implements'
-//	   @ (< %R#f_pas_script_Reference()> ) .SequenceCode.It
-  '   @ ('
+//	   Seq: (< %R#f_pas_script_Reference()> )
+  '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
   for %S%R
   begin
@@ -6641,7 +6708,7 @@ implementation @ "Delphi интерфейсы и реализация"
     ++! l_Counter
    end // if
   end // for R
-  ' ) .SequenceCode.It'
+  ' )'
 //	 ; // Implements
   ' ; // Implements'
 //	]\
@@ -6650,10 +6717,58 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
  if NOT-EMPTY
  begin
+//	 : CanRaise
+  ' : CanRaise'
+//	   Seq: (< %E#f_pas_script_Reference()> )
+  '   Seq: ('
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%E
+  begin
+   OBJECT IN %E
+   if true then
+   begin
+    ' '
+    %E %?f pas_script_Reference %( )% 
+    ++! l_Counter
+   end // if
+  end // for E
+  ' )'
+//	 ; // CanRaise
+  ' ; // CanRaise'
+//	]\
+ end // if
+ NOP
+//	[\
+ if NOT-EMPTY
+ begin
+//	 : CanRaiseInSet
+  ' : CanRaiseInSet'
+//	   Seq: (< %e#f_pas_script_Reference()> )
+  '   Seq: ('
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%e
+  begin
+   OBJECT IN %e
+   if true then
+   begin
+    ' '
+    %e %?f pas_script_Reference %( )% 
+    ++! l_Counter
+   end // if
+  end // for e
+  ' )'
+//	 ; // CanRaiseInSet
+  ' ; // CanRaiseInSet'
+//	]\
+ end // if
+ NOP
+//	[\
+ if NOT-EMPTY
+ begin
 //	 : Attributes
   ' : Attributes'
-//	   @ (<{}{%C#f_pas_script_IsAttribute()=true} %C#f_pas_script_Reference()> ) .SequenceCode.It
-  '   @ ('
+//	   Seq: (<{}{%C#f_pas_script_IsAttribute()=true} %C#f_pas_script_Reference()> )
+  '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
   for %S%C
   begin
@@ -6665,7 +6780,7 @@ implementation @ "Delphi интерфейсы и реализация"
     ++! l_Counter
    end // if
   end // for C
-  ' ) .SequenceCode.It'
+  ' )'
 //	 ; // Attributes
   ' ; // Attributes'
 //	]\
@@ -6676,8 +6791,8 @@ implementation @ "Delphi интерфейсы и реализация"
  begin
 //	 : Operations
   ' : Operations'
-//	   @ (<{}{%C#f_pas_script_IsOperation()=true} %C#f_pas_script_Reference()> ) .SequenceCode.It
-  '   @ ('
+//	   Seq: (<{}{%C#f_pas_script_IsOperation()=true} %C#f_pas_script_Reference()> )
+  '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
   for %S%C
   begin
@@ -6689,7 +6804,7 @@ implementation @ "Delphi интерфейсы и реализация"
     ++! l_Counter
    end // if
   end // for C
-  ' ) .SequenceCode.It'
+  ' )'
 //	 ; // Operations
   ' ; // Operations'
 //	]\
@@ -6704,8 +6819,8 @@ implementation @ "Delphi интерфейсы и реализация"
   begin
 //	 : Implemented
    ' : Implemented'
-//	   @ (< %o#f_pas_script_Reference()> ) .SequenceCode.It
-   '   @ ('
+//	   Seq: (<{}{}{%o} %f_OverrideLink(%o,%S)> )
+   '   Seq: ('
    INTEGER VAR l_Counter l_Counter := 0
    for %S%o
    begin
@@ -6713,11 +6828,11 @@ implementation @ "Delphi интерфейсы и реализация"
     if true then
     begin
      ' '
-     %o %?f pas_script_Reference %( )% 
+     [%f] OverrideLink %( %o %, %S )% 
      ++! l_Counter
     end // if
    end // for o
-   ' ) .SequenceCode.It'
+   ' )'
 //	 ; // Implemented
    ' ; // Implemented'
 //	]\
@@ -6728,8 +6843,8 @@ implementation @ "Delphi интерфейсы и реализация"
   begin
 //	 : Overridden
    ' : Overridden'
-//	   @ (< %O#f_pas_script_Reference()> ) .SequenceCode.It
-   '   @ ('
+//	   Seq: (<{}{}{%O} %f_OverrideLink(%O,%S)> )
+   '   Seq: ('
    INTEGER VAR l_Counter l_Counter := 0
    for %S%O
    begin
@@ -6737,11 +6852,11 @@ implementation @ "Delphi интерфейсы и реализация"
     if true then
     begin
      ' '
-     %O %?f pas_script_Reference %( )% 
+     [%f] OverrideLink %( %O %, %S )% 
      ++! l_Counter
     end // if
    end // for O
-   ' ) .SequenceCode.It'
+   ' )'
 //	 ; // Overridden
    ' ; // Overridden'
 //	]\
@@ -6755,8 +6870,8 @@ implementation @ "Delphi интерфейсы и реализация"
  begin
 //	 : Children
   ' : Children'
-//	   @ (<{}{%C#f_pas_script_NeedOutToScript()=true&%f_IsConstants(%C)!=true} %C#f_pas_script_Reference()> ) .SequenceCode.It
-  '   @ ('
+//	   Seq: (<{}{%C#f_pas_script_NeedOutToScript()=true&%f_IsConstants(%C)!=true} %C#f_pas_script_Reference()> )
+  '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
   for %S%C
   begin
@@ -6769,7 +6884,7 @@ implementation @ "Delphi интерфейсы и реализация"
     ++! l_Counter
    end // if
   end // for C
-  ' ) .SequenceCode.It'
+  ' )'
 //	 ; // Children
   ' ; // Children'
 //	]\
@@ -6780,8 +6895,8 @@ implementation @ "Delphi интерфейсы и реализация"
  begin
 //	 : Constants
   ' : Constants'
-//	   @ (<{}{%C#f_pas_script_NeedOutToScript()=true&%f_IsConstants(%C)=true} %C#f_pas_script_Reference()> ) .SequenceCode.It
-  '   @ ('
+//	   Seq: (<{}{%C#f_pas_script_NeedOutToScript()=true&%f_IsConstants(%C)=true} %C#f_pas_script_Reference()> )
+  '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
   for %S%C
   begin
@@ -6794,7 +6909,7 @@ implementation @ "Delphi интерфейсы и реализация"
     ++! l_Counter
    end // if
   end // for C
-  ' ) .SequenceCode.It'
+  ' )'
 //	 ; // Constants
   ' ; // Constants'
 //	]\
@@ -6805,8 +6920,8 @@ implementation @ "Delphi интерфейсы и реализация"
  begin
 //	 : Parameters
   ' : Parameters'
-//	   @ (<{}{%CC=Parameter} %C#f_pas_script_Reference()> ) .SequenceCode.It
-  '   @ ('
+//	   Seq: (<{}{%CC=Parameter} %C#f_pas_script_Reference()> )
+  '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
   for %S%C
   begin
@@ -6818,7 +6933,7 @@ implementation @ "Delphi интерфейсы и реализация"
     ++! l_Counter
    end // if
   end // for C
-  ' ) .SequenceCode.It'
+  ' )'
 //	 ; // Parameters
   ' ; // Parameters'
 //	]\
@@ -6829,8 +6944,8 @@ implementation @ "Delphi интерфейсы и реализация"
  begin
 //	 : Dependencies
   ' : Dependencies'
-//	   @ (<{}{%CC=Dependency} %C#f_pas_script_Reference()> ) .SequenceCode.It
-  '   @ ('
+//	   Seq: (<{}{%CC=Dependency} %C#f_pas_script_Reference()> )
+  '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
   for %S%C
   begin
@@ -6842,7 +6957,7 @@ implementation @ "Delphi интерфейсы и реализация"
     ++! l_Counter
    end // if
   end // for C
-  ' ) .SequenceCode.It'
+  ' )'
 //	 ; // Dependencies
   ' ; // Dependencies'
 //	]\
@@ -6851,10 +6966,35 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
  if NOT-EMPTY
  begin
+//	 : Injected
+  ' : Injected'
+//	   Seq: (<{}{%aC=Dependency&%aS=injects}{Sg} %a#f_pas_script_Reference()> )
+  '   Seq: ('
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%ag
+  begin
+   OBJECT IN %a
+   if ( ( %a |C ) %== 'Dependency' AND 
+    ( ( %a |S ) %== 'injects'  ) ) then
+   begin
+    ' '
+    %a %?f pas_script_Reference %( )% 
+    ++! l_Counter
+   end // if
+  end // for a
+  ' )'
+//	 ; // Injected
+  ' ; // Injected'
+//	]\
+ end // if
+ NOP
+//	[\
+ if NOT-EMPTY
+ begin
 //	 : Depends
   ' : Depends'
-//	   @ (< %D#f_pas_script_Reference()> ) .SequenceCode.It
-  '   @ ('
+//	   Seq: (< %D#f_pas_script_Reference()> )
+  '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
   for %S%D
   begin
@@ -6866,28 +7006,1201 @@ implementation @ "Delphi интерфейсы и реализация"
     ++! l_Counter
    end // if
   end // for D
-  ' ) .SequenceCode.It'
+  ' )'
 //	 ; // Depends
   ' ; // Depends'
 //	]\
  end // if
  NOP
 
+//	[{%SC=Class}\
+ if ( ( %S |C ) %== 'Class' ) then
+ begin
+//	[\
+  if NOT-EMPTY
+  begin
+//	 : Forwarded
+   ' : Forwarded'
+//	   Seq: (< %F#f_pas_script_Reference()> )
+   '   Seq: ('
+   INTEGER VAR l_Counter l_Counter := 0
+   for %S%F
+   begin
+    OBJECT IN %F
+    if true then
+    begin
+     ' '
+     %F %?f pas_script_Reference %( )% 
+     ++! l_Counter
+    end // if
+   end // for F
+   ' )'
+//	 ; // Forwarded
+   ' ; // Forwarded'
+//	]\
+  end // if
+  NOP
+//	]\
+ end // if
+
 //	%S%f_pas_script_GenerateUserProperties()\
  %S %f pas_script_GenerateUserProperties %( )% 
 
+//	%f_clear_list(ALL_GENERATORS_ID)\
+//	%f_all_generators(%S)\
+//	[\
+//	 : Generators
+//	 Seq: (
+//	%{ALL_GENERATORS_ID}<{}{%CN!=wiki&%CN!=spell&%f_has_non_empty_gen(1,%CN)=true&"%f_with_gen_id(%CN,%1L)"!=""}{%C}\
+//	 gen_%CN
+//	>\
+//	 )
+//	 ; // Generators
+//	]\
+
+//	%f_clear_list(ALL_GENERATORS_ID)\
+ [%f] clear_list %( 'ALL_GENERATORS_ID' )% 
+//	%f_all_generators(%S)\
+ [%f] all_generators %( %S )% 
+//	[\
+ if NOT-EMPTY
+ begin
+//	<{}{%f_is_empty(ALL_GENERATORS_ID)=false}{W}\
+  INTEGER VAR l_Counter l_Counter := 0
+  while true
+  begin
+   if ( ( [%f] is_empty %( 'ALL_GENERATORS_ID' )% ) %==  false ) then
+   begin
+//	%f_pop_first_to_var(ALL_GENERATORS_ID,GEN_ID)\
+    [%f] pop_first_to_var %( 'ALL_GENERATORS_ID' %, 'GEN_ID' )% 
+//	[{%{GEN_ID}N!=wiki&%{GEN_ID}N!=spell}\
+    if ( ( ( get_global_var ( 'GEN_ID' ) |N ) ) %!= 'wiki' AND 
+      ( ( ( get_global_var ( 'GEN_ID' ) |N ) ) %!= 'spell'  ) ) then
+    begin
+//	[{%f_has_non_empty_gen(S,%{GEN_ID}N)=true}\
+     if ( ( [%f] has_non_empty_gen %( 'S' %, ( get_global_var ( 'GEN_ID' ) |N ) )% ) %==  true ) then
+     begin
+//	[{"%f_with_gen_id(%{GEN_ID}N,%SL)"!=""}\
+      if ( ( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %S |L )% ) %!= '' ) then
+      begin
+//	 CONST %{GEN_ID}N:Path '%f_str_replace(%f_with_gen_id(%{GEN_ID}N,%SL),/,\\)'
+       ' CONST '
+       ( get_global_var ( 'GEN_ID' ) |N ) ':Path '''
+       [%f] str_replace %( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %S |L )% %, '/' %, '\' )% '''
+//	]\
+      end // if
+//	]\
+     end // if
+//	[{"%f_with_gen_id(%{GEN_ID}N,%Sd)"!=""}\
+     if ( ( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %S |d )% ) %!= '' ) then
+     begin
+//	[{%SC=Class|%SC=Category}\
+      if ( ( %S |C ) %== 'Class' OR 
+        ( ( %S |C ) %== 'Category'  ) ) then
+      begin
+//	[{%S#f_IsMethod()!=true}\
+       if ( ( %S %?f IsMethod %( )% ) %!=  true ) then
+       begin
+//	 CONST %{GEN_ID}N:PathOnly '%f_str_replace(%f_with_gen_id(%{GEN_ID}N,%Sd),/,\\)'
+        ' CONST '
+        ( get_global_var ( 'GEN_ID' ) |N ) ':PathOnly '''
+        [%f] str_replace %( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %S |d )% %, '/' %, '\' )% '''
+//	]\
+       end // if
+//	]\
+      end // if
+//	]\
+     end // if
+//	]\
+    end // if
+//	>\
+
+    ++! l_Counter
+   end // if
+   else
+    break
+  end // while
+//	]\
+ end // if
+ NOP
+
+//	[{%SC=Class}\
+ if ( ( %S |C ) %== 'Class' ) then
+ begin
+//	[{%f_pas_TypeName(%S)!=%f_N(%S)}\
+  if ( ( [%f] pas_TypeName %( %S )% ) %!= ( [%f] N %( %S )% ) ) then
+  begin
+//	[\
+   if NOT-EMPTY
+   begin
+//	 CONST extprop:pas:TypeName '%f_pas_TypeName(%S)'
+    ' CONST extprop:pas:TypeName '''
+    [%f] pas_TypeName %( %S )% '''
+//	]\
+   end // if
+   NOP
+//	]\
+  end // if
+//	]\
+ end // if
+
+//	[{%SC=Class}\
+ if ( ( %S |C ) %== 'Class' ) then
+ begin
+//	[{%t_SelfName(%S)!=%f_pas_TypeName(%S)}\
+  if ( ( [%t] SelfName %( %S )% ) %!= ( [%f] pas_TypeName %( %S )% ) ) then
+  begin
+//	[\
+   if NOT-EMPTY
+   begin
+//	 CONST extprop:rc:SelfName '%t_SelfName(%S)'
+    ' CONST extprop:rc:SelfName '''
+    [%t] SelfName %( %S )% '''
+//	]\
+   end // if
+   NOP
+//	]\
+  end // if
+//	]\
+ end // if
+
+//	[{%SC=Class}\
+ if ( ( %S |C ) %== 'Class' ) then
+ begin
+//	[{%t_isAcceptableForScripts(%S)=true}\
+  if ( ( [%t] isAcceptableForScripts %( %S )% ) %==  true ) then
+  begin
+//	[\
+   if NOT-EMPTY
+   begin
+//	 CONST extprop:rc:isAcceptableForScripts %t_isAcceptableForScripts(%S)
+    ' CONST extprop:rc:isAcceptableForScripts '
+    [%t] isAcceptableForScripts %( %S )% 
+//	]\
+   end // if
+   NOP
+//	]\
+  end // if
+//	]\
+ end // if
+
+//	[{%SC=Class|%SC=Category}\
+ if ( ( %S |C ) %== 'Class' OR 
+   ( ( %S |C ) %== 'Category'  ) ) then
+ begin
+//	[{"%f_pas_UnitName(%S)"!=""&%f_pas_UnitName(%S)!=%f_N(%S)}\
+  if ( ( [%f] pas_UnitName %( %S )% ) %!= '' AND 
+    ( ( [%f] pas_UnitName %( %S )% ) %!= ( [%f] N %( %S )% )  ) ) then
+  begin
+//	[{%S#f_IsMethod()!=true}\
+   if ( ( %S %?f IsMethod %( )% ) %!=  true ) then
+   begin
+//	[\
+    if NOT-EMPTY
+    begin
+//	 CONST extprop:pas:UnitName '%f_fine_string(%f_pas_UnitName(%S))'
+     ' CONST extprop:pas:UnitName '''
+     [%f] fine_string %( [%f] pas_UnitName %( %S )% )% '''
+//	]\
+    end // if
+    NOP
+//	]\
+   end // if
+//	]\
+  end // if
+//	]\
+ end // if
+
+//	[{%SC=Class|%SC=Category}\
+ if ( ( %S |C ) %== 'Class' OR 
+   ( ( %S |C ) %== 'Category'  ) ) then
+ begin
+//	[\
+  if NOT-EMPTY
+  begin
+//	 CONST extprop:pas:ElementPrefixBase '%S#f_pas_ElementPrefixBase()'
+   ' CONST extprop:pas:ElementPrefixBase '''
+   %S %?f pas_ElementPrefixBase %( )% '''
+//	]\
+  end // if
+  NOP
+//	[\
+  if NOT-EMPTY
+  begin
+//	 CONST extprop:pas:ElementPrefix '%S#f_pas_ElementPrefix()'
+   ' CONST extprop:pas:ElementPrefix '''
+   %S %?f pas_ElementPrefix %( )% '''
+//	]\
+  end // if
+  NOP
+//	]\
+ end // if
+
+//	[\
+ if NOT-EMPTY
+ begin
+//	 CONST extprop:evd:NeedsOwnType '%S#f_NeedsOwnType()'
+  ' CONST extprop:evd:NeedsOwnType '''
+  %S %?f NeedsOwnType %( )% '''
+//	]\
+ end // if
+ NOP
+
+//	[{"%S{isGlobal}"!=""}\
+ if ( ( %S get_up ( 'isGlobal' ) ) %!= '' ) then
+ begin
+//	[\
+  if NOT-EMPTY
+  begin
+//	 CONST extprop:isGlobal %f_out_val("%S{isGlobal}")
+   ' CONST extprop:isGlobal '
+   [%f] out_val %( %S get_up ( 'isGlobal' ) )% 
+//	]\
+  end // if
+  NOP
+//	]\
+ end // if
+
+//	[{"%S{isAsm}"!=""}\
+ if ( ( %S get_up ( 'isAsm' ) ) %!= '' ) then
+ begin
+//	[\
+  if NOT-EMPTY
+  begin
+//	 CONST extprop:isAsm %f_out_val("%S{isAsm}")
+   ' CONST extprop:isAsm '
+   [%f] out_val %( %S get_up ( 'isAsm' ) )% 
+//	]\
+  end // if
+  NOP
+//	]\
+ end // if
+
+//	[{%S#f_pas_script_IsAttribute()=true}\
+ if ( ( %S %?f pas_script_IsAttribute %( )% ) %==  true ) then
+ begin
+//	[{"%S%{clearViaProperty}N"!=""}\
+  if ( ( %S ( get_object_var ( 'clearViaProperty' ) |N )  ) %!= '' ) then
+  begin
+//	[\
+   if NOT-EMPTY
+   begin
+//	 CONST extprop:clearViaProperty '%S%{clearViaProperty}N'
+    ' CONST extprop:clearViaProperty '''
+    %S ( get_object_var ( 'clearViaProperty' ) |N )  '''
+//	]\
+   end // if
+   NOP
+//	]\
+  end // if
+//	]\
+ end // if
+
+//	[{"%S#f_OutValue()"!=""}\
+ if ( ( %S %?f OutValue %( )% ) %!= '' ) then
+ begin
+//	[\
+  if NOT-EMPTY
+  begin
+//	 CONST extprop:pas:Value %f_out_val(%f_fine_string(%S#f_OutValue()))
+   ' CONST extprop:pas:Value '
+   [%f] out_val %( [%f] fine_string %( %S %?f OutValue %( )% )% )% 
+//	]\
+  end // if
+  NOP
+//	]\
+ end // if
+
+//	[{"%S%{Speller}U"!=""}\
+ if ( ( %S ( get_object_var ( 'Speller' ) |U )  ) %!= '' ) then
+ begin
+//	[\
+  if NOT-EMPTY
+  begin
+//	 : Speller %S%{Speller}#f_pas_script_Reference() ;
+   ' : Speller '
+   %S ( get_object_var ( 'Speller' ) )  out_indent 'f_pas_script_Reference() ;'
+//	]\
+  end // if
+  NOP
+//	]\
+ end // if
+
+//	[{"%S%{SpelledFor}U"!=""}\
+ if ( ( %S ( get_object_var ( 'SpelledFor' ) |U )  ) %!= '' ) then
+ begin
+//	[\
+  if NOT-EMPTY
+  begin
+//	 : SpelledFor %S%{SpelledFor}#f_pas_script_Reference() ;
+   ' : SpelledFor '
+   %S ( get_object_var ( 'SpelledFor' ) )  out_indent 'f_pas_script_Reference() ;'
+//	]\
+  end // if
+  NOP
+//	]\
+ end // if
+
 //	
-//	 @SELF
- ' @SELF'
-//	; // %S%f_pas_script_Name() %SN\n
- '; // '
+//	ref; // %S%f_pas_script_Name() %SN\n
+ 'ref; // '
  %S %f pas_script_Name %( )% ' '
  %S |N #13#10
 
-//f _IsConstants
+//f _out_val
 ; // pas_script_GenerateDescription
 
 end. // "Delphi интерфейсы и реализация"
+
+: out_val OBJECT IN %S
+//	[{%SN=true|%SN=True}{\
+ if ( ( %S |N ) %==  true OR 
+   ( ( %S |N ) %== 'True'  ) ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	[{%SN=false|%SN=False}{\
+  if ( ( %S |N ) %==  false OR 
+    ( ( %S |N ) %== 'False'  ) ) then
+  begin
+//	false\
+    false 
+//	]\
+  end // if
+  else
+  begin
+//	[{%f_consist_of(%SN,"0123456789")=true}{\
+   if ( ( [%f] consist_of %( %S |N %, '0123456789' )% ) %==  true ) then
+   begin
+//	%SN\
+    %S |N 
+//	]\
+   end // if
+   else
+   begin
+//	'%SN'\
+    ''''
+    %S |N ''''
+//	}\
+   end // else
+//	}\
+  end // else
+//	}\
+ end // else
+
+//f _fine_string
+; // out_val
+
+: fine_string OBJECT IN %S
+//	%f_str_replace(%f_str_replace(%SN,',''),\n,'\#13\#10')
+ [%f] str_replace %( [%f] str_replace %( %S |N %, '''' %, '''''' )% %, #13#10 %, '''#13#10''' )% 
+
+//f _cut_quotes
+; // fine_string
+
+: cut_quotes OBJECT IN %S
+//	%f_cut_postfix(%f_cut_prefix(%SN,%f_quote(%S)),%f_quote(%S))
+ [%f] cut_postfix %( [%f] cut_prefix %( %S |N %, [%f] quote %( %S )% )% %, [%f] quote %( %S )% )% 
+
+//f _is_default_up_value
+; // cut_quotes
+
+: is_default_up_value OBJECT IN %S
+//	[{"%1N"="is static"&"%2N"="undefined"}{\
+ if ( ( %1 |N ) %== 'is static' AND 
+   ( ( %2 |N ) %== 'undefined'  ) ) then
+ begin
+//	true\
+   true 
+//	]
+ end // if
+ else
+ begin
+//	[{"%1N"="unstereotyped"&"%2N"="false"}{\
+  if ( ( %1 |N ) %== 'unstereotyped' AND 
+    ( ( %2 |N ) %== false  ) ) then
+  begin
+//	true\
+    true 
+//	]\
+  end // if
+  else
+  begin
+//	[{"%1N"="can set visibility level"&"%2N"="false"}{\
+   if ( ( %1 |N ) %== 'can set visibility level' AND 
+     ( ( %2 |N ) %== false  ) ) then
+   begin
+//	true\
+     true 
+//	]\
+   end // if
+   else
+   begin
+//	[{"%1N"="exception"&"%2N"="false"}{\
+    if ( ( %1 |N ) %== 'exception' AND 
+      ( ( %2 |N ) %== false  ) ) then
+    begin
+//	true\
+      true 
+//	]\
+    end // if
+    else
+    begin
+//	[{"%1N"="has derived impl"&"%2N"="false"}{\
+     if ( ( %1 |N ) %== 'has derived impl' AND 
+       ( ( %2 |N ) %== false  ) ) then
+     begin
+//	true\
+       true 
+//	]\
+     end // if
+     else
+     begin
+//	[{"%1N"="implementable"&"%2N"="undefined"}{\
+      if ( ( %1 |N ) %== 'implementable' AND 
+        ( ( %2 |N ) %== 'undefined'  ) ) then
+      begin
+//	true\
+        true 
+//	]\
+      end // if
+      else
+      begin
+//	[{"%1N"="disable forward decl"&"%2N"="false"}{\
+       if ( ( %1 |N ) %== 'disable forward decl' AND 
+         ( ( %2 |N ) %== false  ) ) then
+       begin
+//	true\
+         true 
+//	]\
+       end // if
+       else
+       begin
+//	[{"%1N"="newRTTI"&"%2N"="false"}{\
+        if ( ( %1 |N ) %== 'newRTTI' AND 
+          ( ( %2 |N ) %== false  ) ) then
+        begin
+//	true\
+          true 
+//	]\
+        end // if
+        else
+        begin
+//	[{"%1N"="isPointer"&"%2N"="false"}{\
+         if ( ( %1 |N ) %== 'isPointer' AND 
+           ( ( %2 |N ) %== false  ) ) then
+         begin
+//	true\
+           true 
+//	]\
+         end // if
+         else
+         begin
+//	[{"%1N"="isClassRef"&"%2N"="false"}{\
+          if ( ( %1 |N ) %== 'isClassRef' AND 
+            ( ( %2 |N ) %== false  ) ) then
+          begin
+//	true\
+            true 
+//	]\
+          end // if
+          else
+          begin
+//	[{"%1N"="force what"&"%2N"="false"}{\
+           if ( ( %1 |N ) %== 'force what' AND 
+             ( ( %2 |N ) %== false  ) ) then
+           begin
+//	true\
+             true 
+//	]\
+           end // if
+           else
+           begin
+//	[{"%1N"="is_runtime"&"%2N"="false"}{\
+            if ( ( %1 |N ) %== 'is_runtime' AND 
+              ( ( %2 |N ) %== false  ) ) then
+            begin
+//	true\
+              true 
+//	]\
+            end // if
+            else
+            begin
+//	[{"%1N"="packed"&"%2N"="false"}{\
+             if ( ( %1 |N ) %== 'packed' AND 
+               ( ( %2 |N ) %== false  ) ) then
+             begin
+//	true\
+               true 
+//	]\
+             end // if
+             else
+             begin
+//	[{"%1N"="Need init ctor"&"%2N"="false"}{\
+              if ( ( %1 |N ) %== 'Need init ctor' AND 
+                ( ( %2 |N ) %== false  ) ) then
+              begin
+//	true\
+                true 
+//	]\
+              end // if
+              else
+              begin
+//	[{"%1N"="IsAutoHelper"&"%2N"="false"}{\
+               if ( ( %1 |N ) %== 'IsAutoHelper' AND 
+                 ( ( %2 |N ) %== false  ) ) then
+               begin
+//	true\
+                 true 
+//	]\
+               end // if
+               else
+               begin
+//	[{"%1N"="force usage"&"%2N"="false"}{\
+                if ( ( %1 |N ) %== 'force usage' AND 
+                  ( ( %2 |N ) %== false  ) ) then
+                begin
+//	true\
+                  true 
+//	]\
+                end // if
+                else
+                begin
+//	[{"%1N"="no_root_class"&"%2N"="false"}{\
+                 if ( ( %1 |N ) %== 'no_root_class' AND 
+                   ( ( %2 |N ) %== false  ) ) then
+                 begin
+//	true\
+                   true 
+//	]\
+                 end // if
+                 else
+                 begin
+//	[{"%1N"="is immediate"&"%2N"="undefined"}{\
+                  if ( ( %1 |N ) %== 'is immediate' AND 
+                    ( ( %2 |N ) %== 'undefined'  ) ) then
+                  begin
+//	true\
+                    true 
+//	]\
+                  end // if
+                  else
+                  begin
+//	[{"%1N"="need inline-file"&"%2N"="false"}{\
+                   if ( ( %1 |N ) %== 'need inline-file' AND 
+                     ( ( %2 |N ) %== false  ) ) then
+                   begin
+//	true\
+                     true 
+//	]\
+                   end // if
+                   else
+                   begin
+//	[{"%1N"="need impl-file"&"%2N"="false"}{\
+                    if ( ( %1 |N ) %== 'need impl-file' AND 
+                      ( ( %2 |N ) %== false  ) ) then
+                    begin
+//	true\
+                      true 
+//	]\
+                    end // if
+                    else
+                    begin
+//	[{"%1N"="local helper"&"%2N"="false"}{\
+                     if ( ( %1 |N ) %== 'local helper' AND 
+                       ( ( %2 |N ) %== false  ) ) then
+                     begin
+//	true\
+                       true 
+//	]\
+                     end // if
+                     else
+                     begin
+//	[{"%1N"="need objcounter"&"%2N"="true"}{\
+                      if ( ( %1 |N ) %== 'need objcounter' AND 
+                        ( ( %2 |N ) %== true  ) ) then
+                      begin
+//	true\
+                        true 
+//	]\
+                      end // if
+                      else
+                      begin
+//	[{"%1N"="singleton"&"%2N"="false"}{\
+                       if ( ( %1 |N ) %== 'singleton' AND 
+                         ( ( %2 |N ) %== false  ) ) then
+                       begin
+//	true\
+                         true 
+//	]\
+                       end // if
+                       else
+                       begin
+//	[{"%1N"="Refcount"&"%2N"="none"}{\
+                        if ( ( %1 |N ) %== 'Refcount' AND 
+                          ( ( %2 |N ) %== 'none'  ) ) then
+                        begin
+//	true\
+                          true 
+//	]\
+                        end // if
+                        else
+                        begin
+//	[{"%1N"="Need copy ctor"&"%2N"="false"}{\
+                         if ( ( %1 |N ) %== 'Need copy ctor' AND 
+                           ( ( %2 |N ) %== false  ) ) then
+                         begin
+//	true\
+                           true 
+//	]\
+                         end // if
+                         else
+                         begin
+//	[{"%1N"="Need assign op"&"%2N"="false"}{\
+                          if ( ( %1 |N ) %== 'Need assign op' AND 
+                            ( ( %2 |N ) %== false  ) ) then
+                          begin
+//	true\
+                            true 
+//	]\
+                          end // if
+                          else
+                          begin
+//	[{"%1N"="call way"&"%2N"="forth"}{\
+                           if ( ( %1 |N ) %== 'call way' AND 
+                             ( ( %2 |N ) %== 'forth'  ) ) then
+                           begin
+//	true\
+                             true 
+//	]\
+                           end // if
+                           else
+                           begin
+//	[{"%1N"="native definition"&"%2N"="none"}{\
+                            if ( ( %1 |N ) %== 'native definition' AND 
+                              ( ( %2 |N ) %== 'none'  ) ) then
+                            begin
+//	true\
+                              true 
+//	]\
+                            end // if
+                            else
+                            begin
+//	[{"%1N"="Must throw in error"&"%2N"="true"}{\
+                             if ( ( %1 |N ) %== 'Must throw in error' AND 
+                               ( ( %2 |N ) %== true  ) ) then
+                             begin
+//	true\
+                               true 
+//	]\
+                             end // if
+                             else
+                             begin
+//	[{"%1N"="is default ancestor"&"%2N"="false"}{\
+                              if ( ( %1 |N ) %== 'is default ancestor' AND 
+                                ( ( %2 |N ) %== false  ) ) then
+                              begin
+//	true\
+                                true 
+//	]\
+                              end // if
+                              else
+                              begin
+//	[{"%1N"="weak"&"%2N"="false"}{\
+                               if ( ( %1 |N ) %== 'weak' AND 
+                                 ( ( %2 |N ) %== false  ) ) then
+                               begin
+//	true\
+                                 true 
+//	]\
+                               end // if
+                               else
+                               begin
+//	[{"%1N"="local supervisor"&"%2N"="false"}{\
+                                if ( ( %1 |N ) %== 'local supervisor' AND 
+                                  ( ( %2 |N ) %== false  ) ) then
+                                begin
+//	true\
+                                  true 
+//	]\
+                                end // if
+                                else
+                                begin
+//	[{"%1N"="non virtual base"&"%2N"="false"}{\
+                                 if ( ( %1 |N ) %== 'non virtual base' AND 
+                                   ( ( %2 |N ) %== false  ) ) then
+                                 begin
+//	true\
+                                   true 
+//	]\
+                                 end // if
+                                 else
+                                 begin
+//	[{"%1N"="dll export"&"%2N"="true"}{\
+                                  if ( ( %1 |N ) %== 'dll export' AND 
+                                    ( ( %2 |N ) %== true  ) ) then
+                                  begin
+//	true\
+                                    true 
+//	]\
+                                  end // if
+                                  else
+                                  begin
+//	[{"%1N"="force overload"&"%2N"="false"}{\
+                                   if ( ( %1 |N ) %== 'force overload' AND 
+                                     ( ( %2 |N ) %== false  ) ) then
+                                   begin
+//	true\
+                                     true 
+//	]\
+                                   end // if
+                                   else
+                                   begin
+//	[{"%1N"="debug log"&"%2N"="false"}{\
+                                    if ( ( %1 |N ) %== 'debug log' AND 
+                                      ( ( %2 |N ) %== false  ) ) then
+                                    begin
+//	true\
+                                      true 
+//	]\
+                                    end // if
+                                    else
+                                    begin
+//	[{"%1N"="debug tie log"&"%2N"="false"}{\
+                                     if ( ( %1 |N ) %== 'debug tie log' AND 
+                                       ( ( %2 |N ) %== false  ) ) then
+                                     begin
+//	true\
+                                       true 
+//	]\
+                                     end // if
+                                     else
+                                     begin
+//	[{"%1N"="reads field"&"%2N"="false"}{\
+                                      if ( ( %1 |N ) %== 'reads field' AND 
+                                        ( ( %2 |N ) %== false  ) ) then
+                                      begin
+//	true\
+                                        true 
+//	]\
+                                      end // if
+                                      else
+                                      begin
+//	[{"%1N"="writes field"&"%2N"="false"}{\
+                                       if ( ( %1 |N ) %== 'writes field' AND 
+                                         ( ( %2 |N ) %== false  ) ) then
+                                       begin
+//	true\
+                                         true 
+//	]\
+                                       end // if
+                                       else
+                                       begin
+//	[{"%1N"="calling conventions"&"%2N"="none"}{\
+                                        if ( ( %1 |N ) %== 'calling conventions' AND 
+                                          ( ( %2 |N ) %== 'none'  ) ) then
+                                        begin
+//	true\
+                                          true 
+//	]\
+                                        end // if
+                                        else
+                                        begin
+//	[{"%1N"="force use const arg"&"%2N"="false"}{\
+                                         if ( ( %1 |N ) %== 'force use const arg' AND 
+                                           ( ( %2 |N ) %== false  ) ) then
+                                         begin
+//	true\
+                                           true 
+//	]\
+                                         end // if
+                                         else
+                                         begin
+//	[{"%1N"="inherits getter from some ancestor"&"%2N"="undefined"}{\
+                                          if ( ( %1 |N ) %== 'inherits getter from some ancestor' AND 
+                                            ( ( %2 |N ) %== 'undefined'  ) ) then
+                                          begin
+//	true\
+                                            true 
+//	]\
+                                          end // if
+                                          else
+                                          begin
+//	[{"%1N"="inherits setter from some ancestor"&"%2N"="undefined"}{\
+                                           if ( ( %1 |N ) %== 'inherits setter from some ancestor' AND 
+                                             ( ( %2 |N ) %== 'undefined'  ) ) then
+                                           begin
+//	true\
+                                             true 
+//	]\
+                                           end // if
+                                           else
+                                           begin
+//	[{"%1N"="is default"&"%2N"="false"}{\
+                                            if ( ( %1 |N ) %== 'is default' AND 
+                                              ( ( %2 |N ) %== false  ) ) then
+                                            begin
+//	true\
+                                              true 
+//	]\
+                                            end // if
+                                            else
+                                            begin
+//	[{"%1N"="needs field"&"%2N"="undefined"}{\
+                                             if ( ( %1 |N ) %== 'needs field' AND 
+                                               ( ( %2 |N ) %== 'undefined'  ) ) then
+                                             begin
+//	true\
+                                               true 
+//	]\
+                                             end // if
+                                             else
+                                             begin
+//	[{"%1N"="needs stored directive"&"%2N"="undefined"}{\
+                                              if ( ( %1 |N ) %== 'needs stored directive' AND 
+                                                ( ( %2 |N ) %== 'undefined'  ) ) then
+                                              begin
+//	true\
+                                                true 
+//	]\
+                                              end // if
+                                              else
+                                              begin
+//	[{"%1N"="is mutable"&"%2N"="false"}{\
+                                               if ( ( %1 |N ) %== 'is mutable' AND 
+                                                 ( ( %2 |N ) %== false  ) ) then
+                                               begin
+//	true\
+                                                 true 
+//	]\
+                                               end // if
+                                               else
+                                               begin
+//	[{"%1N"="smart pointer"&"%2N"="false"}{\
+                                                if ( ( %1 |N ) %== 'smart pointer' AND 
+                                                  ( ( %2 |N ) %== false  ) ) then
+                                                begin
+//	true\
+                                                  true 
+//	]\
+                                                end // if
+                                                else
+                                                begin
+//	[{"%1N"="is redefinition"&"%2N"="false"}{\
+                                                 if ( ( %1 |N ) %== 'is redefinition' AND 
+                                                   ( ( %2 |N ) %== false  ) ) then
+                                                 begin
+//	true\
+                                                   true 
+//	]\
+                                                 end // if
+                                                 else
+                                                 begin
+//	[{"%1N"="is namespace"&"%2N"="false"}{\
+                                                  if ( ( %1 |N ) %== 'is namespace' AND 
+                                                    ( ( %2 |N ) %== false  ) ) then
+                                                  begin
+//	true\
+                                                    true 
+//	]\
+                                                  end // if
+                                                  else
+                                                  begin
+//	[{"%1N"="isHighPriority"&"%2N"="false"}{\
+                                                   if ( ( %1 |N ) %== 'isHighPriority' AND 
+                                                     ( ( %2 |N ) %== false  ) ) then
+                                                   begin
+//	true\
+                                                     true 
+//	]\
+                                                   end // if
+                                                   else
+                                                   begin
+//	[{"%1N"="can be parametrized"&"%2N"="undefined"}{\
+                                                    if ( ( %1 |N ) %== 'can be parametrized' AND 
+                                                      ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                    begin
+//	true\
+                                                      true 
+//	]\
+                                                    end // if
+                                                    else
+                                                    begin
+//	[{"%1N"="forward weight"&"%2N"="0"}{\
+                                                     if ( ( %1 |N ) %== 'forward weight' AND 
+                                                       ( ( %2 |N ) %== 0  ) ) then
+                                                     begin
+//	true\
+                                                       true 
+//	]\
+                                                     end // if
+                                                     else
+                                                     begin
+//	[{"%1N"="can be main"&%2N=false}{\
+                                                      if ( ( %1 |N ) %== 'can be main' AND 
+                                                        ( ( %2 |N ) %==  false  ) ) then
+                                                      begin
+//	true\
+                                                        true 
+//	]\
+                                                      end // if
+                                                      else
+                                                      begin
+//	[{"%1N"="inherite constraints"&%2N=true}{\
+                                                       if ( ( %1 |N ) %== 'inherite constraints' AND 
+                                                         ( ( %2 |N ) %==  true  ) ) then
+                                                       begin
+//	true\
+                                                         true 
+//	]\
+                                                       end // if
+                                                       else
+                                                       begin
+//	[{"%1N"="encoding"&%2N=default}{\
+                                                        if ( ( %1 |N ) %== 'encoding' AND 
+                                                          ( ( %2 |N ) %== 'default'  ) ) then
+                                                        begin
+//	true\
+                                                          true 
+//	]\
+                                                        end // if
+                                                        else
+                                                        begin
+//	[{"%1N"="empty target"&%2N=false}{\
+                                                         if ( ( %1 |N ) %== 'empty target' AND 
+                                                           ( ( %2 |N ) %==  false  ) ) then
+                                                         begin
+//	true\
+                                                           true 
+//	]\
+                                                         end // if
+                                                         else
+                                                         begin
+//	[{"%1N"="make auto copies internal"&%2N=false}{\
+                                                          if ( ( %1 |N ) %== 'make auto copies internal' AND 
+                                                            ( ( %2 |N ) %==  false  ) ) then
+                                                          begin
+//	true\
+                                                            true 
+//	]\
+                                                          end // if
+                                                          else
+                                                          begin
+//	[{"%1N"="no auto copy"&%2N=false}{\
+                                                           if ( ( %1 |N ) %== 'no auto copy' AND 
+                                                             ( ( %2 |N ) %==  false  ) ) then
+                                                           begin
+//	true\
+                                                             true 
+//	]\
+                                                           end // if
+                                                           else
+                                                           begin
+//	[{"%1N"="skip"&%2N=false}{\
+                                                            if ( ( %1 |N ) %== 'skip' AND 
+                                                              ( ( %2 |N ) %==  false  ) ) then
+                                                            begin
+//	true\
+                                                              true 
+//	]\
+                                                            end // if
+                                                            else
+                                                            begin
+//	[{"%1N"="internal"&%2N=false}{\
+                                                             if ( ( %1 |N ) %== 'internal' AND 
+                                                               ( ( %2 |N ) %==  false  ) ) then
+                                                             begin
+//	true\
+                                                               true 
+//	]\
+                                                             end // if
+                                                             else
+                                                             begin
+//	[{"%1N"="need dctor"&%2N=false}{\
+                                                              if ( ( %1 |N ) %== 'need dctor' AND 
+                                                                ( ( %2 |N ) %==  false  ) ) then
+                                                              begin
+//	true\
+                                                                true 
+//	]\
+                                                              end // if
+                                                              else
+                                                              begin
+//	[{"%1N"="need UC"&%2N=false}{\
+                                                               if ( ( %1 |N ) %== 'need UC' AND 
+                                                                 ( ( %2 |N ) %==  false  ) ) then
+                                                               begin
+//	true\
+                                                                 true 
+//	]\
+                                                               end // if
+                                                               else
+                                                               begin
+//	[{"%1N"="finished"&%2N=true}{\
+                                                                if ( ( %1 |N ) %== 'finished' AND 
+                                                                  ( ( %2 |N ) %==  true  ) ) then
+                                                                begin
+//	true\
+                                                                  true 
+//	]\
+                                                                end // if
+                                                                else
+                                                                begin
+//	[{"%1N"="UseNewGen"&"%2N"="undefined"}{\
+                                                                 if ( ( %1 |N ) %== 'UseNewGen' AND 
+                                                                   ( ( %2 |N ) %== 'undefined'  ) ) then
+                                                                 begin
+//	true\
+                                                                   true 
+//	]\
+                                                                 end // if
+                                                                 else
+                                                                 begin
+//	false\
+                                                                   false 
+//	}\
+                                                                 end // else
+//	}\
+                                                                end // else
+//	}\
+                                                               end // else
+//	}\
+                                                              end // else
+//	}\
+                                                             end // else
+//	}\
+                                                            end // else
+//	}\
+                                                           end // else
+//	}\
+                                                          end // else
+//	}\
+                                                         end // else
+//	}\
+                                                        end // else
+//	}\
+                                                       end // else
+//	}\
+                                                      end // else
+//	}\
+                                                     end // else
+//	}\
+                                                    end // else
+//	}\
+                                                   end // else
+//	}\
+                                                  end // else
+//	}\
+                                                 end // else
+//	}\
+                                                end // else
+//	}\
+                                               end // else
+//	}\
+                                              end // else
+//	}\
+                                             end // else
+//	}\
+                                            end // else
+//	}\
+                                           end // else
+//	}\
+                                          end // else
+//	}\
+                                         end // else
+//	}\
+                                        end // else
+//	}\
+                                       end // else
+//	}\
+                                      end // else
+//	}\
+                                     end // else
+//	}\
+                                    end // else
+//	}\
+                                   end // else
+//	}\
+                                  end // else
+//	}\
+                                 end // else
+//	}\
+                                end // else
+//	}\
+                               end // else
+//	}\
+                              end // else
+//	}\
+                             end // else
+//	}\
+                            end // else
+//	}\
+                           end // else
+//	}\
+                          end // else
+//	}\
+                         end // else
+//	}\
+                        end // else
+//	}\
+                       end // else
+//	}\
+                      end // else
+//	}\
+                     end // else
+//	}\
+                    end // else
+//	}\
+                   end // else
+//	}\
+                  end // else
+//	}\
+                 end // else
+//	}\
+                end // else
+//	}\
+               end // else
+//	}\
+              end // else
+//	}\
+             end // else
+//	}\
+            end // else
+//	}\
+           end // else
+//	}\
+          end // else
+//	}\
+         end // else
+//	}\
+        end // else
+//	}\
+       end // else
+//	}\
+      end // else
+//	}\
+     end // else
+//	}\
+    end // else
+//	}\
+   end // else
+//	}\
+  end // else
+//	}\
+ end // else
+//	%f_warning(%1N)\
+//	%f_warning(%S{%1N})\
+//	[{"%S{%1N}"="%S{!%1N}"{\
+//	false\
+//	true\
+//	]
+
+//f _IsConstants
+; // is_default_up_value
 
 : IsConstants OBJECT IN %S
 //	[{%SS=Constants|%SS=ConstantArray|%SS=LocalConst}{\
@@ -7066,6 +8379,44 @@ implementation @ "Delphi интерфейсы и реализация"
    ++! l_Counter
   end // if
  end // for R
+//	<%E#f_pas_script_GenerateIncludeOrForward()>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%E
+ begin
+  OBJECT IN %E
+  if true then
+  begin
+   %E %?f pas_script_GenerateIncludeOrForward %( )% 
+   ++! l_Counter
+  end // if
+ end // for E
+//	<%e#f_pas_script_GenerateIncludeOrForward()>\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%e
+ begin
+  OBJECT IN %e
+  if true then
+  begin
+   %e %?f pas_script_GenerateIncludeOrForward %( )% 
+   ++! l_Counter
+  end // if
+ end // for e
+
+//	[{"%S%{Speller}U"!=""}\
+ if ( ( %S ( get_object_var ( 'Speller' ) |U )  ) %!= '' ) then
+ begin
+//	%S%{Speller}#f_pas_script_GenerateIncludeOrForward()\
+  %S ( get_object_var ( 'Speller' ) )  out_indent 'f_pas_script_GenerateIncludeOrForward()'
+//	]\
+ end // if
+
+//	[{"%S%{SpelledFor}U"!=""}\
+ if ( ( %S ( get_object_var ( 'SpelledFor' ) |U )  ) %!= '' ) then
+ begin
+//	%S%{SpelledFor}#f_pas_script_GenerateIncludeOrForward()\
+  %S ( get_object_var ( 'SpelledFor' ) )  out_indent 'f_pas_script_GenerateIncludeOrForward()'
+//	]\
+ end // if
 
 //	[{%S#f_pas_script_CanImplementMethods()=true}\
  if ( ( %S %?f pas_script_CanImplementMethods %( )% ) %==  true ) then
@@ -7180,13 +8531,121 @@ implementation @ "Delphi интерфейсы и реализация"
 //	]\
  end // if
 
+//	[{%S#f_pas_script_CanImplementMethods()=true}\
+ if ( ( %S %?f pas_script_CanImplementMethods %( )% ) %==  true ) then
+ begin
+//	<{}{}{%o}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%o
+  begin
+   OBJECT IN %o
+   if true then
+   begin
+//	%S%f_pas_script_GenerateForwardPrim()\
+    %S %f pas_script_GenerateForwardPrim %( )% 
+//	%f_OutOverride(%o,%S,"opkind_Implemented")\
+    [%f] OutOverride %( %o %, %S %, 'opkind_Implemented' )% 
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for o
+
+
+//	<{}{}{%O}\
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%O
+  begin
+   OBJECT IN %O
+   if true then
+   begin
+//	%S%f_pas_script_GenerateForwardPrim()\
+    %S %f pas_script_GenerateForwardPrim %( )% 
+//	%f_OutOverride(%O,%S,"opkind_Overridden")\
+    [%f] OutOverride %( %O %, %S %, 'opkind_Overridden' )% 
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for O
+//	]\
+ end // if
+
 //	%S%f_pas_script_GenerateDescription()
  %S %f pas_script_GenerateDescription %( )% 
-//#UC END# *563378C200C8for470F151302FD*
+
+//f _OverrideName
 ; // pas_script_GenerateDescriptionRecur
+
+end. // "Delphi интерфейсы и реализация"
+
+: OverrideName OBJECT IN %S
+//	%S%f_pas_script_Name()_%1%f_pas_script_Name()
+ %S %f pas_script_Name %( )% '_'
+ %1 %f pas_script_Name %( )% 
+
+//f _OverrideLink
+; // OverrideName
+
+: OverrideLink OBJECT IN %S
+//	%f_OverrideName(%S,%1) // %SN\n
+ [%f] OverrideName %( %S %, %1 )% ' // '
+ %S |N #13#10
+
+//f _OutOverride
+; // OverrideLink
+
+: OutOverride OBJECT IN %S
+//	\n\
+ #13#10
+//	: %f_OverrideName(%S,%1)
+ ': '
+ [%f] OverrideName %( %S %, %1 )% 
+//	 CONST UID '%SU'
+ ' CONST UID '''
+ %S |U '''
+//	[{"%SN"!=""}\
+ if ( ( %S |N ) %!= '' ) then
+ begin
+//	 CONST Name '%f_str_replace(%f_N(%S),','')'
+  ' CONST Name '''
+  [%f] str_replace %( [%f] N %( %S )% %, '''' %, '''''' )% '''
+//	]\
+ end // if
+//	 : Original %S#f_pas_script_Reference() ;
+ ' : Original '
+ %S %?f pas_script_Reference %( )% ' ;'
+//	[\
+ if NOT-EMPTY
+ begin
+//	 : Implementor %1#f_pas_script_Reference() ;
+  ' : Implementor '
+  %1 %?f pas_script_Reference %( )% ' ;'
+//	]\
+ end // if
+ NOP
+
+//	[{"%2N"!=""}\
+ if ( ( %2 |N ) %!= '' ) then
+ begin
+//	 CONST OpKind %2N
+  ' CONST OpKind '
+  %2 |N 
+//	]\
+ end // if
+
+//	%S%f_pas_script_GenerateUserProperties()\
+ %S %f pas_script_GenerateUserProperties %( )% 
+//	ref; // %f_OverrideName(%S,%1) %SN\n
+ 'ref; // '
+ [%f] OverrideName %( %S %, %1 )% ' '
+ %S |N #13#10
+//#UC END# *563378C200C8for470F151302FD*
+; // OutOverride
 
 
 //%f _pas_script_GenerateUserProperties
+implementation @ "Delphi интерфейсы и реализация"
 : pas_script_GenerateUserProperties OBJECT IN %S
 //#UC START# *56374FD101B7for470F151302FD*
 //	%f_clear_list(UP_LIST)\
@@ -7297,10 +8756,12 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[{"%S#f_pas_script_FileNameForLink()"!="%BO"}{\
  if ( ( %S %?f pas_script_FileNameForLink %( )% ) %!= ( %B |O ) ) then
  begin
-//	WL '%S%f_pas_script_Name()' '%S#f_pas_script_FileNameForLink()'\
+//	WL '%S%f_pas_script_Name()' \
   'WL '''
-  %S %f pas_script_Name %( )% ''' '''
-  %S %?f pas_script_FileNameForLink %( )% ''''
+  %S %f pas_script_Name %( )% ''' '
+//	'%f_pas_script_FileNameForLinkSafe(%S)'\
+  ''''
+  [%f] pas_script_FileNameForLinkSafe %( %S )% ''''
 //	] // %SN\n
  end // if
  else
@@ -7311,11 +8772,33 @@ implementation @ "Delphi интерфейсы и реализация"
  end // else
  ' // '
  %S |N #13#10
-//#UC END# *563765ED0263for470F151302FD*
+
+//f _pas_script_FileNameForLinkSafe
 ; // pas_script_Reference
+
+end. // "Delphi интерфейсы и реализация"
+
+: pas_script_FileNameForLinkSafe OBJECT IN %S
+//@ %SU
+//	[{"%S#f_pas_script_FileName()"!=""}{\
+ if ( ( %S %?f pas_script_FileName %( )% ) %!= '' ) then
+ begin
+//	%S#f_pas_script_FileName()\
+  %S %?f pas_script_FileName %( )% 
+//	]
+ end // if
+ else
+ begin
+//	%f_pas_script_FileNameForLinkSafe(%P)\
+  [%f] pas_script_FileNameForLinkSafe %( %P )% 
+//	}\
+ end // else
+//#UC END# *563765ED0263for470F151302FD*
+; // pas_script_FileNameForLinkSafe
 
 
 //%f _pas_script_GenerateForward
+implementation @ "Delphi интерфейсы и реализация"
 : pas_script_GenerateForward OBJECT IN %S
 //#UC START# *56377E090112for470F151302FD*
 //	[{%SC!=Category}\

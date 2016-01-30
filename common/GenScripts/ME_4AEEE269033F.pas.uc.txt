@@ -1,0 +1,153 @@
+//#UC START# *479731C50290_4AEEE269033F_impl*
+ if (NavigatorTree.TreeStruct <> nil) then
+  NavigatorTree.TreeStruct.Unsubscribe(InsTreeDataListener(Self));
+ inherited;
+//#UC END# *479731C50290_4AEEE269033F_impl*
+//#UC START# *479731C50290_4AEEE269033F_var*
+//#UC END# *479731C50290_4AEEE269033F_var*
+//#UC START# *4A8E8F2E0195_4AEEE269033F_impl*
+ f_Lock := 0;
+ NavigatorTree.Images := nsNavigatorRes.NavigatorItemsImageList;
+ NavigatorTree.TreeStruct := TnsNavigatorTreeStruct.Make;
+ ContextFilter.Images := dmStdRes.SmallImageList;
+
+ ActiveControl := NavigatorTree;
+ FormStyle := fsStayOnTop;
+ Scaled := False;
+ with BackgroundPanel do
+ begin
+  Align := alClient;
+  BevelOuter := bvNone;
+  TabOrder := 0;
+ end;
+ with ContextFilter do
+ begin
+  ImageIndex := 77;
+  LabelVisible := False;
+  ContextFilterTarget := NavigatorTree;
+  OnChange := ContextFilterChange;
+  OnWrongContext := ContextFilterWrongContext;
+ end;
+ with NavigatorTree do
+ begin
+  Align := alClient;
+  BorderStyle := bsNone;
+  TabOrder := 1;
+  ActionElementMode := l3_amSingleClick;
+  OnMakeTreeSource := NavigatorTreeMakeTreeSource;
+  OnGetItemImage := NavigatorTreeGetItemImage;
+  OnActionElement := NavigatorTreeActionElement;
+  OnTreeChanged := NavigatorTreeTreeChanged;
+  OnNewCharPressed := NavigatorTreeNewCharPressed;
+  SettingId := 'stidNavigatorTree';
+ end;
+//#UC END# *4A8E8F2E0195_4AEEE269033F_impl*
+//#UC START# *4A8E8F2E0195_4AEEE269033F_var*
+//#UC END# *4A8E8F2E0195_4AEEE269033F_var*
+//#UC START# *4AEEE2D40157_4AEEE269033Fexec_impl*
+ if f_Lock > 0 then
+  Exit;
+
+ Inc(f_Lock);
+ try
+  NavigatorTree.GotoOnNode(aNode);
+ finally
+  Dec(f_Lock);
+ end;//try..finally
+//#UC END# *4AEEE2D40157_4AEEE269033Fexec_impl*
+//#UC START# *4AEEE2D40157_4AEEE269033Fexec_var*
+//#UC END# *4AEEE2D40157_4AEEE269033Fexec_var*
+//#UC START# *4C87A9640232_4AEEE269033F_impl*
+ ExecuteNavigatorItem(NavigatorTree.GetCurrentNode, NavigatorTree, NativeMainForm);
+//#UC END# *4C87A9640232_4AEEE269033F_impl*
+//#UC START# *4C87A9640232_4AEEE269033F_var*
+//#UC END# *4C87A9640232_4AEEE269033F_var*
+//#UC START# *5240075C038B_4AEEE269033F_impl*
+ if (f_Lock = 0) then
+ begin
+  Inc(f_Lock);
+  try
+   ExecuteCurrentElement;
+  finally
+   Dec(f_Lock);
+  end;//try..finally
+ end;//f_Lock = 0
+//#UC END# *5240075C038B_4AEEE269033F_impl*
+//#UC START# *5240075C038B_4AEEE269033F_var*
+//#UC END# *5240075C038B_4AEEE269033F_var*
+//#UC START# *524007670210_4AEEE269033F_impl*
+ Result := -1;
+ l_l3Node := NavigatorTree.GetNode(Index);
+ try
+  if Supports(l_l3Node, INodeBase, l_Node) then
+  try
+   Result := NavigatorRes.GetMainMenuImageIndex(l_Node, TNavigatorMenuItemType(l_Node.GetType));
+  finally
+   l_Node := nil;
+  end;{try..finally}
+ finally
+ end;{try..finally}
+//#UC END# *524007670210_4AEEE269033F_impl*
+//#UC START# *524007670210_4AEEE269033F_var*
+var
+ l_l3Node: Il3SimpleNode;
+ l_Node: INodeBase;
+//#UC END# *524007670210_4AEEE269033F_var*
+//#UC START# *5240077701D5_4AEEE269033F_impl*
+ ContextFilter.PressChar(aChar);
+//#UC END# *5240077701D5_4AEEE269033F_impl*
+//#UC START# *5240077701D5_4AEEE269033F_var*
+//#UC END# *5240077701D5_4AEEE269033F_var*
+//#UC START# *524007800305_4AEEE269033F_impl*
+ theTree := TnsNavigatorTreeStruct.Make;
+//#UC END# *524007800305_4AEEE269033F_impl*
+//#UC START# *524007800305_4AEEE269033F_var*
+//#UC END# *524007800305_4AEEE269033F_var*
+//#UC START# *5240078A00F5_4AEEE269033F_impl*
+ if Supports(NavigatorTree.TreeStruct, Il3FilterableTree, l_Tree) then
+ try
+  Inc(f_Lock);
+  try
+   l_Node := NavigatorTree.GetCurrentNode;
+   try
+    l_Filtered := l_Tree.MakeFiltered(l_Tree.CloneFilters.SetContext(ContextFilter.ActiveContext),
+                                      l_Node,
+                                      l_NewNodeIndex,
+                                      True,
+                                      ContextFilter.NeedRefilterTree);
+    if Assigned(l_Filtered) and (l_Filtered.CountView > 0) then
+    begin
+     NavigatorTree.TreeStruct := l_Filtered;
+     if l_Node <> nil then
+      NavigatorTree.GotoOnNode(l_Node);
+    end;
+   finally
+    l_Node := nil;
+   end;
+  finally
+   Dec(f_Lock);
+  end;
+ finally
+  l_Tree := nil;
+ end;
+//#UC END# *5240078A00F5_4AEEE269033F_impl*
+//#UC START# *5240078A00F5_4AEEE269033F_var*
+var
+ l_Tree: Il3FilterableTree;
+ l_Filtered: Il3SimpleTree;
+ l_Node: Il3SimpleNode;
+ l_NewNodeIndex: Integer;
+//#UC END# *5240078A00F5_4AEEE269033F_var*
+//#UC START# *5240079601A2_4AEEE269033F_impl*
+ if (anOldTree <> nil) then
+  anOldTree.Unsubscribe(InsTreeDataListener(Self));
+ if (aNewTree <> nil) then
+  aNewTree.Subscribe(InsTreeDataListener(Self));
+//#UC END# *5240079601A2_4AEEE269033F_impl*
+//#UC START# *5240079601A2_4AEEE269033F_var*
+//#UC END# *5240079601A2_4AEEE269033F_var*
+//#UC START# *524007A00200_4AEEE269033F_impl*
+ nsBeepWrongContext;
+//#UC END# *524007A00200_4AEEE269033F_impl*
+//#UC START# *524007A00200_4AEEE269033F_var*
+//#UC END# *524007A00200_4AEEE269033F_var*

@@ -1,0 +1,22 @@
+//#UC START# *55B664E00149exports*
+ *
+//#UC END# *55B664E00149exports*
+//#UC START# *55B664E00149impl*
+
+// Декораторы
+
+USES
+ axiom:DocEditorWindow
+;
+
+ BOOLEAN FUNCTION IsNeedSaveDocument
+  OBJECT IN aWnd
+  if ( aWnd Is class::TDocEditorWindow ) then
+   ( aWnd DocEditorWindow:IsNeedSaveDocument >>> Result )
+  else 
+   ( false >>> Result )
+ ; // IsNeedSaveDocument
+ 
+//#UC END# *55B664E00149impl*
+//#UC START# *55B664E00149man_uses*
+//#UC END# *55B664E00149man_uses*

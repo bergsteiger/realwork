@@ -1,0 +1,14 @@
+//#UC START# *4F212C930149_517939B9033C_impl*
+ RunnerAssert(aCtx.rEngine.IsTopBool, 'Не указано, для какого скроллбара получаем информацию.', aCtx);
+
+ f_ScrollInfo.cbSize := SizeOf(TScrollInfo);
+ f_ScrollInfo.fMask := SIF_ALL;
+
+ if aCtx.rEngine.PopBool
+  then GetScrollInfo(aControl.Handle, SB_VERT, f_ScrollInfo)
+  else GetScrollInfo(aControl.Handle, SB_HORZ, f_ScrollInfo);
+
+ DoScrollInfo(aCtx);
+//#UC END# *4F212C930149_517939B9033C_impl*
+//#UC START# *4F212C930149_517939B9033C_var*
+//#UC END# *4F212C930149_517939B9033C_var*

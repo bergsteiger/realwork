@@ -1,7 +1,25 @@
 unit kwPopEditorCheckWithEtalon;
+ {* *Описание:*
+Перерисовывает редактор сохраняя данные об отриосванном для тестов. Сохранение данных об отрисовке вызвается только после выполения функции. Создается файл с именем NNN.shapes - где NNN - номер теста (Внимание! Имя теста дожно начинаться с TK) . Если до этого не существовало эталона, то он создается. О чем сообщается в конце выполнеия теста. Если эталон уже существовал, то производится сравнение новой версии файла с эталоном. Если сравнение не прошло, то об этом будет сообщено (тест будет считаться не прошедшим) и будет вызвана внешняя программа сравнения файлов.
+*Формат:*
+[code]
+anEditor pop:editor:CheckWithEtalon aProc
+[code]
+где anEditor - указатель на редактор, в котором нужно проверить отрисовку. aProc - процедура, вызывающая отрисовку.
+*Пример:*
+[code]
+focused:control:push pop:editor:CheckWithEtalon "Разделить ячейки таблицы"
+[code]
+Проверяет отрисовку в редакторе, где находится фокус после выполнения функции "Разделить ячейки таблицы". }
+
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorCheckWithEtalon.pas"
+// Стереотип: "ScriptKeyword"
+
+{$Include seDefine.inc}
 
 interface
 
+{$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
  , tfwWordWorker
@@ -10,7 +28,7 @@ uses
 ;
 
 type
- TkwPopEditorCheckWithEtalon = class(TtfwWordWorker)
+ TkwPopEditorCheckWithEtalon = {final} class(TtfwWordWorker)
   {* *Описание:*
 Перерисовывает редактор сохраняя данные об отриосванном для тестов. Сохранение данных об отрисовке вызвается только после выполения функции. Создается файл с именем NNN.shapes - где NNN - номер теста (Внимание! Имя теста дожно начинаться с TK) . Если до этого не существовало эталона, то он создается. О чем сообщается в конце выполнеия теста. Если эталон уже существовал, то производится сравнение новой версии файла с эталоном. Если сравнение не прошло, то об этом будет сообщено (тест будет считаться не прошедшим) и будет вызвана внешняя программа сравнения файлов.
 *Формат:*
@@ -23,14 +41,37 @@ anEditor pop:editor:CheckWithEtalon aProc
 focused:control:push pop:editor:CheckWithEtalon "Разделить ячейки таблицы"
 [code]
 Проверяет отрисовку в редакторе, где находится фокус после выполнения функции "Разделить ячейки таблицы". }
-  function CompiledWorkerClass(const aCtx: TtfwContext): RkwCompiledWordWorker;
+  protected
+   function CompiledWorkerClass(const aCtx: TtfwContext): RkwCompiledWordWorker; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorCheckWithEtalon
- 
+{$IfEnd} // NOT Defined(NoScripts)
+
 implementation
 
+{$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
  , kwCompiledCheckWithEtalon
 ;
+
+function TkwPopEditorCheckWithEtalon.CompiledWorkerClass(const aCtx: TtfwContext): RkwCompiledWordWorker;
+//#UC START# *4DCBD67C0362_50D44F67024C_var*
+//#UC END# *4DCBD67C0362_50D44F67024C_var*
+begin
+//#UC START# *4DCBD67C0362_50D44F67024C_impl*
+ Result := TkwCompiledCheckWithEtalon;
+//#UC END# *4DCBD67C0362_50D44F67024C_impl*
+end;//TkwPopEditorCheckWithEtalon.CompiledWorkerClass
+
+class function TkwPopEditorCheckWithEtalon.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:editor:CheckWithEtalon';
+end;//TkwPopEditorCheckWithEtalon.GetWordNameForRegister
+
+initialization
+ TkwPopEditorCheckWithEtalon.RegisterInEngine;
+ {* Регистрация pop_editor_CheckWithEtalon }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

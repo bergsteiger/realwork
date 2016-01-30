@@ -1,7 +1,13 @@
 unit kwCFEVERESTBIN;
 
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCFEVERESTBIN.pas"
+// Стереотип: "ScriptKeyword"
+
+{$Include seDefine.inc}
+
 interface
 
+{$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
  , tfwClipboardFormatWord
@@ -9,14 +15,37 @@ uses
 ;
 
 type
- TkwCFEVERESTBIN = class(TtfwClipboardFormatWord)
-  function GetFormat: TevFormat;
+ TkwCFEVERESTBIN = {final} class(TtfwClipboardFormatWord)
+  protected
+   function GetFormat: TevFormat; override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//TkwCFEVERESTBIN
- 
+{$IfEnd} // NOT Defined(NoScripts)
+
 implementation
 
+{$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
 ;
+
+function TkwCFEVERESTBIN.GetFormat: TevFormat;
+//#UC START# *54D231000227_52E11B1F02E7_var*
+//#UC END# *54D231000227_52E11B1F02E7_var*
+begin
+//#UC START# *54D231000227_52E11B1F02E7_impl*
+ Result := CF_EverestBin;
+//#UC END# *54D231000227_52E11B1F02E7_impl*
+end;//TkwCFEVERESTBIN.GetFormat
+
+class function TkwCFEVERESTBIN.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'CF_EVERESTBIN';
+end;//TkwCFEVERESTBIN.GetWordNameForRegister
+
+initialization
+ TkwCFEVERESTBIN.RegisterInEngine;
+ {* Регистрация CF_EVERESTBIN }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

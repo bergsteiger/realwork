@@ -1,0 +1,62 @@
+//#UC START# *479731C50290_4A7AA075008F_impl*
+ FreeAndNil(f_SubPara);
+ inherited;
+//#UC END# *479731C50290_4A7AA075008F_impl*
+//#UC START# *479731C50290_4A7AA075008F_var*
+//#UC END# *479731C50290_4A7AA075008F_var*
+//#UC START# *4C9B0AD90093_4A7AA075008F_impl*
+ l_Para := SubPara;
+ if (l_Para = nil) OR not l_Para.IsValid then
+  Result := nil
+ else
+ if l_Para.IsKindOf(k2_typBlock) then
+  Result := l_Para
+ else
+  Result := l_Para.rAtomEx([k2_tiSubs,
+                          k2_tiChildren, k2_tiHandle, LayerID,
+                          k2_tiChildren, k2_tiHandle, ID]);
+//#UC END# *4C9B0AD90093_4A7AA075008F_impl*
+//#UC START# *4C9B0AD90093_4A7AA075008F_var*
+var
+ l_Para : Tl3Variant;  
+//#UC END# *4C9B0AD90093_4A7AA075008F_var*
+//#UC START# *4C9B0AEF009B_4A7AA075008F_impl*
+ if (f_SubPara = nil) then
+  Result := nil
+ else
+  Result := f_SubPara;
+ if (Result = nil) then
+ begin
+  Case LayerID of
+   Ord(ev_sbtSub) :
+   begin
+    Result := nsFindTagByID(Document.AsObject, k2_typBlock, ID);
+    if (Result = nil) then
+     Result := nsFindTagByID(Document.AsObject, k2_typSub, ID);
+   end;//ev_sbtSub
+   Ord(ev_sbtBookmark) :
+    Result := nsFindTagByID(Document.AsObject, k2_typBookmark, ID);
+   Ord(ev_sbtMark) :
+   begin
+    Result := nsFindTagByID(Document.AsObject, k2_typCommentPara, ID);
+(*    if (Result = nil) then
+     Result := nsFindTagByID(Document, k2_typMark, ID);*)
+// - всё равно мы это искать не умеем, а nsFindTagByID стоит Assert
+//   ну и например тест K278135821 - падает
+   end;//ev_sbtMark
+   else
+    Result := nsFindTagByID(Document.AsObject, k2_typSub, ID);
+  end;//Case LayerID
+  Result.SetRef(f_SubPara);
+ end;//Result = nil
+//#UC END# *4C9B0AEF009B_4A7AA075008F_impl*
+//#UC START# *4C9B0AEF009B_4A7AA075008F_var*
+//#UC END# *4C9B0AEF009B_4A7AA075008F_var*
+//#UC START# *4C9B0D0A035C_4A7AA075008F_impl*
+ inherited Create(aDocument, aProcessor, anID, aLayerID);
+{ if not IsInIndex then
+  CheckExists;}
+ // Откручено. Ибо http://mdp.garant.ru/pages/viewpage.action?pageId=217683801&focusedCommentId=217686359#comment-217686359 
+//#UC END# *4C9B0D0A035C_4A7AA075008F_impl*
+//#UC START# *4C9B0D0A035C_4A7AA075008F_var*
+//#UC END# *4C9B0D0A035C_4A7AA075008F_var*

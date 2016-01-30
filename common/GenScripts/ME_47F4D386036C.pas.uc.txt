@@ -1,0 +1,176 @@
+//#UC START# *479731C50290_47F4D386036C_impl*
+ f_dsList := nil;
+ inherited;
+//#UC END# *479731C50290_47F4D386036C_impl*
+//#UC START# *479731C50290_47F4D386036C_var*
+//#UC END# *479731C50290_47F4D386036C_var*
+//#UC START# *48FEE6210205_47F4D386036C_impl*
+ Result := inherited DoMakeDataObject(aData, aBitmap);
+ if Result = nil then
+  Result := TbsListDataObject.Make(aData, aBitmap,
+   TbsListTreeData.Make(IdsList(f_dsList).List, RootNode, aData));
+//#UC END# *48FEE6210205_47F4D386036C_impl*
+//#UC START# *48FEE6210205_47F4D386036C_var*
+//#UC END# *48FEE6210205_47F4D386036C_var*
+//#UC START# *48FEE78E01B2_47F4D386036C_impl*
+ if Supports(aData.rNodes, IbsListTreeData, l_ListData) then
+ begin
+  Result := True;
+  if aProcessed <> nil then
+   aProcessed^ := True;
+ end//if Supports(aData.rNodes, IbsListTreeData, l_ListData) then
+ else
+  Result := inherited DoCanAcceptData(aTargetNode, aData, aProcessed);
+//#UC END# *48FEE78E01B2_47F4D386036C_impl*
+//#UC START# *48FEE78E01B2_47F4D386036C_var*
+var
+ l_ListData: IbsListTreeData;
+//#UC END# *48FEE78E01B2_47F4D386036C_var*
+//#UC START# *48FEE9D303B6_47F4D386036C_impl*
+ Result := DoCanAcceptData(aTargetNode, aData, nil);
+ if Result and Supports(aData.rNodes, IbsListTreeData, l_ListData) then
+ begin
+  RootNode.AddLastChilds(l_ListData.Nodes);
+  aProcessed := True;
+ end
+ else
+  Result := inherited DoDropData(aTargetNode, aData, aProcessed);
+ IdsList(f_dsList).UpdateListInfo;
+  // - необходимо обновить информацию после вставки (<K>: 105251026);
+//#UC END# *48FEE9D303B6_47F4D386036C_impl*
+//#UC START# *48FEE9D303B6_47F4D386036C_var*
+var
+ l_ListData: IbsListTreeData;
+//#UC END# *48FEE9D303B6_47F4D386036C_var*
+//#UC START# *48FF4C4F03CA_47F4D386036C_impl*
+(* Assert(aRoot = nil, 'Не надо сюда aRoot подавать, он всё равно не используется');
+ Assert(aCurrentNode = nil, 'Не надо сюда aCurrentNode подавать, он всё равно не используется');*)
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=330694724
+
+ aSyncIndex := 0;
+
+ if f_dsList <> nil then // http://mdp.garant.ru/pages/viewpage.action?pageId=324570732
+  Result := IdsList(f_dsList).ApplyContextFilter(lp_MakeContextFilter)
+ else
+  Result := nil;
+//#UC END# *48FF4C4F03CA_47F4D386036C_impl*
+//#UC START# *48FF4C4F03CA_47F4D386036C_var*
+  
+  function lp_MakeContextFilter: IContextFilter;
+  var
+   l_Filters: InsAdapterFilters;
+  begin
+   l_Filters := TnsAdapterFilters.Make;
+   try
+    FillFilters(aFilters, l_Filters);
+    l_Filters.MakeFilterList;
+    if l_Filters.FiltersCount > 0 then
+     Result := l_Filters.Context
+    else
+     Result := nil;
+   finally
+    l_Filters := nil;
+   end;//try..finally
+  end;//lp_MakeContextFilter
+
+//#UC END# *48FF4C4F03CA_47F4D386036C_var*
+//#UC START# *48FF56D003E6_47F4D386036C_impl*
+ Result := gi_cpDrugList;
+//#UC END# *48FF56D003E6_47F4D386036C_impl*
+//#UC START# *48FF56D003E6_47F4D386036C_var*
+//#UC END# *48FF56D003E6_47F4D386036C_var*
+//#UC START# *48FF5A9002CC_47F4D386036C_impl*
+ try
+  Result := inherited DoMakeFiltered(aFilters,
+                                   aCurrentNode,
+                                   aSyncIndex,
+                                   aAutoOpen,
+                                   CalcPartialContext);
+  if Result.CountView > 0 then
+   IdsList(f_dsList).SimpleTree := Result;
+ except
+  on EAllContentIsFiltered do
+   Result := nil;
+ end;//try..except
+//#UC END# *48FF5A9002CC_47F4D386036C_impl*
+//#UC START# *48FF5A9002CC_47F4D386036C_var*
+//#UC END# *48FF5A9002CC_47F4D386036C_var*
+//#UC START# *48FF64F60078_47F4D386036C_impl*
+ if f_dsList <> nil then // http://mdp.garant.ru/pages/viewpage.action?pageId=324570732
+  IdsList(f_dsList).List.GetRoot(Result)
+ else
+  Result := nil;
+//#UC END# *48FF64F60078_47F4D386036C_impl*
+//#UC START# *48FF64F60078_47F4D386036C_var*
+//#UC END# *48FF64F60078_47F4D386036C_var*
+//#UC START# *4A60B23E00C3_47F4D386036C_impl*
+ Result.SetOK;
+ if IID.EQ(IDynList) then
+  IDynList(Obj) := IdsList(f_dsList).List
+ else
+  Result := inherited COMQueryInterface(IID, Obj);
+//#UC END# *4A60B23E00C3_47F4D386036C_impl*
+//#UC START# *4A60B23E00C3_47F4D386036C_var*
+//#UC END# *4A60B23E00C3_47F4D386036C_var*
+//#UC START# *4B1547A80016_47F4D386036Cset_impl*
+ f_dsList := Pointer(aValue);
+//#UC END# *4B1547A80016_47F4D386036Cset_impl*
+//#UC START# *4B1547A80016_47F4D386036Cset_var*
+//#UC END# *4B1547A80016_47F4D386036Cset_var*
+//#UC START# *4F1D334C0371_47F4D386036C_impl*
+ Result := nil;
+//#UC END# *4F1D334C0371_47F4D386036C_impl*
+//#UC START# *4F1D334C0371_47F4D386036C_var*
+//#UC END# *4F1D334C0371_47F4D386036C_var*
+//#UC START# *51F1503E01A9_47F4D386036C_impl*
+ if RootNode <> nil then
+ begin
+  l_OldSelectCount := RootNode.GetFlagCount(FM_SELECTION);
+  if aMode = sbSelect then
+   RootNode.SetAllFlagExceptFirstChildrenOfRootChildren(FM_SELECTION, True)
+  else
+   if aMode = sbDeselect then
+    RootNode.SetAllFlag(FM_SELECTION, False);
+  l_NewSelectCount := RootNode.GetFlagCount(FM_SELECTION);
+  SelectCountChanged(l_OldSelectCount, l_NewSelectCount);
+ end;
+//#UC END# *51F1503E01A9_47F4D386036C_impl*
+//#UC START# *51F1503E01A9_47F4D386036C_var*
+var
+ l_OldSelectCount,
+ l_NewSelectCount: Integer;
+//#UC END# *51F1503E01A9_47F4D386036C_var*
+//#UC START# *51F1508A01EA_47F4D386036C_impl*
+ if CurrentNode <> nil then
+ begin
+  l_Node := CurrentNode;
+  l_First := aFirstIndex - CurrentNodeIndex;
+  l_Last := aLastIndex - CurrentNodeIndex;
+ end
+ else
+  if RootNode <> nil then
+  begin
+   l_Node := RootNode;
+   l_First := aFirstIndex;
+   l_Last := aLastIndex;
+  end
+  else
+   exit;
+
+ l_OldSelectCount := RootNode.GetFlagCount(FM_SELECTION);
+ if aMode = sbSelect then
+  l_Node.SetRangeFlagExceptFirstChildrenOfRootChildren(l_First, l_Last, FM_SELECTION, True, aCleanOther)
+ else
+  if aMode = sbDeselect then
+   l_Node.SetRangeFlag(l_First, l_Last, FM_SELECTION, False, aCleanOther);
+ l_NewSelectCount := RootNode.GetFlagCount(FM_SELECTION);
+ SelectCountChanged(l_OldSelectCount, l_NewSelectCount);
+//#UC END# *51F1508A01EA_47F4D386036C_impl*
+//#UC START# *51F1508A01EA_47F4D386036C_var*
+var
+ l_Node: INodeBase;
+ l_First,
+ l_Last: LongInt;
+ l_OldSelectCount,
+ l_NewSelectCount: Integer;
+//#UC END# *51F1508A01EA_47F4D386036C_var*

@@ -1,5 +1,10 @@
 unit csLogin_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\csLogin_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -10,7 +15,7 @@ uses
 ;
 
  // csLoginTag
- 
+
 implementation
 
 uses

@@ -1,0 +1,81 @@
+//#UC START# *47B9BAFD01F4_4F4CB5D10031_impl*
+ Result := Tm3EndingReplaceListPrim.CompareStrings(l3PCharLen(anItem.rEndingFind), aData);
+ if (Result = 0) and lCheckWrongRest then Result := -1;
+//#UC END# *47B9BAFD01F4_4F4CB5D10031_impl*
+//#UC START# *47B9BAFD01F4_4F4CB5D10031_var*
+
+ function lCheckWrongRest : boolean;
+  {Поверка что остались гласная и согласная}
+ var
+  I : Integer;
+  lVowelPresent : boolean;
+  lConsonantPresent : boolean;
+ begin
+  Result := True;
+  for I := 0 to Pred(aData.SLen - Length(anItem.rEndingFind)) do
+  begin
+   if aData.S[I] in cc_RusVowels then
+    lVowelPresent := true
+   else
+    lConsonantPresent := true;
+   if lVowelPresent and lConsonantPresent then
+   begin
+    Result := False;
+    Exit;
+   end;
+  end;
+ end;
+
+//#UC END# *47B9BAFD01F4_4F4CB5D10031_var*
+//#UC START# *5089072C0220_4F4CB5D10031_impl*
+ // грузит список замен окончаний из текстового потока со строками вида "ичу - ич"
+ lParser := Tl3Parser.Create;
+ try
+  lParser.NullAsEOF := True;
+  lParser.CheckFloat := False;
+  lParser.WordChars := cc_ANSILetter;
+  lParser.WhiteSpace := ['-', ' '];
+  lParser.CheckFiler.Stream := aStream;
+  while lParser.TokenType <> l3_ttEOF do
+  begin
+   lParser.NextToken;
+   lListItem.rEndingFind := AnsiUpperCase(lParser.TokenString);
+   lParser.NextToken;
+   lListItem.rEndingReplace := AnsiUpperCase(lParser.TokenString);
+   if (Length(lListItem.rEndingReplace) <= Length(lListItem.rEndingFind)) and
+      (Copy(lListItem.rEndingFind, 0, Length(lListItem.rEndingReplace)) = lListItem.rEndingReplace) then
+    lListItem.rExcessChars := Length(lListItem.rEndingFind) - Length(lListItem.rEndingReplace)
+   else
+    lListItem.rExcessChars := cNoTrunc;
+   Add(lListItem);
+   lParser.Filer.ReadLn;
+  end;
+ finally
+  FreeAndNil(lParser);
+ end;
+ Sorted := True;
+//#UC END# *5089072C0220_4F4CB5D10031_impl*
+//#UC START# *5089072C0220_4F4CB5D10031_var*
+var
+ lListItem : Tm3EndingReplaceItem;
+ lParser   : Tl3Parser;
+//#UC END# *5089072C0220_4F4CB5D10031_var*
+//#UC START# *5089074500A3_4F4CB5D10031_impl*
+ Result := FindData(aCheckStr, lIndex);
+ if Result then
+  with Items[lIndex] do
+   if rExcessChars = cNoTrunc then
+   begin
+    lConstLen := aCheckStr.SLen - Length(rEndingFind);
+    System.Move(aCheckStr.S[0], cBuff, lConstLen);
+    System.Move(rEndingReplace[1], cBuff[lConstLen], Length(rEndingReplace));
+    aCheckStr := l3PCharLen(PAnsiChar(@cBuff), lConstLen + Length(rEndingReplace));
+   end
+   else
+    aCheckStr.SLen := aCheckStr.SLen - rExcessChars;
+//#UC END# *5089074500A3_4F4CB5D10031_impl*
+//#UC START# *5089074500A3_4F4CB5D10031_var*
+var
+ lIndex : Integer;
+ lConstLen : integer;
+//#UC END# *5089074500A3_4F4CB5D10031_var*

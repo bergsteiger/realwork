@@ -1,4 +1,10 @@
 unit PIRec_Const;
+ {* Источник опубликования }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\PIRec_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -14,7 +20,7 @@ uses
 ;
 
  // PIRecTag
- 
+
 implementation
 
 uses

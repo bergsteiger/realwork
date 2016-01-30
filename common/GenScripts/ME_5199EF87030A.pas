@@ -1,4 +1,9 @@
-unit ddImportPipe;
+unit NOT_FINISHED_ddImportPipe;
+
+// Модуль: "w:\common\components\rtl\Garant\dd\PipeIn\NOT_FINISHED_ddImportPipe.pas"
+// Стереотип: "UtilityPack"
+
+{$Include ddDefine.inc}
 
 interface
 
@@ -9,7 +14,7 @@ uses
 type
  TddImportPipe = class
  end;//TddImportPipe
- 
+
 implementation
 
 uses

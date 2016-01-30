@@ -1,0 +1,23 @@
+//#UC START# *4E8C5F96027B_4E8C5F6502AA_impl*
+ l_KW := Tl3KeyWords.Create;
+ try
+  l_KW.AddKeyWord('a', 1);
+  l_KW.AddKeyWord('b', 2);
+  l_Raised := false;
+  try
+   l_KW.AddKeyWord('B', 3);
+  except
+   on El3DuplicateItem do
+    l_Raised := true;
+  end;//try..except
+  Assert(l_Raised);
+  Check(l_KW.DRbyName['A'] <> nil);
+ finally
+  FreeAndNil(l_KW);
+ end;//try..finally
+//#UC END# *4E8C5F96027B_4E8C5F6502AA_impl*
+//#UC START# *4E8C5F96027B_4E8C5F6502AA_var*
+var
+ l_KW : Tl3KeyWords;
+ l_Raised : Boolean;
+//#UC END# *4E8C5F96027B_4E8C5F6502AA_var*

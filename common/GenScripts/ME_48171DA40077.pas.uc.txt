@@ -1,0 +1,92 @@
+//#UC START# *48089F3701B4_48171DA40077_impl*
+  inherited;
+  with f_ParamList do
+  begin
+    Add( ParamType.Create('count', 'Количество закладок', '1') );
+    Add( ParamType.Create('bookmark_name', 'Имя закладки', '') );
+    Add( ParamType.Create('random_node', 'Ставить закладку на случайную ноду', 'false') );
+    Add( ParamType.Create('para_id', 'Номер параграфа, на который будем ставить закладки', '-1') );
+    Add( ParamType.Create('is_save_to_current_folder', 'Сохранять закладки в текущую папку', 'false') );
+  end;
+//#UC END# *48089F3701B4_48171DA40077_impl*
+//#UC START# *48089F3701B4_48171DA40077_var*
+//#UC END# *48089F3701B4_48171DA40077_var*
+//#UC START# *48089F460352_48171DA40077_impl*
+  inherited;
+  l_Document := ExecutionContext.UserWorkContext.CurrDoc;
+  assert(l_Document <> nil, 'l_Document <> nil');
+  Logger.Info('Вставляем закладки в документ с номером ' + IntToStr(l_Document.GetInternalId));
+  //
+  l_IsRandomName := Parameters['random_node'].AsBool;
+  l_BookmarksCount := Parameters['count'].AsInt;
+  l_BookmarkName := Parameters['bookmark_name'].AsStr;
+  l_IsSaveToCurrentFolder := Parameters['is_save_to_current_folder'].AsBool;
+  l_ParaID := Parameters['para_id'].AsInt;
+  //
+  l_InsertedCount := 0;
+  l_Document.GetTextProvider(false, l_DTP);
+  // получаем номера параграфов
+  if (l_ParaID = -1) then
+  begin // номер параграфа нам не задан, поэтому заполняем массив номерами параграфов из документа
+    l_ParaIDs := TatDocumentHelper.GetParaIDArray(l_DTP, l_BookmarksCount, l_IsRandomName);
+  end
+  else
+  begin // если нам явно задан номер параграфа, то заполняем им массив
+    Logger.Info('Закладку будем ставить на параграф № %d.', [l_ParaID]);
+    SetLength(l_ParaIDs, l_BookmarksCount);
+    for i := Low(l_ParaIDs) to High(l_ParaIDs) do
+      l_ParaIDs[i] := l_ParaID;
+  end;
+
+  // расставляем закладки
+  l_IsRandomName := (l_BookmarkName = '');
+  for i := Low(l_ParaIDs) to High(l_ParaIDs) do
+  begin
+    // создаем закладку в документе
+    l_Document.CreateBookmark(l_ParaIDs[i], true, l_Bookmark);
+    if (l_Bookmark = nil) then
+      Raise Exception.Create('Не могу создать закладку!');
+    // сохраняем ее в мои документы
+    if l_IsRandomName then
+      l_Name := GetRandomStr(16)
+    else if (i = Low(l_ParaIDs)) then
+      l_Name := l_BookmarkName
+    else
+      l_Name := l_BookmarkName + '_' + IntToStr(i);
+    l_Bookmark.SetName( ExecutionContext.GblAdapterWorker.GblAdapterDll.MakeString(PAnsiChar(l_Name)) );
+    l_Bookmark.SetComment( ExecutionContext.GblAdapterWorker.GblAdapterDll.MakeString(PAnsiChar( Format('Это комментарий на параграф %d документа %d.', [l_ParaIDs[i], l_Document.GetInternalId]) ) ) );
+
+    try
+      if l_IsSaveToCurrentFolder then
+        TatFoldersHelper.AddToFolder(ExecutionContext.UserWorkContext.CurrFolder, l_Bookmark, l_AddedNode)
+      else
+        TatFoldersHelper.AddToMyDocuments(l_Bookmark, l_AddedNode);
+      Assert(l_AddedNode <> nil, 'l_AddedNode <> nil');
+      Inc(l_InsertedCount);
+    except
+      on ex : EDuplicateNode do
+        Logger.Warning('Закладка с именем "%s" уже существует!', [l_Name]);
+      on ex : Exception do
+      begin
+        Logger.Exception(ex, FUNCTION_NAME + ' :');
+        Raise;
+      end;
+      else
+        Raise;
+    end; // try..except
+  end; // for
+  Logger.Info('Вставлено ' + IntToStr(l_InsertedCount) + ' закладок из ' + IntToStr(l_BookmarksCount) + '.');
+//#UC END# *48089F460352_48171DA40077_impl*
+//#UC START# *48089F460352_48171DA40077_var*
+  const
+    FUNCTION_NAME = 'TatSetBookmarkOperation.ExecuteSelf';
+  var
+    l_Document : IDocument;
+    l_IsRandomNode, l_IsRandomName, l_IsSaveToCurrentFolder : boolean;
+    l_BookmarksCount, i, l_InsertedCount, l_ParaID : Integer;
+    l_BookmarkName, l_Name : String;
+    l_ParaIDs : TParaIDArr;
+    l_Bookmark : IBookmark;
+    l_AddedNode : INode;
+    l_DTP : IDocumentTextProvider;
+//#UC END# *48089F460352_48171DA40077_var*

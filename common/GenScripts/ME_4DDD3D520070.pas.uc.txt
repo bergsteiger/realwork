@@ -1,0 +1,162 @@
+//#UC START# *4C6E5E6E025B*
+//#UC END# *4C6E5E6E025B*
+//#UC START# *4C6E5E780305*
+ FreeAndNil(g_Reader);
+ FreeAndNil(g_Gen);
+//#UC END# *4C6E5E780305*
+//#UC START# *4DDD3DBD02A1_4DDD3D520070_impl*
+ l_T := Tk2Type(aTag.TagType);
+ Assert(l_T <> nil);
+ //l_Type := l_T.ID;
+ //l_Type := f_TagDataProvider.GetType;
+ if (l_T <> k2_typEmpty) then
+ begin
+  if (g_Reader = nil) OR (g_Reader.RefCount > 1) then
+  begin
+   l_Reader := TevdNativeReader.Create;
+   FreeAndNil(g_Gen);
+  end//g_Reader = nil
+  else
+  begin
+   l_Reader := g_Reader.Use;
+   FreeAndNil(g_Reader);
+  end;//g_Reader = nil
+  try
+   if (g_Gen = nil) then
+    l_Gen := Tk2InPlaceGenerator.Make(l_T, aTag)
+   else
+   begin
+    l_Gen := g_Gen.Use;
+    FreeAndNil(g_Gen);
+    l_Gen.Root := aTag;
+    l_Gen.TagType := l_T;
+   end;//g_Gen = nil
+   try
+    l_G := l_Gen.Use;
+    try
+     l_IsComment := aTag.IsKindOf(k2_typCommentPara);
+     if l_IsComment then
+      TevNestedCommentsEliminator.SetTo(l_G);
+     l_Reader.Generator := l_G;
+     l3Set(g_Gen, l_Gen);
+    finally
+     FreeAndNil(l_G);
+    end;//try..finally
+    l_Context := nil;
+    try
+     if l_IsComment then
+     begin
+      if not aTag.QT(InevPara, l_P) then
+       Assert(false);
+      l_Cont := l_P.DocumentContainer;
+      if (l_Cont <> nil) then
+      // http://mdp.garant.ru/pages/viewpage.action?pageId=307791168
+      begin
+       Assert(l_Cont <> nil);
+       l_Context := TnsStyleParserContext.Create(l_Cont.Processor);
+       l_Gen.OnFinishAtom := l_Context.DoFinishAtom;
+ (*      l_Gen.Context := l_Cont.Processor.StartOp;
+       l_Gen.Context.DeleteMapped := false;
+       l_Gen.Context.InIOProcess := true;*)
+       // http://mdp.garant.ru/pages/viewpage.action?pageId=296096620
+      end;//l_Cont <> nil
+     end;//l_IsComment
+     try
+      l_Reader.Filer.NeedProcessMessages := false;
+      l_Reader.Filer.Indicator.NeedProgressProc := false;
+      l_Reader.Filer.COMStream := aStyle;
+      try
+       l_Reader.ForceBinary := true;
+       l_Reader.CurrentVersion := evNonPackedVer;
+       try
+        l_Reader.Start;
+        try
+         l_Reader.StartChild(l_T);
+         try
+          l_Reader.Execute;
+         finally
+          l_Reader.Finish;
+         end;//try..finally
+        finally
+         l_Reader.Finish;
+        end;//try..finally
+       finally
+        l_Reader.CurrentVersion := evFormatCurVersionI;
+       end;//try..finally
+      finally
+       l_Reader.Filer.COMStream := nil;
+      end;//try..finally
+     finally
+      l_Gen.OnFinishAtom := nil;
+      l_Gen.Context := nil;
+     end;//try..finally
+    finally
+     FreeAndNil(l_Context);
+    end;//try..finally
+   finally
+    FreeAndNil(l_Gen);
+   end;//try..finally
+   l3Set(g_Reader, l_Reader);
+  finally
+   FreeAndNil(l_Reader);
+  end;//try..finally
+  if aTag.IsKindOf(k2_typStyledLeafPara) then
+   if (aTag.IntA[k2_tiStyle] = ev_saChangesInfo) then
+   begin
+    if not aTag.QT(InevObjectPrim, l_O) then
+     Assert(false);
+    if Supports(l_O.HolderPrim, If1EditionDocumentContainer, l_C) then
+     try
+      aTag.BoolA[k2_tiCollapsed] := l_C.CollapsedTagDefaultValueForPara(l_O.AsObject);
+     finally
+      l_C := nil;
+     end//try..finally
+    else
+     aTag.BoolA[k2_tiCollapsed] := not TdmStdRes.DocumentShowChangesInfoSetting;
+   end;//aTag.IntA[k2_tiStyle] = ev_saChangesInfo
+  if aTag.IsKindOf(k2_typBlock) then
+   if (aTag.IntA[k2_tiStyle] = ev_saExpandedText) then
+   begin
+    if not aTag.QT(InevObjectPrim, l_O) then
+     Assert(false);
+    aTag.BoolA[k2_tiCollapsed] := True; // http://mdp.garant.ru/pages/viewpage.action?pageId=602505046
+   end;//aTag.IntA[k2_tiStyle] = ev_saChangesInfo
+ end;//l_T <> k2_typEmpty
+//#UC END# *4DDD3DBD02A1_4DDD3D520070_impl*
+//#UC START# *4DDD3DBD02A1_4DDD3D520070_var*
+var
+ l_Reader : TevdNativeReader;
+ l_Gen    : Tk2InPlaceGenerator;
+ l_T      : Tk2Type;
+ l_G      : Tk2TagGenerator;
+ l_O      : InevObjectPrim;
+ l_C      : If1EditionDocumentContainer;
+ l_IsComment : Boolean;
+ l_P         : InevPara;
+ l_Cont      : InevDocumentContainer;
+ l_Context : TnsStyleParserContext;
+//#UC END# *4DDD3DBD02A1_4DDD3D520070_var*
+//#UC START# *4EA97C6C021C_4EAA9EA101C9_impl*
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=278135821
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=278135821&focusedCommentId=296093753#comment-296093753
+ Result := true;
+ if Atom.Box.IsKindOf(k2_typPara) then
+ begin
+  if (Atom.Parent = nil) then
+  begin
+   //Atom.Box.IsKindOf(k2_typCommentPara);
+   f_Processor.NotifyCompleted(Atom.Box.Owner, Atom.Box);
+  end//Atom.Parent = nil
+  else
+   f_Processor.NotifyCompleted(Atom.Parent^.Box, Atom.Box);
+ end;//Atom.Box.IsKindOf(k2_typPara)
+//#UC END# *4EA97C6C021C_4EAA9EA101C9_impl*
+//#UC START# *4EA97C6C021C_4EAA9EA101C9_var*
+//#UC END# *4EA97C6C021C_4EAA9EA101C9_var*
+//#UC START# *4EAA9F0A03D5_4EAA9EA101C9_impl*
+ Assert(aProcessor <> nil);
+ inherited Create;
+ f_Processor := aProcessor;
+//#UC END# *4EAA9F0A03D5_4EAA9EA101C9_impl*
+//#UC START# *4EAA9F0A03D5_4EAA9EA101C9_var*
+//#UC END# *4EAA9F0A03D5_4EAA9EA101C9_var*

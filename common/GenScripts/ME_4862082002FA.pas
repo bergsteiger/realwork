@@ -1,5 +1,10 @@
 unit Element_Const;
 
+// Модуль: "w:\common\components\SandBox\Element_Const.pas"
+// Стереотип: "Tag"
+
+{$Include sbDefine.inc}
+
 interface
 
 uses
@@ -9,7 +14,7 @@ uses
 ;
 
  // ElementTag
- 
+
 implementation
 
 uses

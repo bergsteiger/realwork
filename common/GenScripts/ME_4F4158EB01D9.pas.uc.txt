@@ -1,0 +1,193 @@
+//#UC START# *4DAEEDE10285_558D7FFE0092_impl*
+ aCtx.rEngine.Push(f_Value);
+//#UC END# *4DAEEDE10285_558D7FFE0092_impl*
+//#UC START# *4DAEEDE10285_558D7FFE0092_var*
+//#UC END# *4DAEEDE10285_558D7FFE0092_var*
+//#UC START# *52CFC11603C8_52E91D6202F4get_impl*
+ Result := TkwRightParamWordInfo.Instance.WI;
+//#UC END# *52CFC11603C8_52E91D6202F4get_impl*
+//#UC START# *52CFC11603C8_52E91D6202F4get_var*
+//#UC END# *52CFC11603C8_52E91D6202F4get_var*
+//#UC START# *52CFC11603C8_53E377040339get_impl*
+ Result := TkwLeftWordRefParamWordInfo.Instance.WI;
+//#UC END# *52CFC11603C8_53E377040339get_impl*
+//#UC START# *52CFC11603C8_53E377040339get_var*
+//#UC END# *52CFC11603C8_53E377040339get_var*
+//#UC START# *52CFC11603C8_558D7FFE0092get_impl*
+ Result := TkwObjRefParamWordInfo.Instance.WI;
+//#UC END# *52CFC11603C8_558D7FFE0092get_impl*
+//#UC START# *52CFC11603C8_558D7FFE0092get_var*
+//#UC END# *52CFC11603C8_558D7FFE0092get_var*
+//#UC START# *52CFC11603C8_559A730E020Eget_impl*
+ Result := TkwRightLiteralParamWordInfo.Instance.WI;
+//#UC END# *52CFC11603C8_559A730E020Eget_impl*
+//#UC START# *52CFC11603C8_559A730E020Eget_var*
+//#UC END# *52CFC11603C8_559A730E020Eget_var*
+//#UC START# *52CFC11603C8_559A7B3C014Eget_impl*
+ if (f_TypeInfo = nil) then
+  Result := TtfwWordInfoE.Instance
+ else
+  Result := f_TypeInfo;
+//#UC END# *52CFC11603C8_559A7B3C014Eget_impl*
+//#UC START# *52CFC11603C8_559A7B3C014Eget_var*
+//#UC END# *52CFC11603C8_559A7B3C014Eget_var*
+//#UC START# *52D00B00031A_558D7FFE0092_impl*
+ Case aValue.rType of
+  tfw_vtVoid:
+   f_Value := aValue;
+  tfw_vtNil:
+   f_Value := aValue;
+  tfw_vtObj:
+   f_Value := aValue;
+  else
+   RunnerAssert(false, 'Требуется объект', aCtx);
+ end;//aValue.rType
+//#UC END# *52D00B00031A_558D7FFE0092_impl*
+//#UC START# *52D00B00031A_558D7FFE0092_var*
+//#UC END# *52D00B00031A_558D7FFE0092_var*
+//#UC START# *52D399A00173_558D7FFE0092_impl*
+ Result := @f_Value;
+//#UC END# *52D399A00173_558D7FFE0092_impl*
+//#UC START# *52D399A00173_558D7FFE0092_var*
+//#UC END# *52D399A00173_558D7FFE0092_var*
+//#UC START# *52D399D40140_558D7FFE0092_impl*
+ Result := true;
+//#UC END# *52D399D40140_558D7FFE0092_impl*
+//#UC START# *52D399D40140_558D7FFE0092_var*
+//#UC END# *52D399D40140_558D7FFE0092_var*
+//#UC START# *52E91D9D0024_52E91D6202F4_impl*
+ Result := true;
+//#UC END# *52E91D9D0024_52E91D6202F4_impl*
+//#UC START# *52E91D9D0024_52E91D6202F4_var*
+//#UC END# *52E91D9D0024_52E91D6202F4_var*
+//#UC START# *52EA6A2C0111_52E91D6202F4_impl*
+ RunnerAssert(aValue.EQwm([tfw_wmRightWordRef]), 'Неверный список модификаторов', aCtx);
+//#UC END# *52EA6A2C0111_52E91D6202F4_impl*
+//#UC START# *52EA6A2C0111_52E91D6202F4_var*
+//#UC END# *52EA6A2C0111_52E91D6202F4_var*
+//#UC START# *52EA6A2C0111_53E377040339_impl*
+ RunnerAssert(aValue.EQwm([tfw_wmLeftWordRef]), 'Неверный список модификаторов', aCtx);
+//#UC END# *52EA6A2C0111_53E377040339_impl*
+//#UC START# *52EA6A2C0111_53E377040339_var*
+//#UC END# *52EA6A2C0111_53E377040339_var*
+//#UC START# *52EA6A2C0111_558D7FFE0092_impl*
+ RunnerAssert(aValue.ValueTypes.EQ(TypeInfo(TObject)), 'Неверный список модификаторов', aCtx);
+//#UC END# *52EA6A2C0111_558D7FFE0092_impl*
+//#UC START# *52EA6A2C0111_558D7FFE0092_var*
+//#UC END# *52EA6A2C0111_558D7FFE0092_var*
+//#UC START# *52EA6A2C0111_559A730E020E_impl*
+ RunnerAssert(aValue.EQwm([tfw_wmRightWordRef, tfw_wmTreatUnknownAsString]), 'Неверный список модификаторов', aCtx);
+//#UC END# *52EA6A2C0111_559A730E020E_impl*
+//#UC START# *52EA6A2C0111_559A730E020E_var*
+//#UC END# *52EA6A2C0111_559A730E020E_var*
+//#UC START# *52EA6A2C0111_559A7B3C014E_impl*
+ f_TypeInfo := aValue.Clone;
+//#UC END# *52EA6A2C0111_559A7B3C014E_impl*
+//#UC START# *52EA6A2C0111_559A7B3C014E_var*
+//#UC END# *52EA6A2C0111_559A7B3C014E_var*
+//#UC START# *53E389100169_53E377040339_impl*
+ Result := true;
+//#UC END# *53E389100169_53E377040339_impl*
+//#UC START# *53E389100169_53E377040339_var*
+//#UC END# *53E389100169_53E377040339_var*
+//#UC START# *558D2BCA0324_4F4158EB01D9_impl*
+(* Result := GetValue(aCtx).AsObject As TtfwWord;
+ if (Result <> nil) then
+  Result := Result.GetRef(aCtx);*)
+ Result := inherited GetRef(aCtx);
+//#UC END# *558D2BCA0324_4F4158EB01D9_impl*
+//#UC START# *558D2BCA0324_4F4158EB01D9_var*
+//#UC END# *558D2BCA0324_4F4158EB01D9_var*
+//#UC START# *558D2BCA0324_558D7FFE0092_impl*
+(* Result := f_Value As TtfwWord;
+ Result := Result.GetRef(aCtx);*)
+ Result := inherited GetRef(aCtx);
+//#UC END# *558D2BCA0324_558D7FFE0092_impl*
+//#UC START# *558D2BCA0324_558D7FFE0092_var*
+//#UC END# *558D2BCA0324_558D7FFE0092_var*
+//#UC START# *558D2BCA0324_559AA1BE0237_impl*
+ Result := f_Value.AsObject As TtfwWord;
+ Result := Result.GetRef(aCtx);
+//#UC END# *558D2BCA0324_559AA1BE0237_impl*
+//#UC START# *558D2BCA0324_559AA1BE0237_var*
+//#UC END# *558D2BCA0324_559AA1BE0237_var*
+//#UC START# *559A470F0288_558D7FFE0092_impl*
+ Result := true;
+//#UC END# *559A470F0288_558D7FFE0092_impl*
+//#UC START# *559A470F0288_558D7FFE0092_var*
+//#UC END# *559A470F0288_558D7FFE0092_var*
+//#UC START# *559A470F0288_559AA1BE0237_impl*
+ Result := false;
+//#UC END# *559A470F0288_559AA1BE0237_impl*
+//#UC START# *559A470F0288_559AA1BE0237_var*
+//#UC END# *559A470F0288_559AA1BE0237_var*
+//#UC START# *559A4C5801D8_4F4158EB01D9_impl*
+ Result := true;
+//#UC END# *559A4C5801D8_4F4158EB01D9_impl*
+//#UC START# *559A4C5801D8_4F4158EB01D9_var*
+//#UC END# *559A4C5801D8_4F4158EB01D9_var*
+//#UC START# *559A4C5801D8_558D7FFE0092_impl*
+ Result := true;
+//#UC END# *559A4C5801D8_558D7FFE0092_impl*
+//#UC START# *559A4C5801D8_558D7FFE0092_var*
+//#UC END# *559A4C5801D8_558D7FFE0092_var*
+//#UC START# *559A72E202EB_4F4158EB01D9_impl*
+ if aTypeInfo.Has(tfw_wmRightWordRef) then
+ begin
+  if aTypeInfo.EQwm([tfw_wmTreatUnknownAsString, tfw_wmRightWordRef]) then
+   Result := TkwRightLiteralParam
+  else
+  if aTypeInfo.EQwm([tfw_wmRightWordRef]) AND
+     (aTypeInfo.LinkType = tfw_ltNone) then
+   Result := TkwRightParam
+  else
+   Result := TkwRightParamEx;
+ end//tfw_wmRightWordRef in aTypeInfo.Modifiers
+ else
+ if aTypeInfo.Has(tfw_wmLeftWordRef) then
+ begin
+  if aTypeInfo.EQwm([tfw_wmLeftWordRef]) then
+   Result := TkwLeftWordRefParam
+  else
+  begin
+   Assert(false, 'Неверный список модификаторов');
+   Result := nil;
+  end;//else
+ end//tfw_wmLeftWordRef in aTypeInfo.Modifiers
+ else
+ begin
+  if aTypeInfo.ValueTypes.EQ(TypeInfo(TObject)) then
+   Result := TkwObjRefParam
+  else
+   Result := TkwLeftParam;
+ end;//else
+//#UC END# *559A72E202EB_4F4158EB01D9_impl*
+//#UC START# *559A72E202EB_4F4158EB01D9_var*
+//#UC END# *559A72E202EB_4F4158EB01D9_var*
+//#UC START# *55EF0D4E0363_55EF0C53018A_impl*
+ if (f_WordInfo = nil) then
+  f_WordInfo := GetWordInfo;
+ Result := f_WordInfo; 
+//#UC END# *55EF0D4E0363_55EF0C53018A_impl*
+//#UC START# *55EF0D4E0363_55EF0C53018A_var*
+//#UC END# *55EF0D4E0363_55EF0C53018A_var*
+//#UC START# *55EF0D710242_55EF0CD701A0_impl*
+ Result := TtfwWordInfo.Make(TtfwValueTypes.Make(TypeInfo(TObject)), [], tfw_atNone, tfw_ltNone);
+//#UC END# *55EF0D710242_55EF0CD701A0_impl*
+//#UC START# *55EF0D710242_55EF0CD701A0_var*
+//#UC END# *55EF0D710242_55EF0CD701A0_var*
+//#UC START# *55EF0D710242_55EF0CF00017_impl*
+ Result := TtfwWordInfo.Make(nil, [tfw_wmLeftWordRef], tfw_atNone, tfw_ltNone);
+//#UC END# *55EF0D710242_55EF0CF00017_impl*
+//#UC START# *55EF0D710242_55EF0CF00017_var*
+//#UC END# *55EF0D710242_55EF0CF00017_var*
+//#UC START# *55EF0D710242_55EF0D18027B_impl*
+ Result := TtfwWordInfo.Make(nil, [tfw_wmRightWordRef], tfw_atNone, tfw_ltNone);
+//#UC END# *55EF0D710242_55EF0D18027B_impl*
+//#UC START# *55EF0D710242_55EF0D18027B_var*
+//#UC END# *55EF0D710242_55EF0D18027B_var*
+//#UC START# *55EF0D710242_55EF1501024E_impl*
+ Result := TtfwWordInfo.Make(nil, [tfw_wmRightWordRef, tfw_wmTreatUnknownAsString], tfw_atNone, tfw_ltNone);
+//#UC END# *55EF0D710242_55EF1501024E_impl*
+//#UC START# *55EF0D710242_55EF1501024E_var*
+//#UC END# *55EF0D710242_55EF1501024E_var*

@@ -1,4 +1,10 @@
-unit m3StgMgr;
+unit NOT_FINISHED_m3StgMgr;
+ {* Классы-менеджеры для работы с IStorage }
+
+// Модуль: "w:\common\components\rtl\Garant\m3\NOT_FINISHED_m3StgMgr.pas"
+// Стереотип: "UtilityPack"
+
+{$Include m3Define.inc}
 
 interface
 
@@ -9,13 +15,13 @@ uses
 type
  Tm3StorageManager = class
  end;//Tm3StorageManager
- 
+
  Tm3FullModeStorageManager = class(Tm3StorageManager)
  end;//Tm3FullModeStorageManager
- 
+
  Tm3ReadModeStorageManager = class(Tm3StorageManager)
  end;//Tm3ReadModeStorageManager
- 
+
 implementation
 
 uses

@@ -1,4 +1,10 @@
 unit evTextManipulationInterfaces;
+ {* Интерфейсы для поддержки работы с текстом документа }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\new\evTextManipulationInterfaces.pas"
+// Стереотип: "UtilityPack"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -11,6 +17,7 @@ uses
 type
  IevTextOpProcessor = interface
   {* Процессор текстовых операций }
+  ['{27DFA0BA-9D4F-45EE-A9DF-C99CE1840716}']
   procedure CheckTextOp(Text: Tl3CustomString;
    Op: Tl3Operation);
    {* Проверить операцию с текстом }
@@ -18,7 +25,7 @@ type
    Op: Tl3Operation);
    {* Завершить операцию с текстом }
  end;//IevTextOpProcessor
- 
+
 implementation
 
 uses

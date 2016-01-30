@@ -1,0 +1,23 @@
+//#UC START# *4CAC45AE011E_4D80B9060123_impl*
+ GotoDocumentBottom(aForm);
+ for i := 0 to GetScrollCount - 1 do
+ begin
+  if QFLike then
+  // - иначе редактор КЗ это как-то по-своему обрабатывает
+  begin
+   with aForm.Text do
+    if not Selection.Cursor.MostInner.ParentPoint.Move(View, ev_ocParaUp{ev_ocLineUp}, StartOp(ev_msgMove)) then
+     break;
+  end//QFLike
+  else
+  begin
+   if not Il3CommandTarget(aForm.Text).ProcessCommand(ev_ocLineUp, True, 1) then
+    Break;
+  end;//QFLike
+  Application.ProcessMessages;
+ end;//while not Text.View.IsDocumentTailVisible
+//#UC END# *4CAC45AE011E_4D80B9060123_impl*
+//#UC START# *4CAC45AE011E_4D80B9060123_var*
+var
+ i : Integer;
+//#UC END# *4CAC45AE011E_4D80B9060123_var*

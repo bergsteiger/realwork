@@ -1,0 +1,29 @@
+//#UC START# *1FF8AE53688A_550013770000_impl*
+ if (f_Alien = nil) then
+ begin
+  if (aControl Is TControl) then
+  begin
+   l_M := TControlFriend(aControl).PopupMenu;
+   if (l_M = nil) then
+    Result := nil
+   else
+    Result := l_M.Items;
+  end//aControl Is TControl
+  else
+   Result := nil;
+ end//f_Alien = nil
+ else
+  Result := f_Alien.GetPopupMenu(aControl, aPoint);
+//#UC END# *1FF8AE53688A_550013770000_impl*
+//#UC START# *1FF8AE53688A_550013770000_var*
+var
+ l_M : TMenu;
+//#UC END# *1FF8AE53688A_550013770000_var*
+//#UC START# *E1C719B751DC_550013770000_impl*
+ if Assigned(f_Alien) then
+  f_Alien.GetPopupMenuForComponentInfo(aControl, aPoint, aCallback)
+ else
+  aCallback(Self.GetPopupMenu(aControl, aPoint));
+//#UC END# *E1C719B751DC_550013770000_impl*
+//#UC START# *E1C719B751DC_550013770000_var*
+//#UC END# *E1C719B751DC_550013770000_var*

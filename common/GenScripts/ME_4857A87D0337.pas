@@ -1,4 +1,10 @@
 unit Block_Const;
+ {* Элемент структуры документа }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\Block_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -16,12 +22,14 @@ uses
 ;
 
  // BlockTag
- 
+
 implementation
 
 uses
  l3ImplUses
+ {$If Defined(k2ForEditor)}
  , evDocumentPart
+ {$IfEnd} // Defined(k2ForEditor)
  , l3Defaults
 ;
 

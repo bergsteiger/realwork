@@ -1,5 +1,10 @@
 unit AutoSpellTaskResult_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\AutoSpellTaskResult_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -9,7 +14,7 @@ uses
 ;
 
  // AutoSpellTaskResultTag
- 
+
 implementation
 
 uses

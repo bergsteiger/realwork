@@ -1,4 +1,9 @@
-unit ddSegmentScanner;
+unit NOT_FINISHED_ddSegmentScanner;
+
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddSegmentScanner.pas"
+// Стереотип: "UtilityPack"
+
+{$Include ddDefine.inc}
 
 interface
 
@@ -9,7 +14,7 @@ uses
 type
  TddSegmentScanner = class
  end;//TddSegmentScanner
- 
+
 implementation
 
 uses

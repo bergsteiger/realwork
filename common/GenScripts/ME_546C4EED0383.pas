@@ -1,5 +1,10 @@
 unit FileDesc_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\FileDesc_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -12,7 +17,7 @@ uses
 ;
 
  // FileDescTag
- 
+
 implementation
 
 uses

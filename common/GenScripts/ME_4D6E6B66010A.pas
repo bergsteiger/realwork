@@ -1,5 +1,10 @@
 unit AutoreferatDocument_Const;
 
+// Модуль: "w:\common\components\gui\Garant\Everest\AutoreferatDocument_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
+
 interface
 
 uses
@@ -8,7 +13,7 @@ uses
 ;
 
  // AutoreferatDocumentTag
- 
+
 implementation
 
 uses

@@ -1,0 +1,63 @@
+//#UC START# *49E488070386_47ECBAA30322_impl*
+ Result := k2_typStyledLeafPara; 
+//#UC END# *49E488070386_47ECBAA30322_impl*
+//#UC START# *49E488070386_47ECBAA30322_var*
+//#UC END# *49E488070386_47ECBAA30322_var*
+//#UC START# *49E48829016F_47ECBAA30322_impl*
+ if aLeaf.QT(InevPara, l_Para) then
+  try
+   l_Map := TnevFormatInfoFactory.CreateFormatInfo(l_Para, nil, nil);
+   // - ЭТО ОГРОМНЫЙ НАПИЛЬНИК. НАДО КОНЕЧНО ВЫДЕЛЯТЬ СОБСТВЕННУЮ РЕАЛИЗАЦИЮ TnevFormatInfoPrim,
+   //   без знания про View и форматирование, а только умеющую строить _ViewSegments
+   try
+    l_Map.LimitWidth := High(Integer);
+    Result := not l_Para.IsHiddenPrim(l_Map, HiddenStyles);
+    if Result then
+     if f_TreatCollapsedAsHidden then
+      if l_Para.TreatCollapsedAsHidden then
+       Result := not l_Para.AsObject.BoolA[k2_tiCollapsed];
+   finally
+    FreeAndNil(l_Map);
+   end;//try..finally
+  finally
+   l_Para := nil;
+  end//try..finally
+ else
+  Result := false; 
+//#UC END# *49E48829016F_47ECBAA30322_impl*
+//#UC START# *49E48829016F_47ECBAA30322_var*
+var
+ l_Para : InevPara;
+ l_Map  : TnevFormatInfo;
+//#UC END# *49E48829016F_47ECBAA30322_var*
+//#UC START# *4D6CD4C70259_47ECBAA30322_impl*
+ if (aHiddenStyles = []) then
+  // - не надо ничего фильтровать
+ begin
+  Result := theGenerator;
+ end//aHiddenStyles = []
+ else
+ begin
+  Result := inherited SetTo(theGenerator);
+  (Result As TevHiddenFilter).HiddenStyles := aHiddenStyles;
+  (Result As TevHiddenFilter).f_TreatCollapsedAsHidden := aTreatCollapsedAsHidden;
+  if (-ev_saUserComment in aHiddenStyles) then
+   Result := TevFullCommentsEliminator.SetTo(theGenerator);
+ end;//aHiddenStyles = []
+//#UC END# *4D6CD4C70259_47ECBAA30322_impl*
+//#UC START# *4D6CD4C70259_47ECBAA30322_var*
+//#UC END# *4D6CD4C70259_47ECBAA30322_var*
+//#UC START# *4D6CD5270101_47ECBAA30322_impl*
+ inherited Create;
+ HiddenStyles := aHiddenStyles;
+ f_TreatCollapsedAsHidden := aTreatCollapsedAsHidden;
+//#UC END# *4D6CD5270101_47ECBAA30322_impl*
+//#UC START# *4D6CD5270101_47ECBAA30322_var*
+//#UC END# *4D6CD5270101_47ECBAA30322_var*
+//#UC START# *4D6CDD9601FB_47ECBAA30322_impl*
+ Result := MakePrim(aHiddenStyles, aTreatCollapsedAsHidden);
+ if (-ev_saUserComment in aHiddenStyles) then
+  Result := TevFullCommentsEliminator.SetTo(Result);
+//#UC END# *4D6CDD9601FB_47ECBAA30322_impl*
+//#UC START# *4D6CDD9601FB_47ECBAA30322_var*
+//#UC END# *4D6CDD9601FB_47ECBAA30322_var*

@@ -1,5 +1,10 @@
 unit evStreamedDataObject;
 
+// Модуль: "w:\common\components\gui\Garant\Everest\evStreamedDataObject.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
+
 interface
 
 uses
@@ -12,19 +17,32 @@ uses
 
 type
  TevStreamedDataObject = class(Tl3CacheableBase, InevStorable)
-  procedure DoStore(const G: InevTagGenerator;
-   aFlags: TevdStoreFlags);
-   {* сохраняет поток в G }
-  procedure Store(const aView: InevView;
-   const G: InevTagGenerator;
-   aFlags: TevdStoreFlags); overload;
-   {* сохраняет выделение в G. }
+  protected
+   procedure DoStore(const G: InevTagGenerator;
+    aFlags: TevdStoreFlags); virtual; abstract;
+    {* сохраняет поток в G }
+   procedure Store(const aView: InevView;
+    const G: InevTagGenerator;
+    aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags); overload;
+    {* сохраняет выделение в G. }
  end;//TevStreamedDataObject
- 
+
 implementation
 
 uses
  l3ImplUses
 ;
+
+procedure TevStreamedDataObject.Store(const aView: InevView;
+ const G: InevTagGenerator;
+ aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags);
+ {* сохраняет выделение в G. }
+//#UC START# *47C68BFD011C_48EA32DB03E6_var*
+//#UC END# *47C68BFD011C_48EA32DB03E6_var*
+begin
+//#UC START# *47C68BFD011C_48EA32DB03E6_impl*
+ DoStore(G, aFlags);
+//#UC END# *47C68BFD011C_48EA32DB03E6_impl*
+end;//TevStreamedDataObject.Store
 
 end.

@@ -1,17 +1,32 @@
 unit evSearcherList;
 
+// Модуль: "w:\common\components\gui\Garant\Everest\new\evSearcherList.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
+
 interface
 
 uses
  l3IntfUses
  , l3ProtoDataContainer
  , nevTools
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
 ;
 
 type
+ _ItemType_ = IevSearcher;
+ _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
+ {$Define l3Items_IsProto}
+ {$Include l3InterfaceRefList.imp.pas}
  TevSearcherList = class(_l3InterfaceRefList_)
  end;//TevSearcherList
- 
+
 implementation
 
 uses
@@ -21,5 +36,9 @@ uses
  , RTLConsts
  , SysUtils
 ;
+
+type _Instance_R_ = TevSearcherList;
+
+{$Include l3InterfaceRefList.imp.pas}
 
 end.

@@ -1,23 +1,40 @@
 unit k2TypedHugeListTag;
 
+// Модуль: "w:\common\components\rtl\Garant\K2\k2TypedHugeListTag.pas"
+// Стереотип: "SimpleClass"
+
+{$Include k2Define.inc}
+
 interface
 
 uses
  l3IntfUses
  , evHugeParaListPrimWithFind
  , l3BitArr
+ , k2Base
+ , l3Variant
+ , k2BaseStruct
+ , k2TagList
+ , k2Prim
+ , l3IID
+ , k2BaseTypes
+ , l3Types
+ , l3Interfaces
 ;
 
  {$Define k2TagIsList}
- 
+
  {$Define k2Tag_No_f_TagType}
- 
+
  {$Define k2TagNoSort}
- 
+
 type
+ _HashType_ = Tl3PtrHash;
+ _k2HashTag_Parent_ = TevHugeParaListPrimWithFind;
+ {$Include k2HashTag.imp.pas}
  Tk2TypedHugeListTag = class(_k2HashTag_)
  end;//Tk2TypedHugeListTag
- 
+
 implementation
 
 uses
@@ -30,7 +47,6 @@ uses
  , l3String
  , k2Except
  , k2Strings
- , k2TagList
  , TypInfo
  , l3Stream
  , l3Base
@@ -45,9 +61,11 @@ uses
  , k2NullTagImpl
  , k2Interfaces
  , k2DictionaryPrim
- , l3Variant
- , k2Base
  , k2InterfaceFactory
 ;
+
+type _Instance_R_ = Tk2TypedHugeListTag;
+
+{$Include k2HashTag.imp.pas}
 
 end.

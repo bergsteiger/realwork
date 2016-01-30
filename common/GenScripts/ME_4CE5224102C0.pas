@@ -1,4 +1,10 @@
 unit l3ProtoObjectPtrList;
+ {* Список УКАЗАТЕЛЕЙ на Tl3ProtoObject }
+
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ProtoObjectPtrList.pas"
+// Стереотип: "SimpleClass"
+
+{$Include l3Define.inc}
 
 interface
 
@@ -6,13 +12,23 @@ uses
  l3IntfUses
  , l3ProtoDataContainer
  , l3ProtoObject
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
 ;
 
 type
+ _ItemType_ = Tl3ProtoObject;
+ _l3ObjectPtrList_Parent_ = Tl3ProtoDataContainer;
+ {$Define l3Items_IsProto}
+ {$Include l3ObjectPtrList.imp.pas}
  Tl3ProtoObjectPtrList = class(_l3ObjectPtrList_)
   {* Список УКАЗАТЕЛЕЙ на Tl3ProtoObject }
  end;//Tl3ProtoObjectPtrList
- 
+
 implementation
 
 uses
@@ -22,5 +38,9 @@ uses
  , RTLConsts
  , SysUtils
 ;
+
+type _Instance_R_ = Tl3ProtoObjectPtrList;
+
+{$Include l3ObjectPtrList.imp.pas}
 
 end.

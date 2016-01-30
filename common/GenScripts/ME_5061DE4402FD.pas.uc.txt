@@ -1,0 +1,20 @@
+//#UC START# *5061DE2D0275_5061DE4402FDget_impl*
+ Result := f_FiltersType;
+//#UC END# *5061DE2D0275_5061DE4402FDget_impl*
+//#UC START# *5061DE2D0275_5061DE4402FDget_var*
+//#UC END# *5061DE2D0275_5061DE4402FDget_var*
+//#UC START# *5061DE910095_5061DE4402FD_impl*
+ inherited Create;
+ f_FiltersType := aFiltersType;
+//#UC END# *5061DE910095_5061DE4402FD_impl*
+//#UC START# *5061DE910095_5061DE4402FD_var*
+//#UC END# *5061DE910095_5061DE4402FD_var*
+//#UC START# *54C78D9201B9_5061DE4402FD_impl*
+ Result := False;
+ if Supports(aNode, InsFilterRootNode, l_FilterRootNode) then
+  Result := l_FilterRootNode.FiltersType = f_FiltersType; 
+//#UC END# *54C78D9201B9_5061DE4402FD_impl*
+//#UC START# *54C78D9201B9_5061DE4402FD_var*
+var
+ l_FilterRootNode: InsFilterRootNode;
+//#UC END# *54C78D9201B9_5061DE4402FD_var*

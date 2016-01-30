@@ -1,4 +1,10 @@
 unit SimpleDocument_Const;
+ {* Простой документ }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\SimpleDocument_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -9,7 +15,7 @@ uses
 ;
 
  // SimpleDocumentTag
- 
+
 implementation
 
 uses

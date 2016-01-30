@@ -1,4 +1,10 @@
 unit k2SetOf_Const;
+ {* Множество }
+
+// Модуль: "w:\common\components\rtl\Garant\K2\k2SetOf_Const.pas"
+// Стереотип: "Atom"
+
+{$Include k2Define.inc}
 
 interface
 
@@ -8,7 +14,7 @@ uses
 ;
 
  // SetOfAtom
- 
+
 implementation
 
 uses

@@ -1,5 +1,10 @@
 unit evParaNode;
 
+// Модуль: "w:\common\components\gui\Garant\Everest\new\evParaNode.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
+
 interface
 
 uses
@@ -10,7 +15,7 @@ uses
 type
  TevParaNode = class(TevNode)
  end;//TevParaNode
- 
+
 implementation
 
 uses

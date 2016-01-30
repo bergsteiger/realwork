@@ -1,4 +1,9 @@
-unit l3GraphicControlCanvas;
+unit NOT_FINISHED_l3GraphicControlCanvas;
+
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3GraphicControlCanvas.pas"
+// Стереотип: "SimpleClass"
+
+{$Include l3Define.inc}
 
 interface
 
@@ -10,7 +15,7 @@ uses
 type
  Tl3GraphicControlCanvas = class(Tl3ControlCanvas)
  end;//Tl3GraphicControlCanvas
- 
+
 implementation
 
 uses

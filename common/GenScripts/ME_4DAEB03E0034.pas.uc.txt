@@ -1,0 +1,60 @@
+//#UC START# *479731C50290_4DAEB03E0034_impl*
+ FreeAndNil(f_Filer);
+ inherited;
+//#UC END# *479731C50290_4DAEB03E0034_impl*
+//#UC START# *479731C50290_4DAEB03E0034_var*
+//#UC END# *479731C50290_4DAEB03E0034_var*
+//#UC START# *4DAEBD9D0238_4DAEB03E0034_impl*
+ Assert(f_Logger = nil);
+ f_Logger := aLogger;
+//#UC END# *4DAEBD9D0238_4DAEB03E0034_impl*
+//#UC START# *4DAEBD9D0238_4DAEB03E0034_var*
+//#UC END# *4DAEBD9D0238_4DAEB03E0034_var*
+//#UC START# *4DAEBDF20386_4DAEB03E0034_impl*
+ Assert(f_Logger = aLogger);
+ f_Logger := nil;
+//#UC END# *4DAEBDF20386_4DAEB03E0034_impl*
+//#UC START# *4DAEBDF20386_4DAEB03E0034_var*
+//#UC END# *4DAEBDF20386_4DAEB03E0034_var*
+//#UC START# *4DAEBE61037F_4DAEB03E0034_impl*
+ if (f_Logger <> nil) then
+ begin
+  Assert(f_Filer <> nil);
+  Assert(f_Filer.Opened);
+  f_Filer.WriteLn('Позиция скроллера: ' + IntToStr(aPos));
+ end;//f_Logger <> nil
+//#UC END# *4DAEBE61037F_4DAEB03E0034_impl*
+//#UC START# *4DAEBE61037F_4DAEB03E0034_var*
+//#UC END# *4DAEBE61037F_4DAEB03E0034_var*
+//#UC START# *4DAEBE840395_4DAEB03E0034_impl*
+ Result := f_Logger <> nil;
+ f_LogName := f_Logger.OpenLog;
+ f_Filer := Tl3CustomDOSFiler.Make(f_LogName, l3_fmWrite);
+ try
+  f_Filer.Open;
+ except
+  l3Free(f_Filer);
+ end;
+//#UC END# *4DAEBE840395_4DAEB03E0034_impl*
+//#UC START# *4DAEBE840395_4DAEB03E0034_var*
+//#UC END# *4DAEBE840395_4DAEB03E0034_var*
+//#UC START# *4DAEBEBC016B_4DAEB03E0034_impl*
+ try
+  if f_Filer <> nil then
+   f_Filer.Close;
+ finally
+  try
+   FreeAndNil(f_Filer);
+  finally
+   f_Logger.CloseLog(f_LogName);
+   f_LogName := '';
+  end; 
+ end; 
+//#UC END# *4DAEBEBC016B_4DAEB03E0034_impl*
+//#UC START# *4DAEBEBC016B_4DAEB03E0034_var*
+//#UC END# *4DAEBEBC016B_4DAEB03E0034_var*
+//#UC START# *4DAECA8C027C_4DAEB03E0034_impl*
+ Result := g_TnevVScrollerSpy <> nil;
+//#UC END# *4DAECA8C027C_4DAEB03E0034_impl*
+//#UC START# *4DAECA8C027C_4DAEB03E0034_var*
+//#UC END# *4DAECA8C027C_4DAEB03E0034_var*

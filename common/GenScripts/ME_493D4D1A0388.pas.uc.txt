@@ -1,0 +1,27 @@
+//#UC START# *4B1D1100018E_493D4D1A0388get_impl*
+ Result := fType;
+//#UC END# *4B1D1100018E_493D4D1A0388get_impl*
+//#UC START# *4B1D1100018E_493D4D1A0388get_var*
+//#UC END# *4B1D1100018E_493D4D1A0388get_var*
+//#UC START# *4B1D1135025F_493D4D1A0388get_impl*
+ Result := fCategory;
+//#UC END# *4B1D1135025F_493D4D1A0388get_impl*
+//#UC START# *4B1D1135025F_493D4D1A0388get_var*
+//#UC END# *4B1D1135025F_493D4D1A0388get_var*
+//#UC START# *4B1F7AE80158_493D4D1A0388_impl*
+ inherited;
+ if aClone is TdeDocumentListCR then
+ begin
+  fType := TdeDocumentListCR(aClone).fType;
+  fCategory := TdeDocumentListCR(aClone).fCategory;
+ end;
+//#UC END# *4B1F7AE80158_493D4D1A0388_impl*
+//#UC START# *4B1F7AE80158_493D4D1A0388_var*
+//#UC END# *4B1F7AE80158_493D4D1A0388_var*
+//#UC START# *4B1F7BB10212_493D4D1A0388_impl*
+ inherited Create(aList, lofNone, true, wdAlwaysOpen, nil, nil, False, True);
+ fCategory := aCategory;
+ fType := aType;
+//#UC END# *4B1F7BB10212_493D4D1A0388_impl*
+//#UC START# *4B1F7BB10212_493D4D1A0388_var*
+//#UC END# *4B1F7BB10212_493D4D1A0388_var*

@@ -1,20 +1,25 @@
-unit l3LockedChange.imp;
+{$IfNDef l3LockedChange_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\L3\l3LockedChange.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define l3LockedChange_imp}
 
-type
+ _l3LockedChangePrim_Parent_ = _l3LockedChange_Parent_;
+ {$Include l3LockedChangePrim.imp.pas}
  _l3LockedChange_ = class(_l3LockedChangePrim_)
   {* Нотификатор об изменениях со счётчиком ссылок изменений }
  end;//_l3LockedChange_
- 
-implementation
 
-uses
- l3ImplUses
-;
+{$Else l3LockedChange_imp}
 
-end.
+{$IfNDef l3LockedChange_imp_impl}
+
+{$Define l3LockedChange_imp_impl}
+
+{$Include l3LockedChangePrim.imp.pas}
+
+{$EndIf l3LockedChange_imp_impl}
+
+{$EndIf l3LockedChange_imp}
+

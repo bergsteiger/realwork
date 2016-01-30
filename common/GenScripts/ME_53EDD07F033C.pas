@@ -1,10 +1,18 @@
-unit ElUxTheme;
+unit NOT_FINISHED_ElUxTheme;
+
+// Модуль: "w:\common\components\gui\Garant\VT\elClone\Source\NOT_FINISHED_ElUxTheme.pas"
+// Стереотип: "UtilityPack"
+
+{$Include vtDefine.inc}
 
 interface
 
 uses
  l3IntfUses
 ;
+
+const
+ EL_THEMECHANGED = $B528;
 
 implementation
 

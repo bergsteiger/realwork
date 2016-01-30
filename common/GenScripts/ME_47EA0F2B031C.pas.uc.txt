@@ -1,0 +1,204 @@
+//#UC START# *341E87C755C8_47EA0F2B031C_impl*
+ if (aSynchroForm <> SetData.DrugList_SynchroView_Form) then
+ begin
+  ClearAllDS;
+  SetData.DrugList_SynchroView_Form := aSynchroForm;
+  Refresh;
+ end;//aSynchroForm <> SetData.DrugList_SynchroView_Form
+//#UC END# *341E87C755C8_47EA0F2B031C_impl*
+//#UC START# *341E87C755C8_47EA0F2B031C_var*
+//#UC END# *341E87C755C8_47EA0F2B031C_var*
+//#UC START# *41B49128CE19_47EA0F2B031Cget_impl*
+ Result := SetData.DrugList_SynchroView_Form = sva_DrugList_SynchroView_Document;
+//#UC END# *41B49128CE19_47EA0F2B031Cget_impl*
+//#UC START# *41B49128CE19_47EA0F2B031Cget_var*
+//#UC END# *41B49128CE19_47EA0F2B031Cget_var*
+//#UC START# *47F3778403D9_47EA0F2B031C_impl*
+ Result := TdDrugList.Make;
+ with Result do
+ begin
+  dsFiltersRef.NeedMake := vcm_nmYes;
+  dsDrugInternationalNameSynonimsRef.NeedMake := vcm_nmYes;
+ end;//with Result
+//#UC END# *47F3778403D9_47EA0F2B031C_impl*
+//#UC START# *47F3778403D9_47EA0F2B031C_var*
+//#UC END# *47F3778403D9_47EA0F2B031C_var*
+//#UC START# *47F37DF001FE_47EA0F2B031C_impl*
+ l_List := InitialUseCaseData;
+  with SetData do
+  begin
+   List := l_List.List;
+   NodeForPositioning := l_List.NodeForPositioning;
+  end;//with SetData do
+//#UC END# *47F37DF001FE_47EA0F2B031C_impl*
+//#UC START# *47F37DF001FE_47EA0F2B031C_var*
+var
+ l_List: IdeList;
+//#UC END# *47F37DF001FE_47EA0F2B031C_var*
+//#UC START# *47F4BF4E0397_47EA0F2B031C_impl*
+ SetData.dsListInfoRef.Clear;
+ Refresh;
+//#UC END# *47F4BF4E0397_47EA0F2B031C_impl*
+//#UC START# *47F4BF4E0397_47EA0F2B031C_var*
+//#UC END# *47F4BF4E0397_47EA0F2B031C_var*
+//#UC START# *47FB2086026D_47EA0F2B031C_impl*
+ SetData.dsFiltersRef.NeedMake := vcm_nmForce;
+ Refresh; 
+//#UC END# *47FB2086026D_47EA0F2B031C_impl*
+//#UC START# *47FB2086026D_47EA0F2B031C_var*
+//#UC END# *47FB2086026D_47EA0F2B031C_var*
+//#UC START# *47FDDACC0101_47EA0F2B031C_impl*
+ SetData.dsAttributesRef.SetIfNeedMakeNo(vcm_nmForce);
+ ChangeSynchroForm(sva_DrugList_SynchroView_Attributes);
+//#UC END# *47FDDACC0101_47EA0F2B031C_impl*
+//#UC START# *47FDDACC0101_47EA0F2B031C_var*
+//#UC END# *47FDDACC0101_47EA0F2B031C_var*
+//#UC START# *47FDDD500143_47EA0F2B031C_impl*
+ SetData.dsDrugInternationalNameSynonimsRef.SetIfNeedMakeNo(vcm_nmForce);
+ ChangeSynchroForm(sva_DrugList_SynchroView_DrugInternationalNameSynonims);
+//#UC END# *47FDDD500143_47EA0F2B031C_impl*
+//#UC START# *47FDDD500143_47EA0F2B031C_var*
+//#UC END# *47FDDD500143_47EA0F2B031C_var*
+//#UC START# *47FE03AE0225_47EA0F2B031C_impl*
+ Result := (SetData.DrugList_SynchroView_Form = sva_DrugList_SynchroView_Attributes) AND
+           inherited NeedMakeDsAttributes;
+//#UC END# *47FE03AE0225_47EA0F2B031C_impl*
+//#UC START# *47FE03AE0225_47EA0F2B031C_var*
+//#UC END# *47FE03AE0225_47EA0F2B031C_var*
+//#UC START# *47FE048E0224_47EA0F2B031C_impl*
+ Result := (SetData.DrugList_SynchroView_Form = sva_DrugList_SynchroView_DrugInternationalNameSynonims) AND
+           inherited NeedMakeDsDrugInternationalNameSynonims;
+//#UC END# *47FE048E0224_47EA0F2B031C_impl*
+//#UC START# *47FE048E0224_47EA0F2B031C_var*
+//#UC END# *47FE048E0224_47EA0F2B031C_var*
+//#UC START# *47FF2155021A_47EA0F2B031Cget_impl*
+ Result := SetData.NodeForPositioning;
+//#UC END# *47FF2155021A_47EA0F2B031Cget_impl*
+//#UC START# *47FF2155021A_47EA0F2B031Cget_var*
+//#UC END# *47FF2155021A_47EA0F2B031Cget_var*
+//#UC START# *47FF44850384_47EA0F2B031C_impl*
+ SetData.NodeForPositioning := nil;
+//#UC END# *47FF44850384_47EA0F2B031C_impl*
+//#UC START# *47FF44850384_47EA0F2B031C_var*
+//#UC END# *47FF44850384_47EA0F2B031C_var*
+//#UC START# *4925B1EC0100_47EA0F2B031C_impl*
+ Result := TdsDrugListDocument.Make(Self, DocumentData);
+//#UC END# *4925B1EC0100_47EA0F2B031C_impl*
+//#UC START# *4925B1EC0100_47EA0F2B031C_var*
+//#UC END# *4925B1EC0100_47EA0F2B031C_var*
+//#UC START# *4925B7F00156_47EA0F2B031C_impl*
+ if (f_dsBaloonWarning <> nil) then
+  f_dsBaloonWarning.Referred := nil;
+ inherited; 
+//#UC END# *4925B7F00156_47EA0F2B031C_impl*
+//#UC START# *4925B7F00156_47EA0F2B031C_var*
+//#UC END# *4925B7F00156_47EA0F2B031C_var*
+//#UC START# *493D1BE601B1_47EA0F2B031C_impl*
+ Result := (SetData.DrugList_SynchroView_Form = sva_DrugList_SynchroView_Document) AND
+           inherited NeedMakeDocument;
+//#UC END# *493D1BE601B1_47EA0F2B031C_impl*
+//#UC START# *493D1BE601B1_47EA0F2B031C_var*
+//#UC END# *493D1BE601B1_47EA0F2B031C_var*
+//#UC START# *49AE664F006B_47EA0F2B031Cget_impl*
+ Result := pm_GetDsDrugList;
+//#UC END# *49AE664F006B_47EA0F2B031Cget_impl*
+//#UC START# *49AE664F006B_47EA0F2B031Cget_var*
+//#UC END# *49AE664F006B_47EA0F2B031Cget_var*
+//#UC START# *4DC185B80232_47EA0F2B031Carea_impl*
+ Result := TdsWarning.Make(Self);
+//#UC END# *4DC185B80232_47EA0F2B031Carea_impl*
+//#UC START# *4DC185B80232_47EA0F2B031Carea_var*
+//#UC END# *4DC185B80232_47EA0F2B031Carea_var*
+//#UC START# *4DC185B80232_47EA0F2B031Cget_init*
+  // - код инициализации ссылки на ViewArea
+//#UC END# *4DC185B80232_47EA0F2B031Cget_init*
+//#UC START# *4DC185B80232_47EA0F2B031Cget_need*
+  // - условие создания ViewArea
+//#UC END# *4DC185B80232_47EA0F2B031Cget_need*
+//#UC START# *4DC185B80232_47EA0F2B031Cget_var*
+//#UC END# *4DC185B80232_47EA0F2B031Cget_var*
+//#UC START# *500D3D75005B_47EA0F2B031Carea_impl*
+ //Result := TdsMainDrugList.Make(Self, TdeList.Make(SetData.List));
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=245208757&focusedCommentId=248190020#comment-248190020
+ Result := TdsMainDrugList.Make(Self, InitialUseCaseData);
+//#UC END# *500D3D75005B_47EA0F2B031Carea_impl*
+//#UC START# *500D3D75005B_47EA0F2B031Carea_var*
+//#UC END# *500D3D75005B_47EA0F2B031Carea_var*
+//#UC START# *500D3D75005B_47EA0F2B031Cget_need*
+  // - условие создания ViewArea
+//#UC END# *500D3D75005B_47EA0F2B031Cget_need*
+//#UC START# *500D3D75005B_47EA0F2B031Cget_var*
+//#UC END# *500D3D75005B_47EA0F2B031Cget_var*
+//#UC START# *500D3E3500FF_47EA0F2B031Carea_impl*
+ Result := TdsDrugListSynchroView.Make(Self);
+//#UC END# *500D3E3500FF_47EA0F2B031Carea_impl*
+//#UC START# *500D3E3500FF_47EA0F2B031Carea_var*
+//#UC END# *500D3E3500FF_47EA0F2B031Carea_var*
+//#UC START# *500D3E3500FF_47EA0F2B031Cget_need*
+  // - условие создания ViewArea
+//#UC END# *500D3E3500FF_47EA0F2B031Cget_need*
+//#UC START# *500D3E3500FF_47EA0F2B031Cget_var*
+//#UC END# *500D3E3500FF_47EA0F2B031Cget_var*
+//#UC START# *500D3E780156_47EA0F2B031Carea_impl*
+ Result := TdsFilters.Make(Self);
+//#UC END# *500D3E780156_47EA0F2B031Carea_impl*
+//#UC START# *500D3E780156_47EA0F2B031Carea_var*
+//#UC END# *500D3E780156_47EA0F2B031Carea_var*
+//#UC START# *500D3E780156_47EA0F2B031Cget_need*
+     AND ((afw.Settings.LoadBoolean(pi_List_Sheets_Filters, dv_List_Sheets_Filters) and
+          (NeedMake = vcm_nmYes)) or (NeedMake = vcm_nmForce))   
+  // - условие создания ViewArea
+//#UC END# *500D3E780156_47EA0F2B031Cget_need*
+//#UC START# *500D3E780156_47EA0F2B031Cget_var*
+//#UC END# *500D3E780156_47EA0F2B031Cget_var*
+//#UC START# *500D3EB1023F_47EA0F2B031Carea_impl*
+ Result := TdsListInfo.Make(Self.As_IsdsListNameHolder, bsListCreationHistory(SetData.List));
+//#UC END# *500D3EB1023F_47EA0F2B031Carea_impl*
+//#UC START# *500D3EB1023F_47EA0F2B031Carea_var*
+//#UC END# *500D3EB1023F_47EA0F2B031Carea_var*
+//#UC START# *500D3EB1023F_47EA0F2B031Cget_need*
+   // - условие создания ViewArea
+//#UC END# *500D3EB1023F_47EA0F2B031Cget_need*
+//#UC START# *500D3EB1023F_47EA0F2B031Cget_var*
+//#UC END# *500D3EB1023F_47EA0F2B031Cget_var*
+//#UC START# *501806DE0323_47EA0F2B031Cget_impl*
+ Result := nil;
+//#UC END# *501806DE0323_47EA0F2B031Cget_impl*
+//#UC START# *501806DE0323_47EA0F2B031Cget_var*
+//#UC END# *501806DE0323_47EA0F2B031Cget_var*
+//#UC START# *50180BA801C2_47EA0F2B031Cget_impl*
+ Result := nil;
+//#UC END# *50180BA801C2_47EA0F2B031Cget_impl*
+//#UC START# *50180BA801C2_47EA0F2B031Cget_var*
+//#UC END# *50180BA801C2_47EA0F2B031Cget_var*
+//#UC START# *53B3BF9C00EF_47EA0F2B031C_impl*
+ Result := nsTabIconIndex(titList);
+//#UC END# *53B3BF9C00EF_47EA0F2B031C_impl*
+//#UC START# *53B3BF9C00EF_47EA0F2B031C_var*
+//#UC END# *53B3BF9C00EF_47EA0F2B031C_var*
+//#UC START# *5D78745D5001_47EA0F2B031C_impl*
+ SetData.dsDocumentRef.SetIfNeedMakeNo(vcm_nmForce);
+ ChangeSynchroForm(sva_DrugList_SynchroView_Document);
+//#UC END# *5D78745D5001_47EA0F2B031C_impl*
+//#UC START# *5D78745D5001_47EA0F2B031C_var*
+//#UC END# *5D78745D5001_47EA0F2B031C_var*
+//#UC START# *7680D04D575B_47EA0F2B031C_impl*
+ DoOpenDrugInternationalNameSynonims;
+//#UC END# *7680D04D575B_47EA0F2B031C_impl*
+//#UC START# *7680D04D575B_47EA0F2B031C_var*
+//#UC END# *7680D04D575B_47EA0F2B031C_var*
+//#UC START# *7ECE38CEFE6F_47EA0F2B031Cget_impl*
+ Result := SetData.DrugList_SynchroView_Form = sva_DrugList_SynchroView_Attributes;
+//#UC END# *7ECE38CEFE6F_47EA0F2B031Cget_impl*
+//#UC START# *7ECE38CEFE6F_47EA0F2B031Cget_var*
+//#UC END# *7ECE38CEFE6F_47EA0F2B031Cget_var*
+//#UC START# *862011C4CE04_47EA0F2B031Cget_impl*
+ Result := SetData.DrugList_SynchroView_Form = sva_DrugList_SynchroView_DrugInternationalNameSynonims;
+//#UC END# *862011C4CE04_47EA0F2B031Cget_impl*
+//#UC START# *862011C4CE04_47EA0F2B031Cget_var*
+//#UC END# *862011C4CE04_47EA0F2B031Cget_var*
+//#UC START# *ECBE8DB2214F_47EA0F2B031C_impl*
+ inherited OpenAttributes;
+//#UC END# *ECBE8DB2214F_47EA0F2B031C_impl*
+//#UC START# *ECBE8DB2214F_47EA0F2B031C_var*
+//#UC END# *ECBE8DB2214F_47EA0F2B031C_var*

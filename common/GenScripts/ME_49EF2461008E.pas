@@ -1,4 +1,10 @@
 unit Participant_Const;
+ {* Участник }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\Participant_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -10,7 +16,7 @@ uses
 ;
 
  // ParticipantTag
- 
+
 implementation
 
 uses

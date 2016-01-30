@@ -1,0 +1,48 @@
+//#UC START# *4BE419AF0217_4D6CBA680035_impl*
+ l_SBForm := (aForm as TF1LikeFormWithBSForm);
+ ShowBaseSearch(aForm);
+ f_InText := True;
+ MakeClick(aForm.Text);
+ Check(aForm.Text.Focused);
+ f_InText := False;
+ MakeClick(l_SBForm.BaseSearchControl);
+ with l_SBForm.BaseSearchControl do
+ begin
+  Check(Focused);
+  Check(Selection.Caret.Visible);
+ end; // with l_SBForm.BaseSearchControl do
+//#UC END# *4BE419AF0217_4D6CBA680035_impl*
+//#UC START# *4BE419AF0217_4D6CBA680035_var*
+var
+ l_SBForm : TF1LikeFormWithBSForm;
+//#UC END# *4BE419AF0217_4D6CBA680035_var*
+//#UC START# *4D6CB8460086_4D6CBA680035_impl*
+ Result := True;
+//#UC END# *4D6CB8460086_4D6CBA680035_impl*
+//#UC START# *4D6CB8460086_4D6CBA680035_var*
+//#UC END# *4D6CB8460086_4D6CBA680035_var*
+//#UC START# *4D6CBCE7034B_4D6CBA680035_impl*
+ with (aForm as TF1LikeFormWithBSForm) do
+ begin
+  BaseSearchControl.PersistentSelection := True;
+  BaseSearchControl.TextSource.Document.IsValid;
+  BaseSearchControl.Visible := True;
+  BaseSearchControl.SetFocus;
+ end; // with (aForm as TF1LikeFormWithBSForm) do
+//#UC END# *4D6CBCE7034B_4D6CBA680035_impl*
+//#UC START# *4D6CBCE7034B_4D6CBA680035_var*
+//#UC END# *4D6CBCE7034B_4D6CBA680035_var*
+//#UC START# *4D6E5F340304_4D6CBA680035_impl*
+ if f_InText then
+ begin
+  X := 100;
+  Y := 100;
+ end // if f_InText then
+ else
+ begin
+  X := 50;
+  Y := 10;
+ end;
+//#UC END# *4D6E5F340304_4D6CBA680035_impl*
+//#UC START# *4D6E5F340304_4D6CBA680035_var*
+//#UC END# *4D6E5F340304_4D6CBA680035_var*

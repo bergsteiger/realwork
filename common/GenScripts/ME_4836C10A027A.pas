@@ -1,4 +1,9 @@
-unit evNSRCWriter;
+unit NOT_FINISHED_evNSRCWriter;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evNSRCWriter.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -10,7 +15,7 @@ uses
 type
  TevNSRCWriter = class(TevNSRCGenerator)
  end;//TevNSRCWriter
- 
+
 implementation
 
 uses

@@ -1,0 +1,36 @@
+//#UC START# *4DB6CE2302C9_4DBAC32F02B5_impl*
+ if (theNewContext.rFirstHalfOfDualWord = nil) then
+  l_CI := MakeDualCompiled(theNewContext.rPrev^, aCompiled, nil)
+ else
+  l_CI := MakeDualCompiled(theNewContext.rPrev^, theNewContext.rFirstHalfOfDualWord As TkwCompiledWordPrim, aCompiled);
+ try
+  DoCompiledWord(l_CI, theNewContext.rPrev^);
+ finally
+  FreeAndNil(l_CI);
+ end;//try..finally
+ FreeAndNil(theNewContext.rFirstHalfOfDualWord);
+ inherited;
+//#UC END# *4DB6CE2302C9_4DBAC32F02B5_impl*
+//#UC START# *4DB6CE2302C9_4DBAC32F02B5_var*
+var
+ l_CI : TkwDualCompiledWordContainer;
+//#UC END# *4DB6CE2302C9_4DBAC32F02B5_var*
+//#UC START# *52D7DC84019E_4DBAC32F02B5_impl*
+ CompilerAssert(aCtx.rFirstHalfOfDualWord = nil, 'Ќеожиданные данные при проверке середины структуры', aCtx);
+ if (aBracket.ClassType = MedianBracket)
+    OR (aBracket.ClassType = MedianBracket2) then
+ begin
+  Result := true;
+  aCtx.rWordCompilingNow.SetRefTo(aCtx.rFirstHalfOfDualWord);
+  FreeAndNil(aCtx.rWordCompilingNow);
+  aCtx.rWordCompilingNow := CompiledWordClass(aCtx).Create(Self, aCtx.rPrevFinder, TtfwWordInfoE.Instance, aCtx, aBracket.Key);
+  //aCtx.rWordCompilingNow.Key := aBracket.Key;
+  // - чтобы под отладчиком можно было смотреть
+  aCtx.rCompiler := aCtx.rWordCompilingNow.GetCompiler(aCtx) {As ItfwCompiler};
+  aCtx.rKeyWords := aCtx.rCompiler.KeywordFinder(aCtx){theCompiled};
+ end//aBracket.ClassType = MedianBracket..
+ else
+  Result := false;
+//#UC END# *52D7DC84019E_4DBAC32F02B5_impl*
+//#UC START# *52D7DC84019E_4DBAC32F02B5_var*
+//#UC END# *52D7DC84019E_4DBAC32F02B5_var*

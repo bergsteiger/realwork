@@ -1,4 +1,9 @@
-unit evFormulaParaBitmapContainer;
+unit NOT_FINISHED_evFormulaParaBitmapContainer;
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\NOT_FINISHED_evFormulaParaBitmapContainer.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -9,7 +14,7 @@ uses
 type
  TevFormulaParaBitmapContainer = class
  end;//TevFormulaParaBitmapContainer
- 
+
 implementation
 
 uses

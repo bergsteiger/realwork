@@ -1,4 +1,10 @@
 unit PageProperties;
+ {* Параметры страницы }
+
+// Модуль: ""
+// Стереотип: "TagOverride"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -8,7 +14,7 @@ uses
 ;
 
  // PagePropertiesTag
- 
+
 implementation
 
 uses

@@ -1,7 +1,13 @@
 unit l3NodesKeyWordsPack;
 
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\l3NodesKeyWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
+
+{$Include seDefine.inc}
+
 interface
 
+{$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
  , l3TreeInterfaces
@@ -12,9 +18,11 @@ uses
  , tfwTypeInfo
  , TypInfo
 ;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
+{$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
  , tfwScriptingTypes
@@ -23,12 +31,19 @@ uses
 ;
 
 type
- Tl3NodesKeyWordsPackResNameGetter = class(TtfwAxiomaticsResNameGetter)
+ //#UC START# *FCED2C4D2DBAci*
+ //#UC END# *FCED2C4D2DBAci*
+ //#UC START# *FCED2C4D2DBAcit*
+ //#UC END# *FCED2C4D2DBAcit*
+ Tl3NodesKeyWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
-  function ResName: AnsiString;
+  public
+   class function ResName: AnsiString; override;
+ //#UC START# *FCED2C4D2DBApubl*
+ //#UC END# *FCED2C4D2DBApubl*
  end;//Tl3NodesKeyWordsPackResNameGetter
- 
- TkwNodeIsFirst = class(TtfwPropertyLike)
+
+ TkwNodeIsFirst = {final} class(TtfwPropertyLike)
   {* Слово скрипта Node:IsFirst
 [panel]Узел первый?[panel]
 *Тип результата:* Boolean
@@ -37,13 +52,22 @@ type
 BOOLEAN VAR l_Boolean
  aNode Node:IsFirst >>> l_Boolean
 [code]  }
-  function IsFirst(const aCtx: TtfwContext;
-   const aNode: Il3SimpleNode): Boolean;
-   {* Реализация слова скрипта Node:IsFirst }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function IsFirst(const aCtx: TtfwContext;
+    const aNode: Il3SimpleNode): Boolean;
+    {* Реализация слова скрипта Node:IsFirst }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwNodeIsFirst
- 
- TkwNodeIsLast = class(TtfwPropertyLike)
+
+ TkwNodeIsLast = {final} class(TtfwPropertyLike)
   {* Слово скрипта Node:IsLast
 [panel]Узел последний?[panel]
 *Тип результата:* Boolean
@@ -52,13 +76,22 @@ BOOLEAN VAR l_Boolean
 BOOLEAN VAR l_Boolean
  aNode Node:IsLast >>> l_Boolean
 [code]  }
-  function IsLast(const aCtx: TtfwContext;
-   const aNode: Il3SimpleNode): Boolean;
-   {* Реализация слова скрипта Node:IsLast }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function IsLast(const aCtx: TtfwContext;
+    const aNode: Il3SimpleNode): Boolean;
+    {* Реализация слова скрипта Node:IsLast }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwNodeIsLast
- 
- TkwNodeFlags = class(TtfwPropertyLike)
+
+ TkwNodeFlags = {final} class(TtfwPropertyLike)
   {* Слово скрипта Node:Flags
 [panel]Флаги узла[panel]
 *Тип результата:* Integer
@@ -67,13 +100,22 @@ BOOLEAN VAR l_Boolean
 INTEGER VAR l_Integer
  aNode Node:Flags >>> l_Integer
 [code]  }
-  function Flags(const aCtx: TtfwContext;
-   const aNode: Il3SimpleNode): Integer;
-   {* Реализация слова скрипта Node:Flags }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function Flags(const aCtx: TtfwContext;
+    const aNode: Il3SimpleNode): Integer;
+    {* Реализация слова скрипта Node:Flags }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwNodeFlags
- 
- TkwNodeText = class(TtfwPropertyLike)
+
+ TkwNodeText = {final} class(TtfwPropertyLike)
   {* Слово скрипта Node:Text
 [panel]Текст узла[panel]
 *Тип результата:* Tl3WString
@@ -82,10 +124,297 @@ INTEGER VAR l_Integer
 STRING VAR l_Tl3WString
  aNode Node:Text >>> l_Tl3WString
 [code]  }
-  function Text(const aCtx: TtfwContext;
-   const aNode: Il3SimpleNode): Tl3WString;
-   {* Реализация слова скрипта Node:Text }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function Text(const aCtx: TtfwContext;
+    const aNode: Il3SimpleNode): Tl3WString;
+    {* Реализация слова скрипта Node:Text }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwNodeText
- 
+
+class function Tl3NodesKeyWordsPackResNameGetter.ResName: AnsiString;
+begin
+  Result := 'l3NodesKeyWordsPack';
+end;//Tl3NodesKeyWordsPackResNameGetter.ResName
+
+ {$R l3NodesKeyWordsPack.res}
+
+function TkwNodeIsFirst.IsFirst(const aCtx: TtfwContext;
+ const aNode: Il3SimpleNode): Boolean;
+ {* Реализация слова скрипта Node:IsFirst }
+//#UC START# *13DEAD421A35_45751BDD834B_var*
+//#UC END# *13DEAD421A35_45751BDD834B_var*
+begin
+//#UC START# *13DEAD421A35_45751BDD834B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *13DEAD421A35_45751BDD834B_impl*
+end;//TkwNodeIsFirst.IsFirst
+
+procedure TkwNodeIsFirst.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_45751BDD834B_var*
+//#UC END# *4DAEEDE10285_45751BDD834B_var*
+begin
+//#UC START# *4DAEEDE10285_45751BDD834B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_45751BDD834B_impl*
+end;//TkwNodeIsFirst.DoDoIt
+
+class function TkwNodeIsFirst.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Node:IsFirst';
+end;//TkwNodeIsFirst.GetWordNameForRegister
+
+procedure TkwNodeIsFirst.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_45751BDD834B_var*
+//#UC END# *52D00B00031A_45751BDD834B_var*
+begin
+//#UC START# *52D00B00031A_45751BDD834B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_45751BDD834B_impl*
+end;//TkwNodeIsFirst.SetValuePrim
+
+function TkwNodeIsFirst.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_45751BDD834B_var*
+//#UC END# *551544E2001A_45751BDD834B_var*
+begin
+//#UC START# *551544E2001A_45751BDD834B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_45751BDD834B_impl*
+end;//TkwNodeIsFirst.GetResultTypeInfo
+
+function TkwNodeIsFirst.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_45751BDD834B_var*
+//#UC END# *559687E6025A_45751BDD834B_var*
+begin
+//#UC START# *559687E6025A_45751BDD834B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_45751BDD834B_impl*
+end;//TkwNodeIsFirst.GetAllParamsCount
+
+function TkwNodeIsFirst.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_45751BDD834B_var*
+//#UC END# *5617F4D00243_45751BDD834B_var*
+begin
+//#UC START# *5617F4D00243_45751BDD834B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_45751BDD834B_impl*
+end;//TkwNodeIsFirst.ParamsTypes
+
+function TkwNodeIsLast.IsLast(const aCtx: TtfwContext;
+ const aNode: Il3SimpleNode): Boolean;
+ {* Реализация слова скрипта Node:IsLast }
+//#UC START# *CED6FFACFE06_97BDCC1D1FFB_var*
+//#UC END# *CED6FFACFE06_97BDCC1D1FFB_var*
+begin
+//#UC START# *CED6FFACFE06_97BDCC1D1FFB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *CED6FFACFE06_97BDCC1D1FFB_impl*
+end;//TkwNodeIsLast.IsLast
+
+procedure TkwNodeIsLast.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_97BDCC1D1FFB_var*
+//#UC END# *4DAEEDE10285_97BDCC1D1FFB_var*
+begin
+//#UC START# *4DAEEDE10285_97BDCC1D1FFB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_97BDCC1D1FFB_impl*
+end;//TkwNodeIsLast.DoDoIt
+
+class function TkwNodeIsLast.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Node:IsLast';
+end;//TkwNodeIsLast.GetWordNameForRegister
+
+procedure TkwNodeIsLast.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_97BDCC1D1FFB_var*
+//#UC END# *52D00B00031A_97BDCC1D1FFB_var*
+begin
+//#UC START# *52D00B00031A_97BDCC1D1FFB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_97BDCC1D1FFB_impl*
+end;//TkwNodeIsLast.SetValuePrim
+
+function TkwNodeIsLast.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_97BDCC1D1FFB_var*
+//#UC END# *551544E2001A_97BDCC1D1FFB_var*
+begin
+//#UC START# *551544E2001A_97BDCC1D1FFB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_97BDCC1D1FFB_impl*
+end;//TkwNodeIsLast.GetResultTypeInfo
+
+function TkwNodeIsLast.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_97BDCC1D1FFB_var*
+//#UC END# *559687E6025A_97BDCC1D1FFB_var*
+begin
+//#UC START# *559687E6025A_97BDCC1D1FFB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_97BDCC1D1FFB_impl*
+end;//TkwNodeIsLast.GetAllParamsCount
+
+function TkwNodeIsLast.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_97BDCC1D1FFB_var*
+//#UC END# *5617F4D00243_97BDCC1D1FFB_var*
+begin
+//#UC START# *5617F4D00243_97BDCC1D1FFB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_97BDCC1D1FFB_impl*
+end;//TkwNodeIsLast.ParamsTypes
+
+function TkwNodeFlags.Flags(const aCtx: TtfwContext;
+ const aNode: Il3SimpleNode): Integer;
+ {* Реализация слова скрипта Node:Flags }
+//#UC START# *5AC32421B6A5_DA2D728F699C_var*
+//#UC END# *5AC32421B6A5_DA2D728F699C_var*
+begin
+//#UC START# *5AC32421B6A5_DA2D728F699C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5AC32421B6A5_DA2D728F699C_impl*
+end;//TkwNodeFlags.Flags
+
+procedure TkwNodeFlags.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_DA2D728F699C_var*
+//#UC END# *4DAEEDE10285_DA2D728F699C_var*
+begin
+//#UC START# *4DAEEDE10285_DA2D728F699C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_DA2D728F699C_impl*
+end;//TkwNodeFlags.DoDoIt
+
+class function TkwNodeFlags.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Node:Flags';
+end;//TkwNodeFlags.GetWordNameForRegister
+
+procedure TkwNodeFlags.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_DA2D728F699C_var*
+//#UC END# *52D00B00031A_DA2D728F699C_var*
+begin
+//#UC START# *52D00B00031A_DA2D728F699C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_DA2D728F699C_impl*
+end;//TkwNodeFlags.SetValuePrim
+
+function TkwNodeFlags.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_DA2D728F699C_var*
+//#UC END# *551544E2001A_DA2D728F699C_var*
+begin
+//#UC START# *551544E2001A_DA2D728F699C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_DA2D728F699C_impl*
+end;//TkwNodeFlags.GetResultTypeInfo
+
+function TkwNodeFlags.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_DA2D728F699C_var*
+//#UC END# *559687E6025A_DA2D728F699C_var*
+begin
+//#UC START# *559687E6025A_DA2D728F699C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_DA2D728F699C_impl*
+end;//TkwNodeFlags.GetAllParamsCount
+
+function TkwNodeFlags.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_DA2D728F699C_var*
+//#UC END# *5617F4D00243_DA2D728F699C_var*
+begin
+//#UC START# *5617F4D00243_DA2D728F699C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_DA2D728F699C_impl*
+end;//TkwNodeFlags.ParamsTypes
+
+function TkwNodeText.Text(const aCtx: TtfwContext;
+ const aNode: Il3SimpleNode): Tl3WString;
+ {* Реализация слова скрипта Node:Text }
+//#UC START# *64ACB0166C73_70C4D26A03EF_var*
+//#UC END# *64ACB0166C73_70C4D26A03EF_var*
+begin
+//#UC START# *64ACB0166C73_70C4D26A03EF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *64ACB0166C73_70C4D26A03EF_impl*
+end;//TkwNodeText.Text
+
+procedure TkwNodeText.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_70C4D26A03EF_var*
+//#UC END# *4DAEEDE10285_70C4D26A03EF_var*
+begin
+//#UC START# *4DAEEDE10285_70C4D26A03EF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_70C4D26A03EF_impl*
+end;//TkwNodeText.DoDoIt
+
+class function TkwNodeText.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'Node:Text';
+end;//TkwNodeText.GetWordNameForRegister
+
+procedure TkwNodeText.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_70C4D26A03EF_var*
+//#UC END# *52D00B00031A_70C4D26A03EF_var*
+begin
+//#UC START# *52D00B00031A_70C4D26A03EF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_70C4D26A03EF_impl*
+end;//TkwNodeText.SetValuePrim
+
+function TkwNodeText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_70C4D26A03EF_var*
+//#UC END# *551544E2001A_70C4D26A03EF_var*
+begin
+//#UC START# *551544E2001A_70C4D26A03EF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_70C4D26A03EF_impl*
+end;//TkwNodeText.GetResultTypeInfo
+
+function TkwNodeText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_70C4D26A03EF_var*
+//#UC END# *559687E6025A_70C4D26A03EF_var*
+begin
+//#UC START# *559687E6025A_70C4D26A03EF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_70C4D26A03EF_impl*
+end;//TkwNodeText.GetAllParamsCount
+
+function TkwNodeText.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_70C4D26A03EF_var*
+//#UC END# *5617F4D00243_70C4D26A03EF_var*
+begin
+//#UC START# *5617F4D00243_70C4D26A03EF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_70C4D26A03EF_impl*
+end;//TkwNodeText.ParamsTypes
+
+initialization
+ Tl3NodesKeyWordsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
+ TkwNodeIsFirst.RegisterInEngine;
+ {* Регистрация Node_IsFirst }
+ TkwNodeIsLast.RegisterInEngine;
+ {* Регистрация Node_IsLast }
+ TkwNodeFlags.RegisterInEngine;
+ {* Регистрация Node_Flags }
+ TkwNodeText.RegisterInEngine;
+ {* Регистрация Node_Text }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
+ {* Регистрация типа TtfwContext }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Il3SimpleNode));
+ {* Регистрация типа Il3SimpleNode }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
+ {* Регистрация типа Boolean }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
+ {* Регистрация типа Integer }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа Tl3WString }
+{$IfEnd} // NOT Defined(NoScripts)
+
 end.

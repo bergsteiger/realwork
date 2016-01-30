@@ -1,0 +1,104 @@
+//#UC START# *47A042E100E2_53A963F700CD_impl*
+ inherited;
+ Sorted := true;
+ for l_Index := Low(Tk2TagID) to High(Tk2TagID) do
+  Self.Add(Tk2Attribute_C(l_Index));
+ Self.Add(Tk2Attribute_C(_k2_tiChecks, 'Checked'));
+ Self.Add(Tk2Attribute_C(_k2_tiHeaders, 'Header'));
+ Self.Add(Tk2Attribute_C(_k2_tiFooters, 'Footer'));
+ Self.Add(Tk2Attribute_C(_k2_tiCollapsed, 'Collapsable'));
+ Self.Add(Tk2Attribute_C(_k2_tiContentsLevel6, 'ContentsLevel'));
+ Self.Add(Tk2Attribute_C(_k2_tiBitmap, 'Data'));
+//#UC END# *47A042E100E2_53A963F700CD_impl*
+//#UC START# *47A042E100E2_53A963F700CD_var*
+var
+ l_Index : Tk2TagID;
+//#UC END# *47A042E100E2_53A963F700CD_var*
+//#UC START# *47B07CF403D0_53A963F700CD_impl*
+ Result := false;
+ Assert(false);
+//#UC END# *47B07CF403D0_53A963F700CD_impl*
+//#UC START# *47B07CF403D0_53A963F700CD_var*
+//#UC END# *47B07CF403D0_53A963F700CD_var*
+//#UC START# *47B2C42A0163_53A963F700CD_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *47B2C42A0163_53A963F700CD_impl*
+//#UC START# *47B2C42A0163_53A963F700CD_var*
+//#UC END# *47B2C42A0163_53A963F700CD_var*
+//#UC START# *47B99D4503A2_53A963F700CD_impl*
+ Result := CI.rA^.Compare(CI.rB^);
+//#UC END# *47B99D4503A2_53A963F700CD_impl*
+//#UC START# *47B99D4503A2_53A963F700CD_var*
+//#UC END# *47B99D4503A2_53A963F700CD_var*
+//#UC START# *53A965100324_53A9648F013C_impl*
+ Result := ANSICompareText(rName, anOther.rName);
+//#UC END# *53A965100324_53A9648F013C_impl*
+//#UC START# *53A965100324_53A9648F013C_var*
+//#UC END# *53A965100324_53A9648F013C_var*
+//#UC START# *53A9654E0056_53A9648F013C_impl*
+ l_Name := GetEnumName(TypeInfo(Tk2TagID), Ord(aTagID));
+ l_Name := Copy(l_Name, 7, Length(l_Name)-6);
+ Result := Tk2Attribute_C(aTagID, l_Name);
+ Result.rIsAlias := false;
+//#UC END# *53A9654E0056_53A9648F013C_impl*
+//#UC START# *53A9654E0056_53A9648F013C_var*
+var
+ l_Name : AnsiString;
+//#UC END# *53A9654E0056_53A9648F013C_var*
+//#UC START# *53A96C5502B0_53A9648F013C_impl*
+ Result.rID := Ord(aTagID);
+ Result.rName := anAlias;
+ Result.rIsAlias := true;
+//#UC END# *53A96C5502B0_53A9648F013C_impl*
+//#UC START# *53A96C5502B0_53A9648F013C_var*
+//#UC END# *53A96C5502B0_53A9648F013C_var*
+//#UC START# *53A9843302D9_53A963F700CD_impl*
+ if FindData(Tk2Attribute_ForFind(aName), l_Index) then
+  Result := Items[l_Index].rID
+ else
+  Result := -1;
+//#UC END# *53A9843302D9_53A963F700CD_impl*
+//#UC START# *53A9843302D9_53A963F700CD_var*
+var
+ l_Index : Integer;
+//#UC END# *53A9843302D9_53A963F700CD_var*
+//#UC START# *53A9847000CA_53A963F700CD_impl*
+ Result := '';
+ for l_Index := 0 to Pred(Count) do
+ begin
+  l_Item := Items[l_Index];
+  if not l_Item.rIsAlias AND (l_Item.rID = anID) then
+  begin
+   Result := l_Item.rName;
+   break;
+  end;//l_Item.rID = anID
+ end;//for l_Index
+//#UC END# *53A9847000CA_53A963F700CD_impl*
+//#UC START# *53A9847000CA_53A963F700CD_var*
+var
+ l_Index : Integer;
+ l_Item : Tk2Attribute;
+//#UC END# *53A9847000CA_53A963F700CD_var*
+//#UC START# *53A988CC00D2_53A9648F013C_impl*
+ Result.rID := -1;
+ Result.rName := aName;
+//#UC END# *53A988CC00D2_53A9648F013C_impl*
+//#UC START# *53A988CC00D2_53A9648F013C_var*
+//#UC END# *53A988CC00D2_53A9648F013C_var*
+//#UC START# *53A991E60226_53A963F700CD_impl*
+ Result := IDByName(aName);
+ if (Result < 0) then
+ begin
+  Inc(f_IDDelta);
+  Result := f_IDDelta + Ord(High(Tk2TagID));
+  Self.Add(Tk2Attribute_New(Result, aName));
+ end;//Result < 0
+//#UC END# *53A991E60226_53A963F700CD_impl*
+//#UC START# *53A991E60226_53A963F700CD_var*
+//#UC END# *53A991E60226_53A963F700CD_var*
+//#UC START# *53A99219013B_53A9648F013C_impl*
+ Result.rID := anID;
+ REsult.rName := aName;
+//#UC END# *53A99219013B_53A9648F013C_impl*
+//#UC START# *53A99219013B_53A9648F013C_var*
+//#UC END# *53A99219013B_53A9648F013C_var*

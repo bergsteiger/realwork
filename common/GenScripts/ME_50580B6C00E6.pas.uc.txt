@@ -1,0 +1,31 @@
+//#UC START# *4DAEEDE10285_50580B6C00E6_impl*
+ Assert(aCtx.rEngine.IsTopString, 'base:export - не задано имя файла');
+ l_FileName := aCtx.rEngine.PopDelphiString;
+ Assert(aCtx.rEngine.IsTopInt, 'base:export - не задан ID документа');
+ l_DocID := aCtx.rEngine.PopInt;
+ l_FileName := aCtx.rCaller.ResolveOutputFilePath(l_FileName);
+ l_EPipe := TSewerPipe.Create;
+ try
+  l_EPipe.MakeSingleDocSab(l_DocID, True);
+  l_EPipe.ExportDocument := True;
+  TSewerPipeHack(l_EPipe).ExportFilter.Attributes := [atDateNums, atHLink, atSub];
+  l_Gen := nil;
+  TevdNativeWriter.SetTo(l_Gen, l_FileName);
+  try
+   TevdNativeWriter(l_Gen).Binary := False;
+   l_EPipe.Writer := l_Gen;
+   l_EPipe.Execute;
+  finally
+   FreeAndNil(l_Gen);
+  end;
+ finally
+  FreeAndNil(l_EPipe);
+ end;
+//#UC END# *4DAEEDE10285_50580B6C00E6_impl*
+//#UC START# *4DAEEDE10285_50580B6C00E6_var*
+var
+ l_DocID: Integer;
+ l_FileName: string;
+ l_EPipe: TSewerPipe;
+ l_Gen: Tk2TagGenerator;
+//#UC END# *4DAEEDE10285_50580B6C00E6_var*

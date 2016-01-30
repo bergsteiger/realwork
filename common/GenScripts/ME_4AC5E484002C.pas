@@ -1,4 +1,9 @@
-unit eeCheckBox;
+unit NOT_FINISHED_eeCheckBox;
+
+// Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_eeCheckBox.pas"
+// Стереотип: "GuiControl"
+
+{$Include vtDefine.inc}
 
 interface
 
@@ -9,7 +14,7 @@ uses
 type
  TeeCheckBox = class
  end;//TeeCheckBox
- 
+
 implementation
 
 uses

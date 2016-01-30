@@ -1,7 +1,14 @@
 unit npControlsList;
+ {* список навигаторов на форме, от которых были отстыкованы компоненты. }
+
+// Модуль: "w:\common\components\gui\Garant\VT\npControlsList.pas"
+// Стереотип: "SimpleClass"
+
+{$Include vtDefine.inc}
 
 interface
 
+{$If NOT Defined(NoVCM)}
 uses
  l3IntfUses
  , npControlsListPrim
@@ -10,14 +17,48 @@ uses
 type
  TnpControlsList = class(TnpControlsListPrim)
   {* список навигаторов на форме, от которых были отстыкованы компоненты. }
-  function Exists: Boolean;
-   {* Проверяет создан экземпляр синглетона или нет }
+  public
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+   class function Instance: TnpControlsList;
+    {* Метод получения экземпляра синглетона TnpControlsList }
  end;//TnpControlsList
- 
+{$IfEnd} // NOT Defined(NoVCM)
+
 implementation
 
+{$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ , SysUtils
+ , l3Base
 ;
+
+var g_TnpControlsList: TnpControlsList = nil;
+ {* Экземпляр синглетона TnpControlsList }
+
+procedure TnpControlsListFree;
+ {* Метод освобождения экземпляра синглетона TnpControlsList }
+begin
+ l3Free(g_TnpControlsList);
+end;//TnpControlsListFree
+
+class function TnpControlsList.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TnpControlsList <> nil;
+end;//TnpControlsList.Exists
+
+class function TnpControlsList.Instance: TnpControlsList;
+ {* Метод получения экземпляра синглетона TnpControlsList }
+begin
+ if (g_TnpControlsList = nil) then
+ begin
+  l3System.AddExitProc(TnpControlsListFree);
+  g_TnpControlsList := Create;
+ end;
+ Result := g_TnpControlsList;
+end;//TnpControlsList.Instance
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

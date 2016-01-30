@@ -1,5 +1,10 @@
 unit Class_Const;
 
+// Модуль: "w:\common\components\SandBox\Class_Const.pas"
+// Стереотип: "Tag"
+
+{$Include sbDefine.inc}
+
 interface
 
 uses
@@ -9,7 +14,7 @@ uses
 ;
 
  // ClassTag
- 
+
 implementation
 
 uses

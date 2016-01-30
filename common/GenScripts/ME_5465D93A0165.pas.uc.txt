@@ -1,0 +1,24 @@
+//#UC START# *54607DDC0159_5465D93A0165_impl*
+ l_Reply := TncsGetReadyToDeliveryTasksReply.Create(aContext.rMessage);
+ try
+  l_UserID := (aContext.rMessage as TncsGetReadyToDeliveryTasks).UserID;
+  aContext.rTransporter.ClientID := l_UserID;
+  TaskList.ForEachF(L2AlcuTasksIteratorForEachFAction(@DoIt));
+  aContext.rTransporter.Send(l_Reply);
+ finally
+  FreeAndNil(l_Reply);
+ end;
+//#UC END# *54607DDC0159_5465D93A0165_impl*
+//#UC START# *54607DDC0159_5465D93A0165_var*
+var
+ l_Reply: TncsGetReadyToDeliveryTasksReply;
+ l_UserID: TCsClientId;
+
+ function DoIt(anItem: TddProcessTask): Boolean;
+ begin
+  Result := true;
+  if (anItem.Status = cs_tsReadyToDelivery) and (anItem.UserID = l_UserID) then
+   l_Reply.TasksIDList.Add(anItem.TaskID);
+ end;
+
+//#UC END# *54607DDC0159_5465D93A0165_var*

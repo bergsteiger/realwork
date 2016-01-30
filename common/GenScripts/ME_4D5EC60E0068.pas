@@ -1,7 +1,13 @@
-unit vgBrushBitmap;
+unit NOT_FINISHED_vgBrushBitmap;
+
+// Модуль: "w:\common\components\rtl\external\VGScene\NOT_FINISHED_vgBrushBitmap.pas"
+// Стереотип: "SimpleClass"
+
+{$Include vg_define.inc}
 
 interface
 
+{$If NOT Defined(NoVGScene)}
 uses
  l3IntfUses
  , vgPersistent
@@ -10,11 +16,14 @@ uses
 type
  TvgBrushBitmap = class(TvgPersistent)
  end;//TvgBrushBitmap
- 
+{$IfEnd} // NOT Defined(NoVGScene)
+
 implementation
 
+{$If NOT Defined(NoVGScene)}
 uses
  l3ImplUses
 ;
+{$IfEnd} // NOT Defined(NoVGScene)
 
 end.

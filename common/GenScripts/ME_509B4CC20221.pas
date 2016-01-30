@@ -1,21 +1,28 @@
-unit LoadUnits.imp;
+{$IfNDef LoadUnits_imp}
 
-interface
+// Модуль: "w:\common\components\gui\Garant\Daily\LoadUnits.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define LoadUnits_imp}
 
-type
- _LoadUnits_ = class
+{$If Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(InsiderTest)}
+ _LoadUnits_ = class(_LoadUnits_Parent_)
  end;//_LoadUnits_
- 
-implementation
 
-uses
- l3ImplUses
- , PrimTextLoad_Form
- , Document_Const
-;
+{$Else Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(InsiderTest)}
 
-end.
+_LoadUnits_ = _LoadUnits_Parent_;
+
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(InsiderTest)
+{$Else LoadUnits_imp}
+
+{$IfNDef LoadUnits_imp_impl}
+
+{$Define LoadUnits_imp_impl}
+
+{$If Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(InsiderTest)}
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(InsiderTest)
+{$EndIf LoadUnits_imp_impl}
+
+{$EndIf LoadUnits_imp}
+

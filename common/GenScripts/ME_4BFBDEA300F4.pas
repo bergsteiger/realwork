@@ -1,7 +1,14 @@
 unit ScrollBackTest;
+ {* Тест скроллирования документа в обратную сторону }
+
+// Модуль: "w:\common\components\gui\Garant\Daily\ScrollBackTest.pas"
+// Стереотип: "TestCase"
+
+{$Include sdotDefine.inc}
 
 interface
 
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
  l3IntfUses
  , PrimScrollTest
@@ -9,17 +16,47 @@ uses
 ;
 
 type
- TScrollBackTest = class(TPrimScrollTest)
+ TScrollBackTest = {abstract} class(TPrimScrollTest)
   {* Тест скроллирования документа в обратную сторону }
-  procedure DoVisit(aForm: TPrimTextLoadForm);
-   {* Обработать текст }
+  protected
+   procedure DoVisit(aForm: TPrimTextLoadForm); override;
+    {* Обработать текст }
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TScrollBackTest
- 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
+
 implementation
 
+{$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
  , TestFrameWork
 ;
+
+procedure TScrollBackTest.DoVisit(aForm: TPrimTextLoadForm);
+ {* Обработать текст }
+//#UC START# *4BE419AF0217_4BFBDEA300F4_var*
+//#UC END# *4BE419AF0217_4BFBDEA300F4_var*
+begin
+//#UC START# *4BE419AF0217_4BFBDEA300F4_impl*
+ ScrollBack(aForm, '');
+//#UC END# *4BE419AF0217_4BFBDEA300F4_impl*
+end;//TScrollBackTest.DoVisit
+
+function TScrollBackTest.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := 'Everest';
+end;//TScrollBackTest.GetFolder
+
+function TScrollBackTest.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '4BFBDEA300F4';
+end;//TScrollBackTest.GetModelElementGUID
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM)
 
 end.

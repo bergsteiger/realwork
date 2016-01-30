@@ -1,4 +1,9 @@
-unit ctTypes;
+unit NOT_FINISHED_ctTypes;
+
+// Модуль: "w:\common\components\gui\Garant\VT\ComboTree\NOT_FINISHED_ctTypes.pas"
+// Стереотип: "UtilityPack"
+
+{$Include vtDefine.inc}
 
 interface
 
@@ -9,13 +14,13 @@ uses
 type
  TComboStyle = (
  );//TComboStyle
- 
+
  TCurrentMode = (
  );//TCurrentMode
- 
+
  TAutoWidthMode = (
  );//TAutoWidthMode
- 
+
 implementation
 
 uses

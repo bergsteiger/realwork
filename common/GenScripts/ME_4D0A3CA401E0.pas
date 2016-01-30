@@ -1,23 +1,50 @@
-unit k2DoQT.imp;
+{$IfNDef k2DoQT_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\K2\k2DoQT.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
- , l3Interfaces
- , l3Variant
-;
+{$Define k2DoQT_imp}
 
-type
- _k2DoQT_ = class(Ml3VariantMirror)
+ _k2DoQT_ = class(_k2DoQT_Parent_)
+  public
+   function DoQT(const IID: TGUID;
+    out Obj;
+    const aProcessor: Ik2Processor): Boolean; override;
  end;//_k2DoQT_
- 
-implementation
 
-uses
- l3ImplUses
- , k2Base
- , k2InterfaceFactory
-;
+{$Else k2DoQT_imp}
 
-end.
+{$IfNDef k2DoQT_imp_impl}
+
+{$Define k2DoQT_imp_impl}
+
+function _k2DoQT_.DoQT(const IID: TGUID;
+ out Obj;
+ const aProcessor: Ik2Processor): Boolean;
+//#UC START# *532C4D4102D8_4D0A3CA401E0_var*
+var
+ l_Type    : Tk2Type;
+ l_Factory : Tk2InterfaceFactory;
+//#UC END# *532C4D4102D8_4D0A3CA401E0_var*
+begin
+//#UC START# *532C4D4102D8_4D0A3CA401E0_impl*
+ Result := false;
+ Pointer(Obj) := nil;
+ l_Type := Tk2Type(_Instance_R_(Self).pm_GetTagType);
+ if (l_Type <> nil) then
+ begin
+  l_Factory := l_Type.InterfaceFactory;
+  if (l_Factory <> nil) then
+   try
+    Result := l_Factory.QueryToolN(_Instance_R_(Self), IID, Obj, aProcessor);
+   finally
+    l_Factory := nil;
+   end;{try..finally}
+ end;//l_Type <> nil
+//#UC END# *532C4D4102D8_4D0A3CA401E0_impl*
+end;//_k2DoQT_.DoQT
+
+{$EndIf k2DoQT_imp_impl}
+
+{$EndIf k2DoQT_imp}
+

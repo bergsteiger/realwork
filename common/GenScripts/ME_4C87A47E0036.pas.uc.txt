@@ -1,0 +1,36 @@
+//#UC START# *4C87A50402CC_4C87A47E0036exec_impl*
+ l_l3Node := NavigatorTree.GetCurrentNode;
+ if Supports(l_l3Node, INodeBase, l_Node) then
+  Say(inf_AnyInformation, [nsGetHint(l_Node)]);
+//#UC END# *4C87A50402CC_4C87A47E0036exec_impl*
+//#UC START# *4C87A50402CC_4C87A47E0036exec_var*
+var
+ l_l3Node : Il3SimpleNode;
+ l_Node   : INodeBase;
+//#UC END# *4C87A50402CC_4C87A47E0036exec_var*
+//#UC START# *4C87A50402CC_4C87A47E0036test_impl*
+ // до реализации информации на INodeBase
+ aParams.Op.Flag[vcm_ofVisible] := False;
+//#UC END# *4C87A50402CC_4C87A47E0036test_impl*
+//#UC START# *4C87A50402CC_4C87A47E0036test_var*
+//#UC END# *4C87A50402CC_4C87A47E0036test_var*
+//#UC START# *4C87A52E02F7_4C87A47E0036exec_impl*
+ ExecuteCurrentElement;
+//#UC END# *4C87A52E02F7_4C87A47E0036exec_impl*
+//#UC START# *4C87A52E02F7_4C87A47E0036exec_var*
+//#UC END# *4C87A52E02F7_4C87A47E0036exec_var*
+//#UC START# *4C87A52E02F7_4C87A47E0036test_impl*
+ with NavigatorTree do
+ begin
+  l_Node := GetCurrentNode;
+  try
+   aParams.Op.Flag[vcm_ofVisible] := (l_Node <> nil) and not l_Node.HasChild;
+  finally
+   l_Node := nil;
+  end;//try..finally
+ end;//with NavigatorTree do
+//#UC END# *4C87A52E02F7_4C87A47E0036test_impl*
+//#UC START# *4C87A52E02F7_4C87A47E0036test_var*
+var
+ l_Node: Il3SimpleNode;
+//#UC END# *4C87A52E02F7_4C87A47E0036test_var*

@@ -1,4 +1,10 @@
 unit ReqCell_Const;
+ {* Ячейка с контролом }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\ReqCell_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -10,7 +16,7 @@ uses
 ;
 
  // ReqCellTag
- 
+
 implementation
 
 uses

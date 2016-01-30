@@ -1,4 +1,10 @@
 unit ObjectSegment_Const;
+ {* Контейнер для объекта }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\ObjectSegment_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -10,7 +16,7 @@ uses
 ;
 
  // ObjectSegmentTag
- 
+
 implementation
 
 uses

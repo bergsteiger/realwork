@@ -1,7 +1,13 @@
 unit ITestWordsPack;
 
+// Модуль: "w:\common\components\rtl\Garant\DUnit_Script_Support\ITestWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
+
+{$Include dsDefine.inc}
+
 interface
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3IntfUses
  , TestFrameWork
@@ -12,9 +18,11 @@ uses
  , TypInfo
  , tfwGlobalKeyWord
 ;
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 implementation
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3ImplUses
  , tfwScriptingTypes
@@ -23,12 +31,19 @@ uses
 ;
 
 type
- TITestWordsPackResNameGetter = class(TtfwAxiomaticsResNameGetter)
+ //#UC START# *5BD9647988E7ci*
+ //#UC END# *5BD9647988E7ci*
+ //#UC START# *5BD9647988E7cit*
+ //#UC END# *5BD9647988E7cit*
+ TITestWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
-  function ResName: AnsiString;
+  public
+   class function ResName: AnsiString; override;
+ //#UC START# *5BD9647988E7publ*
+ //#UC END# *5BD9647988E7publ*
  end;//TITestWordsPackResNameGetter
- 
- TkwPopTestName = class(TtfwPropertyLike)
+
+ TkwPopTestName = {final} class(TtfwPropertyLike)
   {* Слово скрипта pop:Test:Name
 *Тип результата:* String
 *Пример:*
@@ -36,13 +51,22 @@ type
 STRING VAR l_String
  aTest pop:Test:Name >>> l_String
 [code]  }
-  function Name(const aCtx: TtfwContext;
-   const aTest: ITest): AnsiString;
-   {* Реализация слова скрипта pop:Test:Name }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function Name(const aCtx: TtfwContext;
+    const aTest: ITest): AnsiString;
+    {* Реализация слова скрипта pop:Test:Name }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopTestName
- 
- TkwPopTestEnabled = class(TtfwPropertyLike)
+
+ TkwPopTestEnabled = {final} class(TtfwPropertyLike)
   {* Слово скрипта pop:Test:Enabled
 *Тип результата:* Boolean
 *Пример:*
@@ -50,13 +74,22 @@ STRING VAR l_String
 BOOLEAN VAR l_Boolean
  aTest pop:Test:Enabled >>> l_Boolean
 [code]  }
-  function Enabled(const aCtx: TtfwContext;
-   const aTest: ITest): Boolean;
-   {* Реализация слова скрипта pop:Test:Enabled }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function Enabled(const aCtx: TtfwContext;
+    const aTest: ITest): Boolean;
+    {* Реализация слова скрипта pop:Test:Enabled }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopTestEnabled
- 
- TkwPopTestSubFolder = class(TtfwPropertyLike)
+
+ TkwPopTestSubFolder = {final} class(TtfwPropertyLike)
   {* Слово скрипта pop:Test:SubFolder
 *Тип результата:* String
 *Пример:*
@@ -64,13 +97,22 @@ BOOLEAN VAR l_Boolean
 STRING VAR l_String
  aTest pop:Test:SubFolder >>> l_String
 [code]  }
-  function SubFolder(const aCtx: TtfwContext;
-   const aTest: ITest): AnsiString;
-   {* Реализация слова скрипта pop:Test:SubFolder }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function SubFolder(const aCtx: TtfwContext;
+    const aTest: ITest): AnsiString;
+    {* Реализация слова скрипта pop:Test:SubFolder }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopTestSubFolder
- 
- TkwPopTestHasScriptChildren = class(TtfwPropertyLike)
+
+ TkwPopTestHasScriptChildren = {final} class(TtfwPropertyLike)
   {* Слово скрипта pop:Test:HasScriptChildren
 *Тип результата:* Boolean
 *Пример:*
@@ -78,13 +120,22 @@ STRING VAR l_String
 BOOLEAN VAR l_Boolean
  aTest pop:Test:HasScriptChildren >>> l_Boolean
 [code]  }
-  function HasScriptChildren(const aCtx: TtfwContext;
-   const aTest: ITest): Boolean;
-   {* Реализация слова скрипта pop:Test:HasScriptChildren }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function HasScriptChildren(const aCtx: TtfwContext;
+    const aTest: ITest): Boolean;
+    {* Реализация слова скрипта pop:Test:HasScriptChildren }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopTestHasScriptChildren
- 
- TkwTestShouldStop = class(TtfwGlobalKeyWord)
+
+ TkwTestShouldStop = {final} class(TtfwGlobalKeyWord)
   {* Слово скрипта test:ShouldStop
 *Тип результата:* Boolean
 *Пример:*
@@ -92,9 +143,345 @@ BOOLEAN VAR l_Boolean
 BOOLEAN VAR l_Boolean
  test:ShouldStop >>> l_Boolean
 [code]  }
-  function test_ShouldStop(const aCtx: TtfwContext): Boolean;
-   {* Реализация слова скрипта test:ShouldStop }
-  procedure DoDoIt(const aCtx: TtfwContext);
+  private
+   function test_ShouldStop(const aCtx: TtfwContext): Boolean;
+    {* Реализация слова скрипта test:ShouldStop }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
  end;//TkwTestShouldStop
- 
+
+class function TITestWordsPackResNameGetter.ResName: AnsiString;
+begin
+  Result := 'ITestWordsPack';
+end;//TITestWordsPackResNameGetter.ResName
+
+ {$R ITestWordsPack.res}
+
+function TkwPopTestName.Name(const aCtx: TtfwContext;
+ const aTest: ITest): AnsiString;
+ {* Реализация слова скрипта pop:Test:Name }
+//#UC START# *088392F066BE_E6DE6CAD7EFE_var*
+//#UC END# *088392F066BE_E6DE6CAD7EFE_var*
+begin
+//#UC START# *088392F066BE_E6DE6CAD7EFE_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *088392F066BE_E6DE6CAD7EFE_impl*
+end;//TkwPopTestName.Name
+
+procedure TkwPopTestName.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_E6DE6CAD7EFE_var*
+//#UC END# *4DAEEDE10285_E6DE6CAD7EFE_var*
+begin
+//#UC START# *4DAEEDE10285_E6DE6CAD7EFE_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_E6DE6CAD7EFE_impl*
+end;//TkwPopTestName.DoDoIt
+
+class function TkwPopTestName.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Test:Name';
+end;//TkwPopTestName.GetWordNameForRegister
+
+procedure TkwPopTestName.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_E6DE6CAD7EFE_var*
+//#UC END# *52D00B00031A_E6DE6CAD7EFE_var*
+begin
+//#UC START# *52D00B00031A_E6DE6CAD7EFE_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_E6DE6CAD7EFE_impl*
+end;//TkwPopTestName.SetValuePrim
+
+function TkwPopTestName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_E6DE6CAD7EFE_var*
+//#UC END# *551544E2001A_E6DE6CAD7EFE_var*
+begin
+//#UC START# *551544E2001A_E6DE6CAD7EFE_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_E6DE6CAD7EFE_impl*
+end;//TkwPopTestName.GetResultTypeInfo
+
+function TkwPopTestName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_E6DE6CAD7EFE_var*
+//#UC END# *559687E6025A_E6DE6CAD7EFE_var*
+begin
+//#UC START# *559687E6025A_E6DE6CAD7EFE_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_E6DE6CAD7EFE_impl*
+end;//TkwPopTestName.GetAllParamsCount
+
+function TkwPopTestName.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_E6DE6CAD7EFE_var*
+//#UC END# *5617F4D00243_E6DE6CAD7EFE_var*
+begin
+//#UC START# *5617F4D00243_E6DE6CAD7EFE_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_E6DE6CAD7EFE_impl*
+end;//TkwPopTestName.ParamsTypes
+
+function TkwPopTestEnabled.Enabled(const aCtx: TtfwContext;
+ const aTest: ITest): Boolean;
+ {* Реализация слова скрипта pop:Test:Enabled }
+//#UC START# *D72537763731_1CEB5B8AA2E5_var*
+//#UC END# *D72537763731_1CEB5B8AA2E5_var*
+begin
+//#UC START# *D72537763731_1CEB5B8AA2E5_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *D72537763731_1CEB5B8AA2E5_impl*
+end;//TkwPopTestEnabled.Enabled
+
+procedure TkwPopTestEnabled.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_1CEB5B8AA2E5_var*
+//#UC END# *4DAEEDE10285_1CEB5B8AA2E5_var*
+begin
+//#UC START# *4DAEEDE10285_1CEB5B8AA2E5_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_1CEB5B8AA2E5_impl*
+end;//TkwPopTestEnabled.DoDoIt
+
+class function TkwPopTestEnabled.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Test:Enabled';
+end;//TkwPopTestEnabled.GetWordNameForRegister
+
+procedure TkwPopTestEnabled.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_1CEB5B8AA2E5_var*
+//#UC END# *52D00B00031A_1CEB5B8AA2E5_var*
+begin
+//#UC START# *52D00B00031A_1CEB5B8AA2E5_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_1CEB5B8AA2E5_impl*
+end;//TkwPopTestEnabled.SetValuePrim
+
+function TkwPopTestEnabled.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_1CEB5B8AA2E5_var*
+//#UC END# *551544E2001A_1CEB5B8AA2E5_var*
+begin
+//#UC START# *551544E2001A_1CEB5B8AA2E5_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_1CEB5B8AA2E5_impl*
+end;//TkwPopTestEnabled.GetResultTypeInfo
+
+function TkwPopTestEnabled.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_1CEB5B8AA2E5_var*
+//#UC END# *559687E6025A_1CEB5B8AA2E5_var*
+begin
+//#UC START# *559687E6025A_1CEB5B8AA2E5_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_1CEB5B8AA2E5_impl*
+end;//TkwPopTestEnabled.GetAllParamsCount
+
+function TkwPopTestEnabled.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_1CEB5B8AA2E5_var*
+//#UC END# *5617F4D00243_1CEB5B8AA2E5_var*
+begin
+//#UC START# *5617F4D00243_1CEB5B8AA2E5_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_1CEB5B8AA2E5_impl*
+end;//TkwPopTestEnabled.ParamsTypes
+
+function TkwPopTestSubFolder.SubFolder(const aCtx: TtfwContext;
+ const aTest: ITest): AnsiString;
+ {* Реализация слова скрипта pop:Test:SubFolder }
+//#UC START# *DA47640487D6_4638C704D78B_var*
+//#UC END# *DA47640487D6_4638C704D78B_var*
+begin
+//#UC START# *DA47640487D6_4638C704D78B_impl*
+ Result := aTest.GetSubFolder;
+//#UC END# *DA47640487D6_4638C704D78B_impl*
+end;//TkwPopTestSubFolder.SubFolder
+
+procedure TkwPopTestSubFolder.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_4638C704D78B_var*
+//#UC END# *4DAEEDE10285_4638C704D78B_var*
+begin
+//#UC START# *4DAEEDE10285_4638C704D78B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_4638C704D78B_impl*
+end;//TkwPopTestSubFolder.DoDoIt
+
+class function TkwPopTestSubFolder.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Test:SubFolder';
+end;//TkwPopTestSubFolder.GetWordNameForRegister
+
+procedure TkwPopTestSubFolder.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_4638C704D78B_var*
+//#UC END# *52D00B00031A_4638C704D78B_var*
+begin
+//#UC START# *52D00B00031A_4638C704D78B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_4638C704D78B_impl*
+end;//TkwPopTestSubFolder.SetValuePrim
+
+function TkwPopTestSubFolder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_4638C704D78B_var*
+//#UC END# *551544E2001A_4638C704D78B_var*
+begin
+//#UC START# *551544E2001A_4638C704D78B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_4638C704D78B_impl*
+end;//TkwPopTestSubFolder.GetResultTypeInfo
+
+function TkwPopTestSubFolder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_4638C704D78B_var*
+//#UC END# *559687E6025A_4638C704D78B_var*
+begin
+//#UC START# *559687E6025A_4638C704D78B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_4638C704D78B_impl*
+end;//TkwPopTestSubFolder.GetAllParamsCount
+
+function TkwPopTestSubFolder.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_4638C704D78B_var*
+//#UC END# *5617F4D00243_4638C704D78B_var*
+begin
+//#UC START# *5617F4D00243_4638C704D78B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_4638C704D78B_impl*
+end;//TkwPopTestSubFolder.ParamsTypes
+
+function TkwPopTestHasScriptChildren.HasScriptChildren(const aCtx: TtfwContext;
+ const aTest: ITest): Boolean;
+ {* Реализация слова скрипта pop:Test:HasScriptChildren }
+//#UC START# *DC8D3C4D047E_719F0EEEAFD0_var*
+//#UC END# *DC8D3C4D047E_719F0EEEAFD0_var*
+begin
+//#UC START# *DC8D3C4D047E_719F0EEEAFD0_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *DC8D3C4D047E_719F0EEEAFD0_impl*
+end;//TkwPopTestHasScriptChildren.HasScriptChildren
+
+procedure TkwPopTestHasScriptChildren.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_719F0EEEAFD0_var*
+//#UC END# *4DAEEDE10285_719F0EEEAFD0_var*
+begin
+//#UC START# *4DAEEDE10285_719F0EEEAFD0_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_719F0EEEAFD0_impl*
+end;//TkwPopTestHasScriptChildren.DoDoIt
+
+class function TkwPopTestHasScriptChildren.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Test:HasScriptChildren';
+end;//TkwPopTestHasScriptChildren.GetWordNameForRegister
+
+procedure TkwPopTestHasScriptChildren.SetValuePrim(const aValue: TtfwStackValue;
+ const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_719F0EEEAFD0_var*
+//#UC END# *52D00B00031A_719F0EEEAFD0_var*
+begin
+//#UC START# *52D00B00031A_719F0EEEAFD0_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_719F0EEEAFD0_impl*
+end;//TkwPopTestHasScriptChildren.SetValuePrim
+
+function TkwPopTestHasScriptChildren.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_719F0EEEAFD0_var*
+//#UC END# *551544E2001A_719F0EEEAFD0_var*
+begin
+//#UC START# *551544E2001A_719F0EEEAFD0_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_719F0EEEAFD0_impl*
+end;//TkwPopTestHasScriptChildren.GetResultTypeInfo
+
+function TkwPopTestHasScriptChildren.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_719F0EEEAFD0_var*
+//#UC END# *559687E6025A_719F0EEEAFD0_var*
+begin
+//#UC START# *559687E6025A_719F0EEEAFD0_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_719F0EEEAFD0_impl*
+end;//TkwPopTestHasScriptChildren.GetAllParamsCount
+
+function TkwPopTestHasScriptChildren.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_719F0EEEAFD0_var*
+//#UC END# *5617F4D00243_719F0EEEAFD0_var*
+begin
+//#UC START# *5617F4D00243_719F0EEEAFD0_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_719F0EEEAFD0_impl*
+end;//TkwPopTestHasScriptChildren.ParamsTypes
+
+function TkwTestShouldStop.test_ShouldStop(const aCtx: TtfwContext): Boolean;
+ {* Реализация слова скрипта test:ShouldStop }
+//#UC START# *4E0E008C1CF6_AFCC4A8F1DF4_var*
+//#UC END# *4E0E008C1CF6_AFCC4A8F1DF4_var*
+begin
+//#UC START# *4E0E008C1CF6_AFCC4A8F1DF4_impl*
+ Result := aCtx.rCaller.ShouldStop;
+//#UC END# *4E0E008C1CF6_AFCC4A8F1DF4_impl*
+end;//TkwTestShouldStop.test_ShouldStop
+
+procedure TkwTestShouldStop.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_AFCC4A8F1DF4_var*
+//#UC END# *4DAEEDE10285_AFCC4A8F1DF4_var*
+begin
+//#UC START# *4DAEEDE10285_AFCC4A8F1DF4_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4DAEEDE10285_AFCC4A8F1DF4_impl*
+end;//TkwTestShouldStop.DoDoIt
+
+class function TkwTestShouldStop.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'test:ShouldStop';
+end;//TkwTestShouldStop.GetWordNameForRegister
+
+function TkwTestShouldStop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+//#UC START# *551544E2001A_AFCC4A8F1DF4_var*
+//#UC END# *551544E2001A_AFCC4A8F1DF4_var*
+begin
+//#UC START# *551544E2001A_AFCC4A8F1DF4_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *551544E2001A_AFCC4A8F1DF4_impl*
+end;//TkwTestShouldStop.GetResultTypeInfo
+
+function TkwTestShouldStop.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_AFCC4A8F1DF4_var*
+//#UC END# *559687E6025A_AFCC4A8F1DF4_var*
+begin
+//#UC START# *559687E6025A_AFCC4A8F1DF4_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_AFCC4A8F1DF4_impl*
+end;//TkwTestShouldStop.GetAllParamsCount
+
+function TkwTestShouldStop.ParamsTypes: PTypeInfoArray;
+//#UC START# *5617F4D00243_AFCC4A8F1DF4_var*
+//#UC END# *5617F4D00243_AFCC4A8F1DF4_var*
+begin
+//#UC START# *5617F4D00243_AFCC4A8F1DF4_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5617F4D00243_AFCC4A8F1DF4_impl*
+end;//TkwTestShouldStop.ParamsTypes
+
+initialization
+ TITestWordsPackResNameGetter.Register;
+ {* Регистрация скриптованой аксиоматики }
+ TkwPopTestName.RegisterInEngine;
+ {* Регистрация pop_Test_Name }
+ TkwPopTestEnabled.RegisterInEngine;
+ {* Регистрация pop_Test_Enabled }
+ TkwPopTestSubFolder.RegisterInEngine;
+ {* Регистрация pop_Test_SubFolder }
+ TkwPopTestHasScriptChildren.RegisterInEngine;
+ {* Регистрация pop_Test_HasScriptChildren }
+ TkwTestShouldStop.RegisterInEngine;
+ {* Регистрация test_ShouldStop }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
+ {* Регистрация типа TtfwContext }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(ITest));
+ {* Регистрация типа ITest }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа String }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
+ {* Регистрация типа Boolean }
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+
 end.

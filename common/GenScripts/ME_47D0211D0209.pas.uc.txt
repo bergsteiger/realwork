@@ -1,0 +1,106 @@
+//#UC START# *47D0211D0209ci*
+//#UC END# *47D0211D0209ci*
+//#UC START# *47D0211D0209cit*
+//#UC END# *47D0211D0209cit*
+//#UC START# *47D0211D0209impl*
+//#UC END# *47D0211D0209impl*
+//#UC START# *47D0211D0209publ*
+  property AllowWithoutCurrent;
+  property IsShowLines;
+  property Font;
+//#UC END# *47D0211D0209publ*
+//#UC START# *47E136A80191_47D0211D0209_impl*
+ if (Message.Msg = WM_RBUTTONDOWN) then
+  if Assigned(f_OnNeedCloseTree) then
+   f_OnNeedCloseTree(nil);
+ inherited;
+//#UC END# *47E136A80191_47D0211D0209_impl*
+//#UC START# *47E136A80191_47D0211D0209_var*
+//#UC END# *47E136A80191_47D0211D0209_var*
+//#UC START# *5152C85403DA_47D0211D0209_impl*
+ inherited DoOnSelect(Index, aValue);
+ if ((Index < 0) or (Index >= Total)) or not Boolean(aValue) then
+  Exit;
+ if Assigned(OnSelectChanged) then
+  OnSelectChanged(Self, Index, aValue);
+//#UC END# *5152C85403DA_47D0211D0209_impl*
+//#UC START# *5152C85403DA_47D0211D0209_var*
+//#UC END# *5152C85403DA_47D0211D0209_var*
+//#UC START# *5298BEBA032D_47D0211D0209_impl*
+ Result := True;
+//#UC END# *5298BEBA032D_47D0211D0209_impl*
+//#UC START# *5298BEBA032D_47D0211D0209_var*
+//#UC END# *5298BEBA032D_47D0211D0209_var*
+//#UC START# *5298BF130022_47D0211D0209_impl*
+ Result := True;
+//#UC END# *5298BF130022_47D0211D0209_impl*
+//#UC START# *5298BF130022_47D0211D0209_var*
+//#UC END# *5298BF130022_47D0211D0209_var*
+//#UC START# *5298BF4D00FE_47D0211D0209_impl*
+ Result := f_IsList;
+//#UC END# *5298BF4D00FE_47D0211D0209_impl*
+//#UC START# *5298BF4D00FE_47D0211D0209_var*
+//#UC END# *5298BF4D00FE_47D0211D0209_var*
+//#UC START# *5298BF8700B0_47D0211D0209_impl*
+ Result := f_IsInvert;
+//#UC END# *5298BF8700B0_47D0211D0209_impl*
+//#UC START# *5298BF8700B0_47D0211D0209_var*
+//#UC END# *5298BF8700B0_47D0211D0209_var*
+//#UC START# *5298BFDF0035_47D0211D0209_impl*
+ Result := Assigned(f_OnOwnerAssigned) and f_OnOwnerAssigned;
+//#UC END# *5298BFDF0035_47D0211D0209_impl*
+//#UC START# *5298BFDF0035_47D0211D0209_var*
+//#UC END# *5298BFDF0035_47D0211D0209_var*
+//#UC START# *5298BFFA014B_47D0211D0209_impl*
+ Result := f_Width;
+//#UC END# *5298BFFA014B_47D0211D0209_impl*
+//#UC START# *5298BFFA014B_47D0211D0209_var*
+//#UC END# *5298BFFA014B_47D0211D0209_var*
+//#UC START# *5299A21B0029_47D0211D0209_impl*
+ f_IsStartResize := False;
+ //К сожалению это событие просто не успевает сработать, но на всякий случай...
+ inherited;
+//#UC END# *5299A21B0029_47D0211D0209_impl*
+//#UC START# *5299A21B0029_47D0211D0209_var*
+//#UC END# *5299A21B0029_47D0211D0209_var*
+//#UC START# *5299A25802A0_47D0211D0209_impl*
+ inherited;
+ f_IsStartResize := True;
+ if Assigned(f_OnStartResize) then
+  f_OnStartResize(Self);
+//#UC END# *5299A25802A0_47D0211D0209_impl*
+//#UC START# *5299A25802A0_47D0211D0209_var*
+//#UC END# *5299A25802A0_47D0211D0209_var*
+//#UC START# *5299A27702BC_47D0211D0209_impl*
+ inherited;
+ if (Message.Active = WA_ACTIVE) and f_IsStartResize then
+ begin
+  Parent.SetFocus;
+  if Assigned(f_OnEndResize) then
+   f_OnEndResize(Self);
+  f_IsStartResize := False;
+ end;
+//#UC END# *5299A27702BC_47D0211D0209_impl*
+//#UC START# *5299A27702BC_47D0211D0209_var*
+//#UC END# *5299A27702BC_47D0211D0209_var*
+//#UC START# *5299A2B600AC_47D0211D0209_impl*
+ inherited;
+ Pt := SmallPointToPoint(Msg.Pos);
+ HitTest(Pt, N, l_ItemPart, false);
+ if (l_ItemPart = ihtText) or (l_ItemPart = ihtPickIcon) then
+  if Assigned(f_OnChooseItem) then
+   f_OnChooseItem(Self, GetCurrentNode);
+//#UC END# *5299A2B600AC_47D0211D0209_impl*
+//#UC START# *5299A2B600AC_47D0211D0209_var*
+var
+ N: Integer;
+ l_ItemPart: Byte;
+ Pt: TPoint;
+//#UC END# *5299A2B600AC_47D0211D0209_var*
+//#UC START# *5299A3A90164_47D0211D0209_impl*
+ f_IsInvert := anInvert;
+ f_IsList := anIsList;
+ f_Width := aWidth;
+//#UC END# *5299A3A90164_47D0211D0209_impl*
+//#UC START# *5299A3A90164_47D0211D0209_var*
+//#UC END# *5299A3A90164_47D0211D0209_var*

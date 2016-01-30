@@ -1,0 +1,37 @@
+//#UC START# *4C762A1501FC_4C84E097023Aexec_impl*
+ if Assigned(dsMark) and dsMark.CanSend then
+ begin
+  if mComment.TextLen > c_TextCommentLen then
+  begin
+   Say(err_LimitCharsReached, [c_TextCommentLen]);
+   Exit;
+  end;
+  dsMark.Comment := mComment.Buffer;
+  try
+   dsMark.Send;
+   ModalResult := mrOk;
+  except
+   on ENoConnection do
+    Say(war_NoConnection);
+   on ENoSubscription do
+    Say(war_NoSubscription, [defDataAdapter.GetDealerInfo]);
+  end;
+ end;//if Assigned(dsMark) and dsMark.CanSend then
+//#UC END# *4C762A1501FC_4C84E097023Aexec_impl*
+//#UC START# *4C762A1501FC_4C84E097023Aexec_var*
+//#UC END# *4C762A1501FC_4C84E097023Aexec_var*
+//#UC START# *4C762A1501FC_4C84E097023Agetstate_impl*
+ State := st_user_Result_Ok_ConsultationMark; 
+//#UC END# *4C762A1501FC_4C84E097023Agetstate_impl*
+//#UC START# *4C762A1501FC_4C84E097023Agetstate_var*
+//#UC END# *4C762A1501FC_4C84E097023Agetstate_var*
+//#UC START# *4C762A1501FC_4C84E097023Atest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := Assigned(dsMark) and dsMark.CanSend;
+//#UC END# *4C762A1501FC_4C84E097023Atest_impl*
+//#UC START# *4C762A1501FC_4C84E097023Atest_var*
+//#UC END# *4C762A1501FC_4C84E097023Atest_var*
+//#UC START# *4C762AB601E1_4C84E097023Aexec_impl*
+ ModalResult := mrCancel;
+//#UC END# *4C762AB601E1_4C84E097023Aexec_impl*
+//#UC START# *4C762AB601E1_4C84E097023Aexec_var*
+//#UC END# *4C762AB601E1_4C84E097023Aexec_var*

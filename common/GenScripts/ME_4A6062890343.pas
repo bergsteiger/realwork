@@ -1,23 +1,42 @@
 unit evHugeParaListPrim;
+ {* Список параграфов с числом свойств больше 32 }
+
+// Модуль: "w:\common\components\rtl\Garant\K2\evHugeParaListPrim.pas"
+// Стереотип: "SimpleClass"
+
+{$Include k2Define.inc}
 
 interface
 
 uses
  l3IntfUses
  , k2ListTag
+ , l3Variant
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
 ;
 
  {$Define l3Items_NoOwner}
- 
+
 type
- TevHugeParaListPrim = class(Tk2ListTag)
+ //#UC START# *4A6062890343ci*
+ {$Define l3Items_NoSort}
+ //#UC END# *4A6062890343ci*
+ _l3VariantListPrim_Parent_ = Tk2ListTag;
+ {$Define l3Items_IsProto}
+ {$Include l3VariantListPrim.imp.pas}
+ //#UC START# *4A6062890343cit*
+ //#UC END# *4A6062890343cit*
+ TevHugeParaListPrim = class(_l3VariantListPrim_)
   {* Список параграфов с числом свойств больше 32 }
-  procedure AssignItem(const aTo: _ItemType_;
-   const aFrom: _ItemType_);
-  function CompareExistingItems(const CI: CompareItemsRec): Integer;
-   {* Сравнивает два существующих элемента. }
+ //#UC START# *4A6062890343publ*
+ //#UC END# *4A6062890343publ*
  end;//TevHugeParaListPrim
- 
+
 implementation
 
 uses
@@ -28,5 +47,41 @@ uses
  , l3MinMax
  , RTLConsts
 ;
+
+function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
+
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
+procedure AssignItem(const aTo: _ItemType_;
+ const aFrom: _ItemType_);
+//#UC START# *47B2C42A0163_4A6062890343_var*
+//#UC END# *47B2C42A0163_4A6062890343_var*
+begin
+//#UC START# *47B2C42A0163_4A6062890343_impl*
+ aTo.AssignTag(aFrom, k2_amAll - [k2_amNull]);
+//#UC END# *47B2C42A0163_4A6062890343_impl*
+end;//AssignItem
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
+
+function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
+//#UC START# *47B99D4503A2_4A6062890343_var*
+//#UC END# *47B99D4503A2_4A6062890343_var*
+begin
+//#UC START# *47B99D4503A2_4A6062890343_impl*
+ {$IfDef l3Items_HasCustomSort}
+ Result := CI.rA^.CompareWithTag(CI.rB^, CI.rSortIndex);
+ {$Else  l3Items_HasCustomSort}
+ Result := -1;
+ Assert(false);
+ {$EndIf l3Items_HasCustomSort}
+//#UC END# *47B99D4503A2_4A6062890343_impl*
+end;//CompareExistingItems
+
+type _Instance_R_ = TevHugeParaListPrim;
+
+{$Include l3VariantListPrim.imp.pas}
+
+//#UC START# *4A6062890343impl*
+//#UC END# *4A6062890343impl*
 
 end.

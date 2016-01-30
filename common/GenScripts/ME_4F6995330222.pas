@@ -1,13 +1,21 @@
 unit QueryCardProcessingPack;
 
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\QueryCardProcessingPack.pas"
+// Стереотип: "ScriptKeywordsPack"
+
+{$Include seDefine.inc}
+
 interface
 
+{$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
 ;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
+{$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
  , kwPopQueryCardAttributeSetWithLogicOperation
@@ -21,5 +29,6 @@ uses
  , kwPopQueryCardGetCurrentReqName
  , tfwScriptingTypes
 ;
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

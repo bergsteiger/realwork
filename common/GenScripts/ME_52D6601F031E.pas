@@ -1,7 +1,18 @@
 unit kwSubdescriptorGetBitmapIndex;
+ {* Помещает в стек иконки для отображения обычной метки
+Формат:
+[code]
+aSubDescrObj subdescriptor:GetBitmapIndex
+[code] }
+
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSubdescriptorGetBitmapIndex.pas"
+// Стереотип: "ScriptKeyword"
+
+{$Include seDefine.inc}
 
 interface
 
+{$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
  , kwSubDescriptorFromStackWord
@@ -10,20 +21,44 @@ uses
 ;
 
 type
- TkwSubdescriptorGetBitmapIndex = class(TkwSubDescriptorFromStackWord)
+ TkwSubdescriptorGetBitmapIndex = {final} class(TkwSubDescriptorFromStackWord)
   {* Помещает в стек иконки для отображения обычной метки
 Формат:
 [code]
 aSubDescrObj subdescriptor:GetBitmapIndex
 [code] }
-  procedure DoWithSubDescriptor(aControl: TevSubDescriptor;
-   const aCtx: TtfwContext);
+  protected
+   procedure DoWithSubDescriptor(aControl: TevSubDescriptor;
+    const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//TkwSubdescriptorGetBitmapIndex
- 
+{$IfEnd} // NOT Defined(NoScripts)
+
 implementation
 
+{$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
 ;
+
+procedure TkwSubdescriptorGetBitmapIndex.DoWithSubDescriptor(aControl: TevSubDescriptor;
+ const aCtx: TtfwContext);
+//#UC START# *52D65E9502E1_52D6601F031E_var*
+//#UC END# *52D65E9502E1_52D6601F031E_var*
+begin
+//#UC START# *52D65E9502E1_52D6601F031E_impl*
+ aCtx.rEngine.PushInt(aControl.BitmapIndex);
+//#UC END# *52D65E9502E1_52D6601F031E_impl*
+end;//TkwSubdescriptorGetBitmapIndex.DoWithSubDescriptor
+
+class function TkwSubdescriptorGetBitmapIndex.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'subdescriptor:GetBitmapIndex';
+end;//TkwSubdescriptorGetBitmapIndex.GetWordNameForRegister
+
+initialization
+ TkwSubdescriptorGetBitmapIndex.RegisterInEngine;
+ {* Регистрация subdescriptor_GetBitmapIndex }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

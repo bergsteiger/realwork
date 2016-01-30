@@ -1,23 +1,21 @@
 unit CodeBranchingPack;
 
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\CodeBranchingPack.pas"
+// Стереотип: "ScriptKeywordsPack"
+
+{$Include seDefine.inc}
+
 interface
 
+{$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , tfwBeginLikeWord
- , tfwScriptingInterfaces
- , kwCompiledWordPrim
 ;
+{$IfEnd} // NOT Defined(NoScripts)
 
-type
- TkwRULES = class(TtfwBeginLikeWord)
-  {* Аналог CASE и трансформаторов в MDP. Если условие выполняется, то выполняется следующий за ним оператор и осуществляется выход }
-  function EndBracket(const aContext: TtfwContext;
-   aSilent: Boolean): RtfwWord;
- end;//TkwRULES
- 
 implementation
 
+{$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
  , kwIfElse
@@ -28,8 +26,7 @@ uses
  , kwBracketBegin
  , kwBEGIN
  , tfwScriptingTypes
- , kwCompiledRules
- , kwStandardProcedureCloseBracket
 ;
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

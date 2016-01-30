@@ -1,7 +1,13 @@
-unit evControlsBlockHotSpotTester;
+unit NOT_FINISHED_evControlsBlockHotSpotTester;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evControlsBlockHotSpotTester.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
 
 interface
 
+{$If Defined(evNeedHotSpot) AND NOT Defined(evCanEditControlsAsText)}
 uses
  l3IntfUses
  , evControlsBlockHotSpotTesterPrim
@@ -10,11 +16,14 @@ uses
 type
  TevControlsBlockHotSpotTester = class(TevControlsBlockHotSpotTesterPrim)
  end;//TevControlsBlockHotSpotTester
- 
+{$IfEnd} // Defined(evNeedHotSpot) AND NOT Defined(evCanEditControlsAsText)
+
 implementation
 
+{$If Defined(evNeedHotSpot) AND NOT Defined(evCanEditControlsAsText)}
 uses
  l3ImplUses
 ;
+{$IfEnd} // Defined(evNeedHotSpot) AND NOT Defined(evCanEditControlsAsText)
 
 end.

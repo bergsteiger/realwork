@@ -1,4 +1,10 @@
-unit dd_lcPageNumberEliminator;
+unit NOT_FINISHED_dd_lcPageNumberEliminator;
+ {* Удаляет псевдономера страниц из текста судебных постановлений }
+
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcPageNumberEliminator.pas"
+// Стереотип: "SimpleClass"
+
+{$Include ddDefine.inc}
 
 interface
 
@@ -11,7 +17,7 @@ type
  Tdd_lcPageNumberEliminator = class(TevdChildBufferedFilter)
   {* Удаляет псевдономера страниц из текста судебных постановлений }
  end;//Tdd_lcPageNumberEliminator
- 
+
 implementation
 
 uses

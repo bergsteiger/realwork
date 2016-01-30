@@ -1,4 +1,9 @@
-unit ddFileIterator;
+unit NOT_FINISHED_ddFileIterator;
+
+// Модуль: "w:\common\components\rtl\Garant\dd\PipeIn\NOT_FINISHED_ddFileIterator.pas"
+// Стереотип: "SimpleClass"
+
+{$Include ddDefine.inc}
 
 interface
 
@@ -9,7 +14,7 @@ uses
 type
  TddFileIterator = class
  end;//TddFileIterator
- 
+
 implementation
 
 uses

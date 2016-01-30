@@ -1,0 +1,11 @@
+//#UC START# *4F4CB81200CA_4FF2EF7E03C7_impl*
+ if aCtx.rEngine.IsTopInt then
+  l_StyleID := aCtx.rEngine.PopInt
+ else
+  Assert(False, 'Не задан стиль для установки!');
+ evSetStyle2Block(anEditor.Selection.Cursor.MostInner.ParentPoint.Obj^.AsObject, anEditor.StartOp(ev_ocUser + 100), l_StyleID);
+//#UC END# *4F4CB81200CA_4FF2EF7E03C7_impl*
+//#UC START# *4F4CB81200CA_4FF2EF7E03C7_var*
+var
+ l_StyleID: Integer;
+//#UC END# *4F4CB81200CA_4FF2EF7E03C7_var*

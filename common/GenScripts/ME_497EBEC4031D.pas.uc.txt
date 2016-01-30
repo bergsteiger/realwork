@@ -1,0 +1,206 @@
+//#UC START# *479731C50290_497EBEC4031D_impl*
+ TnsNewsLine.Make.UnSubscribe(Self);
+ inherited;
+//#UC END# *479731C50290_497EBEC4031D_impl*
+//#UC START# *479731C50290_497EBEC4031D_var*
+//#UC END# *479731C50290_497EBEC4031D_var*
+//#UC START# *47A042E100E2_497EBEC4031D_impl*
+ inherited;
+ f_InDataChanging := False;
+ //UpdateNewsLineTree;
+//#UC END# *47A042E100E2_497EBEC4031D_impl*
+//#UC START# *47A042E100E2_497EBEC4031D_var*
+//#UC END# *47A042E100E2_497EBEC4031D_var*
+//#UC START# *47EA4E9002C6_497EBEC4031D_impl*
+ inherited;
+ if (not defDataAdapter.Monitoring.IsExist) then
+ begin
+  if not vcmDispatcher.History.CanBack then
+  begin
+   TdmStdRes.OpenMainMenuIfNeeded(nil);
+   vcmDispatcher.History.DeleteBackItem;
+  end else
+  while vcmDispatcher.FormDispatcher.CurrentMainForm.AsContainer.HasForm(fm_enNewsLine.rFormID) and
+   vcmDispatcher.History.CanBack do
+   vcmDispatcher.History.Back(True);
+ end;
+//#UC END# *47EA4E9002C6_497EBEC4031D_impl*
+//#UC START# *47EA4E9002C6_497EBEC4031D_var*
+//#UC END# *47EA4E9002C6_497EBEC4031D_var*
+//#UC START# *497469C90140_497EBEC4031D_impl*
+ inherited;
+ if Assigned(aNew) then
+  f_CurrentNewsLineIndex := DateList.Current;
+//#UC END# *497469C90140_497EBEC4031D_impl*
+//#UC START# *497469C90140_497EBEC4031D_var*
+//#UC END# *497469C90140_497EBEC4031D_var*
+//#UC START# *49806ED503D5_497EBEC4031D_impl*
+ l_InnerState := nil;
+ inherited DoSaveState(theState, aStateType, aForClone);
+ theState := TPrimNewsLineFormState.Make(f_CurrentNewsLineIndex{DateList.Current}, l_InnerState);
+ Result := true;
+//#UC END# *49806ED503D5_497EBEC4031D_impl*
+//#UC START# *49806ED503D5_497EBEC4031D_var*
+var
+ l_InnerState: IvcmBase;
+//#UC END# *49806ED503D5_497EBEC4031D_var*
+//#UC START# *49807428008C_497EBEC4031D_impl*
+ if Supports(aState, IPrimNewsLineFormState, l_State) then
+ begin
+  l_InnerState := l_State.InnerState;
+  l_WasDataChanging := f_InDataChanging;
+  f_InDataChanging := True;
+  DateList.Current := l_State.CurrentNewsLineIndex;
+  f_CurrentNewsLineIndex := l_State.CurrentNewsLineIndex;
+  f_InDataChanging := False or l_WasDataChanging;
+ end
+ else
+  l_InnerState := aState; 
+ Result := inherited DoLoadState(l_InnerState, aStateType);
+//#UC END# *49807428008C_497EBEC4031D_impl*
+//#UC START# *49807428008C_497EBEC4031D_var*
+var
+ l_WasDataChanging: Boolean;
+ l_State: IPrimNewsLineFormState;
+ l_InnerState: IvcmBase;
+//#UC END# *49807428008C_497EBEC4031D_var*
+//#UC START# *49918CC5036B_497EBEC4031D_impl*
+ f_InDataChanging := True;
+ try
+  l_Curr := DateList.Current;
+  ResetThemeList;
+ finally
+  f_InDataChanging := False;
+ end;
+ DateList.Current := l_Curr;
+//#UC END# *49918CC5036B_497EBEC4031D_impl*
+//#UC START# *49918CC5036B_497EBEC4031D_var*
+var
+ l_Curr: Integer;
+//#UC END# *49918CC5036B_497EBEC4031D_var*
+//#UC START# *4A8E8F2E0195_497EBEC4031D_impl*
+ DateList.Images := nsSearchRes.SearchItemsImageList;
+ TnsNewsLine.Make.Subscribe(Self);
+ f_UpdateFlag := False;
+ with DateList do
+ begin
+  Align := alClient;
+  BorderStyle := bsNone;
+  ActionElementMode := l3_amSingleClick;
+  ViewOptions := [voShowInterRowSpace, voShowIcons, voShowExpandable, voShowLines];
+  ClearTreeStructOnSaveState := False;
+  OnGetItemImage := DateListGetItemImage;
+  OnCurrentChanged := DateListCurrentChanged;
+ end;
+//#UC END# *4A8E8F2E0195_497EBEC4031D_impl*
+//#UC START# *4A8E8F2E0195_497EBEC4031D_var*
+//#UC END# *4A8E8F2E0195_497EBEC4031D_var*
+//#UC START# *4A9807F801F9_497EBEC4031Dexec_impl*
+ SetActiveInParent;
+//#UC END# *4A9807F801F9_497EBEC4031Dexec_impl*
+//#UC START# *4A9807F801F9_497EBEC4031Dexec_var*
+//#UC END# *4A9807F801F9_497EBEC4031Dexec_var*
+//#UC START# *4AF822B302C4_497EBEC4031Dexec_impl*
+ OpenAutoreferat(DateList.GetCurrentNode);
+//#UC END# *4AF822B302C4_497EBEC4031Dexec_impl*
+//#UC START# *4AF822B302C4_497EBEC4031Dexec_var*
+//#UC END# *4AF822B302C4_497EBEC4031Dexec_var*
+//#UC START# *4AF82EFD0025_497EBEC4031Dexec_impl*
+ // Пытаемся эмулировать работу в составе сборки (cq24583)
+ if (sdsAutoReferat <> nil) then
+  SafeClose;
+//#UC END# *4AF82EFD0025_497EBEC4031Dexec_impl*
+//#UC START# *4AF82EFD0025_497EBEC4031Dexec_var*
+//#UC END# *4AF82EFD0025_497EBEC4031Dexec_var*
+//#UC START# *4C87BD85008A_497EBEC4031D_impl*
+ l_Tree := TnsNewsLine.Make.MakeCurrentThemeTreeStruct;
+ DateList.TreeStruct := l_Tree;
+ if Assigned(l_Tree)
+  then DateList.Current := 0
+  else DateList.Current := -1;
+//#UC END# *4C87BD85008A_497EBEC4031D_impl*
+//#UC START# *4C87BD85008A_497EBEC4031D_var*
+var
+ l_Tree: Il3SimpleTree;
+//#UC END# *4C87BD85008A_497EBEC4031D_var*
+//#UC START# *4C8DC50203CB_497EBEC4031D_impl*
+ UpdateNewsLineTree;
+ if not f_InDataChanging then
+  OpenAutoreferat(DateList.GetCurrentNode, False);
+ f_UpdateFlag := True;
+//#UC END# *4C8DC50203CB_497EBEC4031D_impl*
+//#UC START# *4C8DC50203CB_497EBEC4031D_var*
+//#UC END# *4C8DC50203CB_497EBEC4031D_var*
+//#UC START# *4E7C2AA3037E_497EBEC4031D_impl*
+ TnsNewsLine.Make.LoadThemeFromSettings;
+ UpdateNewsLineTree;
+ inherited;
+//#UC END# *4E7C2AA3037E_497EBEC4031D_impl*
+//#UC START# *4E7C2AA3037E_497EBEC4031D_var*
+//#UC END# *4E7C2AA3037E_497EBEC4031D_var*
+//#UC START# *4F7B072201AA_497EBEC4031D_impl*
+ inherited;
+ TnsNewsLine.Make.SaveThemeToSettings;
+//#UC END# *4F7B072201AA_497EBEC4031D_impl*
+//#UC START# *4F7B072201AA_497EBEC4031D_var*
+//#UC END# *4F7B072201AA_497EBEC4031D_var*
+//#UC START# *4FC38C4C0119_497EBEC4031D_impl*
+ Result := True;
+//#UC END# *4FC38C4C0119_497EBEC4031D_impl*
+//#UC START# *4FC38C4C0119_497EBEC4031D_var*
+//#UC END# *4FC38C4C0119_497EBEC4031D_var*
+//#UC START# *5242A36D006B_497EBEC4031D_impl*
+ TnsNewsLine.Make.SaveThemeToSettings;
+//#UC END# *5242A36D006B_497EBEC4031D_impl*
+//#UC START# *5242A36D006B_497EBEC4031D_var*
+//#UC END# *5242A36D006B_497EBEC4031D_var*
+//#UC START# *5242A3770043_497EBEC4031D_impl*
+ Result := siilNewsLineTheme;
+//#UC END# *5242A3770043_497EBEC4031D_impl*
+//#UC START# *5242A3770043_497EBEC4031D_var*
+//#UC END# *5242A3770043_497EBEC4031D_var*
+//#UC START# *5242A37E01D3_497EBEC4031D_impl*
+ if (aNewCurrent >= 0) and not f_InDataChanging then
+  OpenAutoreferat(DateList.GetNode(aNewCurrent));
+//#UC END# *5242A37E01D3_497EBEC4031D_impl*
+//#UC START# *5242A37E01D3_497EBEC4031D_var*
+//#UC END# *5242A37E01D3_497EBEC4031D_var*
+//#UC START# *5242A678004A_497EBEC4031D_impl*
+ l_Document := TnsNewsLine.Make.ExtractAutoReferat(aNode);
+ if Assigned(l_Document) then
+ begin
+  // После обновления базы, перечитываем аналитическую ленту, только если она
+  // открыта на экране, в остальных случаях просто открываем:
+  if AllowOpen or
+     NativeMainForm.HasForm(fm_TextForm.rFormID, vcm_ztParent, True, nil, dftAutoreferat) then
+  // Создадим сборку:
+   TdmStdRes.OpenAutoreferat(l_Document, nil);
+ end
+ else
+ begin
+  while (vcmDispatcher.FormDispatcher.CurrentMainForm.AsContainer).HasForm(fm_enNewsLine.rFormID) and
+         vcmDispatcher.History.CanBack do
+   vcmDispatcher.History.Back(True);
+ end;
+//#UC END# *5242A678004A_497EBEC4031D_impl*
+//#UC START# *5242A678004A_497EBEC4031D_var*
+var
+ l_Document: IDocument;
+//#UC END# *5242A678004A_497EBEC4031D_var*
+//#UC START# *5671156B01AD_567115A7039Dget_impl*
+ Result := f_CurrentNewsLineIndex;
+//#UC END# *5671156B01AD_567115A7039Dget_impl*
+//#UC START# *5671156B01AD_567115A7039Dget_var*
+//#UC END# *5671156B01AD_567115A7039Dget_var*
+//#UC START# *567116EC034D_567115A7039D_impl*
+ inherited Create;
+ f_CurrentNewsLineIndex := aCurrentNewsLineIndex;
+ f_InnerState := aInnerState;
+//#UC END# *567116EC034D_567115A7039D_impl*
+//#UC START# *567116EC034D_567115A7039D_var*
+//#UC END# *567116EC034D_567115A7039D_var*
+//#UC START# *56713E9A012D_567115A7039Dget_impl*
+ Result := f_InnerState;
+//#UC END# *56713E9A012D_567115A7039Dget_impl*
+//#UC START# *56713E9A012D_567115A7039Dget_var*
+//#UC END# *56713E9A012D_567115A7039Dget_var*

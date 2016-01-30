@@ -1,4 +1,10 @@
 unit SimpleDocumentTextPara_Const;
+ {* текстовый параграф в "простых документах" }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\SimpleDocumentTextPara_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -9,7 +15,7 @@ uses
 ;
 
  // SimpleDocumentTextParaTag
- 
+
 implementation
 
 uses

@@ -1,4 +1,10 @@
 unit EditablePart_Const;
+ {* http://mdp.garant.ru/pages/viewpage.action?pageId=280859697 }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\EditablePart_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -10,7 +16,7 @@ uses
 ;
 
  // EditablePartTag
- 
+
 implementation
 
 uses

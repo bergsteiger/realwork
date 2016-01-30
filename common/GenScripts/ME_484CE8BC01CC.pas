@@ -1,4 +1,10 @@
-unit l3FontManager;
+unit NOT_FINISHED_l3FontManager;
+ {* Классы для работы со шрифтами. }
+
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3FontManager.pas"
+// Стереотип: "UtilityPack"
+
+{$Include l3Define.inc}
 
 interface
 
@@ -11,9 +17,9 @@ uses
 type
  Tl3FontManager = class(Tl3FontManagerPrim)
  end;//Tl3FontManager
- 
+
  Tl3LogFont = l3LogFont.Tl3LogFont;
- 
+
 implementation
 
 uses

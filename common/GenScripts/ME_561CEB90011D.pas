@@ -1,5 +1,10 @@
 unit l3ProcessingEnabledService;
 
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ProcessingEnabledService.pas"
+// Стереотип: "Service"
+
+{$Include l3Define.inc}
+
 interface
 
 uses
@@ -13,23 +18,86 @@ uses
   function Enabled: Boolean;
  end;//Ml3ProcessingEnabledService
  *)
- 
+
 type
  Il3ProcessingEnabledService = interface
   {* Интерфейс сервиса Tl3ProcessingEnabledService }
+  ['{8EE372F2-5B4D-4BC3-8E60-D2DD5148EE09}']
   function Enabled: Boolean;
  end;//Il3ProcessingEnabledService
- 
- Tl3ProcessingEnabledService = class(Tl3ProtoObject)
-  function Exists: Boolean;
-   {* Проверяет создан экземпляр синглетона или нет }
-  function Enabled: Boolean;
+
+ Tl3ProcessingEnabledService = {final} class(Tl3ProtoObject)
+  private
+   f_Alien: Il3ProcessingEnabledService;
+    {* Поле для свойства Alien }
+  protected
+   procedure pm_SetAlien(const aValue: Il3ProcessingEnabledService);
+   procedure ClearFields; override;
+  public
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+   function Enabled: Boolean;
+   class function Instance: Tl3ProcessingEnabledService;
+    {* Метод получения экземпляра синглетона Tl3ProcessingEnabledService }
+  public
+   property Alien: Il3ProcessingEnabledService
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса Il3ProcessingEnabledService }
  end;//Tl3ProcessingEnabledService
- 
+
 implementation
 
 uses
  l3ImplUses
+ , SysUtils
+ , l3Base
 ;
+
+var g_Tl3ProcessingEnabledService: Tl3ProcessingEnabledService = nil;
+ {* Экземпляр синглетона Tl3ProcessingEnabledService }
+
+procedure Tl3ProcessingEnabledServiceFree;
+ {* Метод освобождения экземпляра синглетона Tl3ProcessingEnabledService }
+begin
+ l3Free(g_Tl3ProcessingEnabledService);
+end;//Tl3ProcessingEnabledServiceFree
+
+procedure Tl3ProcessingEnabledService.pm_SetAlien(const aValue: Il3ProcessingEnabledService);
+begin
+ Assert((f_Alien = nil) OR (aValue = nil));
+ f_Alien := aValue;
+end;//Tl3ProcessingEnabledService.pm_SetAlien
+
+class function Tl3ProcessingEnabledService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3ProcessingEnabledService <> nil;
+end;//Tl3ProcessingEnabledService.Exists
+
+function Tl3ProcessingEnabledService.Enabled: Boolean;
+//#UC START# *ECCF31CF8A24_561CEB90011D_var*
+//#UC END# *ECCF31CF8A24_561CEB90011D_var*
+begin
+//#UC START# *ECCF31CF8A24_561CEB90011D_impl*
+ Result := Assigned(f_Alien) and f_Alien.Enabled;
+//#UC END# *ECCF31CF8A24_561CEB90011D_impl*
+end;//Tl3ProcessingEnabledService.Enabled
+
+class function Tl3ProcessingEnabledService.Instance: Tl3ProcessingEnabledService;
+ {* Метод получения экземпляра синглетона Tl3ProcessingEnabledService }
+begin
+ if (g_Tl3ProcessingEnabledService = nil) then
+ begin
+  l3System.AddExitProc(Tl3ProcessingEnabledServiceFree);
+  g_Tl3ProcessingEnabledService := Create;
+ end;
+ Result := g_Tl3ProcessingEnabledService;
+end;//Tl3ProcessingEnabledService.Instance
+
+procedure Tl3ProcessingEnabledService.ClearFields;
+begin
+ Alien := nil;
+ inherited;
+end;//Tl3ProcessingEnabledService.ClearFields
 
 end.

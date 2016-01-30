@@ -1,4 +1,10 @@
 unit TextPara_Const;
+ {* Текстовый параграф }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\TextPara_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -18,7 +24,7 @@ uses
 ;
 
  // TextParaTag
- 
+
 implementation
 
 uses

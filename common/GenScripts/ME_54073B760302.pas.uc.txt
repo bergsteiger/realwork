@@ -1,0 +1,46 @@
+//#UC START# *479731C50290_54073B760302_impl*
+ Logger := nil;
+ inherited;
+//#UC END# *479731C50290_54073B760302_impl*
+//#UC START# *479731C50290_54073B760302_var*
+//#UC END# *479731C50290_54073B760302_var*
+//#UC START# *53FDFD1D0164_54073B760302_impl*
+ // - ничего не делаем
+//#UC END# *53FDFD1D0164_54073B760302_impl*
+//#UC START# *53FDFD1D0164_54073B760302_var*
+//#UC END# *53FDFD1D0164_54073B760302_var*
+//#UC START# *53FDFD34034B_54073B760302_impl*
+ // - ничего не делаем
+//#UC END# *53FDFD34034B_54073B760302_impl*
+//#UC START# *53FDFD34034B_54073B760302_var*
+//#UC END# *53FDFD34034B_54073B760302_var*
+//#UC START# *540F06CE030B_54073B760302set_impl*
+ aValue.SetRefTo(f_Logger);
+//#UC END# *540F06CE030B_54073B760302set_impl*
+//#UC START# *540F06CE030B_54073B760302set_var*
+//#UC END# *540F06CE030B_54073B760302set_var*
+//#UC START# *540F06F60288_54073B760302_impl*
+ inherited;
+//#UC END# *540F06F60288_54073B760302_impl*
+//#UC START# *540F06F60288_54073B760302_var*
+//#UC END# *540F06F60288_54073B760302_var*
+//#UC START# *540F07260255_54073B760302_impl*
+ Result := inherited DoLockHeader;
+ {$IfDef m3LogRootStreamHeaderLocks}
+ if Result then
+  if (Logger <> nil) then
+   Logger.ToLog('Header locked');
+ {$EndIf m3LogRootStreamHeaderLocks}  
+//#UC END# *540F07260255_54073B760302_impl*
+//#UC START# *540F07260255_54073B760302_var*
+//#UC END# *540F07260255_54073B760302_var*
+//#UC START# *540F072F02B4_54073B760302_impl*
+ Result := inherited DoUnlockHeader;
+ {$IfDef m3LogRootStreamHeaderLocks}
+ if Result then
+  if (Logger <> nil) then
+   Logger.ToLog('Header unlocked');
+ {$EndIf m3LogRootStreamHeaderLocks}  
+//#UC END# *540F072F02B4_54073B760302_impl*
+//#UC START# *540F072F02B4_54073B760302_var*
+//#UC END# *540F072F02B4_54073B760302_var*

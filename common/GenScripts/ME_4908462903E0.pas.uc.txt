@@ -1,0 +1,78 @@
+//#UC START# *477250FC0040_4908462903E0_impl*
+ // DoNothing
+//#UC END# *477250FC0040_4908462903E0_impl*
+//#UC START# *477250FC0040_4908462903E0_var*
+//#UC END# *477250FC0040_4908462903E0_var*
+//#UC START# *4772510D0043_4908462903E0_impl*
+ f_Active := False;
+ f_Context := nil;
+//#UC END# *4772510D0043_4908462903E0_impl*
+//#UC START# *4772510D0043_4908462903E0_var*
+//#UC END# *4772510D0043_4908462903E0_var*
+//#UC START# *4772511D0316_4908462903E0_impl*
+ // DoNothing
+//#UC END# *4772511D0316_4908462903E0_impl*
+//#UC START# *4772511D0316_4908462903E0_var*
+//#UC END# *4772511D0316_4908462903E0_var*
+//#UC START# *479731C50290_4908462903E0_impl*
+ if Assigned(f_NotificationSource) then
+  f_NotificationSource.UnSubscribeFromContextFilter(Self);
+ f_NotificationSource := nil; 
+ f_Context := nil;
+ inherited;
+//#UC END# *479731C50290_4908462903E0_impl*
+//#UC START# *479731C50290_4908462903E0_var*
+//#UC END# *479731C50290_4908462903E0_var*
+//#UC START# *4908394101EB_4908462903E0get_impl*
+ Result := f_Active;
+//#UC END# *4908394101EB_4908462903E0get_impl*
+//#UC START# *4908394101EB_4908462903E0get_var*
+//#UC END# *4908394101EB_4908462903E0get_var*
+//#UC START# *4908395B027E_4908462903E0get_impl*
+ Result := f_Context;
+//#UC END# *4908395B027E_4908462903E0get_impl*
+//#UC START# *4908395B027E_4908462903E0get_var*
+//#UC END# *4908395B027E_4908462903E0get_var*
+//#UC START# *4908396C014C_4908462903E0get_impl*
+ if f_Active then
+  Result := f_Context
+ else
+  Result := nil;
+//#UC END# *4908396C014C_4908462903E0get_impl*
+//#UC START# *4908396C014C_4908462903E0get_var*
+//#UC END# *4908396C014C_4908462903E0get_var*
+//#UC START# *4908397A033F_4908462903E0get_impl*
+ Result := f_CaretPos;
+//#UC END# *4908397A033F_4908462903E0get_impl*
+//#UC START# *4908397A033F_4908462903E0get_var*
+//#UC END# *4908397A033F_4908462903E0get_var*
+//#UC START# *490839F50038_4908462903E0_impl*
+ Result := f_NeedRefilterTree;
+//#UC END# *490839F50038_4908462903E0_impl*
+//#UC START# *490839F50038_4908462903E0_var*
+//#UC END# *490839F50038_4908462903E0_var*
+//#UC START# *4908477B00BE_4908462903E0_impl*
+ inherited Create;
+ f_Active := IsActive;
+ f_Context := aContext;
+ f_CaretPos := aPos;
+ f_NotificationSource := lp_ExtractNotifySource(aContextFilterTarget);
+ if Assigned(f_NotificationSource) then
+  f_NotificationSource.SubscribeToContextFilter(Self);
+ f_NeedRefilterTree := aNeedRefilterTree; 
+//#UC END# *4908477B00BE_4908462903E0_impl*
+//#UC START# *4908477B00BE_4908462903E0_var*
+
+ function lp_ExtractNotifySource(const aSource: Il3ContextFilterTarget): Il3ContextFilterNotifySource;
+ var
+  l_Container: Il3ContextFilterTargetContainer;
+  l_ContextTarget: Il3ContextFilterTarget;
+ begin
+  if Supports(aSource, Il3ContextFilterTargetContainer, l_Container) then
+   l_ContextTarget := l_COntainer.Unfold
+  else
+   l_ContextTarget := aSource;
+  Supports(l_ContextTarget, Il3ContextFilterNotifySource, Result);
+ end;
+
+//#UC END# *4908477B00BE_4908462903E0_var*

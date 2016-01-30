@@ -1,4 +1,9 @@
-unit nevViewControl;
+unit NOT_FINISHED_nevViewControl;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_nevViewControl.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -10,7 +15,7 @@ uses
 type
  TnevViewControl = class(Tl3CacheableBase)
  end;//TnevViewControl
- 
+
 implementation
 
 uses

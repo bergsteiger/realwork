@@ -660,9 +660,16 @@ PROCEDURE "Перезаписать фильтр с именем , новым параметром для КЗ ППС" STRING IN
  "Дождаться переключения вкладок"
 ;
 
-// $Id: Filters.script,v 1.59 2015/11/10 14:40:26 a.trofimov Exp $
+PROCEDURE "Убедиться, что вкладка фильтры не активна"
+ false ANYUSERTYPE контрол::FiltersList форма::Filters TryFocusOnForm ! ?ASSURE 'Вкладка фильтры доступна!'
+;
+
+// $Id: Filters.script,v 1.60 2016/01/13 13:48:05 a.trofimov Exp $
 
 // $Log: Filters.script,v $
+// Revision 1.60  2016/01/13 13:48:05  a.trofimov
+// Добавил тест K615114152.script и эталон для него. Обновил словари
+//
 // Revision 1.59  2015/11/10 14:40:26  a.trofimov
 // Разбор результатов автопрогона (без вкладок)
 //

@@ -1,0 +1,82 @@
+//#UC START# *479731C50290_555C88FF0236_impl*
+ f_Part := nil;
+ f_DB := nil;
+ inherited;
+ f_ObjectIndex := 0;
+ f_Level := 0;
+ l3FillChar(f_PartSelector, SizeOf(f_PartSelector));
+//#UC END# *479731C50290_555C88FF0236_impl*
+//#UC START# *479731C50290_555C88FF0236_var*
+//#UC END# *479731C50290_555C88FF0236_var*
+//#UC START# *555C888301B0_555C88FF0236_impl*
+ Result := true;
+ if (f_DB <> nil) and (Handle <> 0) then
+ begin
+  Assert(Handle > 0);
+  COMStream := OpenDocumentStream(f_DB.GetDocument(Handle),
+                                  f_Part,
+                                  f_PartSelector,
+                                  f_ObjectIndex,
+                                  FMtoSA(Mode),
+                                  f_Level);
+ end // (f_DB <> nil) and (Handle <> 0)
+ else
+  Result := false;
+//#UC END# *555C888301B0_555C88FF0236_impl*
+//#UC START# *555C888301B0_555C88FF0236_var*
+
+ function OpenDocumentStream(const aDoc    : Im3DBDocument;
+                             out aPart     : Im3DBDocumentPart;
+                             aPartSelector : Tm3DocPartSelector;
+                             aIndex        : Integer;
+                             aMode         : Tm3StoreAccess;
+                             aLevel        : Integer): IStream;
+ begin//OpenDocumentStream
+  Assert(aDoc <> nil);
+  aPart := aDoc.GetVersion(aLevel);
+  if (aMode = m3_saRead) then
+  begin
+   Result := aPart.Open(aMode, aPartSelector, aIndex);
+   if (Result = nil) then
+   begin
+    aPart := nil;
+    f_DB.FreeVersions;
+    // - сообщаем, что переменную часть уже можно отпустить,
+    //   типа - самые умные и можем рулить хранилищем.
+    aPart := aDoc.GetConst;
+    // - берЄм посто€нную часть
+   end//Result = nil
+   else
+    Exit;
+    // - всЄ уже открыто
+  end;//Mode = l3_fmRead
+  Result := aPart.Open(aMode, aPartSelector, aIndex);
+ end;//OpenDocumentStream
+
+ function FMtoSA(aFileMode : Tl3FileMode) : Tm3StoreAccess;
+ begin
+  if (aFileMode = l3_fmRead) then
+   Result := m3_saRead
+  else
+   Result := m3_saReadWrite;
+ end;
+
+//#UC END# *555C888301B0_555C88FF0236_var*
+//#UC START# *555C88B703E7_555C88FF0236_impl*
+ f_Part := nil;
+ Stream := nil;
+ // - это ќЅя«ј“≈Ћ№Ќќ нужно дл€ сбалансированности скобок индикатора
+ inherited;
+//#UC END# *555C88B703E7_555C88FF0236_impl*
+//#UC START# *555C88B703E7_555C88FF0236_var*
+//#UC END# *555C88B703E7_555C88FF0236_var*
+//#UC START# *555C8A63011E_555C88FF0236_impl*
+ inherited Create;
+ f_DB := aDB;
+ Handle := aDocID;
+ f_PartSelector := aDocPart;
+ f_Level := aLevel;
+ //f_Index := anObjectIndex;
+//#UC END# *555C8A63011E_555C88FF0236_impl*
+//#UC START# *555C8A63011E_555C88FF0236_var*
+//#UC END# *555C8A63011E_555C88FF0236_var*

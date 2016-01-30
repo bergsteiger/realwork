@@ -1,30 +1,48 @@
 unit evParaListPainter;
+ {* Рисователь списка параграфов }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\evParaListPainter.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
 
 interface
 
+{$If Defined(evNeedPainters)}
 uses
  l3IntfUses
  , nevTools
+ , nevRealTools
+ , l3Interfaces
+ , l3InternalInterfaces
+ , nevBase
+ , l3Variant
+ , l3Units
+ , l3ProtoObject
 ;
 
  {$Define ParaPainter_IsParaListPainter}
- 
+
 type
+ _X_ = InevParaList;
+ {$Include evParaListPainter.imp.pas}
  TevParaListPainter = class(_evParaListPainter_)
   {* Рисователь списка параграфов }
  end;//TevParaListPainter
- 
+{$IfEnd} // Defined(evNeedPainters)
+
 implementation
 
+{$If Defined(evNeedPainters)}
 uses
  l3ImplUses
  , k2Tags
- , l3InternalInterfaces
  , l3VirtualCanvas
  , nevVirtualDrawView
- , l3Units
  , evParaDrawTools
+ {$If Defined(evUseVisibleCursors)}
  , nevAfterEndPoint
+ {$IfEnd} // Defined(evUseVisibleCursors)
  , l3MinMax
  , nevFacade
  , l3Const
@@ -32,7 +50,9 @@ uses
  , l3SmartCanvas
  , l3Base
  , l3Tree
+ {$If Defined(k2ForEditor)}
  , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
  , evdTypes
  , TableCell_Const
  , DocumentSub_Const
@@ -46,5 +66,8 @@ uses
  , Table_Const
  , Windows
 ;
+
+{$Include evParaListPainter.imp.pas}
+{$IfEnd} // Defined(evNeedPainters)
 
 end.

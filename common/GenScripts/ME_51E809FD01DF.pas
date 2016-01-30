@@ -1,22 +1,24 @@
-unit StandardAtomicList.imp;
+{$IfNDef StandardAtomicList_imp}
 
-interface
+// Модуль: "w:\common\components\SandBox\StandardAtomicList.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
- , Refcounted
-;
+{$Define StandardAtomicList_imp}
 
-type
- _StandardAtomicList_ = class(TRefcounted)
+ _AtomicList_Parent_ = TRefcounted;
+ {$Include AtomicList.imp.pas}
+ _StandardAtomicList_ = class(_AtomicList_)
  end;//_StandardAtomicList_
- 
-implementation
 
-uses
- l3ImplUses
- , RTLConsts
- , l3MemorySizeUtils
-;
+{$Else StandardAtomicList_imp}
 
-end.
+{$IfNDef StandardAtomicList_imp_impl}
+
+{$Define StandardAtomicList_imp_impl}
+
+{$Include AtomicList.imp.pas}
+
+{$EndIf StandardAtomicList_imp_impl}
+
+{$EndIf StandardAtomicList_imp}
+

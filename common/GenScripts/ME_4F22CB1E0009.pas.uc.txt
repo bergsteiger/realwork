@@ -1,0 +1,112 @@
+//#UC START# *4B4F13E80365_4F22CB1E0009_impl*
+ Result := GetIsMainObjectForm;
+//#UC END# *4B4F13E80365_4F22CB1E0009_impl*
+//#UC START# *4B4F13E80365_4F22CB1E0009_var*
+//#UC END# *4B4F13E80365_4F22CB1E0009_var*
+//#UC START# *4F619BCE008A_4F22CB1E0009_impl*
+ Result := true;
+//#UC END# *4F619BCE008A_4F22CB1E0009_impl*
+//#UC START# *4F619BCE008A_4F22CB1E0009_var*
+//#UC END# *4F619BCE008A_4F22CB1E0009_var*
+//#UC START# *4F6A0EE50047_4F22CB1E0009_impl*
+ Result := true;
+//#UC END# *4F6A0EE50047_4F22CB1E0009_impl*
+//#UC START# *4F6A0EE50047_4F22CB1E0009_var*
+//#UC END# *4F6A0EE50047_4F22CB1E0009_var*
+//#UC START# *4F748C5A00CB_4F22CB1E0009_impl*
+ Result := false;
+//#UC END# *4F748C5A00CB_4F22CB1E0009_impl*
+//#UC START# *4F748C5A00CB_4F22CB1E0009_var*
+//#UC END# *4F748C5A00CB_4F22CB1E0009_var*
+//#UC START# *4F7C65380244_4F22CB1E0009_impl*
+ // - ничего не делаем, пусть потомки разбираются
+//#UC END# *4F7C65380244_4F22CB1E0009_impl*
+//#UC START# *4F7C65380244_4F22CB1E0009_var*
+//#UC END# *4F7C65380244_4F22CB1E0009_var*
+//#UC START# *4F7C6D3A0359_4F22CB1E0009_impl*
+ inherited;
+ FocusIsSetToUs;
+//#UC END# *4F7C6D3A0359_4F22CB1E0009_impl*
+//#UC START# *4F7C6D3A0359_4F22CB1E0009_var*
+//#UC END# *4F7C6D3A0359_4F22CB1E0009_var*
+//#UC START# *4F7C6D6801F4_4F22CB1E0009_impl*
+ // - ничего не делаем, пусть потомки разбираются
+//#UC END# *4F7C6D6801F4_4F22CB1E0009_impl*
+//#UC START# *4F7C6D6801F4_4F22CB1E0009_var*
+//#UC END# *4F7C6D6801F4_4F22CB1E0009_var*
+//#UC START# *4F7C806E024A_4F22CB1E0009_impl*
+ inherited;
+ if Visible then
+  BecomeVisible
+ else
+  BecomeInvisible;
+//#UC END# *4F7C806E024A_4F22CB1E0009_impl*
+//#UC START# *4F7C806E024A_4F22CB1E0009_var*
+//#UC END# *4F7C806E024A_4F22CB1E0009_var*
+//#UC START# *4F7C808A0349_4F22CB1E0009_impl*
+ // - ничего не делаем, пусть потомки разбираются
+//#UC END# *4F7C808A0349_4F22CB1E0009_impl*
+//#UC START# *4F7C808A0349_4F22CB1E0009_var*
+//#UC END# *4F7C808A0349_4F22CB1E0009_var*
+//#UC START# *501FEC050356_4F22CB1E0009set_impl*
+ if (f_ZoneType <> aValue) then
+ begin
+  f_ZoneType := aValue;
+  if (f_ZoneType in [vcm_ztModal, vcm_ztManualModal]) then
+   RecreateWnd;
+ end;//f_ZoneType <> aValue
+//#UC END# *501FEC050356_4F22CB1E0009set_impl*
+//#UC START# *501FEC050356_4F22CB1E0009set_var*
+//#UC END# *501FEC050356_4F22CB1E0009set_var*
+//#UC START# *501FEC7203A5_4F22CB1E0009_impl*
+ f_ZoneType := vcm_ztFloating;
+ // - теперь типа просто плаваем
+ inherited;
+//#UC END# *501FEC7203A5_4F22CB1E0009_impl*
+//#UC START# *501FEC7203A5_4F22CB1E0009_var*
+//#UC END# *501FEC7203A5_4F22CB1E0009_var*
+//#UC START# *501FF183014D_4F22CB1E0009_impl*
+ Result := false;
+ l_Form := Self;
+ while true do
+ begin
+  if l_Form.GetIsMainObjectForm then
+  begin
+   l_Parent := afw.GetAnotherParentForm(l_Form);
+   if l_Parent Is TvcmMainForm then
+   begin
+    Result := true;
+    break;
+   end//l_Parent Is TvcmMainForm
+   else
+   if (l_Parent Is TvcmEntityFormModelPart) then
+    l_Form := TvcmEntityFormModelPart(l_Parent)
+   else
+    break;
+  end//l_Form.GetIsMainObjectForm
+  else
+   break;
+ end;//while true
+//#UC END# *501FF183014D_4F22CB1E0009_impl*
+//#UC START# *501FF183014D_4F22CB1E0009_var*
+var
+ l_Form   : TvcmEntityFormModelPart;
+ l_Parent : TafwCustomForm;
+//#UC END# *501FF183014D_4F22CB1E0009_var*
+//#UC START# *537C9007038A_4F22CB1E0009_impl*
+ // - ничего не делаем, пусть потомки разбираются 
+//#UC END# *537C9007038A_4F22CB1E0009_impl*
+//#UC START# *537C9007038A_4F22CB1E0009_var*
+//#UC END# *537C9007038A_4F22CB1E0009_var*
+//#UC START# *540953180034_4F22CB1E0009_impl*
+ Result := Caption;
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=564737453
+//#UC END# *540953180034_4F22CB1E0009_impl*
+//#UC START# *540953180034_4F22CB1E0009_var*
+//#UC END# *540953180034_4F22CB1E0009_var*
+//#UC START# *5409573A01C3_4F22CB1E0009get_impl*
+ Result := DoGetCaptionForSaving;
+ // - http://mdp.garant.ru/pages/viewpage.action?pageId=564737453
+//#UC END# *5409573A01C3_4F22CB1E0009get_impl*
+//#UC START# *5409573A01C3_4F22CB1E0009get_var*
+//#UC END# *5409573A01C3_4F22CB1E0009get_var*

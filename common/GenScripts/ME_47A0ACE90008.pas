@@ -1,24 +1,39 @@
-unit l3Castable.imp;
+{$IfNDef l3Castable_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\L3\l3Castable.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
- , l3Interfaces
-;
+{$Define l3Castable_imp}
 
-type
- _l3Castable_ = class
+ _l3Castable_ = class(_l3Castable_Parent_)
   {* Класс-примесь с методом QueryInterface }
-  function QueryInterface(const IID: TGUID;
-   out Obj): HResult; stdcall;
-   {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
+  public
+   function QueryInterface(const IID: TGUID;
+    out Obj): HResult; stdcall; virtual;
+    {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
  end;//_l3Castable_
- 
-implementation
 
-uses
- l3ImplUses
-;
+{$Else l3Castable_imp}
 
-end.
+{$IfNDef l3Castable_imp_impl}
+
+{$Define l3Castable_imp_impl}
+
+function _l3Castable_.QueryInterface(const IID: TGUID;
+ out Obj): HResult;
+ {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
+//#UC START# *47A0AD3A01F7_47A0ACE90008_var*
+//#UC END# *47A0AD3A01F7_47A0ACE90008_var*
+begin
+//#UC START# *47A0AD3A01F7_47A0ACE90008_impl*
+ if TObject(Self).GetInterface(IID, Obj) then
+  Result := S_Ok
+ else
+  Result := E_NoInterface;
+//#UC END# *47A0AD3A01F7_47A0ACE90008_impl*
+end;//_l3Castable_.QueryInterface
+
+{$EndIf l3Castable_imp_impl}
+
+{$EndIf l3Castable_imp}
+

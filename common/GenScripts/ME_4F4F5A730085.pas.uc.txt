@@ -1,0 +1,20 @@
+//#UC START# *4F4CB81200CA_4F4F5A730085_impl*
+ if aCtx.rEngine.IsTopBool then
+  l_Vertical := aCtx.rEngine.PopBool
+ else
+  Assert(False, 'Не задана ориентация прокрукти!');
+ if aCtx.rEngine.IsTopBool then
+  l_Up := aCtx.rEngine.PopBool
+ else
+  Assert(False, 'Не задано направление прокрукти!');
+ with anEditor.View.Scroller[l_Vertical] do
+  if l_Up then
+   WheelUp
+  else
+   WheelDown;
+//#UC END# *4F4CB81200CA_4F4F5A730085_impl*
+//#UC START# *4F4CB81200CA_4F4F5A730085_var*
+var
+ l_Up       : Boolean;
+ l_Vertical : Boolean;
+//#UC END# *4F4CB81200CA_4F4F5A730085_var*

@@ -1,0 +1,77 @@
+//#UC START# *479731C50290_4A825E02010E_impl*
+ FreeAndNil(f_Listeners);
+ inherited Cleanup;
+//#UC END# *479731C50290_4A825E02010E_impl*
+//#UC START# *479731C50290_4A825E02010E_var*
+//#UC END# *479731C50290_4A825E02010E_var*
+//#UC START# *4A825DBE0310_4A825E02010E_impl*
+ defDataAdapter.NativeAdapter.MakeUserJournal.GetUserJornalTree(l_Root);
+ Result := TnsJournalTreeStruct.Make(l_Root, False);
+//#UC END# *4A825DBE0310_4A825E02010E_impl*
+//#UC START# *4A825DBE0310_4A825E02010E_var*
+var
+ l_Root: INodeBase;
+//#UC END# *4A825DBE0310_4A825E02010E_var*
+//#UC START# *4A825E760100_4A825E02010E_impl*
+ defDataAdapter.NativeAdapter.MakeUserJournal.Clear;
+ NotifyJournalShrinked;
+//#UC END# *4A825E760100_4A825E02010E_impl*
+//#UC START# *4A825E760100_4A825E02010E_var*
+//#UC END# *4A825E760100_4A825E02010E_var*
+//#UC START# *4A82602103A2_4A825E02010E_impl*
+ defDataAdapter.NativeAdapter.MakeUserJournal.Save(aQuery, JOT_QUERY);
+//#UC END# *4A82602103A2_4A825E02010E_impl*
+//#UC START# *4A82602103A2_4A825E02010E_var*
+//#UC END# *4A82602103A2_4A825E02010E_var*
+//#UC START# *4A826038019A_4A825E02010E_impl*
+ defDataAdapter.NativeAdapter.MakeUserJournal.Save(aBookMark, JOT_BOOKMARK);
+//#UC END# *4A826038019A_4A825E02010E_impl*
+//#UC START# *4A826038019A_4A825E02010E_var*
+//#UC END# *4A826038019A_4A825E02010E_var*
+//#UC START# *4A8261F2003D_4A825E02010E_impl*
+ defDataAdapter.NativeAdapter.MakeUserJournal.GetQueryHistory(aQueryType, aMaxCount, Result);
+//#UC END# *4A8261F2003D_4A825E02010E_impl*
+//#UC START# *4A8261F2003D_4A825E02010E_var*
+//#UC END# *4A8261F2003D_4A825E02010E_var*
+//#UC START# *4A82623302E1_4A825E02010E_impl*
+ defDataAdapter.NativeAdapter.MakeUserJournal.GetBookmarkHistory(cMap[ForInpharm], aMaxCount, Result);
+//#UC END# *4A82623302E1_4A825E02010E_impl*
+//#UC START# *4A82623302E1_4A825E02010E_var*
+const
+ cMap: array [Boolean] of TBookmarkJournalType = (BJT_BOOKMARK, BJT_PHARM_BOOKMARK);
+//#UC END# *4A82623302E1_4A825E02010E_var*
+//#UC START# *4A8277980075_4A825E02010E_impl*
+ if Supports(aNode, INodeBase, l_Node) then
+ begin
+  defDataAdapter.NativeAdapter.MakeUserJournal.Remove(l_Node);
+  NotifyJournalShrinked;
+ end;
+//#UC END# *4A8277980075_4A825E02010E_impl*
+//#UC START# *4A8277980075_4A825E02010E_var*
+var
+ l_Node: INodeBase;
+//#UC END# *4A8277980075_4A825E02010E_var*
+//#UC START# *4A83AD2D030F_4A825E02010E_impl*
+ inherited Create;
+ f_Listeners := TnsWorkJournalListeners.MakeSOrted;
+//#UC END# *4A83AD2D030F_4A825E02010E_impl*
+//#UC START# *4A83AD2D030F_4A825E02010E_var*
+//#UC END# *4A83AD2D030F_4A825E02010E_var*
+//#UC START# *4A83AD4402AC_4A825E02010E_impl*
+ f_Listeners.Add(aListener);
+//#UC END# *4A83AD4402AC_4A825E02010E_impl*
+//#UC START# *4A83AD4402AC_4A825E02010E_var*
+//#UC END# *4A83AD4402AC_4A825E02010E_var*
+//#UC START# *4A83AD6D02B9_4A825E02010E_impl*
+ f_Listeners.Remove(aListener);
+//#UC END# *4A83AD6D02B9_4A825E02010E_impl*
+//#UC START# *4A83AD6D02B9_4A825E02010E_var*
+//#UC END# *4A83AD6D02B9_4A825E02010E_var*
+//#UC START# *4A83ADA701C0_4A825E02010E_impl*
+ for l_IDX := 0 to f_Listeners.Count - 1 do
+  f_Listeners[l_IDX].JournalShrinked;
+//#UC END# *4A83ADA701C0_4A825E02010E_impl*
+//#UC START# *4A83ADA701C0_4A825E02010E_var*
+var
+ l_IDX: Integer;
+//#UC END# *4A83ADA701C0_4A825E02010E_var*

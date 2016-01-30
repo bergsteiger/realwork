@@ -1,5 +1,10 @@
 unit l3AsyncTask;
 
+// Модуль: "w:\common\components\rtl\Garant\L3\l3AsyncTask.pas"
+// Стереотип: "SimpleClass"
+
+{$Include l3Define.inc}
+
 interface
 
 uses
@@ -9,9 +14,10 @@ uses
 
 type
  Tl3AsyncTask = class(Tl3ProtoObject)
-  procedure Exec;
+  public
+   procedure Exec; virtual; abstract;
  end;//Tl3AsyncTask
- 
+
 implementation
 
 uses

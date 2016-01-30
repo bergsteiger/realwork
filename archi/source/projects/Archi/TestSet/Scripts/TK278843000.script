@@ -18,12 +18,10 @@ PROCEDURE InitChangeDocWizardDlg
 ;
 
 Тест TK278843000
-	// Параметры: ( "Не открывать документ" "Проверка EVD документа" "Закрывать все окна" ) 
-	 TRY	  
+	Параметры: ( "Не открывать документ" "Закрывать все окна" ) 
+	Выполнить (
 		@ ( macros:MakeChangeDoc ) MODAL InitChangeDocWizardDlg		
-	 FINALLY
-		"Закрыть все окна"
-	 END  
+	 )
 ;
 
 TK278843000

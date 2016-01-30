@@ -1,4 +1,10 @@
 unit DictEntry_Const;
+ {* Словарная статья }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\DictEntry_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -10,7 +16,7 @@ uses
 ;
 
  // DictEntryTag
- 
+
 implementation
 
 uses

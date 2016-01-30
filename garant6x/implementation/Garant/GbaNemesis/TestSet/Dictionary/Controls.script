@@ -42,3 +42,7 @@ PROCEDURE "Сравнить с эталоном, зажата ли кнопка на форме " STRING IN aButton OB
  [ 'Кнопка ' aButton ' зажата?' ] strings:Cat . 
  "Узнать численную {('Down')} переменную объекта {("Нужная кнопка")}" 0 ?!= .
 ;
+
+PROCEDURE "Сравнить с эталоном активность контрола " OBJECT IN Ctrl
+ [ 'Активность контрола: ' Ctrl pop:Control:Enabled ToPrintable ] strings:Cat .
+;

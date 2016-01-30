@@ -1,0 +1,60 @@
+//#UC START# *4C762C910358_4C88E37B0049exec_impl*
+ if HasForm(vcm_ztChild, False, @l_Form) then
+  try
+   l_Form.Entity.Operation(TdmStdRes.opcode_Result_Cancel, aParams As IvcmExecuteParams);
+  finally
+   l_Form := nil;
+  end;
+//#UC END# *4C762C910358_4C88E37B0049exec_impl*
+//#UC START# *4C762C910358_4C88E37B0049exec_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4C762C910358_4C88E37B0049exec_var*
+//#UC START# *4C762C910358_4C88E37B0049test_impl*
+ if HasForm(vcm_ztChild, False, @l_Form) then
+  try
+   l_Form.Entity.Operation(TdmStdRes.opcode_Result_Cancel, aParams As IvcmTestParams);
+   aParams.Op.Flag[vcm_ofVisible] := False;
+  finally
+   l_Form := nil;
+  end
+ else
+ begin
+  aParams.Op.Flag[vcm_ofVisible] := False;
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+ end;
+//#UC END# *4C762C910358_4C88E37B0049test_impl*
+//#UC START# *4C762C910358_4C88E37B0049test_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4C762C910358_4C88E37B0049test_var*
+//#UC START# *4C762D9B0224_4C88E37B0049exec_impl*
+ if HasForm(vcm_ztChild, False, @l_Form) then
+  try
+   l_Form.Entity.Operation(TdmStdRes.opcode_Result_Save, aParams As IvcmExecuteParams);
+  finally
+   l_Form := nil;
+  end;
+//#UC END# *4C762D9B0224_4C88E37B0049exec_impl*
+//#UC START# *4C762D9B0224_4C88E37B0049exec_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4C762D9B0224_4C88E37B0049exec_var*
+//#UC START# *4C762D9B0224_4C88E37B0049test_impl*
+ if HasForm(vcm_ztChild, False, @l_Form) then
+  try
+   l_Form.Entity.Operation(TdmStdRes.opcode_Result_Save, aParams As IvcmTestParams);
+   aParams.Op.Flag[vcm_ofVisible] := False;
+  finally
+   l_Form := nil;
+  end
+ else
+ begin
+  aParams.Op.Flag[vcm_ofVisible] := False;
+  aParams.Op.Flag[vcm_ofEnabled] := False;
+ end;
+//#UC END# *4C762D9B0224_4C88E37B0049test_impl*
+//#UC START# *4C762D9B0224_4C88E37B0049test_var*
+var
+ l_Form : IvcmEntityForm;
+//#UC END# *4C762D9B0224_4C88E37B0049test_var*

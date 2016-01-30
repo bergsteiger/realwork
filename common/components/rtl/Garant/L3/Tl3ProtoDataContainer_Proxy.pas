@@ -1,5 +1,8 @@
 unit Tl3ProtoDataContainer_Proxy;
 
+// Модуль: "w:\common\components\rtl\Garant\L3\Tl3ProtoDataContainer_Proxy.pas"
+// Стереотип: "ClassProxy"
+
 interface
 
 uses

@@ -1,0 +1,32 @@
+//#UC START# *479731C50290_53148D6A00AE_impl*
+ Default := nil;
+ inherited;
+//#UC END# *479731C50290_53148D6A00AE_impl*
+//#UC START# *479731C50290_53148D6A00AE_var*
+//#UC END# *479731C50290_53148D6A00AE_var*
+//#UC START# *47A042E100E2_53148D6A00AE_impl*
+ inherited;
+ Sorted := true;
+//#UC END# *47A042E100E2_53148D6A00AE_impl*
+//#UC START# *47A042E100E2_53148D6A00AE_var*
+//#UC END# *47A042E100E2_53148D6A00AE_var*
+//#UC START# *5314900300F1_53148D6A00AEset_impl*
+ if (f_Default <> aValue) then
+ begin
+  FreeSlot(f_Default);
+  FillSlot(f_Default, aValue);
+ end;//f_Default <> aValue
+ //l3Set(f_Default, aValue);
+//#UC END# *5314900300F1_53148D6A00AEset_impl*
+//#UC START# *5314900300F1_53148D6A00AEset_var*
+//#UC END# *5314900300F1_53148D6A00AEset_var*
+//#UC START# *531490200099_53148D6A00AEget_impl*
+ if FindData(aName, i, SortIndex) then
+  Result := Items[i]
+ else
+  Result := Default;
+//#UC END# *531490200099_53148D6A00AEget_impl*
+//#UC START# *531490200099_53148D6A00AEget_var*
+var
+ i : Integer;
+//#UC END# *531490200099_53148D6A00AEget_var*

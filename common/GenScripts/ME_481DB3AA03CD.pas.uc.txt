@@ -1,0 +1,14 @@
+//#UC START# *479731C50290_481DB3AA03CD_impl*
+ f_DocView := nil;
+ FreeAndNil(f_Holder);
+ inherited;
+//#UC END# *479731C50290_481DB3AA03CD_impl*
+//#UC START# *479731C50290_481DB3AA03CD_var*
+//#UC END# *479731C50290_481DB3AA03CD_var*
+//#UC START# *4CB5BF260122_481DB3AA03CD_impl*
+ f_Holder := TnevObjectHolder.Create(aText);
+ f_DocView := TnevBaseDetachedView.Make(aText, aCanvas);
+ inherited Create(aText.Obj[0], f_DocView.RootFormatInfo, aCanvas, f_DocView.Metrics);
+//#UC END# *4CB5BF260122_481DB3AA03CD_impl*
+//#UC START# *4CB5BF260122_481DB3AA03CD_var*
+//#UC END# *4CB5BF260122_481DB3AA03CD_var*

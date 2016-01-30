@@ -1,5 +1,10 @@
 unit Concret;
 
+// Модуль: "w:\common\components\SandBox\Concret.pas"
+// Стереотип: "Interfaces"
+
+{$Include sbDefine.inc}
+
 interface
 
 uses
@@ -8,11 +13,13 @@ uses
 ;
 
 type
+ //_T_ = Concret;
  Concret = interface
-  function compare(const x: _T_;
-   const y: _T_): Integer;
+  ['{14AF2DBE-A147-42ED-82B8-C7B7360DB3A8}']
+  function compare(const x: Concret;
+   const y: Concret): Integer;
  end;//Concret
- 
+
 implementation
 
 uses

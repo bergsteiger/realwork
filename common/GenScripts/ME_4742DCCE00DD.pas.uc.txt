@@ -1,0 +1,95 @@
+//#UC START# *472084D802D5_4742DCCE00DDget_impl*
+ Result := f_ID;
+//#UC END# *472084D802D5_4742DCCE00DDget_impl*
+//#UC START# *472084D802D5_4742DCCE00DDget_var*
+//#UC END# *472084D802D5_4742DCCE00DDget_var*
+//#UC START# *472084FC00BA_4742DCCE00DD_impl*
+ if (f_DB <> nil) then
+  with f_DB do
+  begin
+   Start(m3_saReadWrite);
+   try
+    ModifyDeleted(f_ID, true);
+    //if ModifyDeleted(f_ID, true) then
+    // ModifyModified(f_ID, false);
+   finally
+    Finish;
+   end;//try..finally
+  end;//with f_DB
+//#UC END# *472084FC00BA_4742DCCE00DD_impl*
+//#UC START# *472084FC00BA_4742DCCE00DD_var*
+//#UC END# *472084FC00BA_4742DCCE00DD_var*
+//#UC START# *47208516014E_4742DCCE00DD_impl*
+ if (f_DB = nil) then
+  Result := false
+ else
+ begin
+  with f_DB do
+  begin
+   Start(m3_saReadWrite);
+   try
+    ModifyDeleted(f_ID, false);
+    Result := True;
+
+    //Result := ModifyDeleted(f_ID, false);
+    //if Result then
+    // ModifyModified(f_ID, true);
+   finally
+    Finish;
+   end;//try..finally
+  end;//with f_DB
+ end;//f_DB = nil
+//#UC END# *47208516014E_4742DCCE00DD_impl*
+//#UC START# *47208516014E_4742DCCE00DD_var*
+//#UC END# *47208516014E_4742DCCE00DD_var*
+//#UC START# *472085390162_4742DCCE00DD_impl*
+ Result := Tm3DBDocumentPart.Make(f_DB, Self, Cm3ConstVersion);
+//#UC END# *472085390162_4742DCCE00DD_impl*
+//#UC START# *472085390162_4742DCCE00DD_var*
+//#UC END# *472085390162_4742DCCE00DD_var*
+//#UC START# *4720856602B2_4742DCCE00DD_impl*
+ Result := Tm3DBDocumentPart.Make(f_DB, Self, aLevel);
+//#UC END# *4720856602B2_4742DCCE00DD_impl*
+//#UC START# *4720856602B2_4742DCCE00DD_var*
+//#UC END# *4720856602B2_4742DCCE00DD_var*
+//#UC START# *472085990020_4742DCCE00DD_impl*
+ Result := GetVersion.Open(aMode, aDocPart, aIndex);
+ if (aMode = m3_saRead) AND (Result = nil) then
+  Result := GetConst.Open(aMode, aDocPart, aIndex);
+//#UC END# *472085990020_4742DCCE00DD_impl*
+//#UC START# *472085990020_4742DCCE00DD_var*
+//#UC END# *472085990020_4742DCCE00DD_var*
+//#UC START# *486B7FD901A7_4742DCCE00DD_impl*
+ Result := 0;
+ l_ExistID := f_DB.GetDocumentObjectsIDs(f_ID);
+ try
+  while true do
+  begin
+   if (l_ExistID.IndexOf(Result) < 0) then
+    Exit
+   else
+    Inc(Result);
+  end;//while true
+ finally
+  l_ExistID := nil;
+ end;//try..finally
+//#UC END# *486B7FD901A7_4742DCCE00DD_impl*
+//#UC START# *486B7FD901A7_4742DCCE00DD_var*
+var
+ l_ExistID : Im3StorageElementIDList;
+//#UC END# *486B7FD901A7_4742DCCE00DD_var*
+//#UC START# *486B7FE5002E_4742DCCE00DD_impl*
+ // Для удаления надо создать поток объекта с нулевой длиной
+ l_ObjStream := Open(m3_saReadWrite, m3_dsObject, aObjID);
+ l_ObjStream := nil;
+//#UC END# *486B7FE5002E_4742DCCE00DD_impl*
+//#UC START# *486B7FE5002E_4742DCCE00DD_var*
+var
+ l_ObjStream: IStream;
+//#UC END# *486B7FE5002E_4742DCCE00DD_var*
+//#UC START# *555B2DEC002E_4742DCCE00DD_impl*
+ inherited Create(aDB);
+ f_ID := anID;
+//#UC END# *555B2DEC002E_4742DCCE00DD_impl*
+//#UC START# *555B2DEC002E_4742DCCE00DD_var*
+//#UC END# *555B2DEC002E_4742DCCE00DD_var*

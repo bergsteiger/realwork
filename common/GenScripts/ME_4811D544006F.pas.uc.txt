@@ -1,0 +1,270 @@
+//#UC START# *479731C50290_4811D544006F_impl*
+ f_Holder := nil;
+ FreeAndNil(f_ShapesPainted);
+ inherited;
+//#UC END# *479731C50290_4811D544006F_impl*
+//#UC START# *479731C50290_4811D544006F_var*
+//#UC END# *479731C50290_4811D544006F_var*
+//#UC START# *47A6FEE600FC_4811D544006F_impl*
+ Result := true;
+//#UC END# *47A6FEE600FC_4811D544006F_impl*
+//#UC START# *47A6FEE600FC_4811D544006F_var*
+//#UC END# *47A6FEE600FC_4811D544006F_var*
+//#UC START# *47C5B99001C4_4811D544006Fget_impl*
+ Result := DoGetMetrics;
+//#UC END# *47C5B99001C4_4811D544006Fget_impl*
+//#UC START# *47C5B99001C4_4811D544006Fget_var*
+//#UC END# *47C5B99001C4_4811D544006Fget_var*
+//#UC START# *47C5B9A30018_4811D544006F_impl*
+ Result := Shape;
+//#UC END# *47C5B9A30018_4811D544006F_impl*
+//#UC START# *47C5B9A30018_4811D544006F_var*
+//#UC END# *47C5B9A30018_4811D544006F_var*
+//#UC START# *47C5B9AA03E1_4811D544006F_impl*
+ if (f_ShapesPainted = nil) then
+  Result := nil
+ else
+ begin
+  Assert(f_ShapesPainted <> nil);
+  Result := f_ShapesPainted.Root;
+ end;//f_ShapesPainted = nil
+//#UC END# *47C5B9AA03E1_4811D544006F_impl*
+//#UC START# *47C5B9AA03E1_4811D544006F_var*
+//#UC END# *47C5B9AA03E1_4811D544006F_var*
+//#UC START# *47C5B9B202F0_4811D544006F_impl*
+ Result := DoGetProcessor;
+//#UC END# *47C5B9B202F0_4811D544006F_impl*
+//#UC START# *47C5B9B202F0_4811D544006F_var*
+//#UC END# *47C5B9B202F0_4811D544006F_var*
+//#UC START# *47C5B9C301B9_4811D544006F_impl*
+ ClearShapesPrim;
+//#UC END# *47C5B9C301B9_4811D544006F_impl*
+//#UC START# *47C5B9C301B9_4811D544006F_var*
+//#UC END# *47C5B9C301B9_4811D544006F_var*
+//#UC START# *47C5B9DB0136_4811D544006F_impl*
+ Inc(f_Level);
+ try
+  DoBeginDrawShape(aShape, anAnchor, anOrg, theMap, aFake, aHacker);
+ except
+  Dec(f_Level);
+  raise;
+ end;//try..except
+//#UC END# *47C5B9DB0136_4811D544006F_impl*
+//#UC START# *47C5B9DB0136_4811D544006F_var*
+//#UC END# *47C5B9DB0136_4811D544006F_var*
+//#UC START# *47C5B9FB03D1_4811D544006F_impl*
+ f_ShapesPainted.EndDraw;
+ Dec(f_Level);
+//#UC END# *47C5B9FB03D1_4811D544006F_impl*
+//#UC START# *47C5B9FB03D1_4811D544006F_var*
+//#UC END# *47C5B9FB03D1_4811D544006F_var*
+//#UC START# *47C5BA240004_4811D544006F_impl*
+ Result := f_ShapesPainted.MapByPoint(aPoint, aCheckTopVisible);
+//#UC END# *47C5BA240004_4811D544006F_impl*
+//#UC START# *47C5BA240004_4811D544006F_var*
+//#UC END# *47C5BA240004_4811D544006F_var*
+//#UC START# *481078F302DD_4811D544006F_impl*
+ Result := nil;
+ l_Obj := aPoint.Obj;
+ l_Point := aPoint.{ClonePoint(Self).Point(Self).}PointToParent(Shape);
+ // - нельзя снимать копию - получим бесконечную рекурсию - http://mdp.garant.ru/pages/viewpage.action?pageId=90450554
+ l_FI := RootFormatInfo;
+ if (l_FI = nil) then
+ // - такое может быть, когда инициализиреутся начальный курсор
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=287219002
+ // ОТВЕТСТВЕННОСТЬ НА СЕБЯ взял Головин http://mdp.garant.ru/pages/viewpage.action?pageId=287219002&focusedCommentId=288010300#comment-288010300
+  Exit;
+ while (l_Point <> nil) do
+ begin
+  if l_Point.Obj.AsObject.IsSame(l_Obj^.AsObject) then
+  begin
+   Result := l_FI; 
+   break;
+  end;//l_Point.Obj.IsSame(l_Obj
+  l_SC := l_Point.ShowCollapsed;
+  try
+   l_Point.ShowCollapsed := true;
+   l_Inner := l_Point.Inner;
+  finally
+   l_Point.ShowCollapsed := l_SC;
+  end;//try..finally
+  l_Point := l_Inner;
+  if (l_Point <> nil) and Assigned(l_FI) then
+   l_FI := l_FI.InfoForChild(l_Point.Obj^);
+ end;//while (l_Point <> nil)
+(* l_Map := f_ShapesPainted.MapByPoint(aPoint);
+ if (l_Map = nil) then
+  Result := nil
+ else
+  Result := l_Map.FI;*)
+//#UC END# *481078F302DD_4811D544006F_impl*
+//#UC START# *481078F302DD_4811D544006F_var*
+var
+ l_Point : InevBasePoint;
+ l_Inner : InevBasePoint;
+ l_FI    : TnevFormatInfoPrim;
+ l_Obj   : PInevObject;
+ l_SC    : Boolean;
+// l_Map : InevMap;
+//#UC END# *481078F302DD_4811D544006F_var*
+//#UC START# *4811BA6C005A_4811D544006F_impl*
+ Result := GetRootFormatInfo;
+//#UC END# *4811BA6C005A_4811D544006F_impl*
+//#UC START# *4811BA6C005A_4811D544006F_var*
+//#UC END# *4811BA6C005A_4811D544006F_var*
+//#UC START# *4811D60B0043_4811D544006Fget_impl*
+ Result := nil;
+//#UC END# *4811D60B0043_4811D544006Fget_impl*
+//#UC START# *4811D60B0043_4811D544006Fget_var*
+//#UC END# *4811D60B0043_4811D544006Fget_var*
+//#UC START# *4811D78A01A1_4811D544006F_impl*
+ // - ничего не делаем
+//#UC END# *4811D78A01A1_4811D544006F_impl*
+//#UC START# *4811D78A01A1_4811D544006F_var*
+//#UC END# *4811D78A01A1_4811D544006F_var*
+//#UC START# *4811D7AF02B6_4811D544006F_impl*
+ f_Level := 0;
+ inherited Create;
+ f_ShapesPainted := TnevShapesPainted.Create(Self);
+//#UC END# *4811D7AF02B6_4811D544006F_impl*
+//#UC START# *4811D7AF02B6_4811D544006F_var*
+//#UC END# *4811D7AF02B6_4811D544006F_var*
+//#UC START# *4811D7DC0254_4811D544006F_impl*
+ Result := nil;
+//#UC END# *4811D7DC0254_4811D544006F_impl*
+//#UC START# *4811D7DC0254_4811D544006F_var*
+//#UC END# *4811D7DC0254_4811D544006F_var*
+//#UC START# *4811D8210302_4811D544006F_impl*
+ Result := nil;
+//#UC END# *4811D8210302_4811D544006F_impl*
+//#UC START# *4811D8210302_4811D544006F_var*
+//#UC END# *4811D8210302_4811D544006F_var*
+//#UC START# *4811D8A502DE_4811D544006F_impl*
+ if (f_ShapesPainted <> nil) then
+  DoClearShapes(false);
+//#UC END# *4811D8A502DE_4811D544006F_impl*
+//#UC START# *4811D8A502DE_4811D544006F_var*
+//#UC END# *4811D8A502DE_4811D544006F_var*
+//#UC START# *4811DAA70258_4811D544006F_impl*
+ Assert(f_Level = 0);
+ if (f_ShapesPainted <> nil) then
+ begin
+  if aNeedClearMax then
+   f_ShapesPainted.ClearEx
+  else
+   f_ShapesPainted.Clear;
+ end;//f_ShapesPainted <> nil
+//#UC END# *4811DAA70258_4811D544006F_impl*
+//#UC START# *4811DAA70258_4811D544006F_var*
+//#UC END# *4811DAA70258_4811D544006F_var*
+//#UC START# *4811DB8A0323_4811D544006F_impl*
+ f_ShapesPainted.BeginDraw(aShape, anAnchor, anOrg, theMap, aFake, aHacker);
+//#UC END# *4811DB8A0323_4811D544006F_impl*
+//#UC START# *4811DB8A0323_4811D544006F_var*
+//#UC END# *4811DB8A0323_4811D544006F_var*
+//#UC START# *4816E2B2004E_4811D544006F_impl*
+ DoInvalidateShape(aShape, aParts);
+//#UC END# *4816E2B2004E_4811D544006F_impl*
+//#UC START# *4816E2B2004E_4811D544006F_var*
+//#UC END# *4816E2B2004E_4811D544006F_var*
+//#UC START# *481DA04D0324_4811D544006F_impl*
+ if (f_Holder = nil) then
+  FillHolder;
+ if (f_Holder = nil) then
+  Result := nil
+ else
+  Result := InevObjectHolder(f_Holder).FormatPool.FormatInfoForView(Self);
+//#UC END# *481DA04D0324_4811D544006F_impl*
+//#UC START# *481DA04D0324_4811D544006F_var*
+
+ procedure FillHolder;
+ var
+  l_Data : InevObject;
+  l_H    : InevObjectHolder;
+ begin//FillHolder
+  l_Data := Data;
+  if (l_Data = nil) then
+  // - т.к. такое может быть при инициализации курсора
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=287219002
+  // ОТВЕТСТВЕННОСТЬ НА СЕБЯ взял Головин http://mdp.garant.ru/pages/viewpage.action?pageId=287219002&focusedCommentId=288010300#comment-288010300
+   Exit;
+  Assert(l_Data <> nil);
+  l_H := l_Data.Holder;
+  Assert(l_H <> nil);
+  f_Holder := Pointer(l_H);
+ end;//FillHolder
+
+//#UC END# *481DA04D0324_4811D544006F_var*
+//#UC START# *4A27CEB10364_4811D544006Fget_impl*
+ Result := ActiveElementPrim;
+//#UC END# *4A27CEB10364_4811D544006Fget_impl*
+//#UC START# *4A27CEB10364_4811D544006Fget_var*
+//#UC END# *4A27CEB10364_4811D544006Fget_var*
+//#UC START# *4A27CFD20374_4811D544006Fget_impl*
+ Result := nil;
+//#UC END# *4A27CFD20374_4811D544006Fget_impl*
+//#UC START# *4A27CFD20374_4811D544006Fget_var*
+//#UC END# *4A27CFD20374_4811D544006Fget_var*
+//#UC START# *4B59A96702D9_4811D544006Fget_impl*
+ Result := ForceDrawFocusRectPrim;
+//#UC END# *4B59A96702D9_4811D544006Fget_impl*
+//#UC START# *4B59A96702D9_4811D544006Fget_var*
+//#UC END# *4B59A96702D9_4811D544006Fget_var*
+//#UC START# *4B59AC930100_4811D544006Fget_impl*
+ Result := false;
+//#UC END# *4B59AC930100_4811D544006Fget_impl*
+//#UC START# *4B59AC930100_4811D544006Fget_var*
+//#UC END# *4B59AC930100_4811D544006Fget_var*
+//#UC START# *4D5A3DD60219_4811D544006Fget_impl*
+ Result := Self.IsObjectCollapsed[anObject];
+//#UC END# *4D5A3DD60219_4811D544006Fget_impl*
+//#UC START# *4D5A3DD60219_4811D544006Fget_var*
+//#UC END# *4D5A3DD60219_4811D544006Fget_var*
+//#UC START# *4D5A3DD60219_4811D544006Fset_impl*
+ Self.IsObjectCollapsed[anObject] := aValue;
+//#UC END# *4D5A3DD60219_4811D544006Fset_impl*
+//#UC START# *4D5A3DD60219_4811D544006Fset_var*
+//#UC END# *4D5A3DD60219_4811D544006Fset_var*
+//#UC START# *4D5A3E3E01B7_4811D544006F_impl*
+ DoVersionInfoVisabilityChanged(aValue);
+//#UC END# *4D5A3E3E01B7_4811D544006F_impl*
+//#UC START# *4D5A3E3E01B7_4811D544006F_var*
+//#UC END# *4D5A3E3E01B7_4811D544006F_var*
+//#UC START# *4D5A46930182_4811D544006Fget_impl*
+ Result := anObject.AsObject.BoolA[k2_tiCollapsed];
+//#UC END# *4D5A46930182_4811D544006Fget_impl*
+//#UC START# *4D5A46930182_4811D544006Fget_var*
+//#UC END# *4D5A46930182_4811D544006Fget_var*
+//#UC START# *4D5A46930182_4811D544006Fset_impl*
+ anObject.AsObject.BoolA[k2_tiCollapsed] := aValue;
+ anObject.Invalidate([nev_spExtent]);
+ anObject.OwnerObj.Invalidate([nev_spExtent]);
+ if f_Holder <> nil then
+  InevObjectHolder(f_Holder).UpdatePreview;
+//#UC END# *4D5A46930182_4811D544006Fset_impl*
+//#UC START# *4D5A46930182_4811D544006Fset_var*
+//#UC END# *4D5A46930182_4811D544006Fset_var*
+//#UC START# *4D5A4707033B_4811D544006F_impl*
+ // - ничего не делаем
+//#UC END# *4D5A4707033B_4811D544006F_impl*
+//#UC START# *4D5A4707033B_4811D544006F_var*
+//#UC END# *4D5A4707033B_4811D544006F_var*
+//#UC START# *4E6F8ED402EF_4811D544006F_impl*
+ Result := FormatInfoByPoint(aPara.MakePoint);
+//#UC END# *4E6F8ED402EF_4811D544006F_impl*
+//#UC START# *4E6F8ED402EF_4811D544006F_var*
+//#UC END# *4E6F8ED402EF_4811D544006F_var*
+//#UC START# *4E6F8EF302A4_4811D544006F_impl*
+ if not anObj.AsObject.QT(InevObject, l_Para) then
+  Assert(false);
+ Result := FormatInfoByPara(l_Para);
+//#UC END# *4E6F8EF302A4_4811D544006F_impl*
+//#UC START# *4E6F8EF302A4_4811D544006F_var*
+var
+ l_Para : InevObject;
+//#UC END# *4E6F8EF302A4_4811D544006F_var*
+//#UC START# *4E6F98080175_4811D544006F_impl*
+ Result := FormatInfoByPoint(aPara.MakePoint);
+//#UC END# *4E6F98080175_4811D544006F_impl*
+//#UC START# *4E6F98080175_4811D544006F_var*
+//#UC END# *4E6F98080175_4811D544006F_var*

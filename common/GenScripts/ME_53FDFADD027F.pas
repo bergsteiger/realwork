@@ -1,21 +1,22 @@
-unit m3HeaderIDSupplier.imp;
+{$IfNDef m3HeaderIDSupplier_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\m3\m3HeaderIDSupplier.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
- , ActiveX
-;
+{$Define m3HeaderIDSupplier_imp}
 
-type
- _m3HeaderIDSupplier_ = class
-  function HeaderID: TCLSID;
+ _m3HeaderIDSupplier_ = class(_m3HeaderIDSupplier_Parent_)
+  public
+   class function HeaderID: TCLSID; virtual; abstract;
  end;//_m3HeaderIDSupplier_
- 
-implementation
 
-uses
- l3ImplUses
-;
+{$Else m3HeaderIDSupplier_imp}
 
-end.
+{$IfNDef m3HeaderIDSupplier_imp_impl}
+
+{$Define m3HeaderIDSupplier_imp_impl}
+
+{$EndIf m3HeaderIDSupplier_imp_impl}
+
+{$EndIf m3HeaderIDSupplier_imp}
+

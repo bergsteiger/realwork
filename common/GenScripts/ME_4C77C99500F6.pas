@@ -1,7 +1,13 @@
-unit vcmBaseOperationState;
+unit NOT_FINISHED_vcmBaseOperationState;
+
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmBaseOperationState.pas"
+// Стереотип: "SimpleClass"
+
+{$Include vcmDefine.inc}
 
 interface
 
+{$If NOT Defined(NoVCM)}
 uses
  l3IntfUses
 ;
@@ -9,11 +15,14 @@ uses
 type
  TvcmBaseOperationState = class
  end;//TvcmBaseOperationState
- 
+{$IfEnd} // NOT Defined(NoVCM)
+
 implementation
 
+{$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
 ;
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

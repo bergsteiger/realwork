@@ -1,2 +1,2 @@
-MakeCo TtfwArchiHyperlinkScriptCaller.rc.script
-brcc32 TtfwArchiHyperlinkScriptCaller.rc
+MakeCo tfwArchiHyperlinkScriptCaller.rc.script
+brcc32 tfwArchiHyperlinkScriptCaller.rc

@@ -1,0 +1,153 @@
+//#UC START# *476BFB3C007A_4815B8D801D8get_impl*
+ Result := LimitWidth;
+//#UC END# *476BFB3C007A_4815B8D801D8get_impl*
+//#UC START# *476BFB3C007A_4815B8D801D8get_var*
+//#UC END# *476BFB3C007A_4815B8D801D8get_var*
+//#UC START# *476BFBE10164_4815B8D801D8get_impl*
+ if (f_InfoCanvas = nil) then
+  Result := nev.CrtIC
+ else
+  Result := f_InfoCanvas;
+ Assert(Result <> nil);
+//#UC END# *476BFBE10164_4815B8D801D8get_impl*
+//#UC START# *476BFBE10164_4815B8D801D8get_var*
+//#UC END# *476BFBE10164_4815B8D801D8get_var*
+//#UC START# *476BFC120188_4815B8D801D8get_impl*
+ Result := f_IsWebStyle
+//#UC END# *476BFC120188_4815B8D801D8get_impl*
+//#UC START# *476BFC120188_4815B8D801D8get_var*
+//#UC END# *476BFC120188_4815B8D801D8get_var*
+//#UC START# *476BFC2101FB_4815B8D801D8get_impl*
+ Result := f_ShowDocumentParts;
+//#UC END# *476BFC2101FB_4815B8D801D8get_impl*
+//#UC START# *476BFC2101FB_4815B8D801D8get_var*
+//#UC END# *476BFC2101FB_4815B8D801D8get_var*
+//#UC START# *476BFC34010B_4815B8D801D8get_impl*
+ Result := f_ShowSpecial;
+//#UC END# *476BFC34010B_4815B8D801D8get_impl*
+//#UC START# *476BFC34010B_4815B8D801D8get_var*
+//#UC END# *476BFC34010B_4815B8D801D8get_var*
+//#UC START# *476BFC420000_4815B8D801D8get_impl*
+ Result := f_HiddenStyles;
+//#UC END# *476BFC420000_4815B8D801D8get_impl*
+//#UC START# *476BFC420000_4815B8D801D8get_var*
+//#UC END# *476BFC420000_4815B8D801D8get_var*
+//#UC START# *479731C50290_4815B8D801D8_impl*
+ f_InfoCanvas := nil;
+ f_Pool := nil;
+ inherited;
+//#UC END# *479731C50290_4815B8D801D8_impl*
+//#UC START# *479731C50290_4815B8D801D8_var*
+//#UC END# *479731C50290_4815B8D801D8_var*
+//#UC START# *4815CF1D0047_4815B8D801D8_impl*
+ LimitWidth := aView.Metrics.LimitWidth;
+ inherited Create(nil, aPool.Obj);
+ f_Pool := aPool;
+ with aView.Metrics do
+ begin
+  f_IsWebStyle := IsWebStyle;
+  f_AACLike := AACLike;
+  f_AllowRubberTables := AllowRubberTables;
+  f_ShowDocumentParts := ShowDocumentParts;
+  f_ShowSpecial := ShowSpecial;
+  f_HiddenStyles := HiddenStyles;
+  f_ExcludeSuper := ExcludeSuper;
+//  {$IFDEF Nemesis}
+  if InfoCanvas.Printing then
+   f_InfoCanvas := InfoCanvas
+  else
+   f_InfoCanvas := nil;
+  if FormatCanvas.Printing then
+   f_FormatCanvas := FormatCanvas
+  else
+   f_FormatCanvas := nil;
+(*  {$ELSE}
+   f_InfoCanvas := InfoCanvas;
+ // УБРАНО! http://mdp.garant.ru/pages/viewpage.action?pageId=142610892
+  {$ENDIF Nemesis}*)
+  f_Extent := Extent;
+ end;//with aView.Metrics
+//#UC END# *4815CF1D0047_4815B8D801D8_impl*
+//#UC START# *4815CF1D0047_4815B8D801D8_var*
+//#UC END# *4815CF1D0047_4815B8D801D8_var*
+//#UC START# *481733EB00F5_4815B8D801D8_impl*
+ Result := Self;
+//#UC END# *481733EB00F5_4815B8D801D8_impl*
+//#UC START# *481733EB00F5_4815B8D801D8_var*
+//#UC END# *481733EB00F5_4815B8D801D8_var*
+//#UC START# *481740670066_4815B8D801D8_impl*
+ Result := f_Pool.Container.ViewArea; 
+//#UC END# *481740670066_4815B8D801D8_impl*
+//#UC START# *481740670066_4815B8D801D8_var*
+//#UC END# *481740670066_4815B8D801D8_var*
+//#UC START# *481742AB0349_4815B8D801D8_impl*
+ Result := f_Pool.Container;
+//#UC END# *481742AB0349_4815B8D801D8_impl*
+//#UC START# *481742AB0349_4815B8D801D8_var*
+//#UC END# *481742AB0349_4815B8D801D8_var*
+//#UC START# *486D2C6702FA_4815B8D801D8get_impl*
+ Result := f_Extent;
+//#UC END# *486D2C6702FA_4815B8D801D8get_impl*
+//#UC START# *486D2C6702FA_4815B8D801D8get_var*
+//#UC END# *486D2C6702FA_4815B8D801D8get_var*
+//#UC START# *4AEAE49B024D_4815B8D801D8get_impl*
+ Result := f_ExcludeSuper;
+//#UC END# *4AEAE49B024D_4815B8D801D8get_impl*
+//#UC START# *4AEAE49B024D_4815B8D801D8get_var*
+//#UC END# *4AEAE49B024D_4815B8D801D8get_var*
+//#UC START# *4B7E744702C0_4815B8D801D8get_impl*
+ if (f_FormatCanvas = nil) then
+  Result := nev.CrtIC
+ else
+  Result := f_FormatCanvas;
+ Assert(Result <> nil);
+//#UC END# *4B7E744702C0_4815B8D801D8get_impl*
+//#UC START# *4B7E744702C0_4815B8D801D8get_var*
+//#UC END# *4B7E744702C0_4815B8D801D8get_var*
+//#UC START# *4BED6E9300FD_4815B8D801D8get_impl*
+ Result := f_AllowRubberTables;
+//#UC END# *4BED6E9300FD_4815B8D801D8get_impl*
+//#UC START# *4BED6E9300FD_4815B8D801D8get_var*
+//#UC END# *4BED6E9300FD_4815B8D801D8get_var*
+//#UC START# *4D5A80DC029D_4815B8D801D8_impl*
+ Result := aTag.BoolA[k2_tiCollapsed];
+ evCheckCollapsed(aTag, Result);
+//#UC END# *4D5A80DC029D_4815B8D801D8_impl*
+//#UC START# *4D5A80DC029D_4815B8D801D8_var*
+//#UC END# *4D5A80DC029D_4815B8D801D8_var*
+//#UC START# *4E5E285C0166_4815B8D801D8get_impl*
+ Result := Obj;
+//#UC END# *4E5E285C0166_4815B8D801D8get_impl*
+//#UC START# *4E5E285C0166_4815B8D801D8get_var*
+//#UC END# *4E5E285C0166_4815B8D801D8get_var*
+//#UC START# *4E5F3D1102B8_4815B8D801D8get_impl*
+ Result := inherited pm_GetLocSpacing;
+ if {Metrics.}f_ShowDocumentParts then
+  Tl3Rect(Result).TopLeft := Tl3Rect(Result).TopLeft.Add(l3PointY(evDocumentPartMargin));
+ if {Metrics.}f_IsWebStyle then
+  Result.Right := 0;
+ {$IfDef Nemesis}
+ if (f_InfoCanvas <> nil) then
+ // ! - специально не pm_GetInfoCanvas
+  Result := f_InfoCanvas.AdjustMarginsByPrintableArea(Result);
+(* l_IC := f_InfoCanvas{Metrics.InfoCanvas};
+ if (l_IC <> nil) then
+  Result := l_IC.AdjustMarginsByPrintableArea(Result);*)
+ {$EndIf}
+//#UC END# *4E5F3D1102B8_4815B8D801D8get_impl*
+//#UC START# *4E5F3D1102B8_4815B8D801D8get_var*
+{$IfDef Nemesis}
+(*var
+ l_IC  : InevInfoCanvas;*)
+{$EndIf Nemesis}
+//#UC END# *4E5F3D1102B8_4815B8D801D8get_var*
+//#UC START# *501F96A80050_4815B8D801D8get_impl*
+ Result := f_AACLike;
+//#UC END# *501F96A80050_4815B8D801D8get_impl*
+//#UC START# *501F96A80050_4815B8D801D8get_var*
+//#UC END# *501F96A80050_4815B8D801D8get_var*
+//#UC START# *565F03C80029_4815B8D801D8_impl*
+ Result := f_NeedTotalRecalc;
+//#UC END# *565F03C80029_4815B8D801D8_impl*
+//#UC START# *565F03C80029_4815B8D801D8_var*
+//#UC END# *565F03C80029_4815B8D801D8_var*

@@ -1,0 +1,14 @@
+//#UC START# *4BE13147032C_4D513D6D0209_impl*
+ aForm.Text.Selection.Cursor.Move(aForm.Text.View, ev_ocParaDown);
+ l_Reader := nil;
+ evGetReaderProc(Self, CF_HDROP, l_Reader, FileFromCurrent(KPage + '.jpg'));
+ try
+  aForm.Text.TextSource.DocumentContainer.TagWriter.WriteTagEx(aForm.Text.View, l_Reader, aForm.Text.Selection.Cursor);
+ finally
+  l3Free(l_Reader);
+ end;
+//#UC END# *4BE13147032C_4D513D6D0209_impl*
+//#UC START# *4BE13147032C_4D513D6D0209_var*
+var
+ l_Reader: Tk2CustomReader;
+//#UC END# *4BE13147032C_4D513D6D0209_var*

@@ -1,4 +1,9 @@
-unit evTextSource;
+unit NOT_FINISHED_evTextSource;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evTextSource.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -10,7 +15,7 @@ uses
 type
  TevTextSource = class(TevCustomTextSource)
  end;//TevTextSource
- 
+
 implementation
 
 uses

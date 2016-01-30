@@ -1,5 +1,10 @@
 unit evEditDocumentContainer;
 
+// Модуль: "w:\common\components\gui\Garant\Everest\evEditDocumentContainer.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
+
 interface
 
 uses
@@ -10,7 +15,7 @@ uses
 type
  TevEditDocumentContainer = class(TevCustomEditDocumentContainer)
  end;//TevEditDocumentContainer
- 
+
 implementation
 
 uses

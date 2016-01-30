@@ -1,0 +1,64 @@
+unit kwNscTreeViewWord;
+
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwNscTreeViewWord.pas"
+// Стереотип: "SimpleClass"
+
+{$Include nsDefine.inc}
+
+interface
+
+{$If NOT Defined(NoScripts)}
+uses
+ l3IntfUses
+ {$If Defined(Nemesis)}
+ , nscTreeView
+ {$IfEnd} // Defined(Nemesis)
+ , tfwScriptingInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , kwComponentFromStackWord
+ , Classes
+;
+
+type
+ {$Include kwControlFromStackWord.imp.pas}
+ TkwNscTreeViewWord = {abstract} class(_kwControlFromStackWord_)
+  protected
+   procedure DoWithNscTreeView(aTreeView: TnscTreeView;
+    const aCtx: TtfwContext); virtual; abstract;
+   {$If NOT Defined(NoVCL)}
+   procedure DoControl(aControl: TControl;
+    const aCtx: TtfwContext); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+ end;//TkwNscTreeViewWord
+{$IfEnd} // NOT Defined(NoScripts)
+
+implementation
+
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
+
+{$Include kwControlFromStackWord.imp.pas}
+
+{$If NOT Defined(NoVCL)}
+procedure TkwNscTreeViewWord.DoControl(aControl: TControl;
+ const aCtx: TtfwContext);
+//#UC START# *4F212C3A015A_512FA1800269_var*
+//#UC END# *4F212C3A015A_512FA1800269_var*
+begin
+//#UC START# *4F212C3A015A_512FA1800269_impl*
+ RunnerAssert(aControl is TnscTreeView, 'Это не TnscTreeView.', aCtx);
+ DoWithNscTreeView(aControl as TnscTreeView, aCtx);
+//#UC END# *4F212C3A015A_512FA1800269_impl*
+end;//TkwNscTreeViewWord.DoControl
+{$IfEnd} // NOT Defined(NoVCL)
+
+initialization
+ TkwNscTreeViewWord.RegisterClass;
+ {* Регистрация TkwNscTreeViewWord }
+{$IfEnd} // NOT Defined(NoScripts)
+
+end.

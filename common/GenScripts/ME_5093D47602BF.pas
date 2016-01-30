@@ -1,21 +1,28 @@
-unit afwImpurity.imp;
+{$IfNDef afwImpurity_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\afwImpurity.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define afwImpurity_imp}
 
-type
- _afwImpurity_ = class
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ _afwImpurity_ = class(_afwImpurity_Parent_)
  end;//_afwImpurity_
- 
-implementation
 
-uses
- l3ImplUses
- , l3BatchService
- , Controls
-;
+{$Else NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 
-end.
+_afwImpurity_ = _afwImpurity_Parent_;
+
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+{$Else afwImpurity_imp}
+
+{$IfNDef afwImpurity_imp_impl}
+
+{$Define afwImpurity_imp_impl}
+
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+{$EndIf afwImpurity_imp_impl}
+
+{$EndIf afwImpurity_imp}
+

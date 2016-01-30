@@ -1,5 +1,10 @@
 unit csDeliveryResult_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\csDeliveryResult_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -10,7 +15,7 @@ uses
 ;
 
  // csDeliveryResultTag
- 
+
 implementation
 
 uses

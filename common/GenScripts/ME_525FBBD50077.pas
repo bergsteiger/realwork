@@ -1,4 +1,9 @@
-unit vtGradientWaitbar;
+unit NOT_FINISHED_vtGradientWaitbar;
+
+// Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtGradientWaitbar.pas"
+// Стереотип: "GuiControl"
+
+{$Include vtDefine.inc}
 
 interface
 
@@ -9,7 +14,7 @@ uses
 type
  TvtGradientWaitbar = class
  end;//TvtGradientWaitbar
- 
+
 implementation
 
 uses

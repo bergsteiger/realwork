@@ -1,21 +1,28 @@
-unit ScrollSupport.imp;
+{$IfNDef ScrollSupport_imp}
 
-interface
+// Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\ScrollSupport.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define ScrollSupport_imp}
 
-type
- _ScrollSupport_ = class
+{$If NOT Defined(NoScripts)}
+ _ScrollSupport_ = class(_ScrollSupport_Parent_)
  end;//_ScrollSupport_
- 
-implementation
 
-uses
- l3ImplUses
- , l3InternalInterfaces
- , Forms
-;
+{$Else NOT Defined(NoScripts)}
 
-end.
+_ScrollSupport_ = _ScrollSupport_Parent_;
+
+{$IfEnd} // NOT Defined(NoScripts)
+{$Else ScrollSupport_imp}
+
+{$IfNDef ScrollSupport_imp_impl}
+
+{$Define ScrollSupport_imp_impl}
+
+{$If NOT Defined(NoScripts)}
+{$IfEnd} // NOT Defined(NoScripts)
+{$EndIf ScrollSupport_imp_impl}
+
+{$EndIf ScrollSupport_imp}
+

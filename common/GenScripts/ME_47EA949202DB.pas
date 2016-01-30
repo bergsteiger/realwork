@@ -1,4 +1,10 @@
-unit l3TimeEstimation;
+unit NOT_FINISHED_l3TimeEstimation;
+ {* Tl3TimeEstimation - предназначен для оценки оставшегося времени в секундах. }
+
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3TimeEstimation.pas"
+// Стереотип: "SimpleClass"
+
+{$Include l3Define.inc}
 
 interface
 
@@ -11,7 +17,7 @@ type
  Tl3TimeEstimation = class(Tl3ProtoObject)
   {* Tl3TimeEstimation - предназначен для оценки оставшегося времени в секундах. }
  end;//Tl3TimeEstimation
- 
+
 implementation
 
 uses

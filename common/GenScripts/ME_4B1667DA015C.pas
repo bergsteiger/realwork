@@ -1,4 +1,9 @@
-unit nevView;
+unit NOT_FINISHED_nevView;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_nevView.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -10,7 +15,7 @@ uses
 type
  TnevView = class(TnevBaseDrawView)
  end;//TnevView
- 
+
 implementation
 
 uses

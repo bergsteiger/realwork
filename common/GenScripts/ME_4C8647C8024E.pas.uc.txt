@@ -1,0 +1,131 @@
+//#UC START# *49521D8E0295_4C8647C8024Eexec_impl*
+ l_Preview := MakePreview;
+ if (l_Preview <> nil) then
+  l_Preview.Print;
+//#UC END# *49521D8E0295_4C8647C8024Eexec_impl*
+//#UC START# *49521D8E0295_4C8647C8024Eexec_var*
+var
+ l_Preview : IafwDocumentPreview;
+//#UC END# *49521D8E0295_4C8647C8024Eexec_var*
+//#UC START# *49521D8E0295_4C8647C8024Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not DefDataAdapter.IsTrialMode and HasTree;
+//#UC END# *49521D8E0295_4C8647C8024Etest_impl*
+//#UC START# *49521D8E0295_4C8647C8024Etest_var*
+//#UC END# *49521D8E0295_4C8647C8024Etest_var*
+//#UC START# *495220DE0298_4C8647C8024Eexec_impl*
+ if (afw.Application <> nil) AND (afw.Application.PrintManager <> nil) then
+  afw.Application.PrintManager.PrintDialog(MakePreview);
+//#UC END# *495220DE0298_4C8647C8024Eexec_impl*
+//#UC START# *495220DE0298_4C8647C8024Eexec_var*
+//#UC END# *495220DE0298_4C8647C8024Eexec_var*
+//#UC START# *495220DE0298_4C8647C8024Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not DefDataAdapter.IsTrialMode and HasTree;
+//#UC END# *495220DE0298_4C8647C8024Etest_impl*
+//#UC START# *495220DE0298_4C8647C8024Etest_var*
+//#UC END# *495220DE0298_4C8647C8024Etest_var*
+//#UC START# *495220F2033A_4C8647C8024Eexec_impl*
+ TdmStdRes.MakePreview(MakePreview);
+//#UC END# *495220F2033A_4C8647C8024Eexec_impl*
+//#UC START# *495220F2033A_4C8647C8024Eexec_var*
+//#UC END# *495220F2033A_4C8647C8024Eexec_var*
+//#UC START# *495220F2033A_4C8647C8024Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not DefDataAdapter.IsTrialMode and (Printer.Printers.Count > 0) AND HasTree;
+//#UC END# *495220F2033A_4C8647C8024Etest_impl*
+//#UC START# *495220F2033A_4C8647C8024Etest_var*
+//#UC END# *495220F2033A_4C8647C8024Etest_var*
+//#UC START# *497469C90140_4C8647C8024E_impl*
+ inherited;
+ if Assigned(CoDS) and not Dispatcher.History.InBF then
+  tvAttributes.TreeStruct := nil;
+//#UC END# *497469C90140_4C8647C8024E_impl*
+//#UC START# *497469C90140_4C8647C8024E_var*
+//#UC END# *497469C90140_4C8647C8024E_var*
+//#UC START# *49803F5503AA_4C8647C8024E_impl*
+ inherited;
+ tvAttributes.Images := nsDocumentRes.DocumentItemsImageList;
+//#UC END# *49803F5503AA_4C8647C8024E_impl*
+//#UC START# *49803F5503AA_4C8647C8024E_var*
+//#UC END# *49803F5503AA_4C8647C8024E_var*
+//#UC START# *4A8E8F2E0195_4C8647C8024E_impl*
+ with tvAttributes do
+ begin
+  Align := alClient;
+  BorderStyle := bsNone;
+  MultiSelect := True;
+  MultiStrokeItem := True;
+  ViewOptions := [voShowInterRowSpace, voShowIcons, voShowExpandable, voShowLines, voShowOpenChip];
+  OnMakeTreeSource := tvAttributesMakeTreeSource;
+  OnGetItemImage := tvAttributesGetItemImage;
+  SettingId := 'stidAttributeTree';
+ end;
+//#UC END# *4A8E8F2E0195_4C8647C8024E_impl*
+//#UC START# *4A8E8F2E0195_4C8647C8024E_var*
+//#UC END# *4A8E8F2E0195_4C8647C8024E_var*
+//#UC START# *4C7D0C7B0185_4C8647C8024Eexec_impl*
+ l_Tree := tvAttributes.TreeStruct;
+ if (l_Tree.SelectCount > 1) then
+  l_Flag := FM_SELECTION
+ else
+  l_Flag := 0;
+ l3System.SetClipboardData(TevTreeDataObject.Make(TevTreeStorableData_C(l_Tree, l_Flag)));
+//#UC END# *4C7D0C7B0185_4C8647C8024Eexec_impl*
+//#UC START# *4C7D0C7B0185_4C8647C8024Eexec_var*
+var
+ l_Flag : Word;
+ l_Tree : Il3SimpleTree;
+//#UC END# *4C7D0C7B0185_4C8647C8024Eexec_var*
+//#UC START# *4C7D0C7B0185_4C8647C8024Egetstate_impl*
+ State := st_user_Edit_Copy_AttributesCopy;
+//#UC END# *4C7D0C7B0185_4C8647C8024Egetstate_impl*
+//#UC START# *4C7D0C7B0185_4C8647C8024Egetstate_var*
+//#UC END# *4C7D0C7B0185_4C8647C8024Egetstate_var*
+//#UC START# *4C7D0C7B0185_4C8647C8024Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not DefDataAdapter.IsTrialMode and (tvAttributes.Current > -1);
+//#UC END# *4C7D0C7B0185_4C8647C8024Etest_impl*
+//#UC START# *4C7D0C7B0185_4C8647C8024Etest_var*
+//#UC END# *4C7D0C7B0185_4C8647C8024Etest_var*
+//#UC START# *4C864A87020E_4C8647C8024Eexec_impl*
+ l3System.SetClipboardData(TnsSingleAttributeData.Make(tvAttributes.GetCurrentNode, nil));
+//#UC END# *4C864A87020E_4C8647C8024Eexec_impl*
+//#UC START# *4C864A87020E_4C8647C8024Eexec_var*
+//#UC END# *4C864A87020E_4C8647C8024Eexec_var*
+//#UC START# *4C864A87020E_4C8647C8024Etest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := tvAttributes.Current > -1;
+//#UC END# *4C864A87020E_4C8647C8024Etest_impl*
+//#UC START# *4C864A87020E_4C8647C8024Etest_var*
+//#UC END# *4C864A87020E_4C8647C8024Etest_var*
+//#UC START# *4C864C08016E_4C8647C8024E_impl*
+ if HasTree then
+  Result := TnsDocumentPreview.Make(TevTreeStorable.MakeStorable(TevTreeStorableData_C(tvAttributes.
+   TreeStruct)), evDefaultPreviewCacheKey,
+   TnsHAFPainter.Make(TevFormatHAFMacroReplacer.Make(TnsDocInfoHAFMacroReplacer.Make(nil, CoDS.DocInfo),
+    vcmCStr(str_AttributesHAFPrefix))))
+ else
+  Result := nil;
+//#UC END# *4C864C08016E_4C8647C8024E_impl*
+//#UC START# *4C864C08016E_4C8647C8024E_var*
+//#UC END# *4C864C08016E_4C8647C8024E_var*
+//#UC START# *4C864DD70182_4C8647C8024E_impl*
+ with tvAttributes do
+  Result := IsTreeAssign and (TreeStruct.RootNode <> nil);
+//#UC END# *4C864DD70182_4C8647C8024E_impl*
+//#UC START# *4C864DD70182_4C8647C8024E_var*
+//#UC END# *4C864DD70182_4C8647C8024E_var*
+//#UC START# *511A3C6F0383_4C8647C8024E_impl*
+ Result := -1;
+ l_eeNode := tvAttributes.TreeView.GetNode(Index);
+ if (l_eeNode <> nil) then
+  if l_eeNode.HasChild
+   then Result := diilFolderIcon
+   else Result := diilAttribute;
+//#UC END# *511A3C6F0383_4C8647C8024E_impl*
+//#UC START# *511A3C6F0383_4C8647C8024E_var*
+var
+ l_eeNode : IeeNode;
+//#UC END# *511A3C6F0383_4C8647C8024E_var*
+//#UC START# *511A3D5D01FA_4C8647C8024E_impl*
+ if Assigned(CoDS) then
+  theTree := CoDS.SimpleTree;
+//#UC END# *511A3D5D01FA_4C8647C8024E_impl*
+//#UC START# *511A3D5D01FA_4C8647C8024E_var*
+//#UC END# *511A3D5D01FA_4C8647C8024E_var*

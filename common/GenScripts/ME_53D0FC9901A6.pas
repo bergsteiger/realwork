@@ -1,7 +1,13 @@
-unit evTableRowHotSpot;
+unit NOT_FINISHED_evTableRowHotSpot;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evTableRowHotSpot.pas"
+// Стереотип: "UtilityPack"
+
+{$Include evDefine.inc}
 
 interface
 
+{$If Defined(evNeedHotSpot)}
 uses
  l3IntfUses
  , evParaListHotSpotTester
@@ -10,11 +16,14 @@ uses
 type
  TevTableRowHotSpotTester = class(TevParaListHotSpotTester)
  end;//TevTableRowHotSpotTester
- 
+{$IfEnd} // Defined(evNeedHotSpot)
+
 implementation
 
+{$If Defined(evNeedHotSpot)}
 uses
  l3ImplUses
 ;
+{$IfEnd} // Defined(evNeedHotSpot)
 
 end.

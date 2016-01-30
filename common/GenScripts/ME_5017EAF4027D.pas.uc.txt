@@ -1,0 +1,132 @@
+//#UC START# *479731C50290_5017EAF4027D_impl*
+ if (UseCaseController <> nil) then
+ begin
+  ClearRefs;
+  UseCaseController.As_Il3ChangeNotifier.Unsubscribe(IvcmFormSetDataSourceListener(Self));
+ end;//UseCaseController <> nil
+ f_DisplayName := nil;
+ CallNotify(Ord(vcm_dsnDestroy), 0);
+ f_UseCaseController := nil;
+ inherited;
+//#UC END# *479731C50290_5017EAF4027D_impl*
+//#UC START# *479731C50290_5017EAF4027D_var*
+//#UC END# *479731C50290_5017EAF4027D_var*
+//#UC START# *491471F80112_5017EAF4027D_impl*
+ FormSetDataChanged;
+//#UC END# *491471F80112_5017EAF4027D_impl*
+//#UC START# *491471F80112_5017EAF4027D_var*
+//#UC END# *491471F80112_5017EAF4027D_var*
+//#UC START# *4914723502E0_5017EAF4027D_impl*
+ Result := l3IEQ(Self, aValue);
+ if not Result then
+  if Supports(aValue, _FormDataSourceType_, l_V) then
+   try
+    Result := GetIsSame(l_V);
+   finally
+    l_V := nil;
+   end;//try..finally
+//#UC END# *4914723502E0_5017EAF4027D_impl*
+//#UC START# *4914723502E0_5017EAF4027D_var*
+var
+ l_V : _FormDataSourceType_;
+//#UC END# *4914723502E0_5017EAF4027D_var*
+//#UC START# *4914724900B9_5017EAF4027D_impl*
+ if (UseCaseController <> nil) then
+  Result := UseCaseController.IsMainInFormSet(aForm)
+ else
+  Result := False;
+//#UC END# *4914724900B9_5017EAF4027D_impl*
+//#UC START# *4914724900B9_5017EAF4027D_var*
+//#UC END# *4914724900B9_5017EAF4027D_var*
+//#UC START# *491472720367_5017EAF4027D_impl*
+ if Supports(aDataSource, _FormDataSourceType_, l_DS) then
+  try
+   Result := GetIsNeedChangePosition(l_DS);
+  finally
+   l_DS := nil
+  end//try..finally
+ else
+  Result := false;
+//#UC END# *491472720367_5017EAF4027D_impl*
+//#UC START# *491472720367_5017EAF4027D_var*
+var
+ l_DS : _FormDataSourceType_;
+//#UC END# *491472720367_5017EAF4027D_var*
+//#UC START# *4914728A0305_5017EAF4027Dget_impl*
+ Result := f_UseCaseController;
+//#UC END# *4914728A0305_5017EAF4027Dget_impl*
+//#UC START# *4914728A0305_5017EAF4027Dget_var*
+//#UC END# *4914728A0305_5017EAF4027Dget_var*
+//#UC START# *491476B001D3_5017EAF4027D_impl*
+ Result := nil;
+//#UC END# *491476B001D3_5017EAF4027D_impl*
+//#UC START# *491476B001D3_5017EAF4027D_var*
+//#UC END# *491476B001D3_5017EAF4027D_var*
+//#UC START# *49147B4602C0_5017EAF4027D_impl*
+ Result := false;
+//#UC END# *49147B4602C0_5017EAF4027D_impl*
+//#UC START# *49147B4602C0_5017EAF4027D_var*
+//#UC END# *49147B4602C0_5017EAF4027D_var*
+//#UC START# *49147FB4028C_5017EAF4027D_impl*
+ Result := false;
+//#UC END# *49147FB4028C_5017EAF4027D_impl*
+//#UC START# *49147FB4028C_5017EAF4027D_var*
+//#UC END# *49147FB4028C_5017EAF4027D_var*
+//#UC START# *491482DC0216_5017EAF4027D_impl*
+ // - ничего не делаем
+//#UC END# *491482DC0216_5017EAF4027D_impl*
+//#UC START# *491482DC0216_5017EAF4027D_var*
+//#UC END# *491482DC0216_5017EAF4027D_var*
+//#UC START# *492ACF3D0071_5017EAF4027D_impl*
+ inherited Create;
+ f_UseCaseController := aDataSource;
+ if (UseCaseController <> nil) then
+ begin
+  UseCaseController.As_Il3ChangeNotifier.Subscribe(IvcmFormSetDataSourceListener(Self));
+  InitRefs(UseCaseController);
+ end;//UseCaseController <> nil
+//#UC END# *492ACF3D0071_5017EAF4027D_impl*
+//#UC START# *492ACF3D0071_5017EAF4027D_var*
+//#UC END# *492ACF3D0071_5017EAF4027D_var*
+//#UC START# *49786D4E034D_5017EAF4027D_impl*
+ // - нечего инициализировать
+//#UC END# *49786D4E034D_5017EAF4027D_impl*
+//#UC START# *49786D4E034D_5017EAF4027D_var*
+//#UC END# *49786D4E034D_5017EAF4027D_var*
+//#UC START# *49786D6A01E3_5017EAF4027D_impl*
+ // - нечего очищать
+//#UC END# *49786D6A01E3_5017EAF4027D_impl*
+//#UC START# *49786D6A01E3_5017EAF4027D_var*
+//#UC END# *49786D6A01E3_5017EAF4027D_var*
+//#UC START# *4992BD300123_5017EAF4027D_impl*
+ if IsEqualGUID(_UseCaseControllerType_, aGUID) then
+ begin
+  Result := true;
+  _UseCaseControllerType_(theObj) := UseCaseController;
+ end//IsEqualGUID(_UseCaseControllerType_, aGUID)
+ else
+ begin
+  Result := Supports(UseCaseController, aGUID, theObj);
+  if NeedsException AND not Result then
+   raise Exception.Create('Не удалось получить требуемый интерфейс');
+ end;//IsEqualGUID(_UseCaseControllerType_, aGUID)
+//#UC END# *4992BD300123_5017EAF4027D_impl*
+//#UC START# *4992BD300123_5017EAF4027D_var*
+//#UC END# *4992BD300123_5017EAF4027D_var*
+//#UC START# *499EA548016B_5017EAF4027Dget_impl*
+ if (f_DisplayName = nil) then
+  f_DisplayName := MakeDisplayName;
+ Result := f_DisplayName;
+//#UC END# *499EA548016B_5017EAF4027Dget_impl*
+//#UC START# *499EA548016B_5017EAF4027Dget_var*
+//#UC END# *499EA548016B_5017EAF4027Dget_var*
+//#UC START# *55097FA90148_5017EAF4027D_impl*
+ Result := GetIsDataAvailable;
+//#UC END# *55097FA90148_5017EAF4027D_impl*
+//#UC START# *55097FA90148_5017EAF4027D_var*
+//#UC END# *55097FA90148_5017EAF4027D_var*
+//#UC START# *55097FF5008E_5017EAF4027D_impl*
+ Result := True;
+//#UC END# *55097FF5008E_5017EAF4027D_impl*
+//#UC START# *55097FF5008E_5017EAF4027D_var*
+//#UC END# *55097FF5008E_5017EAF4027D_var*

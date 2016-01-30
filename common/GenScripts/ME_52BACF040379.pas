@@ -1,5 +1,10 @@
 unit ddBaseObject;
 
+// Модуль: "w:\common\components\rtl\Garant\dd\ddBaseObject.pas"
+// Стереотип: "SimpleClass"
+
+{$Include ddDefine.inc}
+
 interface
 
 uses
@@ -10,12 +15,13 @@ uses
 
 type
  TddBaseObject = class(Tl3ProtoObject)
-  procedure Assign(anObject: TddBaseObject);
-  procedure Create;
-  procedure Write2Generator(const Generator: Ik2TagGenerator;
-   aLiteVersion: Boolean);
+  public
+   procedure Assign(anObject: TddBaseObject); virtual;
+   constructor Create; reintroduce; virtual;
+   procedure Write2Generator(const Generator: Ik2TagGenerator;
+    aLiteVersion: Boolean); virtual; abstract;
  end;//TddBaseObject
- 
+
 implementation
 
 uses
@@ -23,5 +29,23 @@ uses
  , ddEVDTypesSupport
  , k2Tags
 ;
+
+procedure TddBaseObject.Assign(anObject: TddBaseObject);
+//#UC START# *52BACF8A01A9_52BACF040379_var*
+//#UC END# *52BACF8A01A9_52BACF040379_var*
+begin
+//#UC START# *52BACF8A01A9_52BACF040379_impl*
+ 
+//#UC END# *52BACF8A01A9_52BACF040379_impl*
+end;//TddBaseObject.Assign
+
+constructor TddBaseObject.Create;
+//#UC START# *52BACFBE00D9_52BACF040379_var*
+//#UC END# *52BACFBE00D9_52BACF040379_var*
+begin
+//#UC START# *52BACFBE00D9_52BACF040379_impl*
+ inherited Create;
+//#UC END# *52BACFBE00D9_52BACF040379_impl*
+end;//TddBaseObject.Create
 
 end.

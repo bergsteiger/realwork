@@ -1,4 +1,10 @@
 unit BitmapPara_Const;
+ {* Картинка в тексте }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\BitmapPara_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -14,7 +20,7 @@ uses
 ;
 
  // BitmapParaTag
- 
+
 implementation
 
 uses

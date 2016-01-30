@@ -1,5 +1,10 @@
 unit ddExportFilerDispatcherElem;
 
+// Модуль: "w:\common\components\rtl\Garant\dd\PipeOut\ddExportFilerDispatcherElem.pas"
+// Стереотип: "SimpleClass"
+
+{$Include ddDefine.inc}
+
 interface
 
 uses
@@ -12,18 +17,30 @@ uses
 
 type
  TddExportFilerDispatcherElem = class(Tl3ProtoObject, IddExportFilerDispatcherElem)
-  procedure Create(const aFileMask: Il3CString;
-   aCodePage: Integer;
-   aPartSize: Integer;
-   aUpdateFiles: Boolean);
-  function Make(const aFileMask: Il3CString;
-   aCodePage: Integer;
-   aPartSize: Integer;
-   aUpdateFiles: Boolean): IddExportFilerDispatcherElem;
-  function Filer: Tl3CustomFiler;
-  procedure RollBack;
+  private
+   f_FileMask: Il3CString;
+   f_PartSize: Integer;
+   f_PartNum: Integer;
+   f_CodePage: LongInt;
+   f_RollBackPos: Int64;
+   f_UpdateFiles: Boolean;
+   f_Filer: Tl3DOSFiler;
+  protected
+   function Get_Filer: Tl3CustomFiler;
+   procedure RollBack;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
+   constructor Create(const aFileMask: Il3CString;
+    aCodePage: Integer;
+    aPartSize: Integer;
+    aUpdateFiles: Boolean); reintroduce;
+   class function Make(const aFileMask: Il3CString;
+    aCodePage: Integer;
+    aPartSize: Integer;
+    aUpdateFiles: Boolean): IddExportFilerDispatcherElem; reintroduce;
  end;//TddExportFilerDispatcherElem
- 
+
 implementation
 
 uses
@@ -34,5 +51,110 @@ uses
  , Classes
  , l3Base
 ;
+
+constructor TddExportFilerDispatcherElem.Create(const aFileMask: Il3CString;
+ aCodePage: Integer;
+ aPartSize: Integer;
+ aUpdateFiles: Boolean);
+//#UC START# *560A5C2D0282_560A5BC502D5_var*
+//#UC END# *560A5C2D0282_560A5BC502D5_var*
+begin
+//#UC START# *560A5C2D0282_560A5BC502D5_impl*
+  inherited Create;
+  f_FileMask := aFileMask;
+  f_PartSize := aPartSize;
+  f_CodePage := aCodePage;
+  f_UpdateFiles := aUpdateFiles;
+//#UC END# *560A5C2D0282_560A5BC502D5_impl*
+end;//TddExportFilerDispatcherElem.Create
+
+class function TddExportFilerDispatcherElem.Make(const aFileMask: Il3CString;
+ aCodePage: Integer;
+ aPartSize: Integer;
+ aUpdateFiles: Boolean): IddExportFilerDispatcherElem;
+var
+ l_Inst : TddExportFilerDispatcherElem;
+begin
+ l_Inst := Create(aFileMask, aCodePage, aPartSize, aUpdateFiles);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TddExportFilerDispatcherElem.Make
+
+function TddExportFilerDispatcherElem.Get_Filer: Tl3CustomFiler;
+//#UC START# *5603F0260334_560A5BC502D5get_var*
+var
+ l_FileName: AnsiString;
+//#UC END# *5603F0260334_560A5BC502D5get_var*
+begin
+//#UC START# *5603F0260334_560A5BC502D5get_impl*
+ if (f_Filer = nil) or ((f_PartSize > 0) and (f_Filer.Size > f_PartSize)) then
+ begin
+  FreeAndNil(f_Filer);
+  if f_PartSize > 0 then
+  begin
+   Inc(f_PartNum);
+   l_FileName := l3Str(l3StringReplace(f_FileMask, cExportFileMaskPatterns[eptPartNum], l3PCharLen(IntToStr(f_PartNum)), [rfReplaceAll, rfIgnoreCase]));
+  end
+  else
+   l_FileName := l3Str(f_FileMask);
+  try
+   if f_UpdateFiles and FileExists(l_FileName) then
+    f_Filer := Tl3DOSFiler.Make(l_Filename, l3_fmAppend)
+   else
+    f_Filer := Tl3DOSFiler.Make(l_Filename, l3_fmWrite);
+   // Файлер открываем два раза. Потому что неизвестно, будет ли этот файлер последним в выливке. А если будет - то труба
+   // его закроет. И тогда не сработает логика удаления пустого файла в Cleanup.
+   f_Filer.Open;
+   f_Filer.Open;
+   f_Filer.CodePage := f_CodePage;
+  except
+   on E: Exception do
+    l3System.Msg2Log(cFilerOpenErrorMsg, [E.Message, l_FileName]);
+  end;
+ end;
+ f_RollBackPos := f_Filer.Stream.Position;
+ Result := f_Filer;
+//#UC END# *5603F0260334_560A5BC502D5get_impl*
+end;//TddExportFilerDispatcherElem.Get_Filer
+
+procedure TddExportFilerDispatcherElem.RollBack;
+//#UC START# *5616668C01A8_560A5BC502D5_var*
+//#UC END# *5616668C01A8_560A5BC502D5_var*
+begin
+//#UC START# *5616668C01A8_560A5BC502D5_impl*
+ if Assigned(f_Filer) then
+ begin
+  f_Filer.Stream.Position := f_RollBackPos;
+  f_Filer.Seek(0, soEnd);
+ end;
+//#UC END# *5616668C01A8_560A5BC502D5_impl*
+end;//TddExportFilerDispatcherElem.RollBack
+
+procedure TddExportFilerDispatcherElem.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_560A5BC502D5_var*
+//#UC END# *479731C50290_560A5BC502D5_var*
+begin
+//#UC START# *479731C50290_560A5BC502D5_impl*
+ if Assigned(f_Filer) then
+ begin
+  try
+   f_Filer.Flush;
+   if f_Filer.Size = 0 then // если в файл ничего не записано, то файл надо удалить
+   begin
+    while f_Filer.Opened do
+     f_Filer.Close;
+    DeleteFile(f_Filer.FileName);
+   end;
+  finally
+   FreeAndNil(f_Filer);
+  end; // try...finally
+ end;
+ inherited;
+//#UC END# *479731C50290_560A5BC502D5_impl*
+end;//TddExportFilerDispatcherElem.Cleanup
 
 end.

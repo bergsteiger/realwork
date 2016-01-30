@@ -1,4 +1,10 @@
 unit Date_Const;
+ {* Дата }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\Date_Const.pas"
+// Стереотип: "Atom"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -8,7 +14,7 @@ uses
 ;
 
  // DateAtom
- 
+
 implementation
 
 uses

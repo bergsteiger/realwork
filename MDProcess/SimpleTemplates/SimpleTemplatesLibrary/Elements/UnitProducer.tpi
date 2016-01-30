@@ -41,45 +41,6 @@
 	%S%f_unitName()
 //#UC END# *4948065C01DFfor561D478F0224*
 
-// перекрытие базового стереотипа PascalGenerator::Class
-%f _fileName
-// возвращаемый результат: a-string
-//#UC START# *561D4544017Efor561D478F0224*
-	%S%f_unitName().pas
-//#UC END# *561D4544017Efor561D478F0224*
-
-// перекрытие базового стереотипа PascalGenerator::Class
-%f _generatePascal
-//#UC START# *561D426A0246for561D478F0224*
-	%f_start_new_file(%S)\
-	unit %S%f_unitName();
-	
-	interface
-	
-	uses
-	 l3IntfUses
-	 %U[{intf_uses}
-	 ]
-	;
-	
-	%U[{intf_code}
-	]
-	
-	implementation
-	
-	uses
-	 l3ImplUses
-	 %U[{impl_uses}
-	 ]
-	;
-	
-	%U[{impl_code}
-	]
-	
-	end.\
-	%f_end_new_file(%S)
-//#UC END# *561D426A0246for561D478F0224*
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -1,5 +1,8 @@
 unit UrlMon;
 
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Win\UrlMon.pas"
+// Стереотип: "UtilityPack"
+
 interface
 
 uses
@@ -8,8 +11,9 @@ uses
 
 type
  IPersistMoniker = interface
+  ['{8D318B3A-41DB-42F0-B386-E71555D7597E}']
  end;//IPersistMoniker
- 
+
 implementation
 
 uses

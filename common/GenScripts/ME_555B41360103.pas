@@ -1,4 +1,9 @@
-unit l3ForkStream;
+unit NOT_FINISHED_l3ForkStream;
+
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3ForkStream.pas"
+// Стереотип: "SimpleClass"
+
+{$Include l3Define.inc}
 
 interface
 
@@ -10,7 +15,7 @@ uses
 type
  Tl3ForkStream = class(Tl3Stream)
  end;//Tl3ForkStream
- 
+
 implementation
 
 uses

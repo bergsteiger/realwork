@@ -1,0 +1,21 @@
+//#UC START# *54607DDC0159_549AC018025D_impl*
+ l_Message := aContext.rMessage as TncsCorrectFolder;
+ if not TaskList.ForOneByIDF(L2AlcuTasksIteratorForOneByIDFAction(@DoProcess), l_Message.TaskID) then
+  l3System.Msg2Log('Задача с идентификатором ' + l_Message.TaskID + ' не найдена');
+ l3System.Msg2Log('Скорректирован каталог доставки');
+//#UC END# *54607DDC0159_549AC018025D_impl*
+//#UC START# *54607DDC0159_549AC018025D_var*
+var
+ l_Message: TncsCorrectFolder;
+
+ function DoProcess(anItem: TddProcessTask): Boolean;
+ var
+  l_Task: TcsExport;
+ begin
+  Result := False;
+  l_Task := anItem as TcsExport;
+  l_Task.ExportDirectory := l_Message.NewFolder;
+  l_Task.Description := l_Task.DefaultDescription;
+ end;
+
+//#UC END# *54607DDC0159_549AC018025D_var*

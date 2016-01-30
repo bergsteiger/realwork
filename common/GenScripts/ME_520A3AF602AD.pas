@@ -1,4 +1,9 @@
-unit ElPopBtn;
+unit NOT_FINISHED_ElPopBtn;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_ElPopBtn.pas"
+// Стереотип: "UtilityPack"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -9,7 +14,7 @@ uses
 type
  TElPopupButton = class
  end;//TElPopupButton
- 
+
 implementation
 
 uses

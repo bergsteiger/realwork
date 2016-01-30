@@ -339,3 +339,15 @@ PROCEDURE "Сравнить пункт меню с эталоном расширенно" STRING IN Item OBJECT IN a
 PROCEDURE "Сравнить пункт меню с эталоном" STRING IN Item OBJECT IN aMenu
  "Сравнить пункт {(Item)} меню  {(aMenu)} с эталоном расширенно {(false)}"
 ;
+
+STRING FUNCTION "Имя контрола" OBJECT IN Ctrl
+ Ctrl "Имя компонента" =: Result
+;
+
+STRING FUNCTION "Имя текущего контрола"
+ "Контрол в фокусе" "Имя компонента" =: Result
+;
+
+PROCEDURE "Сравнить имя текущего контрола с эталоном"
+ "Имя текущего контрола" .
+;

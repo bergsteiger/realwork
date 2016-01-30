@@ -1,0 +1,54 @@
+unit K423605014;
+ {* [Requestlink:423605014] }
+
+// Модуль: "w:\archi\source\projects\Archi\Tests\K423605014.pas"
+// Стереотип: "TestCase"
+
+{$Include arDefine.inc}
+
+interface
+
+{$If Defined(nsTest) AND Defined(InsiderTest)}
+uses
+ l3IntfUses
+ {$If NOT Defined(NoScripts)}
+ , ArchiInsiderTest
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+type
+ TK423605014 = class(TArchiInsiderTest)
+  {* [Requestlink:423605014] }
+  protected
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
+ end;//TK423605014
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
+
+implementation
+
+{$If Defined(nsTest) AND Defined(InsiderTest)}
+uses
+ l3ImplUses
+ , TestFrameWork
+;
+
+function TK423605014.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := 'SelectionTests';
+end;//TK423605014.GetFolder
+
+function TK423605014.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '50F3F7D901E8';
+end;//TK423605014.GetModelElementGUID
+
+initialization
+ TestFramework.RegisterTest(TK423605014.Suite);
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
+
+end.

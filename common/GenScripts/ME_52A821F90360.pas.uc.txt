@@ -1,0 +1,31 @@
+//#UC START# *52A826610281_4B0A69600050_impl*
+ l_Data := MakeParamsList;
+ l_Data.AddObject(aDoc);
+ if aSubBlock >= 0
+  then l_Data.AddULong(aSubBlock)
+  else l_Data.AddString('');
+ if aPara >= 0
+  then l_Data.AddULong(aPara)
+  else l_Data.AddString('');
+ l_Data.AddULong(aNumber);
+ l_Data.AddULong(aRelevance);
+ GetLogger.AddEvent(LE_OPEN_DOCUMENT_FROM_LIST, l_Data);
+//#UC END# *52A826610281_4B0A69600050_impl*
+//#UC START# *52A826610281_4B0A69600050_var*
+var
+ l_Data: InsLogEventData;
+//#UC END# *52A826610281_4B0A69600050_var*
+//#UC START# *52A826A80339_4B0A69600050_impl*
+ l_DocSub := -1;
+ l_Para := -1;
+ case aDocInfo.Pos.rRefType of
+  dptSub: l_DocSub := aDocInfo.Pos.rPos;
+  dptPara: l_Para := aDocInfo.Pos.rPos;
+ end;
+ Log(aDocInfo.Doc, 1, 0, l_DocSub, l_Para);
+//#UC END# *52A826A80339_4B0A69600050_impl*
+//#UC START# *52A826A80339_4B0A69600050_var*
+var
+ l_DocSub,
+ l_Para: Integer;
+//#UC END# *52A826A80339_4B0A69600050_var*

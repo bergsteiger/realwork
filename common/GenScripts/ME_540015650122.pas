@@ -1,4 +1,7 @@
-unit gtCstDocEng;
+unit NOT_FINISHED_gtCstDocEng;
+
+// Модуль: "w:\common\components\rtl\external\eDocEngine\Source\NOT_FINISHED_gtCstDocEng.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
@@ -14,7 +17,7 @@ type
   , muPoints
   , muTwips
  );//TgtUnitType
- 
+
  TgtPaperSize = (
   Letter
   , LetterSmall
@@ -58,7 +61,7 @@ type
   , ISOB4
   , Custom
  );//TgtPaperSize
- 
+
  TgtOutputImageFormat = (
   ifBMP
   , ifJPEG
@@ -68,7 +71,7 @@ type
   , ifCCITT3
   , ifCCITT4
  );//TgtOutputImageFormat
- 
+
 implementation
 
 uses

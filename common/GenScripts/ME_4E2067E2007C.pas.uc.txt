@@ -1,0 +1,46 @@
+//#UC START# *4E2068B30386_4E2067E2007C_impl*
+ if l3IsNil(anURL) then
+  Result := false
+ else
+ begin
+  l3Split(l3CStr(anURL), ':', l_P, l_S);
+  Result := l3Same(l_P, 'script') AND not l3IsNil(l_S);
+  if Result then
+   ExecuteScript(l3Str(l_S))
+  else
+   nsDoShellExecute(l3CStr(anURL));
+ end;//l3IsNil(anURL)
+//#UC END# *4E2068B30386_4E2067E2007C_impl*
+//#UC START# *4E2068B30386_4E2067E2007C_var*
+var
+ l_P, l_S : Il3CString;
+//#UC END# *4E2068B30386_4E2067E2007C_var*
+//#UC START# *4E2068D800E0_4E2067E2007C_impl*
+ TtfwScriptEngine.Script(aScript, TtfwF1HyperlinkScriptCaller.Make);
+//#UC END# *4E2068D800E0_4E2067E2007C_impl*
+//#UC START# *4E2068D800E0_4E2067E2007C_var*
+//#UC END# *4E2068D800E0_4E2067E2007C_var*
+//#UC START# *4E20711A0022_4E2067E2007C_impl*
+ anURL.GetURL(l_S);
+ try
+  l_WS := nsWStr(l_S);
+  if l3Starts('script:', l_WS) OR
+     l3Starts('http:', l_WS) OR
+     l3Starts('mailto:', l_WS) then
+   OpenURL(l_WS)
+  else
+   ExecuteScript(l3Str(nsCStr(l_S)));
+ finally
+  l_S := nil;
+ end;//try..fianlly
+//#UC END# *4E20711A0022_4E2067E2007C_impl*
+//#UC START# *4E20711A0022_4E2067E2007C_var*
+var
+ l_S : IString;
+ l_WS : Tl3WString;
+//#UC END# *4E20711A0022_4E2067E2007C_var*
+//#UC START# *502B7892000D_4E2067E2007C_impl*
+ TtfwScriptEngine.Script(aScript, TtfwF1HyperlinkScriptCaller.Make);
+//#UC END# *502B7892000D_4E2067E2007C_impl*
+//#UC START# *502B7892000D_4E2067E2007C_var*
+//#UC END# *502B7892000D_4E2067E2007C_var*

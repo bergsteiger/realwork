@@ -1,7 +1,14 @@
 unit K258613004;
+ {* [$258613004] }
+
+// Модуль: "w:\common\components\rtl\Garant\Daily\K258613004.pas"
+// Стереотип: "TestCase"
+
+{$Include TestDefine.inc.pas}
 
 interface
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
  , LinesTest
@@ -10,13 +17,36 @@ uses
 type
  TK258613004 = class(TLinesTest)
   {* [$258613004] }
+  protected
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK258613004
- 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+
 implementation
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
  , TestFrameWork
 ;
+
+function TK258613004.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := '7.7';
+end;//TK258613004.GetFolder
+
+function TK258613004.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '4DA6915201AB';
+end;//TK258613004.GetModelElementGUID
+
+initialization
+ TestFramework.RegisterTest(TK258613004.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

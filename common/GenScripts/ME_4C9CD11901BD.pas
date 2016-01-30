@@ -1,4 +1,9 @@
-unit ddNSRC_r;
+unit NOT_FINISHED_ddNSRC_r;
+
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddNSRC_r.pas"
+// Стереотип: "UtilityPack"
+
+{$Include ddDefine.inc}
 
 interface
 

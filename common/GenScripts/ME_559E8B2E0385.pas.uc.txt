@@ -1,0 +1,184 @@
+//#UC START# *479731C50290_559E8B2E0385_impl*
+ FreeAndNil(f_UsedDictionaries);
+ FreeAndNil(f_ExportedDictionaries);
+ FreeAndNil(f_InitCode);
+ FreeAndNil(f_Stream);
+ inherited;
+//#UC END# *479731C50290_559E8B2E0385_impl*
+//#UC START# *479731C50290_559E8B2E0385_var*
+//#UC END# *479731C50290_559E8B2E0385_var*
+//#UC START# *4DB6E3090290_559E8B2E0385_impl*
+ if (f_InitCode = nil) then
+  f_InitCode := TtfwInitCodeWord.Create(Self);
+ f_InitCode.AddCodePart(aWord, aCtx, aSNI);
+//#UC END# *4DB6E3090290_559E8B2E0385_impl*
+//#UC START# *4DB6E3090290_559E8B2E0385_var*
+//#UC END# *4DB6E3090290_559E8B2E0385_var*
+//#UC START# *4F465D580021_559E8B2E0385_impl*
+(* if not IsAxiom then
+ begin
+  if TtfwAutoregisteredDiction.Instance.FindData(l3PCharLen(aName), i) then
+  begin
+   l_KW := TtfwAutoregisteredDiction.Instance.Items[i] As TTfwKeyWord;
+   Assert((l_KW.Word = nil) OR l_KW.Word.IsForwardDeclaration,
+          Format('Слово %s уже существует в базовой аксиоматике', [l3Str(aName)]));
+  end;//TtfwAutoregisteredDiction.Instance.FindData(l3PCharLen(aName), i)
+ end;//not IsAxiom*)
+ Result := inherited DoCheckWord(aName);
+//#UC END# *4F465D580021_559E8B2E0385_impl*
+//#UC START# *4F465D580021_559E8B2E0385_var*
+(*var
+ i : Integer;
+ l_KW : TTfwKeyWord;*)
+//#UC END# *4F465D580021_559E8B2E0385_var*
+//#UC START# *559F5EBA0249_559E8B2E0385_impl*
+ if (aDictionary = Self) then
+  Exit;
+
+ Assert(not aDictionary.IsMain);
+
+ if (f_UsedDictionaries = nil) then
+  f_UsedDictionaries := TtfwDictionaryPtrList.Create;
+  
+ if (f_UsedDictionaries.IndexOf(aDictionary) < 0) then
+  f_UsedDictionaries.Add(aDictionary);
+
+ if (aDictionary.ExportedDictionaries <> nil) then
+  for l_Index := 0 to Pred(aDictionary.ExportedDictionaries.Count) do
+  begin
+   l_D := aDictionary.ExportedDictionaries.Items[l_Index] As TtfwDictionaryEx;
+   if (f_UsedDictionaries.IndexOf(l_D) < 0) then
+    f_UsedDictionaries.Add(l_D);
+  end;//for l_Index
+//#UC END# *559F5EBA0249_559E8B2E0385_impl*
+//#UC START# *559F5EBA0249_559E8B2E0385_var*
+var
+ l_Index : Integer;
+ l_D : TtfwDictionaryEx;
+//#UC END# *559F5EBA0249_559E8B2E0385_var*
+//#UC START# *559FF0210296_559E8B2E0385_impl*
+ Result := inherited DoGetDRbyCName(aName);
+ if (Result = nil) then
+  if (f_UsedDictionaries <> nil) then
+   for l_Index := Pred(f_UsedDictionaries.Count) downto 0 do
+   begin
+    Result := FindInUsedDictionary(f_UsedDictionaries.Items[l_Index], aName);
+    if (Result <> nil) then
+     Exit;
+   end;//for l_Index
+//#UC END# *559FF0210296_559E8B2E0385_impl*
+//#UC START# *559FF0210296_559E8B2E0385_var*
+var
+ l_Index : Integer;
+//#UC END# *559FF0210296_559E8B2E0385_var*
+//#UC START# *55A3A1E7038F_559E8B2E0385_impl*
+ Result := anOther.OwnDRbyCName(aName);
+//#UC END# *55A3A1E7038F_559E8B2E0385_impl*
+//#UC START# *55A3A1E7038F_559E8B2E0385_var*
+//#UC END# *55A3A1E7038F_559E8B2E0385_var*
+//#UC START# *55A3BF0502F8_559E8B2E0385_impl*
+ if (aRunned.IndexOf(Self) < 0) then
+ begin
+  aCtx.rStoredValuesStack.StoreDictionary(Self, aCtx);
+  // - сохраняем значения переменных
+  aRunned.Add(Self);
+  // Сначала ЧИСТИМ СВОИ переменные
+  for l_Index := 0 to Pred(Self.Count) do
+  begin
+   l_KW := TtfwKeyWord(Self.Items[l_Index]);
+   if (l_KW.Dictionary = Self) then
+   begin
+    l_W := l_KW.Word;
+    if l_W.IsVarLike then
+     l_W.InitValue(aCtx);
+   end;//l_KW.Dictionary = Self
+  end;//for l_Index
+  // Потом вызываем других
+  if (f_UsedDictionaries <> nil) then
+   for l_Index := 0 to Pred(f_UsedDictionaries.Count) do
+   begin
+    l_D := f_UsedDictionaries.Items[l_Index];
+    if (l_D Is TtfwDictionaryEx) then
+     TtfwDictionaryEx(l_D).RunInitCode(aRunned, aCtx);
+   end;//for l_Index
+  if (f_InitCode <> nil) then
+   f_InitCode.DoIt(aCtx);
+ end;//aRunned.IndexOf(Self) < 0
+//#UC END# *55A3BF0502F8_559E8B2E0385_impl*
+//#UC START# *55A3BF0502F8_559E8B2E0385_var*
+var
+ l_Index : Integer;
+ l_D : TtfwDictionary;
+ l_KW : TtfwKeyWord;
+ l_W : TtfwWord;
+//#UC END# *55A3BF0502F8_559E8B2E0385_var*
+//#UC START# *55A3E53A00A8_559E8B2E0385_impl*
+ Result := inherited IsValidCode;
+ if Result then
+  if (f_Stream <> nil) then
+   Result := SameValue(f_FileDateTime, f_Stream.FileDateTime);
+//#UC END# *55A3E53A00A8_559E8B2E0385_impl*
+//#UC START# *55A3E53A00A8_559E8B2E0385_var*
+//#UC END# *55A3E53A00A8_559E8B2E0385_var*
+//#UC START# *55A4FD6401D3_559E8B2E0385_impl*
+ Result := inherited UsesDictionary(anOther);
+ if not Result then
+  if (f_UsedDictionaries <> nil) then
+   for l_Index := 0 to Pred(f_UsedDictionaries.Count) do
+    if (anOther = f_UsedDictionaries[l_Index]) then
+    begin
+     Result := true;
+     Exit;
+    end;//anOther = f_UsedDictionaries[l_Index]
+//#UC END# *55A4FD6401D3_559E8B2E0385_impl*
+//#UC START# *55A4FD6401D3_559E8B2E0385_var*
+var
+ l_Index : Integer;
+//#UC END# *55A4FD6401D3_559E8B2E0385_var*
+//#UC START# *55A5294A01E9_559E8B2E0385_impl*
+ Assert(false, 'Недоделано');
+//#UC END# *55A5294A01E9_559E8B2E0385_impl*
+//#UC START# *55A5294A01E9_559E8B2E0385_var*
+//#UC END# *55A5294A01E9_559E8B2E0385_var*
+//#UC START# *55A5295C02AD_559E8B2E0385_impl*
+ Assert(false, 'Недоделано');
+//#UC END# *55A5295C02AD_559E8B2E0385_impl*
+//#UC START# *55A5295C02AD_559E8B2E0385_var*
+//#UC END# *55A5295C02AD_559E8B2E0385_var*
+//#UC START# *55A54B4C03BC_559E8B2E0385_impl*
+ Assert(aFile <> nil);
+ aFile.SetRefTo(f_Stream);
+ Create(TtfwCStringFactory.C(f_Stream.FileName), aUsed);
+ if (f_Stream <> nil) then
+  f_FileDateTime := f_Stream.FileDateTime;
+//#UC END# *55A54B4C03BC_559E8B2E0385_impl*
+//#UC START# *55A54B4C03BC_559E8B2E0385_var*
+//#UC END# *55A54B4C03BC_559E8B2E0385_var*
+//#UC START# *55AE59580215_559E8B2E0385_impl*
+ if (aDictionary = Self) then
+  Exit;
+
+ Assert(not aDictionary.IsMain);
+
+ if (f_ExportedDictionaries = nil) then
+  f_ExportedDictionaries := TtfwDictionaryPtrList.Create;
+ if (f_ExportedDictionaries.IndexOf(aDictionary) < 0) then
+ begin
+  f_ExportedDictionaries.Add(aDictionary);
+ end;//f_ExportedDictionaries.IndexOf(aDictionary) < 0
+//#UC END# *55AE59580215_559E8B2E0385_impl*
+//#UC START# *55AE59580215_559E8B2E0385_var*
+//#UC END# *55AE59580215_559E8B2E0385_var*
+//#UC START# *55B0E69B0385_559E8B2E0385_impl*
+ f_FileName := aFileName;
+ f_FileDateTime := 0;
+ for l_Index := Low(aUsed) to High(aUsed) do
+  UseDictionary(aUsed[l_Index]);
+ if (f_InitCode = nil) then
+  f_InitCode := TtfwInitCodeWord.Create(Self);
+ inherited Create;
+//#UC END# *55B0E69B0385_559E8B2E0385_impl*
+//#UC START# *55B0E69B0385_559E8B2E0385_var*
+var
+ l_Index : Integer;
+//#UC END# *55B0E69B0385_559E8B2E0385_var*

@@ -1,4 +1,9 @@
-unit dd_lcSourceConverter;
+unit NOT_FINISHED_dd_lcSourceConverter;
+
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcSourceConverter.pas"
+// Стереотип: "UtilityPack"
+
+{$Include ddDefine.inc}
 
 interface
 
@@ -10,7 +15,7 @@ uses
 type
  Tdd_lcSourceConverterFilter = class(Tk2TagFilter)
  end;//Tdd_lcSourceConverterFilter
- 
+
 implementation
 
 uses

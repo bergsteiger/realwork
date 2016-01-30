@@ -1,21 +1,28 @@
-unit DTTypesUser.imp;
+{$IfNDef DTTypesUser_imp}
 
-interface
+// Модуль: "w:\archi\source\projects\ImportExportTest\DTTypesUser.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define DTTypesUser_imp}
 
-type
- _DTTypesUser_ = class
+{$If Defined(nsTest)}
+ _DTTypesUser_ = {abstract} class(_DTTypesUser_Parent_)
  end;//_DTTypesUser_
- 
-implementation
 
-uses
- l3ImplUses
- , ddPipeOutInterfaces
- , l3Base
-;
+{$Else Defined(nsTest)}
 
-end.
+_DTTypesUser_ = _DTTypesUser_Parent_;
+
+{$IfEnd} // Defined(nsTest)
+{$Else DTTypesUser_imp}
+
+{$IfNDef DTTypesUser_imp_impl}
+
+{$Define DTTypesUser_imp_impl}
+
+{$If Defined(nsTest)}
+{$IfEnd} // Defined(nsTest)
+{$EndIf DTTypesUser_imp_impl}
+
+{$EndIf DTTypesUser_imp}
+

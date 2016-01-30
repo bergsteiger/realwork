@@ -1,4 +1,10 @@
 unit DocumentSub_Const;
+ {* Метка в документе }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\DocumentSub_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -9,7 +15,7 @@ uses
 ;
 
  // DocumentSubTag
- 
+
 implementation
 
 uses

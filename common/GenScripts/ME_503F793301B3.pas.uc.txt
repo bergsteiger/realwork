@@ -1,0 +1,26 @@
+//#UC START# *503F7A2601F6_503F793301B3_impl*
+  for i := Low(f_ConvertMap) to High(f_ConvertMap) do
+    if AnsiSameText(aFirst, f_ConvertMap[i].First) then
+    begin
+      Result := f_ConvertMap[i].Second;
+      Exit;
+    end;
+  Error1St(aFirst);
+//#UC END# *503F7A2601F6_503F793301B3_impl*
+//#UC START# *503F7A2601F6_503F793301B3_var*
+  var
+    i : Integer;
+//#UC END# *503F7A2601F6_503F793301B3_var*
+//#UC START# *503F7A40002D_503F793301B3_impl*
+  for i := Low(f_ConvertMap) to High(f_ConvertMap) do
+    if AnsiSameText(aSecond, f_ConvertMap[i].Second) then
+    begin
+      Result := f_ConvertMap[i].First;
+      Exit;
+    end;
+  Error2nd(aSecond);
+//#UC END# *503F7A40002D_503F793301B3_impl*
+//#UC START# *503F7A40002D_503F793301B3_var*
+  var
+    i : Integer;
+//#UC END# *503F7A40002D_503F793301B3_var*

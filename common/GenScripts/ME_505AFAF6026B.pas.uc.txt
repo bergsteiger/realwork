@@ -1,0 +1,46 @@
+//#UC START# *51B232178794_825779F5AD08_impl*
+ l_InFN := aFileName;
+ l_OutFN := aCtx.rCaller.ResolveOutputFilePath(l_InFN);
+ l_InFN := aCtx.rCaller.ResolveInputFilePath(l_InFN);
+ RunnerAssert(FileExists(l_InFN), Format('generators:Execute - входной файл (%s) не найден', [l_InFN]), aCtx);
+ l_Reader := Tk2EVDReaderService.Instance.MakeReader(l_InFN, aTagGenerator);
+ try
+  l_Filt := aTagGenerator;
+  while l_Filt.NextGenerator <> nil do
+   l_Filt := l_Filt.NextGenerator;
+  l_Writer := Tk2EVDWriterService.Instance.MakeWriter(l_OutFN);
+  try
+   l_Filt.NextGenerator := l_Writer;
+   l_Reader.Execute;
+  finally
+   l_Writer := nil;
+  end;//try..finally
+ finally
+  l_Reader := nil;
+ end;//try..finally
+//#UC END# *51B232178794_825779F5AD08_impl*
+//#UC START# *51B232178794_825779F5AD08_var*
+var
+ l_Filt: Ik2TagGenerator;
+ l_InFN: AnsiString;
+ l_OutFN: AnsiString;
+ l_Reader: Il3Reader;
+ l_Writer: Ik2TagGenerator;
+//#UC END# *51B232178794_825779F5AD08_var*
+//#UC START# *9EE368A1435Dci*
+//#UC END# *9EE368A1435Dci*
+//#UC START# *9EE368A1435Dcit*
+//#UC END# *9EE368A1435Dcit*
+//#UC START# *9EE368A1435Dpubl*
+//#UC END# *9EE368A1435Dpubl*
+//#UC START# *C44F9D8AB364_E6DB290D23D7_impl*
+ l_GenHead := aGenHead;
+ while (l_GenHead.NextGenerator <> nil) do
+  l_GenHead := l_GenHead.NextGenerator;
+ l_GenHead.NextGenerator := aTagGenerator;
+ Result := aGenHead;
+//#UC END# *C44F9D8AB364_E6DB290D23D7_impl*
+//#UC START# *C44F9D8AB364_E6DB290D23D7_var*
+var
+ l_GenHead: Ik2TagGenerator;
+//#UC END# *C44F9D8AB364_E6DB290D23D7_var*

@@ -1,5 +1,10 @@
 unit FTPBrowser_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\FTPBrowser_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -11,7 +16,7 @@ uses
 ;
 
  // FTPBrowserTag
- 
+
 implementation
 
 uses

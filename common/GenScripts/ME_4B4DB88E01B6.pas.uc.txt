@@ -1,0 +1,419 @@
+//#UC START# *479731C50290_4B4DB88E01B6_impl*
+ f_ContextSearcher := nil;
+ inherited;
+//#UC END# *479731C50290_4B4DB88E01B6_impl*
+//#UC START# *479731C50290_4B4DB88E01B6_var*
+//#UC END# *479731C50290_4B4DB88E01B6_var*
+//#UC START# *47A042E100E2_4B4DB88E01B6_impl*
+ f_IsPageActive := True;
+ inherited;
+//#UC END# *47A042E100E2_4B4DB88E01B6_impl*
+//#UC START# *47A042E100E2_4B4DB88E01B6_var*
+//#UC END# *47A042E100E2_4B4DB88E01B6_var*
+//#UC START# *4951284902BD_4B4DB88E01B6exec_impl*
+ aParams.CallControl;
+//#UC END# *4951284902BD_4B4DB88E01B6exec_impl*
+//#UC START# *4951284902BD_4B4DB88E01B6exec_var*
+//#UC END# *4951284902BD_4B4DB88E01B6exec_var*
+//#UC START# *4951284902BD_4B4DB88E01B6test_impl*
+ aParams.CallControl;
+ CheckTrial(aParams);
+//#UC END# *4951284902BD_4B4DB88E01B6test_impl*
+//#UC START# *4951284902BD_4B4DB88E01B6test_var*
+//#UC END# *4951284902BD_4B4DB88E01B6test_var*
+//#UC START# *4951285702E1_4B4DB88E01B6exec_impl*
+ aParams.CallControl;
+//#UC END# *4951285702E1_4B4DB88E01B6exec_impl*
+//#UC START# *4951285702E1_4B4DB88E01B6exec_var*
+//#UC END# *4951285702E1_4B4DB88E01B6exec_var*
+//#UC START# *4951285702E1_4B4DB88E01B6test_impl*
+ aParams.CallControl;
+ CheckTrial(aParams);
+//#UC END# *4951285702E1_4B4DB88E01B6test_impl*
+//#UC START# *4951285702E1_4B4DB88E01B6test_var*
+//#UC END# *4951285702E1_4B4DB88E01B6test_var*
+//#UC START# *49512B5D0009_4B4DB88E01B6exec_impl*
+ TdmStdRes.OpenBaseSearch(ns_bsokLocal, nil);
+//#UC END# *49512B5D0009_4B4DB88E01B6exec_impl*
+//#UC START# *49512B5D0009_4B4DB88E01B6exec_var*
+//#UC END# *49512B5D0009_4B4DB88E01B6exec_var*
+//#UC START# *49512B5D0009_4B4DB88E01B6test_impl*
+ DoEditFindContextTest(aParams);
+//#UC END# *49512B5D0009_4B4DB88E01B6test_impl*
+//#UC START# *49512B5D0009_4B4DB88E01B6test_var*
+//#UC END# *49512B5D0009_4B4DB88E01B6test_var*
+//#UC START# *495130C40123_4B4DB88E01B6exec_impl*
+ if Assigned(f_ContextSearcher) and f_ContextSearcher.CanContinue then
+  Find(Self, nil)
+ else
+  TdmStdRes.OpenBaseSearch(ns_bsokLocal,
+                           nil);
+//#UC END# *495130C40123_4B4DB88E01B6exec_impl*
+//#UC START# *495130C40123_4B4DB88E01B6exec_var*
+//#UC END# *495130C40123_4B4DB88E01B6exec_var*
+//#UC START# *495130C40123_4B4DB88E01B6test_impl*
+ Edit_FindContext_Test(aParams);
+//#UC END# *495130C40123_4B4DB88E01B6test_impl*
+//#UC START# *495130C40123_4B4DB88E01B6test_var*
+//#UC END# *495130C40123_4B4DB88E01B6test_var*
+//#UC START# *49513239027A_4B4DB88E01B6get_impl*
+ Result := f_SearchArea;
+//#UC END# *49513239027A_4B4DB88E01B6get_impl*
+//#UC START# *49513239027A_4B4DB88E01B6get_var*
+//#UC END# *49513239027A_4B4DB88E01B6get_var*
+//#UC START# *49513239027A_4B4DB88E01B6set_impl*
+ f_SearchArea := aValue;
+ if not IsLocalSearchArea then
+  ContextChanged(nil);
+//#UC END# *49513239027A_4B4DB88E01B6set_impl*
+//#UC START# *49513239027A_4B4DB88E01B6set_var*
+//#UC END# *49513239027A_4B4DB88E01B6set_var*
+//#UC START# *4951325E03B6_4B4DB88E01B6_impl*
+ Result := ns_bskDocument;
+//#UC END# *4951325E03B6_4B4DB88E01B6_impl*
+//#UC START# *4951325E03B6_4B4DB88E01B6_var*
+//#UC END# *4951325E03B6_4B4DB88E01B6_var*
+//#UC START# *4951329202AB_4B4DB88E01B6_impl*
+ if IsLocalSearchArea then
+ begin
+  Result := True;
+  if l3IsNil(aContext.Context) then
+   raise ETryToFindEmptyContext.Create('');
+
+  if not Text.HasDocument OR not Text.Document.AsObject.IsValid then
+   Text.TextSource.DocumentContainer.Document;
+   // - дёргаем, чтобы прогрузить документ
+
+  Assert(Text.HasDocument and Text.Document.AsObject.IsValid,'Document not loaded yet');
+
+  if (DocumentForSearch <> nil) then
+  begin
+   if DocumentForSearch.IsMorphoSearchSupported and
+      not ContextSearcher.CanContinue then
+   try
+    aContext.RepairMistakes;
+   except
+    // http://mdp.garant.ru/pages/viewpage.action?pageId=477633558    
+    on EAbort do
+    begin
+     TnsSearchInDocumentDoneEvent.Log(DocumentForSearch, aContext.Context, 0);
+     Raise;
+    end;//on EAbort
+   end;//try..except
+  end;//DocumentForSearch <> nil
+  l_Visualizer := bsMakeSearchVisualizer(aContext.Context);
+  try
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=477633558
+   if (ContextSearcher.FragmentsCount = 0) then
+    TnsSearchInDocumentEvent.Log(DocumentForSearch, aContext.Context);
+   l_Result := ContextSearcher.Find(aContext.Context);
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=477633558
+   if ContextSearcher.CanFindBack then
+    TnsSearchInDocumentNextEvent.Log(DocumentForSearch, aContext.Context)
+   else
+    TnsSearchInDocumentDoneEvent.Log(DocumentForSearch, aContext.Context,
+     ContextSearcher.FragmentsCount);
+   TdmStdRes.BaseSearchCheckFindBack(NativeMainForm);
+  finally
+   l_Visualizer := nil;
+  end;
+  case l_Result of
+   bsrContinueSearch:
+    if Assigned(aProcessor) then
+     aProcessor.SearchResultExists;
+   bsrSearchFinished:
+    Say(inf_SearchFinished);
+   bsrSearchFinishedNotFound:
+    if not ContinueSearchInWholeBase then
+     Say(inf_SearchFinishedContextNotFound)
+    else
+    if Ask(qr_SearchFinishedContextNotFoundQ) then
+     TdmStdRes.TryAnotherBaseSearch(NativeMainForm, aProcessor);
+   bsrSearchFinishedAllInHidden:
+    Say(inf_SearchFinishedAllInHidden);
+  end;//case l_Result of
+ end//IsLocalSearchArea
+ else
+  Result := False;
+//#UC END# *4951329202AB_4B4DB88E01B6_impl*
+//#UC START# *4951329202AB_4B4DB88E01B6_var*
+var
+ l_Result: TbsBaseSearchResult;
+ l_Visualizer: IafwLongProcessVisualizer;
+//#UC END# *4951329202AB_4B4DB88E01B6_var*
+//#UC START# *495132A703DF_4B4DB88E01B6_impl*
+ Result := False;
+//#UC END# *495132A703DF_4B4DB88E01B6_impl*
+//#UC START# *495132A703DF_4B4DB88E01B6_var*
+//#UC END# *495132A703DF_4B4DB88E01B6_var*
+//#UC START# *495132B70156_4B4DB88E01B6_impl*
+ Result := f_SearchArea = ns_saText;
+//#UC END# *495132B70156_4B4DB88E01B6_impl*
+//#UC START# *495132B70156_4B4DB88E01B6_var*
+//#UC END# *495132B70156_4B4DB88E01B6_var*
+//#UC START# *495132C20005_4B4DB88E01B6_impl*
+ ContextSearcher.ContextChanged(aNewContext);
+ RequestCheckFragmentsCount;
+//#UC END# *495132C20005_4B4DB88E01B6_impl*
+//#UC START# *495132C20005_4B4DB88E01B6_var*
+//#UC END# *495132C20005_4B4DB88E01B6_var*
+//#UC START# *495132CE010F_4B4DB88E01B6_impl*
+ Result := Text.HasDocument and Text.Document.AsObject.IsValid;
+//#UC END# *495132CE010F_4B4DB88E01B6_impl*
+//#UC START# *495132CE010F_4B4DB88E01B6_var*
+//#UC END# *495132CE010F_4B4DB88E01B6_var*
+//#UC START# *49513746034D_4B4DB88E01B6_impl*
+// DoNothing
+//#UC END# *49513746034D_4B4DB88E01B6_impl*
+//#UC START# *49513746034D_4B4DB88E01B6_var*
+//#UC END# *49513746034D_4B4DB88E01B6_var*
+//#UC START# *4951375B0052_4B4DB88E01B6get_impl*
+ Result := ContextSearcher.Context;
+//#UC END# *4951375B0052_4B4DB88E01B6get_impl*
+//#UC START# *4951375B0052_4B4DB88E01B6get_var*
+//#UC END# *4951375B0052_4B4DB88E01B6get_var*
+//#UC START# *496B517202C5_4B4DB88E01B6_impl*
+ if (f_SearchWindowVisible <> aNewVisible) then
+ begin
+  f_SearchWindowVisible := aNewVisible;
+  if Assigned(Text.Selection) and not Text.Selection.Collapsed then
+   Text.Invalidate;
+ end;//f_SearchWindowVisible <> aNewVisible
+//#UC END# *496B517202C5_4B4DB88E01B6_impl*
+//#UC START# *496B517202C5_4B4DB88E01B6_var*
+//#UC END# *496B517202C5_4B4DB88E01B6_var*
+//#UC START# *497469C90140_4B4DB88E01B6_impl*
+ inherited NotifyDataSourceChanged(anOld, aNew);
+ RequestCheckFragmentsCount;
+//#UC END# *497469C90140_4B4DB88E01B6_impl*
+//#UC START# *497469C90140_4B4DB88E01B6_var*
+//#UC END# *497469C90140_4B4DB88E01B6_var*
+//#UC START# *49EDFA3701B0_4B4DB88E01B6exec_impl*
+ aParams.CallControl;
+//#UC END# *49EDFA3701B0_4B4DB88E01B6exec_impl*
+//#UC START# *49EDFA3701B0_4B4DB88E01B6exec_var*
+//#UC END# *49EDFA3701B0_4B4DB88E01B6exec_var*
+//#UC START# *49EDFA3701B0_4B4DB88E01B6test_impl*
+ aParams.CallControl;
+//#UC END# *49EDFA3701B0_4B4DB88E01B6test_impl*
+//#UC START# *49EDFA3701B0_4B4DB88E01B6test_var*
+//#UC END# *49EDFA3701B0_4B4DB88E01B6test_var*
+//#UC START# *49EDFCA2006D_4B4DB88E01B6exec_impl*
+ aParams.CallControl;
+//#UC END# *49EDFCA2006D_4B4DB88E01B6exec_impl*
+//#UC START# *49EDFCA2006D_4B4DB88E01B6exec_var*
+//#UC END# *49EDFCA2006D_4B4DB88E01B6exec_var*
+//#UC START# *49EDFCA2006D_4B4DB88E01B6test_impl*
+ aParams.CallControl;
+//#UC END# *49EDFCA2006D_4B4DB88E01B6test_impl*
+//#UC START# *49EDFCA2006D_4B4DB88E01B6test_var*
+//#UC END# *49EDFCA2006D_4B4DB88E01B6test_var*
+//#UC START# *49EDFCB100BC_4B4DB88E01B6exec_impl*
+ aParams.CallControl;
+//#UC END# *49EDFCB100BC_4B4DB88E01B6exec_impl*
+//#UC START# *49EDFCB100BC_4B4DB88E01B6exec_var*
+//#UC END# *49EDFCB100BC_4B4DB88E01B6exec_var*
+//#UC START# *49EDFCB100BC_4B4DB88E01B6test_impl*
+ aParams.CallControl;
+//#UC END# *49EDFCB100BC_4B4DB88E01B6test_impl*
+//#UC START# *49EDFCB100BC_4B4DB88E01B6test_var*
+//#UC END# *49EDFCB100BC_4B4DB88E01B6test_var*
+//#UC START# *49EE01AA02BE_4B4DB88E01B6exec_impl*
+ aParams.CallControl;
+//#UC END# *49EE01AA02BE_4B4DB88E01B6exec_impl*
+//#UC START# *49EE01AA02BE_4B4DB88E01B6exec_var*
+//#UC END# *49EE01AA02BE_4B4DB88E01B6exec_var*
+//#UC START# *49EE01AA02BE_4B4DB88E01B6test_impl*
+ aParams.CallControl;
+//#UC END# *49EE01AA02BE_4B4DB88E01B6test_impl*
+//#UC START# *49EE01AA02BE_4B4DB88E01B6test_var*
+//#UC END# *49EE01AA02BE_4B4DB88E01B6test_var*
+//#UC START# *49EE01BC022E_4B4DB88E01B6exec_impl*
+ aParams.CallControl;
+//#UC END# *49EE01BC022E_4B4DB88E01B6exec_impl*
+//#UC START# *49EE01BC022E_4B4DB88E01B6exec_var*
+//#UC END# *49EE01BC022E_4B4DB88E01B6exec_var*
+//#UC START# *49EE01BC022E_4B4DB88E01B6test_impl*
+ aParams.CallControl;
+//#UC END# *49EE01BC022E_4B4DB88E01B6test_impl*
+//#UC START# *49EE01BC022E_4B4DB88E01B6test_var*
+//#UC END# *49EE01BC022E_4B4DB88E01B6test_var*
+//#UC START# *49FEA325027E_4B4DB88E01B6_impl*
+ if IsLocalSearchArea then
+ begin
+  Result := True;
+  if l3IsNil(aContext.Context) then
+   raise ETryToFindEmptyContext.Create('');
+
+  Assert(Text.HasDocument and Text.Document.AsObject.IsValid,'Document not loaded yet');
+
+  Assert(ContextSearcher.CanFindBack);
+
+  l_Visualizer := bsMakeSearchVisualizer(aContext.Context);
+  try
+   // http://mdp.garant.ru/pages/viewpage.action?pageId=477633558
+   TnsSearchInDocumentPrevEvent.Log(DocumentForSearch, aContext.Context);
+   l_Result := ContextSearcher.FindBack;
+   TdmStdRes.BaseSearchCheckFindBack(NativeMainForm);
+  finally
+   l_Visualizer := nil;
+  end;
+  case l_Result of
+   bsrContinueSearch:
+    if Assigned(aProcessor) then
+     aProcessor.SearchResultExists;
+   bsrSearchFinished:
+    Say(inf_SearchFinished);
+   bsrSearchFinishedNotFound:
+    if not ContinueSearchInWholeBase then
+     Say(inf_SearchFinishedContextNotFound)
+    else
+    if Ask(qr_SearchFinishedContextNotFoundQ) then
+     TdmStdRes.TryAnotherBaseSearch(NativeMainForm, aProcessor);
+   bsrSearchFinishedAllInHidden:
+    Say(inf_SearchFinishedAllInHidden);
+  end;//case l_Result of
+ end//IsLocalSearchArea
+ else
+  Result := False;
+//#UC END# *49FEA325027E_4B4DB88E01B6_impl*
+//#UC START# *49FEA325027E_4B4DB88E01B6_var*
+var
+ l_Result: TbsBaseSearchResult;
+ l_Visualizer: IafwLongProcessVisualizer;
+//#UC END# *49FEA325027E_4B4DB88E01B6_var*
+//#UC START# *49FEB37C02FB_4B4DB88E01B6_impl*
+ Result := IsLocalSearchArea;
+//#UC END# *49FEB37C02FB_4B4DB88E01B6_impl*
+//#UC START# *49FEB37C02FB_4B4DB88E01B6_var*
+//#UC END# *49FEB37C02FB_4B4DB88E01B6_var*
+//#UC START# *49FEB3960023_4B4DB88E01B6_impl*
+ Result := ContextSearcher.CanFindBack;
+//#UC END# *49FEB3960023_4B4DB88E01B6_impl*
+//#UC START# *49FEB3960023_4B4DB88E01B6_var*
+//#UC END# *49FEB3960023_4B4DB88E01B6_var*
+//#UC START# *49FEDE4703B8_4B4DB88E01B6exec_impl*
+ if Assigned(f_ContextSearcher) and f_ContextSearcher.CanFindBack then
+  FindBack(Self, nil);
+//#UC END# *49FEDE4703B8_4B4DB88E01B6exec_impl*
+//#UC START# *49FEDE4703B8_4B4DB88E01B6exec_var*
+//#UC END# *49FEDE4703B8_4B4DB88E01B6exec_var*
+//#UC START# *49FEDE4703B8_4B4DB88E01B6test_impl*
+ Edit_FindContext_Test(aParams);
+ if aParams.Op.Flag[vcm_ofEnabled] and
+   not (Assigned(f_ContextSearcher) and f_ContextSearcher.CanFindBack) then
+   aParams.Op.Flag[vcm_ofEnabled] := False;
+//#UC END# *49FEDE4703B8_4B4DB88E01B6test_impl*
+//#UC START# *49FEDE4703B8_4B4DB88E01B6test_var*
+//#UC END# *49FEDE4703B8_4B4DB88E01B6test_var*
+//#UC START# *49FFD8230333_4B4DB88E01B6_impl*
+ l_FoundCount := ContextSearcher.FragmentsCount;
+ if l_FoundCount > cMaxFragmentsCount then
+  Result := nsCStr(Format(' >%d',[cMaxFragmentsCount]))
+ else
+  if l_FoundCount = 0 then
+   Result := nil
+  else
+   Result := nsCStr(Format(' %d',[l_FoundCount]));
+//#UC END# *49FFD8230333_4B4DB88E01B6_impl*
+//#UC START# *49FFD8230333_4B4DB88E01B6_var*
+var
+ l_FoundCount: Integer;
+const
+ cMaxFragmentsCount = 999;
+//#UC END# *49FFD8230333_4B4DB88E01B6_var*
+//#UC START# *4A8E8F2E0195_4B4DB88E01B6_impl*
+ Text.OnCheckFocusedInPaint := CheckFocusedInPaint;
+ inherited;
+//#UC END# *4A8E8F2E0195_4B4DB88E01B6_impl*
+//#UC START# *4A8E8F2E0195_4B4DB88E01B6_var*
+//#UC END# *4A8E8F2E0195_4B4DB88E01B6_var*
+//#UC START# *4AA4E63900F9_4B4DB88E01B6_impl*
+ Result := HasDoc or not IsLocalSearchArea;
+ if Result and IsLocalSearchArea then
+  try
+   DocumentForSearch.GetInternalId;
+  except
+   on ECanNotFindData do
+    Result := False;
+  end;//try..except
+//#UC END# *4AA4E63900F9_4B4DB88E01B6_impl*
+//#UC START# *4AA4E63900F9_4B4DB88E01B6_var*
+//#UC END# *4AA4E63900F9_4B4DB88E01B6_var*
+//#UC START# *4AA4E64E0395_4B4DB88E01B6_impl*
+ if IsLocalSearchArea and HasDoc then
+  Result := DocumentForSearch.GetInternalId
+ else
+  Result := 0;
+//#UC END# *4AA4E64E0395_4B4DB88E01B6_impl*
+//#UC START# *4AA4E64E0395_4B4DB88E01B6_var*
+//#UC END# *4AA4E64E0395_4B4DB88E01B6_var*
+//#UC START# *4ACA17770179_4B4DB88E01B6_impl*
+ Result := False;
+//#UC END# *4ACA17770179_4B4DB88E01B6_impl*
+//#UC START# *4ACA17770179_4B4DB88E01B6_var*
+//#UC END# *4ACA17770179_4B4DB88E01B6_var*
+//#UC START# *4AD608860210_4B4DB88E01B6get_impl*
+ Result := Self;
+//#UC END# *4AD608860210_4B4DB88E01B6get_impl*
+//#UC START# *4AD608860210_4B4DB88E01B6get_var*
+//#UC END# *4AD608860210_4B4DB88E01B6get_var*
+//#UC START# *4B263ADE02E0_4B4DB88E01B6_impl*
+ Result := True;
+//#UC END# *4B263ADE02E0_4B4DB88E01B6_impl*
+//#UC START# *4B263ADE02E0_4B4DB88E01B6_var*
+//#UC END# *4B263ADE02E0_4B4DB88E01B6_var*
+//#UC START# *4B4DB9720181_4B4DB88E01B6get_impl*
+ if not Assigned(f_ContextSearcher) then
+  f_ContextSearcher := TbsDocumentContextSearcher.Make(Text);
+ Result := f_ContextSearcher;
+//#UC END# *4B4DB9720181_4B4DB88E01B6get_impl*
+//#UC START# *4B4DB9720181_4B4DB88E01B6get_var*
+//#UC END# *4B4DB9720181_4B4DB88E01B6get_var*
+//#UC START# *4B4DCA8D01DC_4B4DB88E01B6_impl*
+ nsDisableOperationInTrialMode(aParams);
+//#UC END# *4B4DCA8D01DC_4B4DB88E01B6_impl*
+//#UC START# *4B4DCA8D01DC_4B4DB88E01B6_var*
+//#UC END# *4B4DCA8D01DC_4B4DB88E01B6_var*
+//#UC START# *4B4EF0D2016A_4B4DB88E01B6_impl*
+ Result := not (DocumentForSearch.GetDocType in
+                [DT_MEDICAL_EXPLANATORY, DT_MEDICAL_FIRM, DT_MEDICAL_DOCUMENT]);
+//#UC END# *4B4EF0D2016A_4B4DB88E01B6_impl*
+//#UC START# *4B4EF0D2016A_4B4DB88E01B6_var*
+//#UC END# *4B4EF0D2016A_4B4DB88E01B6_var*
+//#UC START# *4B4EF6A701F4_4B4DB88E01B6_impl*
+ TdmStdRes.BaseSearchCheckFragmentsCount(NativeMainForm);
+//#UC END# *4B4EF6A701F4_4B4DB88E01B6_impl*
+//#UC START# *4B4EF6A701F4_4B4DB88E01B6_var*
+//#UC END# *4B4EF6A701F4_4B4DB88E01B6_var*
+//#UC START# *4B4EFBF200E2_4B4DB88E01B6_impl*
+ if not aFocused then
+  aFocused := f_SearchWindowVisible; 
+//#UC END# *4B4EFBF200E2_4B4DB88E01B6_impl*
+//#UC START# *4B4EFBF200E2_4B4DB88E01B6_var*
+//#UC END# *4B4EFBF200E2_4B4DB88E01B6_var*
+//#UC START# *4C52E8030278_4B4DB88E01B6_impl*
+ inherited;
+ f_IsPageActive := True;
+ TnsSearchWindowManager.Instance.CheckFindEnabled;
+//#UC END# *4C52E8030278_4B4DB88E01B6_impl*
+//#UC START# *4C52E8030278_4B4DB88E01B6_var*
+//#UC END# *4C52E8030278_4B4DB88E01B6_var*
+//#UC START# *4C52E81603A9_4B4DB88E01B6_impl*
+ inherited;
+ f_IsPageActive := False;
+ TnsSearchWindowManager.Instance.CheckFindEnabled;
+//#UC END# *4C52E81603A9_4B4DB88E01B6_impl*
+//#UC START# *4C52E81603A9_4B4DB88E01B6_var*
+//#UC END# *4C52E81603A9_4B4DB88E01B6_var*
+//#UC START# *4C8DCA3402C1_4B4DB88E01B6_impl*
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  aParams.Op.Flag[vcm_ofEnabled] := TextSource.HasDocument;
+//#UC END# *4C8DCA3402C1_4B4DB88E01B6_impl*
+//#UC START# *4C8DCA3402C1_4B4DB88E01B6_var*
+//#UC END# *4C8DCA3402C1_4B4DB88E01B6_var*
+//#UC START# *561641EE03D8_4B4DB88E01B6_impl*
+ Result := not f_IsPageActive;
+//#UC END# *561641EE03D8_4B4DB88E01B6_impl*
+//#UC START# *561641EE03D8_4B4DB88E01B6_var*
+//#UC END# *561641EE03D8_4B4DB88E01B6_var*

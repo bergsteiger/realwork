@@ -1,0 +1,79 @@
+//#UC START# *479731C50290_49196E5F01CD_impl*
+ FreeAndNil(f_Children);
+ f_IndexOfs := 0;
+ inherited;
+//#UC END# *479731C50290_49196E5F01CD_impl*
+//#UC START# *479731C50290_49196E5F01CD_var*
+//#UC END# *479731C50290_49196E5F01CD_var*
+//#UC START# *49196FB8039F_49196E5F01CDget_impl*
+ if (anIndex < f_IndexOfs) then
+  Result := nil
+ else
+ if (f_Children = nil) then
+  Result := nil
+ else
+ if (anIndex - f_IndexOfs >= f_Children.Count) then
+  Result := nil
+ else
+  Result := f_Children[anIndex - f_IndexOfs];
+//#UC END# *49196FB8039F_49196E5F01CDget_impl*
+//#UC START# *49196FB8039F_49196E5F01CDget_var*
+//#UC END# *49196FB8039F_49196E5F01CDget_var*
+//#UC START# *49196FB8039F_49196E5F01CDset_impl*
+ if ((f_Children = nil) OR f_Children.Empty) AND (aValue = nil) then
+  Exit;
+ if (f_Children = nil) then
+  f_Children := TnevFormatInfoList.Create;
+ if f_Children.Empty then
+  f_IndexOfs := anIndex;
+  // - пустую голову списка можно не хранить
+ if (anIndex < f_IndexOfs) then
+ // - надо вставить в начало
+ begin
+  if (aValue = nil) then
+   Exit;
+  while (anIndex < f_IndexOfs) do
+  begin
+   f_Children.Insert(0, nil);
+   Dec(f_IndexOfs);
+  end;//while (anIndex < f_IndexOfs)
+  Assert(f_IndexOfs >= 0)
+ end//anIndex < f_IndexOfs
+ else 
+ if (f_Children.Count <= anIndex - f_IndexOfs) then
+ begin
+  if (aValue = nil) then
+   Exit;
+  f_Children.Count := anIndex - f_IndexOfs + 1;
+ end;//f_Children.Count <= anIndex
+ Assert(anIndex - f_IndexOfs >= 0);
+ f_Children[anIndex - f_IndexOfs] := aValue;
+//#UC END# *49196FB8039F_49196E5F01CDset_impl*
+//#UC START# *49196FB8039F_49196E5F01CDset_var*
+//#UC END# *49196FB8039F_49196E5F01CDset_var*
+//#UC START# *491972F102A1_49196E5F01CD_impl*
+ if (anIndex - f_IndexOfs >= 0) then
+  if (f_Children <> nil) then
+   if (f_Children.Count > anIndex - f_IndexOfs) then
+    f_Children.Insert(anIndex - f_IndexOfs, nil);
+//#UC END# *491972F102A1_49196E5F01CD_impl*
+//#UC START# *491972F102A1_49196E5F01CD_var*
+//#UC END# *491972F102A1_49196E5F01CD_var*
+//#UC START# *491973120092_49196E5F01CD_impl*
+ if (anIndex - f_IndexOfs >= 0) then
+  if (f_Children <> nil) then
+   if (f_Children.Count > anIndex - f_IndexOfs) then
+   begin
+    f_Children.Delete(anIndex - f_IndexOfs);
+    if f_Children.Empty then
+     f_IndexOfs := 0;
+   end;//f_Children.Count > anIndex - f_IndexOfs
+//#UC END# *491973120092_49196E5F01CD_impl*
+//#UC START# *491973120092_49196E5F01CD_var*
+//#UC END# *491973120092_49196E5F01CD_var*
+//#UC START# *4EA57037029A_49196E5F01CD_impl*
+ if (f_Children <> nil) then
+  f_Children.ClearReferencesToParentFormatInfo;
+//#UC END# *4EA57037029A_49196E5F01CD_impl*
+//#UC START# *4EA57037029A_49196E5F01CD_var*
+//#UC END# *4EA57037029A_49196E5F01CD_var*

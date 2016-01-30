@@ -1,7 +1,13 @@
 unit kwIntegerFactory;
 
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwIntegerFactory.pas"
+// Стереотип: "SimpleClass"
+
+{$Include seDefine.inc}
+
 interface
 
+{$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
  , kwIntegerArray
@@ -10,16 +16,75 @@ uses
 
 type
  TkwIntegerFactory = class(TkwIntegerArray)
-  function MakeKW(aValue: Integer): TkwInteger;
-  function Exists: Boolean;
-   {* Проверяет создан экземпляр синглетона или нет }
+  public
+   function MakeKW(aValue: Integer): TkwInteger;
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+   class function Instance: TkwIntegerFactory;
+    {* Метод получения экземпляра синглетона TkwIntegerFactory }
  end;//TkwIntegerFactory
- 
+{$IfEnd} // NOT Defined(NoScripts)
+
 implementation
 
+{$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
  , SysUtils
+ , l3Base
 ;
+
+var g_TkwIntegerFactory: TkwIntegerFactory = nil;
+ {* Экземпляр синглетона TkwIntegerFactory }
+
+procedure TkwIntegerFactoryFree;
+ {* Метод освобождения экземпляра синглетона TkwIntegerFactory }
+begin
+ l3Free(g_TkwIntegerFactory);
+end;//TkwIntegerFactoryFree
+
+function TkwIntegerFactory.MakeKW(aValue: Integer): TkwInteger;
+//#UC START# *4F3E412801B7_4F3E401D03AF_var*
+const
+ cLimit = 3000;
+var
+ l_KW : TkwInteger;
+//#UC END# *4F3E412801B7_4F3E401D03AF_var*
+begin
+//#UC START# *4F3E412801B7_4F3E401D03AF_impl*
+ if (aValue >= 0) AND (aValue < cLimit) then
+ begin
+  l_KW := Self.Items[aValue];
+  if (l_KW = nil) then
+  begin
+   l_KW := TkwInteger.Create(aValue);
+   Self.Items[aValue] := l_KW;
+   Result := l_KW;
+  end//l_KW = nil
+  else
+   Result := l_KW.Use;
+ end//aValue < cLimit
+ else
+  Result := TkwInteger.Create(aValue);
+//#UC END# *4F3E412801B7_4F3E401D03AF_impl*
+end;//TkwIntegerFactory.MakeKW
+
+class function TkwIntegerFactory.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TkwIntegerFactory <> nil;
+end;//TkwIntegerFactory.Exists
+
+class function TkwIntegerFactory.Instance: TkwIntegerFactory;
+ {* Метод получения экземпляра синглетона TkwIntegerFactory }
+begin
+ if (g_TkwIntegerFactory = nil) then
+ begin
+  l3System.AddExitProc(TkwIntegerFactoryFree);
+  g_TkwIntegerFactory := Create;
+ end;
+ Result := g_TkwIntegerFactory;
+end;//TkwIntegerFactory.Instance
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -1,4 +1,7 @@
-unit idComponent;
+unit NOT_FINISHED_idComponent;
+
+// Модуль: "w:\common\components\rtl\external\Indy\Source\System\NOT_FINISHED_idComponent.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
@@ -18,11 +21,11 @@ type
   , ftpReady
   , ftpAborted
  );//TIdStatus
- 
+
  TIdStatusEvent = procedure(ASender: TObject;
   const AStatus: TIdStatus;
   const AStatusText: AnsiString) of object;
- 
+
 implementation
 
 uses

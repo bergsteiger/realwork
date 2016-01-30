@@ -49,24 +49,24 @@ implementation @ <<ComTarget>>
 ; // st_space_key
 
 : wiki_up_print OBJECT IN %S
-//	%S%[AbstractTarget::Category]f_wiki_up_print()[{"%S{need UC}"!="%S{!need UC}"}%f_up_prefix(%S) *need UC* = *%S{need UC}* - €вно включает генерацию дополнительных секций ёзер- ода
- call-inherited:: 'AbstractTarget' wiki_up_print %( )%
+//	%S%[COM::MDAGenerator]f_wiki_up_print()[{"%S{need UC}"!="%S{!need UC}"}%f_up_prefix(%S) *need UC* = *%S{need UC}* - €вно включает генерацию дополнительных секций ёзер- ода
+ call-inherited:: 'COM' wiki_up_print %( )%
  if ( ( %S get_up ( 'need UC' ) ) %!= ( %S get_up_def ( 'need UC' ) ) ) then
  begin
   [%f] up_prefix %( %S )% ' *need UC* = *'
   %S get_up ( 'need UC' ) '* - €вно включает генерацию дополнительных секций ёзер- ода'
-//	][{"%S{ifdef}"!="%S{!ifdef}"}%f_up_prefix(%S) *ifdef* = *%S{ifdef}* - Oпредел€ет условный признак компил€ции, который должен быть определЄн. ƒл€ указани€ нескольких флагов условной компил€ций нужно указать их через зап€тую.
+//	][{"%S{old format}"!="%S{!old format}"}%f_up_prefix(%S) *old format* = *%S{old format}* - включает генерацию дополнительного кода дл€ совместимости со старым сервером
  end // if
- if ( ( %S get_up ( 'ifdef' ) ) %!= ( %S get_up_def ( 'ifdef' ) ) ) then
+ if ( ( %S get_up ( 'old format' ) ) %!= ( %S get_up_def ( 'old format' ) ) ) then
  begin
-  [%f] up_prefix %( %S )% ' *ifdef* = *'
-  %S get_up ( 'ifdef' ) '* - Oпредел€ет условный признак компил€ции, который должен быть определЄн. ƒл€ указани€ нескольких флагов условной компил€ций нужно указать их через зап€тую.'
-//	][{"%S{ifndef}"!="%S{!ifndef}"}%f_up_prefix(%S) *ifndef* = *%S{ifndef}* - Oпредел€ет условный признак компил€ции, который не должен быть определЄн. ƒл€ указани€ нескольких флагов условной компил€ций нужно указать их через зап€тую.
+  [%f] up_prefix %( %S )% ' *old format* = *'
+  %S get_up ( 'old format' ) '* - включает генерацию дополнительного кода дл€ совместимости со старым сервером'
+//	][{"%S{CONFIG_UC}"!="%S{!CONFIG_UC}"}%f_up_prefix(%S) *CONFIG_UC* = *%S{CONFIG_UC}* - √енерить юзер-секции в конфигурационный файл
  end // if
- if ( ( %S get_up ( 'ifndef' ) ) %!= ( %S get_up_def ( 'ifndef' ) ) ) then
+ if ( ( %S get_up ( 'CONFIG_UC' ) ) %!= ( %S get_up_def ( 'CONFIG_UC' ) ) ) then
  begin
-  [%f] up_prefix %( %S )% ' *ifndef* = *'
-  %S get_up ( 'ifndef' ) '* - Oпредел€ет условный признак компил€ции, который не должен быть определЄн. ƒл€ указани€ нескольких флагов условной компил€ций нужно указать их через зап€тую.'
+  [%f] up_prefix %( %S )% ' *CONFIG_UC* = *'
+  %S get_up ( 'CONFIG_UC' ) '* - √енерить юзер-секции в конфигурационный файл'
 //	]
  end // if
 

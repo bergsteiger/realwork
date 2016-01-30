@@ -1,5 +1,10 @@
 unit PostgresProviderParams_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\PostgresProviderParams_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -10,7 +15,7 @@ uses
 ;
 
  // PostgresProviderParamsTag
- 
+
 implementation
 
 uses

@@ -1,4 +1,10 @@
-unit evdNativeReader;
+unit NOT_FINISHED_evdNativeReader;
+ {* Читатель тегов в формате evd. }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\NOT_FINISHED_evdNativeReader.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -11,7 +17,7 @@ type
  TevdNativeReader = class(Tk2CustomFileParser)
   {* Читатель тегов в формате evd. }
  end;//TevdNativeReader
- 
+
 implementation
 
 uses

@@ -1,4 +1,10 @@
 unit ParaList_Const;
+ {* Список параграфов }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\ParaList_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -12,7 +18,7 @@ uses
 ;
 
  // ParaListTag
- 
+
 implementation
 
 uses

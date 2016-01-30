@@ -78,7 +78,6 @@ function CompareExistingItems(const CI: CompareItemsRec): Integer;
 //#UC END# *47B99D4503A2_5304C94F0101_var*
 begin
 //#UC START# *47B99D4503A2_5304C94F0101_impl*
-//#UC START# *47B99D4503A2_4B88F8D6025A_impl*
  {$IfDef l3Items_HasCustomSort}
  Assert((CI.rSortIndex = l3_siNative) OR
         (CI.rSortIndex = l3_siCaseUnsensitive) {OR

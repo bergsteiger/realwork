@@ -1,4 +1,10 @@
 unit k2DictItem;
+ {* Словарная запись, со ссылкой на родительский тег }
+
+// Модуль: "w:\common\components\rtl\Garant\K2\k2DictItem.pas"
+// Стереотип: "SimpleClass"
+
+{$Include k2Define.inc}
 
 interface
 
@@ -6,13 +12,27 @@ uses
  l3IntfUses
  , k2DictRecTag
  , l3BitArr
+ , k2Base
+ , l3Variant
+ , k2BaseStruct
+ , k2TagList
+ , k2Prim
+ , l3IID
+ , k2BaseTypes
+ , l3Types
+ , l3Interfaces
 ;
 
 type
- Tk2DictItem = class(_k2HashTag_)
+ _HashType_ = Tl3OneBytePtrHash;
+ _k2HashTag_Parent_ = Tk2DictRecTag;
+ {$Include k2HashTag.imp.pas}
+ _k2ParentedTagObject_Parent_ = _k2HashTag_;
+ {$Include k2ParentedTagObject.imp.pas}
+ Tk2DictItem = class(_k2ParentedTagObject_)
   {* Словарная запись, со ссылкой на родительский тег }
  end;//Tk2DictItem
- 
+
 implementation
 
 uses
@@ -25,7 +45,6 @@ uses
  , l3String
  , k2Except
  , k2Strings
- , k2TagList
  , TypInfo
  , l3Stream
  , l3Base
@@ -40,9 +59,13 @@ uses
  , k2NullTagImpl
  , k2Interfaces
  , k2DictionaryPrim
- , l3Variant
- , k2Base
  , k2InterfaceFactory
 ;
+
+type _Instance_R_ = Tk2DictItem;
+
+{$Include k2HashTag.imp.pas}
+
+{$Include k2ParentedTagObject.imp.pas}
 
 end.

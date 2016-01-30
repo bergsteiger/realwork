@@ -1,5 +1,10 @@
 unit k2InterfaceMapper;
 
+// Модуль: "w:\common\components\rtl\Garant\K2\k2InterfaceMapper.pas"
+// Стереотип: "SimpleClass"
+
+{$Include k2Define.inc}
+
 interface
 
 uses
@@ -9,13 +14,14 @@ uses
 ;
 
 type
- Tk2InterfaceMapper = class
-  function Make(aTag: Tl3Variant;
-   const IID: Tl3GUID;
-   out Tool;
-   const aProcessor: Ik2Processor): Boolean;
+ Tk2InterfaceMapper = {abstract} class
+  public
+   class function Make(aTag: Tl3Variant;
+    const IID: Tl3GUID;
+    out Tool;
+    const aProcessor: Ik2Processor): Boolean; virtual; abstract;
  end;//Tk2InterfaceMapper
- 
+
 implementation
 
 uses

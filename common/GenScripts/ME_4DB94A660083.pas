@@ -1,24 +1,28 @@
-unit VCMWord.imp;
+{$IfNDef VCMWord_imp}
 
-interface
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define VCMWord_imp}
 
-type
- _VCMWord_ = class
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
+ _VCMWord_ = {abstract} class(_VCMWord_Parent_)
  end;//_VCMWord_
- 
-implementation
 
-uses
- l3ImplUses
- , vcmForm
- , Controls
- , StdRes
- , vcmBase
- , afwAnswer
-;
+{$Else NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 
-end.
+_VCMWord_ = _VCMWord_Parent_;
+
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
+{$Else VCMWord_imp}
+
+{$IfNDef VCMWord_imp_impl}
+
+{$Define VCMWord_imp_impl}
+
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
+{$EndIf VCMWord_imp_impl}
+
+{$EndIf VCMWord_imp}
+

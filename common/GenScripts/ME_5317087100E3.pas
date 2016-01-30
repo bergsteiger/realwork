@@ -1,7 +1,13 @@
-unit csTaskRequest;
+unit NOT_FINISHED_csTaskRequest;
+
+// Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_csTaskRequest.pas"
+// Стереотип: "UtilityPack"
+
+{$Include CsDefine.inc}
 
 interface
 
+{$If NOT Defined(Nemesis)}
 uses
  l3IntfUses
  , ddGetTaskRequestPrim
@@ -11,14 +17,17 @@ uses
 type
  TddGetTaskRequest = class(TddGetTaskRequestPrim)
  end;//TddGetTaskRequest
- 
+
  TddTaskResultRequest = class(TddTaskResultRequestPrim)
  end;//TddTaskResultRequest
- 
+{$IfEnd} // NOT Defined(Nemesis)
+
 implementation
 
+{$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
 ;
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

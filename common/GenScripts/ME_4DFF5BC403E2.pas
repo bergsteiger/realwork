@@ -1,4 +1,10 @@
 unit Version_Const;
+ {* Версия }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\Version_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -10,7 +16,7 @@ uses
 ;
 
  // VersionTag
- 
+
 implementation
 
 uses

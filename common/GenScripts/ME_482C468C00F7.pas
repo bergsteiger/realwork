@@ -1,4 +1,9 @@
-unit CustomElGraphicButton;
+unit NOT_FINISHED_CustomElGraphicButton;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_CustomElGraphicButton.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -9,7 +14,7 @@ uses
 type
  TCustomElGraphicButton = class
  end;//TCustomElGraphicButton
- 
+
 implementation
 
 uses

@@ -1,4 +1,10 @@
 unit ReqRow_Const;
+ {* Строка контролов }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\ReqRow_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -15,7 +21,7 @@ uses
 ;
 
  // ReqRowTag
- 
+
 implementation
 
 uses

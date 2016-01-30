@@ -26,12 +26,100 @@ C /%SN%S{root path suffix}
 	<%CX>
 //#UC END# *4A09484300C6for46E28D3A01E4*
 
++ tpi.script
+R  
+//#UC START# *5655E2B600CAfor46E28D3A01E4*
+P true
+C %S#f_pas_script_Path()
+O %S%f_tpi_script_FileName()
+F %S%f_tpi_script_GenerateForward()
+	[{"%SO"!=""}\
+	%f_clear_list(GENERATED_STEREOS)\
+	INCLUDE 'classRelations.ms.dict'\n\n\
+
+	<{}{"%D#f_tpi_script_FileName()"!=""}\
+	INCLUDE '%D#f_tpi_script_FileName()'\n\
+	EXPORTS %D#f_tpi_script_FileName()\n\
+	\n\
+	>\
+
+	]\
+
+	[{"%S%f_tpi_script_Name()"!=""}\
+
+	[{%f_exists_in_list(GENERATED_STEREOS,"%S%f_tpi_script_Name()")=true}{\
+	%f_add_to_list(GENERATED_STEREOS,"%S%f_tpi_script_Name()")\
+	}\
+	REDEFINITION \
+	]\
+
+	<%FF>\
+
+	: %S%f_tpi_script_Name()\
+	[ Inherits ( <%G#f_tpi_script_Name() ><%R#f_tpi_script_Name() >)]
+	 CONST UID '%SU'
+	[{"%SN"!=""}\
+	 CONST Name '%S%f_tpi_script_NamePrim()'
+	]\
+	[{"%SS"!=""}\
+	 CONST Stereotype '%f_str_replace(%SS,','')'
+	]\
+	 @SELF
+	; // %S%f_tpi_script_Name()\n\n\
+	]\
+
+//	[{%SS=MDAGenerator}%f_warning(%SN %SS)]\
+
+	<%CX>
+//#UC END# *5655E2B600CAfor46E28D3A01E4*
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Функции стереотипа
 
 %f _st_space_key
 	MDP
 
+%f _tpi_script_FileName
+// возвращаемый результат: a-string
+//#UC START# *5655ED7D0175for46E28D3A01E4*
+	[{%SS=Project}%f_str_replace(%f_str_replace(%SN,$,_), ,_).tpi.script]
+//#UC END# *5655ED7D0175for46E28D3A01E4*
+
+%f _tpi_script_Name
+// возвращаемый результат: a-string
+//#UC START# *5655EDAD01E3for46E28D3A01E4*
+	[{"%S%f_tpi_script_NamePrim()"!=""}\
+	[{%SS=generator}{st}gen]\
+	_%S%f_tpi_script_NamePrim()\
+	]
+//#UC END# *5655EDAD01E3for46E28D3A01E4*
+
+%f _tpi_script_GenerateForward
+//#UC START# *5655F14C01C2for46E28D3A01E4*
+	[FORWARD %S#f_tpi_script_Name()\n]
+//#UC END# *5655F14C01C2for46E28D3A01E4*
+
+%f _tpi_script_NamePrim
+// возвращаемый результат: a-string
+//#UC START# *565872E001A9for46E28D3A01E4*
+	[{%SS=MDAClass|%SS=MDACategory|%SS=MDAAbstractClass|%SS=generator}{\
+//	[{%S{unstereotyped}!=true}\
+	[{%SS=MDAOperation}{\
+	[{%SS=MDAAttribute}{\
+	[{%SS=MDADependency}\
+	%f_str_replace(%f_N(%S), ,_)::Dependency\
+	]\
+	}\
+	%f_str_replace(%f_N(%S), ,_)::Attribute\
+	]\
+	}\
+	%f_str_replace(%f_N(%S), ,_)::Operation\
+	]\
+//	]\
+	}\
+	%f_str_replace(%SN, ,_)\
+	]
+//#UC END# *565872E001A9for46E28D3A01E4*
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

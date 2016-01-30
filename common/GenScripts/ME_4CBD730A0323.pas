@@ -1,4 +1,9 @@
-unit l3BitmapContainer;
+unit NOT_FINISHED_l3BitmapContainer;
+
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3BitmapContainer.pas"
+// Стереотип: "SimpleClass"
+
+{$Include l3Define.inc}
 
 interface
 
@@ -10,7 +15,7 @@ uses
 type
  Tl3BitmapContainer = class(Tl3GraphicContainer)
  end;//Tl3BitmapContainer
- 
+
 implementation
 
 uses

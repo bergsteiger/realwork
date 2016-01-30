@@ -1,23 +1,34 @@
-unit InterfaceList.imp;
+{$IfNDef InterfaceList_imp}
 
-interface
+// Модуль: "w:\common\components\SandBox\InterfaceList.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define InterfaceList_imp}
 
-type
+ _List_Parent_ = _InterfaceList_Parent_;
+ {$Include List.imp.pas}
  _InterfaceList_ = class(_List_)
-  function IsSame(const A: _ItemType_;
-   const B: _ItemType_): Boolean;
  end;//_InterfaceList_
- 
-implementation
 
-uses
- l3ImplUses
- , RTLConsts
- , l3MemorySizeUtils
-;
+{$Else InterfaceList_imp}
 
-end.
+{$IfNDef InterfaceList_imp_impl}
+
+{$Define InterfaceList_imp_impl}
+
+function IsSame(const A: _ItemType_;
+ const B: _ItemType_): Boolean;
+//#UC START# *51DECB820261_51E81D74001D_var*
+//#UC END# *51DECB820261_51E81D74001D_var*
+begin
+//#UC START# *51DECB820261_51E81D74001D_impl*
+ Result := (A = B);
+//#UC END# *51DECB820261_51E81D74001D_impl*
+end;//IsSame
+
+{$Include List.imp.pas}
+
+{$EndIf InterfaceList_imp_impl}
+
+{$EndIf InterfaceList_imp}
+

@@ -1,4 +1,9 @@
-unit ddProgressObj;
+unit NOT_FINISHED_ddProgressObj;
+
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddProgressObj.pas"
+// Стереотип: "UtilityPack"
+
+{$Include ddDefine.inc}
 
 interface
 
@@ -9,10 +14,10 @@ uses
 type
  TddProgressObject = class
  end;//TddProgressObject
- 
+
  TddProgressEvent = procedure(Sender: TObject;
   aTotalPercent: Integer) of object;
- 
+
 implementation
 
 uses

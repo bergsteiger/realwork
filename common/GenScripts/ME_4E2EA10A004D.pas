@@ -1,5 +1,10 @@
 unit k2Int64_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\K2\k2Int64_Const.pas"
+// Стереотип: "Tag"
+
+{$Include k2Define.inc}
+
 interface
 
 uses
@@ -9,7 +14,7 @@ uses
 ;
 
  // Int64Tag
- 
+
 implementation
 
 uses

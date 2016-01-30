@@ -1,5 +1,10 @@
 unit eeCustomEditor;
 
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeCustomEditor.pas"
+// Стереотип: "UtilityPack"
+
+{$Include eeDefine.inc}
+
 interface
 
 uses
@@ -9,7 +14,7 @@ uses
 
 type
  TeeCustomEditor = eeEditor.TeeCustomEditor;
- 
+
 implementation
 
 uses

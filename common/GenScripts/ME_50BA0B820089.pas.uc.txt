@@ -1,0 +1,12 @@
+//#UC START# *50B8BCDF0093_50BA0B820089_impl*
+ l_P := aPoint.MostInner;
+ if not l_P.Obj.AsObject.QT(InevPara, l_O) then
+  RunnerError('', aCtx);
+ RunnerAssert(l_O.AsObject.IsKindOf(k2_typLeafPara), '', aCtx);
+ DoPara(aCtx, anEditor, l_O);
+//#UC END# *50B8BCDF0093_50BA0B820089_impl*
+//#UC START# *50B8BCDF0093_50BA0B820089_var*
+var
+ l_P : InevBasePoint;
+ l_O : InevPara;
+//#UC END# *50B8BCDF0093_50BA0B820089_var*

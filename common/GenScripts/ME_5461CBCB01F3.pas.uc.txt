@@ -1,0 +1,67 @@
+//#UC START# *479731C50290_5461CBCB01F3_impl*
+ Clear;
+ inherited;
+//#UC END# *479731C50290_5461CBCB01F3_impl*
+//#UC START# *479731C50290_5461CBCB01F3_var*
+//#UC END# *479731C50290_5461CBCB01F3_var*
+//#UC START# *51D27A48038E_5461CBCB01F3_impl*
+ f_ShapeInst := nil;
+ f_ShapeTxt := nil;
+ f_ShapeRslt := nil;
+//#UC END# *51D27A48038E_5461CBCB01F3_impl*
+//#UC START# *51D27A48038E_5461CBCB01F3_var*
+//#UC END# *51D27A48038E_5461CBCB01F3_var*
+//#UC START# *5461BEC2017D_5461CBCB01F3_impl*
+ if (f_ShapeInst = nil) then
+ begin
+  if f_ShapeTxt <> nil then
+   f_ShapeTxt.Close(aState, f_Norm);
+ end // if (f_ShapeInst = nil) then
+ else
+  if f_ShapeInst.NeedImport then
+  begin
+   l_Shape := TddRTFShape.Create(Self);
+   try
+    f_ShapeInst.Apply2Shape(l_Shape);
+    if f_ShapeTxt <> nil then
+     f_ShapeTxt.Apply2Shape(aState, l_Shape);
+    if f_ShapeRslt <> nil then
+     f_ShapeRslt.Apply2Shape(aState, l_Shape);
+    f_Norm.AddShape(aState, l_Shape);
+    l_Shape.Closed := True;
+   finally
+    FreeAndNil(l_Shape);
+   end;
+  end // if f_ShapeInst.NeedImport then
+  else
+  begin
+   if f_ShapeTxt <> nil then
+    f_ShapeTxt.Clear;
+   if f_ShapeRslt <> nil then
+    f_ShapeRslt.Clear;
+  end;
+//#UC END# *5461BEC2017D_5461CBCB01F3_impl*
+//#UC START# *5461BEC2017D_5461CBCB01F3_var*
+var
+ l_Shape: TddRTFShape;
+//#UC END# *5461BEC2017D_5461CBCB01F3_var*
+//#UC START# *5461CC6202E0_5461CBCB01F3set_impl*
+ f_ShapeTxt := aValue;
+//#UC END# *5461CC6202E0_5461CBCB01F3set_impl*
+//#UC START# *5461CC6202E0_5461CBCB01F3set_var*
+//#UC END# *5461CC6202E0_5461CBCB01F3set_var*
+//#UC START# *5461CC9100A1_5461CBCB01F3set_impl*
+ f_ShapeInst := aValue;
+//#UC END# *5461CC9100A1_5461CBCB01F3set_impl*
+//#UC START# *5461CC9100A1_5461CBCB01F3set_var*
+//#UC END# *5461CC9100A1_5461CBCB01F3set_var*
+//#UC START# *54E1F08400F9_5461CBCB01F3_impl*
+ Assert(False);
+//#UC END# *54E1F08400F9_5461CBCB01F3_impl*
+//#UC START# *54E1F08400F9_5461CBCB01F3_var*
+//#UC END# *54E1F08400F9_5461CBCB01F3_var*
+//#UC START# *557579970327_5461CBCB01F3set_impl*
+ f_ShapeRslt := aValue;
+//#UC END# *557579970327_5461CBCB01F3set_impl*
+//#UC START# *557579970327_5461CBCB01F3set_var*
+//#UC END# *557579970327_5461CBCB01F3set_var*

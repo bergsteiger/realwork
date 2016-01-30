@@ -1,46 +1,27 @@
-unit k2Tag.imp;
+{$IfNDef k2Tag_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\K2\k2Tag.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define k2Tag_imp}
 
-type
+ _k2TagPrim_Parent_ = _k2Tag_Parent_;
+ {$Include k2TagPrim.imp.pas}
  _k2Tag_ = class(_k2TagPrim_)
   {* Реализация тега. }
  end;//_k2Tag_
- 
-implementation
 
-uses
- l3ImplUses
- , k2Tags
- , l3Dict
- , k2Const
- , l3Const
- , SysUtils
- , l3String
- , k2Except
- , k2Strings
- , k2TagList
- , TypInfo
- , l3Stream
- , l3Base
- , k2Facade
- , Classes
- , k2OList_Const
- , k2Dictionary
- , k2NonOptimizeContext
- , k2VariantImpl
- , k2Bool_Const
- , k2String
- , k2NullTagImpl
- , k2Interfaces
- , k2DictionaryPrim
- , l3Variant
- , k2Base
- , k2InterfaceFactory
-;
+{$Else k2Tag_imp}
 
-end.
+{$IfNDef k2Tag_imp_impl}
+
+{$Define k2Tag_imp_impl}
+
+type _Instance_R_ = _k2Tag_;
+
+{$Include k2TagPrim.imp.pas}
+
+{$EndIf k2Tag_imp_impl}
+
+{$EndIf k2Tag_imp}
+

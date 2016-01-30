@@ -1,16 +1,27 @@
 unit IntegerList;
+ {* Список Integer'ов }
+
+// Модуль: "w:\common\components\SandBox\IntegerList.pas"
+// Стереотип: "SimpleClass"
+
+{$Include sbDefine.inc}
 
 interface
 
 uses
  l3IntfUses
+ , Refcounted
+ , l3PtrLoc
+ , Classes
 ;
 
 type
+ _ItemType_ = Integer;
+ {$Include StandardAtomicList.imp.pas}
  TIntegerList = class(_StandardAtomicList_)
   {* Список Integer'ов }
  end;//TIntegerList
- 
+
 implementation
 
 uses
@@ -18,5 +29,7 @@ uses
  , RTLConsts
  , l3MemorySizeUtils
 ;
+
+{$Include StandardAtomicList.imp.pas}
 
 end.

@@ -1,7 +1,13 @@
 unit ncsTCPClient;
 
+// Модуль: "w:\common\components\rtl\Garant\cs\ncsTCPClient.pas"
+// Стереотип: "UtilityPack"
+
+{$Include CsDefine.inc}
+
 interface
 
+{$If NOT Defined(Nemesis)}
 uses
  l3IntfUses
  , idTCPClient
@@ -9,11 +15,14 @@ uses
 
 type
  TncsTCPClient = TidTCPClient;
- 
+{$IfEnd} // NOT Defined(Nemesis)
+
 implementation
 
+{$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
 ;
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

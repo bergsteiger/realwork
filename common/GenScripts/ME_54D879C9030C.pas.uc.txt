@@ -1,0 +1,38 @@
+//#UC START# *5301CBFE023E_54D879C9030C_impl*
+ Result := TafwComplexDocumentPreview.Make(FlashPreview, InfoPreview);
+//#UC END# *5301CBFE023E_54D879C9030C_impl*
+//#UC START# *5301CBFE023E_54D879C9030C_var*
+//#UC END# *5301CBFE023E_54D879C9030C_var*
+//#UC START# *54D879F001C4_54D879C9030C_impl*
+ Result := TnsObjectPreview.Make(TevBitmapDataObject.Make(BitmapForPrint, Self.DPI),
+                                 evDefaultPreviewCacheKey,
+                                 TnsHAFPainter.Make(TnsFixedHAFMacroReplacer.Make(nil, ShortName, Name)));
+//#UC END# *54D879F001C4_54D879C9030C_impl*
+//#UC START# *54D879F001C4_54D879C9030C_var*
+//#UC END# *54D879F001C4_54D879C9030C_var*
+//#UC START# *54D87A03022C_54D879C9030C_impl*
+ Result := nsGetRelatedDocPreview(GetDocumentForInfo.Doc, True, False, False);
+//#UC END# *54D87A03022C_54D879C9030C_impl*
+//#UC START# *54D87A03022C_54D879C9030C_var*
+//#UC END# *54D87A03022C_54D879C9030C_var*
+//#UC START# *54D886BC0229_54D879C9030Cget_impl*
+ if (f_InfoPreview = nil) then
+  f_InfoPreview := MakeInfoPreview;
+ Result := f_InfoPreview;
+//#UC END# *54D886BC0229_54D879C9030Cget_impl*
+//#UC START# *54D886BC0229_54D879C9030Cget_var*
+//#UC END# *54D886BC0229_54D879C9030Cget_var*
+//#UC START# *54D886F20388_54D879C9030Cget_impl*
+ if (f_FlashPreview = nil) then
+  f_FlashPreview := MakeDocumentPreview;
+ Result := f_FlashPreview;
+//#UC END# *54D886F20388_54D879C9030Cget_impl*
+//#UC START# *54D886F20388_54D879C9030Cget_var*
+//#UC END# *54D886F20388_54D879C9030Cget_var*
+//#UC START# *5592655F00B2_54D879C9030C_impl*
+ f_InfoPreview := nil;
+ f_FlashPreview := nil;
+ inherited;
+//#UC END# *5592655F00B2_54D879C9030C_impl*
+//#UC START# *5592655F00B2_54D879C9030C_var*
+//#UC END# *5592655F00B2_54D879C9030C_var*

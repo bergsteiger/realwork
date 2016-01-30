@@ -1,0 +1,17 @@
+//#UC START# *4CB58335014E_49CBD11A02CF_impl*
+ if (aText = nil) then
+  Result := nil
+ else
+ if aText.QT(InevStorable, l_Data) then
+  try
+   Result := Make(l_Data, aKey, aHAF);
+  finally
+   l_Data := nil;
+  end//try..finally
+ else
+  Result := nil;   
+//#UC END# *4CB58335014E_49CBD11A02CF_impl*
+//#UC START# *4CB58335014E_49CBD11A02CF_var*
+var
+ l_Data : InevStorable;
+//#UC END# *4CB58335014E_49CBD11A02CF_var*

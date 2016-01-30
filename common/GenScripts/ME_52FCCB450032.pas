@@ -1,20 +1,32 @@
 unit l3ProtoPersistentWithHandleRefList;
 
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ProtoPersistentWithHandleRefList.pas"
+// Стереотип: "SimpleClass"
+
+{$Include l3Define.inc}
+
 interface
 
 uses
  l3IntfUses
  , l3ProtoPersistentWithHandleRefListPrim
+ , l3Types
 ;
 
 type
- Tl3ProtoPersistentWithHandleRefList = class(Tl3ProtoPersistentWithHandleRefListPrim)
+ _l3ObjectByHandleSearcher_Parent_ = Tl3ProtoPersistentWithHandleRefListPrim;
+ {$Include l3ObjectByHandleSearcher.imp.pas}
+ Tl3ProtoPersistentWithHandleRefList = class(_l3ObjectByHandleSearcher_)
  end;//Tl3ProtoPersistentWithHandleRefList
- 
+
 implementation
 
 uses
  l3ImplUses
 ;
+
+type _Instance_R_ = Tl3ProtoPersistentWithHandleRefList;
+
+{$Include l3ObjectByHandleSearcher.imp.pas}
 
 end.

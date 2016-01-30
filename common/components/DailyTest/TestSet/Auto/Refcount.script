@@ -1,0 +1,24 @@
+PROGRAM Refcount.script
+
+USES
+ Testing.ms.dict
+;
+
+USES
+ axiom:CompiledProcedure
+;
+
+Test&Dump RefcountTest
+ BOX X
+ CompiledProcedure:Create >>> X
+ X pop:Word:DecRef
+ 
+ X -> Name := 'Test Name'
+ X -> Name .
+ X .
+ X pop:Word:Parent .
+ X pop:Word:Parent pop:Word:Name .
+ 
+; // RefcountTest
+
+RefcountTest

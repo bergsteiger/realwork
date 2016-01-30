@@ -1,0 +1,80 @@
+//#UC START# *491465BF0275_491D64430036_impl*
+ TdmStdRes.OpenList(TdeListSet.Make(aList,
+                                    wdOpenIfUserDefine,
+                                    lofNone,
+                                    True,
+                                    aNodeForPositioning,
+                                    CloneSearchInfo(aList)), nil);
+//#UC END# *491465BF0275_491D64430036_impl*
+//#UC START# *491465BF0275_491D64430036_var*
+//#UC END# *491465BF0275_491D64430036_var*
+//#UC START# *49147FB4028C_491D64430036_impl*
+ Result := inherited GetIsSame(aValue);
+ if not Result and Assigned(DocInfo) and (aValue <> nil) then
+  Result := DocInfo.IsSame(aValue.DocInfo);
+//#UC END# *49147FB4028C_491D64430036_impl*
+//#UC START# *49147FB4028C_491D64430036_var*
+//#UC END# *49147FB4028C_491D64430036_var*
+//#UC START# *491C25280247_491D64430036_impl*
+ Result := (ucc_Document <> nil) and pm_GetHasDoc and DocInfo.Doc.HasPrevRedaction;
+//#UC END# *491C25280247_491D64430036_impl*
+//#UC START# *491C25280247_491D64430036_var*
+//#UC END# *491C25280247_491D64430036_var*
+//#UC START# *491C253D0364_491D64430036_impl*
+ Result := (ucc_Document <> nil) and pm_GetHasDoc and DocInfo.Doc.HasNextRedaction;
+//#UC END# *491C253D0364_491D64430036_impl*
+//#UC START# *491C253D0364_491D64430036_var*
+//#UC END# *491C253D0364_491D64430036_var*
+//#UC START# *491C25470309_491D64430036_impl*
+ Result := pm_GetHasPrevRedaction or pm_GetHasNextRedaction;
+//#UC END# *491C25470309_491D64430036_impl*
+//#UC START# *491C25470309_491D64430036_var*
+//#UC END# *491C25470309_491D64430036_var*
+//#UC START# *491D664C0232_491D64430036_impl*
+ if (ucc_Document <> nil) then
+  ucc_Document.OpenSimilarDocuments;
+//#UC END# *491D664C0232_491D64430036_impl*
+//#UC START# *491D664C0232_491D64430036_var*
+//#UC END# *491D664C0232_491D64430036_var*
+//#UC START# *491D66630373_491D64430036_impl*
+ l_ID := DocInfo.Doc.GetInternalId;
+ Result := TevdHyperlinkInfo.Make(l3Fmt('%d.%d',[l_ID, aSubID]),
+                                  TevdAddress_E{(l_ID, aSubID)},
+                                  nil);
+//#UC END# *491D66630373_491D64430036_impl*
+//#UC START# *491D66630373_491D64430036_var*
+var
+ l_ID : Integer; 
+//#UC END# *491D66630373_491D64430036_var*
+//#UC START# *491D66910265_491D64430036get_impl*
+ Result := (ucc_Document <> nil) AND ucc_Document.HasSimilarDocuments
+//#UC END# *491D66910265_491D64430036get_impl*
+//#UC START# *491D66910265_491D64430036get_var*
+//#UC END# *491D66910265_491D64430036get_var*
+//#UC START# *4953D3B20211_491D64430036_impl*
+ if (ucc_DocumentWithContents <> nil) then
+  ucc_DocumentWithContents.OpenContents(aTree, anForceOpen, aContainerOfDocument);
+//#UC END# *4953D3B20211_491D64430036_impl*
+//#UC START# *4953D3B20211_491D64430036_var*
+//#UC END# *4953D3B20211_491D64430036_var*
+//#UC START# *4A60B23E00C3_491D64430036_impl*
+ Result := inherited COMQueryInterface(IID, Obj);
+ if Result.Fail and IID.EQ(IdeDocInfo) then
+  Result := Tl3HResult_C(DocInfo.QueryInterface(IID.IID, Obj));
+//#UC END# *4A60B23E00C3_491D64430036_impl*
+//#UC START# *4A60B23E00C3_491D64430036_var*
+//#UC END# *4A60B23E00C3_491D64430036_var*
+//#UC START# *4E7B663D00A9_491D64430036get_impl*
+ if (ucc_DocumentWithContents = nil) then
+  Result := nil
+ else
+  Result := ucc_DocumentWithContents.dsContents;
+//#UC END# *4E7B663D00A9_491D64430036get_impl*
+//#UC START# *4E7B663D00A9_491D64430036get_var*
+//#UC END# *4E7B663D00A9_491D64430036get_var*
+//#UC START# *5594F4830261_491D64430036_impl*
+ if (ucc_Document <> nil) then
+  ucc_Document.OpenSimilarDocumentsToFragment(aBlockId);
+//#UC END# *5594F4830261_491D64430036_impl*
+//#UC START# *5594F4830261_491D64430036_var*
+//#UC END# *5594F4830261_491D64430036_var*

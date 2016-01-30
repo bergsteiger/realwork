@@ -1,4 +1,9 @@
-unit evPreviewProcessor;
+unit NOT_FINISHED_evPreviewProcessor;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evPreviewProcessor.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -10,7 +15,7 @@ uses
 type
  TevPreviewProcessor = class(TevNotifiedProcessor)
  end;//TevPreviewProcessor
- 
+
 implementation
 
 uses

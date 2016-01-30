@@ -1,13 +1,21 @@
 unit SubPanelWordsPack;
 
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\SubPanelWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
+
+{$Include seDefine.inc}
+
 interface
 
+{$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
 ;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
+{$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
  , kwIterateSubDescriptors
@@ -22,5 +30,6 @@ uses
  , kwSubPanelGetPopupMenuForSub
  , tfwScriptingTypes
 ;
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

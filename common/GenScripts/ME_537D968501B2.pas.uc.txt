@@ -1,0 +1,13 @@
+//#UC START# *4DAEEDE10285_537D968501B2_impl*
+ RunnerAssert(aCtx.rEngine.IsTopString, 'Не задано расширение!', aCtx);
+ l_FileExt := aCtx.rEngine.PopDelphiString;
+ l_FileName := ChangeFileExt(aCtx.rStreamFactory.Filename, l_FileExt);
+ l_FileName := ExtractFileName(l_FileName);
+ l_FileName := aCtx.rCaller.ResolveInputFilePath(l_FileName);
+ AcSaveTextAs(l_FileName);
+//#UC END# *4DAEEDE10285_537D968501B2_impl*
+//#UC START# *4DAEEDE10285_537D968501B2_var*
+var
+ l_FileExt: AnsiString;
+ l_FileName: AnsiString;
+//#UC END# *4DAEEDE10285_537D968501B2_var*

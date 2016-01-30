@@ -1,5 +1,10 @@
 unit nevDocumentContainerPrim;
 
+// Модуль: "w:\common\components\gui\Garant\Everest\nevDocumentContainerPrim.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
+
 interface
 
 uses
@@ -10,7 +15,7 @@ uses
 type
  TnevDocumentContainerPrim = class(TnevDocumentContainerPrimPrim)
  end;//TnevDocumentContainerPrim
- 
+
 implementation
 
 uses

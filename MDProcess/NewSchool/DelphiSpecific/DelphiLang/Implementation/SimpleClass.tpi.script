@@ -244,138 +244,12 @@ implementation @ <<SimpleClass>>
 ; // pas_ImplUses
 
 
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Ресурсы (.rc)
-//+ rc.pas
-<<generator>> rc.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D28B0157for481EC6BD016B*
-//O [{%S{needs script}=true}%f_pas_FileName(%S).rc]
-//	%f_OutScriptRC(%S)
- [%f] OutScriptRC %( %S )% 
-
-//f _OutScriptRC
-; // rc.pas
-
-end. // <<SimpleClass>>
-
-: OutScriptRC OBJECT IN %S
-//	[{"%SO"!=""}\
- if ( ( %S |O ) %!= '' ) then
- begin
-//	%f_pas_FileName(%S) RCDATA LOADONCALL MOVEABLE DISCARDABLE %f_pas_FileName(%S).rc.script.co\
-  [%f] pas_FileName %( %S )% ' RCDATA LOADONCALL MOVEABLE DISCARDABLE '
-  [%f] pas_FileName %( %S )% '.rc.script.co'
-//	%f_end_new_file(%S)\
-  [%f] end_new_file %( %S )% 
-//	]
- end // if
-//#UC END# *55B8D28B0157for481EC6BD016B*
-; // OutScriptRC
-
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Скрипты в ресурсах (.rc.script)
-//+ rc.script.pas
-implementation @ <<SimpleClass>>
-<<generator>> rc.script.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D2F80145for481EC6BD016B*
-//O [{%S{needs script}=true}%f_pas_FileName(%S).rc.script]
-//	%f_OutScriptFrameWork(%S)
- [%f] OutScriptFrameWork %( %S )% 
-
-//%f _OutScriptFrameWorkAliases
-; // rc.script.pas
-
-: OutScriptFrameWorkAliases OBJECT IN %S
-//	
-
-//f _OutScriptFrameWork
-; // OutScriptFrameWorkAliases
-
-end. // <<SimpleClass>>
-
-: OutScriptFrameWork OBJECT IN %S
-//	[{"%SO"!=""}\
- if ( ( %S |O ) %!= '' ) then
- begin
-//	%f_header(%S)
-  [%f] header %( %S )% 
-//	
-  #13#10
-
-
-
-//	%S#f_OutScriptFrameWorkAliases()\
-  %S %?f OutScriptFrameWorkAliases %( )% 
-//	%U[{impl}\n]\n
-  %Usersection (
-   'impl' 
-  )
-  (
-   #13#10 
-  ) // Usersection
-   #13#10
-//	
-  #13#10
-
-//	EXPORTS
-  'EXPORTS'
-//	%U[{exports}\n *\n]\n
-  %Usersection (
-   'exports' 
-  )
-  (
-   #13#10' *'#13#10 
-  ) // Usersection
-   #13#10
-//	%f_end_new_file(%S)\
-  [%f] end_new_file %( %S )% 
-//	]
- end // if
-//#UC END# *55B8D2F80145for481EC6BD016B*
-; // OutScriptFrameWork
-
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Компилятор ресурса (.res.cmd)
-//+ res.cmd.pas
-implementation @ <<SimpleClass>>
-<<generator>> res.cmd.pas OBJECT IN %S
-//R  
-//#UC START# *55B8DD9C0301for481EC6BD016B*
-//O [{%S{needs script}=true}%f_pas_FileName(%S).res.cmd]
-//	%f_OutScriptCompiler(%S)
- [%f] OutScriptCompiler %( %S )% 
-
-//f _OutScriptCompiler
-; // res.cmd.pas
-
-end. // <<SimpleClass>>
-
-: OutScriptCompiler OBJECT IN %S
-//	[{"%SO"!=""}\
- if ( ( %S |O ) %!= '' ) then
- begin
-//	MakeCo %f_pas_FileName(%S).rc.script
-  'MakeCo '
-  [%f] pas_FileName %( %S )% '.rc.script'
-//	brcc32 %f_pas_FileName(%S).rc\
-  'brcc32 '
-  [%f] pas_FileName %( %S )% '.rc'
-//	%f_end_new_file(%S)\
-  [%f] end_new_file %( %S )% 
-//	]
- end // if
-//#UC END# *55B8DD9C0301for481EC6BD016B*
-; // OutScriptCompiler
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Вложенные стереотипы
 
 //: SimpleClass::Class::factory::Operation
+end. // <<SimpleClass>>
+
 implementation @ :: <<SimpleClass>> <<factory>> ;
 //? Фабричный метод.
 //? Создает экземпляр класса в виде указанного интерфейса/фасета.
@@ -405,42 +279,6 @@ implementation @ :: <<SimpleClass>> <<factory>> ;
 //#UC START# *470321C1038Afor4787ED5E030C*
 //#UC END# *470321C1038Afor4787ED5E030C*
 ; // fctr.java
-
-
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-//+ intf2.pas
-<<generator>> intf2.pas OBJECT IN %S
-//R  
-//#UC START# *477398E501C0for4787ED5E030C*
-//#UC END# *477398E501C0for4787ED5E030C*
-; // intf2.pas
-
-
-// Ресурсы (.rc)
-//+ rc.pas
-<<generator>> rc.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D28B0157for4787ED5E030C*
-//#UC END# *55B8D28B0157for4787ED5E030C*
-; // rc.pas
-
-
-// Скрипты в ресурсах (.rc.script)
-//+ rc.script.pas
-<<generator>> rc.script.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D2F80145for4787ED5E030C*
-//#UC END# *55B8D2F80145for4787ED5E030C*
-; // rc.script.pas
-
-
-// Компилятор ресурса (.res.cmd)
-//+ res.cmd.pas
-<<generator>> res.cmd.pas OBJECT IN %S
-//R  
-//#UC START# *55B8DD9C0301for4787ED5E030C*
-//#UC END# *55B8DD9C0301for4787ED5E030C*
-; // res.cmd.pas
 
 
 // Функции стереотипа
@@ -620,42 +458,6 @@ implementation @ :: <<SimpleClass>> <<vctor>> ;
 ; // fctr.java
 
 
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-//+ intf2.pas
-<<generator>> intf2.pas OBJECT IN %S
-//R  
-//#UC START# *477398E501C0for47A08DC70357*
-//#UC END# *477398E501C0for47A08DC70357*
-; // intf2.pas
-
-
-// Ресурсы (.rc)
-//+ rc.pas
-<<generator>> rc.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D28B0157for47A08DC70357*
-//#UC END# *55B8D28B0157for47A08DC70357*
-; // rc.pas
-
-
-// Скрипты в ресурсах (.rc.script)
-//+ rc.script.pas
-<<generator>> rc.script.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D2F80145for47A08DC70357*
-//#UC END# *55B8D2F80145for47A08DC70357*
-; // rc.script.pas
-
-
-// Компилятор ресурса (.res.cmd)
-//+ res.cmd.pas
-<<generator>> res.cmd.pas OBJECT IN %S
-//R  
-//#UC START# *55B8DD9C0301for47A08DC70357*
-//#UC END# *55B8DD9C0301for47A08DC70357*
-; // res.cmd.pas
-
-
 // Функции стереотипа
 //%f _st_space_key
 : st_space_key OBJECT IN %S
@@ -688,33 +490,6 @@ implementation @ :: <<SimpleClass>> <<injects>> ;
 //p injects as=interface|cursor|range|mapper ? 
 
 // Генераторы
-// Ресурсы (.rc)
-//+ rc.pas
-<<generator>> rc.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D28B0157for53C7FB6D0337*
-//#UC END# *55B8D28B0157for53C7FB6D0337*
-; // rc.pas
-
-
-// Скрипты в ресурсах (.rc.script)
-//+ rc.script.pas
-<<generator>> rc.script.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D2F80145for53C7FB6D0337*
-//#UC END# *55B8D2F80145for53C7FB6D0337*
-; // rc.script.pas
-
-
-// Компилятор ресурса (.res.cmd)
-//+ res.cmd.pas
-<<generator>> res.cmd.pas OBJECT IN %S
-//R  
-//#UC START# *55B8DD9C0301for53C7FB6D0337*
-//#UC END# *55B8DD9C0301for53C7FB6D0337*
-; // res.cmd.pas
-
-
 // Генерация модели в MDKnow
 //+ wiki
 <<generator>> wiki OBJECT IN %S
@@ -739,15 +514,6 @@ implementation @ :: <<SimpleClass>> <<injects>> ;
 //#UC START# *470F15B800CBfor53C7FB6D0337*
 //#UC END# *470F15B800CBfor53C7FB6D0337*
 ; // impl.pas
-
-
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-//+ intf2.pas
-<<generator>> intf2.pas OBJECT IN %S
-//R  
-//#UC START# *477398E501C0for53C7FB6D0337*
-//#UC END# *477398E501C0for53C7FB6D0337*
-; // intf2.pas
 
 
 // Функции стереотипа
@@ -814,33 +580,6 @@ implementation @ :: <<SimpleClass>> <<"injects this">> ;
 //p needs processor:tribool=undefined ? 
 
 // Генераторы
-// Ресурсы (.rc)
-//+ rc.pas
-<<generator>> rc.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D28B0157for53CE27910262*
-//#UC END# *55B8D28B0157for53CE27910262*
-; // rc.pas
-
-
-// Скрипты в ресурсах (.rc.script)
-//+ rc.script.pas
-<<generator>> rc.script.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D2F80145for53CE27910262*
-//#UC END# *55B8D2F80145for53CE27910262*
-; // rc.script.pas
-
-
-// Компилятор ресурса (.res.cmd)
-//+ res.cmd.pas
-<<generator>> res.cmd.pas OBJECT IN %S
-//R  
-//#UC START# *55B8DD9C0301for53CE27910262*
-//#UC END# *55B8DD9C0301for53CE27910262*
-; // res.cmd.pas
-
-
 // Генерация модели в MDKnow
 //+ wiki
 <<generator>> wiki OBJECT IN %S
@@ -865,15 +604,6 @@ implementation @ :: <<SimpleClass>> <<"injects this">> ;
 //#UC START# *470F15B800CBfor53CE27910262*
 //#UC END# *470F15B800CBfor53CE27910262*
 ; // impl.pas
-
-
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-//+ intf2.pas
-<<generator>> intf2.pas OBJECT IN %S
-//R  
-//#UC START# *477398E501C0for53CE27910262*
-//#UC END# *477398E501C0for53CE27910262*
-; // intf2.pas
 
 
 // Функции стереотипа

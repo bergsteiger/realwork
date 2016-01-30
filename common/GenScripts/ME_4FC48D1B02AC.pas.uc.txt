@@ -1,0 +1,83 @@
+//#UC START# *4BBC922302CA_4FC48D1B02AC_impl*
+ f_First := TagInst.ChildrenCount - 1;
+ f_NeedNeighbours := aNeedNeighbours;
+ Result := Prev;
+//#UC END# *4BBC922302CA_4FC48D1B02AC_impl*
+//#UC START# *4BBC922302CA_4FC48D1B02AC_var*
+//#UC END# *4BBC922302CA_4FC48D1B02AC_var*
+//#UC START# *4BBC92390009_4FC48D1B02AC_impl*
+ Result := nil;
+ if f_First < 0 then Exit;
+ if Supports(f_Location, InevRange, l_Sel) then
+  l_Sel.IterateF(evL2TSA(@_DoCell), f_First)
+//#UC END# *4BBC92390009_4FC48D1B02AC_impl*
+//#UC START# *4BBC92390009_4FC48D1B02AC_var*
+var
+ l_Result : IedCell absolute Result;
+
+ function _DoCell(const aCellBlock: InevRange; anIndex: Integer): Boolean;
+ var
+  l_Para : InevPara;
+ begin//_DoCell
+  Result := false;
+  l_Para := aCellBlock.Obj.AsPara;
+  l_Result := GetRow.Table.GetTagCell(TagInst, l_Para, anIndex, aCellBlock, f_NeedNeighbours);
+  Dec(f_First);
+  // - —ледующий раз начинаем с предыдущей €чейки
+ end;//_DoCell
+
+var
+ l_Sel : InevRange;
+//#UC END# *4BBC92390009_4FC48D1B02AC_var*
+//#UC START# *4BBC9430038B_4FC48D1B02ACget_impl*
+ Result := Self;
+//#UC END# *4BBC9430038B_4FC48D1B02ACget_impl*
+//#UC START# *4BBC9430038B_4FC48D1B02ACget_var*
+//#UC END# *4BBC9430038B_4FC48D1B02ACget_var*
+//#UC START# *4BBC944C0195_4FC48D1B02AC_impl*
+ f_First := f_StartCell;
+ f_NeedNeighbours := aNeedNeighbours;
+ Result := Next;
+//#UC END# *4BBC944C0195_4FC48D1B02AC_impl*
+//#UC START# *4BBC944C0195_4FC48D1B02AC_var*
+//#UC END# *4BBC944C0195_4FC48D1B02AC_var*
+//#UC START# *4BBC94640082_4FC48D1B02AC_impl*
+ Result := nil;
+ if Supports(f_Location, InevRange, l_Sel) then
+  l_Sel.IterateF(evL2TSA(@_DoCell), f_First)
+//#UC END# *4BBC94640082_4FC48D1B02AC_impl*
+//#UC START# *4BBC94640082_4FC48D1B02AC_var*
+var
+ l_Result : IedCell absolute Result;
+
+ function _DoCell(const aCellBlock: InevRange; anIndex: Integer): Boolean;
+ var
+  l_Para : InevPara;
+ begin//_DoCell
+  Result := false;
+  l_Para := aCellBlock.Obj.AsPara;
+  l_Result := GetRow.Table.GetTagCell(TagInst, l_Para, anIndex, aCellBlock, f_NeedNeighbours);
+  f_First := anIndex + 1;
+  // - —ледующий раз начинаем со следующей €чейки
+ end;//_DoCell
+
+var
+ l_Sel : InevRange;
+//#UC END# *4BBC94640082_4FC48D1B02AC_var*
+//#UC START# *4BBC947B0399_4FC48D1B02AC_impl*
+ Result := TagInst.ChildrenCount;
+//#UC END# *4BBC947B0399_4FC48D1B02AC_impl*
+//#UC START# *4BBC947B0399_4FC48D1B02AC_var*
+//#UC END# *4BBC947B0399_4FC48D1B02AC_var*
+//#UC START# *4FC48DC101EB_4FC48D1B02AC_impl*
+ l_CellsIterator := Create(aView, aRow, aTagWrap, aProcessor, aLocation);
+ try
+  Result := l_CellsIterator;
+ finally
+  l3Free(l_CellsIterator);
+ end;//try..finally
+//#UC END# *4FC48DC101EB_4FC48D1B02AC_impl*
+//#UC START# *4FC48DC101EB_4FC48D1B02AC_var*
+var
+ l_CellsIterator : TevCellsIterator;
+//#UC END# *4FC48DC101EB_4FC48D1B02AC_var*

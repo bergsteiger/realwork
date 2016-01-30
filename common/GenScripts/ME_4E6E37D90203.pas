@@ -1,7 +1,13 @@
 unit evDocumentHotSpotTester;
 
+// Модуль: "w:\common\components\gui\Garant\Everest\evDocumentHotSpotTester.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
+
 interface
 
+{$If Defined(evNeedHotSpot)}
 uses
  l3IntfUses
  , evParaListHotSpotTester
@@ -10,11 +16,14 @@ uses
 type
  TevDocumentHotSpotTester = class(TevParaListHotSpotTester)
  end;//TevDocumentHotSpotTester
- 
+{$IfEnd} // Defined(evNeedHotSpot)
+
 implementation
 
+{$If Defined(evNeedHotSpot)}
 uses
  l3ImplUses
 ;
+{$IfEnd} // Defined(evNeedHotSpot)
 
 end.

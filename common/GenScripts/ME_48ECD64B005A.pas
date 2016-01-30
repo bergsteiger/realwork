@@ -1,5 +1,10 @@
 unit evLeafParaMultiSelectionBlock;
 
+// Модуль: "w:\common\components\gui\Garant\Everest\evLeafParaMultiSelectionBlock.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
+
 interface
 
 uses
@@ -14,17 +19,61 @@ uses
 
 type
  TevLeafParaMultiSelectionBlock = class(TevMultiSelectionBlock)
-  procedure IterateX;
-  function Make(aTagWrap: Tl3Variant;
-   aBlocks: TnevRangeList): InevRange;
-   {* список блоков выделения, д. б отсортирован по порядку следования параграфов, и по положению блока внутри параграфа }
+  protected
+   procedure DoStore(const aView: InevView;
+    const G: InevTagGenerator;
+    aFlags: TevdStoreFlags); override;
+    {* сохраняет выделение в G }
+  public
+   procedure IterateX; virtual;
+   class function Make(aTagWrap: Tl3Variant;
+    aBlocks: TnevRangeList): InevRange; reintroduce;
+    {* список блоков выделения, д. б отсортирован по порядку следования параграфов, и по положению блока внутри параграфа }
  end;//TevLeafParaMultiSelectionBlock
- 
+
 implementation
 
 uses
  l3ImplUses
  , l3Base
 ;
+
+procedure TevLeafParaMultiSelectionBlock.IterateX;
+//#UC START# *4BAA60370285_48ECD64B005A_var*
+//#UC END# *4BAA60370285_48ECD64B005A_var*
+begin
+//#UC START# *4BAA60370285_48ECD64B005A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4BAA60370285_48ECD64B005A_impl*
+end;//TevLeafParaMultiSelectionBlock.IterateX
+
+class function TevLeafParaMultiSelectionBlock.Make(aTagWrap: Tl3Variant;
+ aBlocks: TnevRangeList): InevRange;
+ {* список блоков выделения, д. б отсортирован по порядку следования параграфов, и по положению блока внутри параграфа }
+var
+ l_Inst : TevLeafParaMultiSelectionBlock;
+begin
+ l_Inst := Create(aTagWrap, aBlocks);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TevLeafParaMultiSelectionBlock.Make
+
+procedure TevLeafParaMultiSelectionBlock.DoStore(const aView: InevView;
+ const G: InevTagGenerator;
+ aFlags: TevdStoreFlags);
+ {* сохраняет выделение в G }
+//#UC START# *48ECE4420180_48ECD64B005A_var*
+//#UC END# *48ECE4420180_48ECD64B005A_var*
+begin
+//#UC START# *48ECE4420180_48ECD64B005A_impl*
+ if (Blocks <> nil) AND (Blocks.Count = 1) then
+  Blocks.First.AsStorable.Store(aView, G, aFlags)
+ else
+  Assert(false, 'Опс.. мы пока не умееем сохранять множественное выделение для листьевого параграфа.');
+//#UC END# *48ECE4420180_48ECD64B005A_impl*
+end;//TevLeafParaMultiSelectionBlock.DoStore
 
 end.

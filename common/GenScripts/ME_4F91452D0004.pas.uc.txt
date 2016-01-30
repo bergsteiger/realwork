@@ -1,0 +1,47 @@
+//#UC START# *4F9145B5023E_4F91452D0004_impl*
+ if (Message.CharCode = VK_ESCAPE) AND NOT f_HasButtons then
+ begin
+  ModalResult := vtGetDlgBtnResult(f_CancelButton);
+  Message.Result := 1;
+  Exit;
+ end;
+
+ if (Message.CharCode = VK_RETURN) then
+ begin
+  if (f_Scene <> nil) then
+  begin
+   if (f_Scene.Focused Is TvgButton) then
+   begin
+    TvgVisualObjectHack(f_Scene.Focused As TvgVisualObject).Click;
+    Message.Result := 1;
+    Exit;
+   end;
+
+   if (f_Scene.Focused Is TvgCheckBox) then
+   begin
+    (f_Scene.Focused As TvgCheckBox).ToggleChecked;
+    Message.Result := 1;
+    Exit;
+   end;
+  end;//(f_Scene <> nil)
+
+  l_checkbox := FindControl(GetFocus);
+  if (l_checkbox <> nil) AND (l_checkbox Is TCheckBox) then
+  begin
+   TCustomCheckBoxHack(l_checkbox).Toggle;
+   Message.Result := 1;
+   Exit;
+  end;
+ end;// (Message.CharCode = VK_RETURN)
+
+ inherited;
+//#UC END# *4F9145B5023E_4F91452D0004_impl*
+//#UC START# *4F9145B5023E_4F91452D0004_var*
+var
+  l_checkbox: TWinControl;
+//#UC END# *4F9145B5023E_4F91452D0004_var*
+//#UC START# *4FC38C4C0119_4F91452D0004_impl*
+ Result := False;
+//#UC END# *4FC38C4C0119_4F91452D0004_impl*
+//#UC START# *4FC38C4C0119_4F91452D0004_var*
+//#UC END# *4FC38C4C0119_4F91452D0004_var*

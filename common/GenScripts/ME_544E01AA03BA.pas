@@ -1,5 +1,10 @@
 unit csMessage_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\csMessage_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -11,7 +16,7 @@ uses
 ;
 
  // csMessageTag
- 
+
 implementation
 
 uses

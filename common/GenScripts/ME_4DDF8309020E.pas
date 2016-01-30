@@ -1,7 +1,14 @@
 unit K267324701;
+ {* [$267324701] }
+
+// Модуль: "w:\common\components\rtl\Garant\Daily\K267324701.pas"
+// Стереотип: "TestCase"
+
+{$Include TestDefine.inc.pas}
 
 interface
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
  , EVDtoNSRCWriterTest
@@ -10,14 +17,46 @@ uses
 type
  TK267324701 = class(TEVDtoNSRCWriterTest)
   {* [$267324701] }
-  function IsNSRCPlus: Boolean;
+  protected
+   function IsNSRCPlus: Boolean; override;
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK267324701
- 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+
 implementation
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
  , TestFrameWork
 ;
+
+function TK267324701.IsNSRCPlus: Boolean;
+//#UC START# *4B8545CC03D2_4DDF8309020E_var*
+//#UC END# *4B8545CC03D2_4DDF8309020E_var*
+begin
+//#UC START# *4B8545CC03D2_4DDF8309020E_impl*
+ Result := False;
+//#UC END# *4B8545CC03D2_4DDF8309020E_impl*
+end;//TK267324701.IsNSRCPlus
+
+function TK267324701.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := 'NSRC 7.7';
+end;//TK267324701.GetFolder
+
+function TK267324701.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '4DDF8309020E';
+end;//TK267324701.GetModelElementGUID
+
+initialization
+ TestFramework.RegisterTest(TK267324701.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

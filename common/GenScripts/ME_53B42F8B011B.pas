@@ -1,5 +1,10 @@
 unit UserEditQuery_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\UserEditQuery_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -10,7 +15,7 @@ uses
 ;
 
  // UserEditQueryTag
- 
+
 implementation
 
 uses

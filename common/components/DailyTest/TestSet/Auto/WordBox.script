@@ -1,0 +1,32 @@
+PROGRAM WordBox.script
+
+USES
+ Testing.ms.dict
+;
+
+USES
+ axiom:CompiledProcedure
+ axiom:WordBox
+;
+
+Test&Dump WordBoxTest
+ OBJECT VAR X
+ CompiledProcedure:Create >>> X
+ //X pop:Word:DecRef
+ 
+ INTERFACE VAR Box
+ //ItfwWordBox VAR Box
+ X pop:Word:Box >>> Box
+ X pop:Word:DecRef
+ 
+ Box pop:WordBox:Boxed >>> X
+ 
+ X -> Name := 'Test Name'
+ X -> Name .
+ X .
+ X pop:Word:Parent .
+ X pop:Word:Parent pop:Word:Name .
+ 
+; // WordBoxTest
+
+WordBoxTest

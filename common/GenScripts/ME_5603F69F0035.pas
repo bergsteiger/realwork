@@ -1,19 +1,37 @@
 unit vcmOperationsCollectionItemList;
 
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\vcmOperationsCollectionItemList.pas"
+// Стереотип: "SimpleClass"
+
+{$Include vcmDefine.inc}
+
 interface
 
+{$If NOT Defined(NoVCM)}
 uses
  l3IntfUses
  , l3ProtoDataContainer
  , vcmOperationsCollectionItem
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
 ;
 
 type
- TvcmOperationsCollectionItemList = class(Tl3ProtoDataContainer)
+ _ItemType_ = TvcmOperationsCollectionItem;
+ _l3ObjectPtrList_Parent_ = Tl3ProtoDataContainer;
+ {$Define l3Items_IsProto}
+ {$Include l3ObjectPtrList.imp.pas}
+ TvcmOperationsCollectionItemList = class(_l3ObjectPtrList_)
  end;//TvcmOperationsCollectionItemList
- 
+{$IfEnd} // NOT Defined(NoVCM)
+
 implementation
 
+{$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
  , l3Base
@@ -21,5 +39,10 @@ uses
  , RTLConsts
  , SysUtils
 ;
+
+type _Instance_R_ = TvcmOperationsCollectionItemList;
+
+{$Include l3ObjectPtrList.imp.pas}
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

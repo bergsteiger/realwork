@@ -1,0 +1,10 @@
+//#UC START# *4DAEEDE10285_4DBAE64F02F7_impl*
+ if (aCtx.rException <> nil) then
+  raise RException(aCtx.rException.ClassType).Create(aCtx.rException.Message)
+ else
+  raise EtfwScriptException.Create(aCtx.rEngine.PopDelphiString);
+//#UC END# *4DAEEDE10285_4DBAE64F02F7_impl*
+//#UC START# *4DAEEDE10285_4DBAE64F02F7_var*
+type
+ RException = class of Exception;
+//#UC END# *4DAEEDE10285_4DBAE64F02F7_var*

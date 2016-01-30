@@ -1,0 +1,134 @@
+//#UC START# *548188CE0291_54817DA2016E_impl*
+ l_Sub := Document.SubEx[f_ID, f_LayerID];
+ if (l_Sub = nil) then
+  Result := False
+ else
+  Result := l_Sub.Delete(nil);
+//#UC END# *548188CE0291_54817DA2016E_impl*
+//#UC START# *548188CE0291_54817DA2016E_var*
+var
+ l_Sub: IevSub;
+//#UC END# *548188CE0291_54817DA2016E_var*
+//#UC START# *548188E50006_54817DA2016E_impl*
+ l_Sub := Document.SubEx[f_ID, f_LayerID];
+ Result := (l_Sub <> nil) and l_Sub.Exists;
+//#UC END# *548188E50006_54817DA2016E_impl*
+//#UC START# *548188E50006_54817DA2016E_var*
+var
+ l_Sub: IevSub;
+//#UC END# *548188E50006_54817DA2016E_var*
+//#UC START# *548188FC0305_54817DA2016E_impl*
+ Result := Exists;
+ if Result then
+  with Document do
+   SubEx[f_ID, f_LayerID].Select(Selection);
+//#UC END# *548188FC0305_54817DA2016E_impl*
+//#UC START# *548188FC0305_54817DA2016E_var*
+//#UC END# *548188FC0305_54817DA2016E_var*
+//#UC START# *5481891302A1_54817DA2016E_impl*
+ Result := l3IEQ(Self, aSub) or
+           ((aSub <> nil) and
+            (Get_ID = aSub.ID) and
+            (Get_LayerID = aSub.LayerID) and
+            (Get_Flag = aSub.Flag));
+//#UC END# *5481891302A1_54817DA2016E_impl*
+//#UC START# *5481891302A1_54817DA2016E_var*
+//#UC END# *5481891302A1_54817DA2016E_var*
+//#UC START# *548189A0022F_54817DA2016Eget_impl*
+ l_Sub := Document.SubEx[f_ID, f_LayerID];
+ if (l_Sub = nil) then
+  Result := ev_spNoWhere
+ else
+  Result := l_Sub.SubPlace;
+//#UC END# *548189A0022F_54817DA2016Eget_impl*
+//#UC START# *548189A0022F_54817DA2016Eget_var*
+var
+ l_Sub: IevSub;
+//#UC END# *548189A0022F_54817DA2016Eget_var*
+//#UC START# *548189BC01DF_54817DA2016Eget_impl*
+ Result := f_ID;
+//#UC END# *548189BC01DF_54817DA2016Eget_impl*
+//#UC START# *548189BC01DF_54817DA2016Eget_var*
+//#UC END# *548189BC01DF_54817DA2016Eget_var*
+//#UC START# *548189D0014C_54817DA2016Eget_impl*
+ Result := f_LayerID;
+//#UC END# *548189D0014C_54817DA2016Eget_impl*
+//#UC START# *548189D0014C_54817DA2016Eget_var*
+//#UC END# *548189D0014C_54817DA2016Eget_var*
+//#UC START# *548189EE0355_54817DA2016Eget_impl*
+ Result := f_Flag;
+//#UC END# *548189EE0355_54817DA2016Eget_impl*
+//#UC START# *548189EE0355_54817DA2016Eget_var*
+//#UC END# *548189EE0355_54817DA2016Eget_var*
+//#UC START# *548189F9001A_54817DA2016Eget_impl*
+ l_Sub := Document.SubEx[f_ID, f_LayerID];
+ if (l_Sub = nil) then
+  Result := 0
+ else
+  Result := l_Sub.Flags;
+//#UC END# *548189F9001A_54817DA2016Eget_impl*
+//#UC START# *548189F9001A_54817DA2016Eget_var*
+var
+ l_Sub: IevSub;
+//#UC END# *548189F9001A_54817DA2016Eget_var*
+//#UC START# *54818A59008A_54817DA2016Eget_impl*
+ l_Sub := Document.SubEx[f_ID, f_LayerID];
+ if (l_Sub = nil) then
+  l3AssignNil(Result)
+ else
+  Result := l_Sub.Name;
+//#UC END# *54818A59008A_54817DA2016Eget_impl*
+//#UC START# *54818A59008A_54817DA2016Eget_var*
+var
+ l_Sub: IevSub;
+//#UC END# *54818A59008A_54817DA2016Eget_var*
+//#UC START# *54818A59008A_54817DA2016Eset_impl*
+ l_Sub := Document.SubEx[f_ID, f_LayerID];
+ if (l_Sub <> nil) then
+  l_Sub.Name := aValue;
+//#UC END# *54818A59008A_54817DA2016Eset_impl*
+//#UC START# *54818A59008A_54817DA2016Eset_var*
+var
+ l_Sub: IevSub;
+//#UC END# *54818A59008A_54817DA2016Eset_var*
+//#UC START# *54818A7B0210_54817DA2016Eget_impl*
+ l_Sub := Document.SubEx[f_ID, f_LayerID].Next;
+ if (l_Sub = nil) then
+  Result := nil
+ else
+  Result := Make(Document, l_Sub.ID, l_Sub.LayerID, 0);
+//#UC END# *54818A7B0210_54817DA2016Eget_impl*
+//#UC START# *54818A7B0210_54817DA2016Eget_var*
+var
+ l_Sub: IevSub;
+//#UC END# *54818A7B0210_54817DA2016Eget_var*
+//#UC START# *54818A9700C3_54817DA2016Eget_impl*
+ l_Sub := Document.SubEx[f_ID, f_LayerID];
+ if (l_Sub <> nil) and l_Sub.Exists then
+  Result := TeePara.Make(l_Sub.LeafPara, Document) as IeeLeafPara
+ else
+  Result := nil;
+//#UC END# *54818A9700C3_54817DA2016Eget_impl*
+//#UC START# *54818A9700C3_54817DA2016Eget_var*
+var
+ l_Sub: IevSub;
+//#UC END# *54818A9700C3_54817DA2016Eget_var*
+//#UC START# *54818AA901FF_54817DA2016Eget_impl*
+ l_Sub := Document.SubEx[f_ID, f_LayerID];
+ if (l_Sub <> nil) and l_Sub.Exists then
+  Result := TeePara.Make(l_Sub.Para, Document)
+ else
+  Result := nil;
+//#UC END# *54818AA901FF_54817DA2016Eget_impl*
+//#UC START# *54818AA901FF_54817DA2016Eget_var*
+var
+ l_Sub: IevSub;
+//#UC END# *54818AA901FF_54817DA2016Eget_var*
+//#UC START# *5487199800AD_54817DA2016E_impl*
+ inherited Create(aDocument);
+ f_ID := anID;
+ f_LayerID := aLayerID;
+ f_Flag := aFlag;
+//#UC END# *5487199800AD_54817DA2016E_impl*
+//#UC START# *5487199800AD_54817DA2016E_var*
+//#UC END# *5487199800AD_54817DA2016E_var*

@@ -1,4 +1,10 @@
-unit evEvdWriter;
+unit NOT_FINISHED_evEvdWriter;
+ {* Писатель тегов в формате evd в структурированное хранилище (IStorage). }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evEvdWriter.pas"
+// Стереотип: "UtilityPack"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -10,14 +16,14 @@ uses
 type
  TevCustomEvdStorageWriter = class(TevdCustomNativeWriter)
  end;//TevCustomEvdStorageWriter
- 
+
  TevEvdStorageWriter = class(TevCustomEvdStorageWriter)
   {* Писатель тегов в формате evd в структурированное хранилище (IStorage). (С published свойствами) }
  end;//TevEvdStorageWriter
- 
+
  TevPartContainer = class
  end;//TevPartContainer
- 
+
 implementation
 
 uses

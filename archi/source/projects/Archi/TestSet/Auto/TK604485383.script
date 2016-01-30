@@ -1,25 +1,36 @@
-USES
-	axiom:subdescriptor
+USES	
+	ArchiControls.script
+	QuickTestsUtils.script
 ;
 
-BOOLEAN VAR g_IsIconVisible
+CONST cnChangedNodeID 0
 
-PROCEDURE FindIconVisible OBJECT IN aSubDescription INTEGER IN aHandle 
- Если ( aHandle РАВНО 0 ) то 
-	( aSubDescription subdescriptor:GetVisible >>> g_IsIconVisible )
+CONST "Пункт 2" 2
+CONST "Пункт 7" 3
+
+PROCEDURE "Развернуть узел 'Оглавление'"
+	"развернуть узел {(cnChangedNodeID)}"
 ;
 
-PROCEDURE "Ищем видимость первой иконки"
-        false >>> g_IsIconVisible
-	OBJECT VAR l_SubPanel		
-	"Контрол по имени {(acSubShowPanel)}" >>> l_SubPanel
-	@ FindIconVisible l_SubPanel IterateSubDecriptorsOnSubPanel
-        g_IsIconVisible .
+PROCEDURE "Развернуть узел 'Пункт 2' 'Оглавление'"
+	"развернуть узел {("Пункт 2")}"
+;
+
+PROCEDURE "Развернуть дочерний узел 'Пункт 7' 'Оглавление'"
+	"развернуть узел {("Пункт 7")}"
 ;
 
 Тест TK604485383
-	Выполнить (
-		"Ищем видимость первой иконки"
+	Параметры: ( "Дерево оглавления"
+		"Эталон для дерева оглавления"
+	)
+	Выполнить ( 
+		"Развернуть узел 'Оглавление'"
+		"Установить фокус в контрол с именем" "Контрол редактора текста"
+		"Выделить блок {(17)} {(4)}"	
+	    	"Создать блок из выделенного"
+		"Развернуть узел 'Пункт 2' 'Оглавление'"
+		"Развернуть дочерний узел 'Пункт 7' 'Оглавление'"							
 	)
 ;
 

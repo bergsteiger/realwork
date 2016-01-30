@@ -1,0 +1,29 @@
+//#UC START# *47D1602000C6_55250990030E_impl*
+ inherited;
+ f_ActivateWindowOnClick := False;
+//#UC END# *47D1602000C6_55250990030E_impl*
+//#UC START# *47D1602000C6_55250990030E_var*
+//#UC END# *47D1602000C6_55250990030E_var*
+//#UC START# *4F88473B03CD_55250990030E_impl*
+ if f_ActivateWindowOnClick then
+ begin
+  l_TopWindow := lp_TopParentWindow;
+  if (GetForegroundWindow <> l_TopWindow) then
+   SetForegroundWindow(l_TopWindow);
+ end;
+ inherited;
+//#UC END# *4F88473B03CD_55250990030E_impl*
+//#UC START# *4F88473B03CD_55250990030E_var*
+ function lp_TopParentWindow: THandle;
+ var
+  W: TControl;
+ begin
+  W := Self;
+  while Assigned(W.Parent) do
+   W := W.Parent;
+  Assert(W is TWinControl);
+  Result := TWinControl(W).Handle;
+ end;
+var
+ l_TopWindow: THandle;
+//#UC END# *4F88473B03CD_55250990030E_var*

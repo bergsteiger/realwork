@@ -1,16 +1,26 @@
 unit l3CustomLongintListView;
 
+// Модуль: "w:\common\components\rtl\Garant\L3\l3CustomLongintListView.pas"
+// Стереотип: "SimpleClass"
+
+{$Include l3Define.inc}
+
 interface
 
 uses
  l3IntfUses
  , l3LongintList
+ , l3CustomOtherListView
+ , l3PureMixIns
 ;
 
 type
- Tl3CustomLongintListView = class(_l3OtherTypedListView_)
+ _ListType_ = Tl3LongintList;
+ _ItemType_ = Integer;
+ {$Include l3OtherTypedListView.imp.pas}
+ Tl3CustomLongintListView = {abstract} class(_l3OtherTypedListView_)
  end;//Tl3CustomLongintListView
- 
+
 implementation
 
 uses
@@ -18,5 +28,7 @@ uses
  , l3Base
  , SysUtils
 ;
+
+{$Include l3OtherTypedListView.imp.pas}
 
 end.

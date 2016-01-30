@@ -1,4 +1,9 @@
-unit l3FormattedLines;
+unit NOT_FINISHED_l3FormattedLines;
+
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3FormattedLines.pas"
+// Стереотип: "SimpleClass"
+
+{$Include l3Define.inc}
 
 interface
 
@@ -10,7 +15,7 @@ uses
 type
  Tl3FormattedLines = class(Tl3ProtoObjectRefList)
  end;//Tl3FormattedLines
- 
+
 implementation
 
 uses

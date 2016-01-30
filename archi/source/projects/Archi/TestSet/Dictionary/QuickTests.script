@@ -116,20 +116,6 @@ USES
  @\TestUtils.script
 ;
 
-WORDWORKER "Тест с закрытием всех окон"
-	TRY 
-		WordToWork DO
-	FINALLY 
-	 	"Закрыть все окна" 
-	END  
-; 
-
-: "Тест на проверку выполнения с закрытием всех окон" IN anAction
-	"Создать или открыть"
-	"Подготовка" 
-	"Тест с закрытием всех окон" ( anAction DO )	
-;
-
 : "Тест автопростановки ссылок"
  filter:AutolinkFilter
  TRY

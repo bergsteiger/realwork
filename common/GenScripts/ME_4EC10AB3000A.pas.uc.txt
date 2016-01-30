@@ -1,0 +1,38 @@
+//#UC START# *4F4CB81200CA_4EC10AB3000A_impl*
+ if aCtx.rEngine.IsTopString then
+ begin
+  {$If Declared(l3GetClipboardByFormatName)}
+  l_F := l3GetClipboardByFormatName(aCtx.rEngine.PopDelphiString);
+  {$Else}
+  RunnerAssert(false, 'Не определена функция l3GetClipboardByFormatName', aCtx);
+  {$IfEnd}
+ end
+ else
+  l_F := aCtx.rEngine.PopInt;
+ l_G := nil;
+ if l_F = CF_PDF then
+ begin
+  l_Flag := TddPicturePathListner.Instance.PDF4Etalon;
+  TddPicturePathListner.Instance.PDF4Etalon := True;
+ end // if l_F = CF_PDF then
+ else
+  l_Flag := False;
+ try
+  TevdBlockNameAdder.SetTo(l_G);
+  TevdMarkEliminator.SetTo(l_G);
+  TevdDocumentMarksEliminator.SetTo(l_G);
+  aCtx.rEngine.PushString(EvAsString(anEditor.View.Control.Selection.GetBlock.Data,
+                                     l_F,
+                                     false,
+                                     l_G));
+ finally
+  if l_F = CF_PDF then
+   TddPicturePathListner.Instance.PDF4Etalon := l_Flag;
+ end;
+//#UC END# *4F4CB81200CA_4EC10AB3000A_impl*
+//#UC START# *4F4CB81200CA_4EC10AB3000A_var*
+var
+ l_F   : Integer;
+ l_G   : InevTagGenerator;
+ l_Flag: Boolean;
+//#UC END# *4F4CB81200CA_4EC10AB3000A_var*

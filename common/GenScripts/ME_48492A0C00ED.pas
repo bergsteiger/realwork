@@ -1,4 +1,10 @@
 unit k2Long_Const;
+ {* Целое число }
+
+// Модуль: "w:\common\components\rtl\Garant\K2\k2Long_Const.pas"
+// Стереотип: "Atom"
+
+{$Include k2Define.inc}
 
 interface
 
@@ -7,7 +13,7 @@ uses
 ;
 
  // LongAtom
- 
+
 implementation
 
 uses

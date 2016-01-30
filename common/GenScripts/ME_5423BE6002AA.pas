@@ -1,25 +1,45 @@
-unit l3RevertedAtomicList.imp;
+{$IfNDef l3RevertedAtomicList_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\L3\l3RevertedAtomicList.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define l3RevertedAtomicList_imp}
 
-type
+ _l3AtomicListPrim_Parent_ = _l3RevertedAtomicList_Parent_;
+ {$Include l3AtomicListPrim.imp.pas}
  _l3RevertedAtomicList_ = class(_l3AtomicListPrim_)
-  function CompareExistingItems(const CI: CompareItemsRec): Integer;
-   {* Сравнивает два существующих элемента. }
  end;//_l3RevertedAtomicList_
- 
-implementation
 
-uses
- l3ImplUses
- , l3Base
- , l3MinMax
- , RTLConsts
- , SysUtils
-;
+{$Else l3RevertedAtomicList_imp}
 
-end.
+{$IfNDef l3RevertedAtomicList_imp_impl}
+
+{$Define l3RevertedAtomicList_imp_impl}
+
+function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
+//#UC START# *47B99D4503A2_5423BE6002AA_var*
+//#UC END# *47B99D4503A2_5423BE6002AA_var*
+begin
+//#UC START# *47B99D4503A2_5423BE6002AA_impl*
+ {$IfDef l3Items_HasCustomSort}
+ Assert(CI.rSortIndex = l3_siNative);
+ {$EndIf l3Items_HasCustomSort}
+ if CI.rA^ > CI.rB^ then
+   Result := -1
+ else
+   if CI.rA^ < CI.rB^ then
+     Result := 1
+   else
+     Result := 0;
+//#UC END# *47B99D4503A2_5423BE6002AA_impl*
+end;//CompareExistingItems
+
+type _Instance_R_ = _l3RevertedAtomicList_;
+
+{$Include l3AtomicListPrim.imp.pas}
+
+{$EndIf l3RevertedAtomicList_imp_impl}
+
+{$EndIf l3RevertedAtomicList_imp}
+

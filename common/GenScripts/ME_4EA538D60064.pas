@@ -1,7 +1,13 @@
 unit K294595323Suite;
 
+// Модуль: "w:\common\components\rtl\Garant\Archi_Tests\K294595323Suite.pas"
+// Стереотип: "SimpleClass"
+
+{$Include TestDefine.inc.pas}
+
 interface
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
  , CustomFolderTestSuite
@@ -10,11 +16,14 @@ uses
 type
  TK294595323Suite = class(TCustomFolderTestSuite)
  end;//TK294595323Suite
- 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+
 implementation
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
 ;
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

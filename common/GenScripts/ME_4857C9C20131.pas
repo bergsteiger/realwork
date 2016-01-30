@@ -1,4 +1,10 @@
 unit CommentPara_Const;
+ {* Блок пользовательского комментария }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\CommentPara_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -9,7 +15,7 @@ uses
 ;
 
  // CommentParaTag
- 
+
 implementation
 
 uses

@@ -1,4 +1,9 @@
-unit l3GZipStream;
+unit NOT_FINISHED_l3GZipStream;
+
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3GZipStream.pas"
+// Стереотип: "SimpleClass"
+
+{$Include l3Define.inc}
 
 interface
 
@@ -9,7 +14,7 @@ uses
 type
  Tl3GZipStream = class
  end;//Tl3GZipStream
- 
+
 implementation
 
 uses

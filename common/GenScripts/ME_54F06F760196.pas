@@ -1,20 +1,28 @@
-unit kwParaCoordsToScreenUses.imp;
+{$IfNDef kwParaCoordsToScreenUses_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwParaCoordsToScreenUses.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define kwParaCoordsToScreenUses_imp}
 
-type
- _kwParaCoordsToScreenUses_ = class
+{$If NOT Defined(NoScripts)}
+ _kwParaCoordsToScreenUses_ = {abstract} class(_kwParaCoordsToScreenUses_Parent_)
  end;//_kwParaCoordsToScreenUses_
- 
-implementation
 
-uses
- l3ImplUses
- , Types
-;
+{$Else NOT Defined(NoScripts)}
 
-end.
+_kwParaCoordsToScreenUses_ = _kwParaCoordsToScreenUses_Parent_;
+
+{$IfEnd} // NOT Defined(NoScripts)
+{$Else kwParaCoordsToScreenUses_imp}
+
+{$IfNDef kwParaCoordsToScreenUses_imp_impl}
+
+{$Define kwParaCoordsToScreenUses_imp_impl}
+
+{$If NOT Defined(NoScripts)}
+{$IfEnd} // NOT Defined(NoScripts)
+{$EndIf kwParaCoordsToScreenUses_imp_impl}
+
+{$EndIf kwParaCoordsToScreenUses_imp}
+

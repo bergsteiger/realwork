@@ -1,5 +1,10 @@
 unit evStyle;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\evStyle.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -10,7 +15,7 @@ uses
 type
  TevStyle = class(Tk2DictRec)
  end;//TevStyle
- 
+
 implementation
 
 uses

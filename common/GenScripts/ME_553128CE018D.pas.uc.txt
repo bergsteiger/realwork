@@ -1,0 +1,24 @@
+//#UC START# *4DAEEDE10285_553128CE018D_impl*
+ aCtx.rEngine.PushString(GetEnumName(f_TypeInfo, aCtx.rEngine.PopInt));
+//#UC END# *4DAEEDE10285_553128CE018D_impl*
+//#UC START# *4DAEEDE10285_553128CE018D_var*
+//#UC END# *4DAEEDE10285_553128CE018D_var*
+//#UC START# *551544E2001A_553128CE018D_impl*
+ Result := TypeInfo(String); 
+//#UC END# *551544E2001A_553128CE018D_impl*
+//#UC START# *551544E2001A_553128CE018D_var*
+//#UC END# *551544E2001A_553128CE018D_var*
+//#UC START# *553129980377_553128CE018D_impl*
+ l_Inst := Create;
+ try
+  l_Inst.f_TypeInfo := aTypeInfo;
+  l_Inst.RegisterInstance(aTypeInfo.Name + ':ValueToName');
+ finally
+  FreeAndNil(l_Inst);
+ end;//try..finally
+ TtfwStringToEnumValue.Register(aTypeInfo);
+//#UC END# *553129980377_553128CE018D_impl*
+//#UC START# *553129980377_553128CE018D_var*
+var
+ l_Inst : TtfwIntegerToEnumName;
+//#UC END# *553129980377_553128CE018D_var*

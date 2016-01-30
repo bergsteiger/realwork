@@ -1,4 +1,10 @@
 unit evdTextStyle_Const;
+ {* Стиль оформления текста }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\evdTextStyle_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -19,71 +25,71 @@ uses
 
 type
  // TevdTxtNormalANSI
- 
+
  // TevdFont
- 
+
  // TevdObject
- 
+
  // TevdFont
- 
+
  // TevdMistake
- 
+
  // TevdFont
- 
+
  // TevdColorSelection
- 
+
  // TevdFont
- 
+
  // TevdHyperLink
- 
+
  // TevdFont
- 
+
  // TevdInterface
- 
+
  // TevdFont
- 
+
  // TevdActiveHyperLink
- 
+
  // TevdNormalTable
- 
+
  // TevdCenteredTable
- 
+
  // TevdFont
- 
+
  // TevdColorSelectionForBaseSearch
- 
+
  // TevdFont
- 
+
  // TevdItalicColorSelectionForBaseSearch
- 
+
  // TevdFont
- 
+
  // TevdDialogs
- 
+
  // TevdFont
- 
+
  // TevdTOC
- 
+
  // TevdFont
- 
+
  // TevdAttention
- 
+
  // TevdFont
- 
+
  // TevdWriteToUs
- 
+
  // TevdFont
- 
+
  // TevdAbolishedDocumentLink
- 
+
  // TevdNewsConfigStyle
- 
+
  // TevdFont
- 
+
  // TevdAACHyperlink
- 
+
  // TextStyleTag
- 
+
 implementation
 
 uses

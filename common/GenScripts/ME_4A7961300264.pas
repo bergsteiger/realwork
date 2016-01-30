@@ -1,4 +1,9 @@
-unit vtSizeablePanel;
+unit NOT_FINISHED_vtSizeablePanel;
+
+// Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtSizeablePanel.pas"
+// Стереотип: "GuiControl"
+
+{$Include vtDefine.inc}
 
 interface
 
@@ -9,7 +14,7 @@ uses
 type
  TvtSizeablePanel = class
  end;//TvtSizeablePanel
- 
+
 implementation
 
 uses

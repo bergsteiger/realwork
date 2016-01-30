@@ -1,0 +1,278 @@
+//#UC START# *473D8BEE007B_47DF8F0402F7_impl*
+ if Assigned(f_PreviewSubscribers) then
+  for l_Idx := f_PreviewSubscribers.Hi downto f_PreviewSubscribers.Lo do
+   f_PreviewSubscribers[l_Idx].ContentChanged;
+//#UC END# *473D8BEE007B_47DF8F0402F7_impl*
+//#UC START# *473D8BEE007B_47DF8F0402F7_var*
+var
+ l_Idx: Integer;
+//#UC END# *473D8BEE007B_47DF8F0402F7_var*
+//#UC START# *473D8C450198_47DF8F0402F7_impl*
+ if (f_Previews[f_ContentKind] = nil) then
+  Result := nil
+ else
+  Result := f_Previews[f_ContentKind].DocumentName;
+//#UC END# *473D8C450198_47DF8F0402F7_impl*
+//#UC START# *473D8C450198_47DF8F0402F7_var*
+//#UC END# *473D8C450198_47DF8F0402F7_var*
+//#UC START# *473D8C5C0187_47DF8F0402F7_impl*
+ if (f_Previews[f_ContentKind] = nil) then
+  Result := false
+ else
+  Result := f_Previews[f_ContentKind].InProcess;
+//#UC END# *473D8C5C0187_47DF8F0402F7_impl*
+//#UC START# *473D8C5C0187_47DF8F0402F7_var*
+//#UC END# *473D8C5C0187_47DF8F0402F7_var*
+//#UC START# *473D8C6C0266_47DF8F0402F7_impl*
+ if (f_Previews[f_ContentKind] = nil) then
+  Result := false
+ else
+  Result := f_Previews[f_ContentKind].InPagesCounting;
+//#UC END# *473D8C6C0266_47DF8F0402F7_impl*
+//#UC START# *473D8C6C0266_47DF8F0402F7_var*
+//#UC END# *473D8C6C0266_47DF8F0402F7_var*
+//#UC START# *473D8C7C01B5_47DF8F0402F7_impl*
+ if (f_Previews[f_ContentKind] = nil) then
+  Result := false
+ else
+  Result := f_Previews[f_ContentKind].InUpdate;
+//#UC END# *473D8C7C01B5_47DF8F0402F7_impl*
+//#UC START# *473D8C7C01B5_47DF8F0402F7_var*
+//#UC END# *473D8C7C01B5_47DF8F0402F7_var*
+//#UC START# *473D8C90022C_47DF8F0402F7_impl*
+ if (f_Previews[f_ContentKind] = nil) then
+  Result := false
+ else
+  Result := f_Previews[f_ContentKind].InPrinting;
+//#UC END# *473D8C90022C_47DF8F0402F7_impl*
+//#UC START# *473D8C90022C_47DF8F0402F7_var*
+//#UC END# *473D8C90022C_47DF8F0402F7_var*
+//#UC START# *473D8CA002D9_47DF8F0402F7_impl*
+ if (f_Previews[f_ContentKind] <> nil) then
+  f_Previews[f_ContentKind].Update(aPanel);
+//#UC END# *473D8CA002D9_47DF8F0402F7_impl*
+//#UC START# *473D8CA002D9_47DF8F0402F7_var*
+//#UC END# *473D8CA002D9_47DF8F0402F7_var*
+//#UC START# *473D8CAF028B_47DF8F0402F7_impl*
+ if (f_Previews[f_ContentKind] <> nil) then
+  f_Previews[f_ContentKind].Print(anInterval, aRange, aCopies, aFileName, aCollate);
+//#UC END# *473D8CAF028B_47DF8F0402F7_impl*
+//#UC START# *473D8CAF028B_47DF8F0402F7_var*
+//#UC END# *473D8CAF028B_47DF8F0402F7_var*
+//#UC START# *473D8CE9007C_47DF8F0402F7_impl*
+ if (f_Previews[f_ContentKind] <> nil) then
+  f_Previews[f_ContentKind].Stop(aWnd);
+//#UC END# *473D8CE9007C_47DF8F0402F7_impl*
+//#UC START# *473D8CE9007C_47DF8F0402F7_var*
+//#UC END# *473D8CE9007C_47DF8F0402F7_var*
+//#UC START# *473D8CF80037_47DF8F0402F7_impl*
+ if (f_Previews[f_ContentKind] = nil) then
+  Result := false
+ else
+  Result := f_Previews[f_ContentKind].Stopped;
+//#UC END# *473D8CF80037_47DF8F0402F7_impl*
+//#UC START# *473D8CF80037_47DF8F0402F7_var*
+//#UC END# *473D8CF80037_47DF8F0402F7_var*
+//#UC START# *473D8D0A01D7_47DF8F0402F7_impl*
+ if (f_Previews[f_ContentKind] = nil) then
+  Result := true
+ else
+  Result := f_Previews[f_ContentKind].CloseRequested;
+//#UC END# *473D8D0A01D7_47DF8F0402F7_impl*
+//#UC START# *473D8D0A01D7_47DF8F0402F7_var*
+//#UC END# *473D8D0A01D7_47DF8F0402F7_var*
+//#UC START# *473D8D1E01B8_47DF8F0402F7_impl*
+ if (f_Previews[f_ContentKind] = nil) then
+  Result := false
+ else
+  Result := f_Previews[f_ContentKind].PreviewResetting;
+//#UC END# *473D8D1E01B8_47DF8F0402F7_impl*
+//#UC START# *473D8D1E01B8_47DF8F0402F7_var*
+//#UC END# *473D8D1E01B8_47DF8F0402F7_var*
+//#UC START# *473D8D3800B1_47DF8F0402F7_impl*
+ if (f_Previews[f_ContentKind] <> nil) then
+  f_Previews[f_ContentKind].SetCurrentPage(aCursor);
+//#UC END# *473D8D3800B1_47DF8F0402F7_impl*
+//#UC START# *473D8D3800B1_47DF8F0402F7_var*
+//#UC END# *473D8D3800B1_47DF8F0402F7_var*
+//#UC START# *473D8D4A019D_47DF8F0402F7_impl*
+ if (f_Previews[f_ContentKind] <> nil) then
+  f_Previews[f_ContentKind].SetCurrentPagePara(aParaID);
+//#UC END# *473D8D4A019D_47DF8F0402F7_impl*
+//#UC START# *473D8D4A019D_47DF8F0402F7_var*
+//#UC END# *473D8D4A019D_47DF8F0402F7_var*
+//#UC START# *473D8D5D032B_47DF8F0402F7_impl*
+ if (f_Previews[f_ContentKind] <> nil) then
+  f_Previews[f_ContentKind].SetCurrentPageNumber(aPageNumber);
+//#UC END# *473D8D5D032B_47DF8F0402F7_impl*
+//#UC START# *473D8D5D032B_47DF8F0402F7_var*
+//#UC END# *473D8D5D032B_47DF8F0402F7_var*
+//#UC START# *473D8D72010F_47DF8F0402F7_impl*
+ if (f_Previews[f_ContentKind] = nil) then
+  Result := 0
+ else
+  Result := f_Previews[f_ContentKind].CurrentPage;
+//#UC END# *473D8D72010F_47DF8F0402F7_impl*
+//#UC START# *473D8D72010F_47DF8F0402F7_var*
+//#UC END# *473D8D72010F_47DF8F0402F7_var*
+//#UC START# *473D8D830163_47DF8F0402F7_impl*
+ if (f_Previews[f_ContentKind] = nil) then
+  Result := false
+ else
+  Result := f_Previews[f_ContentKind].HasCurrentPage;
+//#UC END# *473D8D830163_47DF8F0402F7_impl*
+//#UC START# *473D8D830163_47DF8F0402F7_var*
+//#UC END# *473D8D830163_47DF8F0402F7_var*
+//#UC START# *473D8D9500C9_47DF8F0402F7get_impl*
+ if (f_Printer = nil) then
+  pm_SetPrinter(Tl3Printer.Make);
+ Result := f_Printer;
+//#UC END# *473D8D9500C9_47DF8F0402F7get_impl*
+//#UC START# *473D8D9500C9_47DF8F0402F7get_var*
+//#UC END# *473D8D9500C9_47DF8F0402F7get_var*
+//#UC START# *473D8D9500C9_47DF8F0402F7set_impl*
+ if (f_Printer <> aValue) then
+ begin
+  f_Printer := aValue;
+  for l_Idx := Low(TafwPreviewContentKind) to High(TafwPreviewContentKind) do
+   CheckPrinter(l_Idx);
+ end;//f_Printer <> aValue
+//#UC END# *473D8D9500C9_47DF8F0402F7set_impl*
+//#UC START# *473D8D9500C9_47DF8F0402F7set_var*
+var
+ l_Idx: TafwPreviewContentKind;
+//#UC END# *473D8D9500C9_47DF8F0402F7set_var*
+//#UC START# *473D8DB10141_47DF8F0402F7get_impl*
+ if (f_Previews[f_ContentKind] = nil) then
+  Result := false
+ else
+  Result := f_Previews[f_ContentKind].HasText;
+//#UC END# *473D8DB10141_47DF8F0402F7get_impl*
+//#UC START# *473D8DB10141_47DF8F0402F7get_var*
+//#UC END# *473D8DB10141_47DF8F0402F7get_var*
+//#UC START# *473D8E0C01B0_47DF8F0402F7get_impl*
+ Result := f_ContentKind;
+//#UC END# *473D8E0C01B0_47DF8F0402F7get_impl*
+//#UC START# *473D8E0C01B0_47DF8F0402F7get_var*
+//#UC END# *473D8E0C01B0_47DF8F0402F7get_var*
+//#UC START# *473D8E0C01B0_47DF8F0402F7set_impl*
+ if (f_ContentKind <> aValue) then
+ begin
+  f_ContentKind := aValue;
+  CheckContent(f_ContentKind);
+ end;
+//#UC END# *473D8E0C01B0_47DF8F0402F7set_impl*
+//#UC START# *473D8E0C01B0_47DF8F0402F7set_var*
+//#UC END# *473D8E0C01B0_47DF8F0402F7set_var*
+//#UC START# *473D8E3003B1_47DF8F0402F7_impl*
+ Result := f_Previews[f_ContentKind];
+//#UC END# *473D8E3003B1_47DF8F0402F7_impl*
+//#UC START# *473D8E3003B1_47DF8F0402F7_var*
+//#UC END# *473D8E3003B1_47DF8F0402F7_var*
+//#UC START# *473D8E3D007A_47DF8F0402F7_impl*
+ Result := f_Previews[afw_pckDocument];
+//#UC END# *473D8E3D007A_47DF8F0402F7_impl*
+//#UC START# *473D8E3D007A_47DF8F0402F7_var*
+//#UC END# *473D8E3D007A_47DF8F0402F7_var*
+//#UC START# *473D8E480102_47DF8F0402F7_impl*
+ SetContent(afw_pckDocument, aDocument);
+//#UC END# *473D8E480102_47DF8F0402F7_impl*
+//#UC START# *473D8E480102_47DF8F0402F7_var*
+//#UC END# *473D8E480102_47DF8F0402F7_var*
+//#UC START# *473D8E540132_47DF8F0402F7_impl*
+ Result := f_Previews[afw_pckSelection];
+//#UC END# *473D8E540132_47DF8F0402F7_impl*
+//#UC START# *473D8E540132_47DF8F0402F7_var*
+//#UC END# *473D8E540132_47DF8F0402F7_var*
+//#UC START# *473D8E5F03B8_47DF8F0402F7_impl*
+ SetContent(afw_pckSelection, aSelection);
+//#UC END# *473D8E5F03B8_47DF8F0402F7_impl*
+//#UC START# *473D8E5F03B8_47DF8F0402F7_var*
+//#UC END# *473D8E5F03B8_47DF8F0402F7_var*
+//#UC START# *473D8E6A0314_47DF8F0402F7_impl*
+ Result := f_Previews[afw_pckInfo];
+//#UC END# *473D8E6A0314_47DF8F0402F7_impl*
+//#UC START# *473D8E6A0314_47DF8F0402F7_var*
+//#UC END# *473D8E6A0314_47DF8F0402F7_var*
+//#UC START# *473D8E750356_47DF8F0402F7_impl*
+ SetContent(afw_pckInfo, anInfo);
+//#UC END# *473D8E750356_47DF8F0402F7_impl*
+//#UC START# *473D8E750356_47DF8F0402F7_var*
+//#UC END# *473D8E750356_47DF8F0402F7_var*
+//#UC START# *475E827F01CB_47DF8F0402F7_impl*
+ if f_PreviewSubscribers = nil then
+  f_PreviewSubscribers := TafwPreviewNotifierPtrList.Make;
+ f_PreviewSubscribers.Add(aNotifier);
+//#UC END# *475E827F01CB_47DF8F0402F7_impl*
+//#UC START# *475E827F01CB_47DF8F0402F7_var*
+//#UC END# *475E827F01CB_47DF8F0402F7_var*
+//#UC START# *475E828B0231_47DF8F0402F7_impl*
+ f_PreviewSubscribers.Remove(aNotifier);
+ if f_PreviewSubscribers.Count = 0 then
+  FreeAndNil(f_PreviewSubscribers);
+//#UC END# *475E828B0231_47DF8F0402F7_impl*
+//#UC START# *475E828B0231_47DF8F0402F7_var*
+//#UC END# *475E828B0231_47DF8F0402F7_var*
+//#UC START# *479731C50290_47DF8F0402F7_impl*
+ FreeAndNil(f_PreviewSubscribers);
+ for l_Idx := Low(TafwPreviewContentKind) to High(TafwPreviewContentKind) do
+  SetContent(l_Idx, nil);
+ f_Printer := nil;
+ inherited;
+//#UC END# *479731C50290_47DF8F0402F7_impl*
+//#UC START# *479731C50290_47DF8F0402F7_var*
+var
+ l_Idx: TafwPreviewContentKind;
+//#UC END# *479731C50290_47DF8F0402F7_var*
+//#UC START# *47DF9F2202FB_47DF8F0402F7_impl*
+ if (f_Previews[aKind] <> nil) then
+  f_Previews[aKind].Printer := pm_GetPrinter;
+//#UC END# *47DF9F2202FB_47DF8F0402F7_impl*
+//#UC START# *47DF9F2202FB_47DF8F0402F7_var*
+//#UC END# *47DF9F2202FB_47DF8F0402F7_var*
+//#UC START# *47DF9F4000BB_47DF8F0402F7_impl*
+ if f_ContentKind = aKind then
+  ContentChanged;
+//#UC END# *47DF9F4000BB_47DF8F0402F7_impl*
+//#UC START# *47DF9F4000BB_47DF8F0402F7_var*
+//#UC END# *47DF9F4000BB_47DF8F0402F7_var*
+//#UC START# *47DF9FF70289_47DF8F0402F7_impl*
+ if f_Previews[aKind] = aValue then Exit;
+ if Supports(f_Previews[aKind], IafwPreviewNotificationSource, l_Source) then
+  l_Source.UnSubscribe(Self);
+ f_Previews[aKind] := aValue;
+ if Supports(f_Previews[aKind], IafwPreviewNotificationSource, l_Source) then
+  l_Source.Subscribe(Self);
+ CheckPrinter(aKind);
+ CheckContent(aKind);
+//#UC END# *47DF9FF70289_47DF8F0402F7_impl*
+//#UC START# *47DF9FF70289_47DF8F0402F7_var*
+var
+ l_Source: IafwPreviewNotificationSource;
+//#UC END# *47DF9FF70289_47DF8F0402F7_var*
+//#UC START# *47DFA16D038D_47DF8F0402F7_impl*
+ inherited Create;
+ SetContent(afw_pckDocument, aDocument);
+ SetContent(afw_pckInfo, anInfo);
+ f_ContentKind := afw_pckDocument;
+ pm_GetPrinter;
+ // - это чтобы присвоить один принтервсем частям
+//#UC END# *47DFA16D038D_47DF8F0402F7_impl*
+//#UC START# *47DFA16D038D_47DF8F0402F7_var*
+//#UC END# *47DFA16D038D_47DF8F0402F7_var*
+//#UC START# *4A60B23E00C3_47DF8F0402F7_impl*
+ Result := inherited COMQueryInterface(IID, Obj);
+ if Result.Fail then
+  if Supports(f_Previews[f_ContentKind], IID.IID, Obj) then
+   Result.SetOk;
+//#UC END# *4A60B23E00C3_47DF8F0402F7_impl*
+//#UC START# *4A60B23E00C3_47DF8F0402F7_var*
+//#UC END# *4A60B23E00C3_47DF8F0402F7_var*
+//#UC START# *4CC6A6FF0362_47DF8F0402F7get_impl*
+ if (f_Previews[f_ContentKind] = nil) then
+  Result := TafwPagesInfo_E
+ else
+  Result := f_Previews[f_ContentKind].PagesInfo;
+//#UC END# *4CC6A6FF0362_47DF8F0402F7get_impl*
+//#UC START# *4CC6A6FF0362_47DF8F0402F7get_var*
+//#UC END# *4CC6A6FF0362_47DF8F0402F7get_var*

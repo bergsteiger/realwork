@@ -1,0 +1,31 @@
+//#UC START# *48FC9D1F016E_48FC9CD002FE_impl*
+ inherited DoChanging;
+//#UC END# *48FC9D1F016E_48FC9CD002FE_impl*
+//#UC START# *48FC9D1F016E_48FC9CD002FE_var*
+//#UC END# *48FC9D1F016E_48FC9CD002FE_var*
+//#UC START# *48FC9D300237_48FC9CD002FE_impl*
+ inherited DoChanged;
+//#UC END# *48FC9D300237_48FC9CD002FE_impl*
+//#UC START# *48FC9D300237_48FC9CD002FE_var*
+//#UC END# *48FC9D300237_48FC9CD002FE_var*
+//#UC START# *48FC9D5E0310_48FC9CD002FE_impl*
+ Result := (f_ChangeCount > 0);
+//#UC END# *48FC9D5E0310_48FC9CD002FE_impl*
+//#UC START# *48FC9D5E0310_48FC9CD002FE_var*
+//#UC END# *48FC9D5E0310_48FC9CD002FE_var*
+//#UC START# *54D9E08D0212_48FC9CD002FE_impl*
+ if (f_ChangeCount <= 0) then //это работает когда в скобках Changing/_Changed на визуалке подменили дерево
+  f_ChangeCount := 1;
+ Dec(f_ChangeCount);
+ if (f_ChangeCount = 0) then
+  FireChanged;
+//#UC END# *54D9E08D0212_48FC9CD002FE_impl*
+//#UC START# *54D9E08D0212_48FC9CD002FE_var*
+//#UC END# *54D9E08D0212_48FC9CD002FE_var*
+//#UC START# *54D9E09D018D_48FC9CD002FE_impl*
+ Inc(f_ChangeCount);
+ if (f_ChangeCount = 1) then
+  FireChanging;
+//#UC END# *54D9E09D018D_48FC9CD002FE_impl*
+//#UC START# *54D9E09D018D_48FC9CD002FE_var*
+//#UC END# *54D9E09D018D_48FC9CD002FE_var*

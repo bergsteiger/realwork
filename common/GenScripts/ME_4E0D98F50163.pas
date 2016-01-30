@@ -1,5 +1,10 @@
 unit ddTableConvTypes;
 
+// Модуль: "w:\common\components\rtl\Garant\dd\ddTableConvTypes.pas"
+// Стереотип: "Interfaces"
+
+{$Include ddDefine.inc}
+
 interface
 
 uses
@@ -15,12 +20,12 @@ type
   , csSpace
   , csOther
  );//TddCellSeparator
- 
+
  TddAutoFitBehavior = (
   afEqual
   , afContent
  );//TddAutoFitBehavior
- 
+
 implementation
 
 uses

@@ -1,0 +1,84 @@
+//#UC START# *4F50313101D1exports*
+ *
+//#UC END# *4F50313101D1exports*
+//#UC START# *4F50313101D1impl*
+//WordAlias FILTER Array:Filter
+WordAlias FunctorToIterator Array:FunctorToIterator
+//WordAlias Iterate Array:Iterate
+WordAlias MAP Array:Map
+//WordAlias Reverted Array:Reverted
+WordAlias Join Array:Join
+WordAlias JOIN Array:Join
+
+//WordAlias .reverted> Array:Reverted
+//WordAlias >reverted> Array:Reverted
+
+ARRAY FUNCTION .join>
+ ARRAY IN aLeft
+ ARRAY ^ IN aRight
+ aRight |^@ DO aLeft JOIN >>> Result
+; // .join>
+
+ARRAY FUNCTION >join>
+ ARRAY ^@ IN aLeft
+ ARRAY ^ IN aRight
+ aRight |^@ DO aLeft |^@ DO JOIN >>> Result
+; // >join>
+
+/*{WordAlias Trunc Array:Trunc
+WordAlias TRUNC Array:Trunc
+
+ARRAY FUNCTION .trunc>
+ ARRAY IN aLeft
+ ^ IN aRight
+ aRight |^@ aLeft TRUNC >>> Result
+; // .trunc>}*/
+
+ARRAY FUNCTION >trunc>
+ ARRAY ^@ IN aLeft
+ ^ IN aRight
+ aRight |^@ aLeft |^@ DO TRUNC >>> Result
+; // >trunc>
+
+WordAlias Slice Array:Slice
+WordAlias SLICE Array:Slice
+
+/*{ARRAY FUNCTION .slice>
+ ARRAY IN aLeft
+ ^ IN aRight
+ aRight |^@ DO aLeft SLICE >>> Result
+; // .slice>}*/
+
+ARRAY FUNCTION >slice>
+ ARRAY ^@ IN aLeft
+ ^ IN aRight
+ aRight |^@ DO aLeft |^@ DO SLICE >>> Result
+; // >join>
+
+ARRAY FUNCTION >map>
+ ^@ IN anArray
+ ^ IN aFunctor
+ aFunctor anArray DO MAP >>> Result
+; // >map>
+
+/*{ARRAY FUNCTION .map>
+ ARRAY IN anArray
+ ^ IN aFunctor
+ aFunctor anArray MAP >>> Result
+; // .map>}*/
+
+ARRAY FUNCTION >filter>
+ ^@ IN anArray
+ ^ IN aFunctor
+ aFunctor anArray DO FILTER >>> Result
+; // >filter>
+
+/*{ARRAY FUNCTION .filter>
+ ARRAY IN anArray
+ ^ IN aFunctor
+ aFunctor anArray FILTER >>> Result
+; // .filter>}*/
+
+//#UC END# *4F50313101D1impl*
+//#UC START# *4F50313101D1man_uses*
+//#UC END# *4F50313101D1man_uses*

@@ -1,4 +1,10 @@
 unit Para_Const;
+ {* Базовый параграф }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\Para_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -13,7 +19,7 @@ uses
 ;
 
  // ParaTag
- 
+
 implementation
 
 uses

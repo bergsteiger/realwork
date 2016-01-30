@@ -1,4 +1,10 @@
 unit Task_Const;
+ {* Задание }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\Task_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -13,7 +19,7 @@ uses
 ;
 
  // TaskTag
- 
+
 implementation
 
 uses

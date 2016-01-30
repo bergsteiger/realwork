@@ -1,0 +1,260 @@
+//#UC START# *062B42A458F5_6F89E50D4B41_impl*
+ Result := Tl3PCharLen(aFile.ReadWStrLn);
+//#UC END# *062B42A458F5_6F89E50D4B41_impl*
+//#UC START# *062B42A458F5_6F89E50D4B41_var*
+//#UC END# *062B42A458F5_6F89E50D4B41_var*
+//#UC START# *1138E576E816_E10DA0D7493D_impl*
+ Result := TtfwFile.MakeRead(aCtx.rCaller.ResolveInputFilePath(aName));
+//#UC END# *1138E576E816_E10DA0D7493D_impl*
+//#UC START# *1138E576E816_E10DA0D7493D_var*
+//#UC END# *1138E576E816_E10DA0D7493D_var*
+//#UC START# *23408B0EC0B1ci*
+//#UC END# *23408B0EC0B1ci*
+//#UC START# *23408B0EC0B1cit*
+//#UC END# *23408B0EC0B1cit*
+//#UC START# *23408B0EC0B1publ*
+//#UC END# *23408B0EC0B1publ*
+//#UC START# *332776E818ED_F43FC392309A_impl*
+ if not DirectoryExists(aDirName) then
+ begin
+  Assert(False, Format('Директория %s не существует', [aDirName]));
+  Exit;
+ end; // if not DirectoryExists(aDirName) then
+ l_FindResult := FindFirst(ConcatDirName(aDirName, aFileMask),
+                           faAnyFile,
+                           l_SearchRec);
+ try
+  while (l_FindResult = 0) do
+  begin
+   if (l_SearchRec.Attr and (faDirectory or faVolumeID or faSymLink)) = 0 then
+   begin
+    aCtx.rEngine.PushString(ConcatDirName(aDirName, l_SearchRec.Name));
+    aProc.DoIt(aCtx);
+   end; // if (l_SearchRec.Attr and (faDirectory or faVolumeID or faSymLink)) = 0 then
+   l_FindResult := FindNext(l_SearchRec);
+  end; // while l_FindResult = 0 do
+ finally
+  SysUtils.FindClose(l_SearchRec);
+ end;//try..finally
+//#UC END# *332776E818ED_F43FC392309A_impl*
+//#UC START# *332776E818ED_F43FC392309A_var*
+var
+ l_SearchRec  : TSearchRec;
+ l_FindResult : Integer;
+//#UC END# *332776E818ED_F43FC392309A_var*
+//#UC START# *3A2CA042D20F_4D6340E72B1A_impl*
+ if not DirectoryExists(aDirName) then
+ begin
+  Assert(False, Format('Директория %s не существует', [aDirName]));
+  Exit;
+ end; // if not DirectoryExists(l_DirName) then
+ l_FindResult := FindFirst(ConcatDirName(aDirName, '*.*'),
+                           faDirectory ,
+                           l_SearchRec);
+ try
+  while (l_FindResult = 0) do
+  begin
+   if ((l_SearchRec.Attr and faDirectory) <> 0) and (l_SearchRec.Name <> '.') and (l_SearchRec.Name <> '..') then
+   begin
+    aCtx.rEngine.PushString(ConcatDirName(aDirName, l_SearchRec.Name));
+    aProc.DoIt(aCtx);
+   end; // if (l_SearchRec.Attr and (faDirectory or faVolumeID or faSymLink)) = 0 then
+   l_FindResult := FindNext(l_SearchRec);
+  end; // while l_FindResult = 0 do
+ finally
+  SysUtils.FindClose(l_SearchRec);
+ end;//try..finally
+//#UC END# *3A2CA042D20F_4D6340E72B1A_impl*
+//#UC START# *3A2CA042D20F_4D6340E72B1A_var*
+var
+ l_SearchRec : TSearchRec;
+ l_FindResult: Integer;
+//#UC END# *3A2CA042D20F_4D6340E72B1A_var*
+//#UC START# *4475F8181332_C77B92459A8E_impl*
+ l3FileUtils.PureDir(aName);
+//#UC END# *4475F8181332_C77B92459A8E_impl*
+//#UC START# *4475F8181332_C77B92459A8E_var*
+//#UC END# *4475F8181332_C77B92459A8E_var*
+//#UC START# *4757446F5D1B_E5B04DD6635F_impl*
+ l3FileUtils.DeleteFilesByMask(aDirName, aMask);
+//#UC END# *4757446F5D1B_E5B04DD6635F_impl*
+//#UC START# *4757446F5D1B_E5B04DD6635F_var*
+//#UC END# *4757446F5D1B_E5B04DD6635F_var*
+//#UC START# *479731C50290_4F4FD77B03CC_impl*
+ f_Filer.Close;
+ FreeAndNil(f_Filer);
+ inherited;
+//#UC END# *479731C50290_4F4FD77B03CC_impl*
+//#UC START# *479731C50290_4F4FD77B03CC_var*
+//#UC END# *479731C50290_4F4FD77B03CC_var*
+//#UC START# *47F929C35E76_324E0BCF3B98_impl*
+ Result := aFile.ReadLn;
+//#UC END# *47F929C35E76_324E0BCF3B98_impl*
+//#UC START# *47F929C35E76_324E0BCF3B98_var*
+//#UC END# *47F929C35E76_324E0BCF3B98_var*
+//#UC START# *4B30612C1E84_269C162F0F47_impl*
+ Result := SysUtils.RenameFile(anOldName, aNewName);
+//#UC END# *4B30612C1E84_269C162F0F47_impl*
+//#UC START# *4B30612C1E84_269C162F0F47_var*
+//#UC END# *4B30612C1E84_269C162F0F47_var*
+//#UC START# *4F4E4E7E0350_4F4FD77B03CC_impl*
+ Result := TtfwCStringFactory.C(f_Filer.ReadLn);
+//#UC END# *4F4E4E7E0350_4F4FD77B03CC_impl*
+//#UC START# *4F4E4E7E0350_4F4FD77B03CC_var*
+//#UC END# *4F4E4E7E0350_4F4FD77B03CC_var*
+//#UC START# *4F4E4EA7007D_4F4FD77B03CC_impl*
+ f_Filer.WriteLn(l3PCharLen(aString));
+//#UC END# *4F4E4EA7007D_4F4FD77B03CC_impl*
+//#UC START# *4F4E4EA7007D_4F4FD77B03CC_var*
+//#UC END# *4F4E4EA7007D_4F4FD77B03CC_var*
+//#UC START# *4F4FD849026C_4F4FD77B03CC_impl*
+ inherited Create;
+ f_Filer := Tl3CustomDosFiler.Make(aFileName, l3_fmRead, false, 1000);
+ f_Filer.Open;
+//#UC END# *4F4FD849026C_4F4FD77B03CC_impl*
+//#UC START# *4F4FD849026C_4F4FD77B03CC_var*
+//#UC END# *4F4FD849026C_4F4FD77B03CC_var*
+//#UC START# *4F4FD85F033A_4F4FD77B03CC_impl*
+ inherited Create;
+ f_Filer := Tl3CustomDosFiler.Make(aFileName, l3_fmWrite, false, 1000);
+ f_Filer.Open;
+//#UC END# *4F4FD85F033A_4F4FD77B03CC_impl*
+//#UC START# *4F4FD85F033A_4F4FD77B03CC_var*
+//#UC END# *4F4FD85F033A_4F4FD77B03CC_var*
+//#UC START# *4F4FDC540264_4F4FD77B03CC_impl*
+ f_Filer.Write(aChar);
+//#UC END# *4F4FDC540264_4F4FD77B03CC_impl*
+//#UC START# *4F4FDC540264_4F4FD77B03CC_var*
+//#UC END# *4F4FDC540264_4F4FD77B03CC_var*
+//#UC START# *4F4FE16A0269_4F4FD77B03CC_impl*
+ Result := f_Filer.ReadLn;
+//#UC END# *4F4FE16A0269_4F4FD77B03CC_impl*
+//#UC START# *4F4FE16A0269_4F4FD77B03CC_var*
+//#UC END# *4F4FE16A0269_4F4FD77B03CC_var*
+//#UC START# *4F4FE19301A1_4F4FD77B03CC_impl*
+ f_Filer.WriteLn(aStr);
+//#UC END# *4F4FE19301A1_4F4FD77B03CC_impl*
+//#UC START# *4F4FE19301A1_4F4FD77B03CC_var*
+//#UC END# *4F4FE19301A1_4F4FD77B03CC_var*
+//#UC START# *4F4FE1B40314_4F4FD77B03CC_impl*
+ f_Filer.Write(aStr);
+//#UC END# *4F4FE1B40314_4F4FD77B03CC_impl*
+//#UC START# *4F4FE1B40314_4F4FD77B03CC_var*
+//#UC END# *4F4FE1B40314_4F4FD77B03CC_var*
+//#UC START# *4F50821201E7_4F4FD77B03CC_impl*
+ Result := f_Filer.EOF;
+//#UC END# *4F50821201E7_4F4FD77B03CC_impl*
+//#UC START# *4F50821201E7_4F4FD77B03CC_var*
+//#UC END# *4F50821201E7_4F4FD77B03CC_var*
+//#UC START# *509E2E3CFD11_2B33C78BBAB9_impl*
+ Result := aFile.EOF;
+//#UC END# *509E2E3CFD11_2B33C78BBAB9_impl*
+//#UC START# *509E2E3CFD11_2B33C78BBAB9_var*
+//#UC END# *509E2E3CFD11_2B33C78BBAB9_var*
+//#UC START# *52E23B7A00EC_4F4FD77B03CC_impl*
+ while not f_Filer.EOF do
+ begin
+  l_S := f_Filer.ReadLn;
+  if not l3IsNil(l_S) OR not f_Filer.EOF then
+  begin
+  // - это чтобы не размножались пустые строки в конце файлов
+   aCtx.rEngine.PushWStr(l_S);
+   try
+    aLambda.DoIt(aCtx);
+   except
+    on EtfwBreakIterator do
+     break;
+    on EtfwBreak do
+     break;
+    on EtfwContinue do
+     continue;
+   end;//try..except
+  end;//not l3IsNil(l_S) OR not f_Filer.EOF  
+ end;//not f_Filer.EOF
+//#UC END# *52E23B7A00EC_4F4FD77B03CC_impl*
+//#UC START# *52E23B7A00EC_4F4FD77B03CC_var*
+var
+ l_S : Tl3WString;
+//#UC END# *52E23B7A00EC_4F4FD77B03CC_var*
+//#UC START# *52E23BB102FA_4F4FD77B03CC_impl*
+ TtfwWord(aLambda).RunnerError('Перебор строк от конца файла, не реализован', aCtx);
+//#UC END# *52E23BB102FA_4F4FD77B03CC_impl*
+//#UC START# *52E23BB102FA_4F4FD77B03CC_var*
+//#UC END# *52E23BB102FA_4F4FD77B03CC_var*
+//#UC START# *5BB0C2B29FB4_2C287EC9B0C3_impl*
+ Case aValue.rType of
+  tfw_vtStr:
+   aFile.WriteWStrLn(aValue.AsString.AsWStr);
+(*  tfw_vtWStr:
+   aFile.WriteWStrLn(aValue.AsWString);*)
+  else
+   BadValueType(aValue.rType, aCtx);
+ end;//Case aValue.rType
+//#UC END# *5BB0C2B29FB4_2C287EC9B0C3_impl*
+//#UC START# *5BB0C2B29FB4_2C287EC9B0C3_var*
+//#UC END# *5BB0C2B29FB4_2C287EC9B0C3_var*
+//#UC START# *6C5EFAFC54B2_CF832D7F4CA1_impl*
+ if (aHeaderBegin = '') then
+  Result := l3Stream.l3CompareFiles(aFile1, aFile2, #0)
+ else
+  Result := l3Stream.l3CompareFiles(aFile1, aFile2, aHeaderBegin[1]);
+//#UC END# *6C5EFAFC54B2_CF832D7F4CA1_impl*
+//#UC START# *6C5EFAFC54B2_CF832D7F4CA1_var*
+//#UC END# *6C5EFAFC54B2_CF832D7F4CA1_var*
+//#UC START# *7B442954EEE8_C4E46637B80B_impl*
+ l3FileUtils.CopyFile(aSourceFile, aDestFile, aCopyMode);
+//#UC END# *7B442954EEE8_C4E46637B80B_impl*
+//#UC START# *7B442954EEE8_C4E46637B80B_var*
+//#UC END# *7B442954EEE8_C4E46637B80B_var*
+//#UC START# *7E6964328B7F_D6A86D931B42_impl*
+ aFile.WriteLn(aValue);
+//#UC END# *7E6964328B7F_D6A86D931B42_impl*
+//#UC START# *7E6964328B7F_D6A86D931B42_var*
+//#UC END# *7E6964328B7F_D6A86D931B42_var*
+//#UC START# *8A54E0B1468F_01A4D246A0C9_impl*
+ Result := SysUtils.DeleteFile(aName);
+//#UC END# *8A54E0B1468F_01A4D246A0C9_impl*
+//#UC START# *8A54E0B1468F_01A4D246A0C9_var*
+//#UC END# *8A54E0B1468F_01A4D246A0C9_var*
+//#UC START# *8B2200CCBE22_B530B64F8857_impl*
+ aFile.WriteChar(aValue);
+//#UC END# *8B2200CCBE22_B530B64F8857_impl*
+//#UC START# *8B2200CCBE22_B530B64F8857_var*
+//#UC END# *8B2200CCBE22_B530B64F8857_var*
+//#UC START# *B545E742BFBB_5478B1531C0E_impl*
+ l3FileUtils.CopyFilesByMask(aSourceDir, aDestDir, aFileMask);
+//#UC END# *B545E742BFBB_5478B1531C0E_impl*
+//#UC START# *B545E742BFBB_5478B1531C0E_var*
+//#UC END# *B545E742BFBB_5478B1531C0E_var*
+//#UC START# *B66526463736_4D96B2094588_impl*
+ aFile.ForEach(aWord, aCtx);
+//#UC END# *B66526463736_4D96B2094588_impl*
+//#UC START# *B66526463736_4D96B2094588_var*
+//#UC END# *B66526463736_4D96B2094588_var*
+//#UC START# *BF1D3E215CF5_0016E31D4F5B_impl*
+ aFile.WriteWStr(l3PCharLen(aValue));
+//#UC END# *BF1D3E215CF5_0016E31D4F5B_impl*
+//#UC START# *BF1D3E215CF5_0016E31D4F5B_var*
+//#UC END# *BF1D3E215CF5_0016E31D4F5B_var*
+//#UC START# *C3A7BCE24C3B_1CA3472F7177_impl*
+ Result := TtfwFile.MakeWrite(aCtx.rCaller.ResolveOutputFilePath(aName));
+//#UC END# *C3A7BCE24C3B_1CA3472F7177_impl*
+//#UC START# *C3A7BCE24C3B_1CA3472F7177_var*
+//#UC END# *C3A7BCE24C3B_1CA3472F7177_var*
+//#UC START# *DEA5A01CE3B1_E2551B3D7813_impl*
+ Result := l3FileUtils.GetFileSize(afileName);
+//#UC END# *DEA5A01CE3B1_E2551B3D7813_impl*
+//#UC START# *DEA5A01CE3B1_E2551B3D7813_var*
+//#UC END# *DEA5A01CE3B1_E2551B3D7813_var*
+//#UC START# *EA5DBDC19650_12D9E8420555_impl*
+ Case aValue.rType of
+  tfw_vtStr:
+   aFile.WriteWStr(aValue.AsString.AsWStr);
+(*  tfw_vtWStr:
+   aFile.WriteWStr(aValue.AsWString);*)
+  else
+   BadValueType(aValue.rType, aCtx);
+ end;//Case aValue.rType
+//#UC END# *EA5DBDC19650_12D9E8420555_impl*
+//#UC START# *EA5DBDC19650_12D9E8420555_var*
+//#UC END# *EA5DBDC19650_12D9E8420555_var*

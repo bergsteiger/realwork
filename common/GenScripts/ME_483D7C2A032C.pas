@@ -1,4 +1,10 @@
-unit evdCustomNativeWriter;
+unit NOT_FINISHED_evdCustomNativeWriter;
+ {* Писатель тегов в формате evd. }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\NOT_FINISHED_evdCustomNativeWriter.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -11,7 +17,7 @@ type
  TevdCustomNativeWriter = class(Tk2CustomFileGenerator)
   {* Писатель тегов в формате evd. }
  end;//TevdCustomNativeWriter
- 
+
 implementation
 
 uses

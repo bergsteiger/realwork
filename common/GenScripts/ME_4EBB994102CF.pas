@@ -1,4 +1,10 @@
-unit dd_lcResolutionFormatter;
+unit NOT_FINISHED_dd_lcResolutionFormatter;
+ {* Форматирование заголовков постановлений судов }
+
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcResolutionFormatter.pas"
+// Стереотип: "SimpleClass"
+
+{$Include ddDefine.inc}
 
 interface
 
@@ -11,7 +17,7 @@ type
  Tdd_lcResolutionFormatter = class(Tdd_lcBaseFormatter)
   {* Форматирование заголовков постановлений судов }
  end;//Tdd_lcResolutionFormatter
- 
+
 implementation
 
 uses

@@ -1,0 +1,19 @@
+//#UC START# *4F549C0101F6_4F549BD300D3_impl*
+ Result := aCursorPoint;
+ while Result <> nil do
+ begin
+  while (Result <> nil) and not Result.AsObject.IsKindOf(k2_typTable) do
+   Result := Result.Inner;
+  if Result <> nil then
+  begin
+   l_TablePoint := Result;
+   Result := Result.Inner;
+  end; // if Result <> nil then
+ end; // while Result <> nil do
+ Result := l_TablePoint;
+ RunnerAssert(Result <> nil, 'Курсор не в таблице.', aCtx);
+//#UC END# *4F549C0101F6_4F549BD300D3_impl*
+//#UC START# *4F549C0101F6_4F549BD300D3_var*
+var
+ l_TablePoint: InevBasePoint;
+//#UC END# *4F549C0101F6_4F549BD300D3_var*

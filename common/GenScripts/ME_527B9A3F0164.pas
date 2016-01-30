@@ -1,16 +1,24 @@
 unit k2OwnedTypedHugeListTag;
 
+// Модуль: "w:\common\components\rtl\Garant\K2\k2OwnedTypedHugeListTag.pas"
+// Стереотип: "SimpleClass"
+
+{$Include k2Define.inc}
+
 interface
 
 uses
  l3IntfUses
  , k2TypedHugeListTag
+ , l3Variant
 ;
 
 type
- Tk2OwnedTypedHugeListTag = class(Tk2TypedHugeListTag)
+ _k2OwnedTagObject_Parent_ = Tk2TypedHugeListTag;
+ {$Include k2OwnedTagObject.imp.pas}
+ Tk2OwnedTypedHugeListTag = class(_k2OwnedTagObject_)
  end;//Tk2OwnedTypedHugeListTag
- 
+
 implementation
 
 uses
@@ -19,5 +27,7 @@ uses
  , SysUtils
  , k2NullTagImpl
 ;
+
+{$Include k2OwnedTagObject.imp.pas}
 
 end.

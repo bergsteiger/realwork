@@ -1,7 +1,13 @@
 unit CsCommon;
 
+// Модуль: "w:\common\components\rtl\Garant\cs\CsCommon.pas"
+// Стереотип: "UtilityPack"
+
+{$Include CsDefine.inc}
+
 interface
 
+{$If NOT Defined(Nemesis)}
 uses
  l3IntfUses
  , IdGlobal
@@ -11,17 +17,17 @@ uses
 
 type
  TCsPort = TIdPort;
- 
+
  TCsClientId = TdaUserID;
- 
+
  TCsIp = AnsiString;
   {* заменить на ченить поприличней }
- 
+
  TcsError = Integer;
- 
+
  TcsLoginExDataEvent = procedure(out aDataParams: TdaDataProviderParams;
   out TheFlags: TdaBaseFlags) of object;
- 
+
  TcsUserConnectKind = (
   cs_uckRegular
    {* Коннект с обычными правами }
@@ -29,7 +35,7 @@ type
    {* Коннект на залоченную базу и пр. }
   , cs_uckRequireAdminRights
  );//TcsUserConnectKind
- 
+
  TcsConnectResult = (
   cs_crOk
   , cs_crNetworkError
@@ -39,13 +45,16 @@ type
   , cs_crBaseLocked
   , cs_crInsufficientRights
  );//TcsConnectResult
- 
+
  TcsGetIsBaseLockedEvent = procedure(out theIsLocked: Boolean) of object;
- 
+{$IfEnd} // NOT Defined(Nemesis)
+
 implementation
 
+{$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
 ;
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

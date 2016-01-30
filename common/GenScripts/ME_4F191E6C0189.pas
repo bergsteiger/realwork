@@ -1,4 +1,9 @@
-unit m4DB;
+unit NOT_FINISHED_m4DB;
+
+// Модуль: "w:\common\components\rtl\Garant\m4\NOT_FINISHED_m4DB.pas"
+// Стереотип: "SimpleClass"
+
+{$Include m4Define.inc}
 
 interface
 
@@ -9,7 +14,7 @@ uses
 type
  Tm4DB = class
  end;//Tm4DB
- 
+
 implementation
 
 uses

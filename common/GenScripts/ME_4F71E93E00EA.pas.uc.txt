@@ -1,0 +1,19 @@
+//#UC START# *4F71E957012F_4F71E93E00EA_impl*
+ if (aForm <> nil) and (aForm.VCLWinControl <> nil) then
+ begin
+  // Управлять иконкой может только документ находящийся непосредственно в
+  // закладке
+  if not (aForm.VCLWinControl.Parent is TElTabSheet) then
+   Exit;
+  with (aForm.VCLWinControl As TvcmEntityForm) do
+   if (CurUserType = nil) then
+    l_Index := -1
+   else
+    l_Index := CurUserType.ImageIndex;
+  TElTabSheet(aForm.VCLWinControl.Parent).ImageIndex := l_Index;
+ end;//if (aParams.Count >= 1)
+//#UC END# *4F71E957012F_4F71E93E00EA_impl*
+//#UC START# *4F71E957012F_4F71E93E00EA_var*
+var
+ l_Index : Integer;
+//#UC END# *4F71E957012F_4F71E93E00EA_var*

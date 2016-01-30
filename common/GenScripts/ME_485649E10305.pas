@@ -1,4 +1,10 @@
 unit HyperLink_Const;
+ {* Гипертекстовая ссылка }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\HyperLink_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -11,7 +17,7 @@ uses
 ;
 
  // HyperLinkTag
- 
+
 implementation
 
 uses

@@ -1,4 +1,10 @@
 unit k2HugeTagObject;
+ {* Одна из реализаций хранилища тегов. С неограниченным количеством свойств }
+
+// Модуль: "w:\common\components\rtl\Garant\K2\k2HugeTagObject.pas"
+// Стереотип: "SimpleClass"
+
+{$Include k2Define.inc}
 
 interface
 
@@ -6,13 +12,25 @@ uses
  l3IntfUses
  , k2NonAtomicTag
  , l3BitArr
+ , k2Base
+ , l3Variant
+ , k2BaseStruct
+ , k2TagList
+ , k2Prim
+ , l3IID
+ , k2BaseTypes
+ , l3Types
+ , l3Interfaces
 ;
 
 type
+ _HashType_ = Tl3PtrHash;
+ _k2HashTag_Parent_ = Tk2NonAtomicTag;
+ {$Include k2HashTag.imp.pas}
  Tk2HugeTagObject = class(_k2HashTag_)
   {* Одна из реализаций хранилища тегов. С неограниченным количеством свойств }
  end;//Tk2HugeTagObject
- 
+
 implementation
 
 uses
@@ -25,7 +43,6 @@ uses
  , l3String
  , k2Except
  , k2Strings
- , k2TagList
  , TypInfo
  , l3Stream
  , l3Base
@@ -40,9 +57,11 @@ uses
  , k2NullTagImpl
  , k2Interfaces
  , k2DictionaryPrim
- , l3Variant
- , k2Base
  , k2InterfaceFactory
 ;
+
+type _Instance_R_ = Tk2HugeTagObject;
+
+{$Include k2HashTag.imp.pas}
 
 end.

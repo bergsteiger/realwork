@@ -1,0 +1,23 @@
+//#UC START# *4DAEEDE10285_53B2CAE50115_impl*
+ l_FoldersRoot := DefDataAdapter.FoldersRoot;
+ try
+  for I := 0 to l_FoldersRoot.GetChildCount - 1 do
+  begin
+   l_FoldersRoot.GetChild(I, l_Child);
+   if l_Child.GetFlags and NF_MY_DOCUMENTS = NF_MY_DOCUMENTS then
+   begin
+    aCtx.rEngine.PushBool(l_Child.GetChildCount = 0);
+    Exit;
+   end;
+  end;
+  RunnerAssert(False, 'Мои документы не найдены.', aCtx);
+ finally
+  l_FoldersRoot := nil;
+ end;
+//#UC END# *4DAEEDE10285_53B2CAE50115_impl*
+//#UC START# *4DAEEDE10285_53B2CAE50115_var*
+var
+ l_Child,
+ l_FoldersRoot: INode;
+ I: Integer;
+//#UC END# *4DAEEDE10285_53B2CAE50115_var*

@@ -1,0 +1,17 @@
+//#UC START# *4B8BC0D40179_4B8BC059018C_impl*
+ l_Item := Tl3KeyWord(DRByName[aString]);
+ if (l_Item = nil) then
+ begin
+  l_Item := Tl3KeyWord.Create(aString, f_Hi);
+  try
+   Add(l_Item);
+  finally
+   l3Free(l_Item);
+  end;{try..finally}
+  Result := f_Hi;
+  Inc(f_Hi);
+ end else
+  Result := l_Item.StringID;
+//#UC END# *4B8BC0D40179_4B8BC059018C_impl*
+//#UC START# *4B8BC0D40179_4B8BC059018C_var*
+//#UC END# *4B8BC0D40179_4B8BC059018C_var*

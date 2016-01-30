@@ -1,0 +1,101 @@
+//#UC START# *479731C50290_55260AB7022B_impl*
+ f_Params := nil;
+ f_Form := nil;
+ inherited;
+//#UC END# *479731C50290_55260AB7022B_impl*
+//#UC START# *479731C50290_55260AB7022B_var*
+//#UC END# *479731C50290_55260AB7022B_var*
+//#UC START# *55260B8B0071_55260AB7022B_impl*
+ Assert(aForm <> nil);
+ Assert(aParams <> nil);
+ inherited Create;
+ f_Form := aForm;
+ f_Params := aParams;
+//#UC END# *55260B8B0071_55260AB7022B_impl*
+//#UC START# *55260B8B0071_55260AB7022B_var*
+//#UC END# *55260B8B0071_55260AB7022B_var*
+//#UC START# *55260C7502E1_55260AB7022Bget_impl*
+ Result := f_Params;
+ Assert(Result <> nil);
+//#UC END# *55260C7502E1_55260AB7022Bget_impl*
+//#UC START# *55260C7502E1_55260AB7022Bget_var*
+//#UC END# *55260C7502E1_55260AB7022Bget_var*
+//#UC START# *55260C8102CA_55260AB7022Bget_impl*
+ Result := f_Form;
+ Assert(Result <> nil);
+//#UC END# *55260C8102CA_55260AB7022Bget_impl*
+//#UC START# *55260C8102CA_55260AB7022Bget_var*
+//#UC END# *55260C8102CA_55260AB7022Bget_var*
+//#UC START# *55260D5602B1_552609F40060_impl*
+ Assert(aForm <> nil);
+ Assert(aParams <> nil);
+ l_Params := FindFormTabParams(aForm);
+ if (l_Params = nil) then
+  l_Params := MakeParamsItem(aForm, aParams)
+ else
+  l_Params.Update(aParams);
+//#UC END# *55260D5602B1_552609F40060_impl*
+//#UC START# *55260D5602B1_552609F40060_var*
+var
+ l_Params: Il3FormTabParams;
+//#UC END# *55260D5602B1_552609F40060_var*
+//#UC START# *55260D6C0245_552609F40060_impl*
+ Assert(aForm <> nil);
+ Result := nil;
+ l_FormParams := FindFormTabParams(aForm);
+ if (l_FormParams <> nil) then
+  Result := l_FormParams.Params;
+//#UC END# *55260D6C0245_552609F40060_impl*
+//#UC START# *55260D6C0245_552609F40060_var*
+var
+ l_FormParams: Il3FormTabParams;
+//#UC END# *55260D6C0245_552609F40060_var*
+//#UC START# *55260DC5010D_552609F40060_impl*
+ for l_Index := 0 to Pred(Count) do
+  if (Items[l_Index].Form = aForm) then
+  begin
+   Delete(l_Index);
+   Break;
+  end;
+//#UC END# *55260DC5010D_552609F40060_impl*
+//#UC START# *55260DC5010D_552609F40060_var*
+var
+ l_Index: Integer;
+//#UC END# *55260DC5010D_552609F40060_var*
+//#UC START# *55260E100131_552609F40060_impl*
+ Assert(aForm <> nil);
+ l_FormParams := nil;
+ IterateAllF(l3L2IA(@lp_DoFindFormTab));
+ Result := l_FormParams;
+//#UC END# *55260E100131_552609F40060_impl*
+//#UC START# *55260E100131_552609F40060_var*
+var
+ l_FormParams: Il3FormTabParams;
+
+ function lp_DoFindFormTab(anItem: Pointer; anIndex: Integer): Boolean;
+ var
+  l_Item: Il3FormTabParams;
+ begin
+  l_Item := Il3FormTabParams(anItem^);
+  if (l_Item.Form = aForm) then
+  begin
+   l_FormParams := l_Item;
+   Result := False;
+  end
+  else
+   Result := True;
+ end;
+
+//#UC END# *55260E100131_552609F40060_var*
+//#UC START# *55260E320249_552609F40060_impl*
+ Assert(aForm <> nil);
+ Assert(aParams <> nil);
+ Result := TChromeLikeFormTabParamsItem.Make(aForm, aParams);
+//#UC END# *55260E320249_552609F40060_impl*
+//#UC START# *55260E320249_552609F40060_var*
+//#UC END# *55260E320249_552609F40060_var*
+//#UC START# *55261F0F00EB_55260AB7022B_impl*
+ f_Params := aParams;
+//#UC END# *55261F0F00EB_55260AB7022B_impl*
+//#UC START# *55261F0F00EB_55260AB7022B_var*
+//#UC END# *55261F0F00EB_55260AB7022B_var*

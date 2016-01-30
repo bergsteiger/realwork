@@ -1,24 +1,27 @@
-unit l3RefList.imp;
+{$IfNDef l3RefList_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\L3\l3RefList.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define l3RefList_imp}
 
-type
- _l3RefList_ = class(_l3StandardTypedList_)
+ _l3StandardTypedList_Parent_ = _l3RefList_Parent_;
+ {$Include l3StandardTypedList.imp.pas}
+ _l3RefList_ = {abstract} class(_l3StandardTypedList_)
   {* Примесь для списка ссылок. Список ВЛАДЕЕТ элементами и управляет их временем жизни. }
  end;//_l3RefList_
- 
-implementation
 
-uses
- l3ImplUses
- , l3Base
- , l3MinMax
- , RTLConsts
- , SysUtils
-;
+{$Else l3RefList_imp}
 
-end.
+{$IfNDef l3RefList_imp_impl}
+
+{$Define l3RefList_imp_impl}
+
+type _Instance_R_ = _l3RefList_;
+
+{$Include l3StandardTypedList.imp.pas}
+
+{$EndIf l3RefList_imp_impl}
+
+{$EndIf l3RefList_imp}
+

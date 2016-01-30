@@ -1,0 +1,59 @@
+//#UC START# *49E343F60057_4A40E3070396_impl*
+ Result := False; 
+ l_Cmd := aView.Control.CommandProcessor.TranslateUsing(ovcListCommands, aMessage, aTime);          
+ Case l_Cmd of
+  ccShortCut :
+   begin
+    if aMessage.WParam = VK_SUBTRACT then
+    begin
+     if not Self.HasInner then
+      ExpandOrCollapse(aView);
+    end;
+    Result := True;
+   end;
+  ccDel:
+   Result := GetRedirect.BoolA[k2_tiCollapsed]; //Лучше вырубить!
+  ccActionItem :
+  begin
+   if not Self.HasInner then
+   begin
+    ExpandOrCollapse(aView);
+    Result := true;
+   end;//not Self.HasInner
+  end;
+ end;//Case l_Cmd
+ if not Result then
+  Result := inherited DoProcessMessage(aView, aMessage, aTime); 
+//#UC END# *49E343F60057_4A40E3070396_impl*
+//#UC START# *49E343F60057_4A40E3070396_var*
+var
+ l_Cmd : Word;
+//#UC END# *49E343F60057_4A40E3070396_var*
+//#UC START# *4A3FA3EB01D5_4A40E3070396_impl*
+ l_Control := GetControl;
+ if l_Control <> nil then
+  l_Control.AfterCollapsed;      
+//#UC END# *4A3FA3EB01D5_4A40E3070396_impl*
+//#UC START# *4A3FA3EB01D5_4A40E3070396_var*
+var
+ l_Control : IevQueryGroup;
+//#UC END# *4A3FA3EB01D5_4A40E3070396_var*
+//#UC START# *4A3FA3FA0033_4A40E3070396_impl*
+ l_Control := GetControl;
+ if l_Control <> nil then 
+  if l_Control.Expanded then
+   Result := l_Control.CanCollapsed
+  else
+   Result := True
+ else  
+  Result := True;
+//#UC END# *4A3FA3FA0033_4A40E3070396_impl*
+//#UC START# *4A3FA3FA0033_4A40E3070396_var*
+var
+ l_Control : IevQueryGroup;
+//#UC END# *4A3FA3FA0033_4A40E3070396_var*
+//#UC START# *4A40E33E0315_4A40E3070396_impl*
+ GetRedirect.QT(IevQueryGroup, Result);
+//#UC END# *4A40E33E0315_4A40E3070396_impl*
+//#UC START# *4A40E33E0315_4A40E3070396_var*
+//#UC END# *4A40E33E0315_4A40E3070396_var*

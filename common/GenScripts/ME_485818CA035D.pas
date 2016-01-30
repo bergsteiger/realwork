@@ -1,4 +1,10 @@
 unit ExtDataPara_Const;
+ {* Параграф с данными во внешнем формате }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\ExtDataPara_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -12,7 +18,7 @@ uses
 ;
 
  // ExtDataParaTag
- 
+
 implementation
 
 uses

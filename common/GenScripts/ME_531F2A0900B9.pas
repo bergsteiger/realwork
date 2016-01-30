@@ -1,5 +1,10 @@
 unit eeCustomTreeView;
 
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeCustomTreeView.pas"
+// Стереотип: "UtilityPack"
+
+{$Include eeDefine.inc}
+
 interface
 
 uses
@@ -9,7 +14,7 @@ uses
 
 type
  TeeCustomTreeView = eeTreeView.TeeCustomTreeView;
- 
+
 implementation
 
 uses

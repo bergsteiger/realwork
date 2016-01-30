@@ -1,5 +1,10 @@
 unit LogRecord_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\LogRecord_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -10,7 +15,7 @@ uses
 ;
 
  // LogRecordTag
- 
+
 implementation
 
 uses

@@ -1,20 +1,21 @@
-unit nevStringCacheHackBecauseMl3Uknown.imp;
+{$IfNDef nevStringCacheHackBecauseMl3Uknown_imp}
 
-interface
+// Модуль: "w:\common\components\gui\Garant\Everest\nevStringCacheHackBecauseMl3Uknown.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define nevStringCacheHackBecauseMl3Uknown_imp}
 
-type
- _nevStringCacheHackBecauseMl3Uknown_ = class
+ _nevStringCacheHackBecauseMl3Uknown_ = class(_nevStringCacheHackBecauseMl3Uknown_Parent_)
   {* Если когда-нибудь поправлю генерацию примесей наследующихся только от MixInMirror, то это чудовище можно будет убрать }
  end;//_nevStringCacheHackBecauseMl3Uknown_
- 
-implementation
 
-uses
- l3ImplUses
-;
+{$Else nevStringCacheHackBecauseMl3Uknown_imp}
 
-end.
+{$IfNDef nevStringCacheHackBecauseMl3Uknown_imp_impl}
+
+{$Define nevStringCacheHackBecauseMl3Uknown_imp_impl}
+
+{$EndIf nevStringCacheHackBecauseMl3Uknown_imp_impl}
+
+{$EndIf nevStringCacheHackBecauseMl3Uknown_imp}
+

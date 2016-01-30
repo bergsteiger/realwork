@@ -1,4 +1,10 @@
 unit ObjectWithHandle_Const;
+ {* Объект с идентификатором }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\ObjectWithHandle_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -8,7 +14,7 @@ uses
 ;
 
  // ObjectWithHandleTag
- 
+
 implementation
 
 uses

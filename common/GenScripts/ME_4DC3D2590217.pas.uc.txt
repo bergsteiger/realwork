@@ -1,0 +1,45 @@
+//#UC START# *4DC263E8038F_4DC3D2590217_impl*
+ if IsScript then
+  Result := FTestName
+ else
+  Result := inherited GetScriptName;
+//#UC END# *4DC263E8038F_4DC3D2590217_impl*
+//#UC START# *4DC263E8038F_4DC3D2590217_var*
+//#UC END# *4DC263E8038F_4DC3D2590217_var*
+//#UC START# *4DC3D3150155_4DC3D2590217_impl*
+ l_WasException := false;
+ try
+  try
+   if not CompileOnly then
+   begin
+    Prepare;
+    Tl3DispatcherHelper.Instance.ClearHistory;
+    Tl3DocumentsCacheService.Instance.Clear;
+   end;//not CompileOnly
+   Tl3MessagesService.Instance.ProcessMessages;
+   StartTimer;
+   try
+    Run;
+   finally
+    StopTimer;
+   end;//try..finally
+  except
+   l_WasException := true;
+   raise;
+  end;//try..except
+ finally
+  CheckOutputFiler(l_WasException);
+ end;//try..finally
+//#UC END# *4DC3D3150155_4DC3D2590217_impl*
+//#UC START# *4DC3D3150155_4DC3D2590217_var*
+var
+ l_WasException : Boolean;
+//#UC END# *4DC3D3150155_4DC3D2590217_var*
+//#UC START# *4DCA41A20364_4DC3D2590217_impl*
+ if IsScript then
+  Result := GetScriptName
+ else
+  Result := inherited FileNameForOutput;
+//#UC END# *4DCA41A20364_4DC3D2590217_impl*
+//#UC START# *4DCA41A20364_4DC3D2590217_var*
+//#UC END# *4DCA41A20364_4DC3D2590217_var*

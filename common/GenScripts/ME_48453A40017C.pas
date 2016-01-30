@@ -1,10 +1,18 @@
-unit evOp;
+unit NOT_FINISHED_evOp;
+ {* Описание кодов операций. }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evOp.pas"
+// Стереотип: "Interfaces"
+
+{$Include evDefine.inc}
 
 interface
 
 uses
  l3IntfUses
 ;
+
+const
 
 implementation
 

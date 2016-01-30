@@ -1,5 +1,10 @@
 unit evWikiReader;
 
+// Модуль: "w:\common\components\gui\Garant\Everest\evWikiReader.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
+
 interface
 
 uses
@@ -10,7 +15,7 @@ uses
 type
  TevWikiReader = class(TevCustomWikiReader)
  end;//TevWikiReader
- 
+
 implementation
 
 uses

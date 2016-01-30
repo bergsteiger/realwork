@@ -1,0 +1,58 @@
+//#UC START# *48077504027E_5396EA3E0230_impl*
+  FreeAndNil(f_VarList);
+  //
+  inherited;
+//#UC END# *48077504027E_5396EA3E0230_impl*
+//#UC START# *48077504027E_5396EA3E0230_var*
+//#UC END# *48077504027E_5396EA3E0230_var*
+//#UC START# *5396EBFF012A_5396EA3E0230get_impl*
+  Result := f_VarList.Values[aName];
+//#UC END# *5396EBFF012A_5396EA3E0230get_impl*
+//#UC START# *5396EBFF012A_5396EA3E0230get_var*
+//#UC END# *5396EBFF012A_5396EA3E0230get_var*
+//#UC START# *5396EBFF012A_5396EA3E0230set_impl*
+  l_Value := aValue;
+  
+  if aName = ENV_CURRENT_FILE_PATH then
+     l_Value := ExpandFileName(l_Value);
+     
+  f_VarList.Values[aName] := l_Value;
+//#UC END# *5396EBFF012A_5396EA3E0230set_impl*
+//#UC START# *5396EBFF012A_5396EA3E0230set_var*
+  var
+    l_Value : String;
+//#UC END# *5396EBFF012A_5396EA3E0230set_var*
+//#UC START# *5396EC3D006D_5396EA3E0230_impl*
+  Result := aString;
+  for i := 0 to f_VarList.Count-1 do
+  begin
+    l_Name := f_VarList.Names[i];
+    if l_Name <> '' then
+      Result := AnsiReplaceText(Result, l_Name, EnvVar[l_Name]);
+  end;
+
+  // отрабатываем вычисляемые переменные
+  l_CFP := EnvVar[ENV_CURRENT_FILE_PATH];
+  if l_CFP <> '' then
+  begin
+    if AnsiContainsText(Result, ENV_CURRENT_FILE_DIR) then
+      Result := AnsiReplaceText(Result, ENV_CURRENT_FILE_DIR, ExtractFilePath(l_CFP));
+    if AnsiContainsText(Result, ENV_CURRENT_FILE_NAME) then
+      Result := AnsiReplaceText(Result, ENV_CURRENT_FILE_NAME, ExtractFileName(l_CFP));
+  end;
+//#UC END# *5396EC3D006D_5396EA3E0230_impl*
+//#UC START# *5396EC3D006D_5396EA3E0230_var*
+  var
+    i : Integer;
+    l_Name, l_CFP : String;
+//#UC END# *5396EC3D006D_5396EA3E0230_var*
+//#UC START# *5396F0310309_5396EA3E0230_impl*
+  inherited;
+  //
+  f_VarList := TStringList.Create;
+  f_VarList.NameValueSeparator := '=';
+  f_VarList.CaseSensitive := False;
+  f_VarList.Duplicates := dupIgnore;
+//#UC END# *5396F0310309_5396EA3E0230_impl*
+//#UC START# *5396F0310309_5396EA3E0230_var*
+//#UC END# *5396F0310309_5396EA3E0230_var*

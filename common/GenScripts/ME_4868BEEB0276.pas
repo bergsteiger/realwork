@@ -1,5 +1,10 @@
 unit TextStyle;
 
+// Модуль: ""
+// Стереотип: "TagOverride"
+
+{$Include evDefine.inc}
+
 interface
 
 uses
@@ -8,7 +13,7 @@ uses
 ;
 
  // TextStyleTag
- 
+
 implementation
 
 uses

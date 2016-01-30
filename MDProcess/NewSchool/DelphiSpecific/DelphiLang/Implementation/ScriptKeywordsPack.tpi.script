@@ -82,7 +82,6 @@ implementation @ <<ScriptKeywordsPack>>
 //#UC START# *4B2A19E3038Bfor4F2C15C90252*
 //	%S%f_set_implement_select_type(include)\
 //	%f_warning(%SN)\
- [%f] warning %( %S |N )% 
 
 //	[{%S{noRegistrator}!=true}\
  if ( ( %S get_up ( 'noRegistrator' ) ) %!=  true ) then
@@ -101,10 +100,10 @@ implementation @ <<ScriptKeywordsPack>>
 //	%f_SpellScriptFramework(%S)\
  [%f] SpellScriptFramework %( %S )% 
 
-//	[{"%{TypeInfoExt}N"=""}%f_warning(%SN)%f_find_element(55153C2C036F,TypeInfoExt)]\
+//	[{"%{TypeInfoExt}N"=""}%f_find_element(55153C2C036F,TypeInfoExt)]\
  if ( ( ( get_global_var ( 'TypeInfoExt' ) |N ) ) %== '' ) then
  begin
-  [%f] warning %( %S |N )% [%f] find_element %( '55153C2C036F' %, 'TypeInfoExt' )% 
+  [%f] find_element %( '55153C2C036F' %, 'TypeInfoExt' )% 
  end // if
 //	%f_addCDep(%S,%{TypeInfoExt})\
  [%f] addCDep %( %S %, ( get_global_var ( 'TypeInfoExt' ) ) )% 
@@ -289,9 +288,9 @@ implementation @ <<ScriptKeywordsPack>>
     begin
 
 
-//	%1%f_add_operation(%1U_%CU_RegType,ini,Reg_%CN (),Reg_Instance)\
+//	%1%f_add_operation(%1U_%CU_RegType,ini,Reg_Type_%CN (),Reg_Instance)\
      %1 %f add_operation %( %1 |U '_'
-     %C |U '_RegType' %, 'ini' %, 'Reg_'
+     %C |U '_RegType' %, 'ini' %, 'Reg_Type_'
      %C |N ' ()' %, 'Reg_Instance' )% 
 //	%{Reg_Instance}%f_set_documentation(Регистрация типа %CN)\
      ( get_global_var ( 'Reg_Instance' ) %f set_documentation %( 'Регистрация типа '
@@ -300,6 +299,8 @@ implementation @ <<ScriptKeywordsPack>>
      ( get_global_var ( 'Reg_Instance' ) %f set_abstraction_type %( 'final' )% ) 
 //	%{Reg_Instance}%f_set_visibility_type(PrivateAccess)\
      ( get_global_var ( 'Reg_Instance' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
+//	%{Reg_Instance}%f_set_var(SpelledFor,C)\
+     ( get_global_var ( 'Reg_Instance' ) %f set_var %( 'SpelledFor' %, 'C' )% ) 
 
 
 //	%f_warning(%CN)\
@@ -479,8 +480,10 @@ end. // <<ScriptKeywordsPack>>
  %1 |N %, 
 //	Class_Inst)\
  'Class_Inst' )% 
-//	%1%f_set_var(Class_For_Op,{Class_Inst})\
- %1 %f set_var %( 'Class_For_Op' %, '{Class_Inst}' )% 
+//	%1%f_set_var(Speller,{Class_Inst})\
+ %1 %f set_var %( 'Speller' %, '{Class_Inst}' )% 
+//	%{Class_Inst}%f_set_var(SpelledFor,1)\
+ ( get_global_var ( 'Class_Inst' ) %f set_var %( 'SpelledFor' %, 1 )% ) 
 
 //	%{Class_Inst}%f_set_up(is immediate,%1{is immediate})\
  ( get_global_var ( 'Class_Inst' ) %f set_up %( 'is immediate' %, %1 get_up ( 'is immediate' ) )% ) 
@@ -2183,199 +2186,10 @@ end. // <<ScriptKeywordsPack>>
 ; // PushSig
 
 
-// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-//+ intf2.pas
-implementation @ <<ScriptKeywordsPack>>
-<<generator>> intf2.pas OBJECT IN %S
-//R  
-//#UC START# *477398E501C0for4F2C15C90252*
-//#UC END# *477398E501C0for4F2C15C90252*
-; // intf2.pas
-
-
-// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Ресурсы (.rc)
-//+ rc.pas
-<<generator>> rc.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D28B0157for4F2C15C90252*
-//O [{%S{needs script}=true}%f_pas_FileName(%S).rc]
-//	%f_OutScriptRC(%S)
- [%f] OutScriptRC %( %S )% 
-//#UC END# *55B8D28B0157for4F2C15C90252*
-; // rc.pas
-
-
-// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Скрипты в ресурсах (.rc.script)
-//+ rc.script.pas
-<<generator>> rc.script.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D2F80145for4F2C15C90252*
-//O [{%S{needs script}=true}%f_pas_FileName(%S).rc.script]
-//	%f_OutScriptFrameWork(%S)
- [%f] OutScriptFrameWork %( %S )% 
-
-//f _CutPrefixBeforeUnder
-; // rc.script.pas
-
-end. // <<ScriptKeywordsPack>>
-
-: CutPrefixBeforeUnder OBJECT IN %S
-//	%SN
- %S |N 
-//	%f_set_var(POS,"%f_string_find(%SN,_)")[{%{POS}N!=-1}{%SN}%f_cut_prefix(%SN,%f_substr_from_begin(%SN,%{POS}N)_)]
-
-//f _CanonicName
-; // CutPrefixBeforeUnder
-
-: CanonicName OBJECT IN %S
-//	pop:%t_SelfName(%S):%f_CutPrefixBeforeUnder(%f_cut_prefix(%f_cut_prefix(%1N,pop_),%f_to_lower(%t_SelfName(%S))_))
- 'pop:'
- [%t] SelfName %( %S )% ':'
- [%f] CutPrefixBeforeUnder %( [%f] cut_prefix %( [%f] cut_prefix %( %1 |N %, 'pop_' )% %, [%f] to_lower %( [%t] SelfName %( %S )% )% '_' )% )% 
-
-//f _OutWordAlias
-; // CanonicName
-
-: OutWordAlias OBJECT IN %S
-//	[{"%S{no class name}"="true"|"%S{no_pop}"="true"|"%t_SelfName(%1)"="SV"}\
- if ( ( %S get_up ( 'no class name' ) ) %== true OR 
-   ( ( %S get_up ( 'no_pop' ) ) %== true  ) OR 
-   ( ( [%t] SelfName %( %1 )% ) %== 'SV'  ) ) then
- begin
-
-
-//	%U[{man_uses}\n]\n
-  %Usersection (
-   'man_uses' 
-  )
-  (
-   #13#10 
-  ) // Usersection
-   #13#10
-
-
-//	[{"%S{no class name}"!="true"&"%t_SelfName(%1)"!="SV"}\
-  if ( ( %S get_up ( 'no class name' ) ) %!= true AND 
-    ( ( [%t] SelfName %( %1 )% ) %!= 'SV'  ) ) then
-  begin
-//	USES
-   'USES'
-//	 axiom:%t_SelfName(%1)
-   ' axiom:'
-   [%t] SelfName %( %1 )% 
-//	;
-   ';'
-//	
-   #13#10
-
-//	]\
-  end // if
-//	// Класс %1N - %t_SelfName(%1)
-  '// Класс '
-  %1 |N ' - '
-  [%t] SelfName %( %1 )% 
-
-//	<{}{%C#f_IsKeyword()=true}\
-  INTEGER VAR l_Counter l_Counter := 0
-  for %S%C
-  begin
-   OBJECT IN %C
-   if ( ( %C %?f IsKeyword %( )% ) %==  true ) then
-   begin
-//	//  Операция %CN [- %C{NameForScript}]
-    '//  Операция '
-    %C |N ' '
-    if NOT-EMPTY
-    begin
-     '- '
-     %C get_up ( 'NameForScript' ) 
-    end // if
-    NOP
-//	//  Класс реализующий операцию %C%{Class_For_Op}N - %f_loc_GetNameForScript(%C%{Class_For_Op})
-    '//  Класс реализующий операцию '
-    %C ( get_object_var ( 'Class_For_Op' ) |N )  ' - '
-    [%f] loc_GetNameForScript %( %C ( get_object_var ( 'Class_For_Op' ) )  )% 
-//	[{"%f_CanonicName(%1,%C)"!="%f_loc_GetNameForScript(%C%{Class_For_Op})"}\
-    if ( ( [%f] CanonicName %( %1 %, %C )% ) %!= ( [%f] loc_GetNameForScript %( %C ( get_object_var ( 'Class_For_Op' ) )  )% ) ) then
-    begin
-//	WordAlias %f_CanonicName(%1,%C) %f_loc_GetNameForScript(%C%{Class_For_Op})
-     'WordAlias '
-     [%f] CanonicName %( %1 %, %C )% ' '
-     [%f] loc_GetNameForScript %( %C ( get_object_var ( 'Class_For_Op' ) )  )% 
-//	]\
-    end // if
-//	>\
-
-    ++! l_Counter
-   end // if
-  end // for C
-
-
-//	\n\
-  #13#10
-//	]
- end // if
-
-//%f _OutScriptFrameWorkAliases
-; // OutWordAlias
-
-implementation @ <<ScriptKeywordsPack>>
-: OutScriptFrameWorkAliases OBJECT IN %S
-//	%S#[inherited]\
-//	%f_warning(%SN)\
-
-//	<{}{%t_isAcceptableForScripts(%G)=true}\
- INTEGER VAR l_Counter l_Counter := 0
- for %S%G
- begin
-  OBJECT IN %G
-  if ( ( [%t] isAcceptableForScripts %( %G )% ) %==  true ) then
-  begin
-//	%f_OutWordAlias(%S,%G,"true")\
-   [%f] OutWordAlias %( %S %, %G %, true )% 
-//	>\
-
-   ++! l_Counter
-  end // if
- end // for G
-
-//	<{}{%t_isAcceptableForScripts(%R)=true}\
- INTEGER VAR l_Counter l_Counter := 0
- for %S%R
- begin
-  OBJECT IN %R
-  if ( ( [%t] isAcceptableForScripts %( %R )% ) %==  true ) then
-  begin
-//	%f_OutWordAlias(%S,%R,"false")\
-   [%f] OutWordAlias %( %S %, %R %, false )% 
-//	>
-
-   ++! l_Counter
-  end // if
- end // for R
-//#UC END# *55B8D2F80145for4F2C15C90252*
-; // OutScriptFrameWorkAliases
-
-
-// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Компилятор ресурса (.res.cmd)
-//+ res.cmd.pas
-<<generator>> res.cmd.pas OBJECT IN %S
-//R  
-//#UC START# *55B8DD9C0301for4F2C15C90252*
-//O [{%S{needs script}=true}%f_pas_FileName(%S).res.cmd]
-//	%f_OutScriptCompiler(%S)
- [%f] OutScriptCompiler %( %S )% 
-//#UC END# *55B8DD9C0301for4F2C15C90252*
-; // res.cmd.pas
-
-
 // реализация абстрактного стереотипа Java::MDAGenerator
 // генератор реализации фабрик интерфейсов на java (.java)
 //+ fctr.java
+implementation @ <<ScriptKeywordsPack>>
 <<generator>> fctr.java OBJECT IN %S
 //#UC START# *470321C1038Afor4F2C15C90252*
 //#UC END# *470321C1038Afor4F2C15C90252*
@@ -2399,42 +2213,6 @@ implementation @ :: <<ScriptKeywordsPack>> <<injects>> ;
 //#UC START# *470321C1038Afor54D4A61F00BA*
 //#UC END# *470321C1038Afor54D4A61F00BA*
 ; // fctr.java
-
-
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-//+ intf2.pas
-<<generator>> intf2.pas OBJECT IN %S
-//R  
-//#UC START# *477398E501C0for54D4A61F00BA*
-//#UC END# *477398E501C0for54D4A61F00BA*
-; // intf2.pas
-
-
-// Ресурсы (.rc)
-//+ rc.pas
-<<generator>> rc.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D28B0157for54D4A61F00BA*
-//#UC END# *55B8D28B0157for54D4A61F00BA*
-; // rc.pas
-
-
-// Скрипты в ресурсах (.rc.script)
-//+ rc.script.pas
-<<generator>> rc.script.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D2F80145for54D4A61F00BA*
-//#UC END# *55B8D2F80145for54D4A61F00BA*
-; // rc.script.pas
-
-
-// Компилятор ресурса (.res.cmd)
-//+ res.cmd.pas
-<<generator>> res.cmd.pas OBJECT IN %S
-//R  
-//#UC START# *55B8DD9C0301for54D4A61F00BA*
-//#UC END# *55B8DD9C0301for54D4A61F00BA*
-; // res.cmd.pas
 
 
 // Генерация модели в MDKnow
@@ -2541,42 +2319,6 @@ implementation @ :: <<ScriptKeywordsPack>> <<keyword>> ;
 //#UC START# *470321C1038Afor54F734BC0087*
 //#UC END# *470321C1038Afor54F734BC0087*
 ; // fctr.java
-
-
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-//+ intf2.pas
-<<generator>> intf2.pas OBJECT IN %S
-//R  
-//#UC START# *477398E501C0for54F734BC0087*
-//#UC END# *477398E501C0for54F734BC0087*
-; // intf2.pas
-
-
-// Ресурсы (.rc)
-//+ rc.pas
-<<generator>> rc.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D28B0157for54F734BC0087*
-//#UC END# *55B8D28B0157for54F734BC0087*
-; // rc.pas
-
-
-// Скрипты в ресурсах (.rc.script)
-//+ rc.script.pas
-<<generator>> rc.script.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D2F80145for54F734BC0087*
-//#UC END# *55B8D2F80145for54F734BC0087*
-; // rc.script.pas
-
-
-// Компилятор ресурса (.res.cmd)
-//+ res.cmd.pas
-<<generator>> res.cmd.pas OBJECT IN %S
-//R  
-//#UC START# *55B8DD9C0301for54F734BC0087*
-//#UC END# *55B8DD9C0301for54F734BC0087*
-; // res.cmd.pas
 
 
 // Родные Delphi интерфейсы (.pas)
@@ -2713,42 +2455,6 @@ implementation @ :: <<ScriptKeywordsPack>> <<property>> ;
 //#UC START# *470321C1038Afor54F861670034*
 //#UC END# *470321C1038Afor54F861670034*
 ; // fctr.java
-
-
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-//+ intf2.pas
-<<generator>> intf2.pas OBJECT IN %S
-//R  
-//#UC START# *477398E501C0for54F861670034*
-//#UC END# *477398E501C0for54F861670034*
-; // intf2.pas
-
-
-// Ресурсы (.rc)
-//+ rc.pas
-<<generator>> rc.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D28B0157for54F861670034*
-//#UC END# *55B8D28B0157for54F861670034*
-; // rc.pas
-
-
-// Скрипты в ресурсах (.rc.script)
-//+ rc.script.pas
-<<generator>> rc.script.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D2F80145for54F861670034*
-//#UC END# *55B8D2F80145for54F861670034*
-; // rc.script.pas
-
-
-// Компилятор ресурса (.res.cmd)
-//+ res.cmd.pas
-<<generator>> res.cmd.pas OBJECT IN %S
-//R  
-//#UC START# *55B8DD9C0301for54F861670034*
-//#UC END# *55B8DD9C0301for54F861670034*
-; // res.cmd.pas
 
 
 // Родные Delphi интерфейсы (.pas)
@@ -2908,42 +2614,6 @@ implementation @ :: <<ScriptKeywordsPack>> <<friend>> ;
 ; // impl.pas
 
 
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-//+ intf2.pas
-<<generator>> intf2.pas OBJECT IN %S
-//R  
-//#UC START# *477398E501C0for54FECA940175*
-//#UC END# *477398E501C0for54FECA940175*
-; // intf2.pas
-
-
-// Ресурсы (.rc)
-//+ rc.pas
-<<generator>> rc.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D28B0157for54FECA940175*
-//#UC END# *55B8D28B0157for54FECA940175*
-; // rc.pas
-
-
-// Скрипты в ресурсах (.rc.script)
-//+ rc.script.pas
-<<generator>> rc.script.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D2F80145for54FECA940175*
-//#UC END# *55B8D2F80145for54FECA940175*
-; // rc.script.pas
-
-
-// Компилятор ресурса (.res.cmd)
-//+ res.cmd.pas
-<<generator>> res.cmd.pas OBJECT IN %S
-//R  
-//#UC START# *55B8DD9C0301for54FECA940175*
-//#UC END# *55B8DD9C0301for54FECA940175*
-; // res.cmd.pas
-
-
 // Функции стереотипа
 //%f _st_space_key
 : st_space_key OBJECT IN %S
@@ -3026,42 +2696,6 @@ implementation @ :: <<ScriptKeywordsPack>> <<globalkeyword>> ;
 //#UC START# *470321C1038Afor55115A7D0330*
 //#UC END# *470321C1038Afor55115A7D0330*
 ; // fctr.java
-
-
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-//+ intf2.pas
-<<generator>> intf2.pas OBJECT IN %S
-//R  
-//#UC START# *477398E501C0for55115A7D0330*
-//#UC END# *477398E501C0for55115A7D0330*
-; // intf2.pas
-
-
-// Ресурсы (.rc)
-//+ rc.pas
-<<generator>> rc.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D28B0157for55115A7D0330*
-//#UC END# *55B8D28B0157for55115A7D0330*
-; // rc.pas
-
-
-// Скрипты в ресурсах (.rc.script)
-//+ rc.script.pas
-<<generator>> rc.script.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D2F80145for55115A7D0330*
-//#UC END# *55B8D2F80145for55115A7D0330*
-; // rc.script.pas
-
-
-// Компилятор ресурса (.res.cmd)
-//+ res.cmd.pas
-<<generator>> res.cmd.pas OBJECT IN %S
-//R  
-//#UC START# *55B8DD9C0301for55115A7D0330*
-//#UC END# *55B8DD9C0301for55115A7D0330*
-; // res.cmd.pas
 
 
 // Родные Delphi интерфейсы (.pas)

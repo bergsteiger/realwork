@@ -1,4 +1,10 @@
 unit NumANDDate_Const;
+ {* Дата/номер }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\NumANDDate_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -11,7 +17,7 @@ uses
 ;
 
  // NumANDDateTag
- 
+
 implementation
 
 uses

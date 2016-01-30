@@ -1,0 +1,47 @@
+//#UC START# *479731C50290_4DEFAF740194_impl*
+ if (f_Sorter <> nil) then
+  f_Sorter.f_View := nil;
+ FreeAndNil(f_Sorter);
+ inherited;
+//#UC END# *479731C50290_4DEFAF740194_impl*
+//#UC START# *479731C50290_4DEFAF740194_var*
+//#UC END# *479731C50290_4DEFAF740194_var*
+//#UC START# *47A042E100E2_4DEFAF740194_impl*
+ inherited;
+ Sort;
+//#UC END# *47A042E100E2_4DEFAF740194_impl*
+//#UC START# *47A042E100E2_4DEFAF740194_var*
+//#UC END# *47A042E100E2_4DEFAF740194_var*
+//#UC START# *4DEFACE1002D_4DEFAF2300F9_impl*
+ Result := f_View.CompareItems(A, B);
+//#UC END# *4DEFACE1002D_4DEFAF2300F9_impl*
+//#UC START# *4DEFACE1002D_4DEFAF2300F9_var*
+//#UC END# *4DEFACE1002D_4DEFAF2300F9_var*
+//#UC START# *4DEFAF2300F9ci*
+ Tl3CustomOtherListView = class;
+//#UC END# *4DEFAF2300F9ci*
+//#UC START# *4DEFAF2300F9cit*
+//#UC END# *4DEFAF2300F9cit*
+//#UC START# *4DEFAF2300F9impl*
+//#UC END# *4DEFAF2300F9impl*
+//#UC START# *4DEFAF2300F9publ*
+//#UC END# *4DEFAF2300F9publ*
+//#UC START# *4DEFB06A0296_4DEFAF2300F9_impl*
+ inherited Create;
+ f_View := aView;
+//#UC END# *4DEFB06A0296_4DEFAF2300F9_impl*
+//#UC START# *4DEFB06A0296_4DEFAF2300F9_var*
+//#UC END# *4DEFB06A0296_4DEFAF2300F9_var*
+//#UC START# *4DEFB88B038D_4DEFAF740194_impl*
+ if (f_Sorter = nil) then
+  f_Sorter := Tl3OtherListSorter.Create(Self)
+ else
+  f_Sorter.Clear;
+ for l_Index := 0 to Pred(OtherListCount) do
+  f_Sorter.Add(l_Index);
+  // - добавляем индексы и в итоге получаем их в нужном порядке
+//#UC END# *4DEFB88B038D_4DEFAF740194_impl*
+//#UC START# *4DEFB88B038D_4DEFAF740194_var*
+var
+ l_Index : Integer;
+//#UC END# *4DEFB88B038D_4DEFAF740194_var*

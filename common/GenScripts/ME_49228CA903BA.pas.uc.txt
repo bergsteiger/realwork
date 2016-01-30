@@ -1,0 +1,215 @@
+//#UC START# *479731C50290_49228CA903BA_impl*
+ f_Consultation := nil;
+ inherited;
+//#UC END# *479731C50290_49228CA903BA_impl*
+//#UC START# *479731C50290_49228CA903BA_var*
+//#UC END# *479731C50290_49228CA903BA_var*
+//#UC START# *47A042E100E2_49228CA903BA_impl*
+ inherited;
+ f_IsListChanged := False;
+//#UC END# *47A042E100E2_49228CA903BA_impl*
+//#UC START# *47A042E100E2_49228CA903BA_var*
+//#UC END# *47A042E100E2_49228CA903BA_var*
+//#UC START# *47F37DF001FE_49228CA903BA_impl*
+ f_Consultation := InitialUseCaseData;
+ Assert(f_Consultation <> nil);
+  Assert(Assigned(Consultation.Data), caConsultationNotReceived);
+  if Consultation.Status * c_bsSetReadStatusForConsultations <> [] then
+  begin
+   with Consultation do
+   begin
+    IsStatusChached := False;
+    try
+     Data.Read;
+      // - установим статус консультация прочитана;
+    finally
+     IsStatusChached := True;
+    end;//try..finally
+   end;//with Consultation do
+   if IsConsultationManagerAssigned then
+    g_ConsultationManager.UnreadChanged;
+  end;//if Consultation.Status * c_bsSetReadStatusForConsultations <> [] then
+  f_NeedMark := Consultation.Status * c_bsNeedMarkForConsultations <> [];
+//#UC END# *47F37DF001FE_49228CA903BA_impl*
+//#UC START# *47F37DF001FE_49228CA903BA_var*
+//#UC END# *47F37DF001FE_49228CA903BA_var*
+//#UC START# *491B02D80112_49228CA903BA_impl*
+ Result := false;
+ if not f_IsListChanged then
+ begin
+   // - если список консультации меняли, то перезагружаемся, даже если
+   //   открывают ту же консультацию;
+  l_Consultation := aDataSource.bsConsultation;
+  if (l_Consultation <> nil) then
+   Result := bsIsSame(l_Consultation.Data, Consultation.Data);
+             // - идентификаторы консультаций совпадают;
+ end;//not f_IsListChanged
+ if Result then
+ begin
+  l_dsConsultation := Self.pm_GetDsConsultation;
+  Result := (l_dsConsultation <> nil) and
+            (l_Consultation.Status = l_dsConsultation.ShowingStatus);
+            // - статус консультации не поменялся;
+ end;//Result
+//#UC END# *491B02D80112_49228CA903BA_impl*
+//#UC START# *491B02D80112_49228CA903BA_var*
+var
+ l_Consultation   : IbsConsultation;
+ l_dsConsultation : IdsConsultation;
+//#UC END# *491B02D80112_49228CA903BA_var*
+//#UC START# *492597A602F6_49228CA903BA_impl*
+ Result := TdeDocInfo.Make(aDocument, TbsDocPos_C(aRefType, aPos));
+//#UC END# *492597A602F6_49228CA903BA_impl*
+//#UC START# *492597A602F6_49228CA903BA_var*
+//#UC END# *492597A602F6_49228CA903BA_var*
+//#UC START# *492EB71000D6_49228CA903BAarea_impl*
+ Assert(Assigned(Consultation.Text));
+ Result := TdsConsultation.Make(Self,
+                                TdeDocInfo.Make(Consultation.Text,
+                                                TbsDocPos_S(cAnswer)));
+//#UC END# *492EB71000D6_49228CA903BAarea_impl*
+//#UC START# *492EB71000D6_49228CA903BAarea_var*
+const
+ cAnswer = 65534; 
+//#UC END# *492EB71000D6_49228CA903BAarea_var*
+//#UC START# *492EB71000D6_49228CA903BAget_init*
+  // - код инициализации ссылки на ViewArea
+//#UC END# *492EB71000D6_49228CA903BAget_init*
+//#UC START# *492EB71000D6_49228CA903BAget_need*
+  // - условие создания ViewArea
+//#UC END# *492EB71000D6_49228CA903BAget_need*
+//#UC START# *492EB71000D6_49228CA903BAget_var*
+//#UC END# *492EB71000D6_49228CA903BAget_var*
+//#UC START# *492EB77C0125_49228CA903BAarea_impl*
+ Result := nil;
+ if Assigned(Consultation) and
+  not (Consultation.Status * c_bsConsultationsWithoutList <> []) then
+ begin
+  l_List := nil;
+  try
+   Consultation.Data.GetDocumentList(l_List);
+  except
+   on ENoDocumentList do ;
+   on EOldFormatConsultation do ;
+  end;{try..except}
+  if Assigned(l_List) then
+   Result := TdsConsultationList.Make(Self, TdeDocumentList.Make(l_List));
+ end;//if Assigned(Consultation)...
+//#UC END# *492EB77C0125_49228CA903BAarea_impl*
+//#UC START# *492EB77C0125_49228CA903BAarea_var*
+var
+ l_List: IDynList;
+//#UC END# *492EB77C0125_49228CA903BAarea_var*
+//#UC START# *492EB77C0125_49228CA903BAget_init*
+  // - код инициализации ссылки на ViewArea
+//#UC END# *492EB77C0125_49228CA903BAget_init*
+//#UC START# *492EB77C0125_49228CA903BAget_need*
+  // - условие создания ViewArea
+//#UC END# *492EB77C0125_49228CA903BAget_need*
+//#UC START# *492EB77C0125_49228CA903BAget_var*
+//#UC END# *492EB77C0125_49228CA903BAget_var*
+//#UC START# *492EB793009E_49228CA903BAarea_impl*
+ Result := TdsConsultationMark.Make(Self);
+//#UC END# *492EB793009E_49228CA903BAarea_impl*
+//#UC START# *492EB793009E_49228CA903BAarea_var*
+//#UC END# *492EB793009E_49228CA903BAarea_var*
+//#UC START# *492EB793009E_49228CA903BAget_init*
+  // - код инициализации ссылки на ViewArea
+//#UC END# *492EB793009E_49228CA903BAget_init*
+//#UC START# *492EB793009E_49228CA903BAget_need*
+    and (f_DSConsultationMark.NeedMake <> vcm_nmNo)
+  // - условие создания ViewArea
+//#UC END# *492EB793009E_49228CA903BAget_need*
+//#UC START# *492EB793009E_49228CA903BAget_var*
+//#UC END# *492EB793009E_49228CA903BAget_var*
+//#UC START# *492EB7BA035E_49228CA903BA_impl*
+ // Консультация была удалена:
+ if Consultation.WasDeleted then
+  raise EbsConsultationWasDeleted.Create('')
+ else
+  // Консультация уже была оценена:
+  if bs_csEstimationSent in Consultation.Status then
+   raise EbsConsultationAlreadyMark.Create('');
+ f_DSConsultationMark.NeedMake := vcm_nmForce;
+ Refresh;
+//#UC END# *492EB7BA035E_49228CA903BA_impl*
+//#UC START# *492EB7BA035E_49228CA903BA_var*
+//#UC END# *492EB7BA035E_49228CA903BA_var*
+//#UC START# *492EB82F0391_49228CA903BA_impl*
+ with Consultation do
+  Result := (f_NeedMark and not (bs_csEstimationSent in Status)) and not WasDeleted;
+//#UC END# *492EB82F0391_49228CA903BA_impl*
+//#UC START# *492EB82F0391_49228CA903BA_var*
+//#UC END# *492EB82F0391_49228CA903BA_var*
+//#UC START# *492EB8620306_49228CA903BA_impl*
+ if Consultation.WasDeleted then
+  raise EbsConsultationWasDeleted.Create('')
+ else
+  if not (bs_csPaymentRequest in Consultation.Status) then
+   raise EbsConsultationAlreadyConfirmed.Create('');
+ try
+  Consultation.Data.PaymentConfirm(anAccept);
+ except
+  on EPaymentForbidden do
+   raise EbsPaymentForbidden.Create('');
+ end;//try..except
+ // Уберем предупреждение, если все прочитаны и подтверждены:
+ if IsConsultationManagerAssigned then
+  g_ConsultationManager.UnreadChanged;
+ // После подтверждения, уведомление нужно перечитать, фильтруются гиперссылки:
+ UpdateAnswer;
+//#UC END# *492EB8620306_49228CA903BA_impl*
+//#UC START# *492EB8620306_49228CA903BA_var*
+//#UC END# *492EB8620306_49228CA903BA_var*
+//#UC START# *492EB8820218_49228CA903BA_impl*
+ if Assigned(f_dsConsultation) then
+  f_dsConsultation.Clear;
+ if Consultation <> nil then
+  Consultation.RefreshText;
+ Refresh;
+//#UC END# *492EB8820218_49228CA903BA_impl*
+//#UC START# *492EB8820218_49228CA903BA_var*
+//#UC END# *492EB8820218_49228CA903BA_var*
+//#UC START# *492EB91F0391_49228CA903BA_impl*
+ f_IsListChanged := True;
+//#UC END# *492EB91F0391_49228CA903BA_impl*
+//#UC START# *492EB91F0391_49228CA903BA_var*
+//#UC END# *492EB91F0391_49228CA903BA_var*
+//#UC START# *492EB93700FF_49228CA903BA_impl*
+ l_Consultation := aConsultation.bsConsultation;
+ if (l_Consultation <> nil) then
+ try
+  if bsIsSame(l_Consultation.Data, Consultation.Data) and
+     (bs_csEstimationSent in l_Consultation.Status) then
+   MarkSended;
+ finally
+  l_Consultation := nil;
+ end;//try..finally
+//#UC END# *492EB93700FF_49228CA903BA_impl*
+//#UC START# *492EB93700FF_49228CA903BA_var*
+var
+ l_Consultation: IbsConsultation;
+//#UC END# *492EB93700FF_49228CA903BA_var*
+//#UC START# *492EBCE002E0_49228CA903BA_impl*
+ f_NeedMark := False;
+ UpdateAnswer;
+//#UC END# *492EBCE002E0_49228CA903BA_impl*
+//#UC START# *492EBCE002E0_49228CA903BA_var*
+//#UC END# *492EBCE002E0_49228CA903BA_var*
+//#UC START# *4A60B23E00C3_49228CA903BA_impl*
+ Result := inherited COMQueryInterface(IID, Obj);
+ if Result.Fail then
+  if IID.EQ(IbsConsultation) then
+  begin
+   Assert(false, 'Не пользуйтесь запросом IbsConsultation у IsdsConsultation, через Supports. Пользуйтесь атрибутом bsConsultation на IsdsConsultation');
+   IbsConsultation(Obj) := Consultation;
+   Result.SetOK;
+  end;//IID.EQ(IbsConsultation)
+//#UC END# *4A60B23E00C3_49228CA903BA_impl*
+//#UC START# *4A60B23E00C3_49228CA903BA_var*
+//#UC END# *4A60B23E00C3_49228CA903BA_var*
+//#UC START# *4F4E1E06038E_49228CA903BAget_impl*
+ Result := Self.Consultation;
+//#UC END# *4F4E1E06038E_49228CA903BAget_impl*
+//#UC START# *4F4E1E06038E_49228CA903BAget_var*
+//#UC END# *4F4E1E06038E_49228CA903BAget_var*

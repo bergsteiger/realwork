@@ -1,0 +1,36 @@
+//#UC START# *47A1C3DA01BE_478E372C025Dget_impl*
+ if not FindData(aID, l_Index, l3_siByID) then
+  begin
+   l_Map := MakeDefaultMap(aID);
+   try
+    if l_Map<>nil then
+     Result := Items[Add(l_Map)]
+    else
+     Result := nil;
+   finally
+    l_Map := nil;
+   end;
+  end
+ else
+  Result := Items[l_Index];
+ if Assigned(Result) and (Result.MapID.rName <> aID.rName) then
+  raise El3ValueMap.CreateFmt('Duplicate value map id = %d names (%s - %s)',[aID.rID, Result.MapID.rName, aID.rName]);
+//#UC END# *47A1C3DA01BE_478E372C025Dget_impl*
+//#UC START# *47A1C3DA01BE_478E372C025Dget_var*
+var
+ l_Index: Integer;
+ l_Map: Il3ValueMap;
+//#UC END# *47A1C3DA01BE_478E372C025Dget_var*
+//#UC START# *47A1C42301B5_478E372C025D_impl*
+ Assert(False,Format('Value map id %d not found',[aID.rID]));
+ Result := nil;
+//#UC END# *47A1C42301B5_478E372C025D_impl*
+//#UC START# *47A1C42301B5_478E372C025D_var*
+//#UC END# *47A1C42301B5_478E372C025D_var*
+//#UC START# *47B9BAFD01F4_478E372C025D_impl*
+ //Assert(aSortIndex = l3_siNative);
+ Assert(aSortIndex = l3_siByID);
+ Result := anItem.MapID.rID - aData.rID;
+//#UC END# *47B9BAFD01F4_478E372C025D_impl*
+//#UC START# *47B9BAFD01F4_478E372C025D_var*
+//#UC END# *47B9BAFD01F4_478E372C025D_var*

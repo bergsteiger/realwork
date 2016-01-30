@@ -1,0 +1,67 @@
+//#UC START# *479731C50290_4AC4ED6801F3_impl*
+ f_Data := nil;
+ inherited;
+//#UC END# *479731C50290_4AC4ED6801F3_impl*
+//#UC START# *479731C50290_4AC4ED6801F3_var*
+//#UC END# *479731C50290_4AC4ED6801F3_var*
+//#UC START# *4A8AD46D0226_4AC4ED6801F3exec_impl*
+ ModalResult := mrCancel;
+//#UC END# *4A8AD46D0226_4AC4ED6801F3exec_impl*
+//#UC START# *4A8AD46D0226_4AC4ED6801F3exec_var*
+//#UC END# *4A8AD46D0226_4AC4ED6801F3exec_var*
+//#UC START# *4A8AD46D0226_4AC4ED6801F3test_impl*
+ // - ничего не делаем
+//#UC END# *4A8AD46D0226_4AC4ED6801F3test_impl*
+//#UC START# *4A8AD46D0226_4AC4ED6801F3test_var*
+//#UC END# *4A8AD46D0226_4AC4ED6801F3test_var*
+//#UC START# *4A8E8F2E0195_4AC4ED6801F3_impl*
+ BorderIcons := [biSystemMenu];
+ BorderStyle := bsDialog;
+ ClientHeight := 39;
+ ClientWidth := 279;
+ ShowHint := True;
+
+ with Label1 do
+ begin
+  Left := 8;
+  Top := 12;
+  AutoSize := False;
+  Width := 105;
+  Height := 16;
+ end;
+
+ with edName do
+ begin
+  Left := 120;
+  Top := 8;
+  Width := 153;
+  Height := 21;
+  TabOrder := 0;
+  ParentShowHint := False;
+  ShowHint := True;
+ end;
+//#UC END# *4A8E8F2E0195_4AC4ED6801F3_impl*
+//#UC START# *4A8E8F2E0195_4AC4ED6801F3_var*
+//#UC END# *4A8E8F2E0195_4AC4ED6801F3_var*
+//#UC START# *4A97EBE702F8_4AC4ED6801F3exec_impl*
+ f_Data.Name := edName.CText;
+ ModalResult := mrOk;
+//#UC END# *4A97EBE702F8_4AC4ED6801F3exec_impl*
+//#UC START# *4A97EBE702F8_4AC4ED6801F3exec_var*
+//#UC END# *4A97EBE702F8_4AC4ED6801F3exec_var*
+//#UC START# *4A97EBE702F8_4AC4ED6801F3getstate_impl*
+ // - ничего не делаем
+//#UC END# *4A97EBE702F8_4AC4ED6801F3getstate_impl*
+//#UC START# *4A97EBE702F8_4AC4ED6801F3getstate_var*
+//#UC END# *4A97EBE702F8_4AC4ED6801F3getstate_var*
+//#UC START# *4A97EBE702F8_4AC4ED6801F3test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not l3IsNil(edName.CText);
+//#UC END# *4A97EBE702F8_4AC4ED6801F3test_impl*
+//#UC START# *4A97EBE702F8_4AC4ED6801F3test_var*
+//#UC END# *4A97EBE702F8_4AC4ED6801F3test_var*
+//#UC START# *4AC4EDA102E4_4AC4ED6801F3_impl*
+   f_Data := aData;
+   Assert(Assigned(f_Data));
+   edName.CText := f_Data.Name;
+   Position := poScreenCenter;
+//#UC END# *4AC4EDA102E4_4AC4ED6801F3_impl*

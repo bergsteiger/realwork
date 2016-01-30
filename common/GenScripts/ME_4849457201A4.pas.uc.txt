@@ -1,0 +1,24 @@
+//#UC START# *484CCE970073_4849457201A4_impl*
+ if A.IsNull then
+  Result := ''
+ else
+  Result := ColorToString(A.AsLong);
+//#UC END# *484CCE970073_4849457201A4_impl*
+//#UC START# *484CCE970073_4849457201A4_var*
+//#UC END# *484CCE970073_4849457201A4_var*
+//#UC START# *484CCEBC00DC_4849457201A4_impl*
+ if (aValue = '') then
+  Result := k2NullTag
+ else
+  Result := AtomType.MakeTag(StringToColor(aValue)).AsObject;
+//#UC END# *484CCEBC00DC_4849457201A4_impl*
+//#UC START# *484CCEBC00DC_4849457201A4_var*
+
+ function StringToColor(const S: string): TColor;
+ begin//StringToColor
+  if not IdentToColor(S, Longint(Result)) then
+   if not IdentToColor('cl' + S, Longint(Result)) then
+    Result := TColor(StrToInt(S));
+ end;//StringToColor
+
+//#UC END# *484CCEBC00DC_4849457201A4_var*

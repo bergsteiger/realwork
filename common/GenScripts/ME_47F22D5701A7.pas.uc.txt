@@ -1,0 +1,27 @@
+//#UC START# *47ECFAD101B9_47F22D5701A7_impl*
+ Result := ANSISameText(aSettingId, pi_Print_Metrics_Margins_Left) OR
+           ANSISameText(aSettingId, pi_Print_Metrics_Margins_Right) OR
+           ANSISameText(aSettingId, pi_Print_Metrics_Margins_Top) OR
+           ANSISameText(aSettingId, pi_Print_Metrics_Margins_Bottom) OR
+           ANSISameText(aSettingId, pi_Print_Metrics_Orientation) OR
+           ANSISameText(aSettingId, pi_Document_ExportWithBlockNames);
+//#UC END# *47ECFAD101B9_47F22D5701A7_impl*
+//#UC START# *47ECFAD101B9_47F22D5701A7_var*
+//#UC END# *47ECFAD101B9_47F22D5701A7_var*
+//#UC START# *48FD8A1C0307_47F22D5701A7_impl*
+ if Assigned(f_Event) then
+  f_Event.FireLog;
+ inherited;
+//#UC END# *48FD8A1C0307_47F22D5701A7_impl*
+//#UC START# *48FD8A1C0307_47F22D5701A7_var*
+//#UC END# *48FD8A1C0307_47F22D5701A7_var*
+//#UC START# *499140B20354_47F22D5701A7_impl*
+ f_Event := anEvent;
+//#UC END# *499140B20354_47F22D5701A7_impl*
+//#UC START# *499140B20354_47F22D5701A7_var*
+//#UC END# *499140B20354_47F22D5701A7_var*
+//#UC START# *4A2E97A4021B_47F22D5701A7_impl*
+ Result := afw.Application.Settings.LoadBoolean(pi_Document_ExportWithBlockNames, dv_Document_ExportWithBlockNames);
+//#UC END# *4A2E97A4021B_47F22D5701A7_impl*
+//#UC START# *4A2E97A4021B_47F22D5701A7_var*
+//#UC END# *4A2E97A4021B_47F22D5701A7_var*

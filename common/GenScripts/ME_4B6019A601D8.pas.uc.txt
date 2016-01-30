@@ -1,0 +1,65 @@
+//#UC START# *4B61371503B9_4B6019A601D8_impl*
+ Result := inherited NeedUnderLine or (AllowTrucking and HotTruck);
+//#UC END# *4B61371503B9_4B6019A601D8_impl*
+//#UC START# *4B61371503B9_4B6019A601D8_var*
+//#UC END# *4B61371503B9_4B6019A601D8_var*
+//#UC START# *4B613A0400DC_4B6019A601D8set_impl*
+ if (f_AllowTrucking <> aValue) then
+ begin
+  f_AllowTrucking := aValue;
+  if AllowTrucking then
+   UpdateTruckFromCursor;
+  Invalidate;
+ end;
+//#UC END# *4B613A0400DC_4B6019A601D8set_impl*
+//#UC START# *4B613A0400DC_4B6019A601D8set_var*
+//#UC END# *4B613A0400DC_4B6019A601D8set_var*
+//#UC START# *4B613A180222_4B6019A601D8_impl*
+ if (f_HotTruck <> aValue) then
+ begin
+  f_HotTruck := aValue;
+  if AllowTrucking then
+   Invalidate;
+ end;
+//#UC END# *4B613A180222_4B6019A601D8_impl*
+//#UC START# *4B613A180222_4B6019A601D8_var*
+//#UC END# *4B613A180222_4B6019A601D8_var*
+//#UC START# *4B613A2A035D_4B6019A601D8_impl*
+ if AllowTrucking and HandleAllocated then
+ begin
+  GetCursorPos(l_Pos);
+  SetHotTruck(PtInRect(ClientRect, ScreenToClient(l_Pos)));
+ end;
+//#UC END# *4B613A2A035D_4B6019A601D8_impl*
+//#UC START# *4B613A2A035D_4B6019A601D8_var*
+var
+ l_Pos: TPoint;
+//#UC END# *4B613A2A035D_4B6019A601D8_var*
+//#UC START# *4B613A38003A_4B6019A601D8_impl*
+ inherited;
+ SetHotTruck(True);
+//#UC END# *4B613A38003A_4B6019A601D8_impl*
+//#UC START# *4B613A38003A_4B6019A601D8_var*
+//#UC END# *4B613A38003A_4B6019A601D8_var*
+//#UC START# *4B613A4E0094_4B6019A601D8_impl*
+ inherited;
+ SetHotTruck(False);
+//#UC END# *4B613A4E0094_4B6019A601D8_impl*
+//#UC START# *4B613A4E0094_4B6019A601D8_var*
+//#UC END# *4B613A4E0094_4B6019A601D8_var*
+//#UC START# *4B613A6900B7_4B6019A601D8_impl*
+ inherited;
+ UpdateTruckFromCursor;
+//#UC END# *4B613A6900B7_4B6019A601D8_impl*
+//#UC START# *4B613A6900B7_4B6019A601D8_var*
+//#UC END# *4B613A6900B7_4B6019A601D8_var*
+//#UC START# *4C03EAA20362_4B6019A601D8_impl*
+ Result := True;
+//#UC END# *4C03EAA20362_4B6019A601D8_impl*
+//#UC START# *4C03EAA20362_4B6019A601D8_var*
+//#UC END# *4C03EAA20362_4B6019A601D8_var*
+//#UC START# *4C03EAB40015_4B6019A601D8_impl*
+ Result := False;
+//#UC END# *4C03EAB40015_4B6019A601D8_impl*
+//#UC START# *4C03EAB40015_4B6019A601D8_var*
+//#UC END# *4C03EAB40015_4B6019A601D8_var*

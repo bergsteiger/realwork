@@ -1,4 +1,9 @@
-unit k2TagTerminator;
+unit NOT_FINISHED_k2TagTerminator;
+
+// Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2TagTerminator.pas"
+// Стереотип: "SimpleClass"
+
+{$Include k2Define.inc}
 
 interface
 
@@ -10,7 +15,7 @@ uses
 type
  Tk2TagTerminator = class(Tk2CustomStackGeneratorEx)
  end;//Tk2TagTerminator
- 
+
 implementation
 
 uses

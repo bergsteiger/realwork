@@ -1,0 +1,41 @@
+//#UC START# *4A8AD46D0226_4C52B21801B6exec_impl*
+ ModalResult := mrCancel;
+//#UC END# *4A8AD46D0226_4C52B21801B6exec_impl*
+//#UC START# *4A8AD46D0226_4C52B21801B6exec_var*
+//#UC END# *4A8AD46D0226_4C52B21801B6exec_var*
+//#UC START# *4A97EBE702F8_4C52B21801B6exec_impl*
+ Op_StyleEditor_SaveStyleTable.Call(Aggregate, false);
+ ModalResult := mrOk;
+//#UC END# *4A97EBE702F8_4C52B21801B6exec_impl*
+//#UC START# *4A97EBE702F8_4C52B21801B6exec_var*
+//#UC END# *4A97EBE702F8_4C52B21801B6exec_var*
+//#UC START# *4A97EBE702F8_4C52B21801B6test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := f_SettingsInfo.Modified;
+//#UC END# *4A97EBE702F8_4C52B21801B6test_impl*
+//#UC START# *4A97EBE702F8_4C52B21801B6test_var*
+//#UC END# *4A97EBE702F8_4C52B21801B6test_var*
+//#UC START# *4C52B34E0125_4C52B21801B6exec_impl*
+ if not Ask(qr_RestoreDefaultValuesStyleTable) then
+  Exit;
+ Op_StyleEditor_RestoreStyleTable.Call(Aggregate, true);
+//#UC END# *4C52B34E0125_4C52B21801B6exec_impl*
+//#UC START# *4C52B34E0125_4C52B21801B6exec_var*
+//#UC END# *4C52B34E0125_4C52B21801B6exec_var*
+//#UC START# *4C52B34E0125_4C52B21801B6test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := f_SettingsInfo.Modified or f_SettingsInfo.IsDifferFromDefault;
+//#UC END# *4C52B34E0125_4C52B21801B6test_impl*
+//#UC START# *4C52B34E0125_4C52B21801B6test_var*
+//#UC END# *4C52B34E0125_4C52B21801B6test_var*
+//#UC START# *4C52B36B01B3_4C52B21801B6exec_impl*
+ if not Ask(qr_SaveAsDefaultValuesStyleTable) then
+  Exit;
+ Op_StyleEditor_SaveStyleTable.Call(Aggregate, true); 
+//#UC END# *4C52B36B01B3_4C52B21801B6exec_impl*
+//#UC START# *4C52B36B01B3_4C52B21801B6exec_var*
+//#UC END# *4C52B36B01B3_4C52B21801B6exec_var*
+//#UC START# *4C52B36B01B3_4C52B21801B6test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not f_SettingsInfo.IsPredefined and
+                                  (f_SettingsInfo.Modified or f_SettingsInfo.IsDifferFromDefault);
+//#UC END# *4C52B36B01B3_4C52B21801B6test_impl*
+//#UC START# *4C52B36B01B3_4C52B21801B6test_var*
+//#UC END# *4C52B36B01B3_4C52B21801B6test_var*

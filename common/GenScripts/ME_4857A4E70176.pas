@@ -1,4 +1,10 @@
 unit Division_Const;
+ {* Раздел документа (не используется) }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\Division_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -10,7 +16,7 @@ uses
 ;
 
  // DivisionTag
- 
+
 implementation
 
 uses

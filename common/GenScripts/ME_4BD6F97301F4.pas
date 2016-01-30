@@ -1,0 +1,65 @@
+unit PrimTreeAttributeSelect_astFirstLevel_UserType;
+ {* Ситуации первого уровня }
+
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimTreeAttributeSelect_astFirstLevel_UserType.pas"
+// Стереотип: "UserType"
+
+{$Include nsDefine.inc}
+
+interface
+
+uses
+ l3IntfUses
+ , PrimTreeAttributeSelect_astOneLevel_UserType
+ {$If NOT Defined(NoVCM)}
+ , vcmUserControls
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+const
+ {* Константы для типа формы astFirstLevel }
+ astFirstLevelName = 'astFirstLevel';
+  {* Строковый идентификатор пользовательского типа "Ситуации первого уровня" }
+ astFirstLevel = TvcmUserType(astOneLevel + 1);
+  {* Ситуации первого уровня }
+
+implementation
+
+uses
+ l3ImplUses
+;
+
+type
+ {$If NOT Defined(NoScripts)}
+ Tkw_FormUserType_astFirstLevel = {final} class(TtfwInteger)
+  {* Слово словаря для типа формы astFirstLevel }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   function GetInteger: Integer; override;
+ end;//Tkw_FormUserType_astFirstLevel
+ {$IfEnd} // NOT Defined(NoScripts)
+
+{$If NOT Defined(NoScripts)}
+class function Tkw_FormUserType_astFirstLevel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'тип_формы::astFirstLevel';
+end;//Tkw_FormUserType_astFirstLevel.GetWordNameForRegister
+{$IfEnd} // NOT Defined(NoScripts)
+
+{$If NOT Defined(NoScripts)}
+function Tkw_FormUserType_astFirstLevel.GetInteger: Integer;
+begin
+ Result := astFirstLevel;
+end;//Tkw_FormUserType_astFirstLevel.GetInteger
+{$IfEnd} // NOT Defined(NoScripts)
+
+initialization
+{$If NOT Defined(NoScripts)}
+ Tkw_FormUserType_astFirstLevel.RegisterInEngine;
+ {* Регистрация Tkw_FormUserType_astFirstLevel }
+{$IfEnd} // NOT Defined(NoScripts)
+
+end.

@@ -1,0 +1,20 @@
+//#UC START# *49147FB4028C_4921809902CF_impl*
+ Result := inherited GetIsSame(aValue);
+ if not Result and Assigned(aValue) then
+  if aValue.CastUCC(IsdsPrimDocument, l_SDS1) then
+  //if Supports(aValue.UseCaseController, IsdsPrimDocument, l_SDS1) then
+  try
+   Result := UseCaseController.DocInfo.IsSame(l_SDS1.DocInfo, False);
+  finally
+   l_SDS1 := nil;
+  end;//try..finally
+//#UC END# *49147FB4028C_4921809902CF_impl*
+//#UC START# *49147FB4028C_4921809902CF_var*
+var
+ l_SDS1 : IsdsPrimDocument;
+//#UC END# *49147FB4028C_4921809902CF_var*
+//#UC START# *49217DB001A7_4921809902CF_impl*
+ Result := TnsEditionsRoot.MakeAsSimpleRoot(UseCaseController.DocInfo.Doc);
+//#UC END# *49217DB001A7_4921809902CF_impl*
+//#UC START# *49217DB001A7_4921809902CF_var*
+//#UC END# *49217DB001A7_4921809902CF_var*

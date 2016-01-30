@@ -1,4 +1,10 @@
 unit TinyDocument_Const;
+ {* Простой документ }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\TinyDocument_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -10,7 +16,7 @@ uses
 ;
 
  // TinyDocumentTag
- 
+
 implementation
 
 uses

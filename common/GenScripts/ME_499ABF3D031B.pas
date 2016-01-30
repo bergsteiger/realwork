@@ -1,26 +1,57 @@
-unit nscNavigator;
+unit NOT_FINISHED_nscNavigator;
+
+// Модуль: "w:\common\components\gui\Garant\Nemesis\NOT_FINISHED_nscNavigator.pas"
+// Стереотип: "GuiControl"
+
+{$Include nscDefine.inc}
 
 interface
 
+{$If Defined(Nemesis)}
 uses
  l3IntfUses
+ {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
  , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 type
  TnscNavigatorPageControl = class
  end;//TnscNavigatorPageControl
- 
- TnscNavigator = class(IvcmMainFormDependent)
-  procedure MainFormChanged(aForm: TControl);
-   {* Вызывается при измении главной формы }
+
+ TnscNavigator = class({$If NOT Defined(NoVCM)}
+ IvcmMainFormDependent
+ {$IfEnd} // NOT Defined(NoVCM)
+ )
+  protected
+   {$If NOT Defined(NoVCM)}
+   procedure MainFormChanged(aForm: TControl);
+    {* Вызывается при измении главной формы }
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TnscNavigator
- 
+{$IfEnd} // Defined(Nemesis)
+
 implementation
 
+{$If Defined(Nemesis)}
 uses
  l3ImplUses
 ;
 
+{$If NOT Defined(NoVCM)}
+procedure TnscNavigator.MainFormChanged(aForm: TControl);
+ {* Вызывается при измении главной формы }
+//#UC START# *53CF7DD00066_499ABF3D031B_var*
+//#UC END# *53CF7DD00066_499ABF3D031B_var*
+begin
+//#UC START# *53CF7DD00066_499ABF3D031B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53CF7DD00066_499ABF3D031B_impl*
+end;//TnscNavigator.MainFormChanged
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$IfEnd} // Defined(Nemesis)
 end.

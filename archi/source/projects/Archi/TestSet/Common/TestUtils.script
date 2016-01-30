@@ -15,6 +15,7 @@ USES
  axiom:ImageEnViewer
  axiom:Lister
  axiom:Test
+ axiom:evd
  axiom:RadioButton
  axiom:RadioGroup
  axiom:SpinEdit
@@ -27,6 +28,12 @@ USES
 	EditorTools.script	
 ;
 
+PROCEDURE "Установить стиль 'Разворачиваемый текст' на первый параграф"
+		OBJECT VAR l_Editor
+		focused:control:push >>> l_Editor 
+		"Установить стиль на текущий текстовый параграф {( evd::sa_ExpandedText )} {(l_Editor)}" 		
+;
+
 BOOLEAN FUNCTION "Сохранить?" IN aID
  aID push:MainForm pop:form:MDIChildren IsNeedSaveDocument =: Result
 ;
@@ -36,8 +43,8 @@ PROCEDURE "Закрыть окно" IN aID
 ;
 
 PROCEDURE "Закрыть все окна"
-  VAR l_WinID
-  VAR l_NeedSave
+  INTEGER VAR l_WinID
+  BOOLEAN VAR l_NeedSave
   
   0 >>> l_WinID
   push:MainForm pop:form:MDIChildCount LOOP (    
@@ -52,25 +59,28 @@ PROCEDURE "Закрыть все окна"
 ;
 
 PROCEDURE "Закрыть без сохранения"
-OBJECT VAR l_Object
-push:MainForm pop:form:ActiveMDIChild >>> l_Object
-Если ( l_Object pop:object:IsNil ! ) то	
-	( 
-		Если ( l_Object IsNeedSaveDocument ) то
-			( wait:No
-	 		  Закрыть
-	  	          waited:? ASSERT )
-		иначе
-			( Закрыть )
-	)
+	OBJECT VAR l_Object
+	push:MainForm pop:form:ActiveMDIChild >>> l_Object
+	Если ( l_Object pop:object:IsNil ! ) то	
+		( 
+			Если ( l_Object IsNeedSaveDocument ) то
+				( wait:No
+				  Закрыть
+				  waited:? ASSERT )
+			иначе
+				( Закрыть )
+		)
 ;
 
 //  Работа с базой
 
-PROCEDURE "Очистка тестовой базы"
-	"Закрыть все окна"
-	ProcessMessages 
-	'testbase.zip' 'C:\Base\testbase' ClearDataBase 
+CONST csArchiveWithBaseName 'testbase.zip'
+CONST csTestDataBasePath 'C:\Base\testbase'
+
+PROCEDURE "Очистка тестовой базы" 
+	"Закрыть все окна" // Сделано, чтобы не было ошибок из-за очистки базы без закрытых окон
+	"Обработать сообщения"
+	csArchiveWithBaseName csTestDataBasePath ClearDataBase 
 ;
 
 CONST csExportNSRCDir 'C:\Base\222'
@@ -246,6 +256,11 @@ PROCEDURE "Выполнить проверку таблицы"
 
 PROCEDURE "Перерисовать и сравнить с эталоном в текущем редакторе"
 	focused:control:push pop:editor:RepaintAndCheckWithEtalon     
+;
+
+PROCEDURE "Перерисовать и сравнить с эталоном с привязкой к ПК"
+		EtalonNeedsComputerName
+		"Перерисовать и сравнить с эталоном в текущем редакторе"
 ;
 
 PROCEDURE "Проверить нижний якорь"

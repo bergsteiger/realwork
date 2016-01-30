@@ -1,5 +1,10 @@
 unit evCustomTextFormatterModelPart;
 
+// Модуль: "w:\common\components\gui\Garant\Everest\evCustomTextFormatterModelPart.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
+
 interface
 
 uses
@@ -10,9 +15,10 @@ uses
 
 type
  TevCustomTextFormatterModelPart = class(TevdDocumentFilter)
-  procedure ValidateStyles;
+  protected
+   procedure ValidateStyles;
  end;//TevCustomTextFormatterModelPart
- 
+
 implementation
 
 uses
@@ -23,5 +29,14 @@ uses
  , evdTypes
  , ObjectSegment_Const
 ;
+
+procedure TevCustomTextFormatterModelPart.ValidateStyles;
+//#UC START# *4F2666AC03A4_4F26660203CB_var*
+//#UC END# *4F2666AC03A4_4F26660203CB_var*
+begin
+//#UC START# *4F2666AC03A4_4F26660203CB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4F2666AC03A4_4F26660203CB_impl*
+end;//TevCustomTextFormatterModelPart.ValidateStyles
 
 end.

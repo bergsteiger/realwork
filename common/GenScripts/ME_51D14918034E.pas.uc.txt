@@ -1,0 +1,48 @@
+//#UC START# *47B07CF403D0_51D14918034E_impl*
+ Result := (A = B);
+//#UC END# *47B07CF403D0_51D14918034E_impl*
+//#UC START# *47B07CF403D0_51D14918034E_var*
+//#UC END# *47B07CF403D0_51D14918034E_var*
+//#UC START# *47B2C42A0163_51D14918034E_impl*
+ assert(false);
+//#UC END# *47B2C42A0163_51D14918034E_impl*
+//#UC START# *47B2C42A0163_51D14918034E_var*
+//#UC END# *47B2C42A0163_51D14918034E_var*
+//#UC START# *47B99D4503A2_51D14918034E_impl*
+ Result := CI.rA.ContextMenuWeight - CI.rB.ContextMenuWeight;
+//#UC END# *47B99D4503A2_51D14918034E_impl*
+//#UC START# *47B99D4503A2_51D14918034E_var*
+//#UC END# *47B99D4503A2_51D14918034E_var*
+//#UC START# *4995645B02C7_51D14918034Eget_impl*
+ if (f_Index >= Self.Count) then
+  Result := nil
+ else
+ begin
+  Result := Self.Items[f_Index];
+  Inc(f_Index);
+ end;
+//#UC END# *4995645B02C7_51D14918034Eget_impl*
+//#UC START# *4995645B02C7_51D14918034Eget_var*
+//#UC END# *4995645B02C7_51D14918034Eget_var*
+//#UC START# *51D149B9038D_51D14918034E_impl*
+ inherited Create;
+ f_Index := 0;
+ f_Iter := anIter;
+
+ // Это нужно здесь, потому что иначе меняется порядок операций с
+ // незаданными (нулевыми) весами
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=467276976
+ Self.Duplicates := l3_dupAccept;
+ Self.Sorted := true;
+ while true do
+ begin
+  l_E := anIter.Next;
+  if (l_E = nil) then
+   break;
+  Self.Add(l_E);
+ end;
+//#UC END# *51D149B9038D_51D14918034E_impl*
+//#UC START# *51D149B9038D_51D14918034E_var*
+var
+ l_E : IvcmOperationDef;
+//#UC END# *51D149B9038D_51D14918034E_var*

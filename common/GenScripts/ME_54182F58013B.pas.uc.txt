@@ -1,0 +1,21 @@
+//#UC START# *544910F10203_54182F58013B_impl*
+ l_H := Tm3StoreHeader.Create(anAccess,
+                              aName,
+                              aManager,
+                              aPosition);
+ try
+  l_S := Create(anAccess, l_H.HeaderData);
+  try
+   Result := l_S;
+  finally
+   FreeAndNil(l_S);
+  end;//try..finally
+ finally
+  FreeAndNil(l_H);
+ end;//try..finally
+//#UC END# *544910F10203_54182F58013B_impl*
+//#UC START# *544910F10203_54182F58013B_var*
+var
+ l_H : Tm3StoreHeader;
+ l_S : Tm3NewStorageStream;
+//#UC END# *544910F10203_54182F58013B_var*

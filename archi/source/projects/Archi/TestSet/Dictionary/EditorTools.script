@@ -12,6 +12,7 @@ USES
  axiom:окно_редактора
  axiom:TextPara
  axiom:push
+ axiom:evd
  Mouse.script	
  ArchiSystem.script
  DocumentConst.script
@@ -130,6 +131,17 @@ USES
 PROCEDURE "Установить саб быстро"
 	"Обработать сообщения" 
 	@ ( "Установить саб" ) MODAL "Нажать ОКBtn"
+;
+
+PROCEDURE "Задать номер метки" INTEGER IN aNumber
+	"Установить фокус в контрол с именем" carSubNumField
+	aNumber IntToStr emitstring   	
+	"Нажать ОКBtn"
+;
+
+PROCEDURE "Создать метку с номером" INTEGER IN aNumber 
+ "Обработать сообщения" 
+ @ ( "Установить саб" ) MODAL ( "Задать номер метки {(aNumber)}" )
 ;
 
 PROCEDURE "Разбивка на блоки действие"

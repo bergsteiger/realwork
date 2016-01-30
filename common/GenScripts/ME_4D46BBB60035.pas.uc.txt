@@ -1,0 +1,26 @@
+//#UC START# *4C08CF700318_4D46BBB60035_impl*
+ Result.X := 400;
+ Result.Y := 600;
+//#UC END# *4C08CF700318_4D46BBB60035_impl*
+//#UC START# *4C08CF700318_4D46BBB60035_var*
+//#UC END# *4C08CF700318_4D46BBB60035_var*
+//#UC START# *4C08D61F0231_4D46BBB60035_impl*
+ inherited;
+ aForm.TreeControl.SelfDrawNodes := True;
+//#UC END# *4C08D61F0231_4D46BBB60035_impl*
+//#UC START# *4C08D61F0231_4D46BBB60035_var*
+//#UC END# *4C08D61F0231_4D46BBB60035_var*
+//#UC START# *4D46E22801EB_4D46BBB60035_impl*
+ aForm.TreeControl.CTree.CRootNode.Text := l3PCharLen(' ŒÃÃ≈Õ“¿–»»');
+ l_Gen := TevTreeGenerator.Create(aForm.TreeControl.CTree.CRootNode, k2_tiContentsLevel);
+ try
+  TevEvdReader.SetTo(l_Gen, FileFromCurrent(aFileName));
+  (l_Gen as TevCustomEvdReader).Execute;
+ finally
+  l3Free(l_Gen);
+ end; {try..finally}
+//#UC END# *4D46E22801EB_4D46BBB60035_impl*
+//#UC START# *4D46E22801EB_4D46BBB60035_var*
+var
+ l_Gen : Tk2TagGenerator;
+//#UC END# *4D46E22801EB_4D46BBB60035_var*

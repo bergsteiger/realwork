@@ -1,10 +1,20 @@
-unit evMsgCode;
+unit NOT_FINISHED_evMsgCode;
+ {* Сообщения Everest'а. Наследие тяжкого безинтерфейсного прошлого.
+   Планируется со временем убить. }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evMsgCode.pas"
+// Стереотип: "Interfaces"
+
+{$Include evDefine.inc}
 
 interface
 
 uses
  l3IntfUses
 ;
+
+const
+ ev_msgLast = '';
 
 implementation
 

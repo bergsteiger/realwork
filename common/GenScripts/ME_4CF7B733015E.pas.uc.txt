@@ -1,0 +1,76 @@
+//#UC START# *4836D4650177_4CF7B733015E_impl*
+ if (SkipLevel > 0) then
+ begin
+  if not f_WasSomeLeaf then
+  begin
+   if TypeID.IsKindOf(k2_typLeafPara) then
+    f_WasSomeLeaf := true;
+  end//not f_WasSomeLeaf
+  else
+  if (SkipLevel = 2) then
+  begin
+   StopBufferingAndFlush(False, TopObject[0], False);
+   f_WasSomeLeaf := false;
+  end;//SkipLevel = 2
+ end;//SkipLevel > 0 
+ inherited;
+//#UC END# *4836D4650177_4CF7B733015E_impl*
+//#UC START# *4836D4650177_4CF7B733015E_var*
+//#UC END# *4836D4650177_4CF7B733015E_var*
+//#UC START# *4836D49800CA_4CF7B733015E_impl*
+ inherited;
+ f_WasSomeLeaf := false;
+//#UC END# *4836D49800CA_4CF7B733015E_impl*
+//#UC START# *4836D49800CA_4CF7B733015E_var*
+//#UC END# *4836D49800CA_4CF7B733015E_var*
+//#UC START# *4A2D1217037A_4CF7B733015E_impl*
+ inherited;
+//#UC END# *4A2D1217037A_4CF7B733015E_impl*
+//#UC START# *4A2D1217037A_4CF7B733015E_var*
+//#UC END# *4A2D1217037A_4CF7B733015E_var*
+//#UC START# *4C56D54B002A_4CF7B733015E_impl*
+ Result := (aID = -k2_idTable) OR (aID = -k2_idSBS);
+ if Result then
+  f_WasSomeLeaf := false;
+//#UC END# *4C56D54B002A_4CF7B733015E_impl*
+//#UC START# *4C56D54B002A_4CF7B733015E_var*
+//#UC END# *4C56D54B002A_4CF7B733015E_var*
+//#UC START# *4CF7BC520161_4CF7B733015E_impl*
+ Result := f_WasSomeLeaf;
+ if Result then
+  CheckEmptyLists(aLeaf);
+//#UC END# *4CF7BC520161_4CF7B733015E_impl*
+//#UC START# *4CF7BC520161_4CF7B733015E_var*
+
+ procedure CheckEmptyLists(aList : Tl3Variant);
+ var
+  l_Index : Integer;
+  l_Child : Tl3Variant;
+ begin//CheckEmptyLists
+  l_Index := 0;
+  while (l_Index < aList.ChildrenCount) do
+  begin
+   l_Child := aList.Child[l_Index];
+   if l_Child.IsKindOf(k2_typParaList) then
+   begin
+    CheckEmptyLists(l_Child);
+    if (l_Child.ChildrenCount = 0) then
+    begin
+     if not l_Child.IsKindOf(k2_typTableCell) then
+     begin
+      aList.DeleteChild(l_Index);
+      continue;
+     end;//not l_Child.IsKindOf(k2_typTableCell)
+    end;//l_Child.ChildrenCount = 0
+   end;//l_Child.IsKindOf(k2_typParaList)
+   Inc(l_Index);
+  end;//l_Index < aList.ChildrenCount
+ end;//CheckEmptyLists
+
+//#UC END# *4CF7BC520161_4CF7B733015E_var*
+//#UC START# *4CF7BEC40130_4CF7B733015E_impl*
+ inherited;
+ f_WasSomeLeaf := false;
+//#UC END# *4CF7BEC40130_4CF7B733015E_impl*
+//#UC START# *4CF7BEC40130_4CF7B733015E_var*
+//#UC END# *4CF7BEC40130_4CF7B733015E_var*

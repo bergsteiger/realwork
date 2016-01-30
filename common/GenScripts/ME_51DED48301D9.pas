@@ -1,27 +1,49 @@
-unit AtomicList.imp;
+{$IfNDef AtomicList_imp}
 
-interface
+// Модуль: "w:\common\components\SandBox\AtomicList.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define AtomicList_imp}
 
  {$Define l3Items_IsAtomic}
- 
-type
+
+ _UnrefcountedListPrim_Parent_ = _AtomicList_Parent_;
+ {$Include UnrefcountedListPrim.imp.pas}
  _AtomicList_ = class(_UnrefcountedListPrim_)
   {* Список атомарных значений }
-  procedure FreeItem(var thePlace: _ItemType_);
-  procedure FillItem(var thePlace: _ItemType_;
-   const aFrom: _ItemType_);
  end;//_AtomicList_
- 
-implementation
 
-uses
- l3ImplUses
- , RTLConsts
- , l3MemorySizeUtils
-;
+{$Else AtomicList_imp}
 
-end.
+{$IfNDef AtomicList_imp_impl}
+
+{$Define AtomicList_imp_impl}
+
+procedure FillItem(var thePlace: _ItemType_;
+ const aFrom: _ItemType_); forward;
+
+procedure FreeItem(var thePlace: _ItemType_);
+//#UC START# *51DEC20B01D7_51DED48301D9_var*
+//#UC END# *51DEC20B01D7_51DED48301D9_var*
+begin
+//#UC START# *51DEC20B01D7_51DED48301D9_impl*
+ thePlace := _ItemType_(0);
+//#UC END# *51DEC20B01D7_51DED48301D9_impl*
+end;//FreeItem
+
+procedure FillItem(var thePlace: _ItemType_;
+ const aFrom: _ItemType_);
+//#UC START# *51DECB440087_51DED48301D9_var*
+//#UC END# *51DECB440087_51DED48301D9_var*
+begin
+//#UC START# *51DECB440087_51DED48301D9_impl*
+ thePlace := aFrom;
+//#UC END# *51DECB440087_51DED48301D9_impl*
+end;//FillItem
+
+{$Include UnrefcountedListPrim.imp.pas}
+
+{$EndIf AtomicList_imp_impl}
+
+{$EndIf AtomicList_imp}
+

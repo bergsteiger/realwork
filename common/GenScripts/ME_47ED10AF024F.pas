@@ -1,19 +1,35 @@
 unit evDocumentPreviewInfoList;
 
+// Модуль: "w:\common\components\gui\Garant\Everest\new\evDocumentPreviewInfoList.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
+
 interface
 
 uses
  l3IntfUses
  , l3ProtoDataContainer
  , nevTools
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
 ;
 
 type
+ _ItemType_ = IevDocumentPreviewInfo;
+ _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
+ {$Define l3Items_IsProto}
+ {$Include l3InterfaceRefList.imp.pas}
  TevDocumentPreviewInfoList = class(_l3InterfaceRefList_)
-  procedure StopAllPreviews;
-   {* Остановить построение превью }
+  public
+   procedure StopAllPreviews;
+    {* Остановить построение превью }
  end;//TevDocumentPreviewInfoList
- 
+
 implementation
 
 uses
@@ -23,5 +39,22 @@ uses
  , RTLConsts
  , SysUtils
 ;
+
+type _Instance_R_ = TevDocumentPreviewInfoList;
+
+{$Include l3InterfaceRefList.imp.pas}
+
+procedure TevDocumentPreviewInfoList.StopAllPreviews;
+ {* Остановить построение превью }
+//#UC START# *48046D0803DA_47ED10AF024F_var*
+var
+ l_IDX: Integer;
+//#UC END# *48046D0803DA_47ED10AF024F_var*
+begin
+//#UC START# *48046D0803DA_47ED10AF024F_impl*
+ for l_IDX := 0 to Count - 1 do
+  Items[l_IDX].Preview.Stop;
+//#UC END# *48046D0803DA_47ED10AF024F_impl*
+end;//TevDocumentPreviewInfoList.StopAllPreviews
 
 end.

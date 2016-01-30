@@ -1,23 +1,88 @@
 unit K233015604;
+ {* [$235869058] }
+
+// Модуль: "w:\common\components\rtl\Garant\Daily\K233015604.pas"
+// Стереотип: "TestCase"
+
+{$Include TestDefine.inc.pas}
 
 interface
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
+ {$If NOT Defined(NoVCM)}
  , ScrollTest
+ {$IfEnd} // NOT Defined(NoVCM)
  , Types
 ;
 
 type
  TK233015604 = class(TScrollTest)
   {* [$235869058] }
+  protected
+   {$If NOT Defined(NoVCM)}
+   function GetNormalFontSize: Integer; override;
+    {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function FormExtent: TPoint; override;
+    {* Размеры формы }
+   {$IfEnd} // NOT Defined(NoVCM)
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK233015604
- 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+
 implementation
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
  , TestFrameWork
 ;
+
+{$If NOT Defined(NoVCM)}
+function TK233015604.GetNormalFontSize: Integer;
+ {* Возвращает размер шрифта стиля "Нормальный". 0 - по-умолчанию }
+//#UC START# *4C07AC6F036D_4CBC3C0C0141_var*
+//#UC END# *4C07AC6F036D_4CBC3C0C0141_var*
+begin
+//#UC START# *4C07AC6F036D_4CBC3C0C0141_impl*
+ Result := 12;
+//#UC END# *4C07AC6F036D_4CBC3C0C0141_impl*
+end;//TK233015604.GetNormalFontSize
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+function TK233015604.FormExtent: TPoint;
+ {* Размеры формы }
+//#UC START# *4C08CF700318_4CBC3C0C0141_var*
+//#UC END# *4C08CF700318_4CBC3C0C0141_var*
+begin
+//#UC START# *4C08CF700318_4CBC3C0C0141_impl*
+ Result.X := 768;
+ Result.Y := 403;
+//#UC END# *4C08CF700318_4CBC3C0C0141_impl*
+end;//TK233015604.FormExtent
+{$IfEnd} // NOT Defined(NoVCM)
+
+function TK233015604.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := '7.6';
+end;//TK233015604.GetFolder
+
+function TK233015604.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '4CBC3C0C0141';
+end;//TK233015604.GetModelElementGUID
+
+initialization
+ TestFramework.RegisterTest(TK233015604.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

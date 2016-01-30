@@ -1,4 +1,10 @@
-unit ReleaseSandBoxTest;
+program ReleaseSandBoxTest;
+ {*  (релизный вариант) }
+
+// Модуль: "w:\common\components\SandBoxTest\ReleaseSandBoxTest.dpr"
+// Стереотип: "TestTarget"
+
+{$Include sbtDefine.inc}
 
 interface
 

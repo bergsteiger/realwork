@@ -1,0 +1,50 @@
+//#UC START# *49EF3805033D_49EF346400A4_impl*
+ Result := false;
+ l_Controller := GetDefController;
+ if Assigned(l_Controller) then
+  with l_Controller.EntryCommands do
+   if (TranslateUsing([], TMessage(Msg), GetTickCount) = ccShortCut) then
+   begin
+    Msg.Result := 0;  {indicate that this message was processed}
+    Result := true;
+   end;//TranslateUsing([], TMessage(Msg), GetTickCount) = ccShortCut
+//#UC END# *49EF3805033D_49EF346400A4_impl*
+//#UC START# *49EF3805033D_49EF346400A4_var*
+//#UC END# *49EF3805033D_49EF346400A4_var*
+//#UC START# *49EF38CC0345_49EF346400A4_impl*
+ if (Message.Msg = CN_KEYDOWN) or (Message.Msg = CN_SYSKEYDOWN) then
+ begin
+  Msg := Message;
+  Msg.Msg := Message.Msg - CN_BASE;
+
+  // Обрабатываем клавиши
+  if (TWMKeyDown(Message).CharCode = VK_ESCAPE) then
+  begin
+   if IsSomePopupWasClosed then
+   begin
+    Message.Result := 1;
+    Exit;
+   end;
+  end;//TWMKeyDown(Message).Key = VK_ESCAPE
+
+  // Для клавиши Enter не обрабатываем шоткаты OVC, была ошибка:
+  //  http://mdp.garant.ru/pages/viewpage.action?pageId=269061880
+  if not ( (TWMKeyDown(Message).CharCode = VK_RETURN) and
+           (KeyDataToShiftState(TWMKeyDown(Message).KeyData) = []) ) 
+     and IsHandledShortcut(Msg) then
+  begin
+   Message.Result := 1;
+   Exit;
+  end;//...TWMKeyDown(Message).CharCode = VK_RETURN..
+ end;//Message.Msg = CN_KEYDOWN
+ inherited;
+//#UC END# *49EF38CC0345_49EF346400A4_impl*
+//#UC START# *49EF38CC0345_49EF346400A4_var*
+var
+ Msg : TMessage;
+//#UC END# *49EF38CC0345_49EF346400A4_var*
+//#UC START# *4EBD2EE8031A_49EF346400A4_impl*
+ Result := false;
+//#UC END# *4EBD2EE8031A_49EF346400A4_impl*
+//#UC START# *4EBD2EE8031A_49EF346400A4_var*
+//#UC END# *4EBD2EE8031A_49EF346400A4_var*

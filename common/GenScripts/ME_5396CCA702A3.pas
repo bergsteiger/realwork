@@ -1,7 +1,14 @@
 unit K541116849;
+ {* [Requestlink:541116849] }
+
+// Модуль: "w:\common\components\rtl\Garant\Daily\K541116849.pas"
+// Стереотип: "TestCase"
+
+{$Include TestDefine.inc.pas}
 
 interface
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
  , RTFtoEVDWriterTest
@@ -10,13 +17,36 @@ uses
 type
  TK541116849 = class(TRTFtoEVDWriterTest)
   {* [Requestlink:541116849] }
+  protected
+   function GetFolder: AnsiString; override;
+    {* Папка в которую входит тест }
+   function GetModelElementGUID: AnsiString; override;
+    {* Идентификатор элемента модели, который описывает тест }
  end;//TK541116849
- 
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+
 implementation
 
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
  , TestFrameWork
 ;
+
+function TK541116849.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
+begin
+ Result := '7.10';
+end;//TK541116849.GetFolder
+
+function TK541116849.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
+begin
+ Result := '5396CCA702A3';
+end;//TK541116849.GetModelElementGUID
+
+initialization
+ TestFramework.RegisterTest(TK541116849.Suite);
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

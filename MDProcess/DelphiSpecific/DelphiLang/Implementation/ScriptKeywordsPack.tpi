@@ -51,7 +51,7 @@ p ifndef:s=NoScripts ?
 %f _DoSpell
 //#UC START# *4B2A19E3038Bfor4F2C15C90252*
 //	%S%f_set_implement_select_type(include)\
-	%f_warning(%SN)\
+//	%f_warning(%SN)\
 
 	[{%S{noRegistrator}!=true}\
 	[{"%S{no class name}"="true"|"%S{no_pop}"="true"}\
@@ -61,7 +61,7 @@ p ifndef:s=NoScripts ?
 
 	%f_SpellScriptFramework(%S)\
 
-	[{"%{TypeInfoExt}N"=""}%f_warning(%SN)%f_find_element(55153C2C036F,TypeInfoExt)]\
+	[{"%{TypeInfoExt}N"=""}%f_find_element(55153C2C036F,TypeInfoExt)]\
 	%f_addCDep(%S,%{TypeInfoExt})\
 
 	%f_clear_list(PROPS)\
@@ -123,10 +123,11 @@ p ifndef:s=NoScripts ?
 
 	%{PARAMS}<{}{}{%C}\
 
-	%1%f_add_operation(%1U_%CU_RegType,ini,Reg_%CN (),Reg_Instance)\
+	%1%f_add_operation(%1U_%CU_RegType,ini,Reg_Type_%CN (),Reg_Instance)\
 	%{Reg_Instance}%f_set_documentation(Регистрация типа %CN)\
 	%{Reg_Instance}%f_set_abstraction_type(final)\
 	%{Reg_Instance}%f_set_visibility_type(PrivateAccess)\
+	%{Reg_Instance}%f_set_var(SpelledFor,C)\
 
 //	%f_warning(%CN)\
 
@@ -195,7 +196,8 @@ f _SpellWordByOp
 	]\
 	%1N,\
 	Class_Inst)\
-	%1%f_set_var(Class_For_Op,{Class_Inst})\
+	%1%f_set_var(Speller,{Class_Inst})\
+	%{Class_Inst}%f_set_var(SpelledFor,1)\
 
 	%{Class_Inst}%f_set_up(is immediate,%1{is immediate})\
 	%{Class_Inst}%f_set_up(ifdef,%1{ifdef})\
@@ -890,97 +892,6 @@ r {%SS=Typedef}: {%t_PushSig(%G)}
 r {""=""}: {"Не знаем как положить на стек : %f_pas_TypeName(%S)"}
 //#UC END# *4B2A19E3038Bfor4F2C15C90252*
 
-// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Генератор файлов форм (.dfm)
-+ dfm
-R  
-//#UC START# *49F5795900ECfor4F2C15C90252*
-//#UC END# *49F5795900ECfor4F2C15C90252*
-
-// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-+ intf2.pas
-R  
-//#UC START# *477398E501C0for4F2C15C90252*
-//#UC END# *477398E501C0for4F2C15C90252*
-
-// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// 3-я секция интерфейса. Например поле для свойства.
-+ intf3.pas
-R  
-//#UC START# *4774D2A20372for4F2C15C90252*
-//#UC END# *4774D2A20372for4F2C15C90252*
-
-// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Ресурсы (.rc)
-+ rc.pas
-R  
-//#UC START# *55B8D28B0157for4F2C15C90252*
-O [{%S{needs script}=true}%f_pas_FileName(%S).rc]
-	%f_OutScriptRC(%S)
-//#UC END# *55B8D28B0157for4F2C15C90252*
-
-// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Скрипты в ресурсах (.rc.script)
-+ rc.script.pas
-R  
-//#UC START# *55B8D2F80145for4F2C15C90252*
-O [{%S{needs script}=true}%f_pas_FileName(%S).rc.script]
-	%f_OutScriptFrameWork(%S)
-
-f _CutPrefixBeforeUnder
-	%SN
-//	%f_set_var(POS,"%f_string_find(%SN,_)")[{%{POS}N!=-1}{%SN}%f_cut_prefix(%SN,%f_substr_from_begin(%SN,%{POS}N)_)]
-
-f _CanonicName
-	pop:%t_SelfName(%S):%f_CutPrefixBeforeUnder(%f_cut_prefix(%f_cut_prefix(%1N,pop_),%f_to_lower(%t_SelfName(%S))_))
-
-f _OutWordAlias
-	[{"%S{no class name}"="true"|"%S{no_pop}"="true"|"%t_SelfName(%1)"="SV"}\
-
-	%U[{man_uses}\n]\n
-
-	[{"%S{no class name}"!="true"&"%t_SelfName(%1)"!="SV"}\
-	USES
-	 axiom:%t_SelfName(%1)
-	;
-	
-	]\
-	// Класс %1N - %t_SelfName(%1)
-
-	<{}{%C#f_IsKeyword()=true}\
-	//  Операция %CN [- %C{NameForScript}]
-	//  Класс реализующий операцию %C%{Class_For_Op}N - %f_loc_GetNameForScript(%C%{Class_For_Op})
-	[{"%f_CanonicName(%1,%C)"!="%f_loc_GetNameForScript(%C%{Class_For_Op})"}\
-	WordAlias %f_CanonicName(%1,%C) %f_loc_GetNameForScript(%C%{Class_For_Op})
-	]\
-	>\
-
-	\n\
-	]
-
-%f _OutScriptFrameWorkAliases
-//	%S#[inherited]\
-//	%f_warning(%SN)\
-
-	<{}{%t_isAcceptableForScripts(%G)=true}\
-	%f_OutWordAlias(%S,%G,"true")\
-	>\
-
-	<{}{%t_isAcceptableForScripts(%R)=true}\
-	%f_OutWordAlias(%S,%R,"false")\
-	>
-//#UC END# *55B8D2F80145for4F2C15C90252*
-
-// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Компилятор ресурса (.res.cmd)
-+ res.cmd.pas
-R  
-//#UC START# *55B8DD9C0301for4F2C15C90252*
-O [{%S{needs script}=true}%f_pas_FileName(%S).res.cmd]
-	%f_OutScriptCompiler(%S)
-//#UC END# *55B8DD9C0301for4F2C15C90252*
-
 // реализация абстрактного стереотипа Java::MDAGenerator
 // генератор реализации фабрик интерфейсов на java (.java)
 + fctr.java
@@ -999,42 +910,6 @@ O [{%S{needs script}=true}%f_pas_FileName(%S).res.cmd]
 + fctr.java
 //#UC START# *470321C1038Afor54D4A61F00BA*
 //#UC END# *470321C1038Afor54D4A61F00BA*
-
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-+ intf2.pas
-R  
-//#UC START# *477398E501C0for54D4A61F00BA*
-//#UC END# *477398E501C0for54D4A61F00BA*
-
-// 3-я секция интерфейса. Например поле для свойства.
-+ intf3.pas
-R  
-//#UC START# *4774D2A20372for54D4A61F00BA*
-//#UC END# *4774D2A20372for54D4A61F00BA*
-
-// Генератор файлов форм (.dfm)
-+ dfm
-R  
-//#UC START# *49F5795900ECfor54D4A61F00BA*
-//#UC END# *49F5795900ECfor54D4A61F00BA*
-
-// Ресурсы (.rc)
-+ rc.pas
-R  
-//#UC START# *55B8D28B0157for54D4A61F00BA*
-//#UC END# *55B8D28B0157for54D4A61F00BA*
-
-// Скрипты в ресурсах (.rc.script)
-+ rc.script.pas
-R  
-//#UC START# *55B8D2F80145for54D4A61F00BA*
-//#UC END# *55B8D2F80145for54D4A61F00BA*
-
-// Компилятор ресурса (.res.cmd)
-+ res.cmd.pas
-R  
-//#UC START# *55B8DD9C0301for54D4A61F00BA*
-//#UC END# *55B8DD9C0301for54D4A61F00BA*
 
 // Генерация модели в MDKnow
 + wiki
@@ -1111,42 +986,6 @@ p mapped:tribool=undefined ?
 //#UC START# *470321C1038Afor54F734BC0087*
 //#UC END# *470321C1038Afor54F734BC0087*
 
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-+ intf2.pas
-R  
-//#UC START# *477398E501C0for54F734BC0087*
-//#UC END# *477398E501C0for54F734BC0087*
-
-// 3-я секция интерфейса. Например поле для свойства.
-+ intf3.pas
-R  
-//#UC START# *4774D2A20372for54F734BC0087*
-//#UC END# *4774D2A20372for54F734BC0087*
-
-// Генератор файлов форм (.dfm)
-+ dfm
-R  
-//#UC START# *49F5795900ECfor54F734BC0087*
-//#UC END# *49F5795900ECfor54F734BC0087*
-
-// Ресурсы (.rc)
-+ rc.pas
-R  
-//#UC START# *55B8D28B0157for54F734BC0087*
-//#UC END# *55B8D28B0157for54F734BC0087*
-
-// Скрипты в ресурсах (.rc.script)
-+ rc.script.pas
-R  
-//#UC START# *55B8D2F80145for54F734BC0087*
-//#UC END# *55B8D2F80145for54F734BC0087*
-
-// Компилятор ресурса (.res.cmd)
-+ res.cmd.pas
-R  
-//#UC START# *55B8DD9C0301for54F734BC0087*
-//#UC END# *55B8DD9C0301for54F734BC0087*
-
 // Родные Delphi интерфейсы (.pas)
 + intf.pas
 R  
@@ -1220,42 +1059,6 @@ p mapped:tribool=undefined ?
 + fctr.java
 //#UC START# *470321C1038Afor54F861670034*
 //#UC END# *470321C1038Afor54F861670034*
-
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-+ intf2.pas
-R  
-//#UC START# *477398E501C0for54F861670034*
-//#UC END# *477398E501C0for54F861670034*
-
-// 3-я секция интерфейса. Например поле для свойства.
-+ intf3.pas
-R  
-//#UC START# *4774D2A20372for54F861670034*
-//#UC END# *4774D2A20372for54F861670034*
-
-// Генератор файлов форм (.dfm)
-+ dfm
-R  
-//#UC START# *49F5795900ECfor54F861670034*
-//#UC END# *49F5795900ECfor54F861670034*
-
-// Ресурсы (.rc)
-+ rc.pas
-R  
-//#UC START# *55B8D28B0157for54F861670034*
-//#UC END# *55B8D28B0157for54F861670034*
-
-// Скрипты в ресурсах (.rc.script)
-+ rc.script.pas
-R  
-//#UC START# *55B8D2F80145for54F861670034*
-//#UC END# *55B8D2F80145for54F861670034*
-
-// Компилятор ресурса (.res.cmd)
-+ res.cmd.pas
-R  
-//#UC START# *55B8DD9C0301for54F861670034*
-//#UC END# *55B8DD9C0301for54F861670034*
 
 // Родные Delphi интерфейсы (.pas)
 + intf.pas
@@ -1350,42 +1153,6 @@ R
 //#UC START# *470F15B800CBfor54FECA940175*
 //#UC END# *470F15B800CBfor54FECA940175*
 
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-+ intf2.pas
-R  
-//#UC START# *477398E501C0for54FECA940175*
-//#UC END# *477398E501C0for54FECA940175*
-
-// 3-я секция интерфейса. Например поле для свойства.
-+ intf3.pas
-R  
-//#UC START# *4774D2A20372for54FECA940175*
-//#UC END# *4774D2A20372for54FECA940175*
-
-// Генератор файлов форм (.dfm)
-+ dfm
-R  
-//#UC START# *49F5795900ECfor54FECA940175*
-//#UC END# *49F5795900ECfor54FECA940175*
-
-// Ресурсы (.rc)
-+ rc.pas
-R  
-//#UC START# *55B8D28B0157for54FECA940175*
-//#UC END# *55B8D28B0157for54FECA940175*
-
-// Скрипты в ресурсах (.rc.script)
-+ rc.script.pas
-R  
-//#UC START# *55B8D2F80145for54FECA940175*
-//#UC END# *55B8D2F80145for54FECA940175*
-
-// Компилятор ресурса (.res.cmd)
-+ res.cmd.pas
-R  
-//#UC START# *55B8DD9C0301for54FECA940175*
-//#UC END# *55B8DD9C0301for54FECA940175*
-
 // Функции стереотипа
 %f _st_space_key
 	SHD
@@ -1439,42 +1206,6 @@ p is immediate:tribool=undefined ?
 + fctr.java
 //#UC START# *470321C1038Afor55115A7D0330*
 //#UC END# *470321C1038Afor55115A7D0330*
-
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-+ intf2.pas
-R  
-//#UC START# *477398E501C0for55115A7D0330*
-//#UC END# *477398E501C0for55115A7D0330*
-
-// 3-я секция интерфейса. Например поле для свойства.
-+ intf3.pas
-R  
-//#UC START# *4774D2A20372for55115A7D0330*
-//#UC END# *4774D2A20372for55115A7D0330*
-
-// Генератор файлов форм (.dfm)
-+ dfm
-R  
-//#UC START# *49F5795900ECfor55115A7D0330*
-//#UC END# *49F5795900ECfor55115A7D0330*
-
-// Ресурсы (.rc)
-+ rc.pas
-R  
-//#UC START# *55B8D28B0157for55115A7D0330*
-//#UC END# *55B8D28B0157for55115A7D0330*
-
-// Скрипты в ресурсах (.rc.script)
-+ rc.script.pas
-R  
-//#UC START# *55B8D2F80145for55115A7D0330*
-//#UC END# *55B8D2F80145for55115A7D0330*
-
-// Компилятор ресурса (.res.cmd)
-+ res.cmd.pas
-R  
-//#UC START# *55B8DD9C0301for55115A7D0330*
-//#UC END# *55B8DD9C0301for55115A7D0330*
 
 // Родные Delphi интерфейсы (.pas)
 + intf.pas

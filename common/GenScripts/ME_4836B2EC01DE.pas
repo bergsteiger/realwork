@@ -1,4 +1,10 @@
-unit k2BaseStackGenerator;
+unit NOT_FINISHED_k2BaseStackGenerator;
+ {* Генераторы тегов со стеком текущего состояния. }
+
+// Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2BaseStackGenerator.pas"
+// Стереотип: "SimpleClass"
+
+{$Include k2Define.inc}
 
 interface
 
@@ -11,7 +17,7 @@ type
  Tk2BaseStackGenerator = class(Tk2TagGenerator)
   {* Генераторы тегов со стеком текущего состояния. }
  end;//Tk2BaseStackGenerator
- 
+
 implementation
 
 uses

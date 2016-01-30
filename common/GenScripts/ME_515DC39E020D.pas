@@ -1,4 +1,9 @@
-unit vtTreeSource;
+unit NOT_FINISHED_vtTreeSource;
+
+// Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtTreeSource.pas"
+// Стереотип: "SimpleClass"
+
+{$Include vtDefine.inc}
 
 interface
 
@@ -9,10 +14,10 @@ uses
 type
  TvtCustomTreeSource = class
  end;//TvtCustomTreeSource
- 
+
  TvtTreeSource = class
  end;//TvtTreeSource
- 
+
 implementation
 
 uses

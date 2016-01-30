@@ -1,5 +1,8 @@
 unit Spin;
 
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Samples\Spin.pas"
+// Стереотип: "UtilityPack"
+
 interface
 
 uses

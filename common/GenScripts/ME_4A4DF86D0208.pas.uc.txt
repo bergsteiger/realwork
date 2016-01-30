@@ -1,0 +1,47 @@
+//#UC START# *48089F3701B4_4A4DF86D0208_impl*
+  inherited;
+  with f_ParamList do
+  begin
+    Add( ParamType.Create('max_entered', 'Максимальное количество вошедших', '1') );
+    Add( ParamType.Create('timeout', 'Максимальное время ожидания', '-1') );
+    Add( ParamType.Create('path_to_file', 'Путь к файлу') );
+  end;
+//#UC END# *48089F3701B4_4A4DF86D0208_impl*
+//#UC START# *48089F3701B4_4A4DF86D0208_var*
+//#UC END# *48089F3701B4_4A4DF86D0208_var*
+//#UC START# *48089F460352_4A4DF86D0208_impl*
+  inherited;
+  l_PathToFile := Parameters['path_to_file'].AsStr;
+  l_MaxEntered := Parameters['max_entered'].AsInt;
+  l_Timeout := Parameters['timeout'].AsInt;
+  //
+  l_TFBS := TatFileBasedSemaphore.Create(l_PathToFile, l_MaxEntered);
+  try
+    Logger.Info('Ждем входа в секцию защищеную семафором');
+    if l_TFBS.Enter(l_Timeout) then
+    begin
+      Logger.Info('Вошли в секцию, защищеную семафором');
+      try
+        inherited ExecuteChilds;
+      finally
+        l_TFBS.Leave();
+        Logger.Info('Покинули секцию, защищеную семафором');
+      end;
+    end
+    else
+      Logger.Info('Не удалось войти в защищеную секцию в течение %d мс', [l_Timeout]);
+  finally
+    FreeAndNil(l_TFBS);
+  end;
+//#UC END# *48089F460352_4A4DF86D0208_impl*
+//#UC START# *48089F460352_4A4DF86D0208_var*
+  var
+    l_PathToFile : String;
+    l_MaxEntered, l_Timeout : Integer;
+    l_TFBS : TatFileBasedSemaphore;
+//#UC END# *48089F460352_4A4DF86D0208_var*
+//#UC START# *48089F660238_4A4DF86D0208_impl*
+  // дети явно выполняются в ExecuteSelf
+//#UC END# *48089F660238_4A4DF86D0208_impl*
+//#UC START# *48089F660238_4A4DF86D0208_var*
+//#UC END# *48089F660238_4A4DF86D0208_var*

@@ -1,0 +1,51 @@
+//#UC START# *479731C50290_49BE68B201D1_impl*
+ f_Inner := nil;
+ inherited;
+//#UC END# *479731C50290_49BE68B201D1_impl*
+//#UC START# *479731C50290_49BE68B201D1_var*
+//#UC END# *479731C50290_49BE68B201D1_var*
+//#UC START# *49BE656C006E_49BE68B201D1_impl*
+ OleCheck(f_Inner.Read(@Buffer, Count, @Result));
+//#UC END# *49BE656C006E_49BE68B201D1_impl*
+//#UC START# *49BE656C006E_49BE68B201D1_var*
+//#UC END# *49BE656C006E_49BE68B201D1_var*
+//#UC START# *49BE658C0261_49BE68B201D1_impl*
+ OleCheck(f_Inner.Write(@Buffer, Count, @Result));
+//#UC END# *49BE658C0261_49BE68B201D1_impl*
+//#UC START# *49BE658C0261_49BE68B201D1_var*
+//#UC END# *49BE658C0261_49BE68B201D1_var*
+//#UC START# *49BE65E80020_49BE68B201D1_impl*
+ OleCheck(f_Inner.Seek(Offset, ConvertOrigin, Result));
+//#UC END# *49BE65E80020_49BE68B201D1_impl*
+//#UC START# *49BE65E80020_49BE68B201D1_var*
+
+ function ConvertOrigin: Integer;
+ begin
+  Case Origin of
+   soBeginning:
+    Result := STREAM_SEEK_SET;
+   soCurrent:
+    Result := STREAM_SEEK_CUR;
+   soEnd:
+    Result := STREAM_SEEK_END;
+   else
+   begin
+    Result := -1;
+    Assert(false);
+   end;//else
+  end;//Case Origin
+ end;
+
+//#UC END# *49BE65E80020_49BE68B201D1_var*
+//#UC START# *49BE699000B0_49BE68B201D1_impl*
+ Assert(aStream <> nil);
+ inherited Create;
+ f_Inner := aStream;
+//#UC END# *49BE699000B0_49BE68B201D1_impl*
+//#UC START# *49BE699000B0_49BE68B201D1_var*
+//#UC END# *49BE699000B0_49BE68B201D1_var*
+//#UC START# *49C0DA3F015D_49BE68B201D1_impl*
+ f_Inner := nil;
+//#UC END# *49C0DA3F015D_49BE68B201D1_impl*
+//#UC START# *49C0DA3F015D_49BE68B201D1_var*
+//#UC END# *49C0DA3F015D_49BE68B201D1_var*

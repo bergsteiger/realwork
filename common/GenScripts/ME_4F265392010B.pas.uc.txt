@@ -1,0 +1,49 @@
+//#UC START# *479731C50290_4F265392010B_impl*
+ f_Editor := nil;
+ inherited;
+//#UC END# *479731C50290_4F265392010B_impl*
+//#UC START# *479731C50290_4F265392010B_var*
+//#UC END# *479731C50290_4F265392010B_var*
+//#UC START# *4C3C927B027E_4F265392010B_impl*
+ l_DeltaX := f_Point.DeltaX(f_Editor.View, f_Editor.View.RootMap);
+ Result := l3Point(l_DeltaX, aMap.Bounds.Bottom);
+//#UC END# *4C3C927B027E_4F265392010B_impl*
+//#UC START# *4C3C927B027E_4F265392010B_var*
+var
+ l_DeltaX: Integer;
+//#UC END# *4C3C927B027E_4F265392010B_var*
+//#UC START# *4F4CB81200CA_4F265392010B_impl*
+ f_Editor := anEditor;
+ 
+ try
+  l_Op := f_Editor.StartOp(ev_msgMove);
+  try
+   f_Point := f_Editor.Selection.Cursor.ClonePoint(f_Editor.View);
+   f_Point.MostInner.Move(f_Editor.View, ev_ocBottomRight, l_Op);
+  finally
+   l_Op := nil;
+  end;
+
+  l_EditorCorner := f_Editor.ClientToScreen(Point(0, 0));
+
+  l_l3Pt := TranslatePara2Point(f_Editor);
+  with TPoint(TnevControlFriend(f_Editor).LP2DP(l_l3Pt)) do
+  begin
+   aCtx.rEngine.PushInt(l_EditorCorner.X + X);
+   aCtx.rEngine.PushInt(l_EditorCorner.Y + Y);
+  end;
+ finally
+  f_Point := nil;
+ end;
+//#UC END# *4F4CB81200CA_4F265392010B_impl*
+//#UC START# *4F4CB81200CA_4F265392010B_var*
+var
+ l_l3Pt: Tl3Point;
+ l_EditorCorner: TPoint;
+ 
+ l_Map: InevMap;
+ l_Para: InevPara;
+ l_Op: InevOp;
+ 
+ l_Indent, l_DeltaX: Integer;
+//#UC END# *4F4CB81200CA_4F265392010B_var*

@@ -1,7 +1,13 @@
-unit evStandardActions;
+unit NOT_FINISHED_evStandardActions;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evStandardActions.pas"
+// Стереотип: "UtilityPack"
+
+{$Include evDefine.inc}
 
 interface
 
+{$If Defined(evNeedDisp)}
 uses
  l3IntfUses
 ;
@@ -9,11 +15,14 @@ uses
 type
  TevOperation = (
  );//TevOperation
- 
+{$IfEnd} // Defined(evNeedDisp)
+
 implementation
 
+{$If Defined(evNeedDisp)}
 uses
  l3ImplUses
 ;
+{$IfEnd} // Defined(evNeedDisp)
 
 end.

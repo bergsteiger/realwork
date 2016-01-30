@@ -1,0 +1,55 @@
+//#UC START# *479731C50290_5411C42800B8_impl*
+ try
+  FreeAndNil(f_RootStreamManager);
+ finally
+  try
+   FreeAndNil(f_Name);
+  finally
+   try
+    inherited;
+   finally
+    FreeAndNil(f_HeaderData);
+   end;//try..finally 
+  end;//try..finally
+ end;//try..finally
+//#UC END# *479731C50290_5411C42800B8_impl*
+//#UC START# *479731C50290_5411C42800B8_var*
+//#UC END# *479731C50290_5411C42800B8_var*
+//#UC START# *5411C49E0248_5411C42800B8get_impl*
+ Result := Self.HeaderData.RTOCItemListPosition;
+//#UC END# *5411C49E0248_5411C42800B8get_impl*
+//#UC START# *5411C49E0248_5411C42800B8get_var*
+//#UC END# *5411C49E0248_5411C42800B8get_var*
+//#UC START# *5411C49E0248_5411C42800B8set_impl*
+ Self.HeaderData.RTOCItemListPosition := aValue;
+//#UC END# *5411C49E0248_5411C42800B8set_impl*
+//#UC START# *5411C49E0248_5411C42800B8set_var*
+//#UC END# *5411C49E0248_5411C42800B8set_var*
+//#UC START# *5411C4EB00A3_5411C42800B8_impl*
+ Assert(aData <> nil);
+ Assert(aRootStreamManager <> nil);
+ inherited Create;
+ aName.SetRefTo(f_Name);
+ aData.SetRefTo(f_HeaderData);
+ aRootStreamManager.SetRefTo(f_RootStreamManager);
+//#UC END# *5411C4EB00A3_5411C42800B8_impl*
+//#UC START# *5411C4EB00A3_5411C42800B8_var*
+//#UC END# *5411C4EB00A3_5411C42800B8_var*
+//#UC START# *54183548003F_5411C42800B8_impl*
+ Assert((anAccess = m3_saRead) OR (anAccess = m3_saReadWrite) OR
+        (anAccess = STGM_READ) OR (anAccess = STGM_READWRITE));
+ Assert(aRootStreamManager <> nil);
+ l_Data := aRootStreamManager.StoreHeaderDataClass.Create(aRootStreamManager,
+                                                          ATOCItemDataPosition,
+                                                          (anAccess AND (STGM_WRITE OR STGM_READWRITE) = 0),
+                                                          aName);
+ try
+  Result := CreatePrim(aName, aRootStreamManager, l_Data);
+ finally
+  FreeAndNil(l_Data);
+ end;//try..finally
+//#UC END# *54183548003F_5411C42800B8_impl*
+//#UC START# *54183548003F_5411C42800B8_var*
+var
+ l_Data : Tm3StoreHeaderDataPrim;
+//#UC END# *54183548003F_5411C42800B8_var*

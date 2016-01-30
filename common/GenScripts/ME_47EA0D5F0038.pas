@@ -1,10 +1,18 @@
 unit afwConsts;
 
+// Модуль: "w:\common\components\gui\Garant\AFW\afwConsts.pas"
+// Стереотип: "UtilityPack"
+
+{$Include afwDefine.inc}
+
 interface
 
 uses
  l3IntfUses
 ;
+
+var g_afwPathSep: PAnsiChar = '/';
+ {* разделитель, используется при формировании пути сохранения в настройки. }
 
 implementation
 

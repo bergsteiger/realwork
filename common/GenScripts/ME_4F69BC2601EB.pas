@@ -1,7 +1,13 @@
 unit kwVcmDispatcherEndOp;
 
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmDispatcherEndOp.pas"
+// Стереотип: "ScriptKeyword"
+
+{$Include vcmDefine.inc}
+
 interface
 
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
  l3IntfUses
  , tfwRegisterableWord
@@ -9,19 +15,48 @@ uses
 ;
 
 type
- TkwVcmDispatcherEndOp = class(TtfwRegisterableWord)
-  procedure DoDoIt(const aCtx: TtfwContext);
+ _VCMWord_Parent_ = TtfwRegisterableWord;
+ {$Include VCMWord.imp.pas}
+ TkwVcmDispatcherEndOp = {final} class(_VCMWord_)
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
  end;//TkwVcmDispatcherEndOp
- 
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
+
 implementation
 
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
  , vcmForm
+ {$If NOT Defined(NoVCL)}
  , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  , StdRes
  , vcmBase
  , afwAnswer
 ;
+
+{$Include VCMWord.imp.pas}
+
+procedure TkwVcmDispatcherEndOp.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_4F69BC2601EB_var*
+//#UC END# *4DAEEDE10285_4F69BC2601EB_var*
+begin
+//#UC START# *4DAEEDE10285_4F69BC2601EB_impl*
+ vcmDispatcher.EndOp;
+//#UC END# *4DAEEDE10285_4F69BC2601EB_impl*
+end;//TkwVcmDispatcherEndOp.DoDoIt
+
+class function TkwVcmDispatcherEndOp.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'vcm:Dispatcher:EndOp';
+end;//TkwVcmDispatcherEndOp.GetWordNameForRegister
+
+initialization
+ TkwVcmDispatcherEndOp.RegisterInEngine;
+ {* Регистрация vcm_Dispatcher_EndOp }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 end.

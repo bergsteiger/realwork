@@ -1,2 +1,2 @@
-MakeCo TkwMain.rc.script
-brcc32 TkwMain.rc
+MakeCo kwMain.rc.script
+brcc32 kwMain.rc

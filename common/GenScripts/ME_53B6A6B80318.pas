@@ -1,5 +1,10 @@
 unit RunCommandTask_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\RunCommandTask_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -8,7 +13,7 @@ uses
 ;
 
  // RunCommandTaskTag
- 
+
 implementation
 
 uses

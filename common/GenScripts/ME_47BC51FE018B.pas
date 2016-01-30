@@ -1,4 +1,9 @@
-unit dt_Types;
+unit NOT_FINISHED_dt_Types;
+
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dt_Types.pas"
+// Стереотип: "Interfaces"
+
+{$Include ddDefine.inc}
 
 interface
 
@@ -8,13 +13,28 @@ uses
  , l3Types
 ;
 
+const
+ {* Алиасы для значений evdDTTypes.TepDivideBy }
+ divNone = evdDTTypes.divNone;
+ divTopic = evdDTTypes.divTopic;
+ divAccRight = evdDTTypes.divAccRight;
+ divSize = evdDTTypes.divSize;
+ {* Алиасы для значений evdDTTypes.TepSupportFileType }
+ outEVD = evdDTTypes.outEVD;
+ outEVDtext = evdDTTypes.outEVDtext;
+ outTXT = evdDTTypes.outTXT;
+ outNSRC = evdDTTypes.outNSRC;
+ outRTF = evdDTTypes.outRTF;
+ outHTML = evdDTTypes.outHTML;
+ outXML = evdDTTypes.outXML;
+
 type
  TDictID = LongWord;
- 
+
  TDocID = LongInt;
- 
+
  TSubID = LongInt;
- 
+
  TDocType = (
   {* Внутренние типы документов }
   dtNone
@@ -26,12 +46,12 @@ type
   , dtAnnotation
   , dtFlash
  );//TDocType
- 
+
  TFamilyID = Word;
- 
+
  TDiapasonRec = record
  end;//TDiapasonRec
- 
+
  TddPipeInputFileType = (
   dd_itAutoDetect
   , dd_itGarant
@@ -43,7 +63,7 @@ type
   , dd_itKT
   , dd_itUnknown
  );//TddPipeInputFileType
- 
+
  TUserType = (
   utNone
   , utDoc
@@ -60,7 +80,7 @@ type
   , utAAK_Cont
   , utAAK_Doc
  );//TUserType
- 
+
  TDiapType = (
   tdNone
   , tdSingle
@@ -69,24 +89,24 @@ type
   , tdSearch
   , tdNumList
  );//TDiapType
- 
+
  TUserID = LongWord;
- 
+
  TepSupportFileType = evdDTTypes.TepSupportFileType;
- 
+
  TepDivideBy = evdDTTypes.TepDivideBy;
- 
+
  TPathRec = record
  end;//TPathRec
- 
+
  TPathStr = Tl3PathStr;
- 
+
  TOpenMode = record
  end;//TOpenMode
- 
+
  TOperActionType = (
  );//TOperActionType
- 
+
 implementation
 
 uses

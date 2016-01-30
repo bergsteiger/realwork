@@ -1,5 +1,10 @@
 unit RequestTask_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\RequestTask_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -8,7 +13,7 @@ uses
 ;
 
  // RequestTaskTag
- 
+
 implementation
 
 uses

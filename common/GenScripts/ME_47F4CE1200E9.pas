@@ -1,17 +1,32 @@
 unit nevAnchorList;
 
+// Модуль: "w:\common\components\gui\Garant\Everest\new\nevAnchorList.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
+
 interface
 
 uses
  l3IntfUses
  , l3ProtoDataContainer
  , nevTools
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
 ;
 
 type
+ _ItemType_ = InevAnchor;
+ _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
+ {$Define l3Items_IsProto}
+ {$Include l3InterfaceRefList.imp.pas}
  TnevAnchorList = class(_l3InterfaceRefList_)
  end;//TnevAnchorList
- 
+
 implementation
 
 uses
@@ -21,5 +36,9 @@ uses
  , RTLConsts
  , SysUtils
 ;
+
+type _Instance_R_ = TnevAnchorList;
+
+{$Include l3InterfaceRefList.imp.pas}
 
 end.

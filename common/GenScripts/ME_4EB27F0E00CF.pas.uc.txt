@@ -1,0 +1,16 @@
+//#UC START# *4F4CB81200CA_4EB27F0E00CF_impl*
+ if anEditor.TextSource.DocumentContainer.FindObjByID(aCtx.rEngine.PopInt, l_O) then
+ begin
+  if not l_O.AsObject.QT(InevPara, l_P) then
+   RunnerError('', aCtx);
+  aCtx.rEngine.PushIntf(l_P, TypeInfo(InevPara));
+  aCtx.rEngine.PushBool(true);
+ end//anEditor.TextSource.DocumentContainer.FindObjByID(anID, l_O)
+ else
+  aCtx.rEngine.PushBool(false);
+//#UC END# *4F4CB81200CA_4EB27F0E00CF_impl*
+//#UC START# *4F4CB81200CA_4EB27F0E00CF_var*
+var
+ l_O : InevObject;
+ l_P : InevPara;
+//#UC END# *4F4CB81200CA_4EB27F0E00CF_var*

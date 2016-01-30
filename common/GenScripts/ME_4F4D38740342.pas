@@ -1,5 +1,10 @@
 unit tfwCStringArraySing;
 
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwCStringArraySing.pas"
+// Стереотип: "SimpleClass"
+
+{$Include seDefine.inc}
+
 interface
 
 uses
@@ -9,14 +14,45 @@ uses
 
 type
  TtfwCStringArraySing = class(TtfwCStringArray)
-  function Exists: Boolean;
-   {* Проверяет создан экземпляр синглетона или нет }
+  public
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+   class function Instance: TtfwCStringArraySing;
+    {* Метод получения экземпляра синглетона TtfwCStringArraySing }
  end;//TtfwCStringArraySing
- 
+
 implementation
 
 uses
  l3ImplUses
+ , SysUtils
+ , l3Base
 ;
+
+var g_TtfwCStringArraySing: TtfwCStringArraySing = nil;
+ {* Экземпляр синглетона TtfwCStringArraySing }
+
+procedure TtfwCStringArraySingFree;
+ {* Метод освобождения экземпляра синглетона TtfwCStringArraySing }
+begin
+ l3Free(g_TtfwCStringArraySing);
+end;//TtfwCStringArraySingFree
+
+class function TtfwCStringArraySing.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TtfwCStringArraySing <> nil;
+end;//TtfwCStringArraySing.Exists
+
+class function TtfwCStringArraySing.Instance: TtfwCStringArraySing;
+ {* Метод получения экземпляра синглетона TtfwCStringArraySing }
+begin
+ if (g_TtfwCStringArraySing = nil) then
+ begin
+  l3System.AddExitProc(TtfwCStringArraySingFree);
+  g_TtfwCStringArraySing := Create;
+ end;
+ Result := g_TtfwCStringArraySing;
+end;//TtfwCStringArraySing.Instance
 
 end.

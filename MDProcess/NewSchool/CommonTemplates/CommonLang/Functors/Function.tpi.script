@@ -205,46 +205,6 @@ implementation @ <<Function>>
 ; // intf.pas
 
 
-// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-//+ intf2.pas
-<<generator>> intf2.pas OBJECT IN %S
-//R  
-//#UC START# *477398E501C0for47679DF1032E*
-//#UC END# *477398E501C0for47679DF1032E*
-; // intf2.pas
-
-
-// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Ресурсы (.rc)
-//+ rc.pas
-<<generator>> rc.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D28B0157for47679DF1032E*
-//#UC END# *55B8D28B0157for47679DF1032E*
-; // rc.pas
-
-
-// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Скрипты в ресурсах (.rc.script)
-//+ rc.script.pas
-<<generator>> rc.script.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D2F80145for47679DF1032E*
-//#UC END# *55B8D2F80145for47679DF1032E*
-; // rc.script.pas
-
-
-// реализация абстрактного стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Компилятор ресурса (.res.cmd)
-//+ res.cmd.pas
-<<generator>> res.cmd.pas OBJECT IN %S
-//R  
-//#UC START# *55B8DD9C0301for47679DF1032E*
-//#UC END# *55B8DD9C0301for47679DF1032E*
-; // res.cmd.pas
-
-
 // реализация абстрактного стереотипа Документация::MDAGenerator
 // Генерация модели в MDKnow
 //+ wiki
@@ -342,40 +302,75 @@ implementation @ :: <<Function>> <<Operation>> ;
 ; // impl.pas
 
 
-// Вторая интерфейсная секция стереотипа. Например реализация свойств класса.
-//+ intf2.pas
-<<generator>> intf2.pas OBJECT IN %S
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+
+// Вложенные стереотипы
+//: Function::Class::Operation::Parameter
+; // st_space_key
+
+end. // :: <<Function>> <<Operation>> ;
+
+implementation @ :: <<Function>> <<Operation>> ;
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+//Y code_param.gif
+//L code_param
+
+// Генераторы
+// Генерация модели в MDKnow
+//+ wiki
+<<generator>> wiki OBJECT IN %S
+//#UC START# *46E6D4BB0339for566B0D8302CB*
+//#UC END# *46E6D4BB0339for566B0D8302CB*
+; // wiki
+
+
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor566B0D8302CB*
+//#UC END# *47022C88029Ffor566B0D8302CB*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor566B0D8302CB*
+//#UC END# *47022CB8034Bfor566B0D8302CB*
+; // cpp
+
+
+// генератор inline файлов реализации C++ (.i.h)
+//+ i.h
+<<generator>> i.h OBJECT IN %S
+//#UC START# *47022CCF00EAfor566B0D8302CB*
+//#UC END# *47022CCF00EAfor566B0D8302CB*
+; // i.h
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
 //R  
-//#UC START# *477398E501C0for47679E8A0154*
-//#UC END# *477398E501C0for47679E8A0154*
-; // intf2.pas
+//#UC START# *470F1571031Cfor566B0D8302CB*
+//#UC END# *470F1571031Cfor566B0D8302CB*
+; // intf.pas
 
 
-// Ресурсы (.rc)
-//+ rc.pas
-<<generator>> rc.pas OBJECT IN %S
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
 //R  
-//#UC START# *55B8D28B0157for47679E8A0154*
-//#UC END# *55B8D28B0157for47679E8A0154*
-; // rc.pas
-
-
-// Скрипты в ресурсах (.rc.script)
-//+ rc.script.pas
-<<generator>> rc.script.pas OBJECT IN %S
-//R  
-//#UC START# *55B8D2F80145for47679E8A0154*
-//#UC END# *55B8D2F80145for47679E8A0154*
-; // rc.script.pas
-
-
-// Компилятор ресурса (.res.cmd)
-//+ res.cmd.pas
-<<generator>> res.cmd.pas OBJECT IN %S
-//R  
-//#UC START# *55B8DD9C0301for47679E8A0154*
-//#UC END# *55B8DD9C0301for47679E8A0154*
-; // res.cmd.pas
+//#UC START# *470F15B800CBfor566B0D8302CB*
+//#UC END# *470F15B800CBfor566B0D8302CB*
+; // impl.pas
 
 
 // Функции стереотипа
@@ -385,10 +380,43 @@ implementation @ :: <<Function>> <<Operation>> ;
  'MDP'
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for566B0D8302CB*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for566B0D8302CB*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor566B0D8302CB*
+//#UC END# *4705CBD6003Efor566B0D8302CB*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// вывод описание авто-генерируемых методов в wiki
+//%f _wiki_up_add_gen
+: wiki_up_add_gen OBJECT IN %S
+//#UC START# *470484D50138for566B0D8302CB*
+//#UC END# *470484D50138for566B0D8302CB*
+; // wiki_up_add_gen
+
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-; // st_space_key
 
 end. // :: <<Function>> <<Operation>> ;
 

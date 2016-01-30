@@ -1,4 +1,10 @@
-unit l3LineArray;
+unit NOT_FINISHED_l3LineArray;
+ {* Информация о нарезке на строки. }
+
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3LineArray.pas"
+// Стереотип: "UtilityPack"
+
+{$Include l3Define.inc}
 
 interface
 
@@ -9,12 +15,12 @@ uses
 type
  TevLineArray = class
  end;//TevLineArray
- 
- TevLineInfo = record
+
+ TevLineInfo = packed record
  end;//TevLineInfo
- 
+
  PevLineInfo = ^TevLineInfo;
- 
+
 implementation
 
 uses

@@ -1,0 +1,45 @@
+//#UC START# *4B1D107F02EB_492FF76202CA_impl*
+ l_Class := TSetClass(ClassType).CreateClonned(aNewList, f_OpenFrom,
+   TimeMachineOff, WhatDoingIfOneDoc, aNodeForPositioning, SearchInfo);
+ try
+  l_Class.AssignClonned(Self);
+  Result := l_Class;
+ finally
+  FreeAndNil(l_Class);
+ end;
+//#UC END# *4B1D107F02EB_492FF76202CA_impl*
+//#UC START# *4B1D107F02EB_492FF76202CA_var*
+var
+ l_Class : TdeDocumentList;
+
+type
+ TSetClass = class of TdeDocumentList;
+//#UC END# *4B1D107F02EB_492FF76202CA_var*
+//#UC START# *4B1D10CB029F_492FF76202CAget_impl*
+ Result := f_OpenFrom;
+//#UC END# *4B1D10CB029F_492FF76202CAget_impl*
+//#UC START# *4B1D10CB029F_492FF76202CAget_var*
+//#UC END# *4B1D10CB029F_492FF76202CAget_var*
+//#UC START# *4B1F7A850082_492FF76202CA_impl*
+ Create(aList, aOpenFrom, aTimeMachineOff,
+   aWhatDoingIfOneDoc, aNodeForPositioning, aSearchInfo, pm_GetAllDocumentsFiltered, True);
+//#UC END# *4B1F7A850082_492FF76202CA_impl*
+//#UC START# *4B1F7A850082_492FF76202CA_var*
+//#UC END# *4B1F7A850082_492FF76202CA_var*
+//#UC START# *4B1F7AE80158_492FF76202CA_impl*
+ // - ничего не делаем
+//#UC END# *4B1F7AE80158_492FF76202CA_impl*
+//#UC START# *4B1F7AE80158_492FF76202CA_var*
+//#UC END# *4B1F7AE80158_492FF76202CA_var*
+//#UC START# *4B1F7AFB00BF_492FF76202CA_impl*
+ inherited Create(aList,
+                  aTimeMachineOff,
+                  aWhatDoingIfOneDoc,
+                  aNodeForPositioning,
+                  aSearchInfo,
+                  aAllDocumentsFiltered,
+                  aNeedApplyPermanentFilters);
+ f_OpenFrom := aOpenFrom;
+//#UC END# *4B1F7AFB00BF_492FF76202CA_impl*
+//#UC START# *4B1F7AFB00BF_492FF76202CA_var*
+//#UC END# *4B1F7AFB00BF_492FF76202CA_var*

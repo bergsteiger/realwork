@@ -1,4 +1,10 @@
 unit TagBody_Const;
+ {* Тело тега }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\TagBody_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -8,7 +14,7 @@ uses
 ;
 
  // TagBodyTag
- 
+
 implementation
 
 uses

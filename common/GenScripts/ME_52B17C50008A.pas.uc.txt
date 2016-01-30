@@ -1,0 +1,11 @@
+//#UC START# *4F4CB81200CA_52B17C50008A_impl*
+ if aCtx.rEngine.IsTopInt then
+  l_StyleID := aCtx.rEngine.PopInt
+ else
+  Assert(False, 'Не задан стиль для установки!');
+ aCtx.rCaller.Check(evSetTableStyle(anEditor), 'Не удалось поставить стиль на таблицу!');
+//#UC END# *4F4CB81200CA_52B17C50008A_impl*
+//#UC START# *4F4CB81200CA_52B17C50008A_var*
+var
+ l_StyleID: Integer;
+//#UC END# *4F4CB81200CA_52B17C50008A_var*

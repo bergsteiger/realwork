@@ -1,0 +1,47 @@
+//#UC START# *4AA11A2E0144_4AA0D5380056_impl*
+ OpenTipsPrim(TsdsTips.Make(aDocInfo), aContainer);
+//#UC END# *4AA11A2E0144_4AA0D5380056_impl*
+//#UC START# *4AA11A2E0144_4AA0D5380056_var*
+//#UC END# *4AA11A2E0144_4AA0D5380056_var*
+//#UC START# *4AA52EC603DC_4AA0D5380056_impl*
+ Tfs_Tips.Make(aSDS, aContainer);
+//#UC END# *4AA52EC603DC_4AA0D5380056_impl*
+//#UC START# *4AA52EC603DC_4AA0D5380056_var*
+//#UC END# *4AA52EC603DC_4AA0D5380056_var*
+//#UC START# *4AB9DAAC00AC_4AA0D5380056_impl*
+ l_Data := TnsStartupTips.Make;
+ if Assigned(l_Data) then
+  Result := TefStartupTips.MakeSingleChild(l_Data,
+                                 CheckContainer(nil),
+                                 vcm_ztFloating)
+ else
+  Result := nil;
+//#UC END# *4AB9DAAC00AC_4AA0D5380056_impl*
+//#UC START# *4AB9DAAC00AC_4AA0D5380056_var*
+//#UC END# *4AB9DAAC00AC_4AA0D5380056_var*
+//#UC START# *4AB9DBA1038E_4AA0D5380056exec_impl*
+ Assert(((aParams As IvcmExecuteParams).Data = nil),
+        'Пользуйтесь фабрикой OpenTipsPrim');
+(* if Supports(aParams.Data, IsdsCommonDiction, l_SDS) AND (l_SDS <> nil) then
+  OpenTipsPrim(l_SDS, aParams.Container)
+ else*)
+ if {(l_SDS = nil) AND} not lp_HasTipsForm {or Assigned(l_SDS)} then
+  OpenTip(nil, CheckContainer(nil));
+//#UC END# *4AB9DBA1038E_4AA0D5380056exec_impl*
+//#UC START# *4AB9DBA1038E_4AA0D5380056exec_var*
+
+ function lp_HasTipsForm: Boolean;
+ begin
+  Result := CheckContainer(nil).HasForm(fm_en_CommonDiction.rFormID,
+                                        vcm_ztNavigator,
+                                        True,
+                                        nil,
+                                        Ord(utTips));
+ end;//lp_HasTipsForm
+
+//#UC END# *4AB9DBA1038E_4AA0D5380056exec_var*
+//#UC START# *4AB9DBA1038E_4AA0D5380056test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := defDataAdapter.NativeAdapter.MakeTipsManager.IsExist;
+//#UC END# *4AB9DBA1038E_4AA0D5380056test_impl*
+//#UC START# *4AB9DBA1038E_4AA0D5380056test_var*
+//#UC END# *4AB9DBA1038E_4AA0D5380056test_var*

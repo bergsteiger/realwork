@@ -1,4 +1,9 @@
-unit l3Base64;
+unit NOT_FINISHED_l3Base64;
+
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3Base64.pas"
+// Стереотип: "UtilityPack"
+
+{$Include l3Define.inc}
 
 interface
 

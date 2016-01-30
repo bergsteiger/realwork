@@ -1,0 +1,53 @@
+//#UC START# *47B9CA1001D2_47B47E230134_impl*
+ theIndex := 0;
+ Result := false;
+ H := Hi;
+ if (H < 0) then
+  Exit;
+ {$If not defined(l3Items_NoSort)}
+ if (SortIndex = aSortIndex) AND (SortIndex <> l3_siUnsorted) then
+ begin
+  L := 0;
+  while (L <= H) do
+  begin
+   i := (L + H) shr 1;
+   C := CompareItemWithData(_Instance_R_(Self).ItemSlot(i)^, aFindData, aSortIndex, Self);
+   if (C < 0) then
+    L := Succ(i)
+   else
+   begin
+    if (C = 0) then
+    begin
+     Result := true;
+     theIndex := i;
+     H := Pred(i);
+
+    end//C = 0
+    else
+     H := Pred(i);
+
+   end;//C < 0
+  end;//while (L..
+  if not Result then
+   theIndex := L;
+ end//SortIndex = aCompareIndex
+ else
+ {$IfEnd}
+ begin
+  for i := 0 to H do
+  begin
+   C := CompareItemWithData(_Instance_R_(Self).ItemSlot(i)^, aFindData, aSortIndex, Self);
+   if (C >= 0) then
+   begin
+    theIndex := i;
+    Result := (C = 0);
+    if Result then break;
+   end;//C >= 0
+  end;//for i
+ end;//SortIndex = aCompareIndex
+//#UC END# *47B9CA1001D2_47B47E230134_impl*
+//#UC START# *47B9CA1001D2_47B47E230134_var*
+var
+ L, H, i, C: Longint;
+ // H обязательно знаковый!!!!! см. H := Pred(i);
+//#UC END# *47B9CA1001D2_47B47E230134_var*

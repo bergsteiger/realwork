@@ -1,0 +1,16 @@
+//#UC START# *4DAEEDE10285_4DE6299E021A_impl*
+ if aCtx.rEngine.IsTopString then
+  aCtx.rCaller.Check(arOpenByNumberAsString(aCtx.rEngine.PopDelphiString, true))
+ else
+ if aCtx.rEngine.IsTopBool then
+ begin
+  if aCtx.rEngine.PopBool then
+   aCtx.rCaller.Check(arOpenDocumentByNumber(aCtx.rEngine.PopInt, 0, True))
+  else
+   aCtx.rCaller.Check(arOpenDocumentByNumber(aCtx.rEngine.PopInt, 0, False));
+ end//aCtx.rEngine.IsTopBool
+ else
+  aCtx.rCaller.Check(arOpenDocumentByNumber(aCtx.rEngine.PopInt, 0, False));
+//#UC END# *4DAEEDE10285_4DE6299E021A_impl*
+//#UC START# *4DAEEDE10285_4DE6299E021A_var*
+//#UC END# *4DAEEDE10285_4DE6299E021A_var*

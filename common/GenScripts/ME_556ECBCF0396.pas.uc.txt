@@ -1,0 +1,36 @@
+//#UC START# *49E488070386_556ECBCF0396_impl*
+ Result := k2_typHyperlink;
+//#UC END# *49E488070386_556ECBCF0396_impl*
+//#UC START# *49E488070386_556ECBCF0396_var*
+//#UC END# *49E488070386_556ECBCF0396_var*
+//#UC START# *49E48829016F_556ECBCF0396_impl*
+ Result := True;
+ if (aLeaf.PCharLenA[k2_tiURL].SLen = 0) and (aLeaf.ChildrenCount > 0) then
+ begin
+  l_Hyperlink := aLeaf.Child[0];
+  if l_Hyperlink.IsValid then
+  begin
+   l_TID := l_Hyperlink.IntA[k2_tiType];
+   Result := l_TID <> CI_REF;
+  end;//l_Hyperlink.IsValid
+ end;//aLeaf.ChilrenCount > 0
+//#UC END# *49E48829016F_556ECBCF0396_impl*
+//#UC START# *49E48829016F_556ECBCF0396_var*
+var
+ l_TID      : Integer;
+ l_Hyperlink: Tl3Variant;
+//#UC END# *49E48829016F_556ECBCF0396_var*
+//#UC START# *556EEA830002_556ECBCF0396_impl*
+ l_G := Create;
+ try
+  l_G.Generator := theGenerator;
+  theGenerator := l_G;
+ finally
+  FreeAndNil(l_G);
+ end;//try..finally
+ Result := theGenerator;
+//#UC END# *556EEA830002_556ECBCF0396_impl*
+//#UC START# *556EEA830002_556ECBCF0396_var*
+var
+ l_G : Tf1ExternalHyperlinkEliminator;
+//#UC END# *556EEA830002_556ECBCF0396_var*

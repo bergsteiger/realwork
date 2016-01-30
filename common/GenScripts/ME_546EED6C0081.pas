@@ -1,5 +1,10 @@
 unit TaskedFileDesc_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\TaskedFileDesc_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -10,7 +15,7 @@ uses
 ;
 
  // TaskedFileDescTag
- 
+
 implementation
 
 uses

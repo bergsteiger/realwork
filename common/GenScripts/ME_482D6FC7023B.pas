@@ -1,4 +1,9 @@
-unit evTxtReader;
+unit NOT_FINISHED_evTxtReader;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evTxtReader.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -10,7 +15,7 @@ uses
 type
  TevTxtReader = class(TevTextParser)
  end;//TevTxtReader
- 
+
 implementation
 
 uses

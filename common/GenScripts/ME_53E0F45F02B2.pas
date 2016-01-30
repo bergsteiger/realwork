@@ -1,5 +1,8 @@
 unit Gauges;
 
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Samples\Gauges.pas"
+// Стереотип: "UtilityPack"
+
 interface
 
 uses
@@ -9,7 +12,7 @@ uses
 type
  TGauge = class
  end;//TGauge
- 
+
 implementation
 
 uses

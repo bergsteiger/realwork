@@ -1,4 +1,10 @@
 unit Attr_Const;
+ {* Атрибут тега }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\Attr_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -9,7 +15,7 @@ uses
 ;
 
  // AttrTag
- 
+
 implementation
 
 uses

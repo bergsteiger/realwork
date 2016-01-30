@@ -1,0 +1,40 @@
+//#UC START# *17481393F146_B5B73476616C_impl*
+ Result := ((aReminder.PopupForm <> nil) and aReminder.PopupForm.Visible);
+//#UC END# *17481393F146_B5B73476616C_impl*
+//#UC START# *17481393F146_B5B73476616C_var*
+//#UC END# *17481393F146_B5B73476616C_var*
+//#UC START# *2ABDE4AD9F20_0442CDEB32BC_impl*
+ RunnerAssert(aReminder.Owner is TvgRemindersLine, 'Не найдена линия медали', aCtx);
+ (aReminder.Owner as TvgRemindersLine).OffSetLine(aDelta.X, aDelta.Y);
+//#UC END# *2ABDE4AD9F20_0442CDEB32BC_impl*
+//#UC START# *2ABDE4AD9F20_0442CDEB32BC_var*
+//#UC END# *2ABDE4AD9F20_0442CDEB32BC_var*
+//#UC START# *963C245EE80F_649B596A6C75_impl*
+ with aReminder do
+ begin
+  RunnerAssert(Assigned(PopupForm) and PopupForm.Visible, 'Баллон не существует или невидим.', aCtx);
+  l_F := PopupForm.Panel.Controls[0] as TForm;
+  l_E := l_F.FindComponent('Viewer');
+  RunnerAssert(Assigned(l_E), 'Не найден редактор в баллоне.', aCtx);
+  Result := l_E;
+ end;//with aReminder
+//#UC END# *963C245EE80F_649B596A6C75_impl*
+//#UC START# *963C245EE80F_649B596A6C75_var*
+var
+ l_F : TForm;
+ l_E : TComponent;
+//#UC END# *963C245EE80F_649B596A6C75_var*
+//#UC START# *BC5BE2E8AB9C_C1FAEFF176B2_impl*
+ l_Pt.X := 0;
+ l_Pt.Y := 0;
+ Result := Tl3PopupMenuHelper.Instance.GetPopupMenu(aReminder, l_Pt);
+//#UC END# *BC5BE2E8AB9C_C1FAEFF176B2_impl*
+//#UC START# *BC5BE2E8AB9C_C1FAEFF176B2_var*
+var
+ l_Pt: TPoint;
+//#UC END# *BC5BE2E8AB9C_C1FAEFF176B2_var*
+//#UC START# *C4047A8567A8_4910B3AB2F0F_impl*
+ Result := aReminder.vgTextRect.Fill.Color;
+//#UC END# *C4047A8567A8_4910B3AB2F0F_impl*
+//#UC START# *C4047A8567A8_4910B3AB2F0F_var*
+//#UC END# *C4047A8567A8_4910B3AB2F0F_var*

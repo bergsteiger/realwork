@@ -1,4 +1,10 @@
 unit Justification_Const;
+ {* Выравнивание текста }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\Justification_Const.pas"
+// Стереотип: "Atom"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -9,7 +15,7 @@ uses
 ;
 
  // JustificationAtom
- 
+
 implementation
 
 uses

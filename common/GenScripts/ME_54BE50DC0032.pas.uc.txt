@@ -1,0 +1,32 @@
+//#UC START# *4A3A8BEE029F_54BE50DC0032_impl*
+ if evIsInReadOnlyPara(ParaX) then
+ begin
+  Result := false;
+  Assert(false);
+  Exit;
+ end;//OR _IsInReadOnlyPara(ParaX)
+ if (eeEditorByPara(ParaX) <> nil) then
+ // - привязаны к специфическому редактору
+ begin
+  if evInPara(f_Start, k2_typCommentPara, l_S) then
+  begin
+   if evInPara(f_Finish, k2_typCommentPara, l_F) then
+   begin
+    if l_S.Obj.AsObject.IsSame(l_F.Obj^.AsObject) then
+    begin
+     Result := l_S.Obj.Range(l_S, l_F).Text.Modify.InsertStream(aView, aStream, aFormat, anOp, aFlags, aCodePage);
+     //Result := GetChildSel(l_S.Position).Text.Modify.InsertStream(aStream, aFormat, anOp, aFlags, aCodePage);
+     Exit;
+    end;//l_S.Obj.IsSame(l_F.Obj)
+   end;//evInPara(f_Finish, k2_idCommentPara, l_F)
+  end;//evInPara(f_Start, k2_idCommentPara, l_S)
+  Result := f_Finish.Text.Modify.InsertStream(aView, aStream, aFormat, anOp, aFlags, aCodePage);
+  Exit;
+ end;//_Editor(aView, ParaX) <> nil
+ Result := inherited DoInsertStream(aView, aStream, aFormat, anOp, aFlags, aCodePage);
+//#UC END# *4A3A8BEE029F_54BE50DC0032_impl*
+//#UC START# *4A3A8BEE029F_54BE50DC0032_var*
+var
+ l_S : InevBasePoint;
+ l_F : InevBasePoint;
+//#UC END# *4A3A8BEE029F_54BE50DC0032_var*

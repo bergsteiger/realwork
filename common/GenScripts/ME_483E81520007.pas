@@ -1,4 +1,10 @@
-unit k2CustomFileParser;
+unit NOT_FINISHED_k2CustomFileParser;
+ {* Базовый класс "читателей" тегов, обладающий парсером. }
+
+// Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2CustomFileParser.pas"
+// Стереотип: "SimpleClass"
+
+{$Include k2Define.inc}
 
 interface
 
@@ -11,7 +17,7 @@ type
  Tk2CustomFileParser = class(Tk2CustomFileReader)
   {* Базовый класс "читателей" тегов, обладающий парсером. }
  end;//Tk2CustomFileParser
- 
+
 implementation
 
 uses

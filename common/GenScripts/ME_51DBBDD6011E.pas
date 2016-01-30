@@ -1,4 +1,9 @@
-unit ddParagraphProperty;
+unit NOT_FINISHED_ddParagraphProperty;
+
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddParagraphProperty.pas"
+// Стереотип: "SimpleClass"
+
+{$Include ddDefine.inc}
 
 interface
 
@@ -9,7 +14,7 @@ uses
 type
  TddParagraphProperty = class
  end;//TddParagraphProperty
- 
+
 implementation
 
 uses

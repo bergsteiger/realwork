@@ -1,0 +1,36 @@
+//#UC START# *491443FE01BE_4958BD880163_impl*
+ UserSettingsChanged;
+//#UC END# *491443FE01BE_4958BD880163_impl*
+//#UC START# *491443FE01BE_4958BD880163_var*
+//#UC END# *491443FE01BE_4958BD880163_var*
+//#UC START# *4958BE910345_4958BD880163_impl*
+ // - ничего не делаем
+//#UC END# *4958BE910345_4958BD880163_impl*
+//#UC START# *4958BE910345_4958BD880163_var*
+//#UC END# *4958BE910345_4958BD880163_var*
+//#UC START# *4958BF0203C3_4958BD880163_impl*
+ if Supports(afw.Application.Settings, InsSettings, l_Settings) then
+ try
+  l_Settings.SettingsNotify.RemoveListener(InsUserSettingsListener(Self));
+ finally
+  l_Settings := nil;
+ end;//try..finally
+ inherited;
+//#UC END# *4958BF0203C3_4958BD880163_impl*
+//#UC START# *4958BF0203C3_4958BD880163_var*
+var
+ l_Settings: InsSettings;
+//#UC END# *4958BF0203C3_4958BD880163_var*
+//#UC START# *4958BF2302DF_4958BD880163_impl*
+ inherited;
+ if Supports(afw.Application.Settings, InsSettings, l_Settings) then
+ try
+  l_Settings.SettingsNotify.AddListener(InsUserSettingsListener(Self));
+ finally
+  l_Settings := nil;
+ end;//try..finally
+//#UC END# *4958BF2302DF_4958BD880163_impl*
+//#UC START# *4958BF2302DF_4958BD880163_var*
+var
+ l_Settings: InsSettings;
+//#UC END# *4958BF2302DF_4958BD880163_var*

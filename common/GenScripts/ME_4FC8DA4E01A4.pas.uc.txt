@@ -1,0 +1,31 @@
+//#UC START# *4FC8DA650160_4FC8DA4E01A4_impl*
+  inherited Create(TatGblAdapterWorker.Instance.GblAdapterDll.MakeSearch);
+  f_Query := aQuery;
+//#UC END# *4FC8DA650160_4FC8DA4E01A4_impl*
+//#UC START# *4FC8DA650160_4FC8DA4E01A4_var*
+//#UC END# *4FC8DA650160_4FC8DA4E01A4_var*
+//#UC START# *4FC8DAD402EF_4FC8DA4E01A4_impl*
+  Logger.Info('Начинаем поиск');
+  if Execute(l_SearchResult) then
+  begin
+    Logger.Info( 'Найдено %d документов, %d вхождений, %d редакций',
+      [l_SearchResult.GetDocumentCount, l_SearchResult.GetEntryCount, l_SearchResult.GetEditionCount] );
+    // открываем список
+    l_SearchResult.GetDynList(f_List);
+    Assert(f_List <> nil, 'f_List <> nil');
+    f_List.GetRoot(l_Root);
+    l_Root.GetFirstChild(l_Child);
+    //
+    Result := true;
+  end
+  else
+  begin
+    Logger.Info('Ничего не найдено');
+    Result := false;
+  end;
+//#UC END# *4FC8DAD402EF_4FC8DA4E01A4_impl*
+//#UC START# *4FC8DAD402EF_4FC8DA4E01A4_var*
+  var
+    l_SearchResult : ISearchDynList;
+    l_Root, l_Child : INodeBase;
+//#UC END# *4FC8DAD402EF_4FC8DA4E01A4_var*

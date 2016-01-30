@@ -1,5 +1,10 @@
 unit k2AtomWrapPrim;
 
+// Модуль: "w:\common\components\rtl\Garant\K2\k2AtomWrapPrim.pas"
+// Стереотип: "SimpleClass"
+
+{$Include k2Define.inc}
+
 interface
 
 uses
@@ -10,7 +15,7 @@ uses
 type
  Tk2AtomWrapPrim = class(Tl3DataContainerWithoutIUnknownPrim)
  end;//Tk2AtomWrapPrim
- 
+
 implementation
 
 uses

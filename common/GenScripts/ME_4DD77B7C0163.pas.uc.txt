@@ -1,0 +1,598 @@
+//#UC START# *479731C50290_4DD77B7C0163_impl*
+ l3Free(f_Children);
+ l3Free(f_HeadCells);
+ l3Free(f_TopCells);
+ f_HasMergedCell := False;
+ f_TopCellsWasInit := False;
+ inherited;
+//#UC END# *479731C50290_4DD77B7C0163_impl*
+//#UC START# *479731C50290_4DD77B7C0163_var*
+//#UC END# *479731C50290_4DD77B7C0163_var*
+//#UC START# *47C5B55D00B4_4DD77B7C0163_impl*
+ Result := nil;
+ Assert(false);
+//#UC END# *47C5B55D00B4_4DD77B7C0163_impl*
+//#UC START# *47C5B55D00B4_4DD77B7C0163_var*
+//#UC END# *47C5B55D00B4_4DD77B7C0163_var*
+//#UC START# *47C5B603039F_4DD77B7C0163get_impl*
+ Result := nil;
+ Assert(false);
+//#UC END# *47C5B603039F_4DD77B7C0163get_impl*
+//#UC START# *47C5B603039F_4DD77B7C0163get_var*
+//#UC END# *47C5B603039F_4DD77B7C0163get_var*
+//#UC START# *47C5B65D0195_4DD77B7C0163_impl*
+ //Result := ParaX.PID;
+ Result := 0;
+//#UC END# *47C5B65D0195_4DD77B7C0163_impl*
+//#UC START# *47C5B65D0195_4DD77B7C0163_var*
+//#UC END# *47C5B65D0195_4DD77B7C0163_var*
+//#UC START# *47C5B6D30128_4DD77B7C0163_impl*
+ Result := false;
+ Assert(false);
+//#UC END# *47C5B6D30128_4DD77B7C0163_impl*
+//#UC START# *47C5B6D30128_4DD77B7C0163_var*
+//#UC END# *47C5B6D30128_4DD77B7C0163_var*
+//#UC START# *47C5B6E503C3_4DD77B7C0163_impl*
+ Result := nil;
+ Assert(false);
+//#UC END# *47C5B6E503C3_4DD77B7C0163_impl*
+//#UC START# *47C5B6E503C3_4DD77B7C0163_var*
+//#UC END# *47C5B6E503C3_4DD77B7C0163_var*
+//#UC START# *47C5B6F202A0_4DD77B7C0163_impl*
+ Result := 0;
+ Assert(false);
+//#UC END# *47C5B6F202A0_4DD77B7C0163_impl*
+//#UC START# *47C5B6F202A0_4DD77B7C0163_var*
+//#UC END# *47C5B6F202A0_4DD77B7C0163_var*
+//#UC START# *47C5B7400152_4DD77B7C0163get_impl*
+ Result := nil;
+ // - возвращаем nil, т.к. все дети равноценны и мы никому не можем отдать предпочтение
+//#UC END# *47C5B7400152_4DD77B7C0163get_impl*
+//#UC START# *47C5B7400152_4DD77B7C0163get_var*
+//#UC END# *47C5B7400152_4DD77B7C0163get_var*
+//#UC START# *47C5B7400152_4DD77B7C0163set_impl*
+ DoSetInner(aValue);
+//#UC END# *47C5B7400152_4DD77B7C0163set_impl*
+//#UC START# *47C5B7400152_4DD77B7C0163set_var*
+//#UC END# *47C5B7400152_4DD77B7C0163set_var*
+//#UC START# *47C5B75F00AF_4DD77B7C0163get_impl*
+ Result := Succ(VertPosition(nil, nil));
+//#UC END# *47C5B75F00AF_4DD77B7C0163get_impl*
+//#UC START# *47C5B75F00AF_4DD77B7C0163get_var*
+//#UC END# *47C5B75F00AF_4DD77B7C0163get_var*
+//#UC START# *47C5C25C022F_4DD77B7C0163_impl*
+ f_HeadCells.Clear;
+ f_Children.Clear;
+ f_TopCells.Clear;
+ l_List := ParaX.AsList;
+ for i := 0 to l_List.ParaCount - 1 do
+ begin
+  l_Para := l_List.Para[i];
+  l_Point := aPoint.InnerFor(l_Para, l_RealPoint);
+  l_TopReal := aPoint.InnerTop(l_Para);
+  if l_Point = nil then
+   f_Children.Add(nil)
+  else
+   f_Children.Add(InternalClonePoint(aView, l_Point));
+  if l_TopReal = nil then
+  begin
+   f_HeadCells.Add(nil);
+   f_TopCells.Add(nil);
+  end // if l_RealPoint = nil then
+  else
+  begin
+   if l_RealPoint = nil then
+    f_HeadCells.Add(nil)
+   else
+    f_HeadCells.Add(InternalClonePoint(aView, l_RealPoint));
+   f_TopCells.Add(InternalClonePoint(aView, l_TopReal));
+  end;
+ end; // for i := 0 to l_List.ParaCount - 1 do
+ f_TopCellsWasInit := True;
+//#UC END# *47C5C25C022F_4DD77B7C0163_impl*
+//#UC START# *47C5C25C022F_4DD77B7C0163_var*
+var
+ i           : Integer;
+ l_Para      : InevPara;
+ l_List      : InevParaList;
+ l_Point     : InevBasePoint;
+ l_TopReal   : InevBasePoint;
+ l_RealPoint : InevBasePoint;
+//#UC END# *47C5C25C022F_4DD77B7C0163_var*
+//#UC START# *47C5C2970095_4DD77B7C0163_impl*
+ DoBottom(aView);
+//#UC END# *47C5C2970095_4DD77B7C0163_impl*
+//#UC START# *47C5C2970095_4DD77B7C0163_var*
+//#UC END# *47C5C2970095_4DD77B7C0163_var*
+//#UC START# *47C5C2A40309_4DD77B7C0163_impl*
+ Result := DoIncLine(aView, theLine, aByLine);
+//#UC END# *47C5C2A40309_4DD77B7C0163_impl*
+//#UC START# *47C5C2A40309_4DD77B7C0163_var*
+//#UC END# *47C5C2A40309_4DD77B7C0163_var*
+//#UC START# *47F5FDA303BC_4DD77B7C0163_impl*
+ l_Index := aChild.PID;
+ if l_Index < f_Children.Count then
+ begin
+  Result := f_Children[l_Index];
+  Assert((Result = nil) or (l_Index = Result.Obj.PID));
+ end // if l_Index >= f_Children.Count then
+ else
+  Result := nil;
+ if (f_HeadCells <> nil) and (l_Index < f_HeadCells.Count) then
+ begin
+  aRealTop := f_HeadCells[l_Index];
+  if (aRealTop <> nil) and not aRealTop.AsObject.IsValid then
+   aRealTop := nil;
+ end // if (f_HeadCells <> nil) and (l_Index < f_HeadCells.Count) then
+ else
+  aRealTop := nil;
+//#UC END# *47F5FDA303BC_4DD77B7C0163_impl*
+//#UC START# *47F5FDA303BC_4DD77B7C0163_var*
+var
+ l_Index : Integer;
+//#UC END# *47F5FDA303BC_4DD77B7C0163_var*
+//#UC START# *47F618A90162_4DD77B7C0163get_impl*
+ Result := true;
+ Assert(not SimpleMode);
+ for l_Index := 0 to f_Children.Hi do
+ begin
+  l_Point := f_Children[l_Index];
+  if l_Point = nil then
+  begin
+   Result := False;
+   Break;
+  end; // if l_Point = nil then
+  if l_Point.Obj.NeedIncludeHeight(False) then
+   if l_Point.AfterEnd then
+   begin
+    if (l_Index < f_HeadCells.Count) and (f_HeadCells[l_Index] <> nil) and not f_HeadCells[l_Index].AfterEnd then
+    begin
+     Result := false;
+     Break;
+    end;//not l_Point.AfterEnd
+   end
+   else
+   begin
+    Result := false;
+    Break;
+   end;//not f_Children[l_Index].AfterEnd
+ end; // for l_Index := 0 to f_Children.Hi do
+//#UC END# *47F618A90162_4DD77B7C0163get_impl*
+//#UC START# *47F618A90162_4DD77B7C0163get_var*
+var
+ l_Point : InevBasePoint;
+ l_Index : Integer;
+//#UC END# *47F618A90162_4DD77B7C0163get_var*
+//#UC START# *47FB32280262_4DD77B7C0163get_impl*
+ Result := nil;
+//#UC END# *47FB32280262_4DD77B7C0163get_impl*
+//#UC START# *47FB32280262_4DD77B7C0163get_var*
+//#UC END# *47FB32280262_4DD77B7C0163get_var*
+//#UC START# *47FCC68B03B1_4DD77B7C0163get_impl*
+ Result := nil;
+//#UC END# *47FCC68B03B1_4DD77B7C0163get_impl*
+//#UC START# *47FCC68B03B1_4DD77B7C0163get_var*
+//#UC END# *47FCC68B03B1_4DD77B7C0163get_var*
+//#UC START# *47FF3F1800FE_4DD77B7C0163_impl*
+ Result := true;
+ if SimpleMode then
+ begin
+  l_Point := GetInner4SimpleMode;
+  if (l_Point = nil) or not l_Point.AtEnd(aView) then
+   Result := False;
+ end // if SimpleMode then
+ else
+ for l_Index := 0 to f_Children.Hi do
+ begin
+  l_Point := f_Children[l_Index];
+  if l_Point = nil then
+  begin
+   Result := False;
+   Break;
+  end // if l_Point = nil then
+  else
+   if l_Point.Obj.NeedIncludeHeight then
+    if not l_Point.AtEnd(aView) then
+    begin
+     Result := false;
+     Break;
+    end;//not f_Children[l_Index].AtEnd
+ end; // for l_Index := 0 to f_Children.Hi do
+//#UC END# *47FF3F1800FE_4DD77B7C0163_impl*
+//#UC START# *47FF3F1800FE_4DD77B7C0163_var*
+var
+ l_Point : InevBasePoint;
+ l_Index : Integer;
+//#UC END# *47FF3F1800FE_4DD77B7C0163_var*
+//#UC START# *47FF414E039D_4DD77B7C0163_impl*
+ Result := true;
+ if SimpleMode then
+ begin
+  l_Point := GetInner4SimpleMode;
+  if (l_Point = nil) or not l_Point.AtStart then
+   Result := False;
+ end // if SimpleMode then
+ else
+  for l_Index := 0 to f_Children.Hi do
+  begin
+   l_Point := f_Children[l_Index];
+   if (l_Point = nil) or not f_Children[l_Index].AtStart then
+   begin
+    Result := false;
+    Break;
+   end;//not f_Children[l_Index].AtStart
+  end; // for l_Index := 0 to f_Children.Hi do
+//#UC END# *47FF414E039D_4DD77B7C0163_impl*
+//#UC START# *47FF414E039D_4DD77B7C0163_var*
+var
+ l_Point : InevBasePoint;
+ l_Index : Integer;
+//#UC END# *47FF414E039D_4DD77B7C0163_var*
+//#UC START# *49DF51870234_4DD77B7C0163_impl*
+ Result := DoDiff(aView, aPoint, aMap);
+//#UC END# *49DF51870234_4DD77B7C0163_impl*
+//#UC START# *49DF51870234_4DD77B7C0163_var*
+//#UC END# *49DF51870234_4DD77B7C0163_var*
+//#UC START# *49E6FB10002A_4DD77B7C0163get_impl*
+ Result := nil;
+ Assert(false);
+//#UC END# *49E6FB10002A_4DD77B7C0163get_impl*
+//#UC START# *49E6FB10002A_4DD77B7C0163get_var*
+//#UC END# *49E6FB10002A_4DD77B7C0163get_var*
+//#UC START# *4A4C856300DF_4DD77B7C0163_impl*
+ Assert(false);
+//#UC END# *4A4C856300DF_4DD77B7C0163_impl*
+//#UC START# *4A4C856300DF_4DD77B7C0163_var*
+//#UC END# *4A4C856300DF_4DD77B7C0163_var*
+//#UC START# *4A4C8581014B_4DD77B7C0163_impl*
+ Assert(false);
+//#UC END# *4A4C8581014B_4DD77B7C0163_impl*
+//#UC START# *4A4C8581014B_4DD77B7C0163_var*
+//#UC END# *4A4C8581014B_4DD77B7C0163_var*
+//#UC START# *4A58B79A0360_4DD77B7C0163get_impl*
+ Result := False;
+//#UC END# *4A58B79A0360_4DD77B7C0163get_impl*
+//#UC START# *4A58B79A0360_4DD77B7C0163get_var*
+//#UC END# *4A58B79A0360_4DD77B7C0163get_var*
+//#UC START# *4A5B48A701A9_4DD77B7C0163get_impl*
+ Result := True;
+//#UC END# *4A5B48A701A9_4DD77B7C0163get_impl*
+//#UC START# *4A5B48A701A9_4DD77B7C0163get_var*
+//#UC END# *4A5B48A701A9_4DD77B7C0163get_var*
+//#UC START# *4A5B48A701A9_4DD77B7C0163set_impl*
+ Assert(aValue);
+//#UC END# *4A5B48A701A9_4DD77B7C0163set_impl*
+//#UC START# *4A5B48A701A9_4DD77B7C0163set_var*
+//#UC END# *4A5B48A701A9_4DD77B7C0163set_var*
+//#UC START# *4A5B60870158_4DD77B7C0163_impl*
+ Result := -1;
+ Assert(false);
+//#UC END# *4A5B60870158_4DD77B7C0163_impl*
+//#UC START# *4A5B60870158_4DD77B7C0163_var*
+//#UC END# *4A5B60870158_4DD77B7C0163_var*
+//#UC START# *4A5B6D370262_4DD77B7C0163_impl*
+ // ничего не делаем
+//#UC END# *4A5B6D370262_4DD77B7C0163_impl*
+//#UC START# *4A5B6D370262_4DD77B7C0163_var*
+//#UC END# *4A5B6D370262_4DD77B7C0163_var*
+//#UC START# *4A5C66200185_4DD77B7C0163_impl*
+ Result := false;
+ Assert(false);
+//#UC END# *4A5C66200185_4DD77B7C0163_impl*
+//#UC START# *4A5C66200185_4DD77B7C0163_var*
+//#UC END# *4A5C66200185_4DD77B7C0163_var*
+//#UC START# *4A5C6DB4014D_4DD77B7C0163_impl*
+ Result := Self;
+//#UC END# *4A5C6DB4014D_4DD77B7C0163_impl*
+//#UC START# *4A5C6DB4014D_4DD77B7C0163_var*
+//#UC END# *4A5C6DB4014D_4DD77B7C0163_var*
+//#UC START# *4A5C750E01F7_4DD77B7C0163_impl*
+ Result := Self;
+//#UC END# *4A5C750E01F7_4DD77B7C0163_impl*
+//#UC START# *4A5C750E01F7_4DD77B7C0163_var*
+//#UC END# *4A5C750E01F7_4DD77B7C0163_var*
+//#UC START# *4A5C7D2F0079_4DD77B7C0163get_impl*
+ Result := nil;
+ Assert(false);
+//#UC END# *4A5C7D2F0079_4DD77B7C0163get_impl*
+//#UC START# *4A5C7D2F0079_4DD77B7C0163get_var*
+//#UC END# *4A5C7D2F0079_4DD77B7C0163get_var*
+//#UC START# *4A5C8A9D0324_4DD77B7C0163_impl*
+ Result := false;
+ Assert(false);
+//#UC END# *4A5C8A9D0324_4DD77B7C0163_impl*
+//#UC START# *4A5C8A9D0324_4DD77B7C0163_var*
+//#UC END# *4A5C8A9D0324_4DD77B7C0163_var*
+//#UC START# *4A5C9138035D_4DD77B7C0163get_impl*
+ Result := nil;
+ // - не надо никому ни о чём сообщать
+//#UC END# *4A5C9138035D_4DD77B7C0163get_impl*
+//#UC START# *4A5C9138035D_4DD77B7C0163get_var*
+//#UC END# *4A5C9138035D_4DD77B7C0163get_var*
+//#UC START# *4A5C913F0235_4DD77B7C0163_impl*
+ Result := 0;
+ Assert(false);
+//#UC END# *4A5C913F0235_4DD77B7C0163_impl*
+//#UC START# *4A5C913F0235_4DD77B7C0163_var*
+//#UC END# *4A5C913F0235_4DD77B7C0163_var*
+//#UC START# *4A810F81018E_4DD77B7C0163_impl*
+ DoMergeTo(aView, aBaseLine);
+//#UC END# *4A810F81018E_4DD77B7C0163_impl*
+//#UC START# *4A810F81018E_4DD77B7C0163_var*
+//#UC END# *4A810F81018E_4DD77B7C0163_var*
+//#UC START# *4AA76AE00147_4DD77B7C0163_impl*
+ if aFI.Hidden then
+  Result := nil
+ else
+ begin
+  l_MaxID := aFI.GreatestObjPID;
+  if (l_MaxID >= f_Children.Count) or (l_MaxID < 0) then
+  begin
+   Result := nil;
+   Exit;
+  end // if (l_MaxID >= f_Children.Count) or (l_MaxID < 0) then
+  else
+   Result := f_Children[l_MaxID];
+  if (Result <> nil) then
+  // ^ - Запил для: http://mdp.garant.ru/pages/viewpage.action?pageId=297700378
+  // Написал новую задачу для разборок: http://mdp.garant.ru/pages/viewpage.action?pageId=297703832
+  // После правок вернуть обратно!
+  begin
+   if (TevMergeStatus(Result.AsObject.IntA[k2_tiMergeStatus]) = ev_msContinue) then
+    if (aForDrawing = nev_itNone) and (l_MaxID < f_HeadCells.Count) then
+     Result := f_HeadCells[l_MaxID];
+   if (Result <> nil) and Result.AfterEnd and (aForDrawing = nev_itNone) then
+    Result := nil;
+  end; // if (Result <> nil) then
+ end;//l_FI.Hidden
+//#UC END# *4AA76AE00147_4DD77B7C0163_impl*
+//#UC START# *4AA76AE00147_4DD77B7C0163_var*
+var
+ l_MaxID : Integer;
+//#UC END# *4AA76AE00147_4DD77B7C0163_var*
+//#UC START# *4AA76AF90174_4DD77B7C0163_impl*
+ Result := True;
+//#UC END# *4AA76AF90174_4DD77B7C0163_impl*
+//#UC START# *4AA76AF90174_4DD77B7C0163_var*
+//#UC END# *4AA76AF90174_4DD77B7C0163_var*
+//#UC START# *4B90DA600047_4DD77B7C0163_impl*
+ DoAddInner(aView, anInner, anIndex, aFirst, aMode);
+//#UC END# *4B90DA600047_4DD77B7C0163_impl*
+//#UC START# *4B90DA600047_4DD77B7C0163_var*
+//#UC END# *4B90DA600047_4DD77B7C0163_var*
+//#UC START# *4B9623150178_4DD77B7C0163_impl*
+ DoCompareWithOtherInner(aView, anMaxID);
+//#UC END# *4B9623150178_4DD77B7C0163_impl*
+//#UC START# *4B9623150178_4DD77B7C0163_var*
+//#UC END# *4B9623150178_4DD77B7C0163_var*
+//#UC START# *4BBB0DDD026D_4DD77B7C0163_impl*
+ Result := False;
+ Assert(False);
+//#UC END# *4BBB0DDD026D_4DD77B7C0163_impl*
+//#UC START# *4BBB0DDD026D_4DD77B7C0163_var*
+//#UC END# *4BBB0DDD026D_4DD77B7C0163_var*
+//#UC START# *4C456C8E027F_4DD77B7C0163_impl*
+ Result := DoInnerHead(aPID);
+//#UC END# *4C456C8E027F_4DD77B7C0163_impl*
+//#UC START# *4C456C8E027F_4DD77B7C0163_var*
+//#UC END# *4C456C8E027F_4DD77B7C0163_var*
+//#UC START# *4C456CEA01DE_4DD77B7C0163_impl*
+ Result := DoHasHeadPart;
+//#UC END# *4C456CEA01DE_4DD77B7C0163_impl*
+//#UC START# *4C456CEA01DE_4DD77B7C0163_var*
+//#UC END# *4C456CEA01DE_4DD77B7C0163_var*
+//#UC START# *4C456D220317_4DD77B7C0163_impl*
+ DoAddHeadInner(aHeadInner);
+//#UC END# *4C456D220317_4DD77B7C0163_impl*
+//#UC START# *4C456D220317_4DD77B7C0163_var*
+//#UC END# *4C456D220317_4DD77B7C0163_var*
+//#UC START# *4C457D0502E1_4DD77B7C0163_impl*
+ DoCopyHeadParts(aFrom);
+//#UC END# *4C457D0502E1_4DD77B7C0163_impl*
+//#UC START# *4C457D0502E1_4DD77B7C0163_var*
+//#UC END# *4C457D0502E1_4DD77B7C0163_var*
+//#UC START# *4C735E600112_4DD77B7C0163_impl*
+ DoInitByCursor(aView, anInnerPoint);
+//#UC END# *4C735E600112_4DD77B7C0163_impl*
+//#UC START# *4C735E600112_4DD77B7C0163_var*
+//#UC END# *4C735E600112_4DD77B7C0163_var*
+//#UC START# *4D9C113C0320_4DD77B7C0163_impl*
+ DoInitBaseLineInner(aView, anItem);
+//#UC END# *4D9C113C0320_4DD77B7C0163_impl*
+//#UC START# *4D9C113C0320_4DD77B7C0163_var*
+//#UC END# *4D9C113C0320_4DD77B7C0163_var*
+//#UC START# *4DD77FE302CB_4DD77B7C0163_impl*
+ inherited Create(aRow);
+ f_Children := TnevBasePointList.Make;
+ f_HeadCells := TnevBasePointList.Make;
+ f_TopCells  := TnevBasePointList.Make;
+ f_TopCellsWasInit := False;
+ f_HasMergedCell := False;
+//#UC END# *4DD77FE302CB_4DD77B7C0163_impl*
+//#UC START# *4DD77FE302CB_4DD77B7C0163_var*
+//#UC END# *4DD77FE302CB_4DD77B7C0163_var*
+//#UC START# *4DD795FA0114_4DD77B7C0163_impl*
+ Assert(False);
+//#UC END# *4DD795FA0114_4DD77B7C0163_impl*
+//#UC START# *4DD795FA0114_4DD77B7C0163_var*
+//#UC END# *4DD795FA0114_4DD77B7C0163_var*
+//#UC START# *4DD797ED02CE_4DD77B7C0163_impl*
+ Assert(False);
+//#UC END# *4DD797ED02CE_4DD77B7C0163_impl*
+//#UC START# *4DD797ED02CE_4DD77B7C0163_var*
+//#UC END# *4DD797ED02CE_4DD77B7C0163_var*
+//#UC START# *4DD7980F03AA_4DD77B7C0163_impl*
+ Result := 0;
+ theLine := 0;
+ Assert(False);
+//#UC END# *4DD7980F03AA_4DD77B7C0163_impl*
+//#UC START# *4DD7980F03AA_4DD77B7C0163_var*
+//#UC END# *4DD7980F03AA_4DD77B7C0163_var*
+//#UC START# *4DD79C030322_4DD77B7C0163_impl*
+ Assert(False);
+//#UC END# *4DD79C030322_4DD77B7C0163_impl*
+//#UC START# *4DD79C030322_4DD77B7C0163_var*
+//#UC END# *4DD79C030322_4DD77B7C0163_var*
+//#UC START# *4DD79CB2037D_4DD77B7C0163_impl*
+ Assert(False);
+//#UC END# *4DD79CB2037D_4DD77B7C0163_impl*
+//#UC START# *4DD79CB2037D_4DD77B7C0163_var*
+//#UC END# *4DD79CB2037D_4DD77B7C0163_var*
+//#UC START# *4DD79CEC0371_4DD77B7C0163_impl*
+ Assert(False);
+//#UC END# *4DD79CEC0371_4DD77B7C0163_impl*
+//#UC START# *4DD79CEC0371_4DD77B7C0163_var*
+//#UC END# *4DD79CEC0371_4DD77B7C0163_var*
+//#UC START# *4DD79DA50099_4DD77B7C0163_impl*
+ Assert(False);
+//#UC END# *4DD79DA50099_4DD77B7C0163_impl*
+//#UC START# *4DD79DA50099_4DD77B7C0163_var*
+//#UC END# *4DD79DA50099_4DD77B7C0163_var*
+//#UC START# *4DD7A0490365_4DD77B7C0163_impl*
+ Assert(False);
+//#UC END# *4DD7A0490365_4DD77B7C0163_impl*
+//#UC START# *4DD7A0490365_4DD77B7C0163_var*
+//#UC END# *4DD7A0490365_4DD77B7C0163_var*
+//#UC START# *4DD7A08200F7_4DD77B7C0163_impl*
+ Assert(False);
+//#UC END# *4DD7A08200F7_4DD77B7C0163_impl*
+//#UC START# *4DD7A08200F7_4DD77B7C0163_var*
+//#UC END# *4DD7A08200F7_4DD77B7C0163_var*
+//#UC START# *4DD7A0C30353_4DD77B7C0163_impl*
+ Assert(False);
+//#UC END# *4DD7A0C30353_4DD77B7C0163_impl*
+//#UC START# *4DD7A0C30353_4DD77B7C0163_var*
+//#UC END# *4DD7A0C30353_4DD77B7C0163_var*
+//#UC START# *4DD7A0E30148_4DD77B7C0163_impl*
+ Assert(False);
+//#UC END# *4DD7A0E30148_4DD77B7C0163_impl*
+//#UC START# *4DD7A0E30148_4DD77B7C0163_var*
+//#UC END# *4DD7A0E30148_4DD77B7C0163_var*
+//#UC START# *4DD7A1010342_4DD77B7C0163_impl*
+ Result := False;
+ Assert(False);
+//#UC END# *4DD7A1010342_4DD77B7C0163_impl*
+//#UC START# *4DD7A1010342_4DD77B7C0163_var*
+//#UC END# *4DD7A1010342_4DD77B7C0163_var*
+//#UC START# *4DD7A1390112_4DD77B7C0163_impl*
+ Assert(False);
+//#UC END# *4DD7A1390112_4DD77B7C0163_impl*
+//#UC START# *4DD7A1390112_4DD77B7C0163_var*
+//#UC END# *4DD7A1390112_4DD77B7C0163_var*
+//#UC START# *4DDC9289019A_4DD77B7C0163_impl*
+ if f_TopCellsWasInit then Exit;
+ if f_HasMergedCell then // Нечего гонять цикл по-напрасну
+ begin
+  if (f_HeadCells.Count < f_Children.Count) then
+  begin
+   f_HeadCells.Count := f_Children.Count;
+   f_TopCells.Count := f_Children.Count;
+  end; // if (f_HeadCells.Count < f_Children.Count) then
+  l_TblFI := nil;
+  for i := 0 to f_Children.Count - 1 do
+  begin
+   if SimpleMode then
+    l_Point := GetInner4SimpleMode
+   else
+    l_Point := f_Children[i];
+   if (l_Point <> nil) and l_Point.AfterEnd then
+   begin
+    if l_TblFI = nil then
+     l_TblFI := aView.FormatInfoByPara(ParaX.OwnerPara);
+    l_Point := GetCurrentPostion(aView, l_TblFI, l_Point.Obj^);
+    f_HeadCells[i] := l_Point;
+    if l_Point = nil then
+     f_TopCells[i] := nil
+    else
+     f_TopCells[i] := InternalClonePoint(aView, l_Point);
+   end; // if l_Point.AfterEnd then
+   if SimpleMode then Break;
+  end; // for i := 0 to f_Children.Count - 1 do
+  f_TopCellsWasInit := True;
+ end // if f_HasMergedCell then
+ else
+  f_TopCellsWasInit := True;
+//#UC END# *4DDC9289019A_4DD77B7C0163_impl*
+//#UC START# *4DDC9289019A_4DD77B7C0163_var*
+var
+ i       : Integer;
+ l_TblFI : TnevFormatInfoPrim;
+ l_Point : InevBasePoint;
+//#UC END# *4DDC9289019A_4DD77B7C0163_var*
+//#UC START# *4DDC92F301BC_4DD77B7C0163_impl*
+ Result := nil;
+ if evCheckSingleContinueCell(ParaX) then Exit;
+ if TevMergeStatus(anObject.AsObject.IntA[k2_tiMergeStatus]) = ev_msContinue then
+ begin
+  anObject.AsObject.QT(InevTableCell, l_TableCell);
+  l_TableCell := l_TableCell.GetMergeHead;
+  if l_TableCell = nil then Exit;
+  Result := l_TableCell.MakePoint;
+  Result.SetEntryPoint(1);
+  lp_GetIncDelta;
+  while not l_RowPara.AsObject.IsSame(ParaX.AsObject) do
+  begin
+   Result.IncLine(aView, l_Delta, True);
+   if l_Delta > 0 then
+   begin
+    Result := nil;
+    Break; // Не нашли...
+   end; // if l_Delta > 0 then
+   l_TableCell := l_TableCell.GetContinueCell(True, fc_Down);
+   if l_TableCell = nil then Break;
+   lp_GetIncDelta;
+  end; // while not l_RowAnchor.IsSame(Self.Target) do
+ end; // if aPoint.AfterEnd and (TevMergeStatus(aPoint.IntA[k2_tiMergeStatus]) = ev_msContinue) then
+//#UC END# *4DDC92F301BC_4DD77B7C0163_impl*
+//#UC START# *4DDC92F301BC_4DD77B7C0163_var*
+var
+ l_Delta     : Integer;
+ l_RowPara   : InevParaList;
+ l_TableCell : InevTableCell;
+
+ procedure lp_GetIncDelta;
+ begin
+  l_RowPara := l_TableCell.OwnerObj.AsPara.AsList;
+  l_Delta := aTableFI.InfoForChild(l_RowPara).MaxLinesCount + 1;
+ end;
+
+//#UC END# *4DDC92F301BC_4DD77B7C0163_var*
+//#UC START# *4DDCD59301D5_4DD77B7C0163_impl*
+ if aChild.PID < f_TopCells.Count then
+  Result := f_TopCells[aChild.PID]
+ else
+  Result := nil;
+//#UC END# *4DDCD59301D5_4DD77B7C0163_impl*
+//#UC START# *4DDCD59301D5_4DD77B7C0163_var*
+//#UC END# *4DDCD59301D5_4DD77B7C0163_var*
+//#UC START# *4EC3B0330271_4DD77B7C0163get_impl*
+ Result := False;
+//#UC END# *4EC3B0330271_4DD77B7C0163get_impl*
+//#UC START# *4EC3B0330271_4DD77B7C0163get_var*
+//#UC END# *4EC3B0330271_4DD77B7C0163get_var*
+//#UC START# *50DAA7010050_4DD77B7C0163_impl*
+ Assert(False);
+//#UC END# *50DAA7010050_4DD77B7C0163_impl*
+//#UC START# *50DAA7010050_4DD77B7C0163_var*
+//#UC END# *50DAA7010050_4DD77B7C0163_var*
+//#UC START# *533BC81B002F_4DD77B7C0163_impl*
+ Result := False;
+//#UC END# *533BC81B002F_4DD77B7C0163_impl*
+//#UC START# *533BC81B002F_4DD77B7C0163_var*
+//#UC END# *533BC81B002F_4DD77B7C0163_var*
+//#UC START# *533BC8C20205_4DD77B7C0163_impl*
+ if IsAnchor then
+ begin
+  if aPoint.AfterEnd or aPoint.BeforeStart then
+   Result := aPoint.ClonePoint(aView)
+  else
+  begin
+   Result := aPoint.Obj.MakeAnchor;
+   Result.AssignPoint(aView, aPoint);
+  end;
+ end // if IsAnchor then
+ else
+  Result := aPoint.ClonePoint(aView)
+//#UC END# *533BC8C20205_4DD77B7C0163_impl*
+//#UC START# *533BC8C20205_4DD77B7C0163_var*
+//#UC END# *533BC8C20205_4DD77B7C0163_var*

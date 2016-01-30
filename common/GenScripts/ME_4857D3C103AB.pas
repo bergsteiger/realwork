@@ -1,4 +1,10 @@
 unit SBSRow_Const;
+ {* Строка подписи }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\SBSRow_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -9,7 +15,7 @@ uses
 ;
 
  // SBSRowTag
- 
+
 implementation
 
 uses

@@ -1,4 +1,10 @@
 unit SBS_Const;
+ {* Подпись }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\SBS_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -9,7 +15,7 @@ uses
 ;
 
  // SBSTag
- 
+
 implementation
 
 uses

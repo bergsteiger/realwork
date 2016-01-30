@@ -1,4 +1,10 @@
 unit DictRec_Const;
+ {* Словарная запись }
+
+// Модуль: "w:\common\components\rtl\Garant\EVD\DictRec_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
 
 interface
 
@@ -10,7 +16,7 @@ uses
 ;
 
  // DictRecTag
- 
+
 implementation
 
 uses

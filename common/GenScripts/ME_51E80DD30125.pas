@@ -1,23 +1,39 @@
-unit ListTest.imp;
+{$IfNDef ListTest_imp}
 
-interface
+// Модуль: "w:\common\components\SandBox\ListTest.imp.pas"
+// Стереотип: "TestCaseMixIn"
 
-uses
- l3IntfUses
- , TestFrameWork
- , AtomicListTest.imp
-;
+{$Define ListTest_imp}
 
-type
+{$If Defined(nsTest)}
  _ListTest_ = class(TTestCase)
-  function CreateList: _ListType_;
+  protected
+   function CreateList: _ListType_;
  end;//_ListTest_
- 
-implementation
 
-uses
- l3ImplUses
- , SysUtils
-;
+{$Else Defined(nsTest)}
 
-end.
+_ListTest_ = TTestCase;
+
+{$IfEnd} // Defined(nsTest)
+{$Else ListTest_imp}
+
+{$IfNDef ListTest_imp_impl}
+
+{$Define ListTest_imp_impl}
+
+{$If Defined(nsTest)}
+function _ListTest_.CreateList: _ListType_;
+//#UC START# *51E80E0D030D_51E80DD30125_var*
+//#UC END# *51E80E0D030D_51E80DD30125_var*
+begin
+//#UC START# *51E80E0D030D_51E80DD30125_impl*
+ Result := _ListType_.Create;
+//#UC END# *51E80E0D030D_51E80DD30125_impl*
+end;//_ListTest_.CreateList
+{$IfEnd} // Defined(nsTest)
+
+{$EndIf ListTest_imp_impl}
+
+{$EndIf ListTest_imp}
+

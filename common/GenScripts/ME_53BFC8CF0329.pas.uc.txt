@@ -1,0 +1,37 @@
+//#UC START# *53BFCB9A00F4_53BFC8CF0329_impl*
+ if (aMessage.LParam <> 0) then
+ begin
+  TPopupMenu(aMessage.LParam).Items.Clear;
+  {$IfDef vcmExportHelp}
+  if (TPopupMenu(aMessage.LParam) Is TvcmPopupMenu) then
+   TvcmPopupMenu(aMessage.LParam).ClearInPopup;
+  {$EndIf}
+  if (TPopupMenu(aMessage.LParam).Owner = nil) then
+  begin
+   //Assert(false, 'А такое бывает, что контекстное меню ни к кому не привязано?');
+   // - бывает для TvcmButtonPopupMenu - тесты не прошли
+   TPopupMenu(aMessage.LParam).Free;
+  end;//TPopupMenu(aMessage.LParam).Owner = nil
+ end;//Message.LParam <> 0
+//#UC END# *53BFCB9A00F4_53BFC8CF0329_impl*
+//#UC START# *53BFCB9A00F4_53BFC8CF0329_var*
+//#UC END# *53BFCB9A00F4_53BFC8CF0329_var*
+//#UC START# *53BFCBF50125_53BFC8CF0329_impl*
+ if (aMessage.LParam <> 0) then
+  // http://mdp.garant.ru/pages/viewpage.action?pageId=425036429
+  if TvcmSlayedEntityFormsList.Instance.IndexOf(TvcmEntityForm(aMessage.LParam)) >= 0 then
+   TvcmInterfacedForm(aMessage.LParam).KillMe;
+//#UC END# *53BFCBF50125_53BFC8CF0329_impl*
+//#UC START# *53BFCBF50125_53BFC8CF0329_var*
+//#UC END# *53BFCBF50125_53BFC8CF0329_var*
+//#UC START# *53BFCC34005D_53BFC8CF0329_impl*
+ if (aMessage.LParam <> 0) then
+ begin
+  if (Dispatcher = nil) OR not Dispatcher.InOp then
+   FreeAndNil(TObject(aMessage.LParam))
+  else
+   Dispatcher.AddObjectForFree(TObject(aMessage.LParam));
+ end;//aMessage.LParam <> 0
+//#UC END# *53BFCC34005D_53BFC8CF0329_impl*
+//#UC START# *53BFCC34005D_53BFC8CF0329_var*
+//#UC END# *53BFCC34005D_53BFC8CF0329_var*

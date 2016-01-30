@@ -1,0 +1,56 @@
+//#UC START# *479731C50290_4B1660B9000D_impl*
+ nscRemoveContextFilterListener(Self);
+ FreeAndNil(f_List);
+ inherited Cleanup;
+//#UC END# *479731C50290_4B1660B9000D_impl*
+//#UC START# *479731C50290_4B1660B9000D_var*
+//#UC END# *479731C50290_4B1660B9000D_var*
+//#UC START# *490839BA0073_4B1660B9000D_impl*
+ if lp_IsNeedRegister then
+ begin
+  l_Data := MakeParamsList;
+  l_Data.AddString(nsAStr(aState.Context).S);
+  l_Data.AddString(nsAStr(aFilterName).S);
+  GetLogger.AddEvent(LE_CONTEXT_FILTER_IN_TREE, l_Data);
+ end;
+//#UC END# *490839BA0073_4B1660B9000D_impl*
+//#UC START# *490839BA0073_4B1660B9000D_var*
+var
+ l_Data: InsLogEventData;
+
+ function lp_IsNeedRegister: Boolean;
+ var
+  l_C : TnsContextFilterData;
+  l_Index : Integer;
+ begin
+  Result := aState.Active;
+  if Result then
+  begin
+   l_C := TnsContextFilterData_C(aHandle, aState.Context);
+   l_Index := f_List.IndexOf(l_C);
+   if l_Index < 0 then
+    l_Index := f_List.Add(l_C)
+   else
+    Result := not l3Same(l_C.rContext, f_List[l_Index].rContext);
+   f_List[l_Index] := l_C;
+  end;
+ end;//lp_IsNeedRegister
+
+
+//#UC END# *490839BA0073_4B1660B9000D_var*
+//#UC START# *4B165B44032D_4B1660B9000D_impl*
+ l_C := TnsContextFilterData_C(aHandle, nil);
+ f_List.Remove(l_C);
+//#UC END# *4B165B44032D_4B1660B9000D_impl*
+//#UC START# *4B165B44032D_4B1660B9000D_var*
+var
+ l_C : TnsContextFilterData;
+//#UC END# *4B165B44032D_4B1660B9000D_var*
+//#UC START# *4B1661450093_4B1660B9000D_impl*
+ inherited Create;
+ f_List := TnsContextFilterEventDataList.Create;
+ f_List.Sorted := True;
+ nscAddContextFilterListener(Self);
+//#UC END# *4B1661450093_4B1660B9000D_impl*
+//#UC START# *4B1661450093_4B1660B9000D_var*
+//#UC END# *4B1661450093_4B1660B9000D_var*

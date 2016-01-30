@@ -1,4 +1,9 @@
-unit m3NewStorage;
+unit NOT_FINISHED_m3NewStorage;
+
+// Модуль: "w:\common\components\rtl\Garant\m3\NOT_FINISHED_m3NewStorage.pas"
+// Стереотип: "UtilityPack"
+
+{$Include m3Define.inc}
 
 interface
 
@@ -10,7 +15,7 @@ uses
 type
  Tm3NewStorage = class(Tm3CustomNewStorage)
  end;//Tm3NewStorage
- 
+
 implementation
 
 uses

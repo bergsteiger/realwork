@@ -1,0 +1,108 @@
+//#UC START# *4D553AC103A3_50751B080168_impl*
+ if evInPara(aBlock.BottomChildBlock(aView).Obj^.AsObject, k2_typTable, [k2_typSBS], l_Table) then
+ begin
+  if not f_FlagInit then
+  begin
+   f_FlagValue := not l_Table.BoolA[k2_tiOldNSRC];
+   f_FlagInit := True;
+  end; // if not f_FlagInit then
+  l_Table.BoolW[k2_tiOldNSRC, Container] := f_FlagValue;
+ end; 
+//#UC END# *4D553AC103A3_50751B080168_impl*
+//#UC START# *4D553AC103A3_50751B080168_var*
+var
+ l_Table: Tl3Variant;
+//#UC END# *4D553AC103A3_50751B080168_var*
+//#UC START# *4D553AC103A3_50751B12004F_impl*
+ if evInPara(aBlock.BottomChildBlock(aView).Obj^.AsObject, k2_typTableCell, [k2_typSBSCell], l_Cell) then
+ begin
+  Result := true;
+  l_Cell.IntW[k2_tiFrame, Container] := f_Frame;
+ end//evInPara(aPara, k2_idTableCell, l_Cell)
+ else
+  Result := false;
+//#UC END# *4D553AC103A3_50751B12004F_impl*
+//#UC START# *4D553AC103A3_50751B12004F_var*
+var
+ l_Cell : Tl3Variant;
+//#UC END# *4D553AC103A3_50751B12004F_var*
+//#UC START# *50751B680376_50751AB90061_impl*
+ Result := inherited DoCheckText(aPara, aText, aSel, theSel);
+ if Result then
+  if evInPara(aPara.AsObject, k2_typTableCell, [k2_typSBSCell], l_Cell) then
+   Result := CheckCellType(l_Cell)
+  else
+   Result := false;
+//#UC END# *50751B680376_50751AB90061_impl*
+//#UC START# *50751B680376_50751AB90061_var*
+var
+ l_Cell : Tl3Variant;
+//#UC END# *50751B680376_50751AB90061_var*
+//#UC START# *50751B680376_50751AEF02A9_impl*
+ Result := inherited DoCheckText(aPara, aText, aSel, theSel);
+ if Result then
+ begin
+  if not aPara.QT(InevPara, l_P) then
+   Assert(false);
+  if (l_P.PID > 0) then
+  begin
+   Result := false;
+   Exit;
+  end;//l_P.PID > 0
+  if (l_P.OwnerPara.PID > 0) then
+  begin
+   Result := false;
+   Exit;
+  end;//l_P.OwnerPara.PID > 0
+  if (l_P.OwnerPara.OwnerPara.PID > 0) then
+  begin
+   Result := false;
+   Exit;
+  end;//l_P.OwnerPara.OwnerPara.PID > 0
+ end;//Result
+//#UC END# *50751B680376_50751AEF02A9_impl*
+//#UC START# *50751B680376_50751AEF02A9_var*
+var
+ l_P : InevPara;
+//#UC END# *50751B680376_50751AEF02A9_var*
+//#UC START# *5075300802E0_50751AB90061_impl*
+ Result := True;
+//#UC END# *5075300802E0_50751AB90061_impl*
+//#UC START# *5075300802E0_50751AB90061_var*
+//#UC END# *5075300802E0_50751AB90061_var*
+//#UC START# *5075300802E0_50751F2001E9_impl*
+ Result := aCell.Attr[k2_tiMergeStatus].IsValid and (TevMergeStatus(aCell.IntA[k2_tiMergeStatus]) = ev_msContinue);
+//#UC END# *5075300802E0_50751F2001E9_impl*
+//#UC START# *5075300802E0_50751F2001E9_var*
+//#UC END# *5075300802E0_50751F2001E9_var*
+//#UC START# *507530F8022A_50751B080168_impl*
+ l_Replacer := Create;
+ try
+  l_Replacer.f_FlagInit := False;
+  l_Replacer.f_FlagValue := False;
+  l_Replacer.Options := anOptions;
+  l_Replacer.Text := '';
+  Result := l_Replacer;
+ finally
+  FreeAndNil(l_Replacer);
+ end;//try..finally
+//#UC END# *507530F8022A_50751B080168_impl*
+//#UC START# *507530F8022A_50751B080168_var*
+var
+ l_Replacer : TevOldNSRCFlagReplacer;
+//#UC END# *507530F8022A_50751B080168_var*
+//#UC START# *507531E0006E_50751B12004F_impl*
+ l_Replacer := Create;
+ try
+  l_Replacer.Options := anOptions;
+  l_Replacer.Text := '';
+  l_Replacer.f_Frame := aFrame;
+  Result := l_Replacer;
+ finally
+  FreeAndNil(l_Replacer);
+ end;//try..finally
+//#UC END# *507531E0006E_50751B12004F_impl*
+//#UC START# *507531E0006E_50751B12004F_var*
+var
+ l_Replacer : TevTableCellFrameReplacer;
+//#UC END# *507531E0006E_50751B12004F_var*

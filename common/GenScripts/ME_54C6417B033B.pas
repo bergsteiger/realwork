@@ -1,4 +1,9 @@
-unit l3BMSearch;
+unit NOT_FINISHED_l3BMSearch;
+
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3BMSearch.pas"
+// Стереотип: "UtilityPack"
+
+{$Include l3Define.inc}
 
 interface
 

@@ -1,0 +1,76 @@
+//#UC START# *03EB93F2B4F5_42A7FAEADBD6_impl*
+ Result := Tl3PopupMenuHelper.Instance.GetPopupMenu(aControl, aPoint);
+//#UC END# *03EB93F2B4F5_42A7FAEADBD6_impl*
+//#UC START# *03EB93F2B4F5_42A7FAEADBD6_var*
+//#UC END# *03EB93F2B4F5_42A7FAEADBD6_var*
+//#UC START# *190B20AA18AF_DDB6E934DC7B_impl*
+ l_C := FindControl(GetFocus);
+ if (l_C = nil) then
+ // - наверное мы под отладчиком или из под нас выдернули фокус
+ begin
+  RunnerAssert(Screen.ActiveForm <> nil, 'Нет активной формы', aCtx);
+  l_C := Screen.ActiveForm.ActiveControl;
+ end;//l_C = nil
+ RunnerAssert(l_C <> nil, 'Не нашли контрол в фокусе', aCtx);
+ Result := l_C;
+//#UC END# *190B20AA18AF_DDB6E934DC7B_impl*
+//#UC START# *190B20AA18AF_DDB6E934DC7B_var*
+var
+ l_C : TControl;
+//#UC END# *190B20AA18AF_DDB6E934DC7B_var*
+//#UC START# *2075E5D1B087_19DF01986BE7_impl*
+ Result := Tl3FormsService.Instance.GetMainForm(aControl);
+//#UC END# *2075E5D1B087_19DF01986BE7_impl*
+//#UC START# *2075E5D1B087_19DF01986BE7_var*
+//#UC END# *2075E5D1B087_19DF01986BE7_var*
+//#UC START# *290504A82C40_BC5B460C7FEA_impl*
+ Result := Tl3FormsService.Instance.GetParentForm(aControl);
+//#UC END# *290504A82C40_BC5B460C7FEA_impl*
+//#UC START# *290504A82C40_BC5B460C7FEA_var*
+//#UC END# *290504A82C40_BC5B460C7FEA_var*
+//#UC START# *61CF2F0B3020_F8C716BBBC31_impl*
+ TControlFriend(aControl).Click;
+//#UC END# *61CF2F0B3020_F8C716BBBC31_impl*
+//#UC START# *61CF2F0B3020_F8C716BBBC31_var*
+//#UC END# *61CF2F0B3020_F8C716BBBC31_var*
+//#UC START# *68CF70189B15_8A00B7773D0C_impl*
+ Result := Tl3FormsService.Instance.GetAnotherParentForm(aControl);
+//#UC END# *68CF70189B15_8A00B7773D0C_impl*
+//#UC START# *68CF70189B15_8A00B7773D0C_var*
+//#UC END# *68CF70189B15_8A00B7773D0C_var*
+//#UC START# *8D28522E42BF_EBE4B9074377_impl*
+ TControlFriend(aControl).Color := aValue;
+//#UC END# *8D28522E42BF_EBE4B9074377_impl*
+//#UC START# *8D28522E42BF_EBE4B9074377_var*
+//#UC END# *8D28522E42BF_EBE4B9074377_var*
+//#UC START# *AACBF5E37A06_EBE4B9074377_impl*
+ Result := TControlFriend(aControl).Color;
+//#UC END# *AACBF5E37A06_EBE4B9074377_impl*
+//#UC START# *AACBF5E37A06_EBE4B9074377_var*
+//#UC END# *AACBF5E37A06_EBE4B9074377_var*
+//#UC START# *BCE0497B09C6_520187343F71_impl*
+ Result := Tl3ControlFontService.Instance.GetFont(aControl);
+//#UC END# *BCE0497B09C6_520187343F71_impl*
+//#UC START# *BCE0497B09C6_520187343F71_var*
+//#UC END# *BCE0497B09C6_520187343F71_var*
+//#UC START# *C84440B65B87_0241DA0F487D_impl*
+ Result := FindControl(aHandle);
+ RunnerAssert(Assigned(Result), 'Не найден контрол.', aCtx);
+//#UC END# *C84440B65B87_0241DA0F487D_impl*
+//#UC START# *C84440B65B87_0241DA0F487D_var*
+//#UC END# *C84440B65B87_0241DA0F487D_var*
+//#UC START# *D1A25E7B9BDA_801293AEE662_impl*
+ Result := Tl3FormsService.Instance.GetTopParentForm(aControl);
+//#UC END# *D1A25E7B9BDA_801293AEE662_impl*
+//#UC START# *D1A25E7B9BDA_801293AEE662_var*
+//#UC END# *D1A25E7B9BDA_801293AEE662_var*
+//#UC START# *DAFCD40E37A8_6ED40CDED494_impl*
+ Result := TControlFriend(aControl).Caption;
+//#UC END# *DAFCD40E37A8_6ED40CDED494_impl*
+//#UC START# *DAFCD40E37A8_6ED40CDED494_var*
+//#UC END# *DAFCD40E37A8_6ED40CDED494_var*
+//#UC START# *E44BD472B7AB_6BAE007A323D_impl*
+ aControl.ManualDock(nil, nil, alNone);
+//#UC END# *E44BD472B7AB_6BAE007A323D_impl*
+//#UC START# *E44BD472B7AB_6BAE007A323D_var*
+//#UC END# *E44BD472B7AB_6BAE007A323D_var*

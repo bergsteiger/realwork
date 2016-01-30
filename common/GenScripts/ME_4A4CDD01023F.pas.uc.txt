@@ -1,0 +1,96 @@
+//#UC START# *4A4CDE0A001A_4A4CDD01023F_impl*
+  case aSortType of
+    ST_PRIORITY       : Result := STN_PRIORITY;
+    ST_CREATE_DATE    : Result := STN_CREATE_DATE;
+    ST_LAST_EDIT_DATE : Result := STN_LAST_EDIT_DATE;
+    ST_NOT_SORTED     : Result := STN_NOT_SORTED;
+    ST_RELEVANCE      : Result := STN_RELEVANCE;
+  end;
+//#UC END# *4A4CDE0A001A_4A4CDD01023F_impl*
+//#UC START# *4A4CDE0A001A_4A4CDD01023F_var*
+//#UC END# *4A4CDE0A001A_4A4CDD01023F_var*
+//#UC START# *4A4CDE1F03C0_4A4CDD01023F_impl*
+  Result := true;
+  if AnsiSameText(aStr, STN_CREATE_DATE) then theSortType := ST_CREATE_DATE
+  else if AnsiSameText(aStr, STN_LAST_EDIT_DATE) then theSortType := ST_LAST_EDIT_DATE
+  else if AnsiSameText(aStr, STN_PRIORITY) then theSortType := ST_PRIORITY
+  else if AnsiSameText(aStr, STN_RELEVANCE) then theSortType := ST_RELEVANCE
+  else if AnsiSameText(aStr, STN_NOT_SORTED) then theSortType := ST_NOT_SORTED
+  else Result := false;
+//#UC END# *4A4CDE1F03C0_4A4CDD01023F_impl*
+//#UC START# *4A4CDE1F03C0_4A4CDD01023F_var*
+//#UC END# *4A4CDE1F03C0_4A4CDD01023F_var*
+//#UC START# *4A4CDE34010F_4A4CDD01023F_impl*
+  case aSortOrder of
+    SO_ASCENDING  : Result := SON_ASCENDING;
+    SO_DESCENDING : Result := SON_DESCENDING;
+  end;
+//#UC END# *4A4CDE34010F_4A4CDD01023F_impl*
+//#UC START# *4A4CDE34010F_4A4CDD01023F_var*
+//#UC END# *4A4CDE34010F_4A4CDD01023F_var*
+//#UC START# *4A4CDE4B033B_4A4CDD01023F_impl*
+  Result := true;
+  if AnsiSameText(aStr, SON_ASCENDING) then theSortOrder := SO_ASCENDING
+  else if AnsiSameText(aStr, SON_DESCENDING) then theSortOrder := SO_DESCENDING
+  else Result := false;
+//#UC END# *4A4CDE4B033B_4A4CDD01023F_impl*
+//#UC START# *4A4CDE4B033B_4A4CDD01023F_var*
+//#UC END# *4A4CDE4B033B_4A4CDD01023F_var*
+//#UC START# *4A4CDEEE00C0_4A4CDD01023F_impl*
+  Result := false;
+  aList.GetAvailableSortTypes(l_SortTypes);
+  Assert(l_SortTypes <> nil, 'l_SortTypes <> nil');
+  i := 0;
+  while ((i < l_SortTypes.Count) AND (NOT Result)) do
+  begin
+    Result := l_SortTypes.Items[i] = aSortType;
+    Inc(i);
+  end;
+//#UC END# *4A4CDEEE00C0_4A4CDD01023F_impl*
+//#UC START# *4A4CDEEE00C0_4A4CDD01023F_var*
+  var
+    l_SortTypes : ISortTypes;
+    i : integer;
+//#UC END# *4A4CDEEE00C0_4A4CDD01023F_var*
+//#UC START# *4A4DE6530114_4A4CDD01023F_impl*
+  aList.GetRoot(l_Root);
+  TatNodeHelper.LoadNodes(l_Root, 0, aNodesCount, TatNodeCallbacks.CallNodeCaption);
+//#UC END# *4A4DE6530114_4A4CDD01023F_impl*
+//#UC START# *4A4DE6530114_4A4CDD01023F_var*
+  var
+    l_Root : INodeBase;
+//#UC END# *4A4DE6530114_4A4CDD01023F_var*
+//#UC START# *5051E5520315_4FD24A98029Fget_impl*
+  Entity.GetHistory(l_Str);
+  Result := TatStringHelper.AStr2DStr(l_Str);
+  //
+  Result := AnsiReplaceText(Result, '</pre>', '');
+  Result := AnsiReplaceText(Result, '<pre class="rqname">', '');
+  Result := AnsiReplaceText(Result, '</span>', '');
+  Result := AnsiReplaceText(Result, '</space>', '');
+  Result := AnsiReplaceText(Result, '<pre class="space">', '');
+  Result := AnsiReplaceText(Result, '<pre class="rqval">', #9);
+  i := Pos(SUBSTR, Result);
+  if i <> 0 then
+    Delete(Result, 1, i - 1 + Length(SUBSTR));
+  Result := Trim(Result);
+//#UC END# *5051E5520315_4FD24A98029Fget_impl*
+//#UC START# *5051E5520315_4FD24A98029Fget_var*
+  const
+    SUBSTR = '_title">';
+  var
+    l_Str : IString;
+    i : Integer;
+//#UC END# *5051E5520315_4FD24A98029Fget_var*
+//#UC START# *5051E87C0078_4FD24A98029Fget_impl*
+  if NOT Assigned(f_Root) then
+    Entity.GetRoot(f_Root);
+  Result := f_Root;  
+//#UC END# *5051E87C0078_4FD24A98029Fget_impl*
+//#UC START# *5051E87C0078_4FD24A98029Fget_var*
+//#UC END# *5051E87C0078_4FD24A98029Fget_var*
+//#UC START# *5051E8E7028C_4FD24A98029Fget_impl*
+  Root.GetFirstChild(Result);
+//#UC END# *5051E8E7028C_4FD24A98029Fget_impl*
+//#UC START# *5051E8E7028C_4FD24A98029Fget_var*
+//#UC END# *5051E8E7028C_4FD24A98029Fget_var*

@@ -1,0 +1,20 @@
+//#UC START# *4C1B13B6016B_4C1F00340164_impl*
+ Result := 9;
+//#UC END# *4C1B13B6016B_4C1F00340164_impl*
+//#UC START# *4C1B13B6016B_4C1F00340164_var*
+//#UC END# *4C1B13B6016B_4C1F00340164_var*
+//#UC START# *4C1B140B002A_4C1F00340164_impl*
+ Result := 0;
+//#UC END# *4C1B140B002A_4C1F00340164_impl*
+//#UC START# *4C1B140B002A_4C1F00340164_var*
+//#UC END# *4C1B140B002A_4C1F00340164_var*
+//#UC START# *4C1F0A260192_4C1F00340164_impl*
+ l_Inner := aView.TopAnchor;
+ while (l_Inner <> nil) and not l_Inner.HasBaseLine do
+  l_Inner := l_Inner.Inner;
+ CheckFalse((l_Inner.Obj.PID = 7) and l_Inner.AtStart, 'TopAnchor должен быть еще в предыдующей строке');
+//#UC END# *4C1F0A260192_4C1F00340164_impl*
+//#UC START# *4C1F0A260192_4C1F00340164_var*
+var
+ l_Inner: InevBasePoint;
+//#UC END# *4C1F0A260192_4C1F00340164_var*

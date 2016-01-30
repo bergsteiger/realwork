@@ -1,5 +1,10 @@
 unit evBlocksEliminator;
 
+// Модуль: "w:\common\components\gui\Garant\EverestCommon\evBlocksEliminator.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
+
 interface
 
 uses
@@ -9,8 +14,10 @@ uses
 
 type
  TevBlocksEliminator = class(Tk2TagFilter)
+  protected
+   function NeedTranslateChildToNext: Boolean; override;
  end;//TevBlocksEliminator
- 
+
 implementation
 
 uses
@@ -18,5 +25,15 @@ uses
  , Block_Const
  , Document_Const
 ;
+
+function TevBlocksEliminator.NeedTranslateChildToNext: Boolean;
+//#UC START# *4CA3006302BC_4CA311770238_var*
+//#UC END# *4CA3006302BC_4CA311770238_var*
+begin
+//#UC START# *4CA3006302BC_4CA311770238_impl*
+ with CurrentType do
+  Result := not IsKindOf(k2_typBlock) OR IsKindOf(k2_typDocument);
+//#UC END# *4CA3006302BC_4CA311770238_impl*
+end;//TevBlocksEliminator.NeedTranslateChildToNext
 
 end.

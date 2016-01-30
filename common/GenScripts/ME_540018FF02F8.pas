@@ -1,5 +1,10 @@
 unit AutoExportTaskResult_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\AutoExportTaskResult_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -10,7 +15,7 @@ uses
 ;
 
  // AutoExportTaskResultTag
- 
+
 implementation
 
 uses

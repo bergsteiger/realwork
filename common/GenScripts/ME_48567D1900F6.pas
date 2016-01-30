@@ -1,4 +1,10 @@
 unit StyledLeafPara_Const;
+ {* "Листьевой" параграф с оформлением }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\StyledLeafPara_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -12,7 +18,7 @@ uses
 ;
 
  // StyledLeafParaTag
- 
+
 implementation
 
 uses

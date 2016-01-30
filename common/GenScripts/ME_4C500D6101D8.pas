@@ -1,22 +1,29 @@
-unit CursorMover.imp;
+{$IfNDef CursorMover_imp}
 
-interface
+// Модуль: "w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define CursorMover_imp}
 
-type
- _CursorMover_ = class
+{$If NOT Defined(NoScripts)}
+ _CursorMover_ = class(_CursorMover_Parent_)
   {* Примесь упрощающая навигацию по редактору при помощи управления курсором }
  end;//_CursorMover_
- 
-implementation
 
-uses
- l3ImplUses
- , evMsgCode
- , evOp
-;
+{$Else NOT Defined(NoScripts)}
 
-end.
+_CursorMover_ = _CursorMover_Parent_;
+
+{$IfEnd} // NOT Defined(NoScripts)
+{$Else CursorMover_imp}
+
+{$IfNDef CursorMover_imp_impl}
+
+{$Define CursorMover_imp_impl}
+
+{$If NOT Defined(NoScripts)}
+{$IfEnd} // NOT Defined(NoScripts)
+{$EndIf CursorMover_imp_impl}
+
+{$EndIf CursorMover_imp}
+

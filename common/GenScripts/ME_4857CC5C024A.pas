@@ -1,4 +1,10 @@
 unit AnnoTopic_Const;
+ {* Аннотация }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\AnnoTopic_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -8,7 +14,7 @@ uses
 ;
 
  // AnnoTopicTag
- 
+
 implementation
 
 uses

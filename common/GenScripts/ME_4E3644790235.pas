@@ -1,7 +1,20 @@
 unit kwPopEditorResizeTableColumn;
+ {* »зменить размер колонки таблицы. ѕример:
+[code]   aDelta aCol aRow editor:ResizeTableColumn [code]
+[panel]
+ * aCol - номер €чейки, которую т€нем
+ * aRow - номер строки
+ * aDelta - смещение колонки (положительное - вправо, отрицательное - влево).
+[panel] }
+
+// ћодуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorResizeTableColumn.pas"
+// —тереотип: "ScriptKeyword"
+
+{$Include seDefine.inc}
 
 interface
 
+{$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
  , kwEditorFromStackTableColumnResize
@@ -16,12 +29,26 @@ type
  * aRow - номер строки
  * aDelta - смещение колонки (положительное - вправо, отрицательное - влево).
 [panel] }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorResizeTableColumn
- 
+{$IfEnd} // NOT Defined(NoScripts)
+
 implementation
 
+{$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
 ;
+
+class function TkwPopEditorResizeTableColumn.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:editor:ResizeTableColumn';
+end;//TkwPopEditorResizeTableColumn.GetWordNameForRegister
+
+initialization
+ TkwPopEditorResizeTableColumn.RegisterInEngine;
+ {* –егистраци€ pop_editor_ResizeTableColumn }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

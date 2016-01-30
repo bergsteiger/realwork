@@ -1,4 +1,9 @@
-unit ddDocumentFilter;
+unit NOT_FINISHED_ddDocumentFilter;
+
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddDocumentFilter.pas"
+// Стереотип: "SimpleClass"
+
+{$Include ddDefine.inc}
 
 interface
 
@@ -10,7 +15,7 @@ uses
 type
  TddDocumentFilter = class(TevdCustomChildBufferedFilter)
  end;//TddDocumentFilter
- 
+
 implementation
 
 uses

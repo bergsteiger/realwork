@@ -1,0 +1,17 @@
+//#UC START# *47A0AD3A01F7_4A60B2220398_impl*
+ Result := inherited QueryInterface(IID, Obj);
+ if l3IFail(Result) then
+ begin
+  l_Res := COMQueryInterface(Tl3GUID_C(IID), Obj);
+  Result := l_Res.Res;
+ end;//l3IFail(Result)
+//#UC END# *47A0AD3A01F7_4A60B2220398_impl*
+//#UC START# *47A0AD3A01F7_4A60B2220398_var*
+var
+ l_Res : Tl3HResult;
+//#UC END# *47A0AD3A01F7_4A60B2220398_var*
+//#UC START# *4A60B23E00C3_4A60B2220398_impl*
+ Result.SetNoInterface;
+//#UC END# *4A60B23E00C3_4A60B2220398_impl*
+//#UC START# *4A60B23E00C3_4A60B2220398_var*
+//#UC END# *4A60B23E00C3_4A60B2220398_var*

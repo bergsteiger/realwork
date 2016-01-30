@@ -1,5 +1,10 @@
 unit RelPublishTask_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\RelPublishTask_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -8,7 +13,7 @@ uses
 ;
 
  // RelPublishTaskTag
- 
+
 implementation
 
 uses

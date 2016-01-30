@@ -1,0 +1,49 @@
+//#UC START# *479731C50290_4F98242D007E_impl*
+ l3Free(f_Listeners);
+ inherited;
+//#UC END# *479731C50290_4F98242D007E_impl*
+//#UC START# *479731C50290_4F98242D007E_var*
+//#UC END# *479731C50290_4F98242D007E_var*
+//#UC START# *47A042E100E2_4F98242D007E_impl*
+ inherited;
+ f_Listeners := TnsFiltersListenersList.Create; 
+//#UC END# *47A042E100E2_4F98242D007E_impl*
+//#UC START# *47A042E100E2_4F98242D007E_var*
+//#UC END# *47A042E100E2_4F98242D007E_var*
+//#UC START# *4CB2B26B0365_4F98242D007E_impl*
+ for l_Loop := 0 to f_Listeners.Count - 1 do
+  f_Listeners[l_Loop].FiltersChanged;
+//#UC END# *4CB2B26B0365_4F98242D007E_impl*
+//#UC START# *4CB2B26B0365_4F98242D007E_var*
+var
+ l_Loop: Integer;
+//#UC END# *4CB2B26B0365_4F98242D007E_var*
+//#UC START# *4CB2B27F03C3_4F98242D007E_impl*
+ for l_Loop := 0 to f_Listeners.Count - 1 do
+  f_Listeners[l_Loop].FilterNameChanged;
+//#UC END# *4CB2B27F03C3_4F98242D007E_impl*
+//#UC START# *4CB2B27F03C3_4F98242D007E_var*
+var
+ l_Loop: Integer;
+//#UC END# *4CB2B27F03C3_4F98242D007E_var*
+//#UC START# *4CB2B2910052_4F98242D007E_impl*
+ for l_Loop := 0 to f_Listeners.Count - 1 do
+  f_Listeners[l_Loop].FilterPermanenceChanged;
+//#UC END# *4CB2B2910052_4F98242D007E_impl*
+//#UC START# *4CB2B2910052_4F98242D007E_var*
+var
+ l_Loop: Integer;
+//#UC END# *4CB2B2910052_4F98242D007E_var*
+//#UC START# *4F982629031E_4F98242D007E_impl*
+ with GetInstance do
+  if f_Listeners.IndexOf(aListener) < 0 then
+   f_Listeners.Add(aListener);
+//#UC END# *4F982629031E_4F98242D007E_impl*
+//#UC START# *4F982629031E_4F98242D007E_var*
+//#UC END# *4F982629031E_4F98242D007E_var*
+//#UC START# *4F98265301F4_4F98242D007E_impl*
+ if HasInstance then
+  GetInstance.f_Listeners.Remove(aListener);
+//#UC END# *4F98265301F4_4F98242D007E_impl*
+//#UC START# *4F98265301F4_4F98242D007E_var*
+//#UC END# *4F98265301F4_4F98242D007E_var*

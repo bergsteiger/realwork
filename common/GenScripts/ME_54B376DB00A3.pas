@@ -1,5 +1,10 @@
 unit PlainFile_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\PlainFile_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -9,7 +14,7 @@ uses
 ;
 
  // PlainFileTag
- 
+
 implementation
 
 uses

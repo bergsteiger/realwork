@@ -1,7 +1,13 @@
-unit eeProcessor;
+unit NOT_FINISHED_eeProcessor;
+
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eeProcessor.pas"
+// Стереотип: "SimpleClass"
+
+{$Include eeDefine.inc}
 
 interface
 
+{$If Defined(Nemesis)}
 uses
  l3IntfUses
  , evEditorWindowProcessor
@@ -10,11 +16,14 @@ uses
 type
  TeeProcessor = class(TevEditorWindowProcessor)
  end;//TeeProcessor
- 
+{$IfEnd} // Defined(Nemesis)
+
 implementation
 
+{$If Defined(Nemesis)}
 uses
  l3ImplUses
 ;
+{$IfEnd} // Defined(Nemesis)
 
 end.

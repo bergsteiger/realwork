@@ -1,7 +1,13 @@
-unit evDrawLineTool;
+unit NOT_FINISHED_evDrawLineTool;
+
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evDrawLineTool.pas"
+// Стереотип: "SimpleClass"
+
+{$Include evDefine.inc}
 
 interface
 
+{$If Defined(evUseVisibleCursors)}
 uses
  l3IntfUses
 ;
@@ -9,11 +15,14 @@ uses
 type
  TevDrawLineTool = class
  end;//TevDrawLineTool
- 
+{$IfEnd} // Defined(evUseVisibleCursors)
+
 implementation
 
+{$If Defined(evUseVisibleCursors)}
 uses
  l3ImplUses
 ;
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

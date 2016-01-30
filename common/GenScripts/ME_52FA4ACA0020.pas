@@ -1,7 +1,13 @@
 unit csRequestTask;
 
+// Модуль: "w:\common\components\rtl\Garant\cs\csRequestTask.pas"
+// Стереотип: "UtilityPack"
+
+{$Include CsDefine.inc}
+
 interface
 
+{$If NOT Defined(Nemesis)}
 uses
  l3IntfUses
  , ddServerTask
@@ -13,20 +19,78 @@ uses
 
 type
  TddRequestTask = class(TddTaskItem)
-  procedure SaveRequestToPipe(aPipe: TCsDataPipe);
+  public
+   procedure SaveRequestToPipe(aPipe: TCsDataPipe); virtual;
+   class function GetTaggedDataType: Tk2Type; override;
+   constructor Create(aUserID: TUserID); override;
  end;//TddRequestTask
- 
+
  TddRequestTaskAsTask = class(TddRequestTask)
-  procedure SaveTaskToPipe(aPipe: TCsDataPipe);
+  public
+   procedure SaveTaskToPipe(aPipe: TCsDataPipe);
  end;//TddRequestTaskAsTask
- 
+{$IfEnd} // NOT Defined(Nemesis)
+
 implementation
 
+{$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
  , evdTaskTypes
  , l3Memory
  , SysUtils
 ;
+
+procedure TddRequestTask.SaveRequestToPipe(aPipe: TCsDataPipe);
+//#UC START# *54C0FDAD028B_52FA4AD90122_var*
+//#UC END# *54C0FDAD028B_52FA4AD90122_var*
+begin
+//#UC START# *54C0FDAD028B_52FA4AD90122_impl*
+// Do nothing
+//#UC END# *54C0FDAD028B_52FA4AD90122_impl*
+end;//TddRequestTask.SaveRequestToPipe
+
+class function TddRequestTask.GetTaggedDataType: Tk2Type;
+//#UC START# *53AC03EE01FD_52FA4AD90122_var*
+//#UC END# *53AC03EE01FD_52FA4AD90122_var*
+begin
+//#UC START# *53AC03EE01FD_52FA4AD90122_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53AC03EE01FD_52FA4AD90122_impl*
+end;//TddRequestTask.GetTaggedDataType
+
+constructor TddRequestTask.Create(aUserID: TUserID);
+//#UC START# *53B3D8A8011F_52FA4AD90122_var*
+//#UC END# *53B3D8A8011F_52FA4AD90122_var*
+begin
+//#UC START# *53B3D8A8011F_52FA4AD90122_impl*
+ inherited;
+ //TaskType := cs_ttRequest;
+//#UC END# *53B3D8A8011F_52FA4AD90122_impl*
+end;//TddRequestTask.Create
+
+procedure TddRequestTaskAsTask.SaveTaskToPipe(aPipe: TCsDataPipe);
+//#UC START# *54C650610228_54C6504A003A_var*
+var
+  l_Stream: Tl3MemoryStream;
+//#UC END# *54C650610228_54C6504A003A_var*
+begin
+//#UC START# *54C650610228_54C6504A003A_impl*
+ l_Stream:= Tl3MemoryStream.Create;
+ try
+  SaveTo(l_Stream, True);
+  l_Stream.Seek(0, 0);
+  aPipe.WriteStream(l_Stream);
+ finally
+  FreeAndNil(l_Stream);
+ end;
+//#UC END# *54C650610228_54C6504A003A_impl*
+end;//TddRequestTaskAsTask.SaveTaskToPipe
+
+initialization
+//#UC START# *53B3DA12012D*
+ RegisterTaskClass(cs_ttRequest, TddRequestTask, 'запрос');
+//#UC END# *53B3DA12012D*
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

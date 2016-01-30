@@ -1,0 +1,118 @@
+//#UC START# *479731C50290_493D4E010178_impl*
+ for l_Index := Low(TnsUserCRListId) to High(TnsUserCRListId) do
+  f_UserCRListInfo[l_Index] := nil;
+ ResetBooleans;
+ f_CorrType := nil;
+ f_RespType := nil;
+ f_CorrList := nil;
+ f_RespList := nil;
+ inherited;
+//#UC END# *479731C50290_493D4E010178_impl*
+//#UC START# *479731C50290_493D4E010178_var*
+var
+ l_Index: TnsUserCRListId;
+//#UC END# *479731C50290_493D4E010178_var*
+//#UC START# *4952847900AB_493D4E010178get_impl*
+ Result := f_CorrType;
+//#UC END# *4952847900AB_493D4E010178get_impl*
+//#UC START# *4952847900AB_493D4E010178get_var*
+//#UC END# *4952847900AB_493D4E010178get_var*
+//#UC START# *4952847900AB_493D4E010178set_impl*
+ f_CorrType := aValue;
+//#UC END# *4952847900AB_493D4E010178set_impl*
+//#UC START# *4952847900AB_493D4E010178set_var*
+//#UC END# *4952847900AB_493D4E010178set_var*
+//#UC START# *49528489009B_493D4E010178get_impl*
+ Result := f_CorrList;
+//#UC END# *49528489009B_493D4E010178get_impl*
+//#UC START# *49528489009B_493D4E010178get_var*
+//#UC END# *49528489009B_493D4E010178get_var*
+//#UC START# *49528489009B_493D4E010178set_impl*
+ f_CorrList := aValue;
+//#UC END# *49528489009B_493D4E010178set_impl*
+//#UC START# *49528489009B_493D4E010178set_var*
+//#UC END# *49528489009B_493D4E010178set_var*
+//#UC START# *495284F00076_493D4E010178get_impl*
+ Result := f_RespType;
+//#UC END# *495284F00076_493D4E010178get_impl*
+//#UC START# *495284F00076_493D4E010178get_var*
+//#UC END# *495284F00076_493D4E010178get_var*
+//#UC START# *495284F00076_493D4E010178set_impl*
+ f_RespType := aValue;
+//#UC END# *495284F00076_493D4E010178set_impl*
+//#UC START# *495284F00076_493D4E010178set_var*
+//#UC END# *495284F00076_493D4E010178set_var*
+//#UC START# *495284FD02A0_493D4E010178get_impl*
+ Result := f_RespList;
+//#UC END# *495284FD02A0_493D4E010178get_impl*
+//#UC START# *495284FD02A0_493D4E010178get_var*
+//#UC END# *495284FD02A0_493D4E010178get_var*
+//#UC START# *495284FD02A0_493D4E010178set_impl*
+ f_RespList := aValue;
+//#UC END# *495284FD02A0_493D4E010178set_impl*
+//#UC START# *495284FD02A0_493D4E010178set_var*
+//#UC END# *495284FD02A0_493D4E010178set_var*
+//#UC START# *495285A503C4_493D4E010178get_impl*
+ if f_UserCRListInfo[aValue] = nil then
+  f_UserCRListInfo[aValue] := TbsUserCRListInfo.Make;
+ Result := f_UserCRListInfo[aValue];
+//#UC END# *495285A503C4_493D4E010178get_impl*
+//#UC START# *495285A503C4_493D4E010178get_var*
+//#UC END# *495285A503C4_493D4E010178get_var*
+//#UC START# *4B16B8CF0307_493D4E010178_impl*
+ for l_Index := Low(TnsUserCRListId) to High(TnsUserCRListId) do
+  f_UserCRListInfo[l_Index] := aData.UserCRListInfo[l_Index];
+ f_HasRelatedDoc := aData.HasRelatedDoc;
+ f_HasAttributes := aData.HasAttributes;
+ f_HasRespondents := aData.HasRespondents;
+ f_HasCorrespondents := aData.HasCorrespondents;
+ f_HasAnnotation := aData.HasAnnotation;
+ f_HasSimilarDocuments := aData.HasSimilarDocuments;
+ f_HasChronology := aData.HasChronology;
+ f_IsUnderControl := aData.IsUnderControl;
+ f_HasTranslation := aData.HasTranslation;
+ f_CorrType := aData.CorrType;
+ f_RespType := aData.RespType;
+ f_CorrList := aData.CorrList;
+ f_RespList := aData.RespList;
+ pm_GetDsDocumentWithFlashRef.Assign(aData.dsDocumentWithFlashRef);
+ pm_GetDsAttributesRef.Assign(aData.dsAttributesRef);
+ pm_GetdsRelatedDocRef.Assign(aData.dsRelatedDocRef);
+ pm_GetdsRespondentsRef.Assign(aData.dsRespondentsRef);
+ pm_GetdsCorrespondentsRef.Assign(aData.dsCorrespondentsRef);
+ pm_GetdsAnnotationRef.Assign(aData.dsAnnotationRef);
+ pm_GetdsSimilarDocumentsRef.Assign(aData.dsSimilarDocumentsRef);
+ pm_GetdsChronologyRef.Assign(aData.dsChronologyRef);
+ inherited;
+//#UC END# *4B16B8CF0307_493D4E010178_impl*
+//#UC START# *4B16B8CF0307_493D4E010178_var*
+var
+ l_Index   : TnsUserCRListId;
+//#UC END# *4B16B8CF0307_493D4E010178_var*
+//#UC START# *4B16B8E3013F_493D4E010178_impl*
+ inherited;
+ f_HasSimilarDocuments := l3_bUnknown;
+ f_HasRelatedDoc := l3_bUnknown;
+ f_HasAttributes := l3_bUnknown;
+ f_HasRespondents := l3_bUnknown;
+ f_HasCorrespondents := l3_bUnknown;
+ f_HasAnnotation := l3_bUnknown;
+ f_IsUnderControl := l3_bUnknown;
+ f_HasTranslation := l3_bUnknown;
+ f_HasChronology := l3_bUnknown;
+//#UC END# *4B16B8E3013F_493D4E010178_impl*
+//#UC START# *4B16B8E3013F_493D4E010178_var*
+//#UC END# *4B16B8E3013F_493D4E010178_var*
+//#UC START# *4B18134E01F8_493D4E010178_impl*
+ inherited;
+ l3BoolReset(f_HasSimilarDocuments);
+ l3BoolReset(f_HasCorrespondents);
+ l3BoolReset(f_HasTranslation);
+ l3BoolReset(f_HasRelatedDoc);
+ l3BoolReset(f_HasRespondents);
+ l3BoolReset(f_HasAnnotation);
+ l3BoolReset(f_IsUnderControl);
+ l3BoolReset(f_HasChronology);
+//#UC END# *4B18134E01F8_493D4E010178_impl*
+//#UC START# *4B18134E01F8_493D4E010178_var*
+//#UC END# *4B18134E01F8_493D4E010178_var*

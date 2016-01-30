@@ -1,0 +1,328 @@
+//#UC START# *4769552100DD_52DD0971008A_impl*
+ DoProvideOps(aPublisher);
+//#UC END# *4769552100DD_52DD0971008A_impl*
+//#UC START# *4769552100DD_52DD0971008A_var*
+//#UC END# *4769552100DD_52DD0971008A_var*
+//#UC START# *476BFD420341_52DD0971008A_impl*
+ Result := DoIsCommandPublished(Cmd);
+//#UC END# *476BFD420341_52DD0971008A_impl*
+//#UC START# *476BFD420341_52DD0971008A_var*
+//#UC END# *476BFD420341_52DD0971008A_var*
+//#UC START# *479731C50290_52DD07CE001D_impl*
+ f_Aggregate := nil;
+ f_Wrap := True;
+ inherited;
+//#UC END# *479731C50290_52DD07CE001D_impl*
+//#UC START# *479731C50290_52DD07CE001D_var*
+//#UC END# *479731C50290_52DD07CE001D_var*
+//#UC START# *47D1602000C6_52DD0971008A_impl*
+ inherited;
+ f_InterRowMultiplier := 1;
+
+ {$IfNDef DesignTimeLibrary}
+ {$IfDef Nemesis}
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=303858572
+ // на всякий случай, т.к. ограничение только для оболочки
+ {$If not defined(Admin) AND not defined(Monitorings)}
+  if (afw.Application <> nil) then
+   DisableDragAndDropSupport := afw.Application.IsTrialMode;
+ {$IfEnd} //not Admin AND not Monitorings
+ {$EndIf Nemesis}
+ {$EndIf DesignTimeLibrary}
+//#UC END# *47D1602000C6_52DD0971008A_impl*
+//#UC START# *47D1602000C6_52DD0971008A_var*
+//#UC END# *47D1602000C6_52DD0971008A_var*
+//#UC START# *48BFB75F01ED_52DD0971008A_impl*
+ Result := DROPEFFECT_MOVE;
+//#UC END# *48BFB75F01ED_52DD0971008A_impl*
+//#UC START# *48BFB75F01ED_52DD0971008A_var*
+//#UC END# *48BFB75F01ED_52DD0971008A_var*
+//#UC START# *4951284902BD_52DD0971008Aexec_impl*
+ l_Data := TreeStruct.MakeDataObject(GetCurrentNode, nil);
+ if l_Data <> nil then
+ try
+  l3System.SetClipboardData(l_Data);
+ finally
+  l_Data := nil;
+ end;//try..finally
+//#UC END# *4951284902BD_52DD0971008Aexec_impl*
+//#UC START# *4951284902BD_52DD0971008Aexec_var*
+var
+ l_Data: IDataObject;
+//#UC END# *4951284902BD_52DD0971008Aexec_var*
+//#UC START# *4951284902BD_52DD0971008Atest_impl*
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  aParams.Op.Flag[vcm_ofEnabled] := TreeStruct.SelectCount > 0;
+//#UC END# *4951284902BD_52DD0971008Atest_impl*
+//#UC START# *4951284902BD_52DD0971008Atest_var*
+//#UC END# *4951284902BD_52DD0971008Atest_var*
+//#UC START# *499C26240034ci*
+//#UC END# *499C26240034ci*
+//#UC START# *499C26240034cit*
+//#UC END# *499C26240034cit*
+//#UC START# *499C26240034impl*
+//#UC END# *499C26240034impl*
+//#UC START# *499C26240034publ*
+  published
+   property SettingId;
+   property InterRowMultiplier default 1;
+   property DisableDragAndDropSupport default false;
+//#UC END# *499C26240034publ*
+//#UC START# *49EDFA3701B0_52DD0971008Aexec_impl*
+ Paste;
+//#UC END# *49EDFA3701B0_52DD0971008Aexec_impl*
+//#UC START# *49EDFA3701B0_52DD0971008Aexec_var*
+//#UC END# *49EDFA3701B0_52DD0971008Aexec_var*
+//#UC START# *49EDFA3701B0_52DD0971008Atest_impl*
+ if aParams.Op.Flag[vcm_ofEnabled] then
+  aParams.Op.Flag[vcm_ofEnabled] := lp_HasAcceptableFormat;
+//#UC END# *49EDFA3701B0_52DD0971008Atest_impl*
+//#UC START# *49EDFA3701B0_52DD0971008Atest_var*
+ function lp_HasAcceptableFormat: Boolean;
+ var
+  l_Data: IDataObject;
+ begin
+  if OleGetClipboard(l_Data) = S_OK then
+  try
+   Result := (Length(GetAcceptableFormatsFor(l_Data)) > 0) and CanAcceptData(l_Data);
+  finally
+   l_Data := nil;
+  end//try..finally
+  else
+   Result := False;
+ end;//lp_HasAcceptableFormat
+//#UC END# *49EDFA3701B0_52DD0971008Atest_var*
+//#UC START# *49EE01AA02BE_52DD0971008Aexec_impl*
+ {$IfNDef DesignTimeLibrary}
+ vlbSelectAllItems;
+ {$EndIf  DesignTimeLibrary}
+//#UC END# *49EE01AA02BE_52DD0971008Aexec_impl*
+//#UC START# *49EE01AA02BE_52DD0971008Aexec_var*
+//#UC END# *49EE01AA02BE_52DD0971008Aexec_var*
+//#UC START# *49EE01AA02BE_52DD0971008Atest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not IsEmpty and MultiSelect;
+//#UC END# *49EE01AA02BE_52DD0971008Atest_impl*
+//#UC START# *49EE01AA02BE_52DD0971008Atest_var*
+//#UC END# *49EE01AA02BE_52DD0971008Atest_var*
+//#UC START# *49EE01BC022E_52DD0971008Aexec_impl*
+ {$IfNDef DesignTimeLibrary}
+ vlbDeselectAllItems;
+ {$EndIf  DesignTimeLibrary}
+//#UC END# *49EE01BC022E_52DD0971008Aexec_impl*
+//#UC START# *49EE01BC022E_52DD0971008Aexec_var*
+//#UC END# *49EE01BC022E_52DD0971008Aexec_var*
+//#UC START# *49EE01BC022E_52DD0971008Atest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not IsEmpty and MultiSelect;
+//#UC END# *49EE01BC022E_52DD0971008Atest_impl*
+//#UC START# *49EE01BC022E_52DD0971008Atest_var*
+//#UC END# *49EE01BC022E_52DD0971008Atest_var*
+//#UC START# *4A60B23E00C3_52DD07CE001D_impl*
+ Result := inherited COMQueryInterface(IID, Obj);
+ if Result.Fail then
+  if Supports(f_Aggregate, IID.IID, Obj) then
+   Result.SetOk
+  else
+   Result.SetNoInterface;
+//#UC END# *4A60B23E00C3_52DD07CE001D_impl*
+//#UC START# *4A60B23E00C3_52DD07CE001D_var*
+//#UC END# *4A60B23E00C3_52DD07CE001D_var*
+//#UC START# *4BDAF7880236_52DD0971008Aexec_impl*
+ {$IfNDef DesignTimeLibrary}
+ Changing;
+ try
+  TreeView.ExpandAll;
+ finally
+  Changed;
+ end;//try..finally
+ {$EndIf  DesignTimeLibrary}
+//#UC END# *4BDAF7880236_52DD0971008Aexec_impl*
+//#UC START# *4BDAF7880236_52DD0971008Aexec_var*
+//#UC END# *4BDAF7880236_52DD0971008Aexec_var*
+//#UC START# *4BDAF7880236_52DD0971008Atest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not IsEmpty;
+//#UC END# *4BDAF7880236_52DD0971008Atest_impl*
+//#UC START# *4BDAF7880236_52DD0971008Atest_var*
+//#UC END# *4BDAF7880236_52DD0971008Atest_var*
+//#UC START# *4BDAF7A2005C_52DD0971008Aexec_impl*
+ {$IfNDef DesignTimeLibrary}
+ Changing;
+ try
+  TreeView.CollapseAll;
+ finally
+  Changed;
+ end;//try..finally
+ {$EndIf DesignTimeLibrary}
+//#UC END# *4BDAF7A2005C_52DD0971008Aexec_impl*
+//#UC START# *4BDAF7A2005C_52DD0971008Aexec_var*
+//#UC END# *4BDAF7A2005C_52DD0971008Aexec_var*
+//#UC START# *4BDAF7A2005C_52DD0971008Atest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not IsEmpty;
+//#UC END# *4BDAF7A2005C_52DD0971008Atest_impl*
+//#UC START# *4BDAF7A2005C_52DD0971008Atest_var*
+//#UC END# *4BDAF7A2005C_52DD0971008Atest_var*
+//#UC START# *4BDAF7B803CF_52DD0971008Aexec_impl*
+ MultiStrokeItem := not MultiStrokeItem;
+//#UC END# *4BDAF7B803CF_52DD0971008Aexec_impl*
+//#UC START# *4BDAF7B803CF_52DD0971008Aexec_var*
+//#UC END# *4BDAF7B803CF_52DD0971008Aexec_var*
+//#UC START# *4BDAF7B803CF_52DD0971008Atest_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := not IsEmpty;
+ aParams.Op.Flag[vcm_ofChecked] := MultiStrokeItem;
+ {$If defined(Nemesis)}
+ aParams.Op.Hint := nscMultiStrokeMap[MultiStrokeItem].AsCStr;
+ {$IfEnd}
+//#UC END# *4BDAF7B803CF_52DD0971008Atest_impl*
+//#UC START# *4BDAF7B803CF_52DD0971008Atest_var*
+//#UC END# *4BDAF7B803CF_52DD0971008Atest_var*
+//#UC START# *4F9A5C410274_52DD0971008A_impl*
+ if f_SettingId <> '' then
+  MultiStrokeItem := Settings.LoadBoolean(PAnsiChar(MakePath(cstWrap)), True);
+//#UC END# *4F9A5C410274_52DD0971008A_impl*
+//#UC START# *4F9A5C410274_52DD0971008A_var*
+//#UC END# *4F9A5C410274_52DD0971008A_var*
+//#UC START# *4F9A5C530398_52DD0971008A_impl*
+ if f_SettingId <> '' then
+  Settings.SaveBoolean(PAnsiChar(MakePath(cstWrap)), MultiStrokeItem);
+//#UC END# *4F9A5C530398_52DD0971008A_impl*
+//#UC START# *4F9A5C530398_52DD0971008A_var*
+//#UC END# *4F9A5C530398_52DD0971008A_var*
+//#UC START# *508F7F930094_52DD0971008A_impl*
+ Result := f_Published and (Cmd in [ccTreeAllExpand,
+                                    ccAllSelect,
+                                    ccAllDeselect]);
+//#UC END# *508F7F930094_52DD0971008A_impl*
+//#UC START# *508F7F930094_52DD0971008A_var*
+//#UC END# *508F7F930094_52DD0971008A_var*
+//#UC START# *5152C16A028F_52DD0971008A_impl*
+ Result := inherited GetDragAndDropSupported;
+ if DisableDragAndDropSupport then
+  Result := False;
+//#UC END# *5152C16A028F_52DD0971008A_impl*
+//#UC START# *5152C16A028F_52DD0971008A_var*
+//#UC END# *5152C16A028F_52DD0971008A_var*
+//#UC START# *515584020214_52DD0971008A_impl*
+ Result := f_RowHeight * InterRowMultiplier div 3;
+//#UC END# *515584020214_52DD0971008A_impl*
+//#UC START# *515584020214_52DD0971008A_var*
+//#UC END# *515584020214_52DD0971008A_var*
+//#UC START# *52DD07A0013B_52DD07CE001Dget_impl*
+ Result := f_Aggregate;
+//#UC END# *52DD07A0013B_52DD07CE001Dget_impl*
+//#UC START# *52DD07A0013B_52DD07CE001Dget_var*
+//#UC END# *52DD07A0013B_52DD07CE001Dget_var*
+//#UC START# *52DD07B301D9_52DD07CE001Dget_impl*
+ Result := f_Wrap;
+//#UC END# *52DD07B301D9_52DD07CE001Dget_impl*
+//#UC START# *52DD07B301D9_52DD07CE001Dget_var*
+//#UC END# *52DD07B301D9_52DD07CE001Dget_var*
+//#UC START# *52DD083B0184_52DD07CE001D_impl*
+ inherited Create;
+ f_Aggregate := aAggregate;
+ f_Wrap := aWrap;
+//#UC END# *52DD083B0184_52DD07CE001D_impl*
+//#UC START# *52DD083B0184_52DD07CE001D_var*
+//#UC END# *52DD083B0184_52DD07CE001D_var*
+//#UC START# *52DD08FC017B_52DD0971008Aset_impl*
+ if f_SettingId <> aValue then
+ begin
+  f_SettingId := aValue;
+  {$IfNDef DesignTimeLibrary}
+  CheckLoadSettings;
+  {$EndIf DesignTimeLibrary}
+ end;
+//#UC END# *52DD08FC017B_52DD0971008Aset_impl*
+//#UC START# *52DD08FC017B_52DD0971008Aset_var*
+//#UC END# *52DD08FC017B_52DD0971008Aset_var*
+//#UC START# *52DD09210222_52DD0971008Aset_impl*
+ if aValue < 1 then
+  aValue := 1;
+ if f_InterRowMultiplier <> aValue then
+ begin
+  f_InterRowMultiplier := aValue;
+  UpdateInterRowIndent;
+ end;
+//#UC END# *52DD09210222_52DD0971008Aset_impl*
+//#UC START# *52DD09210222_52DD0971008Aset_var*
+//#UC END# *52DD09210222_52DD0971008Aset_var*
+//#UC START# *52DD0A7700AD_52DD0971008A_impl*
+ Result := (TreeStruct.RootNode = nil) or not TreeStruct.RootNode.HasChild;
+//#UC END# *52DD0A7700AD_52DD0971008A_impl*
+//#UC START# *52DD0A7700AD_52DD0971008A_var*
+//#UC END# *52DD0A7700AD_52DD0971008A_var*
+//#UC START# *52DD0ACE03DC_52DD0971008A_impl*
+ f_Published := true;
+ with aPublisher do
+ begin
+  PublishOp(vcm_deEdit,
+            vcm_doSelectAll,
+            Edit_SelectAll_Execute,
+            Edit_SelectAll_Test);
+  PublishOp(vcm_deEdit,
+            vcm_doDeselect,
+            Edit_Deselect_Execute,
+            Edit_Deselect_Test);
+  PublishOp(vcm_deEdit,
+            vcm_doCopy,
+            Edit_Copy_Execute,
+            Edit_Copy_Test);
+  PublishOp(vcm_deEdit,
+            vcm_doPaste,
+            Edit_Paste_Execute,
+            Edit_Paste_Test);
+  PublishOp(cenTree,
+            copExpandAll,
+            Tree_ExpandAll_Execute,
+            Tree_ExpandAll_Test);
+  PublishOp(cenTree,
+            copCollapseAll,
+            Tree_CollapseAll_Execute,
+            Tree_CollapseAll_Test);
+  PublishOp(cenTree,
+            copWrap,
+            Tree_Wrap_Execute,
+            Tree_Wrap_Test);
+ end;//with aPublisher do
+//#UC END# *52DD0ACE03DC_52DD0971008A_impl*
+//#UC START# *52DD0ACE03DC_52DD0971008A_var*
+const
+ cenTree = en_Tree;
+ copWrap = op_Wrap;
+ copExpandAll = op_ExpandAll;
+ copCollapseAll = op_CollapseAll;
+//#UC END# *52DD0ACE03DC_52DD0971008A_var*
+//#UC START# *52DD0AF202C2_52DD0971008A_impl*
+ Result := f_SettingId + g_afwPathSep + aSetting;
+//#UC END# *52DD0AF202C2_52DD0971008A_impl*
+//#UC START# *52DD0AF202C2_52DD0971008A_var*
+//#UC END# *52DD0AF202C2_52DD0971008A_var*
+//#UC START# *52DD0F440276_52DD0971008A_impl*
+ Result := inherited DoSaveState(aState, aStateType, aForClone);
+ if aStateType = vcm_stContent then
+ begin
+  if Result then
+   aState := TnscTreeViewState.Make(aState, MultiStrokeItem)
+  else
+   aState := TnscTreeViewState.Make(nil, MultiStrokeItem);
+  Result := True;
+ end;
+//#UC END# *52DD0F440276_52DD0971008A_impl*
+//#UC START# *52DD0F440276_52DD0971008A_var*
+//#UC END# *52DD0F440276_52DD0971008A_var*
+//#UC START# *52DD0F6F0223_52DD0971008A_impl*
+ if (aStateType = vcm_stContent) and
+    Supports(aState, InscTreeState, l_Params) then
+ try
+  MultiStrokeItem := l_Params.Wrap;
+  Result := True;
+  if l_Params.Aggregate <> nil then
+   inherited DoLoadState(l_Params.Aggregate, aStateType, aForClone);
+ finally
+  l_Params := nil;
+ end
+ else
+  Result := LoadState(aState, aStateType);
+//#UC END# *52DD0F6F0223_52DD0971008A_impl*
+//#UC START# *52DD0F6F0223_52DD0971008A_var*
+var
+ l_Params: InscTreeState;
+//#UC END# *52DD0F6F0223_52DD0971008A_var*

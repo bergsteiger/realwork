@@ -1,0 +1,15 @@
+//#UC START# *4B16583901B5_4B1658140144_impl*
+ l_Data := MakeParamsList;
+ l_Data.AddObject(aList);
+ l_Data.AddObject(aDoc);
+ GetLogger.AddEvent(c_Event[aNext], l_Data);
+//#UC END# *4B16583901B5_4B1658140144_impl*
+//#UC START# *4B16583901B5_4B1658140144_var*
+var
+ l_Data: InsLogEventData;
+const
+ c_Event: array [Boolean] of TLogEvent = (
+  LE_PREV_DOCUMENT,
+  LE_NEXT_DOCUMENT
+ );//c_Event
+//#UC END# *4B16583901B5_4B1658140144_var*

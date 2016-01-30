@@ -1,26 +1,29 @@
-unit l3AtomicListPrim.imp;
+{$IfNDef l3AtomicListPrim_imp}
 
-interface
+// Модуль: "w:\common\components\rtl\Garant\L3\l3AtomicListPrim.imp.pas"
+// Стереотип: "Impurity"
 
-uses
- l3IntfUses
-;
+{$Define l3AtomicListPrim_imp}
 
  {$Define l3Items_IsAtomic}
- 
-type
+
+ _l3UnrefcountedList_Parent_ = _l3AtomicListPrim_Parent_;
+ {$Include l3UnrefcountedList.imp.pas}
  _l3AtomicListPrim_ = class(_l3UnrefcountedList_)
   {* Список атомарных элементов }
  end;//_l3AtomicListPrim_
- 
-implementation
 
-uses
- l3ImplUses
- , l3Base
- , l3MinMax
- , RTLConsts
- , SysUtils
-;
+{$Else l3AtomicListPrim_imp}
 
-end.
+{$IfNDef l3AtomicListPrim_imp_impl}
+
+{$Define l3AtomicListPrim_imp_impl}
+
+type _Instance_R_ = _l3AtomicListPrim_;
+
+{$Include l3UnrefcountedList.imp.pas}
+
+{$EndIf l3AtomicListPrim_imp_impl}
+
+{$EndIf l3AtomicListPrim_imp}
+

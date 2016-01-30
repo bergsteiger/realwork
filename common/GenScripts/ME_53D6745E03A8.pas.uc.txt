@@ -1,0 +1,16 @@
+//#UC START# *53D639B601D7_53D6745E03A8_impl*
+ Result := true;
+ if aTag.QT(InevObject, l_Obj, aProcessor) then
+  try
+   if not Supports(l_Obj.MakePoint, IID.IID, Tool) then
+    Result := false;
+  finally
+   l_Obj := nil;
+  end//try..finally
+ else
+  Result := false;
+//#UC END# *53D639B601D7_53D6745E03A8_impl*
+//#UC START# *53D639B601D7_53D6745E03A8_var*
+var
+ l_Obj : InevObject;
+//#UC END# *53D639B601D7_53D6745E03A8_var*

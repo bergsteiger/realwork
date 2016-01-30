@@ -1,0 +1,103 @@
+//#UC START# *479731C50290_51124F6C00F0_impl*
+ f_State := hfsShow;
+ inherited;
+//#UC END# *479731C50290_51124F6C00F0_impl*
+//#UC START# *479731C50290_51124F6C00F0_var*
+//#UC END# *479731C50290_51124F6C00F0_var*
+//#UC START# *4AC9C67300A2ci*
+//#UC END# *4AC9C67300A2ci*
+//#UC START# *4AC9C67300A2cit*
+//#UC END# *4AC9C67300A2cit*
+//#UC START# *4AC9C67300A2impl*
+//#UC END# *4AC9C67300A2impl*
+//#UC START# *4AC9C67300A2publ*
+  published
+   property SettingId;
+//#UC END# *4AC9C67300A2publ*
+//#UC START# *4F9A5C410274_4E732E0B0308_impl*
+ if (f_SettingId <> '') and (Settings <> nil) then
+  State := ThfState(Settings.LoadInteger(MakeSettingId(cstidState), 
+   Ord(State)));
+//#UC END# *4F9A5C410274_4E732E0B0308_impl*
+//#UC START# *4F9A5C410274_4E732E0B0308_var*
+//#UC END# *4F9A5C410274_4E732E0B0308_var*
+//#UC START# *4F9A5C530398_4E732E0B0308_impl*
+ if (f_SettingId <> '') and (Settings <> nil) then
+  Settings.SaveInteger(MakeSettingId(cstidState), Ord(State));
+//#UC END# *4F9A5C530398_4E732E0B0308_impl*
+//#UC START# *4F9A5C530398_4E732E0B0308_var*
+//#UC END# *4F9A5C530398_4E732E0B0308_var*
+//#UC START# *4F9AB1780087_4E732E0B0308_impl*
+ Result := False;
+ // При переходе по истории форма находится на экране, не пропадает
+ if Supports(theState, InscHideFieldState, lState) then
+ try
+  // Текущее
+  lTemp := Self.State;
+  // Историческое
+  Self.State := lState.State;
+  // Запомним текущее
+  lState.State := lTemp;
+  Result := True;
+ finally
+  lState := nil;
+ end;
+//#UC END# *4F9AB1780087_4E732E0B0308_impl*
+//#UC START# *4F9AB1780087_4E732E0B0308_var*
+var
+ lState : InscHideFieldState;
+ lTemp  : ThfState;
+//#UC END# *4F9AB1780087_4E732E0B0308_var*
+//#UC START# *4F9AB19F020B_4E732E0B0308_impl*
+ Result := True;
+ if Assigned(theState) and Supports(theState, InscHideFieldState, l_State) then
+ try
+  l_State.State := Self.State;
+ finally
+  l_State := nil;
+ end else
+ begin
+  l_State := TnscHideFieldState.Make;
+  try
+   l_State.State := Self.State;
+   theState := l_State;
+  finally
+   l_State := nil;
+  end;
+ end;
+//#UC END# *4F9AB19F020B_4E732E0B0308_impl*
+//#UC START# *4F9AB19F020B_4E732E0B0308_var*
+var
+ l_State : InscHideFieldState;
+//#UC END# *4F9AB19F020B_4E732E0B0308_var*
+//#UC START# *51124F310001_51124F6C00F0get_impl*
+ Result := f_State;
+//#UC END# *51124F310001_51124F6C00F0get_impl*
+//#UC START# *51124F310001_51124F6C00F0get_var*
+//#UC END# *51124F310001_51124F6C00F0get_var*
+//#UC START# *51124F310001_51124F6C00F0set_impl*
+ f_State := aValue;
+//#UC END# *51124F310001_51124F6C00F0set_impl*
+//#UC START# *51124F310001_51124F6C00F0set_var*
+//#UC END# *51124F310001_51124F6C00F0set_var*
+//#UC START# *51125768008D_4E732E0B0308set_impl*
+ if f_SettingId <> aValue then
+ begin
+  f_SettingId := aValue;
+  {$IfNDef DesignTimeLibrary}
+  CheckLoadSettings;
+  {$EndIf DesignTimeLibrary}
+ end;
+//#UC END# *51125768008D_4E732E0B0308set_impl*
+//#UC START# *51125768008D_4E732E0B0308set_var*
+//#UC END# *51125768008D_4E732E0B0308set_var*
+//#UC START# *511258C60285_4E732E0B0308_impl*
+ Result := f_SettingId + g_afwPathSep + aSettingId;
+//#UC END# *511258C60285_4E732E0B0308_impl*
+//#UC START# *511258C60285_4E732E0B0308_var*
+//#UC END# *511258C60285_4E732E0B0308_var*
+//#UC START# *704562C84A3F_4E732E0B0308_impl*
+ Result := f_SettingId <> '';
+//#UC END# *704562C84A3F_4E732E0B0308_impl*
+//#UC START# *704562C84A3F_4E732E0B0308_var*
+//#UC END# *704562C84A3F_4E732E0B0308_var*

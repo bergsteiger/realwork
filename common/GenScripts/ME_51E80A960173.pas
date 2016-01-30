@@ -1,17 +1,28 @@
 unit IUnknownRefList;
+ {* Список ССЫЛОК на IUnknown }
+
+// Модуль: "w:\common\components\SandBox\IUnknownRefList.pas"
+// Стереотип: "SimpleClass"
+
+{$Include sbDefine.inc}
 
 interface
 
 uses
  l3IntfUses
  , Refcounted
+ , l3PtrLoc
+ , Classes
 ;
 
 type
- TIUnknownRefList = class(TRefcounted)
+ _ItemType_ = IUnknown;
+ _InterfaceRefList_Parent_ = TRefcounted;
+ {$Include InterfaceRefList.imp.pas}
+ TIUnknownRefList = class(_InterfaceRefList_)
   {* Список ССЫЛОК на IUnknown }
  end;//TIUnknownRefList
- 
+
 implementation
 
 uses
@@ -19,5 +30,7 @@ uses
  , RTLConsts
  , l3MemorySizeUtils
 ;
+
+{$Include InterfaceRefList.imp.pas}
 
 end.

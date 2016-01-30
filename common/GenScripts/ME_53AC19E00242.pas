@@ -1,5 +1,10 @@
 unit ImportTask_Const;
 
+// Модуль: "w:\common\components\rtl\Garant\EVD\ImportTask_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evdDefine.inc}
+
 interface
 
 uses
@@ -12,7 +17,7 @@ uses
 ;
 
  // ImportTaskTag
- 
+
 implementation
 
 uses

@@ -1,4 +1,10 @@
 unit SBSCell_Const;
+ {* Ячейка подписи }
+
+// Модуль: "w:\common\components\gui\Garant\Everest\SBSCell_Const.pas"
+// Стереотип: "Tag"
+
+{$Include evDefine.inc}
 
 interface
 
@@ -10,7 +16,7 @@ uses
 ;
 
  // SBSCellTag
- 
+
 implementation
 
 uses

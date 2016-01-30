@@ -1,4 +1,9 @@
-unit vtCustomCommonPanel;
+unit NOT_FINISHED_vtCustomCommonPanel;
+
+// Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtCustomCommonPanel.pas"
+// Стереотип: "GuiControl"
+
+{$Include vtDefine.inc}
 
 interface
 
@@ -10,12 +15,20 @@ uses
 type
  TvtCustomCommonPanel = class(TvtPanel)
  end;//TvtCustomCommonPanel
- 
+
 implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(TvtCustomCommonPanel);
+ {* Регистрация TvtCustomCommonPanel }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

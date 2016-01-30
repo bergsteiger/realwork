@@ -1,4 +1,9 @@
-unit vtColorBoxStrings;
+unit NOT_FINISHED_vtColorBoxStrings;
+
+// Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtColorBoxStrings.pas"
+// Стереотип: "SimpleClass"
+
+{$Include vtDefine.inc}
 
 interface
 
@@ -9,7 +14,7 @@ uses
 type
  TvtColorBoxStrings = class
  end;//TvtColorBoxStrings
- 
+
 implementation
 
 uses

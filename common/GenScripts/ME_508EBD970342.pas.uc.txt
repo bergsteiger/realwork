@@ -1,0 +1,69 @@
+//#UC START# *508F991B003B_508EBD970342_impl*
+ inherited;
+ ValidateCaption(Value);
+//#UC END# *508F991B003B_508EBD970342_impl*
+//#UC START# *508F991B003B_508EBD970342_var*
+//#UC END# *508F991B003B_508EBD970342_var*
+//#UC START# *508F99340058_508EBD970342_impl*
+ inherited;
+ Tree.Invalidate;
+//#UC END# *508F99340058_508EBD970342_impl*
+//#UC START# *508F99340058_508EBD970342_var*
+//#UC END# *508F99340058_508EBD970342_var*
+//#UC START# *508F997C0142_508EBD970342_impl*
+ inherited;
+ Tree.Invalidate;
+//#UC END# *508F997C0142_508EBD970342_impl*
+//#UC START# *508F997C0142_508EBD970342_var*
+//#UC END# *508F997C0142_508EBD970342_var*
+//#UC START# *508F99970386_508EBD970342_impl*
+ inherited;
+ Tree.Invalidate;
+//#UC END# *508F99970386_508EBD970342_impl*
+//#UC START# *508F99970386_508EBD970342_var*
+//#UC END# *508F99970386_508EBD970342_var*
+//#UC START# *508F9B3C00DE_508EBD970342_impl*
+ inherited Create(nil);
+ f_Tree := aTree;
+ f_Op := Integer(aOp);
+ Action := aAction;
+ if aAction is TCustomAction then
+  ValidateCaption(TCustomAction(aAction).Caption);
+//#UC END# *508F9B3C00DE_508EBD970342_impl*
+//#UC START# *508F9B3C00DE_508EBD970342_var*
+//#UC END# *508F9B3C00DE_508EBD970342_var*
+//#UC START# *508F9BA30314_508EBD970342get_impl*
+ Result := InscOperationNode(f_Op);
+//#UC END# *508F9BA30314_508EBD970342get_impl*
+//#UC START# *508F9BA30314_508EBD970342get_var*
+//#UC END# *508F9BA30314_508EBD970342get_var*
+//#UC START# *508F9BB7012D_508EBD970342_impl*
+ // ≈сли операци€ переименована или €вл€етс€ операцией с выпадающим списком, то
+ // название не мен€етс€:
+ if (Op.Op <> nil) and Op.Op.IsDefaultCaption and
+  not lp_CanChangeCaption(Op.Op) and Supports(Op, Il3Node, l_Node) then
+ try
+  l_Node.Text := l3PCharLen(aValue);
+  Tree.Invalidate;
+ finally
+  l_Node := nil;
+ end;//try..finally
+//#UC END# *508F9BB7012D_508EBD970342_impl*
+//#UC START# *508F9BB7012D_508EBD970342_var*
+ function lp_CanChangeCaption(const aOp: IvcmCustOpsGroupOperation): Boolean;
+ var
+  l_OpDef: IvcmOperationDef;
+ begin
+  if Supports(Op.Op.RepOp, IvcmOperationDef, l_OpDef) then
+  try
+   Result := l_OpDef.OperationType in c_ComboOperations + [vcm_otDate];
+  finally
+   l_OpDef := nil;
+  end//try..finally
+  else
+   Result := False;
+ end;//lp_IsComboOperation
+
+var
+ l_Node: Il3Node;
+//#UC END# *508F9BB7012D_508EBD970342_var*
